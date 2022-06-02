@@ -1,1 +1,1 @@
-This project contains a real-time operating system.
+This repository contains a real-time operating system.
