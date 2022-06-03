@@ -195,7 +195,8 @@
         <property key="use-indirect-calls" value="false"/>
       </C32CPP>
       <C32Global>
-        <property key="common-include-directories" value="../ao_mikroe_2800_blink1;../ao_mikroe_2800;../../sys/ao_sys_xc32_pic32mz_ef;../../sys/ao_sys_xc32_pic32mz;../../sys/ao_sys_xc32_pic32;../../sys/ao_sys_xc32;../../sys/ao_sys;../../sys/ao"/>
+        <property key="common-include-directories"
+                  value="../ao_mikroe_2800_blink1;../ao_mikroe_2800;../../sys/ao_sys_xc32_pic32mz_ef;../../sys/ao_sys_xc32_pic32mz;../../sys/ao_sys_xc32_pic32;../../sys/ao_sys_xc32;../../sys/ao_sys;../../sys/ao"/>
         <property key="gp-relative-option" value=""/>
         <property key="legacy-libc" value="true"/>
         <property key="mdtcm" value=""/>
