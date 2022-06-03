@@ -1,0 +1,11 @@
+.generated_files/**
+build/**
+debug/**
+dist/**
+nbproject/**
+nbproject/private/** 
+!nbproject/private
+!nbproject/private/project.xml
+!nbproject/private/configurations.xml
+!nbproject/project.xml
+!nbproject/configurations.xml
