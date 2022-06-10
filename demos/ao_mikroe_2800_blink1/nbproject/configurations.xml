@@ -14,9 +14,9 @@
                    projectFiles="true">
       <itemPath>../ao_mikroe.c</itemPath>
       <itemPath>../ao_mikroe_2800_blink1.c</itemPath>
-      <itemPath>../../sys/ao.c</itemPath>
-      <itemPath>../../sys/ao_sys.c</itemPath>
-      <itemPath>../../sys/ao_sys_xc32_pic32.c</itemPath>
+      <itemPath>../../src/ao.c</itemPath>
+      <itemPath>../../src/ao_sys.c</itemPath>
+      <itemPath>../../src/ao_sys_xc32_pic32.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -26,7 +26,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>..</Elem>
-    <Elem>../../sys</Elem>
+    <Elem>../../src</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -196,7 +196,7 @@
       </C32CPP>
       <C32Global>
         <property key="common-include-directories"
-                  value="../ao_mikroe_2800_blink1;../ao_mikroe_2800;../../sys/ao_sys_xc32_pic32mz_ef;../../sys/ao_sys_xc32_pic32mz;../../sys/ao_sys_xc32_pic32;../../sys/ao_sys_xc32;../../sys/ao_sys;../../sys/ao"/>
+                  value="../ao_mikroe_2800_blink1;../ao_mikroe_2800;../../src/ao_sys_xc32_pic32mz_ef;../../src/ao_sys_xc32_pic32mz;../../src/ao_sys_xc32_pic32;../../src/ao_sys_xc32;../../src/ao_sys;../../src/ao"/>
         <property key="gp-relative-option" value=""/>
         <property key="legacy-libc" value="true"/>
         <property key="mdtcm" value=""/>

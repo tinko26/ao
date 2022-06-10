@@ -14,7 +14,7 @@
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>..</sourceRootElem>
-                <sourceRootElem>../../sys</sourceRootElem>
+                <sourceRootElem>../../src</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
