@@ -1,0 +1,92 @@
+# Theme
+remote_theme : "mmistakes/minimal-mistakes"
+minimal_mistakes_skin : "default"
+
+# Site Settings
+locale                   : "en-US"
+title                    : "ao"
+title_separator          : "|"
+subtitle                 : 
+name                     : "Stefan Wagner"
+description              : 
+url                      : "https://tinko26.github.io"
+baseurl                  : "/ao"
+repository               : "tinko26/ao"
+words_per_minute         : 200
+search                   : true
+search_full_content      : true
+search_provider          : lunr
+lunr:
+  search_within_pages    : true
+
+# Site Author
+author:
+  name             : "Stefan Wagner"
+  avatar           : ""
+  bio              : ""
+  location         : "Germany"
+  email            :
+  links:
+    - label: "GitHub"
+      icon:  "fab fa-fw fa-github"
+      url:   "https://github.com/tinko26/"
+    - label: "LinkedIn"
+      icon:  "fab fa-fw fa-linkedin"
+      url:   "https://www.linkedin.com/in/tinko26"
+
+# Site Footer
+footer:
+  links:
+    - label: "GitHub"
+      icon:  "fab fa-fw fa-github"
+      url:   "https://github.com/tinko26/ao/"
+
+
+# Feed
+atom_feed:
+  hide: true
+
+# Reading Files
+include:
+  - namespaces
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+
+# Outputting
+permalink: /:categories/:title/
+paginate: 5
+paginate_path: /page:num/
+
+# Plugins (previously gems:)
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+
+# Archives
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      classes: wide
+      layout: single
+  - scope:
+      path: "namespaces"
+      type: pages
+    values:
+      sidebar:
+        nav: "namespaces"
