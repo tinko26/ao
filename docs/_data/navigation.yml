@@ -1,4 +1,21 @@
 main:
+  - title: "Introduction"
+    url: /introduction/
+  - title: "Source Code"
+    url: /source-code/
+  - title: "Environment"
+    url: /environment/
+    children:
+    - title: "Alignment"
+      url: /environment/align/
+    - title: "Assert"
+      url: /environment/assert/
+  - title: "Kernel"
+    url: /kernel/
+  - title: "Ports"
+    url: /ports/
+  - title: "Demos"
+    url: /demos/
 
 # namespaces:
 #   - children:
