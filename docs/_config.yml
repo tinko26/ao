@@ -82,11 +82,8 @@ defaults:
       path: ""
       type: pages
     values:
-      classes: wide
+      classes:
       layout: single
-  - scope:
-      path: "namespaces"
-      type: pages
-    values:
       sidebar:
-        nav: "namespaces"
+        nav: "side"
+      sitemap: false
