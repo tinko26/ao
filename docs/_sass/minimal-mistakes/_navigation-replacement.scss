@@ -351,10 +351,10 @@
         position: relative;
         display: block;
         padding: 0.5em 2.5em 0.5em 1em;
-        color: #f00;
+        color: $navigation-text-color;
         font-size: $type-size-6;
         font-weight: normal;
-        border: 1px solid #f88;
+        border: 1px solid $navigation-text-color;
         border-radius: $border-radius;
         z-index: 20;
         -webkit-transition: 0.2s ease-out;
@@ -370,7 +370,7 @@
           width: 0.75em;
           height: 0.125em;
           line-height: 1;
-          background-color: #f00;
+          background-color: $navigation-text-color;
           -webkit-transition: 0.2s ease-out;
           transition: 0.2s ease-out;
         }
@@ -383,8 +383,8 @@
   
         &:hover {
           color: #fff;
-          border-color: #f88;
-          background-color: #f00;
+          border-color: $navigation-text-color;
+          background-color: $navigation-text-color;
   
           &:before,
           &:after {
@@ -396,7 +396,7 @@
       /* selected*/
       input:checked + label {
         color: #fff;
-        background-color: #f00;
+        background-color: $navigation-text-color;
   
         &:before,
         &:after {
