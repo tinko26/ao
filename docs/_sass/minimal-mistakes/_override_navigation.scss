@@ -6,6 +6,11 @@
     a {
         color: $navigation-text-color;
     }
+
+    .active {
+        color: $navigation-active-color;
+        font-weight: normal;
+    }
 }
 
 .nav__list .nav__items li ul li {
