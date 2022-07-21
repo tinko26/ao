@@ -6,7 +6,7 @@ minimal_mistakes_skin : "default"
 locale                   : "en-US"
 title                    : "ao"
 title_separator          : "|"
-subtitle                 : "Real-time operating system (RTOS)."
+subtitle                 : "Real-Time Operating System"
 name                     : "Stefan Wagner"
 description              : 
 url                      : "https://tinko26.github.io"
