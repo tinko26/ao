@@ -7,6 +7,9 @@
 /* Variables */
 @import "minimal-mistakes/variables";
 
+/* Overrides */
+@import "minimal-mistakes/override_variables";
+
 /* Mixins and functions */
 @import "minimal-mistakes/vendor/breakpoint/breakpoint";
 @include breakpoint-set("to ems", true);
