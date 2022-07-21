@@ -4,7 +4,7 @@
 
 .nav__list .nav__items {
     a {
-        color: $footer-text-color;
+        color: $navigation-text-color;
     }
 }
 
@@ -16,5 +16,5 @@
     border-bottom: 0px;
     font-size: 1em;
     padding: 0px;
-    text-transform: none;
+    text-transform: uppercase;
 }
