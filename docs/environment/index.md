@@ -1,8 +1,8 @@
 ---
-permalink: /environment/
 author: "Stefan Wagner"
-title: "Environment"
 description: "Environment of the ao real-time operating system (RTOS)."
+permalink: /environment/
+title: "Environment"
 ---
 
 # Environment

@@ -1,32 +1,32 @@
 # Theme
-remote_theme : "mmistakes/minimal-mistakes@4.24.0"
+remote_theme          : "mmistakes/minimal-mistakes@4.24.0"
 minimal_mistakes_skin : "default"
 
 # Site Settings
-locale                   : "en-US"
-title                    : "ao"
-title_separator          : "|"
-subtitle                 : "Real-Time Operating System"
-name                     : "Stefan Wagner"
-description              : 
-url                      : "https://tinko26.github.io"
-baseurl                  : "/ao"
-repository               : "tinko26/ao"
-words_per_minute         : 200
-search                   : true
-search_full_content      : true
-search_provider          : lunr
+locale                : "en-US"
+title                 : "ao"
+title_separator       : "|"
+subtitle              : "Real-Time Operating System"
+name                  : "Stefan Wagner"
+description           : 
+url                   : "https://tinko26.github.io"
+baseurl               : "/ao"
+repository            : "tinko26/ao"
+words_per_minute      : 200
+search                : false
+search_full_content   : true
+search_provider       : lunr
 lunr:
-  search_within_pages    : true
-breadcrumbs              : false
+  search_within_pages : true
+breadcrumbs           : false
 
 # Site Author
 author:
-  name             : "Stefan Wagner"
-  avatar           : ""
-  bio              : ""
-  location         : "Germany"
-  email            :
+  name                : "Stefan Wagner"
+  avatar              : ""
+  bio                 : ""
+  location            : "Germany"
+  email               :
   links:
     - label: "GitHub"
       icon:  "fab fa-fw fa-github"
@@ -49,10 +49,6 @@ atom_feed:
 # Conversion
 markdown: kramdown
 highlighter: rouge
-
-# Outputting
-paginate: 5
-paginate_path: /page:num/
 
 # Plugins (previously gems:)
 plugins:
