@@ -9,7 +9,7 @@ side:
     url: /environment/
   - title: "Kernel"
     url: /kernel/
-  - title: "Ports"
-    url: /ports/
+  - title: "Port"
+    url: /port/
   - title: "Demos"
     url: /demos/

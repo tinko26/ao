@@ -7,4 +7,7 @@ title: "Introduction"
 
 # Introduction
 
-This is the introduction page.
+- what is an/this rtos?
+- what have i used this rtos for?
+- features
+- subdivision (hardware-agnostic vs. hardware-specific)
