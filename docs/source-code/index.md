@@ -57,21 +57,21 @@ This package contains a [port](../port/index.md) for PIC32 microcontrollers. It 
 
 ## Modules
 
-Each package is made up of modules. For each module, there is a dedicated header file. The `ao` package, for example, contains the `ao_break` module, that declares a single function that executes a software breakpoint. 
+Each package is made up of modules. For each module, there is a dedicated header file. The `ao` package, for example, contains the `ao_break.h` module, that declares a single function that executes a software breakpoint. 
 
 ```c
 void ao_break();
 ```
 
-Modules can depend on each other. For example, the `ao_assert` module defines a macro function for runtime assertions. Due to the way it is implemented, it depends on the `ao_break` module.
+Modules can depend on each other. For example, the `ao_assert.h` module defines a macro function for runtime assertions. Due to the way it is implemented, it depends on the `ao_break.h` module.
 
 ```c
 #define ao_assert(exp)  \
 {                       \
-        if (!(exp))     \
-        {               \
-          ao_break();   \
-        }               \
+  if (!(exp))           \
+  {                     \
+    ao_break();         \
+  }                     \
 }
 ```
 
@@ -90,18 +90,13 @@ In contrast, the modules of the `ao_sys_xc32` and `ao_sys_xc32_pic32` packages a
 
 ## Abstract Modules
 
-Kernel functions cannot be implemented thoroughly without hardware-specific features, such as instructions for masking interrupts. In order to achieve a separation of hardware-agnostic modules nonetheless, the `ao` and `ao_sys` packages contain abstract modules. These modules declare necessary functions, but do not define them. For example, the `ao_break` module declares, but does not define, a function that executes a software breakpoint.
+Kernel functions cannot be implemented thoroughly without hardware-specific features, such as instructions for masking interrupts. In order to achieve a separation of hardware-agnostic modules nonetheless, the `ao` and `ao_sys` packages contain abstract modules. These modules declare necessary functions, but do not define them. 
+
+For example, the `ao_break.h` module declares, but does not define, a function that executes a software breakpoint.
 
 ```c
 void ao_break();
 ```
-
-An implementation 
-
-
-...
-
-Thereby, these two packages make use of functions and types that they have declared, but not defined. For example, the `ao` package declares, but does not define, a function that executes a software breakpoint.
 
 An implementation of this function can be found in the `ao_sys_xc32_pic32` package. It makes use of a built-in function provided by the XC32 compiler. For the sake of simplicity and execution speed, it is implemented as a macro function rather than an ordinary function.
 
@@ -109,19 +104,29 @@ An implementation of this function can be found in the `ao_sys_xc32_pic32` packa
 #define ao_break() __builtin_software_breakpoint()
 ```
 
-This is an example of the implementation of an abstraction. Clearly, this only works, if the compiler will use the module in the `ao_sys_xc32_pic32` package instead of the one in the `ao` package. Include directories must therefore be set up properly.
+## Include Directories
 
-Another thing is that modules can be extended by using #include_next
+Both the `ao` and `ao_sys_xc32_pic32` packages contain an `ao_break.h` module. In order for a project to compile successfully, the compiler must be instructed to include the `ao_break.h` header file of the `ao_sys_xc32_pic32` package rather than the `ao_break.h` header file of the `ao` package. 
+
+This can be achieved by setting up the compiler's include directories properly. For example, the following include directory hierarchy supports a PIC32MZ EF microcontroller.
+
+- `ao_sys_xc32_pic32mz_ef`
+- `ao_sys_xc32_pic32mz`
+- `ao_sys_xc32_pic32`
+- `ao_sys_xc32`
+- `ao_sys`
+- `ao`
+
+# DRAFT
 
 ## Usage
 
 - set up include directories properly
-- create ao.h, that includes all required modules.
+- provide ao.h, that includes all required modules.
 
-# DRAFT
+## Misc
 
-- namespaces
+- include_next
 - MISRA C compliance and deviation
-- memory management (static, dynamic)
+- memory management (static)
 - memory initialization
-- usage of C language features (macros, macro functions, enums, typedefs)
