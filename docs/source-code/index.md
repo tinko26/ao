@@ -11,29 +11,51 @@ title: "Source Code"
 
 The source code of the RTOS is located in the repository's [`src`](https://github.com/tinko26/ao/tree/main/src) folder. 
 
-## Organization
-
-### Packages
+## Packages
 
 The source code is subdivided into C files and folders containing header files. Thereby, folders and corresponding C files constitute a total of four packages.
 
-#### ao
+### ao
 
-This package is an extension to the freestanding runtime environment. It provides environment constants and variables, type definitions, support for debugging, as well as useful functions and data structures. It consists of the `ao` folder and the `ao.c` file.
+This package is an extension to the freestanding runtime [environment](../environment/index.md). It provides environment constants and variables, type definitions, support for debugging, as well as useful functions and data structures. It consists of the `ao` folder and the `ao.c` file.
 
-#### ao_sys
+### ao_sys
 
-This package contains the kernel and provides common features such as multitasking, synchronization, timers, or dynamic memory management. It consists of the `ao_sys` folder and the `ao_sys.c` file.
+This package contains the [kernel](../kernel/index.md). It provides all the basic features that a thorough RTOS is expected to have, i.e. multitasking, priority-based real-time scheduling, inter-process communication, and synchronization. It consists of the `ao_sys` folder and the `ao_sys.c` file.
 
-#### ao_sys_xc32
+### ao_sys_xc32
 
-This package contains some support for Microchip's XC32 compiler. It consists of the `ao_sys_xc32` folder, only, and has no corresponding C file.
+This package contains support for the XC32 compiler. It consists of the `ao_sys_xc32` folder, only, and has no corresponding C file.
 
-#### ao_sys_xc32_pic32
+### ao_sys_xc32_pic32
 
-This package contains a port for PIC32 microcontrollers. It consists of the `ao_sys_xc32_pic32.c` file and all the folders, whose names start with `ao_sys_xc32_pic32`.
+This package contains a [port](../port/index.md) for PIC32 microcontrollers. It consists of the `ao_sys_xc32_pic32.c` file and the following folders.
 
-### Modules
+- `ao_sys_xc32_pic32`
+- `ao_sys_xc32_pic32_can`
+- `ao_sys_xc32_pic32_i2c`
+- `ao_sys_xc32_pic32_rng`
+- `ao_sys_xc32_pic32_spi`
+- `ao_sys_xc32_pic32_uart`
+- `ao_sys_xc32_pic32_wdt`
+- `ao_sys_xc32_pic32mk`
+- `ao_sys_xc32_pic32mk_gp`
+- `ao_sys_xc32_pic32mk_gpg`
+- `ao_sys_xc32_pic32mk_gpk`
+- `ao_sys_xc32_pic32mx`
+- `ao_sys_xc32_pic32mx_1xx`
+- `ao_sys_xc32_pic32mx_1xx_64_100`
+- `ao_sys_xc32_pic32mx_1xx_xlp`
+- `ao_sys_xc32_pic32mx_330`
+- `ao_sys_xc32_pic32mx_3xx`
+- `ao_sys_xc32_pic32mx_5xx`
+- `ao_sys_xc32_pic32mz`
+- `ao_sys_xc32_pic32mz_da`
+- `ao_sys_xc32_pic32mz_dak`
+- `ao_sys_xc32_pic32mz_ec`
+- `ao_sys_xc32_pic32mz_ef`
+
+## Modules
 
 Each package is made up of modules. For each module, there is a dedicated header file. The `ao` package, for example, contains the `ao_break` module, that declares a single function that executes a software breakpoint. 
 
@@ -41,36 +63,45 @@ Each package is made up of modules. For each module, there is a dedicated header
 void ao_break();
 ```
 
-Modules can depend on each other. For example, the `ao_assert` module defines a macro function for runtime assertions. Due to the implementation, it depends on the `ao_break` module.
+Modules can depend on each other. For example, the `ao_assert` module defines a macro function for runtime assertions. Due to the way it is implemented, it depends on the `ao_break` module.
 
 ```c
-#define ao_assert(exp)      \
-{                           \
-        if (!(exp))         \
-        {                   \
-            ao_break();     \
-        }                   \
+#define ao_assert(exp)  \
+{                       \
+        if (!(exp))     \
+        {               \
+          ao_break();   \
+        }               \
 }
 ```
 
-### Hardware-Agnostic vs. Hardware-Specific
+## Hardware-Agnostic Modules
 
-The modules of the `ao` and `ao_sys` packages are implemented in a strict hardware-agnostic fashion. That is, they do not contain...
-
-...
-
-The `ao` and `ao_sys` packages are implemented in a strict hardware-agnostic fashion. That is, they do not contain interrupt handlers, assembly, or any features specific to a toolchain or target. They only rely on the declarations and definitions of the following header files of a freestanding runtime environment.
+The modules of the `ao` and `ao_sys` packages are implemented in a strict hardware-agnostic fashion. That is, they do not contain interrupt handlers, assembly code, or the like. They only rely on the declarations and definitions of the following header files of a freestanding runtime environment.
 
 - `float.h`
 - `stdbool.h`
 - `stddef.h`
 - `stdint.h`
 
-Thereby, these two packages make use of functions and types that they have declared, but not defined. For example, the `ao` package declares, but does not define, a function that executes a software breakpoint.
+## Hardware-Specific Modules
+
+In contrast, the modules of the `ao_sys_xc32` and `ao_sys_xc32_pic32` packages are toolchain-specific and hardware-specific, respectively. They include the compiler's `xc.h` header file and make heavy use of non-standard language features, mostly for the sake of execution speed. Additionally, they facilitate functions of the toolchain's implementation of the C standard library.
+
+## Abstract Modules
+
+Kernel functions cannot be implemented thoroughly without hardware-specific features, such as instructions for masking interrupts. In order to achieve a separation of hardware-agnostic modules nonetheless, the `ao` and `ao_sys` packages contain abstract modules. These modules declare necessary functions, but do not define them. For example, the `ao_break` module declares, but does not define, a function that executes a software breakpoint.
 
 ```c
 void ao_break();
 ```
+
+An implementation 
+
+
+...
+
+Thereby, these two packages make use of functions and types that they have declared, but not defined. For example, the `ao` package declares, but does not define, a function that executes a software breakpoint.
 
 An implementation of this function can be found in the `ao_sys_xc32_pic32` package. It makes use of a built-in function provided by the XC32 compiler. For the sake of simplicity and execution speed, it is implemented as a macro function rather than an ordinary function.
 
@@ -78,21 +109,14 @@ An implementation of this function can be found in the `ao_sys_xc32_pic32` packa
 #define ao_break() __builtin_software_breakpoint()
 ```
 
+This is an example of the implementation of an abstraction. Clearly, this only works, if the compiler will use the module in the `ao_sys_xc32_pic32` package instead of the one in the `ao` package. Include directories must therefore be set up properly.
 
-...
-
-In order for this to work out, these two packages declare and use functions
-
-...
-
-Each package contains a number of **modules**, where each module comes with a corresponding header file. 
+Another thing is that modules can be extended by using #include_next
 
 ## Usage
 
-- #include_next directive
-
-## 
-
+- set up include directories properly
+- create ao.h, that includes all required modules.
 
 # DRAFT
 
