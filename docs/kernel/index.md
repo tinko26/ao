@@ -7,6 +7,8 @@ title: "Kernel"
 
 # Kernel
 
+# DRAFT
+
 ## Booting
 
 - boot
