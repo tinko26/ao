@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-description: "Demos for the ao real-time operating system (RTOS)."
+description: "Demos for the ao Real-Time Operating System (RTOS)."
 permalink: /demos/
 title: "Demos"
 ---

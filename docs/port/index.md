@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-description: "The port of the ao real-time operating system (RTOS)."
+description: "The Port of the ao Real-Time Operating System (RTOS)."
 permalink: /port/
 title: "Port"
 ---

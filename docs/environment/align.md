@@ -1,8 +1,8 @@
 ---
 author: "Stefan Wagner"
-description: "Memory alignment in the ao real-time operating system (RTOS)."
+description: "Memory Alignment in the ao Real-Time Operating System (RTOS)."
 permalink: /environment/align/
-title: "Align"
+title: "Memory Alignment"
 ---
 
-# Align
+# Memory Alignment

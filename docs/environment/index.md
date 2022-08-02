@@ -1,11 +1,11 @@
 ---
 author: "Stefan Wagner"
-description: "Environment of the ao real-time operating system (RTOS)."
+description: "The Runtime Environment of the ao Real-Time Operating System (RTOS)."
 permalink: /environment/
-title: "Environment"
+title: "Runtime Environment"
 ---
 
-# Environment
+# Runtime Environment
 
 # DRAFT
 
@@ -17,8 +17,8 @@ title: "Environment"
 ## Debugging
 
 - debugging
-- software breakpoints
-- runtime assertions
+- [software breakpoints](break.md)
+- [runtime assertions](assert.md)
 
 ## Types
 

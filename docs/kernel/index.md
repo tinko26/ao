@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-description: "The kernel of the ao real-time operating system (RTOS)."
+description: "The Kernel of the ao Real-Time Operating System (RTOS)."
 permalink: /kernel/
 title: "Kernel"
 ---
@@ -8,6 +8,10 @@ title: "Kernel"
 # Kernel
 
 # DRAFT
+
+## General
+
+- kernel space only, no user space
 
 ## Booting
 

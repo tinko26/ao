@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-description: "MISRA C compliance of the ao real-time operating system (RTOS)."
+description: "MISRA C Compliance of the ao Real-Time Operating System (RTOS)."
 permalink: /source-code/misra-c/
 title: "MISRA C"
 ---

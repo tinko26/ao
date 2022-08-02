@@ -1,6 +1,8 @@
 main:
 
 side:
+  - title: "Home"
+    url: /
   - title: "Introduction"
     url: /introduction/
   - title: "Source Code"

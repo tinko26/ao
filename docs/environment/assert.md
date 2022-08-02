@@ -1,8 +1,8 @@
 ---
 author: "Stefan Wagner"
-description: "Runtime assertions in the ao real-time operating system (RTOS)."
+description: "Runtime Assertions in the ao Real-Time Operating System (RTOS)."
 permalink: /environment/assert/
-title: "Assert"
+title: "Runtime Assertions"
 ---
 
-# Assert
+# Runtime Assertions

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-description: "Source code of the ao real-time operating system (RTOS)."
+description: "The Source Code of the ao Real-Time Operating System (RTOS)."
 permalink: /source-code/
 title: "Source Code"
 ---
@@ -119,10 +119,15 @@ This can be achieved by setting up the compiler's include directories properly. 
 
 # DRAFT
 
+## General
+
+- written in C
+- standard C99, especially fixed-width integer types and boolean type and constants
+
 ## Usage
 
 - set up include directories properly
-- provide ao.h, that includes all required modules.
+- provide ao.h, that includes all required modules (and excludes everything that is not needed, therefore saving space and minimizing the footprint).
 
 ## Misc
 
@@ -130,3 +135,7 @@ This can be achieved by setting up the compiler's include directories properly. 
 - MISRA C compliance and deviation
 - memory management (static)
 - memory initialization
+
+## Configuration
+
+- via header file overrides
