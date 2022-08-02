@@ -24,6 +24,8 @@ title: "Kernel"
 
 ## Interrupts
 
+- ir
+
 ## Locking
 
 - lock

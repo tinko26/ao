@@ -6,3 +6,9 @@ title: "Software Breakpoints"
 ---
 
 # Software Breakpoints
+
+The `ao_break.h` module declares a single function that executes a software breakpoint.
+
+```c
+void ao_break();
+```

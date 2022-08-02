@@ -6,3 +6,5 @@ title: "Runtime Assertions"
 ---
 
 # Runtime Assertions
+
+The `ao_assert.h` module defines a single macro function that performs a runtime assertion. Upon failure, it executes a software breakpoint.
