@@ -1,8 +1,0 @@
-# Defaults
-defaults:
-  - scope:
-      path: ""
-      type: pages
-    values:
-      sidebar:
-        nav: "side_environment"
