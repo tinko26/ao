@@ -5,8 +5,8 @@ side:
     url: /
   - title: "Introduction"
     url: /introduction/
-  - title: "Source Code"
-    url: /source-code/
+  - title: "Code"
+    url: /code/
   - title: "Environment"
     url: /environment/
   - title: "Kernel"

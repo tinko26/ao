@@ -1,11 +1,11 @@
 ---
 author: "Stefan Wagner"
 description: "The Source Code of the ao Real-Time Operating System (RTOS)."
-permalink: /source-code/
-title: "Source Code"
+permalink: /code/
+title: "Code"
 ---
 
-# Source Code
+# Code
 
 ## Location
 
