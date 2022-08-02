@@ -3,6 +3,8 @@ author: "Stefan Wagner"
 description: "Runtime Assertions in the ao Real-Time Operating System (RTOS)."
 permalink: /environment/assert/
 title: "Runtime Assertions"
+sidebar:
+  nav: "side_environment"
 ---
 
 # Runtime Assertions

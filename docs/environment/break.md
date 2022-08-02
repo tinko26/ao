@@ -3,6 +3,8 @@ author: "Stefan Wagner"
 description: "Software Breakpoints in the ao Real-Time Operating System (RTOS)."
 permalink: /environment/break/
 title: "Software Breakpoints"
+sidebar:
+  nav: "side_environment"
 ---
 
 # Software Breakpoints

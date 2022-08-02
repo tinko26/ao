@@ -3,6 +3,8 @@ author: "Stefan Wagner"
 description: "The Runtime Environment of the ao Real-Time Operating System (RTOS)."
 permalink: /environment/
 title: "Runtime Environment"
+sidebar:
+  nav: "side_environment"
 ---
 
 # Runtime Environment
