@@ -13,5 +13,7 @@ side:
     url: /kernel/
   - title: "Port"
     url: /port/
+  - title: "Usage"
+    url: /usage/
   - title: "Demos"
     url: /demos/
