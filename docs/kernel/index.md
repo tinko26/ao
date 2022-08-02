@@ -28,16 +28,16 @@ title: "Kernel"
 
 ## Locking
 
-- lock
+- [lock](lock.md)
 
 ## Timing
 
-- hardware counter
-- time
-- alarms
-- alarm queue
-- timer
-- spinning
+- [hardware counter](count.md)
+- [time](time.md)
+- [alarms](alarm.md)
+- [alarm queue](alarm-queue.md)
+- [timer](timer.md)
+- [spinning](spin.md)
 
 ## Memory
 

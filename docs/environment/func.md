@@ -6,3 +6,5 @@ title: "Functions"
 ---
 
 # Functions
+
+The `ao_func.h` module defines a number of function pointer types, that are being used throughout the entire framework.
