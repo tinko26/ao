@@ -2,7 +2,7 @@
 author: "Stefan Wagner"
 date: 2022-08-03
 description: "Buffers in the ao Real-Time Operating System (RTOS)."
-draft: true
+draft: false
 permalink: /environment/buffer/
 title: "Buffers"
 ---
@@ -41,9 +41,9 @@ It consists of the following members.
 |-|-|
 | `capacity` | The maximum number of bytes that the buffer can contain. If this value is greater than zero, then the `store` value must not be clear. |
 | `count` | The current number of bytes contained in the buffer. |
-| `count_max` | The maximum-ever number of bytes contained in the buffer. This member is present, only, if the `AO_BUFFER_COUNT_MAX` configuration option is enabled.  |
+| `count_max` | The maximum-ever number of bytes contained in the buffer. This member is absent, if the `AO_BUFFER_COUNT_MAX` configuration option is disabled.  |
 | `front` | The index of the current first byte in the buffer. |
-| `store` | The pointer to a memory block, whose size it not less than the specified `capacity`. |
+| `store` | The pointer to a memory block, whose size is not less than the specified `capacity`. |
 
 ## Initialization
 
@@ -86,4 +86,66 @@ if (ao_buffer_is_full(b))
 {
     // Buffer is full.
 }
+```
+
+Data can be inserted at either end of a buffer. Thereby, one can push a single byte ...
+
+```c
+uint8_t d1 = 0x5FU;
+```
+
+```c
+ao_buffer_push_back(b, &d1);
+ao_buffer_push_front(b, &d1);
+```
+
+... or a number of bytes from a specified range, for example $$[1, 4]$$.
+
+```c
+uint32_t d4 = 0xDEADBEEFU;
+```
+
+```c
+ao_buffer_push_range_back(b, &d4, 1, 4);
+ao_buffer_push_range_front(b, &d4, 1, 4);
+```
+
+The single-byte functions return a boolean value that indicates, whether the operation was successful. The range functions, however, return the number of bytes that have actually been inserted. Consequently, if there is not enough free space left in the buffer, these functions return `false` or `0`, respectively. 
+
+However, in some scenarios, such as continuous media or sensor data streaming, it is desirable to simply override old data when adding new data.
+
+```c
+ao_buffer_push_back_override(b, &d1);
+ao_buffer_push_front_override(b, &d1);
+```
+
+```c
+ao_buffer_push_range_back_override(b, &d4, 1, 4);
+ao_buffer_push_range_front_override(b, &d4, 1, 4);
+```
+
+Just like insertion, removal of data is feasible at either end.
+
+```c
+ao_buffer_pop_back(b, &d1);
+ao_buffer_pop_front(b, &d1);
+```
+
+```c
+ao_buffer_pop_range_back(b, &d4, 1, 4);
+ao_buffer_pop_range_front(b, &d4, 1, 4);
+```
+
+Once again, the functions' return values indicate if or how many bytes, respectively, have been removed from the buffer.
+
+Additionally, data can be retrieved from a buffer, without actually removing it.
+
+```c
+ao_buffer_peek_back(b, &d1);
+ao_buffer_peek_front(b, &d1);
+```
+
+```c
+ao_buffer_peek_range_back(b, &d4, 1, 4);
+ao_buffer_peek_range_front(b, &d4, 1, 4);
 ```
