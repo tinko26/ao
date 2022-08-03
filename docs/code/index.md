@@ -11,7 +11,7 @@ title: "Code"
 
 ## Location
 
-The source code of the RTOS is located in the repository's [`src`](https://github.com/tinko26/ao/tree/main/src) folder. 
+The source code of the RTOS is located in the repository's `src` folder. 
 
 ## Packages
 
