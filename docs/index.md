@@ -1,10 +1,10 @@
 ---
 author: "Stefan Wagner"
+date: 2022-07-31
 description: "A Real-Time Operating System."
+draft: true
 permalink: /
 title: "Home"
-last_modified_at: 2011-06-23T18:38:52+00:00
-draft: true
 ---
 
 # Home

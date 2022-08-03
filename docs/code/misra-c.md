@@ -1,6 +1,8 @@
 ---
 author: "Stefan Wagner"
+date: 2022-07-31
 description: "MISRA C Compliance of the ao Real-Time Operating System (RTOS)."
+draft: true
 permalink: /code/misra-c/
 title: "MISRA C"
 ---
