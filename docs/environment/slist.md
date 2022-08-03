@@ -52,7 +52,9 @@ Both lists and list nodes can be initialized by clearing their respective member
 
 ```c
 ao_slist_t * l;
+```
 
+```c
 l->back = NULL;
 l->front = NULL;
 l->less = NULL;
@@ -61,7 +63,9 @@ l->less_parameter = NULL;
 
 ```c
 ao_slist_node_t * n;
+```
 
+```c
 n->next = NULL;
 n->prev = NULL;
 ```
@@ -94,10 +98,6 @@ If both the front and back pointers of a list are clear, then the list is empty.
 if (ao_slist_is_empty(l))
 {
     // List is empty.
-}
-else
-{
-    // List is not empty.
 }
 ```
 

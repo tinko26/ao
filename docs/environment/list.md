@@ -39,14 +39,18 @@ Both lists and list nodes can be initialized by clearing their respective member
 
 ```c
 ao_list_t * l;
+```
 
+```c
 l->back = NULL;
 l->front = NULL;
 ```
 
 ```c
 ao_list_node_t * n;
+```
 
+```c
 n->next = NULL;
 n->prev = NULL;
 ```
@@ -60,10 +64,6 @@ if (ao_list_is_empty(l))
 {
     // List is empty.
 }
-else
-{
-    // List is not empty.
-}
 ```
 
 Most commonly, lists are used as [double-ended queues](https://en.wikipedia.org/wiki/Double-ended_queue), that support insertion and removal of elements at either end. Therefore, they can be used to implement [FIFOs](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics)) or [LIFOs](https://en.wikipedia.org/wiki/LIFO_(computing)).
@@ -72,11 +72,15 @@ Most commonly, lists are used as [double-ended queues](https://en.wikipedia.org/
 ao_list_node_t * n1;
 ao_list_node_t * n2;
 ao_list_node_t * n3;
+```
 
+```c
 ao_list_push_front(l, n1);
 ao_list_push_back(l, n2);
 ao_list_push_back(l, n3);
+```
 
+```c
 ao_list_pop_front(l);
 ao_list_pop_back(l);
 ```
