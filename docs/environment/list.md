@@ -9,7 +9,7 @@ title: "Doubly-Linked Lists"
 
 # Doubly-Linked Lists
 
-The `ao_list.h` module defines [doubly-linked lists](https://en.wikipedia.org/wiki/Doubly_linked_list) and corresponding operations.
+The [`ao_list.h`](https://github.com/tinko26/ao/blob/main/src/ao/ao_list.h) module defines [doubly-linked lists](https://en.wikipedia.org/wiki/Doubly_linked_list) and corresponding operations.
 
 The `ao_list_t` type represents a doubly-linked list. It holds pointers to the first and last element, respectively.
 
