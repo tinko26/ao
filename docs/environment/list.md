@@ -1,19 +1,19 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-03
-description: "Doubly-Linked Lists in the ao Real-Time Operating System (RTOS)."
+description: "Lists in the ao Real-Time Operating System (RTOS)."
 draft: false
 permalink: /environment/list/
-title: "Doubly-Linked Lists"
+title: "Lists"
 ---
 
-# Doubly-Linked Lists
+# Lists
 
-The `ao_list.h` module defines [doubly-linked lists](https://en.wikipedia.org/wiki/Doubly_linked_list) and corresponding operations.
+The `ao_list.h` module defines [doubly-linked lists](https://en.wikipedia.org/wiki/Doubly_linked_list).
 
 ## Types
 
-The `ao_list_t` type represents a doubly-linked list. It holds pointers to the first and last element, respectively.
+The `ao_list_t` type represents a list. It holds pointers to the first and last element, respectively.
 
 ```c
 struct ao_list_t
@@ -23,7 +23,7 @@ struct ao_list_t
 }
 ```
 
-The `ao_list_node_t` type represents an element of a linked list. It holds pointers to its predecessor and successor, respectively.
+The `ao_list_node_t` type represents an element of a list. It holds pointers to its predecessor and successor, respectively.
 
 ```c
 struct ao_list_node_t
