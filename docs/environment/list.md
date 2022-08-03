@@ -11,6 +11,8 @@ title: "Doubly-Linked Lists"
 
 The `ao_list.h` module defines [doubly-linked lists](https://en.wikipedia.org/wiki/Doubly_linked_list) and corresponding operations.
 
+## Types
+
 The `ao_list_t` type represents a doubly-linked list. It holds pointers to the first and last element, respectively.
 
 ```c
@@ -31,6 +33,8 @@ struct ao_list_node_t
 }
 ```
 
+## Initialization
+
 Both lists and list nodes can be initialized by clearing their respective members.
 
 ```c
@@ -39,6 +43,8 @@ ao_list_t * l;
 l->back = NULL;
 l->front = NULL;
 ```
+
+## Functions
 
 If both pointers of a list are clear, then the list is empty. This can be checked with a macro function.
 

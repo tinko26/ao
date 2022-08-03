@@ -23,4 +23,3 @@ title: "Introduction"
 - no build system, source code only.
 - targeting PIC32, XC32
 - focus on RTOS concepts
-- 
