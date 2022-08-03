@@ -20,10 +20,10 @@ The `ao_list_node_t` type represents an element of a linked list. It holds apoin
 Both lists and list nodes can be initialized by clearing their respective members.
 
 ```c
-ao_list_t l;
+ao_list_t * l;
 
-l.back = NULL;
-l.front = NULL;
+l->back = NULL;
+l->front = NULL;
 ```
 
 ## Functions
