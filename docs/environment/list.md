@@ -66,7 +66,7 @@ else
 }
 ```
 
-Most commonly, lists are used as [double-ended queues](https://en.wikipedia.org/wiki/Double-ended_queue), that support insertion and removal of elements at either end.
+Most commonly, lists are used as [double-ended queues](https://en.wikipedia.org/wiki/Double-ended_queue), that support insertion and removal of elements at either end. Therefore, they can be used to implement [FIFOs](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics)) or [LIFOs](https://en.wikipedia.org/wiki/LIFO_(computing)).
 
 ```c
 ao_list_node_t * n1;
