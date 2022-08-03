@@ -4,11 +4,15 @@ div.highlighter-rouge {
 
 .page__content {
   :not(pre) > code {
+    background-color: #f8f8f8;
+    border:1px solid #f0f0f0;
+    border-radius: $border-radius;
+    color: #263238;
+    font-size: 1em;
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
     padding-left: 0.1rem;
     padding-right: 0.1rem;
-    font-size: 1em;
 
     &::before,
     &::after {
