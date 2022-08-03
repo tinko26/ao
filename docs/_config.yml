@@ -68,6 +68,8 @@ defaults:
       author_profile: false
       classes: wide
       comments: false
+      draft: false
+      last_modified_at: 2022-07-31
       layout: single
       read_time: false
       related: false
