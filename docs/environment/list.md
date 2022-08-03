@@ -44,6 +44,13 @@ l->back = NULL;
 l->front = NULL;
 ```
 
+```c
+ao_list_node_t * n;
+
+n->next = NULL;
+n->prev = NULL;
+```
+
 ## Functions
 
 If both pointers of a list are clear, then the list is empty. This can be checked with a macro function.

@@ -59,6 +59,13 @@ l->less = NULL;
 l->less_parameter = NULL;
 ```
 
+```c
+ao_slist_node_t * n;
+
+n->next = NULL;
+n->prev = NULL;
+```
+
 However, prior to inserting elements, a compare function must be set.
 
 ```c
@@ -73,13 +80,15 @@ bool compare(ao_slist_node_t * n1, ao_slist_node_t * n2, void * p)
         return false;
     }
 }
+```
 
+```c
 l->less = compare;
 ```
 
 ## Functions
 
-If both front and back pointers of a list are clear, then the list is empty. This can be checked with a macro function.
+If both the front and back pointers of a list are clear, then the list is empty. This can be checked with a macro function.
 
 ```c
 if (ao_slist_is_empty(l))
@@ -95,31 +104,36 @@ else
 Inserting an element into a list is straightforward and takes linear time.
 
 ```c
-ao_slist_node_t * n;
-
 ao_slist_insert(l, n);
 ```
 
-Changes in single nodes can render the internal ordering of a list invalid. One way to deal with this, is to remove the node before the change and re-insert it afterwards.
+A change in a single element can render the internal ordering of a list invalid. One way to deal with this, is to remove the element before the change and re-insert it afterwards.
 
 ```c
 ao_slist_remove(l, n);
 ao_slist_insert(l, n);
 ```
 
-Another option is to update the list, after the change has taken place. This function will move the specified node forwards or backwards, respectively, until the ordering is valid, which takes linear time.
+Another option is to update the list, after the change has taken place. This function will move the specified node forwards or backwards, respectively, until the ordering is restored, which takes linear time.
 
 ```c
 ao_slist_update(l, n);
 ```
 
-Removing an individual node is a constant time operation.
+Removing an individual element is a constant time operation.
 
 ```c
 ao_slist_remove(l, n);
+```
 
+```c
 ao_slist_remove_back(l);
 ao_slist_remove_front(l);
+```
+
+```c
+n = ao_slist_pop_back(l);
+n = ao_slist_pop_front(l);
 ```
 
 Removing all nodes at once, however, takes linear time.
@@ -128,7 +142,7 @@ Removing all nodes at once, however, takes linear time.
 ao_slist_remove_all(l);
 ```
 
-The correct ordering of a list can be asserted in linear time, to.
+The correct ordering of a list can be asserted in linear time, too. The function traverses the list from front to back and, for each node, checks, whether it is less than its successor. If that is not the case, the function triggers a [runtime assertion](assert.md) failure.
 
 ```c
 ao_slist_assert(l);
