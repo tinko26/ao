@@ -1,25 +1,15 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-04
-description: "Runtime Assertions in the ao Real-Time Operating System (RTOS)."
+description: "Assertions in the ao Real-Time Operating System (RTOS)."
 draft: false
 permalink: /environment/assert/
-title: "Runtime Assertions"
+title: "Assertions"
 ---
 
-# Runtime Assertions
+# Assertions
 
 The `ao_assert.h` module defines a single macro function that performs a runtime [assertion](https://en.wikipedia.org/wiki/Assertion_(software_development)) on a given expression. If the expression compares equal to zero, then the assertion fails.
-
-```c
-#define ao_assert(exp)              \
-{                                   \
-    if (!(exp))                     \
-    {                               \
-        /* Assertion has failed. */ \
-    }                               \
-}
-```
 
 The purpose of this macro function is to provide a replacement for the standard library's `assert()` macro function, which is not part of a freestanding runtime environment. Also, the actions taken by that macro function upon failure are not part of a freestanding runtime environment, namely printing a diagnostic message and terminating the program. 
 
