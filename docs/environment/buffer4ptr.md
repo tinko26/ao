@@ -2,7 +2,7 @@
 author: "Stefan Wagner"
 date: 2022-08-04
 description: "Pointer Buffers in the ao Real-Time Operating System (RTOS)."
-draft: true
+draft: false
 permalink: /environment/buffer4ptr/
 title: "Pointer Buffers"
 ---
@@ -40,7 +40,7 @@ It consists of the following members.
 |-|-|
 | `capacity` | The maximum number of pointers that the buffer can contain. If this value is greater than zero, then the `store` value must not be clear. |
 | `count` | The current number of pointers contained in the buffer. |
-| `count_max` | The maximum-ever number of pointers contained in the buffer. This member is absent, if the `AO_BUFFER4PTR_COUNT_MAX` configuration option is disabled.  |
+| `count_max` | The maximum-ever number of pointers contained in the buffer. This member is absent, if the `AO_BUFFER4PTR_COUNT_MAX` configuration option is disabled. |
 | `front` | The index of the current front pointer in the buffer. |
 | `store` | The pointer to a memory block that can store at least the number of pointers specified by the `capacity` member. |
 
