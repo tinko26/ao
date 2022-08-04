@@ -17,7 +17,7 @@ Especially, outputting a message is probably not a good option in an embedded sy
 
 ```c
 #define ao_assert(exp)  \
-{                       \ 
+{                       \
     if (!(exp))         \
     {                   \
         ao_break();     \
