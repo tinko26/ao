@@ -58,7 +58,7 @@ It consists of the following members.
 | `less` | The compare function for nodes. |
 | `less_parameter` | An additional parameter for the compare function. |
 | `size` | The size of a node, in bytes. |
-| `store` | The pointer to the node buffer with the specified `capacity`. |
+| `store` | The pointer to the store with the specified `capacity`. |
 
 ### Compare Function
 
@@ -83,8 +83,8 @@ ao_heap4obj_t * h;
 
 ```c
 h->capacity = 0;
-h->count;
-h->count_max;
+h->count = 0;
+h->count_max = 0;
 h->heap1 = NULL;
 h->heap2 = NULL;
 h->less = NULL;
