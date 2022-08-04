@@ -41,7 +41,7 @@ It consists of the following members.
 |-|-|
 | `capacity` | The maximum number of objects that the buffer can contain. If this value is greater than zero, then the `store` value must not be clear. |
 | `count` | The current number of objects contained in the buffer. |
-| `count_max` | The maximum-ever number of objects contained in the buffer. This member is absent, if the `AO_BUFFER4OBJ_COUNT_MAX` configuration option is disabled.  |
+| `count_max` | The maximum-ever number of objects contained in the buffer. This member is absent, if the `AO_BUFFER4OBJ_COUNT_MAX` configuration option is disabled. |
 | `front` | The index of the current front object in the buffer. |
 | `size` | The size of an object, in bytes. |
 | `store` | The pointer to a memory block that can store at least the number of objects specified by the `capacity` member. |

@@ -92,7 +92,7 @@ n->parent = NULL;
 n->right = NULL;
 ```
 
-A heap can be initialized by clearing all its members.
+A heap can be initialized by clearing all its members, too.
 
 ```c
 ao_heap_t * h;
