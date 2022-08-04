@@ -44,3 +44,7 @@ char * pc = &x.member_c;
 ```c
 compound_t * px = ao_containerof(pc, compound_t, member_c);
 ```
+
+```c
+ao_assert(px == &x);
+```
