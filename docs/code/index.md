@@ -59,7 +59,7 @@ This package contains a [port](../port/index.md) for PIC32 microcontrollers. It 
 
 ## Modules
 
-Each package is made up of modules. For each module, there is a dedicated header file. The `ao` package, for example, contains the `ao_break.h` module, that declares a single function that executes a software breakpoint. 
+Each package is made up of modules. For each module, there is a dedicated header file. The `ao` package, for example, contains the `ao_break.h` module, that declares a single function that executes a breakpoint. 
 
 ```c
 void ao_break();
@@ -94,7 +94,7 @@ In contrast, the modules of the `ao_sys_xc32` and `ao_sys_xc32_pic32` packages a
 
 Kernel functions cannot be implemented thoroughly without hardware-specific features, such as instructions for masking interrupts. In order to achieve a separation of hardware-agnostic modules nonetheless, the `ao` and `ao_sys` packages contain abstract modules. These modules declare necessary functions, but do not define them. 
 
-For example, the `ao_break.h` module declares, but does not define, a function that executes a software breakpoint.
+For example, the `ao_break.h` module declares, but does not define, a function that executes a breakpoint.
 
 ```c
 void ao_break();

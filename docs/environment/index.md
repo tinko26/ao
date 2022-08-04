@@ -17,8 +17,8 @@ title: "Environment"
 ## Debugging
 
 - [debugging](debug.md)
-- [software breakpoints](break.md)
-- [runtime assertions](assert.md)
+- [breakpoints](break.md)
+- [assertions](assert.md)
 
 ## Types
 
