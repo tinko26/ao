@@ -18,7 +18,9 @@ The `ao_copy()` macro function copies a variable.
 ```c
 uint32_t a = 0xDEADBEEFU;
 uint32_t b;
+```
 
+```c
 ao_copy(&b, &a, uint32_t);
 ```
 
@@ -26,6 +28,8 @@ The `ao_clear()` macro function clears a variable. This is especially useful whe
 
 ```c
 ao_list_t l;
+```
 
+```c
 ao_clear(&l, ao_list_t);
 ```
