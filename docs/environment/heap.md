@@ -9,9 +9,9 @@ title: "Heaps"
 
 # Heaps
 
-The `ao_heap.h` modules defines [binary heaps](https://en.wikipedia.org/wiki/Binary_heap). 
+The `ao_heap.h` module defines [binary heaps](https://en.wikipedia.org/wiki/Binary_heap). 
 
-A binary heap is a special kind of [binary tree](https://en.wikipedia.org/wiki/Binary_tree) that maintains both the shape of complete binary tree and the heap property. The latter implies, that a parent node is always less than its children, with respect to a [strict total order](https://en.wikipedia.org/wiki/Total_order). 
+A binary heap is a special kind of [binary tree](https://en.wikipedia.org/wiki/Binary_tree) that maintains both the shape of complete binary tree and the heap property. The latter implies, that a node is always less than its children, with respect to a [strict total order](https://en.wikipedia.org/wiki/Total_order). 
 
 Both insertion into and removal from heaps take logarithmic time. This makes them a perfect choice for implementing [priority queues](https://en.wikipedia.org/wiki/Priority_queue).
 
@@ -26,6 +26,8 @@ Heaps keep track of their current number of nodes. Additionally, they can be con
 ```
 
 ## Types
+
+### Heap
 
 The `ao_heap_t` type represents a heap.
 
@@ -50,6 +52,8 @@ It consists of the following members.
 | `less_parameter` | An additional parameter for the compare function. |
 | `root` | The pointer to the current root of the heap. |
 
+### Node
+
 The `ao_heap_node_t` type represents a node. It holds pointers to its parent and child nodes.
 
 ```c
@@ -60,6 +64,8 @@ struct ao_heap_node_t
     ao_heap_node_t * right;
 };
 ```
+
+### Compare Function
 
 The `ao_heap_less_t` type represents a compare function, that implements a strict total order on the nodes.
 
@@ -73,6 +79,18 @@ typedef bool (* ao_heap_less_t)
 ```
 
 ## Initialization
+
+A heap node can be initialized by clearing all its members.
+
+```c
+ao_heap_node_t * n;
+```
+
+```c
+n->left = NULL;
+n->parent = NULL;
+n->right = NULL;
+```
 
 A heap can be initialized by clearing all its members.
 
@@ -106,18 +124,6 @@ bool compare(ao_heap_node_t * n1, ao_heap_node_t * n2, void * p)
 
 ```c
 h->less = compare;
-```
-
-A heap node can be initialized by clearing all its members.
-
-```c
-ao_heap_node_t * n;
-```
-
-```c
-n->left = NULL;
-n->parent = NULL;
-n->right = NULL;
 ```
 
 ## Functions
