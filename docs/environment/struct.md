@@ -1,10 +1,46 @@
 ---
 author: "Stefan Wagner"
-date: 2022-07-31
+date: 2022-08-04
 description: "Structs in the ao Real-Time Operating System (RTOS)."
-draft: true
+draft: false
 permalink: /environment/struct/
 title: "Structs"
 ---
 
 # Structs
+
+The `ao_struct.h` module defines a single macro function that returns a pointer to the head of a compound when given a pointer to a member of that compound.
+
+For example, if there is a definition of a compound type (that is, a struct or union) ...
+
+```c
+typedef struct compound_t compound_t;
+```
+
+```c
+struct compound_t
+{
+    uint32_t member_a;
+    uint16_t member_b;
+    char     member_c;
+    uint64_t member_d;
+};
+```
+
+... and an object of that compound type, ...
+
+```c
+compound_t x;
+```
+
+... then given a pointer to a member ...
+
+```c
+char * pc = &x.member_c;
+```
+
+... we can retrieve a pointer to the object.
+
+```c
+compound_t * px = ao_containerof(pc, compound_t, member_c);
+```
