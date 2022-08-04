@@ -34,11 +34,11 @@ It consists of the following members.
 |--------|-|
 | `less` | The compare function. |
 | `less_parameter` | The compare function parameter. |
-| `root` | The current root. |
+| `root` | The root. |
 
 ### Node
 
-The `ao_avl_node_t` type represents an AVL tree node. It consists of pointers to the parent and child nodes, as well as the node's [height](https://en.wikipedia.org/wiki/Glossary_of_graph_theory#H).
+The `ao_avl_node_t` type represents an AVL tree node.
 
 ```c
 struct ao_avl_node_t
@@ -133,10 +133,6 @@ if (ao_avl_is_empty(a))
 ```
 
 The minimum or maximum node, respectively, can be retrieved in logarithmic time. Both functions return `NULL`, if the tree is empty.
-
-```c
-ao_avl_node_t * n;
-```
 
 ```c
 n = ao_avl_min(a);
