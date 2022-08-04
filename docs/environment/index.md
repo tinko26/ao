@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-07-31
+date: 2022-08-04
 description: "The Runtime Environment of the ao Real-Time Operating System (RTOS)."
 draft: true
 permalink: /environment/
@@ -44,11 +44,11 @@ title: "Environment"
 
 - [AVL trees](avl.md)
 - [buffers](buffer.md)
-- [buffers for objects](buffer4obj.md)
-- [buffers for pointers](buffer4ptr.md)
+- [object buffers](buffer4obj.md)
+- [pointer buffers](buffer4ptr.md)
 - [lists](list.md)
-- [minimum heaps](heap.md)
-- [minimum heaps for objects](heap4obj.md)
-- [minimum heaps for pointers](heap4ptr.md)
+- [heaps](heap.md)
+- [object heaps](heap4obj.md)
+- [pointer heaps](heap4ptr.md)
 - [red-black trees](rb.md)
 - [sorted lists](slist.md)

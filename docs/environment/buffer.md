@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-03
+date: 2022-08-04
 description: "Buffers in the ao Real-Time Operating System (RTOS)."
 draft: false
 permalink: /environment/buffer/
@@ -9,7 +9,7 @@ title: "Buffers"
 
 # Buffers
 
-The `ao_buffer.h` module defines [data buffers](https://en.wikipedia.org/wiki/Data_buffer), that is, places to temporarily store data.
+The `ao_buffer.h` module defines [buffers](https://en.wikipedia.org/wiki/Data_buffer), that is, places to temporarily store data.
 
 ## Configuration
 
@@ -21,7 +21,7 @@ Buffers can be configured to keep track of the maximum number of bytes ever cont
 
 ## Types
 
-The `ao_buffer_t` type represents a data buffer. 
+The `ao_buffer_t` type represents a buffer. 
 
 ```c
 struct ao_buffer_t
@@ -34,7 +34,6 @@ struct ao_buffer_t
 };
 ```
 
-
 It consists of the following members.
 
 | Member | |
@@ -42,7 +41,7 @@ It consists of the following members.
 | `capacity` | The maximum number of bytes that the buffer can contain. If this value is greater than zero, then the `store` value must not be clear. |
 | `count` | The current number of bytes contained in the buffer. |
 | `count_max` | The maximum-ever number of bytes contained in the buffer. This member is absent, if the `AO_BUFFER_COUNT_MAX` configuration option is disabled.  |
-| `front` | The index of the current first byte in the buffer. |
+| `front` | The index of the current front byte in the buffer. |
 | `store` | The pointer to a memory block, whose size is not less than the specified `capacity`. |
 
 ## Initialization
@@ -51,7 +50,9 @@ A buffer can be initialized by clearing all its members.
 
 ```c
 ao_buffer_t * b;
+```
 
+```c
 b->capacity = 0;
 b->count = 0;
 b->count_max = 0;

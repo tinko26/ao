@@ -1,10 +1,10 @@
 ---
 author: "Stefan Wagner"
-date: 2022-07-31
-description: "Heaps for Pointers in the ao Real-Time Operating System (RTOS)."
+date: 2022-08-04
+description: "Pointer Heaps in the ao Real-Time Operating System (RTOS)."
 draft: true
 permalink: /environment/heap4ptr/
-title: "Heaps for Pointers"
+title: "Pointer Heaps"
 ---
 
-# Heaps for Pointers
+# Pointer Heaps
