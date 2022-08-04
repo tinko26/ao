@@ -17,13 +17,11 @@ The `ao_debug.h` module defines a single macro constant indicating whether an ap
 
 The purpose of this macro constant is to have a toolchain-agnostic abstraction that can be used to write portable code.
 
-Consequently, since usually debug mode is a toolchain switch and compilers implicitly define appropriate macro constants, this module should best be overridden by ports. In the case of the XC32 compiler, this override is as follows.
+Consequently, this module should be overridden in a toolchain-specific package, not least because usually compilers implicitly define macro constants indicating debug mode. In the case of the XC32 compiler, which is a GCC port, this override is as follows.
 
 ```c
 #ifndef AO_DEBUG
-
 #ifndef NDEBUG
-
 #ifndef __DEBUG
 
 #define AO_DEBUG (false)
@@ -33,12 +31,10 @@ Consequently, since usually debug mode is a toolchain switch and compilers impli
 #define AO_DEBUG (true)
 
 #endif
-
 #else
 
 #define AO_DEBUG (false)
 
 #endif
-
 #endif
 ```
