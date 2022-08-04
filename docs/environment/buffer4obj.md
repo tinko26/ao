@@ -48,7 +48,7 @@ It consists of the following members.
 
 ## Initialization
 
-An object buffer can be initialized by clearing all its members. 
+An object buffer can be initialized by clearing all of its members. 
 
 ```c
 ao_buffer4obj_t * b;

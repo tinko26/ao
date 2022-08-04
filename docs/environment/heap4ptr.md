@@ -73,7 +73,7 @@ typedef bool (* ao_heap4ptr_less_t)
 
 ## Initialization
 
-A heap can be initialized by clearing all its members.
+A heap can be initialized by clearing all of its members.
 
 ```c
 ao_heap4ptr_t * h;

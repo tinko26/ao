@@ -80,7 +80,7 @@ typedef bool (* ao_heap_less_t)
 
 ## Initialization
 
-A heap node can be initialized by clearing all its members.
+A heap node can be initialized by clearing all of its members.
 
 ```c
 ao_heap_node_t * n;
@@ -92,7 +92,7 @@ n->parent = NULL;
 n->right = NULL;
 ```
 
-A heap can be initialized by clearing all its members, too.
+A heap can be initialized by clearing all of its members, too.
 
 ```c
 ao_heap_t * h;

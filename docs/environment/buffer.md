@@ -46,7 +46,7 @@ It consists of the following members.
 
 ## Initialization
 
-A buffer can be initialized by clearing all its members. 
+A buffer can be initialized by clearing all of its members. 
 
 ```c
 ao_buffer_t * b;
