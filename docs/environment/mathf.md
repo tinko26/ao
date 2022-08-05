@@ -13,4 +13,4 @@ The `ao_mathf.h` module contains mathematical constants and functions for floati
 
 Although the standard library provides such constants and functions, too, they are not available in a freestanding runtime environment. Then again, many toolchains provide implementations, either in software, or highly optimized for target platforms with an FPU.
 
-Therefore, the environment package does provide an implementation for most of the functions. Consequently, an implementation must be provided by a hardware-specific package by overriding this module.
+Therefore, the environment package does not provide an implementation for most of the functions. Consequently, an implementation must be provided by a hardware-specific package by overriding this module.

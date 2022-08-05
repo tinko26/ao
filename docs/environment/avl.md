@@ -22,8 +22,8 @@ The `ao_avl_t` type represents an AVL tree.
 ```c
 struct ao_avl_t
 {
-    ao_avl_less_t less;
-    void * less_parameter;
+    ao_avl_less_t   less;
+    void *          less_parameter;
     ao_avl_node_t * root;
 };
 ```
@@ -43,7 +43,7 @@ The `ao_avl_node_t` type represents an AVL tree node.
 ```c
 struct ao_avl_node_t
 {
-    ao_int_t height;
+    ao_int_t        height;
     ao_avl_node_t * left;
     ao_avl_node_t * parent;
     ao_avl_node_t * right;
@@ -70,7 +70,7 @@ typedef bool (* ao_avl_less_t)
 (
     ao_avl_node_t * n1,
     ao_avl_node_t * n2,
-    void * parameter
+    void *          parameter
 );
 ```
 
@@ -151,7 +151,7 @@ Removing a node takes logarithmic time, too.
 ao_avl_remove(a, n);
 ```
 
-The correctness of a tree can be asserted in linear time. The function traverses the tree top-down and checks, whether the relevant properties are maintained. If that is not the case, the function triggers a [runtime assertion](assert.md) failure.
+The correctness of a tree can be asserted in linear time. The function traverses the tree top-down and checks, whether the relevant properties are maintained. If that is not the case, the function triggers a runtime [assertion](assert.md) failure.
 
 It is therefore useful in debugging scenarios. However, the function is implemented recursively, which violates a common rule in embedded software engineering.
 

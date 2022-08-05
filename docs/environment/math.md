@@ -9,11 +9,11 @@ title: "Mathematics"
 
 # Mathematics
 
-The `math.h` module defines a number of useful mathematical operations. They are implemented as macro functions, that work for all fundamental arithmetic types. This is for two reasons. First, when called with constant parameter values, the result can be evaluated at compile time. Second, they can be used in the definition of macro constants, which some kernel functions make use of. However, care must be taken for side effects, as some parameter values get evaluated more than once.
+The `math.h` module provides a number of useful mathematical operations. They are implemented as macro functions, that work for all fundamental arithmetic types. This is for two reasons. First, when called with constant parameter values, the result can be evaluated at compile time. Second, they can be used in the definition of macro constants, which some kernel functions make use of. However, care must be taken for side effects, as some parameter values get evaluated more than once.
 
 ## Functions
 
-Return the absolute value of a number.
+Get the absolute value of a number.
 
 ```c
 double x = ao_abs(-3.2);

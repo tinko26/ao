@@ -22,8 +22,8 @@ The `ao_rb_t` type represents a red-black tree.
 ```c
 struct ao_rb_t
 {
-    ao_rb_less_t less;
-    void * less_parameter;
+    ao_rb_less_t   less;
+    void *         less_parameter;
     ao_rb_node_t * root;
 };
 ```
@@ -43,7 +43,7 @@ The `ao_rb_node_t` type represents a red-black tree node.
 ```c
 struct ao_rb_node_t
 {
-    bool black;
+    bool           black;
     ao_rb_node_t * left;
     ao_rb_node_t * parent;
     ao_rb_node_t * right;
@@ -68,7 +68,7 @@ typedef bool (* ao_rb_less_t)
 (
     ao_rb_node_t * n1,
     ao_rb_node_t * n2,
-    void * parameter
+    void *         parameter
 );
 ```
 
@@ -149,7 +149,7 @@ Removing a node takes logarithmic time, too.
 ao_rb_remove(r, n);
 ```
 
-The correctness of a tree can be asserted in linear time. The function traverses the tree top-down and checks, whether the relevant properties are maintained. If that is not the case, the function triggers a [runtime assertion](assert.md) failure.
+The correctness of a tree can be asserted in linear time. The function traverses the tree top-down and checks, whether the relevant properties are maintained. If that is not the case, the function triggers a runtime [assertion](assert.md) failure.
 
 It is therefore useful in debugging scenarios. However, the function is implemented recursively, which violates a common rule in embedded software engineering.
 

@@ -9,7 +9,7 @@ title: "Sorted Lists"
 
 # Sorted Lists
 
-The `ao_slist.h` module defines [doubly-linked lists](https://en.wikipedia.org/wiki/Doubly_linked_list), whose elements are ordered by a [strict total order](https://en.wikipedia.org/wiki/Total_order).
+The `ao_slist.h` module defines [doubly-linked lists](https://en.wikipedia.org/wiki/Doubly_linked_list), whose elements are sorted by a [strict total order](https://en.wikipedia.org/wiki/Total_order).
 
 ## Types
 
@@ -20,8 +20,8 @@ struct ao_slist_t
 {
     ao_slist_node_t * back;
     ao_slist_node_t * front;
-    ao_slist_less_t less;
-    void * less_parameter;
+    ao_slist_less_t   less;
+    void *            less_parameter;
 }
 ```
 
@@ -142,7 +142,7 @@ Removing all nodes at once, however, takes linear time.
 ao_slist_remove_all(l);
 ```
 
-The correct ordering of a list can be asserted in linear time, too. The function traverses the list from front to back and, for each node, checks, whether it is less than its successor. If that is not the case, the function triggers a [runtime assertion](assert.md) failure.
+The correct ordering of a list can be asserted in linear time, too. The function traverses the list from front to back and, for each node, checks, whether it is less than its successor. If that is not the case, the function triggers a runtime [assertion](assert.md) failure.
 
 ```c
 ao_slist_assert(l);

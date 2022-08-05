@@ -11,7 +11,7 @@ title: "Heaps"
 
 The `ao_heap.h` module defines [binary heaps](https://en.wikipedia.org/wiki/Binary_heap). 
 
-A binary heap is a special kind of [binary tree](https://en.wikipedia.org/wiki/Binary_tree) that maintains both the shape of complete binary tree and the heap property. The latter implies, that a node is always less than its children, with respect to a [strict total order](https://en.wikipedia.org/wiki/Total_order). 
+A binary heap is a special kind of [binary tree](https://en.wikipedia.org/wiki/Binary_tree) that maintains both the shape of a complete binary tree and the heap property. The latter implies, that a node is always less than its children, with respect to a [strict total order](https://en.wikipedia.org/wiki/Total_order). 
 
 Both insertion into and removal from heaps take logarithmic time. This makes them a perfect choice for implementing [priority queues](https://en.wikipedia.org/wiki/Priority_queue).
 
@@ -34,10 +34,10 @@ The `ao_heap_t` type represents a heap.
 ```c
 struct ao_heap_t
 {
-    ao_uint_t count;
-    ao_uint_t count_max;
-    ao_heap_less_t less;
-    void * less_parameter;
+    ao_uint_t        count;
+    ao_uint_t        count_max;
+    ao_heap_less_t   less;
+    void *           less_parameter;
     ao_heap_node_t * root;
 };
 ```
@@ -74,7 +74,7 @@ typedef bool (* ao_heap_less_t)
 (
     ao_heap_node_t * n1,
     ao_heap_node_t * n2,
-    void * parameter
+    void *           parameter
 );
 ```
 
@@ -161,7 +161,7 @@ ao_heap_remove(h, n);
 n = ao_heap_pop(h);
 ```
 
-The correctness of a heap can be asserted in linear time. The function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a [runtime assertion](assert.md) failure.
+The correctness of a heap can be asserted in linear time. The function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a runtime [assertion](assert.md) failure.
 
 It is therefore useful in debugging scenarios. However, the function is implemented recursively, which violates a common rule in embedded software engineering.
 

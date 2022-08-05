@@ -26,10 +26,10 @@ The `ao_buffer4ptr_t` type represents a pointer buffer.
 ```c
 struct ao_buffer4ptr_t
 {
-    size_t capacity;
-    size_t count;
-    size_t count_max;
-    size_t front;
+    size_t  capacity;
+    size_t  count;
+    size_t  count_max;
+    size_t  front;
     void ** store;
 };
 ```

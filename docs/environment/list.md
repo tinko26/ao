@@ -96,5 +96,8 @@ Inserting and removing single nodes are constant time operations. However, there
 
 ```c
 ao_list_reverse(l);
+```
+
+```c
 ao_list_remove_all(l);
 ```

@@ -39,7 +39,7 @@ compound_t x;
 char * pc = &x.member_c;
 ```
 
-... we can retrieve a pointer to the object.
+... one can retrieve a pointer to the object.
 
 ```c
 compound_t * px = ao_containerof(pc, compound_t, member_c);

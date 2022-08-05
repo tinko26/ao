@@ -11,7 +11,7 @@ title: "Object Heaps"
 
 The `ao_heap4obj.h` module defines [binary heaps](https://en.wikipedia.org/wiki/Binary_heap) for objects.
 
-A binary heap is a special kind of [binary tree](https://en.wikipedia.org/wiki/Binary_tree) that maintains both the shape of complete binary tree and the heap property. The latter implies, that a node is always less than its children, with respect to a [strict total order](https://en.wikipedia.org/wiki/Total_order). 
+A binary heap is a special kind of [binary tree](https://en.wikipedia.org/wiki/Binary_tree) that maintains both the shape of a complete binary tree and the heap property. The latter implies, that a node is always less than its children, with respect to a [strict total order](https://en.wikipedia.org/wiki/Total_order). 
 
 Both insertion into and removal from heaps take logarithmic time. This makes them a perfect choice for implementing [priority queues](https://en.wikipedia.org/wiki/Priority_queue).
 
@@ -34,15 +34,15 @@ The `ao_heap4obj_t` type represents an object heap.
 ```c
 struct ao_heap4obj_t
 {
-    size_t capacity;
-    size_t count;
-    size_t count_max;
-    size_t * heap1;
-    size_t * heap2;
+    size_t             capacity;
+    size_t             count;
+    size_t             count_max;
+    size_t *           heap1;
+    size_t *           heap2;
     ao_heap4obj_less_t less;
-    void * less_parameter;
-    size_t size;
-    void * store;
+    void *             less_parameter;
+    size_t             size;
+    void *             store;
 };
 ```
 
@@ -172,7 +172,7 @@ ao_heap4obj_pop(h, &n);
 
 All three functions return a boolean value indicating whether the respective operation was successful. Therefore, one can safely try to insert a node into a full heap or retrieve or remove the root node from an empty heap.
 
-The correctness of a heap can be asserted in linear time. The function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a [runtime assertion](assert.md) failure.
+The correctness of a heap can be asserted in linear time. The function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a runtime [assertion](assert.md) failure.
 
 ```c
 ao_heap4obj_assert(h);

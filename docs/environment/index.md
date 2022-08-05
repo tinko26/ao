@@ -36,7 +36,8 @@ title: "Environment"
 - [mathematics for floating-point numbers](mathf.md)
 - [mathematics for integers](mathi.md)
 - [memory blocks](mem.md)
-- [strings](string.md)
+- [printing](print.md)
+- [scanning](scan.md)
 - [structs](struct.md)
 - [variables](var.md)
 
