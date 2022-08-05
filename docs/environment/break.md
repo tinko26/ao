@@ -15,7 +15,7 @@ The `ao_break.h` module declares a single function that executes a [breakpoint](
 void ao_break();
 ```
 
-The purpose of this declaration is to have a hardware-agnostic abstraction that can be used to write portable code. Since a breakpoint is a hardware-specific operation, the [environment](index.md) package does not provide a definition. 
+The purpose of this declaration is to have a hardware-agnostic abstraction that can be used to write portable code. Since a breakpoint is a hardware-specific operation, the environment package does not provide a definition. 
 
 Consequently, such a definition must be provided by a hardware-specific package by overriding this module. In the case of PIC32 microcontrollers, this override calls an XC32 compiler's built-in function, which in turn executes the `SDDBP 0` instruction.
 
