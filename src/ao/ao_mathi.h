@@ -30,37 +30,37 @@
 
 #ifndef ao_log2u2
 
-#define ao_log2u2(x)    ((x) & 0x0000000000000002 ?  1                         : 0            )
+#define ao_log2u2(x)    ((x) & 0x0000000000000002U ?  1                         : 0            )
 
 #endif
 
 #ifndef ao_log2u4
 
-#define ao_log2u4(x)    ((x) & 0x000000000000000C ?  2 + ao_log2u2( (x) >>  2) : ao_log2u2(x) )
+#define ao_log2u4(x)    ((x) & 0x000000000000000CU ?  2 + ao_log2u2( (x) >>  2) : ao_log2u2(x) )
 
 #endif
 
 #ifndef ao_log2u8
 
-#define ao_log2u8(x)    ((x) & 0x00000000000000F0 ?  4 + ao_log2u4( (x) >>  4) : ao_log2u4(x) )
+#define ao_log2u8(x)    ((x) & 0x00000000000000F0U ?  4 + ao_log2u4( (x) >>  4) : ao_log2u4(x) )
 
 #endif
 
 #ifndef ao_log2u16
 
-#define ao_log2u16(x)   ((x) & 0x000000000000FF00 ?  8 + ao_log2u8( (x) >>  8) : ao_log2u8(x) )
+#define ao_log2u16(x)   ((x) & 0x000000000000FF00U ?  8 + ao_log2u8( (x) >>  8) : ao_log2u8(x) )
 
 #endif
 
 #ifndef ao_log2u32
 
-#define ao_log2u32(x)   ((x) & 0x00000000FFFF0000 ? 16 + ao_log2u16((x) >> 16) : ao_log2u16(x))
+#define ao_log2u32(x)   ((x) & 0x00000000FFFF0000U ? 16 + ao_log2u16((x) >> 16) : ao_log2u16(x))
 
 #endif
 
 #ifndef ao_log2u64
 
-#define ao_log2u64(x)   ((x) & 0xFFFFFFFF00000000 ? 32 + ao_log2u32((x) >> 32) : ao_log2u32(x))
+#define ao_log2u64(x)   ((x) & 0xFFFFFFFF00000000U ? 32 + ao_log2u32((x) >> 32) : ao_log2u32(x))
 
 #endif
 
