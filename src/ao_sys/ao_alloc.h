@@ -167,7 +167,7 @@ struct  ao_retained_t
 // On success, this function returns a pointer to the beginning of the
 // allocated block of memory.
 
-// The pointer is aligned to an #AO_ALIGN_MAX_SIZE byte boundary.
+// The pointer is suitably aligned for any object type with fundamental alignment.
 
 // The content of the allocated block of memory is not initialized,
 // remaining with indeterminate values.

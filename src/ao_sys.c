@@ -2531,7 +2531,7 @@ struct  ao_alloc_pool_node_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ 1 ];
 
@@ -2549,7 +2549,7 @@ struct  ao_alloc_pool_node_0_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_0 ];
 
@@ -2565,7 +2565,7 @@ struct  ao_alloc_pool_node_1_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_1 ];
 
@@ -2581,7 +2581,7 @@ struct  ao_alloc_pool_node_2_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_2 ];
 
@@ -2597,7 +2597,7 @@ struct  ao_alloc_pool_node_3_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_3 ];
 
@@ -2613,7 +2613,7 @@ struct  ao_alloc_pool_node_4_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_4 ];
 
@@ -2629,7 +2629,7 @@ struct  ao_alloc_pool_node_5_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_5 ];
 
@@ -2645,7 +2645,7 @@ struct  ao_alloc_pool_node_6_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_6 ];
 
@@ -2661,7 +2661,7 @@ struct  ao_alloc_pool_node_7_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_7 ];
 
@@ -2677,7 +2677,7 @@ struct  ao_alloc_pool_node_8_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_8 ];
 
@@ -2693,7 +2693,7 @@ struct  ao_alloc_pool_node_9_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_9 ];
 
@@ -2709,7 +2709,7 @@ struct  ao_alloc_pool_node_10_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_10 ];
 
@@ -2725,7 +2725,7 @@ struct  ao_alloc_pool_node_11_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_11 ];
 
@@ -2741,7 +2741,7 @@ struct  ao_alloc_pool_node_12_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_12 ];
 
@@ -2757,7 +2757,7 @@ struct  ao_alloc_pool_node_13_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_13 ];
 
@@ -2773,7 +2773,7 @@ struct  ao_alloc_pool_node_14_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_14 ];
 
@@ -2789,7 +2789,7 @@ struct  ao_alloc_pool_node_15_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_15 ];
 
@@ -2805,7 +2805,7 @@ struct  ao_alloc_pool_node_16_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_16 ];
 
@@ -2821,7 +2821,7 @@ struct  ao_alloc_pool_node_17_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_17 ];
 
@@ -2837,7 +2837,7 @@ struct  ao_alloc_pool_node_18_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_18 ];
 
@@ -2853,7 +2853,7 @@ struct  ao_alloc_pool_node_19_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_19 ];
 
@@ -2869,7 +2869,7 @@ struct  ao_alloc_pool_node_20_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_20 ];
 
@@ -2885,7 +2885,7 @@ struct  ao_alloc_pool_node_21_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_21 ];
 
@@ -2901,7 +2901,7 @@ struct  ao_alloc_pool_node_22_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_22 ];
 
@@ -2917,7 +2917,7 @@ struct  ao_alloc_pool_node_23_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_23 ];
 
@@ -2933,7 +2933,7 @@ struct  ao_alloc_pool_node_24_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_24 ];
 
@@ -2949,7 +2949,7 @@ struct  ao_alloc_pool_node_25_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_25 ];
 
@@ -2965,7 +2965,7 @@ struct  ao_alloc_pool_node_26_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_26 ];
 
@@ -2981,7 +2981,7 @@ struct  ao_alloc_pool_node_27_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_27 ];
 
@@ -2997,7 +2997,7 @@ struct  ao_alloc_pool_node_28_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_28 ];
 
@@ -3013,7 +3013,7 @@ struct  ao_alloc_pool_node_29_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_29 ];
 
@@ -3029,7 +3029,7 @@ struct  ao_alloc_pool_node_30_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_30 ];
 
@@ -3045,7 +3045,7 @@ struct  ao_alloc_pool_node_31_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_31 ];
 
@@ -3061,7 +3061,7 @@ struct  ao_alloc_pool_node_32_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_32 ];
 
@@ -3077,7 +3077,7 @@ struct  ao_alloc_pool_node_33_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_33 ];
 
@@ -3093,7 +3093,7 @@ struct  ao_alloc_pool_node_34_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_34 ];
 
@@ -3109,7 +3109,7 @@ struct  ao_alloc_pool_node_35_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_35 ];
 
@@ -3125,7 +3125,7 @@ struct  ao_alloc_pool_node_36_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_36 ];
 
@@ -3141,7 +3141,7 @@ struct  ao_alloc_pool_node_37_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_37 ];
 
@@ -3157,7 +3157,7 @@ struct  ao_alloc_pool_node_38_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_38 ];
 
@@ -3173,7 +3173,7 @@ struct  ao_alloc_pool_node_39_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_39 ];
 
@@ -3189,7 +3189,7 @@ struct  ao_alloc_pool_node_40_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_40 ];
 
@@ -3205,7 +3205,7 @@ struct  ao_alloc_pool_node_41_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_41 ];
 
@@ -3221,7 +3221,7 @@ struct  ao_alloc_pool_node_42_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_42 ];
 
@@ -3237,7 +3237,7 @@ struct  ao_alloc_pool_node_43_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_43 ];
 
@@ -3253,7 +3253,7 @@ struct  ao_alloc_pool_node_44_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_44 ];
 
@@ -3269,7 +3269,7 @@ struct  ao_alloc_pool_node_45_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_45 ];
 
@@ -3285,7 +3285,7 @@ struct  ao_alloc_pool_node_46_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_46 ];
 
@@ -3301,7 +3301,7 @@ struct  ao_alloc_pool_node_47_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_47 ];
 
@@ -3317,7 +3317,7 @@ struct  ao_alloc_pool_node_48_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_48 ];
 
@@ -3333,7 +3333,7 @@ struct  ao_alloc_pool_node_49_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_49 ];
 
@@ -3349,7 +3349,7 @@ struct  ao_alloc_pool_node_50_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_50 ];
 
@@ -3365,7 +3365,7 @@ struct  ao_alloc_pool_node_51_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_51 ];
 
@@ -3381,7 +3381,7 @@ struct  ao_alloc_pool_node_52_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_52 ];
 
@@ -3397,7 +3397,7 @@ struct  ao_alloc_pool_node_53_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_53 ];
 
@@ -3413,7 +3413,7 @@ struct  ao_alloc_pool_node_54_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_54 ];
 
@@ -3429,7 +3429,7 @@ struct  ao_alloc_pool_node_55_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_55 ];
 
@@ -3445,7 +3445,7 @@ struct  ao_alloc_pool_node_56_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_56 ];
 
@@ -3461,7 +3461,7 @@ struct  ao_alloc_pool_node_57_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_57 ];
 
@@ -3477,7 +3477,7 @@ struct  ao_alloc_pool_node_58_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_58 ];
 
@@ -3493,7 +3493,7 @@ struct  ao_alloc_pool_node_59_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_59 ];
 
@@ -3509,7 +3509,7 @@ struct  ao_alloc_pool_node_60_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_60 ];
 
@@ -3525,7 +3525,7 @@ struct  ao_alloc_pool_node_61_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_61 ];
 
@@ -3541,7 +3541,7 @@ struct  ao_alloc_pool_node_62_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_62 ];
 
@@ -3557,7 +3557,7 @@ struct  ao_alloc_pool_node_63_t
 
     union
     {
-        ao_align_max_t                  align;
+        max_align_t                     align;
 
         uint8_t                         block   [ AO_ALLOC_POOL_BLOCK_SIZE_63 ];
 
@@ -9600,9 +9600,9 @@ bool ao_retain_3(void * p)
 
 // ----------------------------------------------------------------------------
 
-#define AO_ALLOC_ALIGN                  (AO_ALIGN_MAX_SIZE)
+#define AO_ALLOC_ALIGN                  (sizeof(max_align_t))
 
-#define AO_ALLOC_ALIGN_LOG              (AO_ALIGN_MAX_SIZE_LOG)
+#define AO_ALLOC_ALIGN_LOG              ao_log2u(AO_ALLOC_ALIGN)
 
 // ----------------------------------------------------------------------------
 
@@ -9640,7 +9640,7 @@ typedef struct  ao_alloc_t              ao_alloc_t;
 
 // ----------------------------------------------------------------------------
 
-typedef         ao_align_max_t          ao_alloc_align_t;
+typedef         max_align_t             ao_alloc_align_t;
 
 // ----------------------------------------------------------------------------
 

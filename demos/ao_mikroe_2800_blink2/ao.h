@@ -25,7 +25,6 @@
 // ----------------------------------------------------------------------------
 
 #include <ao_align.h>
-#include <ao_align_max.h>
 #include <ao_alloc.h>
 #include <ao_assert.h>
 #include <ao_async.h>
