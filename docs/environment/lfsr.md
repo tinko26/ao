@@ -9,7 +9,7 @@ title: "Linear-Feedback Shift Registers"
 
 # Linear-Feedback Shift Registers
 
-The `ao_lfsr.h` module defines [linear-feedback shift registers](https://en.wikipedia.org/wiki/Linear-feedback_shift_register) (LFSR) in Galois configuration, that can be used to generate pseudo-random values.
+The `ao_lfsr.h` module defines [linear-feedback shift registers](https://en.wikipedia.org/wiki/Linear-feedback_shift_register) in Galois configuration, that can be used to generate pseudo-random values.
 
 ## Types
 
@@ -22,7 +22,7 @@ The module defines the following four types representing linear-feedback shift r
 | `ao_lfsr32_t` | 32 bits       |
 | `ao_lfsr64_t` | 64 bits       |
 
-Since all types work in the way, let's focus on the `ao_lfsr32_t` type.
+Since all types work in the same way, let's focus on the `ao_lfsr32_t` type.
 
 ```c
 struct ao_lfsr32_t
@@ -51,7 +51,7 @@ ao_lfsr32_t * l;
 l->polynomial = 0x34002;
 ```
 
-The most significant set bit determines the register's actual width. In the above example, bit 17, which contains term $$x^18$$, is the most significant set bit. Therefore, the register's actual width is 18 bits. The corresponding polynomial is $$x^18 + x^17 + x^15 + x^2 + 1$$.
+The most significant set bit determines the register's actual width. In the above example, bit 17, which contains term $$x^{18}$$, is the most significant set bit. Therefore, the register's actual width is 18 bits. The corresponding polynomial is $$x^{18} + x^{17} + x^{15} + x^2 + 1$$.
 
 ## Seed
 

@@ -30,8 +30,8 @@ title: "Environment"
 
 ## Utilities
 
+- [alignment](align.md)
 - [linear-feedback shift registers](lfsr.md)
-- [memory alignment](align.md)
 - [mathematics](math.md)
 - [mathematics for floating-point numbers](mathf.md)
 - [mathematics for integers](mathi.md)
