@@ -2,7 +2,7 @@
 author: "Stefan Wagner"
 date: 2022-08-05
 description: "Alignment in the ao Real-Time Operating System (RTOS)."
-draft: true
+draft: false
 permalink: /environment/align/
 title: "Alignment"
 ---
@@ -13,25 +13,27 @@ Reading from or writing to memory usually requires scalar data, such as an integ
 
 Normally, the compiler takes care of the correct alignment of variables automatically. However, there are situations, when this is not the case, especially when implementing kernel functions.
 
-An allocator, for example, needs to know the maximum alignment of all scalar types, because an allocated block of memory must be suitable to contain any kind of data. 
-
-The `ao_align_max.h` module defines a type, whose alignment is the largets among all scalar types.
+The `ao_align.h` module defines two macro functions that align a given value up or down, respectively, to a given boundary.
 
 ```c
-typedef uint32_t ao_align_max_t;
-```
-
-Additionally, the module defines macro constants that determine that type's size in bits and bytes, as well as the logarithms thereof.
-
-```c
-#define AO_ALIGN_MAX_BITS     (32)
-#define AO_ALIGN_MAX_BITS_LOG (5)
+uint32_t x = 7;
 ```
 
 ```c
-#define AO_ALIGN_MAX_SIZE     (4)
-#define AO_ALIGN_MAX_SIZE_LOG (2)
+uint32_t xd = ao_align_down(x, 4);
+uint32_t xu = ao_align_up(  x, 4);
 ```
 
-The purpose of these definitions is to have a hardware-agnostic abstraction that is primarily used to write allocators. However, since the alignment requirements of scalar types are platform-dependent, this module should be overridden by a hardware-specific package.
+```c
+ao_assert(xd == 4);
+ao_assert(xu == 8);
+```
 
+Additionally, the alignment of a value can be checked.
+
+```c
+if (ao_is_aligned(xu, 8))
+{
+    // xu is aligned to an 8-byte boundary.
+}
+```
