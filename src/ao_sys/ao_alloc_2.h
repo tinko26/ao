@@ -40,7 +40,7 @@
 
 // ----------------------------------------------------------------------------
 
-#include <ao_uint.h>
+#include <ao_size.h>
 #include <stdbool.h>
 #include <stddef.h>
 
@@ -112,7 +112,7 @@
 
 #ifndef AO_ALLOC_SEGREGATION_MAX
 
-#define AO_ALLOC_SEGREGATION_MAX    (AO_UINT_BITS_LOG)
+#define AO_ALLOC_SEGREGATION_MAX    (AO_SIZE_BITS_LOG)
 
 #endif
 

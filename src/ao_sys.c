@@ -9622,13 +9622,13 @@ bool ao_retain_3(void * p)
 
 #define AO_ALLOC_ALIGN                  (sizeof(max_align_t))
 
-#define AO_ALLOC_ALIGN_LOG              ao_log2u(AO_ALLOC_ALIGN)
+#define AO_ALLOC_ALIGN_LOG              ao_log2z(AO_ALLOC_ALIGN)
 
 // ----------------------------------------------------------------------------
 
 #define AO_ALLOC_SIZE_STORE             ao_align_down(AO_ALLOC_SIZE, AO_ALLOC_ALIGN)
 
-#define AO_ALLOC_SIZE_STORE_LOG         ao_log2u(AO_ALLOC_SIZE_STORE)
+#define AO_ALLOC_SIZE_STORE_LOG         ao_log2z(AO_ALLOC_SIZE_STORE)
 
 // ----------------------------------------------------------------------------
 
@@ -9709,7 +9709,7 @@ union   ao_alloc_block_head_t
         {
             ao_alloc_block_t *          prev;
 
-            ao_uint_t                   ref;
+            size_t                      ref;
 
             size_t                      size_body;
         };
@@ -9752,7 +9752,7 @@ static  void                            ao_alloc_block_free(    ao_alloc_block_t
 
 static  ao_alloc_block_t *              ao_alloc_block_merge(   ao_alloc_block_t * b);
 
-static  ao_alloc_block_t *              ao_alloc_block_pop(     ao_uint_t l1, ao_uint_t l2);
+static  ao_alloc_block_t *              ao_alloc_block_pop(     size_t l1, size_t l2);
 
 static  void                            ao_alloc_block_push(    ao_alloc_block_t * b);
 
@@ -9799,9 +9799,9 @@ static  ao_alloc_t                      ao_alloc;
 
 // ----------------------------------------------------------------------------
 
-static  ao_uint_t                       ao_alloc_bitmap_l1;
+static  size_t                          ao_alloc_bitmap_l1;
 
-static  ao_uint_t                       ao_alloc_bitmap_l2      [AO_ALLOC_L1_COUNT];
+static  size_t                          ao_alloc_bitmap_l2      [AO_ALLOC_L1_COUNT];
 
 // ----------------------------------------------------------------------------
 
@@ -10075,34 +10075,30 @@ ao_alloc_block_t * ao_alloc_block_find(size_t s)
 
     // Variables.
 
-    ao_uint_t b;
+    size_t b;
 
     ao_alloc_block_t * B;
 
     size_t i1;
 
-    ao_uint_t l1;
+    size_t l1;
 
-    ao_uint_t l2;
+    size_t l2;
 
-    ao_uint_t m;
-
-    ao_uint_t t;
+    size_t m;
 
 
     // Ready.
 
-    t = (ao_uint_t) s;
+    s = s + (1 << (ao_flsz(s) - AO_ALLOC_L2_COUNT_LOG)) - 1;
 
-    t = t + (1 << (ao_fls(t) - AO_ALLOC_L2_COUNT_LOG)) - 1;
+    l1 = ao_flsz(s);
 
-    l1 = ao_fls(t);
+    l2 = (s >> (l1 - AO_ALLOC_L2_COUNT_LOG)) - (1 << AO_ALLOC_L2_COUNT_LOG);
 
-    l2 = (t >> (l1 - AO_ALLOC_L2_COUNT_LOG)) - (1 << AO_ALLOC_L2_COUNT_LOG);
+    i1 = l1 - AO_ALLOC_L1_INDEX_MIN;
 
-    i1 = (size_t) (l1 - AO_ALLOC_L1_INDEX_MIN);
-
-    m = AO_UINT_MAX << l2;
+    m = AO_SIZE_MAX << l2;
 
     b = ao_alloc_bitmap_l2[i1];
 
@@ -10110,14 +10106,14 @@ ao_alloc_block_t * ao_alloc_block_find(size_t s)
 
     if (b != 0)
     {
-        l2 = ao_ffs(b);
+        l2 = ao_ffsz(b);
 
         B = ao_alloc_block_pop(l1, l2);
     }
 
     else
     {
-        m = AO_UINT_MAX << (l1 + 1);
+        m = AO_SIZE_MAX << (l1 + 1);
 
         b = ao_alloc_bitmap_l1;
 
@@ -10125,13 +10121,13 @@ ao_alloc_block_t * ao_alloc_block_find(size_t s)
 
         if (b != 0)
         {
-            l1 = ao_ffs(b);
+            l1 = ao_ffsz(b);
 
-            i1 = (size_t) (l1 - AO_ALLOC_L1_INDEX_MIN);
+            i1 = l1 - AO_ALLOC_L1_INDEX_MIN;
 
             b = ao_alloc_bitmap_l2[i1];
 
-            l2 = ao_ffs(b);
+            l2 = ao_ffsz(b);
 
             B = ao_alloc_block_pop(l1, l2);
         }
@@ -10295,7 +10291,7 @@ ao_alloc_block_t * ao_alloc_block_merge(ao_alloc_block_t * B2)
     return B1;
 }
 
-ao_alloc_block_t * ao_alloc_block_pop(ao_uint_t l1, ao_uint_t l2)
+ao_alloc_block_t * ao_alloc_block_pop(size_t l1, size_t l2)
 {
     // Notes.
 
@@ -10310,7 +10306,7 @@ ao_alloc_block_t * ao_alloc_block_pop(ao_uint_t l1, ao_uint_t l2)
 
     // Variables.
 
-    ao_uint_t b;
+    size_t b;
 
     ao_alloc_block_t * B;
 
@@ -10325,9 +10321,9 @@ ao_alloc_block_t * ao_alloc_block_pop(ao_uint_t l1, ao_uint_t l2)
 
     // Ready.
 
-    i1 = (size_t) (l1 - AO_ALLOC_L1_INDEX_MIN);
+    i1 = l1 - AO_ALLOC_L1_INDEX_MIN;
 
-    i2 = (size_t) l2;
+    i2 = l2;
 
     L = &ao_alloc_list[i1][i2];
 
@@ -10371,7 +10367,7 @@ void ao_alloc_block_push(ao_alloc_block_t * B)
 
     // Variables.
 
-    ao_uint_t b;
+    size_t b;
 
     size_t i1;
 
@@ -10379,32 +10375,28 @@ void ao_alloc_block_push(ao_alloc_block_t * B)
 
     ao_alloc_list_t * L;
 
-    ao_uint_t l1;
+    size_t l1;
 
-    ao_uint_t l2;
+    size_t l2;
 
-    ao_uint_t m;
+    size_t m;
 
     ao_alloc_list_node_t * N;
 
-    ao_uint_t s;
-
-    size_t t;
+    size_t s;
 
 
     // Ready.
 
-    t = B->head.size_body;
+    s = B->head.size_body;
 
-    s = (ao_uint_t) t;
-
-    l1 = ao_fls(s);
+    l1 = ao_flsz(s);
 
     l2 = (s >> (l1 - AO_ALLOC_L2_COUNT_LOG)) - (1 << AO_ALLOC_L2_COUNT_LOG);
 
-    i1 = (size_t) (l1 - AO_ALLOC_L1_INDEX_MIN);
+    i1 = l1 - AO_ALLOC_L1_INDEX_MIN;
 
-    i2 = (size_t) (l2);
+    i2 = l2;
 
     N = &B->body.node;
 
@@ -10440,7 +10432,7 @@ void ao_alloc_block_remove(ao_alloc_block_t * B)
 
     // Variables.
 
-    ao_uint_t b;
+    size_t b;
 
     size_t i1;
 
@@ -10448,32 +10440,28 @@ void ao_alloc_block_remove(ao_alloc_block_t * B)
 
     ao_alloc_list_t * L;
 
-    ao_uint_t l1;
+    size_t l1;
 
-    ao_uint_t l2;
+    size_t l2;
 
-    ao_uint_t m;
+    size_t m;
 
     ao_alloc_list_node_t * N;
 
-    ao_uint_t s;
-
-    size_t t;
+    size_t s;
 
 
     // Ready.
 
-    t = B->head.size_body;
+    s = B->head.size_body;
 
-    s = (ao_uint_t) t;
-
-    l1 = ao_fls(s);
+    l1 = ao_flsz(s);
 
     l2 = (s >> (l1 - AO_ALLOC_L2_COUNT_LOG)) - (1 << AO_ALLOC_L2_COUNT_LOG);
 
-    i1 = (size_t) (l1 - AO_ALLOC_L1_INDEX_MIN);
+    i1 = l1 - AO_ALLOC_L1_INDEX_MIN;
 
-    i2 = (size_t) (l2);
+    i2 = l2;
 
     N = &B->body.node;
 
@@ -10809,7 +10797,7 @@ bool ao_release_3(void * p)
 
     bool r;
 
-    ao_uint_t R;
+    size_t R;
 
 #if AO_ALLOC_ALLOCATED                                                  ||  \
     AO_ALLOC_ALLOCATED_MAX                                              ||  \
@@ -10970,7 +10958,7 @@ bool ao_retain_3(void * p)
 
     bool r;
 
-    ao_uint_t R;
+    size_t R;
 
 
     // Ready.
