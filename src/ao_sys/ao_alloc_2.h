@@ -40,6 +40,8 @@
 
 // ----------------------------------------------------------------------------
 
+#include <ao_int.h>
+#include <ao_mathi.h>
 #include <stdbool.h>
 #include <stddef.h>
 
@@ -55,13 +57,13 @@
 
 #ifndef AO_ALLOC_ALLOCATED
 
-#define AO_ALLOC_ALLOCATED      (false)
+#define AO_ALLOC_ALLOCATED          (false)
 
 #endif
 
 #ifndef AO_ALLOC_ALLOCATED_MAX
 
-#define AO_ALLOC_ALLOCATED_MAX  (false)
+#define AO_ALLOC_ALLOCATED_MAX      (false)
 
 #endif
 
@@ -69,13 +71,13 @@
 
 #ifndef AO_ALLOC_FREE
 
-#define AO_ALLOC_FREE           (false)
+#define AO_ALLOC_FREE               (false)
 
 #endif
 
 #ifndef AO_ALLOC_FREE_MIN
 
-#define AO_ALLOC_FREE_MIN       (false)
+#define AO_ALLOC_FREE_MIN           (false)
 
 #endif
 
@@ -97,7 +99,21 @@
 
 #ifndef AO_ALLOC_SEGREGATION
 
-#define AO_ALLOC_SEGREGATION    (3)
+#define AO_ALLOC_SEGREGATION        (3)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_ALLOC_SEGREGATION_MIN
+
+#define AO_ALLOC_SEGREGATION_MIN    (0)
+
+#endif
+
+#ifndef AO_ALLOC_SEGREGATION_MAX
+
+#define AO_ALLOC_SEGREGATION_MAX    (ao_log2u(AO_UINT_BITS))
 
 #endif
 
@@ -105,18 +121,18 @@
 
 #ifndef AO_ALLOC_SIZE
 
-#define AO_ALLOC_SIZE           (8192)
+#define AO_ALLOC_SIZE               (8192)
 
 #endif
 
 // ----------------------------------------------------------------------------
 
-extern  size_t      volatile    ao_alloc_allocated;
+extern  size_t          volatile    ao_alloc_allocated;
 
-extern  size_t      volatile    ao_alloc_allocated_max;
+extern  size_t          volatile    ao_alloc_allocated_max;
 
-extern  size_t      volatile    ao_alloc_free;
+extern  size_t          volatile    ao_alloc_free;
 
-extern  size_t      volatile    ao_alloc_free_min;
+extern  size_t          volatile    ao_alloc_free_min;
 
 // ----------------------------------------------------------------------------

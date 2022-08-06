@@ -2389,7 +2389,17 @@ bool ao_retain_2(void * p)
 
 // ----------------------------------------------------------------------------
 
-#define AO_ALLOC_REF_MAX                ((1 << (AO_UINT_BITS - AO_UINT_BITS_LOG + 1)) - 1)
+#define AO_ALLOC_POOL_BITS              (ao_log2u(AO_UINT_BITS))
+
+// ----------------------------------------------------------------------------
+
+#define AO_ALLOC_REF_BITS               (AO_UINT_BITS - AO_ALLOC_POOL_BITS)
+
+// ----------------------------------------------------------------------------
+
+#define AO_ALLOC_REF_MAX                ((1 << (AO_ALLOC_REF_BITS + 1)) - 1)
+
+#define AO_ALLOC_REF_MIN                (0)
 
 // ----------------------------------------------------------------------------
 
@@ -2525,9 +2535,9 @@ typedef struct  ao_alloc_pool_node_63_t ao_alloc_pool_node_63_t;
 
 struct  ao_alloc_pool_node_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2543,9 +2553,9 @@ struct  ao_alloc_pool_node_t
 
 struct  ao_alloc_pool_node_0_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2559,9 +2569,9 @@ struct  ao_alloc_pool_node_0_t
 
 struct  ao_alloc_pool_node_1_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2575,9 +2585,9 @@ struct  ao_alloc_pool_node_1_t
 
 struct  ao_alloc_pool_node_2_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2591,9 +2601,9 @@ struct  ao_alloc_pool_node_2_t
 
 struct  ao_alloc_pool_node_3_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2607,9 +2617,9 @@ struct  ao_alloc_pool_node_3_t
 
 struct  ao_alloc_pool_node_4_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2623,9 +2633,9 @@ struct  ao_alloc_pool_node_4_t
 
 struct  ao_alloc_pool_node_5_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2639,9 +2649,9 @@ struct  ao_alloc_pool_node_5_t
 
 struct  ao_alloc_pool_node_6_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2655,9 +2665,9 @@ struct  ao_alloc_pool_node_6_t
 
 struct  ao_alloc_pool_node_7_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2671,9 +2681,9 @@ struct  ao_alloc_pool_node_7_t
 
 struct  ao_alloc_pool_node_8_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2687,9 +2697,9 @@ struct  ao_alloc_pool_node_8_t
 
 struct  ao_alloc_pool_node_9_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2703,9 +2713,9 @@ struct  ao_alloc_pool_node_9_t
 
 struct  ao_alloc_pool_node_10_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2719,9 +2729,9 @@ struct  ao_alloc_pool_node_10_t
 
 struct  ao_alloc_pool_node_11_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2735,9 +2745,9 @@ struct  ao_alloc_pool_node_11_t
 
 struct  ao_alloc_pool_node_12_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2751,9 +2761,9 @@ struct  ao_alloc_pool_node_12_t
 
 struct  ao_alloc_pool_node_13_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2767,9 +2777,9 @@ struct  ao_alloc_pool_node_13_t
 
 struct  ao_alloc_pool_node_14_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2783,9 +2793,9 @@ struct  ao_alloc_pool_node_14_t
 
 struct  ao_alloc_pool_node_15_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2799,9 +2809,9 @@ struct  ao_alloc_pool_node_15_t
 
 struct  ao_alloc_pool_node_16_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2815,9 +2825,9 @@ struct  ao_alloc_pool_node_16_t
 
 struct  ao_alloc_pool_node_17_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2831,9 +2841,9 @@ struct  ao_alloc_pool_node_17_t
 
 struct  ao_alloc_pool_node_18_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2847,9 +2857,9 @@ struct  ao_alloc_pool_node_18_t
 
 struct  ao_alloc_pool_node_19_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2863,9 +2873,9 @@ struct  ao_alloc_pool_node_19_t
 
 struct  ao_alloc_pool_node_20_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2879,9 +2889,9 @@ struct  ao_alloc_pool_node_20_t
 
 struct  ao_alloc_pool_node_21_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2895,9 +2905,9 @@ struct  ao_alloc_pool_node_21_t
 
 struct  ao_alloc_pool_node_22_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2911,9 +2921,9 @@ struct  ao_alloc_pool_node_22_t
 
 struct  ao_alloc_pool_node_23_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2927,9 +2937,9 @@ struct  ao_alloc_pool_node_23_t
 
 struct  ao_alloc_pool_node_24_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2943,9 +2953,9 @@ struct  ao_alloc_pool_node_24_t
 
 struct  ao_alloc_pool_node_25_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2959,9 +2969,9 @@ struct  ao_alloc_pool_node_25_t
 
 struct  ao_alloc_pool_node_26_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2975,9 +2985,9 @@ struct  ao_alloc_pool_node_26_t
 
 struct  ao_alloc_pool_node_27_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2991,9 +3001,9 @@ struct  ao_alloc_pool_node_27_t
 
 struct  ao_alloc_pool_node_28_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3007,9 +3017,9 @@ struct  ao_alloc_pool_node_28_t
 
 struct  ao_alloc_pool_node_29_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3023,9 +3033,9 @@ struct  ao_alloc_pool_node_29_t
 
 struct  ao_alloc_pool_node_30_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3039,9 +3049,9 @@ struct  ao_alloc_pool_node_30_t
 
 struct  ao_alloc_pool_node_31_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3055,9 +3065,9 @@ struct  ao_alloc_pool_node_31_t
 
 struct  ao_alloc_pool_node_32_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3071,9 +3081,9 @@ struct  ao_alloc_pool_node_32_t
 
 struct  ao_alloc_pool_node_33_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3087,9 +3097,9 @@ struct  ao_alloc_pool_node_33_t
 
 struct  ao_alloc_pool_node_34_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3103,9 +3113,9 @@ struct  ao_alloc_pool_node_34_t
 
 struct  ao_alloc_pool_node_35_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3119,9 +3129,9 @@ struct  ao_alloc_pool_node_35_t
 
 struct  ao_alloc_pool_node_36_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3135,9 +3145,9 @@ struct  ao_alloc_pool_node_36_t
 
 struct  ao_alloc_pool_node_37_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3151,9 +3161,9 @@ struct  ao_alloc_pool_node_37_t
 
 struct  ao_alloc_pool_node_38_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3167,9 +3177,9 @@ struct  ao_alloc_pool_node_38_t
 
 struct  ao_alloc_pool_node_39_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3183,9 +3193,9 @@ struct  ao_alloc_pool_node_39_t
 
 struct  ao_alloc_pool_node_40_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3199,9 +3209,9 @@ struct  ao_alloc_pool_node_40_t
 
 struct  ao_alloc_pool_node_41_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3215,9 +3225,9 @@ struct  ao_alloc_pool_node_41_t
 
 struct  ao_alloc_pool_node_42_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3231,9 +3241,9 @@ struct  ao_alloc_pool_node_42_t
 
 struct  ao_alloc_pool_node_43_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3247,9 +3257,9 @@ struct  ao_alloc_pool_node_43_t
 
 struct  ao_alloc_pool_node_44_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3263,9 +3273,9 @@ struct  ao_alloc_pool_node_44_t
 
 struct  ao_alloc_pool_node_45_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3279,9 +3289,9 @@ struct  ao_alloc_pool_node_45_t
 
 struct  ao_alloc_pool_node_46_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3295,9 +3305,9 @@ struct  ao_alloc_pool_node_46_t
 
 struct  ao_alloc_pool_node_47_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3311,9 +3321,9 @@ struct  ao_alloc_pool_node_47_t
 
 struct  ao_alloc_pool_node_48_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3327,9 +3337,9 @@ struct  ao_alloc_pool_node_48_t
 
 struct  ao_alloc_pool_node_49_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3343,9 +3353,9 @@ struct  ao_alloc_pool_node_49_t
 
 struct  ao_alloc_pool_node_50_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3359,9 +3369,9 @@ struct  ao_alloc_pool_node_50_t
 
 struct  ao_alloc_pool_node_51_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3375,9 +3385,9 @@ struct  ao_alloc_pool_node_51_t
 
 struct  ao_alloc_pool_node_52_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3391,9 +3401,9 @@ struct  ao_alloc_pool_node_52_t
 
 struct  ao_alloc_pool_node_53_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3407,9 +3417,9 @@ struct  ao_alloc_pool_node_53_t
 
 struct  ao_alloc_pool_node_54_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3423,9 +3433,9 @@ struct  ao_alloc_pool_node_54_t
 
 struct  ao_alloc_pool_node_55_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3439,9 +3449,9 @@ struct  ao_alloc_pool_node_55_t
 
 struct  ao_alloc_pool_node_56_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3455,9 +3465,9 @@ struct  ao_alloc_pool_node_56_t
 
 struct  ao_alloc_pool_node_57_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3471,9 +3481,9 @@ struct  ao_alloc_pool_node_57_t
 
 struct  ao_alloc_pool_node_58_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3487,9 +3497,9 @@ struct  ao_alloc_pool_node_58_t
 
 struct  ao_alloc_pool_node_59_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3503,9 +3513,9 @@ struct  ao_alloc_pool_node_59_t
 
 struct  ao_alloc_pool_node_60_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3519,9 +3529,9 @@ struct  ao_alloc_pool_node_60_t
 
 struct  ao_alloc_pool_node_61_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3535,9 +3545,9 @@ struct  ao_alloc_pool_node_61_t
 
 struct  ao_alloc_pool_node_62_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3551,9 +3561,9 @@ struct  ao_alloc_pool_node_62_t
 
 struct  ao_alloc_pool_node_63_t
 {
-    ao_uint_t                           pool    : AO_UINT_BITS_LOG;
+    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_UINT_BITS - AO_UINT_BITS_LOG;
+    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -10640,9 +10650,9 @@ void ao_boot_alloc()
 {
     // Assert.
 
-    ao_assert(AO_ALLOC_SEGREGATION >= 0);
+    ao_assert(AO_ALLOC_SEGREGATION >= AO_ALLOC_SEGREGATION_MIN);
 
-    ao_assert(AO_ALLOC_SEGREGATION <= AO_UINT_BITS_LOG);
+    ao_assert(AO_ALLOC_SEGREGATION <= AO_ALLOC_SEGREGATION_MAX);
 
 
     // Assert.
