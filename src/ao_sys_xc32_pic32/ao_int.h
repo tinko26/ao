@@ -29,19 +29,16 @@
 // ----------------------------------------------------------------------------
 
 #include <stdint.h>
-#include <xc.h>
 
 // ----------------------------------------------------------------------------
 
-typedef int32_t             ao_int_t;
-
-typedef uint32_t            ao_uint_t;
+typedef int32_t         ao_int_t;
 
 // ----------------------------------------------------------------------------
 
 #ifndef AO_INT_BITS
 
-#define AO_INT_BITS         (32)
+#define AO_INT_BITS     (32)
 
 #endif
 
@@ -49,13 +46,13 @@ typedef uint32_t            ao_uint_t;
 
 #ifndef AO_INT_MAX
 
-#define AO_INT_MAX          (INT32_MAX)
+#define AO_INT_MAX      (INT32_MAX)
 
 #endif
 
 #ifndef AO_INT_MIN
 
-#define AO_INT_MIN          (INT32_MIN)
+#define AO_INT_MIN      (INT32_MIN)
 
 #endif
 
@@ -63,77 +60,7 @@ typedef uint32_t            ao_uint_t;
 
 #ifndef AO_INT_SIZE
 
-#define AO_INT_SIZE         (4)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#ifndef AO_UINT_BITS
-
-#define AO_UINT_BITS        (32)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#ifndef AO_UINT_MAX
-
-#define AO_UINT_MAX         (UINT32_MAX)
-
-#endif
-
-#ifndef AO_UINT_MIN
-
-#define AO_UINT_MIN         (0)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#ifndef AO_UINT_SIZE
-
-#define AO_UINT_SIZE        (4)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#ifndef ao_clo
-
-#define ao_clo(x)           _clo(x)
-
-#endif
-
-#ifndef ao_clz
-
-#define ao_clz(x)           _clz(x)
-
-#endif
-
-#ifndef ao_cto
-
-#define ao_cto(x)           _ctz(~(x))
-
-#endif
-
-#ifndef ao_ctz
-
-#define ao_ctz(x)           _ctz(x)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#ifndef ao_ffs
-
-#define ao_ffs(x)           _ctz(x)
-
-#endif
-
-#ifndef ao_fls
-
-#define ao_fls(x)           (31 - _clz(x))
+#define AO_INT_SIZE     (4)
 
 #endif
 

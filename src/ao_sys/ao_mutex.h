@@ -29,10 +29,10 @@
 // ----------------------------------------------------------------------------
 
 #include <ao_async.h>
-#include <ao_int.h>
 #include <ao_list.h>
 #include <ao_task.h>
 #include <ao_time.h>
+#include <ao_uint.h>
 #include <stdbool.h>
 
 // ----------------------------------------------------------------------------

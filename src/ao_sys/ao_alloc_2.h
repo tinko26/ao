@@ -40,8 +40,8 @@
 
 // ----------------------------------------------------------------------------
 
-#include <ao_int.h>
 #include <ao_mathi.h>
+#include <ao_uint.h>
 #include <stdbool.h>
 #include <stddef.h>
 

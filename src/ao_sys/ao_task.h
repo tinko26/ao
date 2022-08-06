@@ -39,6 +39,7 @@
 #include <ao_func.h>
 #include <ao_int.h>
 #include <ao_time.h>
+#include <ao_uint.h>
 
 // ----------------------------------------------------------------------------
 

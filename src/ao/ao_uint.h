@@ -24,80 +24,60 @@
 
 // ----------------------------------------------------------------------------
 
-// Barrier.
+// Unsigned integers.
 
 // ----------------------------------------------------------------------------
 
-#include <ao_async.h>
-#include <ao_list.h>
-#include <ao_time.h>
-#include <ao_uint.h>
-#include <stdbool.h>
+#include <stdint.h>
 
 // ----------------------------------------------------------------------------
 
-typedef struct  ao_barrier_t        ao_barrier_t;
-
-typedef struct  ao_barrier_wait_t   ao_barrier_wait_t;
+typedef     uint32_t        ao_uint_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_BARRIER
+#ifndef     AO_UINT_BITS
 
-#define AO_BARRIER
-
-// ----------------------------------------------------------------------------
-
-struct  ao_barrier_t
-{
-        ao_uint_t                   count;
-
-        ao_uint_t                   count_threshold;
-
-        ao_list_t                   list;
-};
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#ifndef AO_BARRIER_WAIT
-
-#define AO_BARRIER_WAIT
-
-// ----------------------------------------------------------------------------
-
-struct  ao_barrier_wait_t
-{
-        ao_async_t                  async;
-
-        ao_barrier_t *              barrier;
-
-        ao_list_node_t              node;
-
-        bool            volatile    result;
-};
-
-// ----------------------------------------------------------------------------
+#define     AO_UINT_BITS    (32)
 
 #endif
 
 // ----------------------------------------------------------------------------
 
-bool    ao_barrier_wait(            ao_barrier_t * x, ao_time_t timeout);
+#ifndef     AO_UINT_MAX
 
-bool    ao_barrier_wait_from(       ao_barrier_t * x, ao_time_t timeout, ao_time_t beginning);
+#define     AO_UINT_MAX     (UINT32_MAX)
 
-bool    ao_barrier_wait_forever(    ao_barrier_t * x);
+#endif
+
+#ifndef     AO_UINT_MIN
+
+#define     AO_UINT_MIN     (0)
+
+#endif
 
 // ----------------------------------------------------------------------------
 
-bool    ao_barrier_wait_try(        ao_barrier_t * x);
+#ifndef     AO_UINT_SIZE
+
+#define     AO_UINT_SIZE    (4)
+
+#endif
 
 // ----------------------------------------------------------------------------
 
-void    ao_barrier_wait_begin(      ao_barrier_wait_t * x);
+ao_uint_t   ao_clo(ao_uint_t x);
 
-void    ao_barrier_wait_end(        ao_barrier_wait_t * x);
+ao_uint_t   ao_clz(ao_uint_t x);
+
+ao_uint_t   ao_cto(ao_uint_t x);
+
+ao_uint_t   ao_ctz(ao_uint_t x);
+
+// ----------------------------------------------------------------------------
+
+ao_uint_t   ao_ffs(ao_uint_t x);
+
+ao_uint_t   ao_fls(ao_uint_t x);
 
 // ----------------------------------------------------------------------------

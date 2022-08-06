@@ -32,107 +32,35 @@
 
 // ----------------------------------------------------------------------------
 
-typedef     int32_t             ao_int_t;
-
-typedef     uint32_t            ao_uint_t;
+typedef int32_t         ao_int_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef     AO_INT_BITS
+#ifndef AO_INT_BITS
 
-#define     AO_INT_BITS         (32)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#ifndef     AO_INT_MAX
-
-#define     AO_INT_MAX          (INT32_MAX)
-
-#endif
-
-#ifndef     AO_INT_MIN
-
-#define     AO_INT_MIN          (INT32_MIN)
+#define AO_INT_BITS     (32)
 
 #endif
 
 // ----------------------------------------------------------------------------
 
-#ifndef     AO_INT_SIZE
+#ifndef AO_INT_MAX
 
-#define     AO_INT_SIZE         (4)
+#define AO_INT_MAX      (INT32_MAX)
+
+#endif
+
+#ifndef AO_INT_MIN
+
+#define AO_INT_MIN      (INT32_MIN)
 
 #endif
 
 // ----------------------------------------------------------------------------
 
-#ifndef     AO_UINT_BITS
+#ifndef AO_INT_SIZE
 
-#define     AO_UINT_BITS        (32)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#ifndef     AO_UINT_MAX
-
-#define     AO_UINT_MAX         (UINT32_MAX)
-
-#endif
-
-#ifndef     AO_UINT_MIN
-
-#define     AO_UINT_MIN         (0)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#ifndef     AO_UINT_SIZE
-
-#define     AO_UINT_SIZE        (4)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#ifndef     ao_clo
-
-ao_uint_t   ao_clo(ao_uint_t x);
-
-#endif
-
-#ifndef     ao_clz
-
-ao_uint_t   ao_clz(ao_uint_t x);
-
-#endif
-
-#ifndef     ao_cto
-
-ao_uint_t   ao_cto(ao_uint_t x);
-
-#endif
-
-#ifndef     ao_ctz
-
-ao_uint_t   ao_ctz(ao_uint_t x);
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#ifndef     ao_ffs
-
-ao_uint_t   ao_ffs(ao_uint_t x);
-
-#endif
-
-#ifndef     ao_fls
-
-ao_uint_t   ao_fls(ao_uint_t x);
+#define AO_INT_SIZE     (4)
 
 #endif
 
