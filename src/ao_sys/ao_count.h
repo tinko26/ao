@@ -42,20 +42,6 @@ typedef     uint32_t            ao_count_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef     AO_COUNT_BITS
-
-#define     AO_COUNT_BITS       (32)
-
-#endif
-
-#ifndef     AO_COUNT_BITS_LOG
-
-#define     AO_COUNT_BITS_LOG   (5)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
 #ifndef     AO_COUNT_SIZE
 
 #define     AO_COUNT_SIZE       (4)
