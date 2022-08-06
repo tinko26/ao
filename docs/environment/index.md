@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-04
+date: 2022-08-06
 description: "The Runtime Environment of the ao Real-Time Operating System (RTOS)."
 draft: true
 permalink: /environment/
@@ -23,10 +23,12 @@ title: "Environment"
 ## Types
 
 - [characters](char.md)
-- [integers](int.md)
 - [floating-point numbers](float.md)
 - [functions](func.md)
 - [random value generators](rand.md)
+- [signed integers](int.md)
+- [sizes](size.md)
+- [unsigned integers](uint.md)
 
 ## Utilities
 
@@ -34,7 +36,6 @@ title: "Environment"
 - [linear-feedback shift registers](lfsr.md)
 - [mathematics](math.md)
 - [mathematics for floating-point numbers](mathf.md)
-- [mathematics for integers](mathi.md)
 - [memory blocks](mem.md)
 - [printing](print.md)
 - [scanning](scan.md)
