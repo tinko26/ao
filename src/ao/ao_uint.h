@@ -88,6 +88,10 @@ ao_uint_t   ao_fls(ao_uint_t x);
 
 // ----------------------------------------------------------------------------
 
+ao_uint_t   ao_log2u(ao_uint_t x);
+
+// ----------------------------------------------------------------------------
+
 #ifndef     ao_log2u2
 
 #define     ao_log2u2(x)        ((x) & 0x0000000000000002U ?  1                         : 0            )
@@ -121,14 +125,6 @@ ao_uint_t   ao_fls(ao_uint_t x);
 #ifndef     ao_log2u64
 
 #define     ao_log2u64(x)       ((x) & 0xFFFFFFFF00000000U ? 32 + ao_log2u32((x) >> 32) : ao_log2u32(x))
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#ifndef     ao_log2u
-
-#define     ao_log2u(x)         ao_log2u32(x)
 
 #endif
 
