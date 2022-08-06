@@ -39,20 +39,6 @@ typedef uint32_t            ao_uint_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_INT_BITS
-
-#define AO_INT_BITS         (32)
-
-#endif
-
-#ifndef AO_INT_BITS_LOG
-
-#define AO_INT_BITS_LOG     (5)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
 #ifndef AO_INT_SIZE
 
 #define AO_INT_SIZE         (4)
