@@ -42,20 +42,6 @@ typedef     uint32_t            ao_count_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef     AO_COUNT_SIZE
-
-#define     AO_COUNT_SIZE       (4)
-
-#endif
-
-#ifndef     AO_COUNT_SIZE_LOG
-
-#define     AO_COUNT_SIZE_LOG   (2)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
 #ifndef     AO_COUNT_MAX
 
 #define     AO_COUNT_MAX        (UINT32_MAX)
