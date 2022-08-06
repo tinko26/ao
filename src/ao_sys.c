@@ -2259,141 +2259,141 @@ bool ao_retain_2(void * p)
 
 // ----------------------------------------------------------------------------
 
-#define AO_ALLOC_POOL_0                 (AO_ALLOC_POOL_BLOCK_COUNT_0  > 0 && AO_ALLOC_POOL_BLOCK_SIZE_0  > 0 && AO_UINT_BITS >  0)
+#define AO_ALLOC_POOL_0                 (AO_ALLOC_POOL_BLOCK_COUNT_0  > 0 && AO_ALLOC_POOL_BLOCK_SIZE_0  > 0 && AO_SIZE_BITS >  0)
 
-#define AO_ALLOC_POOL_1                 (AO_ALLOC_POOL_BLOCK_COUNT_1  > 0 && AO_ALLOC_POOL_BLOCK_SIZE_1  > 0 && AO_UINT_BITS >  1)
+#define AO_ALLOC_POOL_1                 (AO_ALLOC_POOL_BLOCK_COUNT_1  > 0 && AO_ALLOC_POOL_BLOCK_SIZE_1  > 0 && AO_SIZE_BITS >  1)
 
-#define AO_ALLOC_POOL_2                 (AO_ALLOC_POOL_BLOCK_COUNT_2  > 0 && AO_ALLOC_POOL_BLOCK_SIZE_2  > 0 && AO_UINT_BITS >  2)
+#define AO_ALLOC_POOL_2                 (AO_ALLOC_POOL_BLOCK_COUNT_2  > 0 && AO_ALLOC_POOL_BLOCK_SIZE_2  > 0 && AO_SIZE_BITS >  2)
 
-#define AO_ALLOC_POOL_3                 (AO_ALLOC_POOL_BLOCK_COUNT_3  > 0 && AO_ALLOC_POOL_BLOCK_SIZE_3  > 0 && AO_UINT_BITS >  3)
+#define AO_ALLOC_POOL_3                 (AO_ALLOC_POOL_BLOCK_COUNT_3  > 0 && AO_ALLOC_POOL_BLOCK_SIZE_3  > 0 && AO_SIZE_BITS >  3)
 
-#define AO_ALLOC_POOL_4                 (AO_ALLOC_POOL_BLOCK_COUNT_4  > 0 && AO_ALLOC_POOL_BLOCK_SIZE_4  > 0 && AO_UINT_BITS >  4)
+#define AO_ALLOC_POOL_4                 (AO_ALLOC_POOL_BLOCK_COUNT_4  > 0 && AO_ALLOC_POOL_BLOCK_SIZE_4  > 0 && AO_SIZE_BITS >  4)
 
-#define AO_ALLOC_POOL_5                 (AO_ALLOC_POOL_BLOCK_COUNT_5  > 0 && AO_ALLOC_POOL_BLOCK_SIZE_5  > 0 && AO_UINT_BITS >  5)
+#define AO_ALLOC_POOL_5                 (AO_ALLOC_POOL_BLOCK_COUNT_5  > 0 && AO_ALLOC_POOL_BLOCK_SIZE_5  > 0 && AO_SIZE_BITS >  5)
 
-#define AO_ALLOC_POOL_6                 (AO_ALLOC_POOL_BLOCK_COUNT_6  > 0 && AO_ALLOC_POOL_BLOCK_SIZE_6  > 0 && AO_UINT_BITS >  6)
+#define AO_ALLOC_POOL_6                 (AO_ALLOC_POOL_BLOCK_COUNT_6  > 0 && AO_ALLOC_POOL_BLOCK_SIZE_6  > 0 && AO_SIZE_BITS >  6)
 
-#define AO_ALLOC_POOL_7                 (AO_ALLOC_POOL_BLOCK_COUNT_7  > 0 && AO_ALLOC_POOL_BLOCK_SIZE_7  > 0 && AO_UINT_BITS >  7)
+#define AO_ALLOC_POOL_7                 (AO_ALLOC_POOL_BLOCK_COUNT_7  > 0 && AO_ALLOC_POOL_BLOCK_SIZE_7  > 0 && AO_SIZE_BITS >  7)
 
-#define AO_ALLOC_POOL_8                 (AO_ALLOC_POOL_BLOCK_COUNT_8  > 0 && AO_ALLOC_POOL_BLOCK_SIZE_8  > 0 && AO_UINT_BITS >  8)
+#define AO_ALLOC_POOL_8                 (AO_ALLOC_POOL_BLOCK_COUNT_8  > 0 && AO_ALLOC_POOL_BLOCK_SIZE_8  > 0 && AO_SIZE_BITS >  8)
 
-#define AO_ALLOC_POOL_9                 (AO_ALLOC_POOL_BLOCK_COUNT_9  > 0 && AO_ALLOC_POOL_BLOCK_SIZE_9  > 0 && AO_UINT_BITS >  9)
+#define AO_ALLOC_POOL_9                 (AO_ALLOC_POOL_BLOCK_COUNT_9  > 0 && AO_ALLOC_POOL_BLOCK_SIZE_9  > 0 && AO_SIZE_BITS >  9)
 
-#define AO_ALLOC_POOL_10                (AO_ALLOC_POOL_BLOCK_COUNT_10 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_10 > 0 && AO_UINT_BITS > 10)
+#define AO_ALLOC_POOL_10                (AO_ALLOC_POOL_BLOCK_COUNT_10 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_10 > 0 && AO_SIZE_BITS > 10)
 
-#define AO_ALLOC_POOL_11                (AO_ALLOC_POOL_BLOCK_COUNT_11 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_11 > 0 && AO_UINT_BITS > 11)
+#define AO_ALLOC_POOL_11                (AO_ALLOC_POOL_BLOCK_COUNT_11 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_11 > 0 && AO_SIZE_BITS > 11)
 
-#define AO_ALLOC_POOL_12                (AO_ALLOC_POOL_BLOCK_COUNT_12 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_12 > 0 && AO_UINT_BITS > 12)
+#define AO_ALLOC_POOL_12                (AO_ALLOC_POOL_BLOCK_COUNT_12 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_12 > 0 && AO_SIZE_BITS > 12)
 
-#define AO_ALLOC_POOL_13                (AO_ALLOC_POOL_BLOCK_COUNT_13 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_13 > 0 && AO_UINT_BITS > 13)
+#define AO_ALLOC_POOL_13                (AO_ALLOC_POOL_BLOCK_COUNT_13 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_13 > 0 && AO_SIZE_BITS > 13)
 
-#define AO_ALLOC_POOL_14                (AO_ALLOC_POOL_BLOCK_COUNT_14 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_14 > 0 && AO_UINT_BITS > 14)
+#define AO_ALLOC_POOL_14                (AO_ALLOC_POOL_BLOCK_COUNT_14 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_14 > 0 && AO_SIZE_BITS > 14)
 
-#define AO_ALLOC_POOL_15                (AO_ALLOC_POOL_BLOCK_COUNT_15 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_15 > 0 && AO_UINT_BITS > 15)
+#define AO_ALLOC_POOL_15                (AO_ALLOC_POOL_BLOCK_COUNT_15 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_15 > 0 && AO_SIZE_BITS > 15)
 
-#define AO_ALLOC_POOL_16                (AO_ALLOC_POOL_BLOCK_COUNT_16 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_16 > 0 && AO_UINT_BITS > 16)
+#define AO_ALLOC_POOL_16                (AO_ALLOC_POOL_BLOCK_COUNT_16 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_16 > 0 && AO_SIZE_BITS > 16)
 
-#define AO_ALLOC_POOL_17                (AO_ALLOC_POOL_BLOCK_COUNT_17 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_17 > 0 && AO_UINT_BITS > 17)
+#define AO_ALLOC_POOL_17                (AO_ALLOC_POOL_BLOCK_COUNT_17 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_17 > 0 && AO_SIZE_BITS > 17)
 
-#define AO_ALLOC_POOL_18                (AO_ALLOC_POOL_BLOCK_COUNT_18 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_18 > 0 && AO_UINT_BITS > 18)
+#define AO_ALLOC_POOL_18                (AO_ALLOC_POOL_BLOCK_COUNT_18 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_18 > 0 && AO_SIZE_BITS > 18)
 
-#define AO_ALLOC_POOL_19                (AO_ALLOC_POOL_BLOCK_COUNT_19 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_19 > 0 && AO_UINT_BITS > 19)
+#define AO_ALLOC_POOL_19                (AO_ALLOC_POOL_BLOCK_COUNT_19 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_19 > 0 && AO_SIZE_BITS > 19)
 
-#define AO_ALLOC_POOL_20                (AO_ALLOC_POOL_BLOCK_COUNT_20 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_20 > 0 && AO_UINT_BITS > 20)
+#define AO_ALLOC_POOL_20                (AO_ALLOC_POOL_BLOCK_COUNT_20 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_20 > 0 && AO_SIZE_BITS > 20)
 
-#define AO_ALLOC_POOL_21                (AO_ALLOC_POOL_BLOCK_COUNT_21 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_21 > 0 && AO_UINT_BITS > 21)
+#define AO_ALLOC_POOL_21                (AO_ALLOC_POOL_BLOCK_COUNT_21 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_21 > 0 && AO_SIZE_BITS > 21)
 
-#define AO_ALLOC_POOL_22                (AO_ALLOC_POOL_BLOCK_COUNT_22 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_22 > 0 && AO_UINT_BITS > 22)
+#define AO_ALLOC_POOL_22                (AO_ALLOC_POOL_BLOCK_COUNT_22 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_22 > 0 && AO_SIZE_BITS > 22)
 
-#define AO_ALLOC_POOL_23                (AO_ALLOC_POOL_BLOCK_COUNT_23 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_23 > 0 && AO_UINT_BITS > 23)
+#define AO_ALLOC_POOL_23                (AO_ALLOC_POOL_BLOCK_COUNT_23 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_23 > 0 && AO_SIZE_BITS > 23)
 
-#define AO_ALLOC_POOL_24                (AO_ALLOC_POOL_BLOCK_COUNT_24 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_24 > 0 && AO_UINT_BITS > 24)
+#define AO_ALLOC_POOL_24                (AO_ALLOC_POOL_BLOCK_COUNT_24 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_24 > 0 && AO_SIZE_BITS > 24)
 
-#define AO_ALLOC_POOL_25                (AO_ALLOC_POOL_BLOCK_COUNT_25 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_25 > 0 && AO_UINT_BITS > 25)
+#define AO_ALLOC_POOL_25                (AO_ALLOC_POOL_BLOCK_COUNT_25 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_25 > 0 && AO_SIZE_BITS > 25)
 
-#define AO_ALLOC_POOL_26                (AO_ALLOC_POOL_BLOCK_COUNT_26 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_26 > 0 && AO_UINT_BITS > 26)
+#define AO_ALLOC_POOL_26                (AO_ALLOC_POOL_BLOCK_COUNT_26 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_26 > 0 && AO_SIZE_BITS > 26)
 
-#define AO_ALLOC_POOL_27                (AO_ALLOC_POOL_BLOCK_COUNT_27 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_27 > 0 && AO_UINT_BITS > 27)
+#define AO_ALLOC_POOL_27                (AO_ALLOC_POOL_BLOCK_COUNT_27 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_27 > 0 && AO_SIZE_BITS > 27)
 
-#define AO_ALLOC_POOL_28                (AO_ALLOC_POOL_BLOCK_COUNT_28 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_28 > 0 && AO_UINT_BITS > 28)
+#define AO_ALLOC_POOL_28                (AO_ALLOC_POOL_BLOCK_COUNT_28 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_28 > 0 && AO_SIZE_BITS > 28)
 
-#define AO_ALLOC_POOL_29                (AO_ALLOC_POOL_BLOCK_COUNT_29 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_29 > 0 && AO_UINT_BITS > 29)
+#define AO_ALLOC_POOL_29                (AO_ALLOC_POOL_BLOCK_COUNT_29 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_29 > 0 && AO_SIZE_BITS > 29)
 
-#define AO_ALLOC_POOL_30                (AO_ALLOC_POOL_BLOCK_COUNT_30 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_30 > 0 && AO_UINT_BITS > 30)
+#define AO_ALLOC_POOL_30                (AO_ALLOC_POOL_BLOCK_COUNT_30 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_30 > 0 && AO_SIZE_BITS > 30)
 
-#define AO_ALLOC_POOL_31                (AO_ALLOC_POOL_BLOCK_COUNT_31 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_31 > 0 && AO_UINT_BITS > 31)
+#define AO_ALLOC_POOL_31                (AO_ALLOC_POOL_BLOCK_COUNT_31 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_31 > 0 && AO_SIZE_BITS > 31)
 
-#define AO_ALLOC_POOL_32                (AO_ALLOC_POOL_BLOCK_COUNT_32 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_32 > 0 && AO_UINT_BITS > 32)
+#define AO_ALLOC_POOL_32                (AO_ALLOC_POOL_BLOCK_COUNT_32 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_32 > 0 && AO_SIZE_BITS > 32)
 
-#define AO_ALLOC_POOL_33                (AO_ALLOC_POOL_BLOCK_COUNT_33 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_33 > 0 && AO_UINT_BITS > 33)
+#define AO_ALLOC_POOL_33                (AO_ALLOC_POOL_BLOCK_COUNT_33 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_33 > 0 && AO_SIZE_BITS > 33)
 
-#define AO_ALLOC_POOL_34                (AO_ALLOC_POOL_BLOCK_COUNT_34 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_34 > 0 && AO_UINT_BITS > 34)
+#define AO_ALLOC_POOL_34                (AO_ALLOC_POOL_BLOCK_COUNT_34 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_34 > 0 && AO_SIZE_BITS > 34)
 
-#define AO_ALLOC_POOL_35                (AO_ALLOC_POOL_BLOCK_COUNT_35 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_35 > 0 && AO_UINT_BITS > 35)
+#define AO_ALLOC_POOL_35                (AO_ALLOC_POOL_BLOCK_COUNT_35 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_35 > 0 && AO_SIZE_BITS > 35)
 
-#define AO_ALLOC_POOL_36                (AO_ALLOC_POOL_BLOCK_COUNT_36 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_36 > 0 && AO_UINT_BITS > 36)
+#define AO_ALLOC_POOL_36                (AO_ALLOC_POOL_BLOCK_COUNT_36 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_36 > 0 && AO_SIZE_BITS > 36)
 
-#define AO_ALLOC_POOL_37                (AO_ALLOC_POOL_BLOCK_COUNT_37 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_37 > 0 && AO_UINT_BITS > 37)
+#define AO_ALLOC_POOL_37                (AO_ALLOC_POOL_BLOCK_COUNT_37 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_37 > 0 && AO_SIZE_BITS > 37)
 
-#define AO_ALLOC_POOL_38                (AO_ALLOC_POOL_BLOCK_COUNT_38 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_38 > 0 && AO_UINT_BITS > 38)
+#define AO_ALLOC_POOL_38                (AO_ALLOC_POOL_BLOCK_COUNT_38 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_38 > 0 && AO_SIZE_BITS > 38)
 
-#define AO_ALLOC_POOL_39                (AO_ALLOC_POOL_BLOCK_COUNT_39 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_39 > 0 && AO_UINT_BITS > 39)
+#define AO_ALLOC_POOL_39                (AO_ALLOC_POOL_BLOCK_COUNT_39 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_39 > 0 && AO_SIZE_BITS > 39)
 
-#define AO_ALLOC_POOL_40                (AO_ALLOC_POOL_BLOCK_COUNT_40 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_40 > 0 && AO_UINT_BITS > 40)
+#define AO_ALLOC_POOL_40                (AO_ALLOC_POOL_BLOCK_COUNT_40 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_40 > 0 && AO_SIZE_BITS > 40)
 
-#define AO_ALLOC_POOL_41                (AO_ALLOC_POOL_BLOCK_COUNT_41 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_41 > 0 && AO_UINT_BITS > 41)
+#define AO_ALLOC_POOL_41                (AO_ALLOC_POOL_BLOCK_COUNT_41 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_41 > 0 && AO_SIZE_BITS > 41)
 
-#define AO_ALLOC_POOL_42                (AO_ALLOC_POOL_BLOCK_COUNT_42 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_42 > 0 && AO_UINT_BITS > 42)
+#define AO_ALLOC_POOL_42                (AO_ALLOC_POOL_BLOCK_COUNT_42 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_42 > 0 && AO_SIZE_BITS > 42)
 
-#define AO_ALLOC_POOL_43                (AO_ALLOC_POOL_BLOCK_COUNT_43 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_43 > 0 && AO_UINT_BITS > 43)
+#define AO_ALLOC_POOL_43                (AO_ALLOC_POOL_BLOCK_COUNT_43 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_43 > 0 && AO_SIZE_BITS > 43)
 
-#define AO_ALLOC_POOL_44                (AO_ALLOC_POOL_BLOCK_COUNT_44 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_44 > 0 && AO_UINT_BITS > 44)
+#define AO_ALLOC_POOL_44                (AO_ALLOC_POOL_BLOCK_COUNT_44 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_44 > 0 && AO_SIZE_BITS > 44)
 
-#define AO_ALLOC_POOL_45                (AO_ALLOC_POOL_BLOCK_COUNT_45 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_45 > 0 && AO_UINT_BITS > 45)
+#define AO_ALLOC_POOL_45                (AO_ALLOC_POOL_BLOCK_COUNT_45 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_45 > 0 && AO_SIZE_BITS > 45)
 
-#define AO_ALLOC_POOL_46                (AO_ALLOC_POOL_BLOCK_COUNT_46 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_46 > 0 && AO_UINT_BITS > 46)
+#define AO_ALLOC_POOL_46                (AO_ALLOC_POOL_BLOCK_COUNT_46 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_46 > 0 && AO_SIZE_BITS > 46)
 
-#define AO_ALLOC_POOL_47                (AO_ALLOC_POOL_BLOCK_COUNT_47 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_47 > 0 && AO_UINT_BITS > 47)
+#define AO_ALLOC_POOL_47                (AO_ALLOC_POOL_BLOCK_COUNT_47 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_47 > 0 && AO_SIZE_BITS > 47)
 
-#define AO_ALLOC_POOL_48                (AO_ALLOC_POOL_BLOCK_COUNT_48 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_48 > 0 && AO_UINT_BITS > 48)
+#define AO_ALLOC_POOL_48                (AO_ALLOC_POOL_BLOCK_COUNT_48 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_48 > 0 && AO_SIZE_BITS > 48)
 
-#define AO_ALLOC_POOL_49                (AO_ALLOC_POOL_BLOCK_COUNT_49 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_49 > 0 && AO_UINT_BITS > 49)
+#define AO_ALLOC_POOL_49                (AO_ALLOC_POOL_BLOCK_COUNT_49 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_49 > 0 && AO_SIZE_BITS > 49)
 
-#define AO_ALLOC_POOL_50                (AO_ALLOC_POOL_BLOCK_COUNT_50 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_50 > 0 && AO_UINT_BITS > 50)
+#define AO_ALLOC_POOL_50                (AO_ALLOC_POOL_BLOCK_COUNT_50 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_50 > 0 && AO_SIZE_BITS > 50)
 
-#define AO_ALLOC_POOL_51                (AO_ALLOC_POOL_BLOCK_COUNT_51 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_51 > 0 && AO_UINT_BITS > 51)
+#define AO_ALLOC_POOL_51                (AO_ALLOC_POOL_BLOCK_COUNT_51 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_51 > 0 && AO_SIZE_BITS > 51)
 
-#define AO_ALLOC_POOL_52                (AO_ALLOC_POOL_BLOCK_COUNT_52 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_52 > 0 && AO_UINT_BITS > 52)
+#define AO_ALLOC_POOL_52                (AO_ALLOC_POOL_BLOCK_COUNT_52 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_52 > 0 && AO_SIZE_BITS > 52)
 
-#define AO_ALLOC_POOL_53                (AO_ALLOC_POOL_BLOCK_COUNT_53 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_53 > 0 && AO_UINT_BITS > 53)
+#define AO_ALLOC_POOL_53                (AO_ALLOC_POOL_BLOCK_COUNT_53 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_53 > 0 && AO_SIZE_BITS > 53)
 
-#define AO_ALLOC_POOL_54                (AO_ALLOC_POOL_BLOCK_COUNT_54 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_54 > 0 && AO_UINT_BITS > 54)
+#define AO_ALLOC_POOL_54                (AO_ALLOC_POOL_BLOCK_COUNT_54 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_54 > 0 && AO_SIZE_BITS > 54)
 
-#define AO_ALLOC_POOL_55                (AO_ALLOC_POOL_BLOCK_COUNT_55 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_55 > 0 && AO_UINT_BITS > 55)
+#define AO_ALLOC_POOL_55                (AO_ALLOC_POOL_BLOCK_COUNT_55 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_55 > 0 && AO_SIZE_BITS > 55)
 
-#define AO_ALLOC_POOL_56                (AO_ALLOC_POOL_BLOCK_COUNT_56 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_56 > 0 && AO_UINT_BITS > 56)
+#define AO_ALLOC_POOL_56                (AO_ALLOC_POOL_BLOCK_COUNT_56 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_56 > 0 && AO_SIZE_BITS > 56)
 
-#define AO_ALLOC_POOL_57                (AO_ALLOC_POOL_BLOCK_COUNT_57 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_57 > 0 && AO_UINT_BITS > 57)
+#define AO_ALLOC_POOL_57                (AO_ALLOC_POOL_BLOCK_COUNT_57 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_57 > 0 && AO_SIZE_BITS > 57)
 
-#define AO_ALLOC_POOL_58                (AO_ALLOC_POOL_BLOCK_COUNT_58 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_58 > 0 && AO_UINT_BITS > 58)
+#define AO_ALLOC_POOL_58                (AO_ALLOC_POOL_BLOCK_COUNT_58 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_58 > 0 && AO_SIZE_BITS > 58)
 
-#define AO_ALLOC_POOL_59                (AO_ALLOC_POOL_BLOCK_COUNT_59 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_59 > 0 && AO_UINT_BITS > 59)
+#define AO_ALLOC_POOL_59                (AO_ALLOC_POOL_BLOCK_COUNT_59 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_59 > 0 && AO_SIZE_BITS > 59)
 
-#define AO_ALLOC_POOL_60                (AO_ALLOC_POOL_BLOCK_COUNT_60 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_60 > 0 && AO_UINT_BITS > 60)
+#define AO_ALLOC_POOL_60                (AO_ALLOC_POOL_BLOCK_COUNT_60 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_60 > 0 && AO_SIZE_BITS > 60)
 
-#define AO_ALLOC_POOL_61                (AO_ALLOC_POOL_BLOCK_COUNT_61 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_61 > 0 && AO_UINT_BITS > 61)
+#define AO_ALLOC_POOL_61                (AO_ALLOC_POOL_BLOCK_COUNT_61 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_61 > 0 && AO_SIZE_BITS > 61)
 
-#define AO_ALLOC_POOL_62                (AO_ALLOC_POOL_BLOCK_COUNT_62 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_62 > 0 && AO_UINT_BITS > 62)
+#define AO_ALLOC_POOL_62                (AO_ALLOC_POOL_BLOCK_COUNT_62 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_62 > 0 && AO_SIZE_BITS > 62)
 
-#define AO_ALLOC_POOL_63                (AO_ALLOC_POOL_BLOCK_COUNT_63 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_63 > 0 && AO_UINT_BITS > 63)
+#define AO_ALLOC_POOL_63                (AO_ALLOC_POOL_BLOCK_COUNT_63 > 0 && AO_ALLOC_POOL_BLOCK_SIZE_63 > 0 && AO_SIZE_BITS > 63)
 
 // ----------------------------------------------------------------------------
 
-#define AO_ALLOC_POOL_BITS              (AO_UINT_BITS_LOG)
+#define AO_ALLOC_POOL_BITS              (AO_SIZE_BITS_LOG)
 
 // ----------------------------------------------------------------------------
 
-#define AO_ALLOC_REF_BITS               (AO_UINT_BITS - AO_ALLOC_POOL_BITS)
+#define AO_ALLOC_REF_BITS               (AO_SIZE_BITS - AO_ALLOC_POOL_BITS)
 
 // ----------------------------------------------------------------------------
 
@@ -2535,9 +2535,9 @@ typedef struct  ao_alloc_pool_node_63_t ao_alloc_pool_node_63_t;
 
 struct  ao_alloc_pool_node_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2553,9 +2553,9 @@ struct  ao_alloc_pool_node_t
 
 struct  ao_alloc_pool_node_0_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2569,9 +2569,9 @@ struct  ao_alloc_pool_node_0_t
 
 struct  ao_alloc_pool_node_1_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2585,9 +2585,9 @@ struct  ao_alloc_pool_node_1_t
 
 struct  ao_alloc_pool_node_2_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2601,9 +2601,9 @@ struct  ao_alloc_pool_node_2_t
 
 struct  ao_alloc_pool_node_3_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2617,9 +2617,9 @@ struct  ao_alloc_pool_node_3_t
 
 struct  ao_alloc_pool_node_4_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2633,9 +2633,9 @@ struct  ao_alloc_pool_node_4_t
 
 struct  ao_alloc_pool_node_5_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2649,9 +2649,9 @@ struct  ao_alloc_pool_node_5_t
 
 struct  ao_alloc_pool_node_6_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2665,9 +2665,9 @@ struct  ao_alloc_pool_node_6_t
 
 struct  ao_alloc_pool_node_7_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2681,9 +2681,9 @@ struct  ao_alloc_pool_node_7_t
 
 struct  ao_alloc_pool_node_8_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2697,9 +2697,9 @@ struct  ao_alloc_pool_node_8_t
 
 struct  ao_alloc_pool_node_9_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2713,9 +2713,9 @@ struct  ao_alloc_pool_node_9_t
 
 struct  ao_alloc_pool_node_10_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2729,9 +2729,9 @@ struct  ao_alloc_pool_node_10_t
 
 struct  ao_alloc_pool_node_11_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2745,9 +2745,9 @@ struct  ao_alloc_pool_node_11_t
 
 struct  ao_alloc_pool_node_12_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2761,9 +2761,9 @@ struct  ao_alloc_pool_node_12_t
 
 struct  ao_alloc_pool_node_13_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2777,9 +2777,9 @@ struct  ao_alloc_pool_node_13_t
 
 struct  ao_alloc_pool_node_14_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2793,9 +2793,9 @@ struct  ao_alloc_pool_node_14_t
 
 struct  ao_alloc_pool_node_15_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2809,9 +2809,9 @@ struct  ao_alloc_pool_node_15_t
 
 struct  ao_alloc_pool_node_16_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2825,9 +2825,9 @@ struct  ao_alloc_pool_node_16_t
 
 struct  ao_alloc_pool_node_17_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2841,9 +2841,9 @@ struct  ao_alloc_pool_node_17_t
 
 struct  ao_alloc_pool_node_18_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2857,9 +2857,9 @@ struct  ao_alloc_pool_node_18_t
 
 struct  ao_alloc_pool_node_19_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2873,9 +2873,9 @@ struct  ao_alloc_pool_node_19_t
 
 struct  ao_alloc_pool_node_20_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2889,9 +2889,9 @@ struct  ao_alloc_pool_node_20_t
 
 struct  ao_alloc_pool_node_21_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2905,9 +2905,9 @@ struct  ao_alloc_pool_node_21_t
 
 struct  ao_alloc_pool_node_22_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2921,9 +2921,9 @@ struct  ao_alloc_pool_node_22_t
 
 struct  ao_alloc_pool_node_23_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2937,9 +2937,9 @@ struct  ao_alloc_pool_node_23_t
 
 struct  ao_alloc_pool_node_24_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2953,9 +2953,9 @@ struct  ao_alloc_pool_node_24_t
 
 struct  ao_alloc_pool_node_25_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2969,9 +2969,9 @@ struct  ao_alloc_pool_node_25_t
 
 struct  ao_alloc_pool_node_26_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -2985,9 +2985,9 @@ struct  ao_alloc_pool_node_26_t
 
 struct  ao_alloc_pool_node_27_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3001,9 +3001,9 @@ struct  ao_alloc_pool_node_27_t
 
 struct  ao_alloc_pool_node_28_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3017,9 +3017,9 @@ struct  ao_alloc_pool_node_28_t
 
 struct  ao_alloc_pool_node_29_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3033,9 +3033,9 @@ struct  ao_alloc_pool_node_29_t
 
 struct  ao_alloc_pool_node_30_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3049,9 +3049,9 @@ struct  ao_alloc_pool_node_30_t
 
 struct  ao_alloc_pool_node_31_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3065,9 +3065,9 @@ struct  ao_alloc_pool_node_31_t
 
 struct  ao_alloc_pool_node_32_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3081,9 +3081,9 @@ struct  ao_alloc_pool_node_32_t
 
 struct  ao_alloc_pool_node_33_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3097,9 +3097,9 @@ struct  ao_alloc_pool_node_33_t
 
 struct  ao_alloc_pool_node_34_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3113,9 +3113,9 @@ struct  ao_alloc_pool_node_34_t
 
 struct  ao_alloc_pool_node_35_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3129,9 +3129,9 @@ struct  ao_alloc_pool_node_35_t
 
 struct  ao_alloc_pool_node_36_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3145,9 +3145,9 @@ struct  ao_alloc_pool_node_36_t
 
 struct  ao_alloc_pool_node_37_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3161,9 +3161,9 @@ struct  ao_alloc_pool_node_37_t
 
 struct  ao_alloc_pool_node_38_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3177,9 +3177,9 @@ struct  ao_alloc_pool_node_38_t
 
 struct  ao_alloc_pool_node_39_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3193,9 +3193,9 @@ struct  ao_alloc_pool_node_39_t
 
 struct  ao_alloc_pool_node_40_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3209,9 +3209,9 @@ struct  ao_alloc_pool_node_40_t
 
 struct  ao_alloc_pool_node_41_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3225,9 +3225,9 @@ struct  ao_alloc_pool_node_41_t
 
 struct  ao_alloc_pool_node_42_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3241,9 +3241,9 @@ struct  ao_alloc_pool_node_42_t
 
 struct  ao_alloc_pool_node_43_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3257,9 +3257,9 @@ struct  ao_alloc_pool_node_43_t
 
 struct  ao_alloc_pool_node_44_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3273,9 +3273,9 @@ struct  ao_alloc_pool_node_44_t
 
 struct  ao_alloc_pool_node_45_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3289,9 +3289,9 @@ struct  ao_alloc_pool_node_45_t
 
 struct  ao_alloc_pool_node_46_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3305,9 +3305,9 @@ struct  ao_alloc_pool_node_46_t
 
 struct  ao_alloc_pool_node_47_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3321,9 +3321,9 @@ struct  ao_alloc_pool_node_47_t
 
 struct  ao_alloc_pool_node_48_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3337,9 +3337,9 @@ struct  ao_alloc_pool_node_48_t
 
 struct  ao_alloc_pool_node_49_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3353,9 +3353,9 @@ struct  ao_alloc_pool_node_49_t
 
 struct  ao_alloc_pool_node_50_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3369,9 +3369,9 @@ struct  ao_alloc_pool_node_50_t
 
 struct  ao_alloc_pool_node_51_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3385,9 +3385,9 @@ struct  ao_alloc_pool_node_51_t
 
 struct  ao_alloc_pool_node_52_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3401,9 +3401,9 @@ struct  ao_alloc_pool_node_52_t
 
 struct  ao_alloc_pool_node_53_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3417,9 +3417,9 @@ struct  ao_alloc_pool_node_53_t
 
 struct  ao_alloc_pool_node_54_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3433,9 +3433,9 @@ struct  ao_alloc_pool_node_54_t
 
 struct  ao_alloc_pool_node_55_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3449,9 +3449,9 @@ struct  ao_alloc_pool_node_55_t
 
 struct  ao_alloc_pool_node_56_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3465,9 +3465,9 @@ struct  ao_alloc_pool_node_56_t
 
 struct  ao_alloc_pool_node_57_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3481,9 +3481,9 @@ struct  ao_alloc_pool_node_57_t
 
 struct  ao_alloc_pool_node_58_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3497,9 +3497,9 @@ struct  ao_alloc_pool_node_58_t
 
 struct  ao_alloc_pool_node_59_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3513,9 +3513,9 @@ struct  ao_alloc_pool_node_59_t
 
 struct  ao_alloc_pool_node_60_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3529,9 +3529,9 @@ struct  ao_alloc_pool_node_60_t
 
 struct  ao_alloc_pool_node_61_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3545,9 +3545,9 @@ struct  ao_alloc_pool_node_61_t
 
 struct  ao_alloc_pool_node_62_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3561,9 +3561,9 @@ struct  ao_alloc_pool_node_62_t
 
 struct  ao_alloc_pool_node_63_t
 {
-    ao_uint_t                           pool    : AO_ALLOC_POOL_BITS;
+    size_t                              pool    : AO_ALLOC_POOL_BITS;
 
-    ao_uint_t                           ref     : AO_ALLOC_REF_BITS;
+    size_t                              ref     : AO_ALLOC_REF_BITS;
 
     union
     {
@@ -3733,7 +3733,7 @@ static  bool                            ao_retain_3(void * p);
 
 // ----------------------------------------------------------------------------
 
-static  ao_uint_t                       ao_alloc_bitmap;
+static  size_t                          ao_alloc_bitmap;
 
 // ----------------------------------------------------------------------------
 
@@ -4265,7 +4265,7 @@ static  ao_alloc_pool_node_63_t         ao_alloc_pool_nodes_63[AO_ALLOC_POOL_BLO
 
 // ----------------------------------------------------------------------------
 
-static  ao_alloc_pool_t *               ao_alloc_pools[AO_UINT_BITS];
+static  ao_alloc_pool_t *               ao_alloc_pools[AO_SIZE_BITS];
 
 // ----------------------------------------------------------------------------
 
@@ -4299,15 +4299,15 @@ void * ao_acquire_3(size_t s)
 {
     // Variables.
 
-    ao_uint_t B1;
+    size_t B1;
 
-    ao_uint_t B2;
+    size_t B2;
 
     size_t i;
 
-    ao_uint_t j;
+    size_t j;
 
-    ao_uint_t m;
+    size_t m;
 
     ao_alloc_pool_node_t * N;
 
@@ -4364,13 +4364,13 @@ void * ao_acquire_3(size_t s)
 
         do
         {
-            j = ao_ffs(B1);
+            j = ao_ffsz(B1);
 
             ao_assert(j >= 0);
 
-            ao_assert(j <  AO_UINT_BITS);
+            ao_assert(j <  AO_SIZE_BITS);
 
-            i = (size_t) j;
+            i = j;
 
             P = ao_alloc_pools[i];
 
@@ -4400,9 +4400,13 @@ void * ao_acquire_3(size_t s)
 
                 if (!N)
                 {
-                    m = (ao_uint_t) 1 << j;
+                    m = 1;
 
-                    B2 = B2 & ~m;
+                    m = m << j;
+
+                    m = ~m;
+
+                    B2 = B2 & m;
 
                     ao_alloc_bitmap = B2;
                 }
@@ -4492,9 +4496,13 @@ void * ao_acquire_3(size_t s)
 
             else
             {
-                m = (ao_uint_t) 1 << j;
+                m = 1;
 
-                B1 = B1 & ~m;
+                m = m << j;
+
+                m = ~m;
+
+                B1 = B1 & m;
             }
         }
         while (B1);
@@ -4926,7 +4934,7 @@ void ao_boot_alloc_pool_0()
 
     ao_alloc_pool_node_0_t * const nodes = ao_alloc_pool_nodes_0;
 
-    ao_uint_t const p = 0;
+    size_t const p = 0;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_0;
 
@@ -4935,7 +4943,7 @@ void ao_boot_alloc_pool_0()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -4995,7 +5003,7 @@ void ao_boot_alloc_pool_1()
 
     ao_alloc_pool_node_1_t * const nodes = ao_alloc_pool_nodes_1;
 
-    ao_uint_t const p = 1;
+    size_t const p = 1;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_1;
 
@@ -5004,7 +5012,7 @@ void ao_boot_alloc_pool_1()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -5064,7 +5072,7 @@ void ao_boot_alloc_pool_2()
 
     ao_alloc_pool_node_2_t * const nodes = ao_alloc_pool_nodes_2;
 
-    ao_uint_t const p = 2;
+    size_t const p = 2;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_2;
 
@@ -5073,7 +5081,7 @@ void ao_boot_alloc_pool_2()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -5133,7 +5141,7 @@ void ao_boot_alloc_pool_3()
 
     ao_alloc_pool_node_3_t * const nodes = ao_alloc_pool_nodes_3;
 
-    ao_uint_t const p = 3;
+    size_t const p = 3;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_3;
 
@@ -5142,7 +5150,7 @@ void ao_boot_alloc_pool_3()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -5202,7 +5210,7 @@ void ao_boot_alloc_pool_4()
 
     ao_alloc_pool_node_4_t * const nodes = ao_alloc_pool_nodes_4;
 
-    ao_uint_t const p = 4;
+    size_t const p = 4;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_4;
 
@@ -5211,7 +5219,7 @@ void ao_boot_alloc_pool_4()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -5271,7 +5279,7 @@ void ao_boot_alloc_pool_5()
 
     ao_alloc_pool_node_5_t * const nodes = ao_alloc_pool_nodes_5;
 
-    ao_uint_t const p = 5;
+    size_t const p = 5;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_5;
 
@@ -5280,7 +5288,7 @@ void ao_boot_alloc_pool_5()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -5340,7 +5348,7 @@ void ao_boot_alloc_pool_6()
 
     ao_alloc_pool_node_6_t * const nodes = ao_alloc_pool_nodes_6;
 
-    ao_uint_t const p = 6;
+    size_t const p = 6;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_6;
 
@@ -5349,7 +5357,7 @@ void ao_boot_alloc_pool_6()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -5409,7 +5417,7 @@ void ao_boot_alloc_pool_7()
 
     ao_alloc_pool_node_7_t * const nodes = ao_alloc_pool_nodes_7;
 
-    ao_uint_t const p = 7;
+    size_t const p = 7;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_7;
 
@@ -5418,7 +5426,7 @@ void ao_boot_alloc_pool_7()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -5478,7 +5486,7 @@ void ao_boot_alloc_pool_8()
 
     ao_alloc_pool_node_8_t * const nodes = ao_alloc_pool_nodes_8;
 
-    ao_uint_t const p = 8;
+    size_t const p = 8;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_8;
 
@@ -5487,7 +5495,7 @@ void ao_boot_alloc_pool_8()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -5547,7 +5555,7 @@ void ao_boot_alloc_pool_9()
 
     ao_alloc_pool_node_9_t * const nodes = ao_alloc_pool_nodes_9;
 
-    ao_uint_t const p = 9;
+    size_t const p = 9;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_9;
 
@@ -5556,7 +5564,7 @@ void ao_boot_alloc_pool_9()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -5616,7 +5624,7 @@ void ao_boot_alloc_pool_10()
 
     ao_alloc_pool_node_10_t * const nodes = ao_alloc_pool_nodes_10;
 
-    ao_uint_t const p = 10;
+    size_t const p = 10;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_10;
 
@@ -5625,7 +5633,7 @@ void ao_boot_alloc_pool_10()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -5685,7 +5693,7 @@ void ao_boot_alloc_pool_11()
 
     ao_alloc_pool_node_11_t * const nodes = ao_alloc_pool_nodes_11;
 
-    ao_uint_t const p = 11;
+    size_t const p = 11;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_11;
 
@@ -5694,7 +5702,7 @@ void ao_boot_alloc_pool_11()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -5754,7 +5762,7 @@ void ao_boot_alloc_pool_12()
 
     ao_alloc_pool_node_12_t * const nodes = ao_alloc_pool_nodes_12;
 
-    ao_uint_t const p = 12;
+    size_t const p = 12;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_12;
 
@@ -5763,7 +5771,7 @@ void ao_boot_alloc_pool_12()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -5823,7 +5831,7 @@ void ao_boot_alloc_pool_13()
 
     ao_alloc_pool_node_13_t * const nodes = ao_alloc_pool_nodes_13;
 
-    ao_uint_t const p = 13;
+    size_t const p = 13;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_13;
 
@@ -5832,7 +5840,7 @@ void ao_boot_alloc_pool_13()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -5892,7 +5900,7 @@ void ao_boot_alloc_pool_14()
 
     ao_alloc_pool_node_14_t * const nodes = ao_alloc_pool_nodes_14;
 
-    ao_uint_t const p = 14;
+    size_t const p = 14;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_14;
 
@@ -5901,7 +5909,7 @@ void ao_boot_alloc_pool_14()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -5961,7 +5969,7 @@ void ao_boot_alloc_pool_15()
 
     ao_alloc_pool_node_15_t * const nodes = ao_alloc_pool_nodes_15;
 
-    ao_uint_t const p = 15;
+    size_t const p = 15;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_15;
 
@@ -5970,7 +5978,7 @@ void ao_boot_alloc_pool_15()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -6030,7 +6038,7 @@ void ao_boot_alloc_pool_16()
 
     ao_alloc_pool_node_16_t * const nodes = ao_alloc_pool_nodes_16;
 
-    ao_uint_t const p = 16;
+    size_t const p = 16;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_16;
 
@@ -6039,7 +6047,7 @@ void ao_boot_alloc_pool_16()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -6099,7 +6107,7 @@ void ao_boot_alloc_pool_17()
 
     ao_alloc_pool_node_17_t * const nodes = ao_alloc_pool_nodes_17;
 
-    ao_uint_t const p = 17;
+    size_t const p = 17;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_17;
 
@@ -6108,7 +6116,7 @@ void ao_boot_alloc_pool_17()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -6168,7 +6176,7 @@ void ao_boot_alloc_pool_18()
 
     ao_alloc_pool_node_18_t * const nodes = ao_alloc_pool_nodes_18;
 
-    ao_uint_t const p = 18;
+    size_t const p = 18;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_18;
 
@@ -6177,7 +6185,7 @@ void ao_boot_alloc_pool_18()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -6237,7 +6245,7 @@ void ao_boot_alloc_pool_19()
 
     ao_alloc_pool_node_19_t * const nodes = ao_alloc_pool_nodes_19;
 
-    ao_uint_t const p = 19;
+    size_t const p = 19;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_19;
 
@@ -6246,7 +6254,7 @@ void ao_boot_alloc_pool_19()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -6306,7 +6314,7 @@ void ao_boot_alloc_pool_20()
 
     ao_alloc_pool_node_20_t * const nodes = ao_alloc_pool_nodes_20;
 
-    ao_uint_t const p = 20;
+    size_t const p = 20;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_20;
 
@@ -6315,7 +6323,7 @@ void ao_boot_alloc_pool_20()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -6375,7 +6383,7 @@ void ao_boot_alloc_pool_21()
 
     ao_alloc_pool_node_21_t * const nodes = ao_alloc_pool_nodes_21;
 
-    ao_uint_t const p = 21;
+    size_t const p = 21;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_21;
 
@@ -6384,7 +6392,7 @@ void ao_boot_alloc_pool_21()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -6444,7 +6452,7 @@ void ao_boot_alloc_pool_22()
 
     ao_alloc_pool_node_22_t * const nodes = ao_alloc_pool_nodes_22;
 
-    ao_uint_t const p = 22;
+    size_t const p = 22;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_22;
 
@@ -6453,7 +6461,7 @@ void ao_boot_alloc_pool_22()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -6513,7 +6521,7 @@ void ao_boot_alloc_pool_23()
 
     ao_alloc_pool_node_23_t * const nodes = ao_alloc_pool_nodes_23;
 
-    ao_uint_t const p = 23;
+    size_t const p = 23;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_23;
 
@@ -6522,7 +6530,7 @@ void ao_boot_alloc_pool_23()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -6582,7 +6590,7 @@ void ao_boot_alloc_pool_24()
 
     ao_alloc_pool_node_24_t * const nodes = ao_alloc_pool_nodes_24;
 
-    ao_uint_t const p = 24;
+    size_t const p = 24;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_24;
 
@@ -6591,7 +6599,7 @@ void ao_boot_alloc_pool_24()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -6651,7 +6659,7 @@ void ao_boot_alloc_pool_25()
 
     ao_alloc_pool_node_25_t * const nodes = ao_alloc_pool_nodes_25;
 
-    ao_uint_t const p = 25;
+    size_t const p = 25;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_25;
 
@@ -6660,7 +6668,7 @@ void ao_boot_alloc_pool_25()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -6720,7 +6728,7 @@ void ao_boot_alloc_pool_26()
 
     ao_alloc_pool_node_26_t * const nodes = ao_alloc_pool_nodes_26;
 
-    ao_uint_t const p = 26;
+    size_t const p = 26;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_26;
 
@@ -6729,7 +6737,7 @@ void ao_boot_alloc_pool_26()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -6789,7 +6797,7 @@ void ao_boot_alloc_pool_27()
 
     ao_alloc_pool_node_27_t * const nodes = ao_alloc_pool_nodes_27;
 
-    ao_uint_t const p = 27;
+    size_t const p = 27;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_27;
 
@@ -6798,7 +6806,7 @@ void ao_boot_alloc_pool_27()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -6858,7 +6866,7 @@ void ao_boot_alloc_pool_28()
 
     ao_alloc_pool_node_28_t * const nodes = ao_alloc_pool_nodes_28;
 
-    ao_uint_t const p = 28;
+    size_t const p = 28;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_28;
 
@@ -6867,7 +6875,7 @@ void ao_boot_alloc_pool_28()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -6927,7 +6935,7 @@ void ao_boot_alloc_pool_29()
 
     ao_alloc_pool_node_29_t * const nodes = ao_alloc_pool_nodes_29;
 
-    ao_uint_t const p = 29;
+    size_t const p = 29;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_29;
 
@@ -6936,7 +6944,7 @@ void ao_boot_alloc_pool_29()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -6996,7 +7004,7 @@ void ao_boot_alloc_pool_30()
 
     ao_alloc_pool_node_30_t * const nodes = ao_alloc_pool_nodes_30;
 
-    ao_uint_t const p = 30;
+    size_t const p = 30;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_30;
 
@@ -7005,7 +7013,7 @@ void ao_boot_alloc_pool_30()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -7065,7 +7073,7 @@ void ao_boot_alloc_pool_31()
 
     ao_alloc_pool_node_31_t * const nodes = ao_alloc_pool_nodes_31;
 
-    ao_uint_t const p = 31;
+    size_t const p = 31;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_31;
 
@@ -7074,7 +7082,7 @@ void ao_boot_alloc_pool_31()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -7134,7 +7142,7 @@ void ao_boot_alloc_pool_32()
 
     ao_alloc_pool_node_32_t * const nodes = ao_alloc_pool_nodes_32;
 
-    ao_uint_t const p = 32;
+    size_t const p = 32;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_32;
 
@@ -7143,7 +7151,7 @@ void ao_boot_alloc_pool_32()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -7203,7 +7211,7 @@ void ao_boot_alloc_pool_33()
 
     ao_alloc_pool_node_33_t * const nodes = ao_alloc_pool_nodes_33;
 
-    ao_uint_t const p = 33;
+    size_t const p = 33;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_33;
 
@@ -7212,7 +7220,7 @@ void ao_boot_alloc_pool_33()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -7272,7 +7280,7 @@ void ao_boot_alloc_pool_34()
 
     ao_alloc_pool_node_34_t * const nodes = ao_alloc_pool_nodes_34;
 
-    ao_uint_t const p = 34;
+    size_t const p = 34;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_34;
 
@@ -7281,7 +7289,7 @@ void ao_boot_alloc_pool_34()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -7341,7 +7349,7 @@ void ao_boot_alloc_pool_35()
 
     ao_alloc_pool_node_35_t * const nodes = ao_alloc_pool_nodes_35;
 
-    ao_uint_t const p = 35;
+    size_t const p = 35;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_35;
 
@@ -7350,7 +7358,7 @@ void ao_boot_alloc_pool_35()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -7410,7 +7418,7 @@ void ao_boot_alloc_pool_36()
 
     ao_alloc_pool_node_36_t * const nodes = ao_alloc_pool_nodes_36;
 
-    ao_uint_t const p = 36;
+    size_t const p = 36;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_36;
 
@@ -7419,7 +7427,7 @@ void ao_boot_alloc_pool_36()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -7479,7 +7487,7 @@ void ao_boot_alloc_pool_37()
 
     ao_alloc_pool_node_37_t * const nodes = ao_alloc_pool_nodes_37;
 
-    ao_uint_t const p = 37;
+    size_t const p = 37;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_37;
 
@@ -7488,7 +7496,7 @@ void ao_boot_alloc_pool_37()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -7548,7 +7556,7 @@ void ao_boot_alloc_pool_38()
 
     ao_alloc_pool_node_38_t * const nodes = ao_alloc_pool_nodes_38;
 
-    ao_uint_t const p = 38;
+    size_t const p = 38;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_38;
 
@@ -7557,7 +7565,7 @@ void ao_boot_alloc_pool_38()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -7617,7 +7625,7 @@ void ao_boot_alloc_pool_39()
 
     ao_alloc_pool_node_39_t * const nodes = ao_alloc_pool_nodes_39;
 
-    ao_uint_t const p = 39;
+    size_t const p = 39;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_39;
 
@@ -7626,7 +7634,7 @@ void ao_boot_alloc_pool_39()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -7686,7 +7694,7 @@ void ao_boot_alloc_pool_40()
 
     ao_alloc_pool_node_40_t * const nodes = ao_alloc_pool_nodes_40;
 
-    ao_uint_t const p = 40;
+    size_t const p = 40;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_40;
 
@@ -7695,7 +7703,7 @@ void ao_boot_alloc_pool_40()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -7755,7 +7763,7 @@ void ao_boot_alloc_pool_41()
 
     ao_alloc_pool_node_41_t * const nodes = ao_alloc_pool_nodes_41;
 
-    ao_uint_t const p = 41;
+    size_t const p = 41;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_41;
 
@@ -7764,7 +7772,7 @@ void ao_boot_alloc_pool_41()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -7824,7 +7832,7 @@ void ao_boot_alloc_pool_42()
 
     ao_alloc_pool_node_42_t * const nodes = ao_alloc_pool_nodes_42;
 
-    ao_uint_t const p = 42;
+    size_t const p = 42;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_42;
 
@@ -7833,7 +7841,7 @@ void ao_boot_alloc_pool_42()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -7893,7 +7901,7 @@ void ao_boot_alloc_pool_43()
 
     ao_alloc_pool_node_43_t * const nodes = ao_alloc_pool_nodes_43;
 
-    ao_uint_t const p = 43;
+    size_t const p = 43;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_43;
 
@@ -7902,7 +7910,7 @@ void ao_boot_alloc_pool_43()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -7962,7 +7970,7 @@ void ao_boot_alloc_pool_44()
 
     ao_alloc_pool_node_44_t * const nodes = ao_alloc_pool_nodes_44;
 
-    ao_uint_t const p = 44;
+    size_t const p = 44;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_44;
 
@@ -7971,7 +7979,7 @@ void ao_boot_alloc_pool_44()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -8031,7 +8039,7 @@ void ao_boot_alloc_pool_45()
 
     ao_alloc_pool_node_45_t * const nodes = ao_alloc_pool_nodes_45;
 
-    ao_uint_t const p = 45;
+    size_t const p = 45;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_45;
 
@@ -8040,7 +8048,7 @@ void ao_boot_alloc_pool_45()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -8100,7 +8108,7 @@ void ao_boot_alloc_pool_46()
 
     ao_alloc_pool_node_46_t * const nodes = ao_alloc_pool_nodes_46;
 
-    ao_uint_t const p = 46;
+    size_t const p = 46;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_46;
 
@@ -8109,7 +8117,7 @@ void ao_boot_alloc_pool_46()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -8169,7 +8177,7 @@ void ao_boot_alloc_pool_47()
 
     ao_alloc_pool_node_47_t * const nodes = ao_alloc_pool_nodes_47;
 
-    ao_uint_t const p = 47;
+    size_t const p = 47;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_47;
 
@@ -8178,7 +8186,7 @@ void ao_boot_alloc_pool_47()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -8238,7 +8246,7 @@ void ao_boot_alloc_pool_48()
 
     ao_alloc_pool_node_48_t * const nodes = ao_alloc_pool_nodes_48;
 
-    ao_uint_t const p = 48;
+    size_t const p = 48;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_48;
 
@@ -8247,7 +8255,7 @@ void ao_boot_alloc_pool_48()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -8307,7 +8315,7 @@ void ao_boot_alloc_pool_49()
 
     ao_alloc_pool_node_49_t * const nodes = ao_alloc_pool_nodes_49;
 
-    ao_uint_t const p = 49;
+    size_t const p = 49;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_49;
 
@@ -8316,7 +8324,7 @@ void ao_boot_alloc_pool_49()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -8376,7 +8384,7 @@ void ao_boot_alloc_pool_50()
 
     ao_alloc_pool_node_50_t * const nodes = ao_alloc_pool_nodes_50;
 
-    ao_uint_t const p = 50;
+    size_t const p = 50;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_50;
 
@@ -8385,7 +8393,7 @@ void ao_boot_alloc_pool_50()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -8445,7 +8453,7 @@ void ao_boot_alloc_pool_51()
 
     ao_alloc_pool_node_51_t * const nodes = ao_alloc_pool_nodes_51;
 
-    ao_uint_t const p = 51;
+    size_t const p = 51;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_51;
 
@@ -8454,7 +8462,7 @@ void ao_boot_alloc_pool_51()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -8514,7 +8522,7 @@ void ao_boot_alloc_pool_52()
 
     ao_alloc_pool_node_52_t * const nodes = ao_alloc_pool_nodes_52;
 
-    ao_uint_t const p = 52;
+    size_t const p = 52;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_52;
 
@@ -8523,7 +8531,7 @@ void ao_boot_alloc_pool_52()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -8583,7 +8591,7 @@ void ao_boot_alloc_pool_53()
 
     ao_alloc_pool_node_53_t * const nodes = ao_alloc_pool_nodes_53;
 
-    ao_uint_t const p = 53;
+    size_t const p = 53;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_53;
 
@@ -8592,7 +8600,7 @@ void ao_boot_alloc_pool_53()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -8652,7 +8660,7 @@ void ao_boot_alloc_pool_54()
 
     ao_alloc_pool_node_54_t * const nodes = ao_alloc_pool_nodes_54;
 
-    ao_uint_t const p = 54;
+    size_t const p = 54;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_54;
 
@@ -8661,7 +8669,7 @@ void ao_boot_alloc_pool_54()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -8721,7 +8729,7 @@ void ao_boot_alloc_pool_55()
 
     ao_alloc_pool_node_55_t * const nodes = ao_alloc_pool_nodes_55;
 
-    ao_uint_t const p = 55;
+    size_t const p = 55;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_55;
 
@@ -8730,7 +8738,7 @@ void ao_boot_alloc_pool_55()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -8790,7 +8798,7 @@ void ao_boot_alloc_pool_56()
 
     ao_alloc_pool_node_56_t * const nodes = ao_alloc_pool_nodes_56;
 
-    ao_uint_t const p = 56;
+    size_t const p = 56;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_56;
 
@@ -8799,7 +8807,7 @@ void ao_boot_alloc_pool_56()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -8859,7 +8867,7 @@ void ao_boot_alloc_pool_57()
 
     ao_alloc_pool_node_57_t * const nodes = ao_alloc_pool_nodes_57;
 
-    ao_uint_t const p = 57;
+    size_t const p = 57;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_57;
 
@@ -8868,7 +8876,7 @@ void ao_boot_alloc_pool_57()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -8928,7 +8936,7 @@ void ao_boot_alloc_pool_58()
 
     ao_alloc_pool_node_58_t * const nodes = ao_alloc_pool_nodes_58;
 
-    ao_uint_t const p = 58;
+    size_t const p = 58;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_58;
 
@@ -8937,7 +8945,7 @@ void ao_boot_alloc_pool_58()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -8997,7 +9005,7 @@ void ao_boot_alloc_pool_59()
 
     ao_alloc_pool_node_59_t * const nodes = ao_alloc_pool_nodes_59;
 
-    ao_uint_t const p = 59;
+    size_t const p = 59;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_59;
 
@@ -9006,7 +9014,7 @@ void ao_boot_alloc_pool_59()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -9066,7 +9074,7 @@ void ao_boot_alloc_pool_60()
 
     ao_alloc_pool_node_60_t * const nodes = ao_alloc_pool_nodes_60;
 
-    ao_uint_t const p = 60;
+    size_t const p = 60;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_60;
 
@@ -9075,7 +9083,7 @@ void ao_boot_alloc_pool_60()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -9135,7 +9143,7 @@ void ao_boot_alloc_pool_61()
 
     ao_alloc_pool_node_61_t * const nodes = ao_alloc_pool_nodes_61;
 
-    ao_uint_t const p = 61;
+    size_t const p = 61;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_61;
 
@@ -9144,7 +9152,7 @@ void ao_boot_alloc_pool_61()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -9204,7 +9212,7 @@ void ao_boot_alloc_pool_62()
 
     ao_alloc_pool_node_62_t * const nodes = ao_alloc_pool_nodes_62;
 
-    ao_uint_t const p = 62;
+    size_t const p = 62;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_62;
 
@@ -9213,7 +9221,7 @@ void ao_boot_alloc_pool_62()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -9273,7 +9281,7 @@ void ao_boot_alloc_pool_63()
 
     ao_alloc_pool_node_63_t * const nodes = ao_alloc_pool_nodes_63;
 
-    ao_uint_t const p = 63;
+    size_t const p = 63;
 
     ao_alloc_pool_t * const pool = &ao_alloc_pool_63;
 
@@ -9282,7 +9290,7 @@ void ao_boot_alloc_pool_63()
 
     // Variables.
 
-    ao_uint_t const b = ((ao_uint_t) 1 << p);
+    size_t const b = ((size_t) 1 << p);
 
 #if AO_ALLOC_FREE_MIN                                                   ||  \
     AO_ALLOC_FREE
@@ -9366,9 +9374,9 @@ bool ao_release_3(void * p)
 
     size_t i;
 
-    ao_uint_t j;
+    size_t j;
 
-    ao_uint_t m;
+    size_t m;
 
     ao_alloc_pool_node_t * N;
 
@@ -9376,7 +9384,7 @@ bool ao_release_3(void * p)
 
     bool r;
 
-    ao_uint_t R;
+    size_t R;
 
 #if AO_ALLOC_ALLOCATED                                                  ||  \
     AO_ALLOC_ALLOCATED_MAX                                              ||  \
@@ -9406,7 +9414,7 @@ bool ao_release_3(void * p)
 
     j = N->pool;
 
-    i = (size_t) j;
+    i = j;
 
     P = ao_alloc_pools[i];
 
@@ -9429,13 +9437,15 @@ bool ao_release_3(void * p)
 
         j = N->pool;
 
-        i = (size_t) j;
+        i = j;
 
         P = ao_alloc_pools[i];
 
 #endif
 
-        m = (ao_uint_t) 1 << j;
+        m = 1;
+
+        m = m << j;
 
         F = P->front;
 
@@ -9555,7 +9565,7 @@ bool ao_retain_3(void * p)
 
     ao_alloc_pool_node_t * N;
 
-    ao_uint_t R;
+    size_t R;
 
 
     // Variables.
@@ -9587,7 +9597,7 @@ bool ao_retain_3(void * p)
 
 #if AO_RETAINED
 
-    i = (size_t) N->pool;
+    i = N->pool;
 
     P = ao_alloc_pools[i];
 
