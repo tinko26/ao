@@ -11,7 +11,7 @@ title: "Mathematics for Floating-Point Numbers"
 
 The `ao_mathf.h` module contains mathematical constants and functions for floating-point numbers. 
 
-Although the standard library provides such constants and functions, too, they are not available in a freestanding runtime environment. Then again, many toolchains provide implementations, either in software, or highly optimized for target platforms with a floating-point unit.
+Although the standard library provides such constants and functions, too, they are not available in a freestanding runtime environment. Then again, many toolchains provide implementations, either in software or highly optimized for target platforms with a floating-point unit.
 
 Therefore, the environment package does not provide an implementation for most of the functions. Consequently, an implementation must be provided by a hardware-specific package by overriding this module.
 
