@@ -53,20 +53,6 @@ typedef uint32_t            ao_uint_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_UINT_BITS
-
-#define AO_UINT_BITS        (32)
-
-#endif
-
-#ifndef AO_UINT_BITS_LOG
-
-#define AO_UINT_BITS_LOG    (5)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
 #ifndef AO_UINT_MAX
 
 #define AO_UINT_MAX         (UINT32_MAX)
