@@ -40,20 +40,6 @@ typedef ao_count_t                      ao_time_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_TIME_SIZE
-
-#define AO_TIME_SIZE                    (AO_COUNT_SIZE)
-
-#endif
-
-#ifndef AO_TIME_SIZE_LOG
-
-#define AO_TIME_SIZE_LOG                (AO_COUNT_SIZE_LOG)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
 #ifndef AO_TIME_MAX
 
 #define AO_TIME_MAX                     (AO_COUNT_MAX)
