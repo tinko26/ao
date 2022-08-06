@@ -33,13 +33,19 @@
 
 // ----------------------------------------------------------------------------
 
-typedef uint32_t        ao_uint_t;
+typedef uint32_t            ao_uint_t;
 
 // ----------------------------------------------------------------------------
 
 #ifndef AO_UINT_BITS
 
-#define AO_UINT_BITS    (32)
+#define AO_UINT_BITS        (32)
+
+#endif
+
+#ifndef AO_UINT_BITS_LOG
+
+#define AO_UINT_BITS_LOG    (5)
 
 #endif
 
@@ -47,13 +53,13 @@ typedef uint32_t        ao_uint_t;
 
 #ifndef AO_UINT_MAX
 
-#define AO_UINT_MAX     (UINT32_MAX)
+#define AO_UINT_MAX         (UINT32_MAX)
 
 #endif
 
 #ifndef AO_UINT_MIN
 
-#define AO_UINT_MIN     (0)
+#define AO_UINT_MIN         (0)
 
 #endif
 
@@ -61,7 +67,7 @@ typedef uint32_t        ao_uint_t;
 
 #ifndef AO_UINT_SIZE
 
-#define AO_UINT_SIZE    (4)
+#define AO_UINT_SIZE        (4)
 
 #endif
 
@@ -69,25 +75,25 @@ typedef uint32_t        ao_uint_t;
 
 #ifndef ao_clo
 
-#define ao_clo(x)       _clo(x)
+#define ao_clo(x)           _clo(x)
 
 #endif
 
 #ifndef ao_clz
 
-#define ao_clz(x)       _clz(x)
+#define ao_clz(x)           _clz(x)
 
 #endif
 
 #ifndef ao_cto
 
-#define ao_cto(x)       _ctz(~(x))
+#define ao_cto(x)           _ctz(~(x))
 
 #endif
 
 #ifndef ao_ctz
 
-#define ao_ctz(x)       _ctz(x)
+#define ao_ctz(x)           _ctz(x)
 
 #endif
 
@@ -95,13 +101,59 @@ typedef uint32_t        ao_uint_t;
 
 #ifndef ao_ffs
 
-#define ao_ffs(x)       _ctz(x)
+#define ao_ffs(x)           _ctz(x)
 
 #endif
 
 #ifndef ao_fls
 
-#define ao_fls(x)       (31 - _clz(x))
+#define ao_fls(x)           (31 - _clz(x))
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef ao_log2u2
+
+#define ao_log2u2(x)        ((x) & 0x0000000000000002U ?  1                         : 0            )
+
+#endif
+
+#ifndef ao_log2u4
+
+#define ao_log2u4(x)        ((x) & 0x000000000000000CU ?  2 + ao_log2u2( (x) >>  2) : ao_log2u2(x) )
+
+#endif
+
+#ifndef ao_log2u8
+
+#define ao_log2u8(x)        ((x) & 0x00000000000000F0U ?  4 + ao_log2u4( (x) >>  4) : ao_log2u4(x) )
+
+#endif
+
+#ifndef ao_log2u16
+
+#define ao_log2u16(x)       ((x) & 0x000000000000FF00U ?  8 + ao_log2u8( (x) >>  8) : ao_log2u8(x) )
+
+#endif
+
+#ifndef ao_log2u32
+
+#define ao_log2u32(x)       ((x) & 0x00000000FFFF0000U ? 16 + ao_log2u16((x) >> 16) : ao_log2u16(x))
+
+#endif
+
+#ifndef ao_log2u64
+
+#define ao_log2u64(x)       ((x) & 0xFFFFFFFF00000000U ? 32 + ao_log2u32((x) >> 32) : ao_log2u32(x))
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef ao_log2u
+
+#define ao_log2u(x)         ao_log2u32(x)
 
 #endif
 

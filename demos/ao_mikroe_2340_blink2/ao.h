@@ -33,11 +33,11 @@
 #include <ao_boot.h>
 #include <ao_i2c.h>
 #include <ao_i2c_2.h>
+#include <ao_int.h>
 #include <ao_ir.h>
 #include <ao_led.h>
 #include <ao_lock.h>
 #include <ao_math.h>
-#include <ao_mathi.h>
 #include <ao_mem.h>
 #include <ao_mikroe.h>
 #include <ao_mikroe_2340.h>
@@ -49,6 +49,7 @@
 #include <ao_struct.h>
 #include <ao_task.h>
 #include <ao_time.h>
+#include <ao_uint.h>
 #include <ao_var.h>
 
 // ----------------------------------------------------------------------------

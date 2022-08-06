@@ -2389,7 +2389,7 @@ bool ao_retain_2(void * p)
 
 // ----------------------------------------------------------------------------
 
-#define AO_ALLOC_POOL_BITS              (ao_log2u(AO_UINT_BITS))
+#define AO_ALLOC_POOL_BITS              (AO_UINT_BITS_LOG)
 
 // ----------------------------------------------------------------------------
 
