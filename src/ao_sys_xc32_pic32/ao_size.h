@@ -72,25 +72,25 @@
 
 #ifndef ao_cloz
 
-#define ao_cloz(x)          ao_clo(x)
+#define ao_cloz(x)          ao_clou(x)
 
 #endif
 
 #ifndef ao_clzz
 
-#define ao_clzz(x)          ao_clz(x)
+#define ao_clzz(x)          ao_clzu(x)
 
 #endif
 
 #ifndef ao_ctoz
 
-#define ao_ctoz(x)          ao_cto(x)
+#define ao_ctoz(x)          ao_ctou(x)
 
 #endif
 
 #ifndef ao_ctzz
 
-#define ao_ctzz(x)          ao_ctz(x)
+#define ao_ctzz(x)          ao_ctzu(x)
 
 #endif
 
@@ -98,13 +98,13 @@
 
 #ifndef ao_ffsz
 
-#define ao_ffsz(x)          ao_ffs(x)
+#define ao_ffsz(x)          ao_ffsu(x)
 
 #endif
 
 #ifndef ao_flsz
 
-#define ao_flsz(x)          ao_fls(x)
+#define ao_flsz(x)          ao_flsu(x)
 
 #endif
 

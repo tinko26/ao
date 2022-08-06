@@ -8011,7 +8011,7 @@ void ao_can_ir_1()
 
                 while (r)
                 {
-                    i2 = ao_ffs(r);
+                    i2 = ao_ffsu(r);
 
                     m = 1 << i2;
 
@@ -13180,7 +13180,7 @@ void ao_can_ir_2()
 
                 while (r)
                 {
-                    i2 = ao_ffs(r);
+                    i2 = ao_ffsu(r);
 
                     m = 1 << i2;
 
@@ -18349,7 +18349,7 @@ void ao_can_ir_3()
 
                 while (r)
                 {
-                    i2 = ao_ffs(r);
+                    i2 = ao_ffsu(r);
 
                     m = 1 << i2;
 
@@ -23518,7 +23518,7 @@ void ao_can_ir_4()
 
                 while (r)
                 {
-                    i2 = ao_ffs(r);
+                    i2 = ao_ffsu(r);
 
                     m = 1 << i2;
 

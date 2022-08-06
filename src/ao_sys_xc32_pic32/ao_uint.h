@@ -73,41 +73,41 @@ typedef uint32_t            ao_uint_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_clo
+#ifndef ao_clou
 
-#define ao_clo(x)           _clo(x)
-
-#endif
-
-#ifndef ao_clz
-
-#define ao_clz(x)           _clz(x)
+#define ao_clou(x)          _clo(x)
 
 #endif
 
-#ifndef ao_cto
+#ifndef ao_clzu
 
-#define ao_cto(x)           _ctz(~(x))
+#define ao_clzu(x)          _clz(x)
 
 #endif
 
-#ifndef ao_ctz
+#ifndef ao_ctou
 
-#define ao_ctz(x)           _ctz(x)
+#define ao_ctou(x)          _ctz(~(x))
+
+#endif
+
+#ifndef ao_ctzu
+
+#define ao_ctzu(x)          _ctz(x)
 
 #endif
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_ffs
+#ifndef ao_ffsu
 
-#define ao_ffs(x)           _ctz(x)
+#define ao_ffsu(x)          _ctz(x)
 
 #endif
 
-#ifndef ao_fls
+#ifndef ao_flsu
 
-#define ao_fls(x)           (31 - _clz(x))
+#define ao_flsu(x)          (31 - _clz(x))
 
 #endif
 

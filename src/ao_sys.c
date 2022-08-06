@@ -23650,7 +23650,7 @@ void ao_task_sched_queue_pop()
 
         if (m)
         {
-            ao_task_sched_queue_prio = ao_fls(m);
+            ao_task_sched_queue_prio = ao_flsu(m);
         }
     }
 }
@@ -23680,7 +23680,7 @@ void ao_task_sched_queue_push(ao_task_t * t)
 
         ao_task_sched_queue_prio_mask = m;
 
-        ao_task_sched_queue_prio = ao_fls(m);
+        ao_task_sched_queue_prio = ao_flsu(m);
     }
 
     ao_list_push_back(l, &t->sched.node);
@@ -23715,7 +23715,7 @@ void ao_task_sched_queue_remove(ao_task_t * t)
 
         if (m)
         {
-            ao_task_sched_queue_prio = ao_fls(m);
+            ao_task_sched_queue_prio = ao_flsu(m);
         }
     }
 }

@@ -5596,7 +5596,7 @@ void ao_heap_insert(ao_heap_t * X, ao_heap_node_t * N)
 
     if (C1)
     {
-        CM = 1 << ao_fls(C2);
+        CM = 1 << ao_flsu(C2);
 
         do
         {
@@ -5692,7 +5692,7 @@ void ao_heap_remove(ao_heap_t * X, ao_heap_node_t * N)
 
     if (C2)
     {
-        CM = 1 << ao_fls(C1);
+        CM = 1 << ao_flsu(C1);
 
         do
         {

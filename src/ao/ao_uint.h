@@ -72,19 +72,19 @@ typedef     uint32_t            ao_uint_t;
 
 // ----------------------------------------------------------------------------
 
-ao_uint_t   ao_clo(ao_uint_t x);
+ao_uint_t   ao_clou(ao_uint_t x);
 
-ao_uint_t   ao_clz(ao_uint_t x);
+ao_uint_t   ao_clzu(ao_uint_t x);
 
-ao_uint_t   ao_cto(ao_uint_t x);
+ao_uint_t   ao_ctou(ao_uint_t x);
 
-ao_uint_t   ao_ctz(ao_uint_t x);
+ao_uint_t   ao_ctzu(ao_uint_t x);
 
 // ----------------------------------------------------------------------------
 
-ao_uint_t   ao_ffs(ao_uint_t x);
+ao_uint_t   ao_ffsu(ao_uint_t x);
 
-ao_uint_t   ao_fls(ao_uint_t x);
+ao_uint_t   ao_flsu(ao_uint_t x);
 
 // ----------------------------------------------------------------------------
 
