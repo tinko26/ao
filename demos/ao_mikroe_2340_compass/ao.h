@@ -42,6 +42,7 @@
 #include <ao_mikroe_2935.h>
 #include <ao_self.h>
 #include <ao_sem.h>
+#include <ao_size.h>
 #include <ao_sleep.h>
 #include <ao_spi.h>
 #include <ao_spi_2.h>

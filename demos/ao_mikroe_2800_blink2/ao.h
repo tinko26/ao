@@ -43,6 +43,7 @@
 #include <ao_mikroe_2800.h>
 #include <ao_mikroe_2950.h>
 #include <ao_self.h>
+#include <ao_size.h>
 #include <ao_sleep.h>
 #include <ao_spin.h>
 #include <ao_stream.h>
