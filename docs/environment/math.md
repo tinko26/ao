@@ -16,36 +16,36 @@ The `math.h` module provides a number of useful mathematical operations. They ar
 Absolute value.
 
 ```c
-double x = ao_abs(-3.2);
+double x = AO_ABS(-3.2);
 ```
 
 Clamping.
 
 ```c
-double y = ao_clamp(x, -2, 2);
+double y = AO_CLAMP(x, -2, 2);
 ```
 
 Comparison.
 
 ```c
-if (ao_is_equal(x, y)) { }
-if (ao_is_greater(x, y)) { }
-if (ao_is_greater_equal(x, y)) { }
-if (ao_is_less(x, y)) { }
-if (ao_is_less_equal(x, y)) { }
+if (AO_IS_EQUAL(x, y)) { }
+if (AO_IS_GREATER(x, y)) { }
+if (AO_IS_GREATER_EQUAL(x, y)) { }
+if (AO_IS_LESS(x, y)) { }
+if (AO_IS_LESS_EQUAL(x, y)) { }
 ```
 
 Sign.
 
 ```c
-if (ao_is_negative(x)) { }
-if (ao_is_positive(x)) { }
-if (ao_is_zero(x)) { }
+if (AO_IS_NEGATIVE(x)) { }
+if (AO_IS_POSITIVE(x)) { }
+if (AO_IS_ZERO(x)) { }
 ```
 
 Maximum and minimum.
 
 ```c
-double z1 = ao_max(x, y);
-double z2 = ao_min(x, y);
+double z1 = AO_MAX(x, y);
+double z2 = AO_MIN(x, y);
 ```

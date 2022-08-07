@@ -32,83 +32,81 @@
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_abs
+#ifndef AO_ABS
 
-#define ao_abs(x)                   ((x) < (0) ? -(x) : (x))
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#ifndef ao_clamp
-
-#define ao_clamp(x, x_min, x_max)   ((x) <= (x_min) ? (x_min) : ((x) >= (x_max) ? (x_max) : (x)))
+#define AO_ABS(x)                   ((x) < (0) ? -(x) : (x))
 
 #endif
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_is_equal
+#ifndef AO_CLAMP
 
-#define ao_is_equal(x, y)           ((x) == (y) ? true : false)
-
-#endif
-
-#ifndef ao_is_greater
-
-#define ao_is_greater(x, y)         ((x) >  (y) ? true : false)
-
-#endif
-
-#ifndef ao_is_greater_equal
-
-#define ao_is_greater_equal(x, y)   ((x) >= (y) ? true : false)
-
-#endif
-
-#ifndef ao_is_less
-
-#define ao_is_less(x, y)            ((x) <  (y) ? true : false)
-
-#endif
-
-#ifndef ao_is_less_equal
-
-#define ao_is_less_equal(x, y)      ((x) <= (y) ? true : false)
-
-#endif
-
-#ifndef ao_is_negative
-
-#define ao_is_negative(x)           ((x) <  (0) ? true : false)
-
-#endif
-
-#ifndef ao_is_positive
-
-#define ao_is_positive(x)           ((x) >  (0) ? true : false)
-
-#endif
-
-#ifndef ao_is_zero
-
-#define ao_is_zero(x)               ((x) == (0) ? true : false)
+#define AO_CLAMP(x, x_min, x_max)   ((x) <= (x_min) ? (x_min) : ((x) >= (x_max) ? (x_max) : (x)))
 
 #endif
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_max
+#ifndef AO_IS_EQUAL
 
-#define ao_max(x, y)                ((x) >= (y) ? (x) : (y))
+#define AO_IS_EQUAL(x, y)           ((x) == (y) ? true : false)
+
+#endif
+
+#ifndef AO_IS_GREATER
+
+#define AO_IS_GREATER(x, y)         ((x) >  (y) ? true : false)
+
+#endif
+
+#ifndef AO_IS_GREATER_EQUAL
+
+#define AO_IS_GREATER_EQUAL(x, y)   ((x) >= (y) ? true : false)
+
+#endif
+
+#ifndef AO_IS_LESS
+
+#define AO_IS_LESS(x, y)            ((x) <  (y) ? true : false)
+
+#endif
+
+#ifndef AO_IS_LESS_EQUAL
+
+#define AO_IS_LESS_EQUAL(x, y)      ((x) <= (y) ? true : false)
+
+#endif
+
+#ifndef AO_IS_NEGATIVE
+
+#define AO_IS_NEGATIVE(x)           ((x) <  (0) ? true : false)
+
+#endif
+
+#ifndef AO_IS_POSITIVE
+
+#define AO_IS_POSITIVE(x)           ((x) >  (0) ? true : false)
+
+#endif
+
+#ifndef AO_IS_ZERO
+
+#define AO_IS_ZERO(x)               ((x) == (0) ? true : false)
 
 #endif
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_min
+#ifndef AO_MAX
 
-#define ao_min(x, y)                ((x) <= (y) ? (x) : (y))
+#define AO_MAX(x, y)                ((x) >= (y) ? (x) : (y))
+
+#endif
+
+#ifndef AO_MIN
+
+#define AO_MIN(x, y)                ((x) <= (y) ? (x) : (y))
 
 #endif
 

@@ -1676,7 +1676,7 @@ size_t ao_buffer_peek_range_back(ao_buffer_t const * x, void * p, size_t n_min, 
 
     if (c >= n_min)
     {
-        n = ao_min(c, n_max);
+        n = AO_MIN(c, n_max);
 
         C = x->capacity;        ao_assert(c <= C);
 
@@ -1749,7 +1749,7 @@ size_t ao_buffer_peek_range_front(ao_buffer_t const * x, void * p, size_t n_min,
 
     if (c >= n_min)
     {
-        n = ao_min(c, n_max);
+        n = AO_MIN(c, n_max);
 
         C = x->capacity;        ao_assert(c <= C);
 
@@ -1914,7 +1914,7 @@ size_t ao_buffer_pop_range_back(ao_buffer_t * x, void * p, size_t n_min, size_t 
 
     if (c >= n_min)
     {
-        n = ao_min(c, n_max);
+        n = AO_MIN(c, n_max);
 
         C = x->capacity;        ao_assert(c <= C);
 
@@ -1989,7 +1989,7 @@ size_t ao_buffer_pop_range_front(ao_buffer_t * x, void * p, size_t n_min, size_t
 
     if (c >= n_min)
     {
-        n = ao_min(c, n_max);
+        n = AO_MIN(c, n_max);
 
         C = x->capacity;        ao_assert(c <= C);
 
@@ -2086,7 +2086,7 @@ bool ao_buffer_push_back(ao_buffer_t * x, void const * p)
 
 #if AO_BUFFER_COUNT_MAX
 
-    x->count_max = ao_max(t, c);
+    x->count_max = AO_MAX(t, c);
 
 #endif
 
@@ -2161,7 +2161,7 @@ bool ao_buffer_push_back_override(ao_buffer_t * x, void const * p)
 
 #if AO_BUFFER_COUNT_MAX
 
-    x->count_max = ao_max(t, c);
+    x->count_max = AO_MAX(t, c);
 
 #endif
 
@@ -2226,7 +2226,7 @@ bool ao_buffer_push_front(ao_buffer_t * x, void const * p)
 
 #if AO_BUFFER_COUNT_MAX
 
-    x->count_max = ao_max(t, c);
+    x->count_max = AO_MAX(t, c);
 
 #endif
 
@@ -2298,7 +2298,7 @@ bool ao_buffer_push_front_override(ao_buffer_t * x, void const * p)
 
 #if AO_BUFFER_COUNT_MAX
 
-    x->count_max = ao_max(t, c);
+    x->count_max = AO_MAX(t, c);
 
 #endif
 
@@ -2351,7 +2351,7 @@ size_t ao_buffer_push_range_back(ao_buffer_t * x, void const * p, size_t n_min, 
 
     if (t >= n_min)
     {
-        n = ao_min(t, n_max);
+        n = AO_MIN(t, n_max);
 
         f = x->front;           ao_assert(f < C);
 
@@ -2385,7 +2385,7 @@ size_t ao_buffer_push_range_back(ao_buffer_t * x, void const * p, size_t n_min, 
 
 #if AO_BUFFER_COUNT_MAX
 
-        t = ao_max(t, c);
+        t = AO_MAX(t, c);
 
         x->count_max = t;
 
@@ -2448,7 +2448,7 @@ size_t ao_buffer_push_range_back_override(ao_buffer_t * x, void const * p, size_
 
     if (C >= n_min)
     {
-        n = ao_min(C, n_max);
+        n = AO_MIN(C, n_max);
 
         c = x->count;           ao_assert(c <= C);
 
@@ -2498,7 +2498,7 @@ size_t ao_buffer_push_range_back_override(ao_buffer_t * x, void const * p, size_
 
 #if AO_BUFFER_COUNT_MAX
 
-        t2 = ao_max(t2, c);
+        t2 = AO_MAX(t2, c);
 
         x->count_max = t2;
 
@@ -2557,7 +2557,7 @@ size_t ao_buffer_push_range_front(ao_buffer_t * x, void const * p, size_t n_min,
 
     if (t >= n_min)
     {
-        n = ao_min(t, n_max);
+        n = AO_MIN(t, n_max);
 
         f = x->front;           ao_assert(f < C);
 
@@ -2591,7 +2591,7 @@ size_t ao_buffer_push_range_front(ao_buffer_t * x, void const * p, size_t n_min,
 
 #if AO_BUFFER_COUNT_MAX
 
-        t = ao_max(t, c);
+        t = AO_MAX(t, c);
 
         x->count_max = t;
 
@@ -2654,7 +2654,7 @@ size_t ao_buffer_push_range_front_override(ao_buffer_t * x, void const * p, size
 
     if (C >= n_min)
     {
-        n = ao_min(C, n_max);
+        n = AO_MIN(C, n_max);
 
         c = x->count;           ao_assert(c <= C);
 
@@ -2700,7 +2700,7 @@ size_t ao_buffer_push_range_front_override(ao_buffer_t * x, void const * p, size
 
 #if AO_BUFFER_COUNT_MAX
 
-        t2 = ao_max(t2, c);
+        t2 = AO_MAX(t2, c);
 
         x->count_max = t2;
 
@@ -2857,7 +2857,7 @@ size_t ao_buffer4obj_peek_range_back(ao_buffer4obj_t const * x, void * p, size_t
 
     if (c >= n_min)
     {
-        n = ao_min(c, n_max);
+        n = AO_MIN(c, n_max);
 
         C = x->capacity;        ao_assert(c <= C);
 
@@ -2936,7 +2936,7 @@ size_t ao_buffer4obj_peek_range_front(ao_buffer4obj_t const * x, void * p, size_
 
     if (c >= n_min)
     {
-        n = ao_min(c, n_max);
+        n = AO_MIN(c, n_max);
 
         C = x->capacity;        ao_assert(c <= C);
 
@@ -3115,7 +3115,7 @@ size_t ao_buffer4obj_pop_range_back(ao_buffer4obj_t * x, void * p, size_t n_min,
 
     if (c >= n_min)
     {
-        n = ao_min(c, n_max);
+        n = AO_MIN(c, n_max);
 
         C = x->capacity;        ao_assert(c <= C);
 
@@ -3198,7 +3198,7 @@ size_t ao_buffer4obj_pop_range_front(ao_buffer4obj_t * x, void * p, size_t n_min
 
     if (c >= n_min)
     {
-        n = ao_min(c, n_max);
+        n = AO_MIN(c, n_max);
 
         C = x->capacity;        ao_assert(c <= C);
 
@@ -3307,7 +3307,7 @@ bool ao_buffer4obj_push_back(ao_buffer4obj_t * x, void const * p)
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-    x->count_max = ao_max(t, c);
+    x->count_max = AO_MAX(t, c);
 
 #endif
 
@@ -3388,7 +3388,7 @@ bool ao_buffer4obj_push_back_override(ao_buffer4obj_t * x, void const * p)
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-        x->count_max = ao_max(t, c);
+        x->count_max = AO_MAX(t, c);
 
 #endif
 
@@ -3459,7 +3459,7 @@ bool ao_buffer4obj_push_front(ao_buffer4obj_t * x, void const * p)
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-    x->count_max = ao_max(t, c);
+    x->count_max = AO_MAX(t, c);
 
 #endif
 
@@ -3533,7 +3533,7 @@ bool ao_buffer4obj_push_front_override(ao_buffer4obj_t * x, void const * p)
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-        x->count_max = ao_max(t, c);
+        x->count_max = AO_MAX(t, c);
 
 #endif
 
@@ -3590,7 +3590,7 @@ size_t ao_buffer4obj_push_range_back(ao_buffer4obj_t * x, void const * p, size_t
 
     if (t >= n_min)
     {
-        n = ao_min(t, n_max);
+        n = AO_MIN(t, n_max);
 
         f = x->front;           ao_assert(f < C);
 
@@ -3628,7 +3628,7 @@ size_t ao_buffer4obj_push_range_back(ao_buffer4obj_t * x, void const * p, size_t
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-        t = ao_max(t, c);
+        t = AO_MAX(t, c);
 
         x->count_max = t;
 
@@ -3693,7 +3693,7 @@ size_t ao_buffer4obj_push_range_back_override(ao_buffer4obj_t * x, void const * 
 
     if (C >= n_min)
     {
-        n = ao_min(C, n_max);
+        n = AO_MIN(C, n_max);
 
         c = x->count;           ao_assert(c <= C);
 
@@ -3747,7 +3747,7 @@ size_t ao_buffer4obj_push_range_back_override(ao_buffer4obj_t * x, void const * 
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-        t2 = ao_max(t2, c);
+        t2 = AO_MAX(t2, c);
 
         x->count_max = t2;
 
@@ -3810,7 +3810,7 @@ size_t ao_buffer4obj_push_range_front(ao_buffer4obj_t * x, void const * p, size_
 
     if (t >= n_min)
     {
-        n = ao_min(t, n_max);
+        n = AO_MIN(t, n_max);
 
         f = x->front;           ao_assert(f < C);
 
@@ -3848,7 +3848,7 @@ size_t ao_buffer4obj_push_range_front(ao_buffer4obj_t * x, void const * p, size_
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-        t = ao_max(t, c);
+        t = AO_MAX(t, c);
 
         x->count_max = t;
 
@@ -3915,7 +3915,7 @@ size_t ao_buffer4obj_push_range_front_override(ao_buffer4obj_t * x, void const *
 
     if (C >= n_min)
     {
-        n = ao_min(C, n_max);
+        n = AO_MIN(C, n_max);
 
         c = x->count;           ao_assert(c <= C);
 
@@ -3965,7 +3965,7 @@ size_t ao_buffer4obj_push_range_front_override(ao_buffer4obj_t * x, void const *
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-        t2 = ao_max(t2, c);
+        t2 = AO_MAX(t2, c);
 
         x->count_max = t2;
 
@@ -4112,7 +4112,7 @@ size_t ao_buffer4ptr_peek_range_back(ao_buffer4ptr_t const * x, void ** p, size_
 
     if (c >= n_min)
     {
-        n = ao_min(c, n_max);
+        n = AO_MIN(c, n_max);
 
         C = x->capacity;        ao_assert(c <= C);
 
@@ -4185,7 +4185,7 @@ size_t ao_buffer4ptr_peek_range_front(ao_buffer4ptr_t const * x, void ** p, size
 
     if (c >= n_min)
     {
-        n = ao_min(c, n_max);
+        n = AO_MIN(c, n_max);
 
         C = x->capacity;        ao_assert(c <= C);
 
@@ -4352,7 +4352,7 @@ size_t ao_buffer4ptr_pop_range_back(ao_buffer4ptr_t * x, void ** p, size_t n_min
 
     if (c >= n_min)
     {
-        n = ao_min(c, n_max);
+        n = AO_MIN(c, n_max);
 
         C = x->capacity;        ao_assert(c <= C);
 
@@ -4427,7 +4427,7 @@ size_t ao_buffer4ptr_pop_range_front(ao_buffer4ptr_t * x, void ** p, size_t n_mi
 
     if (c >= n_min)
     {
-        n = ao_min(c, n_max);
+        n = AO_MIN(c, n_max);
 
         C = x->capacity;        ao_assert(c <= C);
 
@@ -4525,7 +4525,7 @@ bool ao_buffer4ptr_push_back(ao_buffer4ptr_t * x, void * p)
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-    x->count_max = ao_max(t, c);
+    x->count_max = AO_MAX(t, c);
 
 #endif
 
@@ -4599,7 +4599,7 @@ bool ao_buffer4ptr_push_back_override(ao_buffer4ptr_t * x, void * p)
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-        x->count_max = ao_max(t, c);
+        x->count_max = AO_MAX(t, c);
 
 #endif
 
@@ -4663,7 +4663,7 @@ bool ao_buffer4ptr_push_front(ao_buffer4ptr_t * x, void * p)
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-    x->count_max = ao_max(t, c);
+    x->count_max = AO_MAX(t, c);
 
 #endif
 
@@ -4730,7 +4730,7 @@ bool ao_buffer4ptr_push_front_override(ao_buffer4ptr_t * x, void * p)
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-        x->count_max = ao_max(t, c);
+        x->count_max = AO_MAX(t, c);
 
 #endif
 
@@ -4783,7 +4783,7 @@ size_t ao_buffer4ptr_push_range_back(ao_buffer4ptr_t * x, void * const * p, size
 
     if (t >= n_min)
     {
-        n = ao_min(t, n_max);
+        n = AO_MIN(t, n_max);
 
         f = x->front;           ao_assert(f < C);
 
@@ -4817,7 +4817,7 @@ size_t ao_buffer4ptr_push_range_back(ao_buffer4ptr_t * x, void * const * p, size
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-        t = ao_max(t, c);
+        t = AO_MAX(t, c);
 
         x->count_max = t;
 
@@ -4880,7 +4880,7 @@ size_t ao_buffer4ptr_push_range_back_override(ao_buffer4ptr_t * x, void * const 
 
     if (C >= n_min)
     {
-        n = ao_min(C, n_max);
+        n = AO_MIN(C, n_max);
 
         c = x->count;           ao_assert(c <= C);
 
@@ -4930,7 +4930,7 @@ size_t ao_buffer4ptr_push_range_back_override(ao_buffer4ptr_t * x, void * const 
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-        t2 = ao_max(t2, c);
+        t2 = AO_MAX(t2, c);
 
         x->count_max = t2;
 
@@ -4989,7 +4989,7 @@ size_t ao_buffer4ptr_push_range_front(ao_buffer4ptr_t * x, void * const * p, siz
 
     if (t >= n_min)
     {
-        n = ao_min(t, n_max);
+        n = AO_MIN(t, n_max);
 
         f = x->front;           ao_assert(f < C);
 
@@ -5023,7 +5023,7 @@ size_t ao_buffer4ptr_push_range_front(ao_buffer4ptr_t * x, void * const * p, siz
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-        t = ao_max(t, c);
+        t = AO_MAX(t, c);
 
         x->count_max = t;
 
@@ -5088,7 +5088,7 @@ size_t ao_buffer4ptr_push_range_front_override(ao_buffer4ptr_t * x, void * const
 
     if (C >= n_min)
     {
-        n = ao_min(C, n_max);
+        n = AO_MIN(C, n_max);
 
         c = x->count;           ao_assert(c <= C);
 
@@ -5136,7 +5136,7 @@ size_t ao_buffer4ptr_push_range_front_override(ao_buffer4ptr_t * x, void * const
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-        t2 = ao_max(t2, c);
+        t2 = AO_MAX(t2, c);
 
         x->count_max = t2;
 
@@ -5581,7 +5581,7 @@ void ao_heap_insert(ao_heap_t * X, ao_heap_node_t * N)
 
     CM = X->count_max;
 
-    CM = ao_max(C2, CM);
+    CM = AO_MAX(C2, CM);
 
     X->count_max = CM;
 
@@ -6510,7 +6510,7 @@ bool ao_heap4obj_insert(ao_heap4obj_t * x, void const * p)
 
     cm = x->count_max;
 
-    cm = ao_max(cm, c2);
+    cm = AO_MAX(cm, c2);
 
     x->count_max = cm;
 
@@ -7092,7 +7092,7 @@ bool ao_heap4ptr_insert(ao_heap4ptr_t * x, void * p)
 
     cm = x->count_max;
 
-    cm = ao_max(cm, c2);
+    cm = AO_MAX(cm, c2);
 
     x->count_max = cm;
 
@@ -10353,7 +10353,7 @@ size_t ao_printed(char * s, size_t no_max, ao_print_t const * o, double const * 
     {
         // Value is negative.
 
-        if (ao_is_negative(t1))
+        if (AO_IS_NEGATIVE(t1))
         {
             // Not enough space left in the string for subsequent digits.
 
@@ -10370,7 +10370,7 @@ size_t ao_printed(char * s, size_t no_max, ao_print_t const * o, double const * 
 
         // Value is positive.
 
-        else if (ao_is_positive(t1))
+        else if (AO_IS_POSITIVE(t1))
         {
             if (o->sign)
             {
@@ -10435,7 +10435,7 @@ size_t ao_printed(char * s, size_t no_max, ao_print_t const * o, double const * 
     {
         // Value is negative infinity.
 
-        if (ao_is_negative(t1))
+        if (AO_IS_NEGATIVE(t1))
         {
             // Not enough space left in the string for subsequent characters.
 
@@ -10522,7 +10522,7 @@ size_t ao_printed(char * s, size_t no_max, ao_print_t const * o, double const * 
 
         np = o->precision;
 
-        np = ao_min(np, DBL_DIG);
+        np = AO_MIN(np, DBL_DIG);
 
 
         // Mantissa and exponent.
@@ -10560,14 +10560,14 @@ size_t ao_printed(char * s, size_t no_max, ao_print_t const * o, double const * 
                 t1 = t1 / t2;
             }
 
-            if (ao_is_less(t1, (double) 1))
+            if (AO_IS_LESS(t1, (double) 1))
             {
                 e1--;
 
                 t1 = t1 * (double) 10;
             }
 
-            else if (ao_is_greater_equal(t1, (double) 10))
+            else if (AO_IS_GREATER_EQUAL(t1, (double) 10))
             {
                 e1++;
 
@@ -10578,7 +10578,7 @@ size_t ao_printed(char * s, size_t no_max, ao_print_t const * o, double const * 
             {
                 t1 = ao_roundd_half_up(t1);
 
-                if (ao_is_greater_equal(t1, (double) 10))
+                if (AO_IS_GREATER_EQUAL(t1, (double) 10))
                 {
                     e1++;
 
@@ -11180,7 +11180,7 @@ size_t ao_printef(char * s, size_t no_max, ao_print_t const * o, float const * v
     {
         // Value is negative.
 
-        if (ao_is_negative(t1))
+        if (AO_IS_NEGATIVE(t1))
         {
             // Not enough space left in the string for subsequent digits.
 
@@ -11197,7 +11197,7 @@ size_t ao_printef(char * s, size_t no_max, ao_print_t const * o, float const * v
 
         // Value is positive.
 
-        else if (ao_is_positive(t1))
+        else if (AO_IS_POSITIVE(t1))
         {
             if (o->sign)
             {
@@ -11262,7 +11262,7 @@ size_t ao_printef(char * s, size_t no_max, ao_print_t const * o, float const * v
     {
         // Value is negative infinity.
 
-        if (ao_is_negative(t1))
+        if (AO_IS_NEGATIVE(t1))
         {
             // Not enough space left in the string for subsequent characters.
 
@@ -11349,7 +11349,7 @@ size_t ao_printef(char * s, size_t no_max, ao_print_t const * o, float const * v
 
         np = o->precision;
 
-        np = ao_min(np, FLT_DIG);
+        np = AO_MIN(np, FLT_DIG);
 
 
         // Mantissa and exponent.
@@ -11387,14 +11387,14 @@ size_t ao_printef(char * s, size_t no_max, ao_print_t const * o, float const * v
                 t1 = t1 / t2;
             }
 
-            if (ao_is_less(t1, (float) 1))
+            if (AO_IS_LESS(t1, (float) 1))
             {
                 e1--;
 
                 t1 = t1 * (float) 10;
             }
 
-            else if (ao_is_greater_equal(t1, (float) 10))
+            else if (AO_IS_GREATER_EQUAL(t1, (float) 10))
             {
                 e1++;
 
@@ -11405,7 +11405,7 @@ size_t ao_printef(char * s, size_t no_max, ao_print_t const * o, float const * v
             {
                 t1 = ao_roundf_half_up(t1);
 
-                if (ao_is_greater_equal(t1, (float) 10))
+                if (AO_IS_GREATER_EQUAL(t1, (float) 10))
                 {
                     e1++;
 
@@ -12007,7 +12007,7 @@ size_t ao_printel(char * s, size_t no_max, ao_print_t const * o, long double con
     {
         // Value is negative.
 
-        if (ao_is_negative(t1))
+        if (AO_IS_NEGATIVE(t1))
         {
             // Not enough space left in the string for subsequent digits.
 
@@ -12024,7 +12024,7 @@ size_t ao_printel(char * s, size_t no_max, ao_print_t const * o, long double con
 
         // Value is positive.
 
-        else if (ao_is_positive(t1))
+        else if (AO_IS_POSITIVE(t1))
         {
             if (o->sign)
             {
@@ -12089,7 +12089,7 @@ size_t ao_printel(char * s, size_t no_max, ao_print_t const * o, long double con
     {
         // Value is negative infinity.
 
-        if (ao_is_negative(t1))
+        if (AO_IS_NEGATIVE(t1))
         {
             // Not enough space left in the string for subsequent characters.
 
@@ -12176,7 +12176,7 @@ size_t ao_printel(char * s, size_t no_max, ao_print_t const * o, long double con
 
         np = o->precision;
 
-        np = ao_min(np, LDBL_DIG);
+        np = AO_MIN(np, LDBL_DIG);
 
 
         // Mantissa and exponent.
@@ -12214,14 +12214,14 @@ size_t ao_printel(char * s, size_t no_max, ao_print_t const * o, long double con
                 t1 = t1 / t2;
             }
 
-            if (ao_is_less(t1, (long double) 1))
+            if (AO_IS_LESS(t1, (long double) 1))
             {
                 e1--;
 
                 t1 = t1 * (long double) 10;
             }
 
-            else if (ao_is_greater_equal(t1, (long double) 10))
+            else if (AO_IS_GREATER_EQUAL(t1, (long double) 10))
             {
                 e1++;
 
@@ -12232,7 +12232,7 @@ size_t ao_printel(char * s, size_t no_max, ao_print_t const * o, long double con
             {
                 t1 = ao_roundl_half_up(t1);
 
-                if (ao_is_greater_equal(t1, (long double) 10))
+                if (AO_IS_GREATER_EQUAL(t1, (long double) 10))
                 {
                     e1++;
 
@@ -12833,7 +12833,7 @@ size_t ao_printfd(char * s, size_t no_max, ao_print_t const * o, double const * 
     {
         // Value is negative.
 
-        if (ao_is_negative(t1))
+        if (AO_IS_NEGATIVE(t1))
         {
             // Not enough space left in the string for subsequent digits.
 
@@ -12848,7 +12848,7 @@ size_t ao_printfd(char * s, size_t no_max, ao_print_t const * o, double const * 
 
         // Value is positive.
 
-        else if (ao_is_positive(t1))
+        else if (AO_IS_POSITIVE(t1))
         {
             if (o->sign)
             {
@@ -12909,7 +12909,7 @@ size_t ao_printfd(char * s, size_t no_max, ao_print_t const * o, double const * 
     {
         // Value is negative infinity.
 
-        if (ao_is_negative(t1))
+        if (AO_IS_NEGATIVE(t1))
         {
             // Not enough space left in the string for subsequent characters.
 
@@ -12996,7 +12996,7 @@ size_t ao_printfd(char * s, size_t no_max, ao_print_t const * o, double const * 
 
         np = o->precision;
 
-        np = ao_min(np, DBL_DIG);
+        np = AO_MIN(np, DBL_DIG);
 
 
         // Value.
@@ -13013,7 +13013,7 @@ size_t ao_printfd(char * s, size_t no_max, ao_print_t const * o, double const * 
 
         t1 = t1f / t2;
 
-        if (ao_is_greater_equal(t1, (double) 1))
+        if (AO_IS_GREATER_EQUAL(t1, (double) 1))
         {
             t1i = t1i + (double) 1;
 
@@ -13027,7 +13027,7 @@ size_t ao_printfd(char * s, size_t no_max, ao_print_t const * o, double const * 
 
         // Integral is not zero.
 
-        if (ao_is_greater_equal(t1i, (double) 1))
+        if (AO_IS_GREATER_EQUAL(t1i, (double) 1))
         {
             t1 = ao_log10d(t1i);
 
@@ -13035,7 +13035,7 @@ size_t ao_printfd(char * s, size_t no_max, ao_print_t const * o, double const * 
 
             t1 = ao_floord(t1);
 
-            ao_assert(ao_is_greater_equal(t1, (double) 0));
+            ao_assert(AO_IS_GREATER_EQUAL(t1, (double) 0));
 
             ni = (size_t) t1;
 
@@ -13077,7 +13077,7 @@ size_t ao_printfd(char * s, size_t no_max, ao_print_t const * o, double const * 
                 no++;
                 niv++;
 
-                if (ao_is_less(t1i, (double) 1))
+                if (AO_IS_LESS(t1i, (double) 1))
                 {
                     b2 = false;
                 }
@@ -13096,7 +13096,7 @@ size_t ao_printfd(char * s, size_t no_max, ao_print_t const * o, double const * 
         {
             // Fractional is zero.
 
-            if (ao_is_less(t1f, (double) 1))
+            if (AO_IS_LESS(t1f, (double) 1))
             {
                 no = no - ns;
 
@@ -13526,7 +13526,7 @@ size_t ao_printff(char * s, size_t no_max, ao_print_t const * o, float const * v
     {
         // Value is negative.
 
-        if (ao_is_negative(t1))
+        if (AO_IS_NEGATIVE(t1))
         {
             // Not enough space left in the string for subsequent digits.
 
@@ -13541,7 +13541,7 @@ size_t ao_printff(char * s, size_t no_max, ao_print_t const * o, float const * v
 
         // Value is positive.
 
-        else if (ao_is_positive(t1))
+        else if (AO_IS_POSITIVE(t1))
         {
             if (o->sign)
             {
@@ -13602,7 +13602,7 @@ size_t ao_printff(char * s, size_t no_max, ao_print_t const * o, float const * v
     {
         // Value is negative infinity.
 
-        if (ao_is_negative(t1))
+        if (AO_IS_NEGATIVE(t1))
         {
             // Not enough space left in the string for subsequent characters.
 
@@ -13689,7 +13689,7 @@ size_t ao_printff(char * s, size_t no_max, ao_print_t const * o, float const * v
 
         np = o->precision;
 
-        np = ao_min(np, FLT_DIG);
+        np = AO_MIN(np, FLT_DIG);
 
 
         // Value.
@@ -13706,7 +13706,7 @@ size_t ao_printff(char * s, size_t no_max, ao_print_t const * o, float const * v
 
         t1 = t1f / t2;
 
-        if (ao_is_greater_equal(t1, (float) 1))
+        if (AO_IS_GREATER_EQUAL(t1, (float) 1))
         {
             t1i = t1i + (float) 1;
 
@@ -13720,7 +13720,7 @@ size_t ao_printff(char * s, size_t no_max, ao_print_t const * o, float const * v
 
         // Integral is not zero.
 
-        if (ao_is_greater_equal(t1i, (float) 1))
+        if (AO_IS_GREATER_EQUAL(t1i, (float) 1))
         {
             t1 = ao_log10f(t1i);
 
@@ -13728,7 +13728,7 @@ size_t ao_printff(char * s, size_t no_max, ao_print_t const * o, float const * v
 
             t1 = ao_floorf(t1);
 
-            ao_assert(ao_is_greater_equal(t1, (float) 0));
+            ao_assert(AO_IS_GREATER_EQUAL(t1, (float) 0));
 
             ni = (size_t) t1;
 
@@ -13770,7 +13770,7 @@ size_t ao_printff(char * s, size_t no_max, ao_print_t const * o, float const * v
                 no++;
                 niv++;
 
-                if (ao_is_less(t1i, (float) 1))
+                if (AO_IS_LESS(t1i, (float) 1))
                 {
                     b2 = false;
                 }
@@ -13789,7 +13789,7 @@ size_t ao_printff(char * s, size_t no_max, ao_print_t const * o, float const * v
         {
             // Fractional is zero.
 
-            if (ao_is_less(t1f, (float) 1))
+            if (AO_IS_LESS(t1f, (float) 1))
             {
                 no = no - ns;
 
@@ -14219,7 +14219,7 @@ size_t ao_printfl(char * s, size_t no_max, ao_print_t const * o, long double con
     {
         // Value is negative.
 
-        if (ao_is_negative(t1))
+        if (AO_IS_NEGATIVE(t1))
         {
             // Not enough space left in the string for subsequent digits.
 
@@ -14234,7 +14234,7 @@ size_t ao_printfl(char * s, size_t no_max, ao_print_t const * o, long double con
 
         // Value is positive.
 
-        else if (ao_is_positive(t1))
+        else if (AO_IS_POSITIVE(t1))
         {
             if (o->sign)
             {
@@ -14295,7 +14295,7 @@ size_t ao_printfl(char * s, size_t no_max, ao_print_t const * o, long double con
     {
         // Value is negative infinity.
 
-        if (ao_is_negative(t1))
+        if (AO_IS_NEGATIVE(t1))
         {
             // Not enough space left in the string for subsequent characters.
 
@@ -14382,7 +14382,7 @@ size_t ao_printfl(char * s, size_t no_max, ao_print_t const * o, long double con
 
         np = o->precision;
 
-        np = ao_min(np, LDBL_DIG);
+        np = AO_MIN(np, LDBL_DIG);
 
 
         // Value.
@@ -14399,7 +14399,7 @@ size_t ao_printfl(char * s, size_t no_max, ao_print_t const * o, long double con
 
         t1 = t1f / t2;
 
-        if (ao_is_greater_equal(t1, (long double) 1))
+        if (AO_IS_GREATER_EQUAL(t1, (long double) 1))
         {
             t1i = t1i + (long double) 1;
 
@@ -14413,7 +14413,7 @@ size_t ao_printfl(char * s, size_t no_max, ao_print_t const * o, long double con
 
         // Integral is not zero.
 
-        if (ao_is_greater_equal(t1i, (long double) 1))
+        if (AO_IS_GREATER_EQUAL(t1i, (long double) 1))
         {
             t1 = ao_log10l(t1i);
 
@@ -14421,7 +14421,7 @@ size_t ao_printfl(char * s, size_t no_max, ao_print_t const * o, long double con
 
             t1 = ao_floorl(t1);
 
-            ao_assert(ao_is_greater_equal(t1, (long double) 0));
+            ao_assert(AO_IS_GREATER_EQUAL(t1, (long double) 0));
 
             ni = (size_t) t1;
 
@@ -14463,7 +14463,7 @@ size_t ao_printfl(char * s, size_t no_max, ao_print_t const * o, long double con
                 no++;
                 niv++;
 
-                if (ao_is_less(t1i, (long double) 1))
+                if (AO_IS_LESS(t1i, (long double) 1))
                 {
                     b2 = false;
                 }
@@ -14482,7 +14482,7 @@ size_t ao_printfl(char * s, size_t no_max, ao_print_t const * o, long double con
         {
             // Fractional is zero.
 
-            if (ao_is_less(t1f, (long double) 1))
+            if (AO_IS_LESS(t1f, (long double) 1))
             {
                 no = no - ns;
 
@@ -19432,7 +19432,7 @@ size_t ao_scani8(char const * s, size_t ni_max, ao_scan_t const * o, int8_t * v)
     cl = 'a' + r - 11;
     cL = 'A' + r - 11;
 
-    cd = ao_min(cd, '9');
+    cd = AO_MIN(cd, '9');
 
 
     // Seek.
@@ -19634,7 +19634,7 @@ size_t ao_scani16(char const * s, size_t ni_max, ao_scan_t const * o, int16_t * 
     cl = 'a' + r - 11;
     cL = 'A' + r - 11;
 
-    cd = ao_min(cd, '9');
+    cd = AO_MIN(cd, '9');
 
 
     // Seek.
@@ -19836,7 +19836,7 @@ size_t ao_scani32(char const * s, size_t ni_max, ao_scan_t const * o, int32_t * 
     cl = 'a' + r - 11;
     cL = 'A' + r - 11;
 
-    cd = ao_min(cd, '9');
+    cd = AO_MIN(cd, '9');
 
 
     // Seek.
@@ -20038,7 +20038,7 @@ size_t ao_scani64(char const * s, size_t ni_max, ao_scan_t const * o, int64_t * 
     cl = 'a' + r - 11;
     cL = 'A' + r - 11;
 
-    cd = ao_min(cd, '9');
+    cd = AO_MIN(cd, '9');
 
 
     // Seek.
@@ -20240,7 +20240,7 @@ size_t ao_scanu8(char const * s, size_t ni_max, ao_scan_t const * o, uint8_t * v
     cl = 'a' + r - 11;
     cL = 'A' + r - 11;
 
-    cd = ao_min(cd, '9');
+    cd = AO_MIN(cd, '9');
 
 
     // Seek.
@@ -20418,7 +20418,7 @@ size_t ao_scanu16(char const * s, size_t ni_max, ao_scan_t const * o, uint16_t *
     cl = 'a' + r - 11;
     cL = 'A' + r - 11;
 
-    cd = ao_min(cd, '9');
+    cd = AO_MIN(cd, '9');
 
 
     // Seek.
@@ -20596,7 +20596,7 @@ size_t ao_scanu32(char const * s, size_t ni_max, ao_scan_t const * o, uint32_t *
     cl = 'a' + r - 11;
     cL = 'A' + r - 11;
 
-    cd = ao_min(cd, '9');
+    cd = AO_MIN(cd, '9');
 
 
     // Seek.
@@ -20774,7 +20774,7 @@ size_t ao_scanu64(char const * s, size_t ni_max, ao_scan_t const * o, uint64_t *
     cl = 'a' + r - 11;
     cL = 'A' + r - 11;
 
-    cd = ao_min(cd, '9');
+    cd = AO_MIN(cd, '9');
 
 
     // Seek.

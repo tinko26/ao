@@ -4977,9 +4977,9 @@ void ao_mikroe_2935_task_proc(void * x)
 
     // Ready.
 
-    nxy = ao_clamp(nxy, 1, 511);
+    nxy = AO_CLAMP(nxy, 1, 511);
 
-    nz = ao_clamp(nz, 1, 256);
+    nz = AO_CLAMP(nz, 1, 256);
 
     r51 = (uint8_t) ((nxy - 1) / 2);
 
@@ -5237,9 +5237,9 @@ void ao_mikroe_2950_luminance_down(size_t i, uint8_t l, ao_time_t t)
 
     x = ao_milliseconds_from_time(x);
 
-    x = ao_max(x,   8);
+    x = AO_MAX(x,   8);
 
-    x = ao_min(x, 248);
+    x = AO_MIN(x, 248);
 
     ao_mikroe_2950_send(i, 0b11000000 | (          l >> 3));
 
@@ -5257,9 +5257,9 @@ void ao_mikroe_2950_luminance_up(size_t i, uint8_t l, ao_time_t t)
 
     x = ao_milliseconds_from_time(x);
 
-    x = ao_max(x,   8);
+    x = AO_MAX(x,   8);
 
-    x = ao_min(x, 248);
+    x = AO_MIN(x, 248);
 
     ao_mikroe_2950_send(i, 0b10100000 | (          l >> 3));
 

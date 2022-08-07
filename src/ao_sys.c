@@ -1243,7 +1243,7 @@ void ao_alarm_queue_insert(ao_alarm_t * A)
 
     CM = ao_alarm_queue_count_max;
 
-    CM = ao_max(CM, C2);
+    CM = AO_MAX(CM, C2);
 
     ao_alarm_queue_count_max = CM;
 
@@ -4444,9 +4444,9 @@ void * ao_acquire_3(size_t s)
 
                 t5 = ao_alloc_allocated_max;
 
-                t4 = ao_max(t2, t4);
+                t4 = AO_MAX(t2, t4);
 
-                t5 = ao_max(t3, t5);
+                t5 = AO_MAX(t3, t5);
 
                 P->allocated_max = t4;
 
@@ -4481,9 +4481,9 @@ void * ao_acquire_3(size_t s)
 
                 t9 = ao_alloc_free_min;
 
-                t8 = ao_min(t6, t8);
+                t8 = AO_MIN(t6, t8);
 
-                t9 = ao_min(t7, t9);
+                t9 = AO_MIN(t7, t9);
 
                 P->free_min = t8;
 
@@ -9640,7 +9640,7 @@ bool ao_retain_3(void * p)
 
 #define AO_ALLOC_L1_INDEX_MIN           (AO_ALLOC_ALIGN_LOG + AO_ALLOC_L2_COUNT_LOG)
 
-#define AO_ALLOC_L1_INDEX_MAX           ao_max(AO_ALLOC_SIZE_STORE_LOG, AO_ALLOC_L1_INDEX_MIN)
+#define AO_ALLOC_L1_INDEX_MAX           AO_MAX(AO_ALLOC_SIZE_STORE_LOG, AO_ALLOC_L1_INDEX_MIN)
 
 // ----------------------------------------------------------------------------
 
@@ -9971,7 +9971,7 @@ void * ao_acquire_3(size_t s)
 
         t4 = ao_alloc_allocated_max;
 
-        t4 = ao_max(t3, t4);
+        t4 = AO_MAX(t3, t4);
 
         ao_alloc_allocated_max = t4;
 
@@ -9994,7 +9994,7 @@ void * ao_acquire_3(size_t s)
 
         t6 = ao_alloc_free_min;
 
-        t6 = ao_min(t5, t6);
+        t6 = AO_MIN(t5, t6);
 
         ao_alloc_free_min = t6;
 
@@ -10035,7 +10035,7 @@ ao_alloc_block_t * ao_alloc_block_allocate(size_t s)
 
     // The size of the block body must be aligned.
 
-    s = ao_max(s, AO_ALLOC_SIZE_BLOCK_BODY);
+    s = AO_MAX(s, AO_ALLOC_SIZE_BLOCK_BODY);
 
     s = AO_ALIGN_UP(s, AO_ALLOC_ALIGN);
 
@@ -24405,7 +24405,7 @@ void ao_task_prio_update_1(ao_task_t * t, ao_uint_t p_new)
 
     p_keep = ao_task_prio_keep(t);
 
-    p_new = ao_max
+    p_new = AO_MAX
     (
         p_new,
         p_keep
@@ -24431,7 +24431,7 @@ void ao_task_prio_update_2(ao_task_t * t)
 
     p_keep = ao_task_prio_keep(t);
 
-    p_new = ao_max
+    p_new = AO_MAX
     (
         p_backup,
         p_keep
@@ -24585,7 +24585,7 @@ ao_uint_t ao_task_slave_prio_keep(ao_task_slave_t * s)
 
 #endif
 
-    return ao_max
+    return AO_MAX
     (
         p_ceiling,
         p_master
