@@ -24,7 +24,7 @@ The `ao_print_t` type represents options for the conversion. It consists of the 
 | `radix` | The [radix](https://en.wikipedia.org/wiki/Radix) of the positional numeral system, wherein the number is to be represented. |
 | `right` | Indicates whether to right-justify the string, if its length is less than the specified minimum `width`. |
 | `sign` | Indicates whether the significant is to be preceeded by a `+` character, if the number is positive. Negative numbers are always preceeded by a `-` character. |
-| `sign_exponent` | Indicates whether the exponent is to be preceeded by a sign character. |
+| `sign_exponent` | Indicates whether the exponent is to be preceeded by a `+` character, if it is positive. Negative exponents are always preceeded by a `-` character. If the exponent is zero, then its output will be omitted. |
 | `sign_space` | Indicates whether the significant is to be preceeded by a space character, if the number is positive or zero. Negative numbers are always preceeded by a `-` character. In the case of positive numbers, this option is inferior to the `sign` option. |
 | `uppercase` | Indicates whether alphabetic digits are to be emitted in uppercase. |
 | `width` | The minimum width of the string to output. Eventually, leading or trailing spaces will be added. |
