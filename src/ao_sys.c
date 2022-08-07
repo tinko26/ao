@@ -955,13 +955,13 @@ static  void                        ao_alarm_queue_up(          size_t i);
 
 // ----------------------------------------------------------------------------
 
-#define ao_alarm_queue_left(i)      (2 * (i) + 1)
+#define AO_ALARM_QUEUE_LEFT(i)      (2 * (i) + 1)
 
-#define ao_alarm_queue_right(i)     (2 * (i) + 2)
+#define AO_ALARM_QUEUE_RIGHT(i)     (2 * (i) + 2)
 
 // ----------------------------------------------------------------------------
 
-#define ao_alarm_queue_parent(i)    (((i) - 1) / 2)
+#define AO_ALARM_QUEUE_PARENT(i)    (((i) - 1) / 2)
 
 // ----------------------------------------------------------------------------
 
@@ -1007,9 +1007,9 @@ void ao_alarm_queue_assert()
 
     for (ip = 0; ip < C; ip++)
     {
-        il = ao_alarm_queue_left(ip);
+        il = AO_ALARM_QUEUE_LEFT(ip);
 
-        ir = ao_alarm_queue_right(ip);
+        ir = AO_ALARM_QUEUE_RIGHT(ip);
 
         if (ir < C)
         {
@@ -1091,9 +1091,9 @@ void ao_alarm_queue_down(size_t i1)
 
     do
     {
-        il = ao_alarm_queue_left(i1);
+        il = AO_ALARM_QUEUE_LEFT(i1);
 
-        ir = ao_alarm_queue_right(i1);
+        ir = AO_ALARM_QUEUE_RIGHT(i1);
 
         // Both left and right child.
 
@@ -1445,7 +1445,7 @@ void ao_alarm_queue_up(size_t i1)
 
         do
         {
-            i2 = ao_alarm_queue_parent(i1);
+            i2 = AO_ALARM_QUEUE_PARENT(i1);
 
             A2 = ao_alarm_queue[i2];
 
