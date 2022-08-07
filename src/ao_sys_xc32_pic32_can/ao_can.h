@@ -2049,15 +2049,15 @@ void    ao_can_baud(                    ao_can_baud_t * x);
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_can_baud_max
+#ifndef AO_CAN_BAUD_MAX
 
-#define ao_can_baud_max(f_pbclk)        ((f_pbclk) / 16)
+#define AO_CAN_BAUD_MAX(f_pbclk)        ((f_pbclk) / 16)
 
 #endif
 
-#ifndef ao_can_baud_min
+#ifndef AO_CAN_BAUD_MIN
 
-#define ao_can_baud_min(f_pbclk)        (1 + (((f_pbclk) - 1) / 3200))
+#define AO_CAN_BAUD_MIN(f_pbclk)        (1 + (((f_pbclk) - 1) / 3200))
 
 #endif
 

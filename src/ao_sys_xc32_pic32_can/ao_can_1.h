@@ -87,13 +87,13 @@
 
 #ifndef AO_CAN_BAUD_MAX_1
 
-#define AO_CAN_BAUD_MAX_1               ao_can_baud_max(AO_SYS_CLOCK_CAN1)
+#define AO_CAN_BAUD_MAX_1               AO_CAN_BAUD_MAX(AO_SYS_CLOCK_CAN1)
 
 #endif
 
 #ifndef AO_CAN_BAUD_MIN_1
 
-#define AO_CAN_BAUD_MIN_1               ao_can_baud_min(AO_SYS_CLOCK_CAN1)
+#define AO_CAN_BAUD_MIN_1               AO_CAN_BAUD_MIN(AO_SYS_CLOCK_CAN1)
 
 #endif
 

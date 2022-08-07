@@ -3723,8 +3723,8 @@ void ao_can_baud(ao_can_baud_t * x)
 
     ao_assert(x->f_pbclk > 0);
 
-    ao_assert(x->f >= ao_can_baud_min(x->f_pbclk));
-    ao_assert(x->f <= ao_can_baud_max(x->f_pbclk));
+    ao_assert(x->f >= AO_CAN_BAUD_MIN(x->f_pbclk));
+    ao_assert(x->f <= AO_CAN_BAUD_MAX(x->f_pbclk));
 
     ao_assert(x->sample >=  50);
     ao_assert(x->sample <= 100);
