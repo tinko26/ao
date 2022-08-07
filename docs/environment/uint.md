@@ -54,16 +54,16 @@ ao_uint_t ao_flsu(ao_uint_t x);
 Calculate the base-2 logarithm.
 
 ```c
-ao_uint_t ao_log2u(ao_uint_t x);
+#define AO_LOG2U(x)
 ```
 
-Calculate the base-2 logarithm for a fixed-width unsigned integer. These are implemented as macro functions. This is for two reasons. First, when called with a constant parameter value, the result can be evaluated at compile time. Second, it can be used in the definition of macro constants. However, care must be taken for side effects, as the parameter value gets evaluated more than once.
+Calculate the base-2 logarithm for a fixed-width unsigned integer.
 
 ```c
-#define ao_log2u2(x)
-#define ao_log2u4(x)
-#define ao_log2u8(x)
-#define ao_log2u16(x)
-#define ao_log2u32(x)
-#define ao_log2u64(x)
+#define AO_LOG2U2(x)
+#define AO_LOG2U4(x)
+#define AO_LOG2U8(x)
+#define AO_LOG2U16(x)
+#define AO_LOG2U32(x)
+#define AO_LOG2U64(x)
 ```
