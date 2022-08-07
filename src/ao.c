@@ -19625,434 +19625,7 @@ void ao_rb_swap(ao_rb_t * X, ao_rb_node_t * N1, ao_rb_node_t * N2)
 
 // ----------------------------------------------------------------------------
 
-size_t ao_scan_f(char const * s, size_t ni_max, ao_scan_t const * o, ao_float_t * v)
-{
-    // Assert.
-
-    ao_assert(s);
-
-    ao_assert(o);
-
-    ao_assert(v);
-
-
-    // Variables.
-
-    bool b1;
-    bool b2;
-
-    char c;
-
-    bool me;
-    bool ms;
-
-    size_t ni;
-    size_t nie;
-
-    uint_fast16_t ve1;
-    uint_fast16_t ve2;
-
-    ao_float_t vs;
-
-
-    // Ready.
-
-    if (ni_max == 0) return 0;
-
-    ni = 0;
-
-
-    // Seek.
-
-    if (o->seek)
-    {
-        b2 = true;
-
-        do
-        {
-            c = s[ni];
-
-            if (c == '\0') return 0;
-
-            if
-            (
-                ('+' == c)              ||
-                ('-' == c)              ||
-                ('.' == c)              ||
-                ('0' <= c && c <= '9')
-            )
-            {
-                b2 = false;
-            }
-
-            else
-            {
-                ni++;
-
-                if (ni == ni_max) return 0;
-            }
-        }
-        while (b2);
-    }
-
-
-    // Significant sign.
-
-    c = s[ni];
-
-    if (c == '+')
-    {
-        ni++;
-
-        if (ni == ni_max) return 0;
-
-        ms = false;
-    }
-
-    else if (c == '-')
-    {
-        ni++;
-
-        if (ni == ni_max) return 0;
-
-        ms = true;
-    }
-
-    else
-    {
-        ms = false;
-    }
-
-
-    // Significant value.
-
-    c = s[ni];
-
-    if ('0' <= c && c <= '9')
-    {
-        b1 = true;
-    }
-
-    else if (c == '.')
-    {
-        b1 = false;
-
-        ni++;
-
-        vs = (ao_float_t) 0;
-    }
-
-    else
-    {
-        return 0;
-    }
-
-
-    // Significant integral.
-
-    if (b1)
-    {
-        vs = (ao_float_t) (c - '0');
-
-        ni++;
-
-        if (ni < ni_max)
-        {
-            b2 = true;
-
-            do
-            {
-                c = s[ni];
-
-                if ('0' <= c && c <= '9')
-                {
-                    vs = (ao_float_t) 10 * vs + (ao_float_t) (c - '0');
-
-                    ni++;
-
-                    if (ni == ni_max)
-                    {
-                        b2 = false;
-                    }
-                }
-
-                else
-                {
-                    b2 = false;
-                }
-            }
-            while (b2);
-        }
-
-        if (ni < ni_max)
-        {
-            c = s[ni];
-
-            if (c == '.')
-            {
-                b1 = true;
-
-                ni++;
-            }
-
-            else
-            {
-                b1 = false;
-            }
-        }
-
-        else
-        {
-            b1 = false;
-        }
-    }
-
-    else
-    {
-        b1 = true;
-    }
-
-
-    // Significant fractional.
-
-    if (b1)
-    {
-        if (ni < ni_max)
-        {
-            c = s[ni];
-
-            if ('0' <= c && c <= '9')
-            {
-                vs = (ao_float_t) 10 * vs + (ao_float_t) (c - '0');
-
-                ve1 = 1;
-
-                ni++;
-
-                if (ni < ni_max)
-                {
-                    b2 = true;
-
-                    do
-                    {
-                        c = s[ni];
-
-                        if ('0' <= c && c <= '9')
-                        {
-                            vs = (ao_float_t) 10 * vs + (ao_float_t) (c - '0');
-
-                            ve1++;
-
-                            ni++;
-
-                            if (ni == ni_max)
-                            {
-                                b2 = false;
-                            }
-                        }
-
-                        else
-                        {
-                            b2 = false;
-                        }
-                    }
-                    while (b2);
-                }
-            }
-
-            else
-            {
-                ve1 = 0;
-            }
-        }
-
-        else
-        {
-            ve1 = 0;
-        }
-    }
-
-    else
-    {
-        ve1 = 0;
-    }
-
-
-    // Exponent.
-
-    if (ni < ni_max)
-    {
-        c = s[ni];
-
-        if (c == 'e' || c == 'E')
-        {
-            nie = ni;
-
-            nie++;
-
-            if (nie < ni_max)
-            {
-                // Exponent sign.
-
-                c = s[nie];
-
-                if (c == '+')
-                {
-                    nie++;
-
-                    if (nie < ni_max)
-                    {
-                        me = false;
-                    }
-
-                    else
-                    {
-                        b1 = false;
-                    }
-                }
-
-                else if (c == '-')
-                {
-                    nie++;
-
-                    if (nie < ni_max)
-                    {
-                        me = true;
-                    }
-
-                    else
-                    {
-                        b1 = false;
-                    }
-                }
-
-                else
-                {
-                    b1 = true;
-
-                    me = false;
-                }
-
-                if (b1)
-                {
-                    // Exponent integral.
-
-                    c = s[nie];
-
-                    if ('0' <= c && c <= '9')
-                    {
-                        ve2 = (uint_fast16_t) (c - '0');
-
-                        nie++;
-
-                        if (nie < ni_max)
-                        {
-                            b2 = true;
-
-                            do
-                            {
-                                c = s[nie];
-
-                                if ('0' <= c && c <= '9')
-                                {
-                                    ve2 = 10 * ve2 + (uint_fast16_t) (c - '0');
-
-                                    nie++;
-
-                                    if (nie == ni_max)
-                                    {
-                                        b2 = false;
-                                    }
-                                }
-
-                                else
-                                {
-                                    b2 = false;
-                                }
-                            }
-                            while (b2);
-                        }
-                    }
-
-                    else
-                    {
-                        b1 = false;
-                    }
-                }
-            }
-
-            else
-            {
-                b1 = false;
-            }
-        }
-
-        else
-        {
-            b1 = false;
-
-            nie = 0;
-        }
-    }
-
-    else
-    {
-        b1 = false;
-
-        nie = 0;
-    }
-
-
-    if (b1)
-    {
-        if (me)
-        {
-            ve1 = ve1 + ve2;
-            ve2 = 0;
-        }
-
-        else
-        {
-            if (ve1 > ve2)
-            {
-                ve1 = ve1 - ve2;
-                ve2 = 0;
-            }
-
-            else
-            {
-                ve2 = ve2 - ve1;
-                ve1 = 0;
-
-                while (ve2 > 0)
-                {
-                    vs = vs * (ao_float_t) 10;
-
-                    ve2--;
-                }
-            }
-        }
-    }
-
-    while (ve1 > 0)
-    {
-        vs = vs * (ao_float_t) 0.1;
-
-        ve1--;
-    }
-
-    if (ms)
-    {
-        vs = -vs;
-    }
-
-    *v = vs;
-
-
-    return b1 ? nie : ni;
-}
-
-size_t ao_scan_f_d(char const * s, size_t ni_max, ao_scan_t const * o, double * v)
+size_t ao_scand(char const * s, size_t ni_max, ao_scan_t const * o, double * v)
 {
     // Assert.
 
@@ -20479,7 +20052,7 @@ size_t ao_scan_f_d(char const * s, size_t ni_max, ao_scan_t const * o, double * 
     return b1 ? nie : ni;
 }
 
-size_t ao_scan_f_f(char const * s, size_t ni_max, ao_scan_t const * o, float * v)
+size_t ao_scanf(char const * s, size_t ni_max, ao_scan_t const * o, float * v)
 {
     // Assert.
 
@@ -20906,7 +20479,7 @@ size_t ao_scan_f_f(char const * s, size_t ni_max, ao_scan_t const * o, float * v
     return b1 ? nie : ni;
 }
 
-size_t ao_scan_f_l(char const * s, size_t ni_max, ao_scan_t const * o, long double * v)
+size_t ao_scanl(char const * s, size_t ni_max, ao_scan_t const * o, long double * v)
 {
     // Assert.
 
@@ -21335,7 +20908,7 @@ size_t ao_scan_f_l(char const * s, size_t ni_max, ao_scan_t const * o, long doub
 
 // ----------------------------------------------------------------------------
 
-size_t ao_scan_i_i8(char const * s, size_t ni_max, ao_scan_t const * o, int8_t * v)
+size_t ao_scani8(char const * s, size_t ni_max, ao_scan_t const * o, int8_t * v)
 {
     // Assert.
 
@@ -21537,7 +21110,7 @@ size_t ao_scan_i_i8(char const * s, size_t ni_max, ao_scan_t const * o, int8_t *
     return ni;
 }
 
-size_t ao_scan_i_i16(char const * s, size_t ni_max, ao_scan_t const * o, int16_t * v)
+size_t ao_scani16(char const * s, size_t ni_max, ao_scan_t const * o, int16_t * v)
 {
     // Assert.
 
@@ -21739,7 +21312,7 @@ size_t ao_scan_i_i16(char const * s, size_t ni_max, ao_scan_t const * o, int16_t
     return ni;
 }
 
-size_t ao_scan_i_i32(char const * s, size_t ni_max, ao_scan_t const * o, int32_t * v)
+size_t ao_scani32(char const * s, size_t ni_max, ao_scan_t const * o, int32_t * v)
 {
     // Assert.
 
@@ -21941,7 +21514,7 @@ size_t ao_scan_i_i32(char const * s, size_t ni_max, ao_scan_t const * o, int32_t
     return ni;
 }
 
-size_t ao_scan_i_i64(char const * s, size_t ni_max, ao_scan_t const * o, int64_t * v)
+size_t ao_scani64(char const * s, size_t ni_max, ao_scan_t const * o, int64_t * v)
 {
     // Assert.
 
@@ -22145,7 +21718,7 @@ size_t ao_scan_i_i64(char const * s, size_t ni_max, ao_scan_t const * o, int64_t
 
 // ----------------------------------------------------------------------------
 
-size_t ao_scan_i_u8(char const * s, size_t ni_max, ao_scan_t const * o, uint8_t * v)
+size_t ao_scanu8(char const * s, size_t ni_max, ao_scan_t const * o, uint8_t * v)
 {
     // Assert.
 
@@ -22323,7 +21896,7 @@ size_t ao_scan_i_u8(char const * s, size_t ni_max, ao_scan_t const * o, uint8_t 
     return ni;
 }
 
-size_t ao_scan_i_u16(char const * s, size_t ni_max, ao_scan_t const * o, uint16_t * v)
+size_t ao_scanu16(char const * s, size_t ni_max, ao_scan_t const * o, uint16_t * v)
 {
     // Assert.
 
@@ -22501,7 +22074,7 @@ size_t ao_scan_i_u16(char const * s, size_t ni_max, ao_scan_t const * o, uint16_
     return ni;
 }
 
-size_t ao_scan_i_u32(char const * s, size_t ni_max, ao_scan_t const * o, uint32_t * v)
+size_t ao_scanu32(char const * s, size_t ni_max, ao_scan_t const * o, uint32_t * v)
 {
     // Assert.
 
@@ -22679,7 +22252,7 @@ size_t ao_scan_i_u32(char const * s, size_t ni_max, ao_scan_t const * o, uint32_
     return ni;
 }
 
-size_t ao_scan_i_u64(char const * s, size_t ni_max, ao_scan_t const * o, uint64_t * v)
+size_t ao_scanu64(char const * s, size_t ni_max, ao_scan_t const * o, uint64_t * v)
 {
     // Assert.
 
