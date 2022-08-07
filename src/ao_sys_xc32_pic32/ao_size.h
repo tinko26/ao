@@ -110,9 +110,9 @@
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_log2z
+#ifndef AO_LOG2Z
 
-#define ao_log2z(x)         ao_log2u(x)
+#define AO_LOG2Z(x)         AO_LOG2U(x)
 
 #endif
 

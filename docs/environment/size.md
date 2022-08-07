@@ -56,5 +56,5 @@ size_t ao_flsz(size_t x);
 Calculate the base-2 logarithm.
 
 ```c
-size_t ao_log2z(size_t x);
+#define AO_LOG2Z(x)
 ```

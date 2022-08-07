@@ -9622,13 +9622,13 @@ bool ao_retain_3(void * p)
 
 #define AO_ALLOC_ALIGN                  (sizeof(max_align_t))
 
-#define AO_ALLOC_ALIGN_LOG              ao_log2z(AO_ALLOC_ALIGN)
+#define AO_ALLOC_ALIGN_LOG              AO_LOG2Z(AO_ALLOC_ALIGN)
 
 // ----------------------------------------------------------------------------
 
 #define AO_ALLOC_SIZE_STORE             AO_ALIGN_DOWN(AO_ALLOC_SIZE, AO_ALLOC_ALIGN)
 
-#define AO_ALLOC_SIZE_STORE_LOG         ao_log2z(AO_ALLOC_SIZE_STORE)
+#define AO_ALLOC_SIZE_STORE_LOG         AO_LOG2Z(AO_ALLOC_SIZE_STORE)
 
 // ----------------------------------------------------------------------------
 
