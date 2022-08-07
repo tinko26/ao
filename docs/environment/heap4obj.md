@@ -22,7 +22,7 @@ This module provides an array-based implementation.
 Object heaps keep track of their current number of nodes. Additionally, they can be configured to keep track of the maximum number of nodes ever contained within them. By default, this option is disabled.
 
 ```c
-#define AO_HEAP4OBJ_COUNT_MAX (true)
+#define AO_HEAP4OBJ_COUNT_MAX
 ```
 
 ## Types

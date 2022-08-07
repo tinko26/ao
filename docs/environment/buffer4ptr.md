@@ -16,7 +16,7 @@ The `ao_buffer4ptr.h` module defines pointer [buffers](https://en.wikipedia.org/
 Pointer buffers can be configured to keep track of the maximum number of pointers ever contained within them. This can be useful when optimizing the memory usage of a buffer. By default, this option is disabled.
 
 ```c
-#define AO_BUFFER4PTR_COUNT_MAX (true)
+#define AO_BUFFER4PTR_COUNT_MAX
 ```
 
 ## Types

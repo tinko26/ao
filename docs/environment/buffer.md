@@ -16,7 +16,7 @@ The `ao_buffer.h` module defines [buffers](https://en.wikipedia.org/wiki/Data_bu
 Buffers can be configured to keep track of the maximum number of bytes ever contained within them. This can be useful when optimizing the memory usage of a buffer. By default, this option is disabled.
 
 ```c
-#define AO_BUFFER_COUNT_MAX (true)
+#define AO_BUFFER_COUNT_MAX
 ```
 
 ## Types

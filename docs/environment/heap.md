@@ -22,7 +22,7 @@ Commonly, heaps are implemented based on an array that stores all the nodes. How
 Heaps keep track of their current number of nodes. Additionally, they can be configured to keep track of the maximum number of nodes ever contained within them. By default, this option is disabled.
 
 ```c
-#define AO_HEAP_COUNT_MAX (true)
+#define AO_HEAP_COUNT_MAX
 ```
 
 ## Types

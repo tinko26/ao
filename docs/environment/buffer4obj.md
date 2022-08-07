@@ -16,7 +16,7 @@ The `ao_buffer4obj.h` module defines object [buffers](https://en.wikipedia.org/w
 Object buffers can be configured to keep track of the maximum number of objects ever contained within them. This can be useful when optimizing the memory usage of a buffer. By default, this option is disabled.
 
 ```c
-#define AO_BUFFER4OBJ_COUNT_MAX (true)
+#define AO_BUFFER4OBJ_COUNT_MAX
 ```
 
 ## Types

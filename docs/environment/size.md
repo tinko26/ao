@@ -15,24 +15,24 @@ The `ao_size.h` module specifies properties of the type and contains a couple of
 
 ## Constants
 
-The module defines both the size of `size_t` in bytes ...
+The size in bits and the base-2 logarithm thereof.
 
 ```c
-#define AO_SIZE_SIZE (4)
+#define AO_SIZE_BITS
+#define AO_SIZE_BITS_LOG
 ```
 
-... and bits, as well as the base-2 logarithm thereof.
+The maximum and minimum value.
 
 ```c
-#define AO_SIZE_BITS     (32)
-#define AO_SIZE_BITS_LOG (5)
+#define AO_SIZE_MAX
+#define AO_SIZE_MIN
 ```
 
-Additionally, the module defines both the minimum and maximum value.
+The size in bytes.
 
 ```c
-#define AO_SIZE_MIN (0)
-#define AO_SIZE_MAX (SIZE_MAX)
+#define AO_SIZE_SIZE
 ```
 
 ## Functions
