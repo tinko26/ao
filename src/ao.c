@@ -6155,13 +6155,13 @@ static  void    ao_heap4obj_up(     ao_heap4obj_t * x, size_t i);
 
 // ----------------------------------------------------------------------------
 
-#define ao_heap4obj_left(i)         (2 * (i) + 1)
+#define AO_HEAP4OBJ_LEFT(i)         (2 * (i) + 1)
 
-#define ao_heap4obj_right(i)        (2 * (i) + 2)
+#define AO_HEAP4OBJ_RIGHT(i)        (2 * (i) + 2)
 
 // ----------------------------------------------------------------------------
 
-#define ao_heap4obj_parent(i)       (((i) - 1) / 2)
+#define AO_HEAP4OBJ_PARENT(i)       (((i) - 1) / 2)
 
 // ----------------------------------------------------------------------------
 
@@ -6215,9 +6215,9 @@ void ao_heap4obj_assert(ao_heap4obj_t * x)
 
     for (ip = 0; ip < c; ip++)
     {
-        il = ao_heap4obj_left(ip);
+        il = AO_HEAP4OBJ_LEFT(ip);
 
-        ir = ao_heap4obj_right(ip);
+        ir = AO_HEAP4OBJ_RIGHT(ip);
 
         if (ir < c)
         {
@@ -6334,9 +6334,9 @@ void ao_heap4obj_down(ao_heap4obj_t * x, size_t i1)
 
     do
     {
-        il = ao_heap4obj_left(i1);
+        il = AO_HEAP4OBJ_LEFT(i1);
 
-        ir = ao_heap4obj_right(i1);
+        ir = AO_HEAP4OBJ_RIGHT(i1);
 
         // Both left and right child.
 
@@ -6703,7 +6703,7 @@ void ao_heap4obj_up(ao_heap4obj_t * x, size_t i1)
 
         do
         {
-            i2 = ao_heap4obj_parent(i1);
+            i2 = AO_HEAP4OBJ_PARENT(i1);
 
             j2 = x->heap1[i2];
 
@@ -6752,13 +6752,13 @@ static  void    ao_heap4ptr_up(     ao_heap4ptr_t * x, size_t i);
 
 // ----------------------------------------------------------------------------
 
-#define ao_heap4ptr_left(i)         (2 * (i) + 1)
+#define AO_HEAP4PTR_LEFT(i)         (2 * (i) + 1)
 
-#define ao_heap4ptr_right(i)        (2 * (i) + 2)
+#define AO_HEAP4PTR_RIGHT(i)        (2 * (i) + 2)
 
 // ----------------------------------------------------------------------------
 
-#define ao_heap4ptr_parent(i)       (((i) - 1) / 2)
+#define AO_HEAP4PTR_PARENT(i)       (((i) - 1) / 2)
 
 // ----------------------------------------------------------------------------
 
@@ -6806,9 +6806,9 @@ void ao_heap4ptr_assert(ao_heap4ptr_t * x)
 
     for (ip = 0; ip < c; ip++)
     {
-        il = ao_heap4ptr_left(ip);
+        il = AO_HEAP4PTR_LEFT(ip);
 
-        ir = ao_heap4ptr_right(ip);
+        ir = AO_HEAP4PTR_RIGHT(ip);
 
         if (ir < c)
         {
@@ -6925,9 +6925,9 @@ void ao_heap4ptr_down(ao_heap4ptr_t * x, size_t i1)
 
     do
     {
-        il = ao_heap4ptr_left(i1);
+        il = AO_HEAP4PTR_LEFT(i1);
 
-        ir = ao_heap4ptr_right(i1);
+        ir = AO_HEAP4PTR_RIGHT(i1);
 
         // Both left and right child.
 
@@ -7271,7 +7271,7 @@ void ao_heap4ptr_up(ao_heap4ptr_t * x, size_t i1)
 
         do
         {
-            i2 = ao_heap4ptr_parent(i1);
+            i2 = AO_HEAP4PTR_PARENT(i1);
 
             j2 = x->heap1[i2];
 
