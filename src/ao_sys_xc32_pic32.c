@@ -830,7 +830,7 @@ void * ao_stack_get_beginning(void const * p)
 {
     uintptr_t t1 = (uintptr_t) p;
 
-    uintptr_t t2 = ao_align_up(t1, AO_STACK_ALIGN);
+    uintptr_t t2 = AO_ALIGN_UP(t1, AO_STACK_ALIGN);
 
     return (void *) t2;
 }
@@ -843,7 +843,7 @@ void * ao_stack_get_end(void const * p, size_t s)
 
     uintptr_t t3 = t1 + t2;
 
-    uintptr_t t4 = ao_align_down(t3, AO_STACK_ALIGN);
+    uintptr_t t4 = AO_ALIGN_DOWN(t3, AO_STACK_ALIGN);
 
     return (void *) t4;
 }
@@ -1664,7 +1664,7 @@ void ao_task_start_context(ao_task_t * T)
 
     // Stack pointer must be properly aligned.
 
-    ao_assert(ao_is_aligned((uintptr_t) p, AO_STACK_ALIGN));
+    ao_assert(AO_IS_ALIGNED((uintptr_t) p, AO_STACK_ALIGN));
 
     // According to the MIPS O32 calling convention, the stack frame of the
     // caller must have an argument section. The argument section must contain
@@ -2306,7 +2306,7 @@ void ao_task_start_context(ao_task_t * T)
 
     // Stack pointer must be properly aligned.
 
-    ao_assert(ao_is_aligned((uintptr_t) p, AO_STACK_ALIGN));
+    ao_assert(AO_IS_ALIGNED((uintptr_t) p, AO_STACK_ALIGN));
 
     // According to the MIPS O32 calling convention, the stack frame of the
     // caller must have an argument section. The argument section must contain
@@ -3208,7 +3208,7 @@ void ao_task_start_context(ao_task_t * T)
 
     // Stack pointer must be properly aligned.
 
-    ao_assert(ao_is_aligned((uintptr_t) p, AO_STACK_ALIGN));
+    ao_assert(AO_IS_ALIGNED((uintptr_t) p, AO_STACK_ALIGN));
 
     // According to the MIPS O32 calling convention, the stack frame of the
     // caller must have an argument section. The argument section must contain

@@ -9626,7 +9626,7 @@ bool ao_retain_3(void * p)
 
 // ----------------------------------------------------------------------------
 
-#define AO_ALLOC_SIZE_STORE             ao_align_down(AO_ALLOC_SIZE, AO_ALLOC_ALIGN)
+#define AO_ALLOC_SIZE_STORE             AO_ALIGN_DOWN(AO_ALLOC_SIZE, AO_ALLOC_ALIGN)
 
 #define AO_ALLOC_SIZE_STORE_LOG         ao_log2z(AO_ALLOC_SIZE_STORE)
 
@@ -10037,7 +10037,7 @@ ao_alloc_block_t * ao_alloc_block_allocate(size_t s)
 
     s = ao_max(s, AO_ALLOC_SIZE_BLOCK_BODY);
 
-    s = ao_align_up(s, AO_ALLOC_ALIGN);
+    s = AO_ALIGN_UP(s, AO_ALLOC_ALIGN);
 
 
     // The size of the block body must not exceed the size of the entire store.
@@ -10662,11 +10662,11 @@ void ao_boot_alloc()
 
     // Assert.
 
-    ao_assert(ao_is_aligned(AO_ALLOC_SIZE_BLOCK, AO_ALLOC_ALIGN));
+    ao_assert(AO_IS_ALIGNED(AO_ALLOC_SIZE_BLOCK, AO_ALLOC_ALIGN));
 
-    ao_assert(ao_is_aligned(AO_ALLOC_SIZE_BLOCK_BODY, AO_ALLOC_ALIGN));
+    ao_assert(AO_IS_ALIGNED(AO_ALLOC_SIZE_BLOCK_BODY, AO_ALLOC_ALIGN));
 
-    ao_assert(ao_is_aligned(AO_ALLOC_SIZE_BLOCK_HEAD, AO_ALLOC_ALIGN));
+    ao_assert(AO_IS_ALIGNED(AO_ALLOC_SIZE_BLOCK_HEAD, AO_ALLOC_ALIGN));
 
 
     // Assert.
@@ -10734,7 +10734,7 @@ void ao_boot_alloc()
 
         ao_assert(s);
 
-        ao_assert(ao_is_aligned(s, AO_ALLOC_ALIGN));
+        ao_assert(AO_IS_ALIGNED(s, AO_ALLOC_ALIGN));
 
         E->head.prev = B;
 

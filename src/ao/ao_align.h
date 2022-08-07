@@ -34,15 +34,15 @@
 
 // Aligns value #x to boundary #b.
 
-#ifndef ao_align_down
+#ifndef AO_ALIGN_DOWN
 
-#define ao_align_down(x, b)     (((x) / (b)) * (b))
+#define AO_ALIGN_DOWN(x, b)     (((x) / (b)) * (b))
 
 #endif
 
-#ifndef ao_align_up
+#ifndef AO_ALIGN_UP
 
-#define ao_align_up(x, b)       ((((x) + ((b) - 1)) / (b)) * (b))
+#define AO_ALIGN_UP(x, b)       ((((x) + ((b) - 1)) / (b)) * (b))
 
 #endif
 
@@ -50,9 +50,9 @@
 
 // Determines whether value #x is aligned to boundary #b.
 
-#ifndef ao_is_aligned
+#ifndef AO_IS_ALIGNED
 
-#define ao_is_aligned(x, b)     ((x) % (b) ? false : true)
+#define AO_IS_ALIGNED(x, b)     ((x) % (b) ? false : true)
 
 #endif
 

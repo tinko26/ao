@@ -61,7 +61,7 @@ typedef struct  ao_ir_stack_t       ao_ir_stack_t;
 
 #ifndef AO_IR_STACK_SIZE_ALIGNED
 
-#define AO_IR_STACK_SIZE_ALIGNED    ao_align_up(AO_IR_STACK_SIZE, AO_STACK_ALIGN)
+#define AO_IR_STACK_SIZE_ALIGNED    AO_ALIGN_UP(AO_IR_STACK_SIZE, AO_STACK_ALIGN)
 
 #endif
 
