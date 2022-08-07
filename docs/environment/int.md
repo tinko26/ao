@@ -1,8 +1,8 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-06
+date: 2022-08-07
 description: "Signed Integers in the ao Real-Time Operating System (RTOS)."
-draft: true
+draft: false
 permalink: /environment/int/
 title: "Signed Integers"
 ---
@@ -10,6 +10,15 @@ title: "Signed Integers"
 # Signed Integers
 
 The `stdint.h` header file of the standard library defines exact-width integer types. Using these types instead of built-in types is strongly encouraged by several standards, such as [MISRA C](https://en.wikipedia.org/wiki/MISRA_C), not least to make code more portable.
+
+
+
+
+
+
+
+
+
 
 However, when implementing functions of a real-time operating system efficiently and in a hardware-agnostic way, it is sometimes desirable to use a fast integer type without knowing its exact width and without assuming a minimum width. In such a case, the (minimum) width of the integer is sort of too much information.
 
