@@ -19625,7 +19625,7 @@ void ao_rb_swap(ao_rb_t * X, ao_rb_node_t * N1, ao_rb_node_t * N2)
 
 // ----------------------------------------------------------------------------
 
-size_t ao_scand(char const * s, size_t ni_max, ao_scan_t const * o, double * v)
+size_t ao_scanfd(char const * s, size_t ni_max, ao_scan_t const * o, double * v)
 {
     // Assert.
 
@@ -20052,7 +20052,7 @@ size_t ao_scand(char const * s, size_t ni_max, ao_scan_t const * o, double * v)
     return b1 ? nie : ni;
 }
 
-size_t ao_scanf(char const * s, size_t ni_max, ao_scan_t const * o, float * v)
+size_t ao_scanff(char const * s, size_t ni_max, ao_scan_t const * o, float * v)
 {
     // Assert.
 
@@ -20479,7 +20479,7 @@ size_t ao_scanf(char const * s, size_t ni_max, ao_scan_t const * o, float * v)
     return b1 ? nie : ni;
 }
 
-size_t ao_scanl(char const * s, size_t ni_max, ao_scan_t const * o, long double * v)
+size_t ao_scanfl(char const * s, size_t ni_max, ao_scan_t const * o, long double * v)
 {
     // Assert.
 
