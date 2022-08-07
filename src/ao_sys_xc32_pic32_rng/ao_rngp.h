@@ -125,7 +125,7 @@
         // We need to wait at least 42 clock cycles before reading the next
         // random number.
 
-        ao_spin(ao_milliseconds(100));
+        ao_spin(AO_MILLISECONDS(100));
     }
 
  */

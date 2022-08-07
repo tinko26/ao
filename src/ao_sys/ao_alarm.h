@@ -57,7 +57,7 @@ typedef struct  ao_alarm_t      ao_alarm_t;
 
 #ifndef AO_ALARM_DELAY
 
-#define AO_ALARM_DELAY          (ao_milliseconds(100))
+#define AO_ALARM_DELAY          (AO_MILLISECONDS(100))
 
 #endif
 

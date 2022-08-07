@@ -79,7 +79,7 @@
 
         // Spin.
 
-        ao_spin(ao_milliseconds(100));
+        ao_spin(AO_MILLISECONDS(100));
     }
 
  */

@@ -34,7 +34,7 @@ void main()
 
     while (1)
     {
-        ao_spin(ao_milliseconds(500));
+        ao_spin(AO_MILLISECONDS(500));
 
         ao_leds_toggle(AO_LEDS_ALL);
     }

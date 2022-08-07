@@ -60,13 +60,13 @@
 
 #ifndef AO_MIKROE_2935_PERIOD_1
 
-#define AO_MIKROE_2935_PERIOD_1             (ao_milliseconds(100))
+#define AO_MIKROE_2935_PERIOD_1             (AO_MILLISECONDS(100))
 
 #endif
 
 #ifndef AO_MIKROE_2935_PERIOD_2
 
-#define AO_MIKROE_2935_PERIOD_2             (ao_milliseconds(100))
+#define AO_MIKROE_2935_PERIOD_2             (AO_MILLISECONDS(100))
 
 #endif
 

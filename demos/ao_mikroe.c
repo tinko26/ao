@@ -72,7 +72,7 @@ typedef struct  ao_mikroe_4186_i2c_t        ao_mikroe_4186_i2c_t;
 
 // ----------------------------------------------------------------------------
 
-#define AO_MIKROE_1877_I2C_ATTEMPTS_DELAY   (ao_milliseconds(10))
+#define AO_MIKROE_1877_I2C_ATTEMPTS_DELAY   (AO_MILLISECONDS(10))
 
 #define AO_MIKROE_1877_I2C_ATTEMPTS_MAX     (8)
 
@@ -704,12 +704,12 @@ void ao_boot_mikroe_1877_i2c(ao_mikroe_1877_i2c_t * I)
 
     if (f >= 400000UL)
     {
-        I->delay_timeout = ao_microseconds(1.3);
+        I->delay_timeout = AO_MICROSECONDS(1.3);
     }
 
     else
     {
-        I->delay_timeout = ao_microseconds(4.7);
+        I->delay_timeout = AO_MICROSECONDS(4.7);
     }
 
 
@@ -2022,7 +2022,7 @@ void ao_mikroe_1877_info_print(uint8_t * x, ao_mikroe_1877_info_t * I)
 
     f = (ao_float_t) I->interval;
 
-    f = ao_milliseconds_from_time(f);
+    f = AO_MILLISECONDS_FROM_TIME(f);
 
     u = (uint16_t) f;
 
@@ -2116,7 +2116,7 @@ void ao_mikroe_1877_info_print(uint8_t * x, ao_mikroe_1877_info_t * I)
 
     f = (ao_float_t) I->interval_min;
 
-    f = ao_milliseconds_from_time(f);
+    f = AO_MILLISECONDS_FROM_TIME(f);
 
     u = (uint16_t) f;
 
@@ -2188,7 +2188,7 @@ void ao_mikroe_1877_info_scan(uint8_t * x, ao_mikroe_1877_info_t * I)
 
     f = (ao_float_t) u1;
 
-    f = ao_milliseconds(f);
+    f = AO_MILLISECONDS(f);
 
     I->interval = (ao_time_t) f;
 
@@ -2260,7 +2260,7 @@ void ao_mikroe_1877_info_scan(uint8_t * x, ao_mikroe_1877_info_t * I)
 
     f = (ao_float_t) u1;
 
-    f = ao_milliseconds(f);
+    f = AO_MILLISECONDS(f);
 
     I->interval_min = (ao_time_t) f;
 
@@ -2995,7 +2995,7 @@ void ao_mikroe_1877_mod_set_init1(ao_mikroe_1877_mod_t * M)
 
     M->sleep.beginning = ao_now();
 
-    M->sleep.timeout = ao_milliseconds(2);
+    M->sleep.timeout = AO_MILLISECONDS(2);
 
     M->state = AO_MIKROE_1877_MOD_STATE_INIT1;
 }
@@ -3017,7 +3017,7 @@ void ao_mikroe_1877_mod_set_init3(ao_mikroe_1877_mod_t * M)
 
     M->sleep.beginning = ao_now();
 
-    M->sleep.timeout = ao_seconds(2);
+    M->sleep.timeout = AO_SECONDS(2);
 }
 
 void ao_mikroe_1877_mod_set_init4(ao_mikroe_1877_mod_t * M)
@@ -3343,7 +3343,7 @@ void ao_mikroe_1877_mod_set_off2(ao_mikroe_1877_mod_t * M)
 
     M->sleep.beginning = ao_now();
 
-    M->sleep.timeout = ao_milliseconds(71);
+    M->sleep.timeout = AO_MILLISECONDS(71);
 }
 
 void ao_mikroe_1877_mod_set_off3(ao_mikroe_1877_mod_t * M)
@@ -3363,7 +3363,7 @@ void ao_mikroe_1877_mod_set_off4(ao_mikroe_1877_mod_t * M)
 
     M->sleep.beginning = ao_now();
 
-    M->sleep.timeout = ao_milliseconds(3);
+    M->sleep.timeout = AO_MILLISECONDS(3);
 }
 
 void ao_mikroe_1877_mod_set_off5(ao_mikroe_1877_mod_t * M)
@@ -3384,7 +3384,7 @@ void ao_mikroe_1877_mod_set_off5(ao_mikroe_1877_mod_t * M)
 
     M->sleep.beginning = ao_now();
 
-    M->sleep.timeout = ao_milliseconds(12);
+    M->sleep.timeout = AO_MILLISECONDS(12);
 }
 
 void ao_mikroe_1877_mod_set_off6(ao_mikroe_1877_mod_t * M)
@@ -3434,7 +3434,7 @@ void ao_mikroe_1877_mod_set_off7(ao_mikroe_1877_mod_t * M)
 
     M->sleep.beginning = ao_now();
 
-    M->sleep.timeout = ao_milliseconds(31);
+    M->sleep.timeout = AO_MILLISECONDS(31);
 }
 
 // ----------------------------------------------------------------------------
@@ -3522,7 +3522,7 @@ void ao_mikroe_1877_mod_set_sleep2(ao_mikroe_1877_mod_t * M)
 
     M->sleep.beginning = ao_now();
 
-    M->sleep.timeout = ao_milliseconds(71);
+    M->sleep.timeout = AO_MILLISECONDS(71);
 }
 
 void ao_mikroe_1877_mod_set_sleep3(ao_mikroe_1877_mod_t * M)
@@ -3542,7 +3542,7 @@ void ao_mikroe_1877_mod_set_sleep4(ao_mikroe_1877_mod_t * M)
 
     M->sleep.beginning = ao_now();
 
-    M->sleep.timeout = ao_milliseconds(3);
+    M->sleep.timeout = AO_MILLISECONDS(3);
 }
 
 void ao_mikroe_1877_mod_set_sleep5(ao_mikroe_1877_mod_t * M)
@@ -3563,7 +3563,7 @@ void ao_mikroe_1877_mod_set_sleep5(ao_mikroe_1877_mod_t * M)
 
     M->sleep.beginning = ao_now();
 
-    M->sleep.timeout = ao_milliseconds(12);
+    M->sleep.timeout = AO_MILLISECONDS(12);
 }
 
 void ao_mikroe_1877_mod_set_sleep6(ao_mikroe_1877_mod_t * M)
@@ -3613,7 +3613,7 @@ void ao_mikroe_1877_mod_set_sleep7(ao_mikroe_1877_mod_t * M)
 
     M->sleep.beginning = ao_now();
 
-    M->sleep.timeout = ao_milliseconds(31);
+    M->sleep.timeout = AO_MILLISECONDS(31);
 }
 
 // ----------------------------------------------------------------------------
@@ -4669,7 +4669,7 @@ void ao_mikroe_2935_spi_read(ao_mikroe_2935_spi_t * S, uint8_t a, uint8_t * x)
 
     S->begin();
 
-    ao_spin(ao_nanoseconds(20));
+    ao_spin(AO_NANOSECONDS(20));
 
 
     // Address.
@@ -4692,7 +4692,7 @@ void ao_mikroe_2935_spi_read(ao_mikroe_2935_spi_t * S, uint8_t a, uint8_t * x)
 
     // Slave select hold time is 40 nanoseconds.
 
-    ao_spin(ao_nanoseconds(40));
+    ao_spin(AO_NANOSECONDS(40));
 
     S->end();
 
@@ -4737,7 +4737,7 @@ void ao_mikroe_2935_spi_read_from(ao_mikroe_2935_spi_t * S, uint8_t a, uint8_t *
 
     S->begin();
 
-    ao_spin(ao_nanoseconds(20));
+    ao_spin(AO_NANOSECONDS(20));
 
 
     // Address.
@@ -4766,7 +4766,7 @@ void ao_mikroe_2935_spi_read_from(ao_mikroe_2935_spi_t * S, uint8_t a, uint8_t *
 
     // Slave select hold time is 40 nanoseconds.
 
-    ao_spin(ao_nanoseconds(40));
+    ao_spin(AO_NANOSECONDS(40));
 
     S->end();
 
@@ -4807,7 +4807,7 @@ void ao_mikroe_2935_spi_write(ao_mikroe_2935_spi_t * S, uint8_t a, uint8_t x)
 
     S->begin();
 
-    ao_spin(ao_nanoseconds(20));
+    ao_spin(AO_NANOSECONDS(20));
 
 
     // Address.
@@ -4830,7 +4830,7 @@ void ao_mikroe_2935_spi_write(ao_mikroe_2935_spi_t * S, uint8_t a, uint8_t x)
 
     // Slave select hold time is 40 nanoseconds.
 
-    ao_spin(ao_nanoseconds(40));
+    ao_spin(AO_NANOSECONDS(40));
 
     S->end();
 
@@ -4839,7 +4839,7 @@ void ao_mikroe_2935_spi_write(ao_mikroe_2935_spi_t * S, uint8_t a, uint8_t x)
 
     // Time before a new transmission can start is 1.3 microseconds.
 
-    ao_spin(ao_microseconds(1.3));
+    ao_spin(AO_MICROSECONDS(1.3));
 }
 
 // ----------------------------------------------------------------------------
@@ -4990,9 +4990,9 @@ void ao_mikroe_2935_task_proc(void * x)
     nz = 1 + (uint16_t) r52;
 
     measurement =
-        ao_microseconds(145) * (ao_time_t) nxy +
-        ao_microseconds(500) * (ao_time_t) nz +
-        ao_microseconds(980);
+        AO_MICROSECONDS(145) * (ao_time_t) nxy +
+        AO_MICROSECONDS(500) * (ao_time_t) nz +
+        AO_MICROSECONDS(980);
 
 
     // Ready.
@@ -5003,7 +5003,7 @@ void ao_mikroe_2935_task_proc(void * x)
 
         // Start-up time from POR to suspend mode is 1 millisecond.
 
-        ao_spin(ao_milliseconds(1));
+        ao_spin(AO_MILLISECONDS(1));
 
 
         // Clear power control bit.
@@ -5023,7 +5023,7 @@ void ao_mikroe_2935_task_proc(void * x)
 
         ao_mikroe_2935_spi_write(S, 0x4b, r4b);
 
-        ao_spin(ao_milliseconds(3));
+        ao_spin(AO_MILLISECONDS(3));
 
 
         // Read the chip ID.
@@ -5203,7 +5203,7 @@ void ao_boot_mikroe_2950_i2c(ao_mikroe_2950_i2c_t * I)
 
     R->con.bits.on = 1;
 
-    ao_spin(ao_microseconds(150));
+    ao_spin(AO_MICROSECONDS(150));
 }
 
 // ----------------------------------------------------------------------------
@@ -5235,7 +5235,7 @@ void ao_mikroe_2950_luminance_down(size_t i, uint8_t l, ao_time_t t)
 
     // Ready.
 
-    x = ao_milliseconds_from_time(x);
+    x = AO_MILLISECONDS_FROM_TIME(x);
 
     x = AO_MAX(x,   8);
 
@@ -5255,7 +5255,7 @@ void ao_mikroe_2950_luminance_up(size_t i, uint8_t l, ao_time_t t)
 
     // Ready.
 
-    x = ao_milliseconds_from_time(x);
+    x = AO_MILLISECONDS_FROM_TIME(x);
 
     x = AO_MAX(x,   8);
 
@@ -5321,7 +5321,7 @@ void ao_mikroe_2950_send(size_t i, uint8_t x)
     // It seems like this delay is also required between subsequent I2C
     // transfers.
 
-    ao_spin(ao_microseconds(150));
+    ao_spin(AO_MICROSECONDS(150));
 }
 
 // ----------------------------------------------------------------------------
@@ -5352,7 +5352,7 @@ void ao_mikroe_3063_reset(size_t i)
 
     ao_mikroe_3063_reset_enable(i);
 
-    ao_spin(ao_microseconds(15));
+    ao_spin(AO_MICROSECONDS(15));
 
     ao_mikroe_3063_reset_disable(i);
 }
@@ -5441,12 +5441,12 @@ void ao_boot_mikroe_4186_i2c(ao_mikroe_4186_i2c_t * I)
 
     if (f >= 400000UL)
     {
-        I->delay_timeout = ao_microseconds(1.3);
+        I->delay_timeout = AO_MICROSECONDS(1.3);
     }
 
     else
     {
-        I->delay_timeout = ao_microseconds(4.7);
+        I->delay_timeout = AO_MICROSECONDS(4.7);
     }
 
     R->con.reg = 0;
@@ -5691,11 +5691,11 @@ void ao_mikroe_4186_reset(size_t i)
 {
     ao_mikroe_4186_reset_enable(i);
 
-    ao_spin(ao_nanoseconds(4));
+    ao_spin(AO_NANOSECONDS(4));
 
     ao_mikroe_4186_reset_disable(i);
 
-    ao_spin(ao_nanoseconds(600));
+    ao_spin(AO_NANOSECONDS(600));
 }
 
 // ----------------------------------------------------------------------------
@@ -10625,7 +10625,7 @@ void _general_exception_handler(uint32_t cause, uint32_t status)
 
     while (1)
     {
-        ao_spin(ao_milliseconds(100));
+        ao_spin(AO_MILLISECONDS(100));
 
         ao_leds_toggle(AO_LEDS_ALL);
     }
@@ -14107,7 +14107,7 @@ void _general_exception_handler(uint32_t cause, uint32_t status)
 
     while (1)
     {
-        ao_spin(ao_milliseconds(100));
+        ao_spin(AO_MILLISECONDS(100));
 
         ao_leds_toggle(AO_LEDS_ALL);
     }

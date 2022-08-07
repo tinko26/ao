@@ -60,13 +60,13 @@
 
 #ifndef AO_MIKROE_1877_TIMEOUT_1
 
-#define AO_MIKROE_1877_TIMEOUT_1    (ao_milliseconds(100))
+#define AO_MIKROE_1877_TIMEOUT_1    (AO_MILLISECONDS(100))
 
 #endif
 
 #ifndef AO_MIKROE_1877_TIMEOUT_2
 
-#define AO_MIKROE_1877_TIMEOUT_2    (ao_milliseconds(100))
+#define AO_MIKROE_1877_TIMEOUT_2    (AO_MILLISECONDS(100))
 
 #endif
 

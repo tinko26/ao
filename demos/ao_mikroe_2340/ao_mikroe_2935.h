@@ -84,25 +84,25 @@
 
 #ifndef AO_MIKROE_2935_PERIOD_A
 
-#define AO_MIKROE_2935_PERIOD_A             (ao_milliseconds(100))
+#define AO_MIKROE_2935_PERIOD_A             (AO_MILLISECONDS(100))
 
 #endif
 
 #ifndef AO_MIKROE_2935_PERIOD_B
 
-#define AO_MIKROE_2935_PERIOD_B             (ao_milliseconds(100))
+#define AO_MIKROE_2935_PERIOD_B             (AO_MILLISECONDS(100))
 
 #endif
 
 #ifndef AO_MIKROE_2935_PERIOD_C
 
-#define AO_MIKROE_2935_PERIOD_C             (ao_milliseconds(100))
+#define AO_MIKROE_2935_PERIOD_C             (AO_MILLISECONDS(100))
 
 #endif
 
 #ifndef AO_MIKROE_2935_PERIOD_D
 
-#define AO_MIKROE_2935_PERIOD_D             (ao_milliseconds(100))
+#define AO_MIKROE_2935_PERIOD_D             (AO_MILLISECONDS(100))
 
 #endif
 

@@ -26488,7 +26488,7 @@ void ao_uart_task_proc_1(void * x)
 
                 // Add a half bit time delay after the TRMT bit is asserted.
 
-                ao_spin(ao_nanoseconds(1000000000ULL / (AO_UART_BAUD_1)));
+                ao_spin(AO_NANOSECONDS(1000000000ULL / (AO_UART_BAUD_1)));
 
 #endif
 
@@ -26957,7 +26957,7 @@ void ao_uart_task_proc_2(void * x)
 
                 // Add a half bit time delay after the TRMT bit is asserted.
 
-                ao_spin(ao_nanoseconds(1000000000ULL / (AO_UART_BAUD_2)));
+                ao_spin(AO_NANOSECONDS(1000000000ULL / (AO_UART_BAUD_2)));
 
 #endif
 
@@ -27426,7 +27426,7 @@ void ao_uart_task_proc_3(void * x)
 
                 // Add a half bit time delay after the TRMT bit is asserted.
 
-                ao_spin(ao_nanoseconds(1000000000ULL / (AO_UART_BAUD_3)));
+                ao_spin(AO_NANOSECONDS(1000000000ULL / (AO_UART_BAUD_3)));
 
 #endif
 
@@ -27895,7 +27895,7 @@ void ao_uart_task_proc_4(void * x)
 
                 // Add a half bit time delay after the TRMT bit is asserted.
 
-                ao_spin(ao_nanoseconds(1000000000ULL / (AO_UART_BAUD_4)));
+                ao_spin(AO_NANOSECONDS(1000000000ULL / (AO_UART_BAUD_4)));
 
 #endif
 
@@ -28364,7 +28364,7 @@ void ao_uart_task_proc_5(void * x)
 
                 // Add a half bit time delay after the TRMT bit is asserted.
 
-                ao_spin(ao_nanoseconds(1000000000ULL / (AO_UART_BAUD_5)));
+                ao_spin(AO_NANOSECONDS(1000000000ULL / (AO_UART_BAUD_5)));
 
 #endif
 
@@ -28833,7 +28833,7 @@ void ao_uart_task_proc_6(void * x)
 
                 // Add a half bit time delay after the TRMT bit is asserted.
 
-                ao_spin(ao_nanoseconds(1000000000ULL / (AO_UART_BAUD_6)));
+                ao_spin(AO_NANOSECONDS(1000000000ULL / (AO_UART_BAUD_6)));
 
 #endif
 

@@ -83,25 +83,25 @@
 
 #ifndef AO_MIKROE_4186_TIMEOUT_A
 
-#define AO_MIKROE_4186_TIMEOUT_A    (ao_milliseconds(100))
+#define AO_MIKROE_4186_TIMEOUT_A    (AO_MILLISECONDS(100))
 
 #endif
 
 #ifndef AO_MIKROE_4186_TIMEOUT_B
 
-#define AO_MIKROE_4186_TIMEOUT_B    (ao_milliseconds(100))
+#define AO_MIKROE_4186_TIMEOUT_B    (AO_MILLISECONDS(100))
 
 #endif
 
 #ifndef AO_MIKROE_4186_TIMEOUT_C
 
-#define AO_MIKROE_4186_TIMEOUT_C    (ao_milliseconds(100))
+#define AO_MIKROE_4186_TIMEOUT_C    (AO_MILLISECONDS(100))
 
 #endif
 
 #ifndef AO_MIKROE_4186_TIMEOUT_D
 
-#define AO_MIKROE_4186_TIMEOUT_D    (ao_milliseconds(100))
+#define AO_MIKROE_4186_TIMEOUT_D    (AO_MILLISECONDS(100))
 
 #endif
 

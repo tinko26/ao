@@ -80,7 +80,7 @@ typedef struct  ao_task_slave_t     ao_task_slave_t;
 
 #ifndef AO_TASK_QUANTUM
 
-#define AO_TASK_QUANTUM             (ao_milliseconds(10))
+#define AO_TASK_QUANTUM             (AO_MILLISECONDS(10))
 
 #endif
 

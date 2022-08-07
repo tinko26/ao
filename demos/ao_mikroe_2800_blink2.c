@@ -154,7 +154,7 @@ void task_send_proc(void * x)
 
         c = (c + 1) % 8;
 
-        ao_sleep(ao_milliseconds(500));
+        ao_sleep(AO_MILLISECONDS(500));
     }
 }
 

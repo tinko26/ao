@@ -62,87 +62,87 @@ typedef ao_count_t                      ao_time_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_days
+#ifndef AO_DAYS
 
-#define ao_days(x)                      ((x) * (AO_COUNT_FREQUENCY) * (86400))
-
-#endif
-
-#ifndef ao_days_from_time
-
-#define ao_days_from_time(x)            ((x) / (AO_COUNT_FREQUENCY) / (86400))
+#define AO_DAYS(x)                      ((x) * (AO_COUNT_FREQUENCY) * (86400))
 
 #endif
 
-#ifndef ao_hours
+#ifndef AO_DAYS_FROM_TIME
 
-#define ao_hours(x)                     ((x) * (AO_COUNT_FREQUENCY) * (3600))
-
-#endif
-
-#ifndef ao_hours_from_time
-
-#define ao_hours_from_time(x)           ((x) / (AO_COUNT_FREQUENCY) / (3600))
+#define AO_DAYS_FROM_TIME(x)            ((x) / (AO_COUNT_FREQUENCY) / (86400))
 
 #endif
 
-#ifndef ao_minutes
+#ifndef AO_HOURS
 
-#define ao_minutes(x)                   ((x) * (AO_COUNT_FREQUENCY) * (60))
-
-#endif
-
-#ifndef ao_minutes_from_time
-
-#define ao_minutes_from_time(x)         ((x) / (AO_COUNT_FREQUENCY) / (60))
+#define AO_HOURS(x)                     ((x) * (AO_COUNT_FREQUENCY) * (3600))
 
 #endif
 
-#ifndef ao_seconds
+#ifndef AO_HOURS_FROM_TIME
 
-#define ao_seconds(x)                   ((x) * (AO_COUNT_FREQUENCY))
-
-#endif
-
-#ifndef ao_seconds_from_time
-
-#define ao_seconds_from_time(x)         ((x) / (AO_COUNT_FREQUENCY))
+#define AO_HOURS_FROM_TIME(x)           ((x) / (AO_COUNT_FREQUENCY) / (3600))
 
 #endif
 
-#ifndef ao_milliseconds
+#ifndef AO_MINUTES
 
-#define ao_milliseconds(x)              ((x) * (AO_COUNT_FREQUENCY) / (1000))
-
-#endif
-
-#ifndef ao_milliseconds_from_time
-
-#define ao_milliseconds_from_time(x)    ((x) * (1000) / (AO_COUNT_FREQUENCY))
+#define AO_MINUTES(x)                   ((x) * (AO_COUNT_FREQUENCY) * (60))
 
 #endif
 
-#ifndef ao_microseconds
+#ifndef AO_MINUTES_FROM_TIME
 
-#define ao_microseconds(x)              ((x) * (AO_COUNT_FREQUENCY) / (1000000))
-
-#endif
-
-#ifndef ao_microseconds_from_time
-
-#define ao_microseconds_from_time(x)    ((x) * (1000000) / (AO_COUNT_FREQUENCY))
+#define AO_MINUTES_FROM_TIME(x)         ((x) / (AO_COUNT_FREQUENCY) / (60))
 
 #endif
 
-#ifndef ao_nanoseconds
+#ifndef AO_SECONDS
 
-#define ao_nanoseconds(x)               ((x) * (AO_COUNT_FREQUENCY) / (1000000000))
+#define AO_SECONDS(x)                   ((x) * (AO_COUNT_FREQUENCY))
 
 #endif
 
-#ifndef ao_nanoseconds_from_time
+#ifndef AO_SECONDS_FROM_TIME
 
-#define ao_nanoseconds_from_time(x)     ((x) * (1000000000) / (AO_COUNT_FREQUENCY))
+#define AO_SECONDS_FROM_TIME(x)         ((x) / (AO_COUNT_FREQUENCY))
+
+#endif
+
+#ifndef AO_MILLISECONDS
+
+#define AO_MILLISECONDS(x)              ((x) * (AO_COUNT_FREQUENCY) / (1000))
+
+#endif
+
+#ifndef AO_MILLISECONDS_FROM_TIME
+
+#define AO_MILLISECONDS_FROM_TIME(x)    ((x) * (1000) / (AO_COUNT_FREQUENCY))
+
+#endif
+
+#ifndef AO_MICROSECONDS
+
+#define AO_MICROSECONDS(x)              ((x) * (AO_COUNT_FREQUENCY) / (1000000))
+
+#endif
+
+#ifndef AO_MICROSECONDS_FROM_TIME
+
+#define AO_MICROSECONDS_FROM_TIME(x)    ((x) * (1000000) / (AO_COUNT_FREQUENCY))
+
+#endif
+
+#ifndef AO_NANOSECONDS
+
+#define AO_NANOSECONDS(x)               ((x) * (AO_COUNT_FREQUENCY) / (1000000000))
+
+#endif
+
+#ifndef AO_NANOSECONDS_FROM_TIME
+
+#define AO_NANOSECONDS_FROM_TIME(x)     ((x) * (1000000000) / (AO_COUNT_FREQUENCY))
 
 #endif
 
