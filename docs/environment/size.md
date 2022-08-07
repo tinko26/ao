@@ -11,7 +11,7 @@ title: "Sizes"
 
 The standard library's `size_t` type is an unsigned integer type, at least 16 bits wide, that can store the size of any kind of object, from single numbers to huge arrays. It is intended to be used for loop counters and array indexes. 
 
-The `ao_size.h` module specifies properties of the type and contains a couple of useful functions, that are, for example, required by the [allocators](../kernel/alloc.md).
+The `ao_size.h` module specifies properties of the type and contains a couple of useful functions.
 
 ## Constants
 

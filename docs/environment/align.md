@@ -11,7 +11,7 @@ title: "Alignment"
 
 Reading from or writing to memory usually requires scalar data, such as an integer or a pointer, to be [aligned](https://en.wikipedia.org/wiki/Data_structure_alignment), that is, its address must be a multiple of its size. This is, because such reads and writes are implemented efficiently on most CPUs, while unaligned accesses impose a penalty on the execution speed.
 
-Normally, the compiler takes care of the correct alignment of variables automatically. However, there are situations, when this is not the case, especially when dealing with dynamic memory management functions or task stack pointers.
+Normally, the compiler takes care of the correct alignment of variables automatically. However, there are situations, when this is not the case, for example, when dealing with dynamic memory management functions or stack pointers.
 
 The `ao_align.h` module defines two macro functions that align a given value up or down, respectively, to a given boundary.
 
