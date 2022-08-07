@@ -371,15 +371,15 @@ void    ao_spi_baud
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_spi_baud_max
+#ifndef AO_SPI_BAUD_MAX
 
-#define ao_spi_baud_max(f_pbclk)        ((f_pbclk) / (2 * ((AO_SPI_BRG_MIN) + 1)))
+#define AO_SPI_BAUD_MAX(f_pbclk)        ((f_pbclk) / (2 * ((AO_SPI_BRG_MIN) + 1)))
 
 #endif
 
-#ifndef ao_spi_baud_min
+#ifndef AO_SPI_BAUD_MIN
 
-#define ao_spi_baud_min(f_pbclk)        (1 + (((f_pbclk) - 1) / (2 * ((AO_SPI_BRG_MAX) + 1))))
+#define AO_SPI_BAUD_MIN(f_pbclk)        (1 + (((f_pbclk) - 1) / (2 * ((AO_SPI_BRG_MAX) + 1))))
 
 #endif
 

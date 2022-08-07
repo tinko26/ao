@@ -53,13 +53,13 @@
 
 #ifndef AO_SPI_BAUD_MAX_4
 
-#define AO_SPI_BAUD_MAX_4   ao_spi_baud_max(AO_SYS_CLOCK_SPI4)
+#define AO_SPI_BAUD_MAX_4   AO_SPI_BAUD_MAX(AO_SYS_CLOCK_SPI4)
 
 #endif
 
 #ifndef AO_SPI_BAUD_MIN_4
 
-#define AO_SPI_BAUD_MIN_4   ao_spi_baud_min(AO_SYS_CLOCK_SPI4)
+#define AO_SPI_BAUD_MIN_4   AO_SPI_BAUD_MIN(AO_SYS_CLOCK_SPI4)
 
 #endif
 

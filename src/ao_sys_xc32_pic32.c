@@ -25780,9 +25780,9 @@ void ao_spi_baud(ao_spi_reg_t * r, uint32_t f_pbclk, uint32_t f)
 
     ao_assert(f_pbclk > 0);
 
-    ao_assert(f >= ao_spi_baud_min(f_pbclk));
+    ao_assert(f >= AO_SPI_BAUD_MIN(f_pbclk));
 
-    ao_assert(f <= ao_spi_baud_max(f_pbclk));
+    ao_assert(f <= AO_SPI_BAUD_MAX(f_pbclk));
 
 
     // Ready.
@@ -25881,7 +25881,7 @@ void ao_uart_baud(ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f)
 
 #endif
 
-    if (f <= ao_uart_baud_low_max(f_pbclk))
+    if (f <= AO_UART_BAUD_LOW_MAX(f_pbclk))
     {
         ao_uart_baud_low(r, f_pbclk, f);
     }
@@ -25900,8 +25900,8 @@ void ao_uart_baud_high(ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f)
 
     ao_assert(f_pbclk > 0);
 
-    ao_assert(f >= ao_uart_baud_high_min(f_pbclk));
-    ao_assert(f <= ao_uart_baud_high_max(f_pbclk));
+    ao_assert(f >= AO_UART_BAUD_HIGH_MIN(f_pbclk));
+    ao_assert(f <= AO_UART_BAUD_HIGH_MAX(f_pbclk));
 
 
     // Assert.
@@ -26001,8 +26001,8 @@ void ao_uart_baud_low(ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f)
 
     ao_assert(f_pbclk > 0);
 
-    ao_assert(f >= ao_uart_baud_low_min(f_pbclk));
-    ao_assert(f <= ao_uart_baud_low_max(f_pbclk));
+    ao_assert(f >= AO_UART_BAUD_LOW_MIN(f_pbclk));
+    ao_assert(f <= AO_UART_BAUD_LOW_MAX(f_pbclk));
 
 
     // Variables.

@@ -78,13 +78,13 @@
 
 #ifndef AO_UART_BAUD_MAX_5
 
-#define AO_UART_BAUD_MAX_5              ao_uart_baud_max(AO_SYS_CLOCK_U5)
+#define AO_UART_BAUD_MAX_5              AO_UART_BAUD_MAX(AO_SYS_CLOCK_U5)
 
 #endif
 
 #ifndef AO_UART_BAUD_MIN_5
 
-#define AO_UART_BAUD_MIN_5              ao_uart_baud_min(AO_SYS_CLOCK_U5)
+#define AO_UART_BAUD_MIN_5              AO_UART_BAUD_MIN(AO_SYS_CLOCK_U5)
 
 #endif
 
@@ -92,13 +92,13 @@
 
 #ifndef AO_UART_BAUD_HIGH_MAX_5
 
-#define AO_UART_BAUD_HIGH_MAX_5         ao_uart_baud_high_max(AO_SYS_CLOCK_U5)
+#define AO_UART_BAUD_HIGH_MAX_5         AO_UART_BAUD_HIGH_MAX(AO_SYS_CLOCK_U5)
 
 #endif
 
 #ifndef AO_UART_BAUD_HIGH_MIN_5
 
-#define AO_UART_BAUD_HIGH_MIN_5         ao_uart_baud_high_min(AO_SYS_CLOCK_U5)
+#define AO_UART_BAUD_HIGH_MIN_5         AO_UART_BAUD_HIGH_MIN(AO_SYS_CLOCK_U5)
 
 #endif
 
@@ -106,13 +106,13 @@
 
 #ifndef AO_UART_BAUD_LOW_MAX_5
 
-#define AO_UART_BAUD_LOW_MAX_5          ao_uart_baud_low_max(AO_SYS_CLOCK_U5)
+#define AO_UART_BAUD_LOW_MAX_5          AO_UART_BAUD_LOW_MAX(AO_SYS_CLOCK_U5)
 
 #endif
 
 #ifndef AO_UART_BAUD_LOW_MIN_5
 
-#define AO_UART_BAUD_LOW_MIN_5          ao_uart_baud_low_min(AO_SYS_CLOCK_U5)
+#define AO_UART_BAUD_LOW_MIN_5          AO_UART_BAUD_LOW_MIN(AO_SYS_CLOCK_U5)
 
 #endif
 

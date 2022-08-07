@@ -53,13 +53,13 @@
 
 #ifndef AO_SPI_BAUD_MAX_3
 
-#define AO_SPI_BAUD_MAX_3   ao_spi_baud_max(AO_SYS_CLOCK_SPI3)
+#define AO_SPI_BAUD_MAX_3   AO_SPI_BAUD_MAX(AO_SYS_CLOCK_SPI3)
 
 #endif
 
 #ifndef AO_SPI_BAUD_MIN_3
 
-#define AO_SPI_BAUD_MIN_3   ao_spi_baud_min(AO_SYS_CLOCK_SPI3)
+#define AO_SPI_BAUD_MIN_3   AO_SPI_BAUD_MIN(AO_SYS_CLOCK_SPI3)
 
 #endif
 

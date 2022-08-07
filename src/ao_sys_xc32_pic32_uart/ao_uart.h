@@ -424,15 +424,15 @@ void    ao_uart_baud
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_uart_baud_max
+#ifndef AO_UART_BAUD_MAX
 
-#define ao_uart_baud_max(f_pbclk)           ao_uart_baud_high_max(f_pbclk)
+#define AO_UART_BAUD_MAX(f_pbclk)           AO_UART_BAUD_HIGH_MAX(f_pbclk)
 
 #endif
 
-#ifndef ao_uart_baud_min
+#ifndef AO_UART_BAUD_MIN
 
-#define ao_uart_baud_min(f_pbclk)           ao_uart_baud_low_min(f_pbclk)
+#define AO_UART_BAUD_MIN(f_pbclk)           AO_UART_BAUD_LOW_MIN(f_pbclk)
 
 #endif
 
@@ -449,15 +449,15 @@ void    ao_uart_baud_high
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_uart_baud_high_max
+#ifndef AO_UART_BAUD_HIGH_MAX
 
-#define ao_uart_baud_high_max(f_pbclk)      ((f_pbclk) / (4 * ((AO_UART_BRG_MIN) + 1)))
+#define AO_UART_BAUD_HIGH_MAX(f_pbclk)      ((f_pbclk) / (4 * ((AO_UART_BRG_MIN) + 1)))
 
 #endif
 
-#ifndef ao_uart_baud_high_min
+#ifndef AO_UART_BAUD_HIGH_MIN
 
-#define ao_uart_baud_high_min(f_pbclk)      (1 + (((f_pbclk) - 1) / (4 * ((AO_UART_BRG_MAX) + 1))))
+#define AO_UART_BAUD_HIGH_MIN(f_pbclk)      (1 + (((f_pbclk) - 1) / (4 * ((AO_UART_BRG_MAX) + 1))))
 
 #endif
 
@@ -474,15 +474,15 @@ void    ao_uart_baud_low
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_uart_baud_low_max
+#ifndef AO_UART_BAUD_LOW_MAX
 
-#define ao_uart_baud_low_max(f_pbclk)       ((f_pbclk) / (16 * ((AO_UART_BRG_MIN) + 1)))
+#define AO_UART_BAUD_LOW_MAX(f_pbclk)       ((f_pbclk) / (16 * ((AO_UART_BRG_MIN) + 1)))
 
 #endif
 
-#ifndef ao_uart_baud_low_min
+#ifndef AO_UART_BAUD_LOW_MIN
 
-#define ao_uart_baud_low_min(f_pbclk)       (1 + (((f_pbclk) - 1) / (16 * ((AO_UART_BRG_MAX) + 1))))
+#define AO_UART_BAUD_LOW_MIN(f_pbclk)       (1 + (((f_pbclk) - 1) / (16 * ((AO_UART_BRG_MAX) + 1))))
 
 #endif
 
