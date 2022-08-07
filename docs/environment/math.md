@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-05
+date: 2022-08-07
 description: "Mathematics in the ao Real-Time Operating System (RTOS)."
 draft: false
 permalink: /environment/math/
@@ -13,19 +13,19 @@ The `math.h` module provides a number of useful mathematical operations. They ar
 
 ## Functions
 
-Get the absolute value of a number.
+Absolute value.
 
 ```c
 double x = ao_abs(-3.2);
 ```
 
-Clamp a value into an interval.
+Clamping.
 
 ```c
 double y = ao_clamp(x, -2, 2);
 ```
 
-Compare two values.
+Comparison.
 
 ```c
 if (ao_is_equal(x, y)) { }
@@ -35,7 +35,7 @@ if (ao_is_less(x, y)) { }
 if (ao_is_less_equal(x, y)) { }
 ```
 
-Check the sign of a value.
+Sign.
 
 ```c
 if (ao_is_negative(x)) { }
@@ -43,7 +43,7 @@ if (ao_is_positive(x)) { }
 if (ao_is_zero(x)) { }
 ```
 
-Find the maximum or minimum, respectively, of two values.
+Maximum and minimum.
 
 ```c
 double z1 = ao_max(x, y);
