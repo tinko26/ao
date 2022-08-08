@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-04
+date: 2022-08-08
 description: "Random Value Generators in the ao Real-Time Operating System (RTOS)."
 draft: false
 permalink: /environment/rand/
@@ -12,31 +12,31 @@ title: "Random Value Generators"
 The `ao_rand.h` module defines function pointer types for a variety of random value generators.
 
 ```c
-typedef bool        (* ao_rand_b_t)   ();
+typedef bool        (* ao_randb_t)   ();
 ```
 
 ```c
-typedef double      (* ao_rand_d_t)   ();
+typedef double      (* ao_randd_t)   ();
 ```
 
 ```c
-typedef float       (* ao_rand_f_t)   ();
+typedef float       (* ao_randf_t)   ();
 ```
 
 ```c
-typedef int8_t      (* ao_rand_i8_t ) ();
-typedef int16_t     (* ao_rand_i16_t) ();
-typedef int32_t     (* ao_rand_i32_t) ();
-typedef int64_t     (* ao_rand_i64_t) ();
+typedef int8_t      (* ao_randi8_t ) ();
+typedef int16_t     (* ao_randi16_t) ();
+typedef int32_t     (* ao_randi32_t) ();
+typedef int64_t     (* ao_randi64_t) ();
 ```
 
 ```c
-typedef long double (* ao_rand_l_t)   ();
+typedef long double (* ao_randl_t)   ();
 ```
 
 ```c
-typedef uint8_t     (* ao_rand_u8_t ) ();
-typedef uint16_t    (* ao_rand_u16_t) ();
-typedef uint32_t    (* ao_rand_u32_t) ();
-typedef uint64_t    (* ao_rand_u64_t) ();
+typedef uint8_t     (* ao_randu8_t ) ();
+typedef uint16_t    (* ao_randu16_t) ();
+typedef uint32_t    (* ao_randu32_t) ();
+typedef uint64_t    (* ao_randu64_t) ();
 ```

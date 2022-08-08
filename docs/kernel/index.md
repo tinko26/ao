@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-07-31
+date: 2022-08-08
 description: "The Kernel of the ao Real-Time Operating System (RTOS)."
 draft: true
 permalink: /kernel/
@@ -22,11 +22,11 @@ title: "Kernel"
 
 ## CPU
 
-- core
+- [core](core.md)
 
 ## Interrupts
 
-- ir
+- [ir](ir.md)
 
 ## Locking
 

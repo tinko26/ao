@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-07
+date: 2022-08-08
 description: "Unsigned Integers in the ao Real-Time Operating System (RTOS)."
 draft: false
 permalink: /environment/uint/
@@ -9,7 +9,7 @@ title: "Unsigned Integers"
 
 # Unsigned Integers
 
-The `ao_uint.h` module defines an abstraction for unsigned integers. It defines the `ao_uint.h` type, which represents the fastest unsigned integer type available on the target platform. Additionally, it contains a couple of useful functions.
+The `ao_uint.h` module defines the `ao_uint_t` type, which represents the fastest unsigned integer type available on the target platform. Additionally, it contains a couple of useful functions.
 
 ## Constants
 
