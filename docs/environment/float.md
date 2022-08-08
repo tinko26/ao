@@ -9,11 +9,11 @@ title: "Floating-Point Numbers"
 
 # Floating-Point Numbers
 
-The `ao_float.h` module defines an abstraction for floating-point numbers. It defines the `ao_float.h` type, which represents the fastest floating-point type available on the target platform. Additionally, it contains a couple of mathematical functions for that type.
+The `ao_float.h` module defines the `ao_float_t_` type, which represents the fastest floating-point type available on the target platform. Additionally, it contains a couple of mathematical functions for that type.
 
 ## Constants
 
-The number of significant decimal digits that are preserved, when converting a value from and again back to the `ao_float_t` type.
+The number of decimal digits that are preserved, when converting a floating-point value to string and back again.
 
 ```c
 #define AO_FLOAT_DIG
