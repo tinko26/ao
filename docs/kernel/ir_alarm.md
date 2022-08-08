@@ -1,15 +1,15 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-08
-description: "The Alarm Interrupt in the ao Real-Time Operating System (RTOS)."
+description: "Alarm Interrupt in the ao Real-Time Operating System (RTOS)."
 draft: false
 permalink: /kernel/ir_alarm/
-title: "The Alarm Interrupt"
+title: "Alarm Interrupt"
 ---
 
-# The Alarm Interrupt
+# Alarm Interrupt
 
-The `ao_ir_alarm.h` module contains the following functions for the controlling the alarm interrupt.
+The `ao_ir_alarm.h` module contains the following functions for controlling the alarm interrupt.
 
 Enable or disable the interrupt, respectively.
 

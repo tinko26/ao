@@ -9,8 +9,6 @@ title: "Kernel"
 
 # Kernel
 
-# DRAFT
-
 ## General
 
 - kernel space only, no user space
@@ -43,7 +41,7 @@ title: "Kernel"
 
 ## Memory
 
-- stack
+- [stack](stack.md)
 - allocators
 
 ## Tasks
@@ -86,5 +84,5 @@ title: "Kernel"
 
 ## Hardware
 
-- buttons
-- LEDs
+- [buttons](buttons.md)
+- [LEDs](leds.md)
