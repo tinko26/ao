@@ -29,7 +29,7 @@ The [environment](../environment/index.md) package is an extension to the freest
 
 ### Kernel
 
-The [kernel](../kernel/index.md) package provides functions for timing, multi-tasking, real-time scheduling, inter-process communication, synchronization, and dynamic memory management.
+The [kernel](../kernel/index.md) package provides functions for timing, multitasking, real-time scheduling, inter-process communication, synchronization, and dynamic memory management.
 
 ### Port
 
@@ -108,6 +108,10 @@ An implementation of the `ao_break()` function can be found in the port package.
 ```c
 #define ao_break() __builtin_software_breakpoint()
 ```
+
+...
+
+This definition can be found in the `ao_break.h` header file provided by the port package.
 
 ...
 

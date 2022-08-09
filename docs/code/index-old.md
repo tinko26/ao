@@ -32,25 +32,12 @@ This can be achieved by setting up the compiler's include directories properly. 
 
 ...
 
-## Naming
+## Naming ??
 
 - everything is prefixed
 - macro constants and macro functions, that can be used in the definition of macro constants, in uppercase. (or, that can be evaluated at compile time)
 - everything else in lower case
 
-## Safety
+## Safety ??
 
 - MISRA C compliance and deviation
-
-## Memory management
-
-- everything static
-- no need to allocate anything dynamically
-- no "create" or "delete" functions
-
-## Memory initialization
-
-- basic initialization = clear object (set zeros)
-- some data structures require the assignment of auxiliary objects (such as a store for buffers)
-- global variables are zeroed on start-up.
-

@@ -64,3 +64,16 @@ void main()
     ao_stop();
 }
 ```
+
+## Memory management
+
+- everything static
+- no need to allocate anything dynamically
+- no "create" or "delete" functions
+
+## Memory initialization
+
+- basic initialization = clear object (set zeros)
+- some data structures require the assignment of auxiliary objects (such as a store for buffers)
+- global variables are zeroed on start-up.
+
