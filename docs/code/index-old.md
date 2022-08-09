@@ -9,73 +9,10 @@ title: "Code"
 
 # Code
 
-## Location
-
-The source code of the RTOS is located in the repository's `src` folder. 
-
-## Packages
-
-The source code is subdivided into C files and folders containing header files. Thereby, folders and corresponding C files constitute a total of four packages.
-
-### ao
-
-This package is an extension to the freestanding runtime [environment](../environment/index.md). It provides environment constants and variables, type definitions, support for debugging, as well as useful functions and data structures. It consists of the `ao` folder and the `ao.c` file.
-
-### ao_sys
-
-This package contains the [kernel](../kernel/index.md). It provides all the basic features that a thorough RTOS is expected to have, i.e. multitasking, priority-based real-time scheduling, inter-process communication, and synchronization. It consists of the `ao_sys` folder and the `ao_sys.c` file.
-
-### ao_sys_xc32
-
-This package contains support for the XC32 compiler. It consists of the `ao_sys_xc32` folder, only, and has no corresponding C file.
-
-### ao_sys_xc32_pic32
-
-This package contains a [port](../port/index.md) for PIC32 microcontrollers. It consists of the `ao_sys_xc32_pic32.c` file and the following folders.
-
-- `ao_sys_xc32_pic32`
-- `ao_sys_xc32_pic32_can`
-- `ao_sys_xc32_pic32_i2c`
-- `ao_sys_xc32_pic32_rng`
-- `ao_sys_xc32_pic32_spi`
-- `ao_sys_xc32_pic32_uart`
-- `ao_sys_xc32_pic32_wdt`
-- `ao_sys_xc32_pic32mk`
-- `ao_sys_xc32_pic32mk_gp`
-- `ao_sys_xc32_pic32mk_gpg`
-- `ao_sys_xc32_pic32mk_gpk`
-- `ao_sys_xc32_pic32mx`
-- `ao_sys_xc32_pic32mx_1xx`
-- `ao_sys_xc32_pic32mx_1xx_64_100`
-- `ao_sys_xc32_pic32mx_1xx_xlp`
-- `ao_sys_xc32_pic32mx_330`
-- `ao_sys_xc32_pic32mx_3xx`
-- `ao_sys_xc32_pic32mx_5xx`
-- `ao_sys_xc32_pic32mz`
-- `ao_sys_xc32_pic32mz_da`
-- `ao_sys_xc32_pic32mz_dak`
-- `ao_sys_xc32_pic32mz_ec`
-- `ao_sys_xc32_pic32mz_ef`
 
 ## Modules
 
-Each package is made up of modules. For each module, there is a dedicated header file. The `ao` package, for example, contains the `ao_break.h` module, that declares a single function that executes a breakpoint. 
-
-```c
-void ao_break();
-```
-
-Modules can depend on each other. For example, the `ao_assert.h` module defines a macro function for runtime assertions. Due to the way it is implemented, it depends on the `ao_break.h` module.
-
-```c
-#define ao_assert(exp)  \
-{                       \
-  if (!(exp))           \
-  {                     \
-    ao_break();         \
-  }                     \
-}
-```
+...
 
 ## Hardware-Agnostic Modules
 
