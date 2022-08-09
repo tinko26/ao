@@ -67,23 +67,23 @@ Such interdependencies can exist both between modules and packages. However, the
 
 The modules of the environment and kernel packages are implemented in a strict platform-agnostic fashion. That is, they do not contain interrupt handlers, assembly code, or the like.
 
-Therefore, they only make use of the header files of a freestanding runtime environment, that solely define types and macros, but do not declare any functions.
+Therefore, they only make use of the header files of a **freestanding runtime environment**, that solely define types and macros, but do not declare any functions.
 
-| Header File     | Dealing with ...                         |
-|-----------------|------------------------------------------|
-| `float.h`       | ... floating-point types.                |
-| `iso646.h`      | ... alternative operator spellings.      |
-| `limits.h`      | ... integer types.                       |
-| `stdalign.h`    | ... memory alignment.                    |
-| `stdarg.h`      | ... variable function arguments.         |
-| `stdbool.h`     | ... the boolean type and boolean values. |
-| `stddef.h`      | ... general stuff.                       |
-| `stdint.h`      | ... fixed-width integer types.           |
-| `stdnoreturn.h` | ... functions that do not return.        |
+| Header File     | Dealing with ...                    |
+|-----------------|-------------------------------------|
+| `float.h`       | ... floating-point types.           |
+| `iso646.h`      | ... alternative operator spellings. |
+| `limits.h`      | ... integer types.                  |
+| `stdalign.h`    | ... memory alignment.               |
+| `stdarg.h`      | ... variable function arguments.    |
+| `stdbool.h`     | ... the boolean type.               |
+| `stddef.h`      | ... general stuff.                  |
+| `stdint.h`      | ... fixed-width integer types.      |
+| `stdnoreturn.h` | ... functions that do not return.   |
 
-All the other header files of the standard library, such as `stdio.h`, are part of a hosted runtime environment. Its name implies, that there must be a hosting operating system to provide services such as reading a file. 
+All the other header files of the standard library, such as `stdio.h`, are part of a **hosted runtime environment**. Its name implies, that there must be a hosting operating system to provide services such as reading a file.
 
-Obviously, since the real-time operating system itself is such a host, it cannot rely on someone else to provide these services. Therefore, the environment and kernel packages themselves provide a lot of functionality, that can otherwise be found in the header files of a hosted runtime environment.
+Obviously, since the real-time operating system itself is such a host, it cannot rely on someone else to provide these services. Therefore, the environment and kernel packages provide a lot of functionality themselves, that can otherwise be found in the header files of a hosted runtime environment.
 
 The aforementioned `ao_assert()` macro function is a good example. Although a similar macro function is defined in the `assert.h` header file, it is not being used, because that header file is not part of a freestanding runtime environment. 
 
