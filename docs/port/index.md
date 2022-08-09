@@ -9,9 +9,9 @@ title: "Port"
 
 # Port
 
-# DRAFT
-
 ## XC32
+
+- debug
 
 ## PIC32
 
