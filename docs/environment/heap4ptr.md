@@ -7,6 +7,8 @@ permalink: /environment/heap4ptr/
 title: "Pointer Heaps"
 ---
 
+# Pointer Heaps
+
 The `ao_heap4ptr.h` module defines [binary heaps](https://en.wikipedia.org/wiki/Binary_heap) for pointers.
 
 A binary heap is a special kind of [binary tree](https://en.wikipedia.org/wiki/Binary_tree) that maintains both the shape of a complete binary tree and the heap property. The latter implies, that a node is always less than its children, with respect to a [strict total order](https://en.wikipedia.org/wiki/Total_order). 

@@ -7,7 +7,7 @@ permalink: /code/
 title: "Code"
 ---
 
-# Location
+# Code
 
 The source code of the real-time operating system is located in the [repository's](https://github.com/tinko26/ao) `src` folder.
 
