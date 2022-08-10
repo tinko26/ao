@@ -2,7 +2,7 @@
 author: "Stefan Wagner"
 date: 2022-08-10
 description: "The Source Code of the ao Real-Time Operating System (RTOS)."
-draft: true
+draft: false
 permalink: /code/
 title: "Code"
 ---
@@ -59,9 +59,7 @@ Such interdependencies can exist both between modules and between packages. Howe
 
 ## Platform-Agnostic Modules
 
-The modules of the environment and kernel packages are implemented in a strict platform-agnostic fashion. That is, they do not contain interrupt handlers, assembly code, or the like.
-
-Therefore, they only make use of the header files of a **freestanding runtime environment**, that solely define types and macros, but do not declare any functions.
+The modules of the environment and kernel packages are implemented in a strict platform-agnostic fashion. That is, they do not contain interrupt handlers, assembly code, or the like. Therefore, they only make use of the header files of a **freestanding runtime environment**, that solely define types and macros, but do not declare any functions.
 
 | Header File     | Dealing with ...                    |
 |-----------------|-------------------------------------|
@@ -71,7 +69,7 @@ Therefore, they only make use of the header files of a **freestanding runtime en
 | `stdalign.h`    | ... memory alignment.               |
 | `stdarg.h`      | ... variable function arguments.    |
 | `stdbool.h`     | ... the boolean type.               |
-| `stddef.h`      | ... general stuff.                  |
+| `stddef.h`      | ... miscellaneous stuff.            |
 | `stdint.h`      | ... fixed-width integer types.      |
 | `stdnoreturn.h` | ... functions that do not return.   |
 
@@ -93,19 +91,31 @@ And all that makes perfect sense. Since the port package is explicitly devoted t
 
 Kernel functions cannot be implemented thoroughly without platform-specific features. In order to achieve platform independency nonetheless, the environment and kernel packages contain abstract modules. These modules declare necessary functions, but do not define them.
 
-For example, the aforementioned `ao_break.h` module of the environment package is abstract, because the execution of a breakpoint is platform-specific.
+For example, the aforementioned `ao_break.h` module of the environment package is abstract, because the execution of a breakpoint is platform-specific. Consequently, there is no implementation of this function in the `ao.c` file.
 
 ## Overriding Modules
 
-An implementation of the `ao_break()` function can be found in the port package. There, it simply forwards the call to a built-in function provided by the XC32 compiler. For the sake of simplicity and execution speed, it is implemented as a macro function rather than an ordinary function.
+Instead, an implementation of the `ao_break()` function can be found in the port package. There, it simply forwards the call to a built-in function provided by the XC32 compiler. For the sake of simplicity and execution speed, it is implemented as a macro function rather than an ordinary function.
 
 ```c
 #define ao_break() __builtin_software_breakpoint()
 ```
 
-...
+So, the port package contains an `ao_break.h` header file, too, just like the environment package. This brings up the question of how to make the compiler use the former instead of the latter.
 
-This definition can be found in the `ao_break.h` header file provided by the port package.
+## Include Directories
 
-...
+When including a header file with the angle-bracket form, the compiler searches a sequence of directories. Although the standard spares the details of the search and leaves it up to the implementation, virtually every compiler first scans a user-defined, then an implementation-defined sequence of directories.
 
+So, in order to include the correct `ao_break.h` header file, the compiler's include directories must be set up properly, so that it searches the `ao_sys_xc32_pic32` directory of the port package before the `ao` directory of the environment package. 
+
+This hierarchy of include directories is mirrored by the directory names. For example, the following setup must be chosen, in order to target a PIC32MZ EF microcontroller.
+
+|       | Directory                |
+|-------|--------------------------|
+| First | `ao_sys_xc32_pic32mz_ef` |
+|       | `ao_sys_xc32_pic32mz`    |
+|       | `ao_sys_xc32_pic32`      |
+|       | `ao_sys_xc32`            |
+|       | `ao_sys`                 |
+| Last  | `ao`                     |
