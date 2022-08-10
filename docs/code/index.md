@@ -77,7 +77,7 @@ All the other header files of the standard library, such as `stdio.h`, are part 
 
 Obviously, since the real-time operating system itself is such a host, it cannot rely on someone else to provide these services. Therefore, the environment and kernel packages provide a lot of functionality themselves, that can otherwise be found in the header files of a hosted runtime environment.
 
-The aforementioned `ao_assert()` macro function is a good example. Although a similar macro function is defined in the `assert.h` header file, it is not being used, because that header file is not part of a freestanding runtime environment. 
+The aforementioned `ao_assert()` macro function is a good example. Although a similar macro function is defined in the standard library's `assert.h` header file, it is not being used, because that header file is not part of a freestanding runtime environment. 
 
 ## Platform-Specific Modules
 
@@ -111,11 +111,11 @@ So, in order to include the correct `ao_break.h` header file, the compiler's inc
 
 This hierarchy of include directories is mirrored by the directory names. For example, the following setup must be chosen, in order to target a PIC32MZ EF microcontroller.
 
-|       | Directory                |
-|-------|--------------------------|
-| First | `ao_sys_xc32_pic32mz_ef` |
-|       | `ao_sys_xc32_pic32mz`    |
-|       | `ao_sys_xc32_pic32`      |
-|       | `ao_sys_xc32`            |
-|       | `ao_sys`                 |
-| Last  | `ao`                     |
+| Directory                |       |
+|--------------------------|-------|
+| `ao_sys_xc32_pic32mz_ef` | First |
+| `ao_sys_xc32_pic32mz`    |       |
+| `ao_sys_xc32_pic32`      |       |
+| `ao_sys_xc32`            |       |
+| `ao_sys`                 |       |
+| `ao`                     | Last  |
