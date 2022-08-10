@@ -21,11 +21,21 @@ div.highlighter-rouge {
     }
   }
 
-  a {
-    &:has > code
-    {
-      color: deeppink;
-    }
+  a > code {
+    color: deeppink;
+  }
+
+  a:active > code {
+    color: deeppink;
+  }
+
+  a:hover > code {
+    color: deeppink;
+    text-decoration: underline;
+  }
+
+  a:visited > code {
+    color: deeppink;
   }
 }
 
