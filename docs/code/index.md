@@ -23,7 +23,7 @@ The source code is subdivided into C files and folders containing header files. 
 
 ### Environment
 
-The [environment](../environment/index.md) package is an extension to the freestanding runtime environment. It provides environment constants and variables, type definitions, support for debugging, as well as plenty of useful functions and data structures.
+The [environment](../environment/index.md) package is an extension to a freestanding runtime environment. It provides environment constants and variables, type definitions, support for debugging, as well as plenty of useful functions and data structures.
 
 ### Kernel
 
@@ -109,7 +109,7 @@ When including a header file with the angle-bracket form, the compiler searches 
 
 So, in order to include the correct `ao_break.h` header file, the compiler's include directories must be set up properly, so that it searches the `ao_sys_xc32_pic32` directory of the port package before the `ao` directory of the environment package. 
 
-This hierarchy of include directories is mirrored by the directory names. For example, the following setup must be chosen, in order to target a PIC32MZ EF microcontroller.
+This hierarchy of include directories is mirrored by the directory names. For example, the following setup must be chosen, in order to target a [PIC32MZ EF](https://en.wikipedia.org/wiki/PIC32) microcontroller.
 
 | Directory                |       |
 |--------------------------|-------|
@@ -162,4 +162,4 @@ In addition to optional overrides for selected modules, an application must supp
 // ...
 ```
 
-Additionally, this mechanism provides a very fine-grained control of the memory usage of the application, because functions and data will not get linked in, unless the respective header file has been included in `ao.h`.
+Additionally, this mechanism provides a very fine-grained control of the memory usage of the application, because functions and data will not get linked in, unless the respective header file has been included by `ao.h`.
