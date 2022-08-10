@@ -504,6 +504,17 @@
     border-bottom: 0px;
   }
   
+  .nav__sub-title-active {
+    display: block;
+    margin: 0.5rem 0;
+    padding: 0px;
+    font-family: $sans-serif-narrow;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 0px;
+  }
+  
   /*
        Table of contents navigation
        ========================================================================== */

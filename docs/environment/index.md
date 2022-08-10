@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-06
+date: 2022-08-10
 description: "The Runtime Environment of the ao Real-Time Operating System (RTOS)."
 draft: true
 permalink: /environment/
