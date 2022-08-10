@@ -1,13 +1,11 @@
 ---
 author: "Stefan Wagner"
-date: 2022-07-31
+date: 2022-08-10
 description: "Introduction to the ao Real-Time Operating System (RTOS)."
 draft: true
 permalink: /introduction/
 title: "Introduction"
 ---
-
-# Introduction
 
 - what is an/this rtos?
 - what have i used this rtos for?

@@ -1,13 +1,11 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-07
-description: "Alignment in the ao Real-Time Operating System (RTOS)."
+date: 2022-08-10
+description: "Memory alignment in the ao Real-Time Operating System (RTOS)."
 draft: false
 permalink: /environment/align/
 title: "Alignment"
 ---
-
-# Alignment
 
 Reading from or writing to memory usually requires scalar data, such as an integer or a pointer, to be [aligned](https://en.wikipedia.org/wiki/Data_structure_alignment), that is, its address must be a multiple of its size. This is, because such reads and writes are implemented efficiently on most CPUs, while unaligned accesses impose a penalty on the execution speed.
 

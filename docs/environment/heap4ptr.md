@@ -7,8 +7,6 @@ permalink: /environment/heap4ptr/
 title: "Pointer Heaps"
 ---
 
-# Pointer Heaps
-
 The `ao_heap4ptr.h` module defines [binary heaps](https://en.wikipedia.org/wiki/Binary_heap) for pointers.
 
 A binary heap is a special kind of [binary tree](https://en.wikipedia.org/wiki/Binary_tree) that maintains both the shape of a complete binary tree and the heap property. The latter implies, that a node is always less than its children, with respect to a [strict total order](https://en.wikipedia.org/wiki/Total_order). 
@@ -17,7 +15,7 @@ Both insertion into and removal from heaps take logarithmic time. This makes the
 
 This module provides an array-based implementation.
 
-## Configuration
+# Configuration
 
 Pointer heaps keep track of their current number of nodes. Additionally, they can be configured to keep track of the maximum number of nodes ever contained within them. By default, this option is disabled.
 
@@ -25,9 +23,9 @@ Pointer heaps keep track of their current number of nodes. Additionally, they ca
 #define AO_HEAP4PTR_COUNT_MAX
 ```
 
-## Types
+# Types
 
-### Heap
+## Heap
 
 The `ao_heap4ptr_t` type represents a pointer heap.
 
@@ -58,7 +56,7 @@ It consists of the following members.
 | `less_parameter` | An additional parameter for the compare function. |
 | `store` | The pointer to the store with the specified `capacity`. |
 
-### Compare Function
+## Compare Function
 
 The `ao_heap4ptr_less_t` type represents a compare function, that implements a strict total order on the nodes.
 
@@ -71,7 +69,7 @@ typedef bool (* ao_heap4ptr_less_t)
 );
 ```
 
-## Initialization
+# Initialization
 
 A heap can be initialized by clearing all of its members.
 
@@ -125,7 +123,7 @@ bool compare(void * p1, void * p2, void * p)
 h->less = compare;
 ```
 
-## Functions
+# Functions
 
 If a heap's count is zero, then the heap is empty. Accordingly, if the heap's count matches its capacity, then the heap is full. Both cases can be checked with a respective macro function.
 
