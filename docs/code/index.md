@@ -119,3 +119,47 @@ This hierarchy of include directories is mirrored by the directory names. For ex
 | `ao_sys_xc32`            |       |
 | `ao_sys`                 |       |
 | `ao`                     | Last  |
+
+## Configuration
+
+In object-oriented programming, overriding is not solely a way to implement an abstract method in a subclass, but can also be used to provide a new implementation for an already implemented method, in order to make instances of that subclass behave more specific. The same is true for a header file, that can be replaced by another version from somewhere upstream the include directory hierarchy, in order to configure the respective module's behavior.
+
+For example, the `ao_buffer.h` module defines a macro constant, that indicates whether data buffers should keep track of their maximum usage. By default, this configuration option is disabled.
+
+```c
+#ifndef AO_BUFFER_COUNT_MAX
+#define AO_BUFFER_COUNT_MAX (false)
+#endif
+```
+
+Now, an application can choose to override this definition by supplying its own `ao_buffer.h` header file. Of course, the include directory hierarchy must be set up properly, in order for the compiler to find the application's version of the header file first. 
+
+However, instead of providing a copy of the entire header file, the `#include_next` directive can be used in the override, if that is supported by the compiler.
+
+```c
+#ifndef AO_BUFFER_COUNT_MAX
+#define AO_BUFFER_COUNT_MAX (true)
+#endif
+
+#include_next <ao_buffer.h>
+```
+
+## ao.h
+
+In addition to optional overrides for selected modules, an application must supply an `ao.h` header file, because that is included by all the real-time operating system's C files. This header file is to include all the modules, that are required by the application.
+
+```c
+#include <ao_align.h>
+#include <ao_alloc.h>
+#include <ao_assert.h>
+#include <ao_async.h>
+#include <ao_await.h>
+#include <ao_block.h>
+#include <ao_boot.h>
+#include <ao_float.h>
+#include <ao_int.h>
+#include <ao_ir.h>
+// ...
+```
+
+Additionally, this mechanism provides a very fine-grained control of the memory usage of the application, because functions and data will not get linked in, unless the respective header file has been included in `ao.h`.
