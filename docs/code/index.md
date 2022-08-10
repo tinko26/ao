@@ -11,7 +11,7 @@ title: "Code"
 
 The source code of the real-time operating system is located in the [repository's](https://github.com/tinko26/ao) `src` folder.
 
-# Packages
+## Packages
 
 The source code is subdivided into C files and folders containing header files. Thereby, folders and corresponding C files constitute the following three packages.
 
@@ -21,19 +21,19 @@ The source code is subdivided into C files and folders containing header files. 
 | Kernel      | `ao_sys`       | `ao_sys.c`            |
 | Port        | `ao_sys_xc32*` | `ao_sys_xc32_pic32.c` |
 
-## Environment
+### Environment
 
 The [environment](../environment/index.md) package is an extension to the freestanding runtime environment. It provides environment constants and variables, type definitions, support for debugging, as well as plenty of useful functions and data structures.
 
-## Kernel
+### Kernel
 
 The [kernel](../kernel/index.md) package provides functions for timing, multitasking, real-time scheduling, inter-process communication, synchronization, and dynamic memory management.
 
-## Port
+### Port
 
 The [port](../port/index.md) package contains all the ingredients required to make an application run on PIC32 microcontrollers.
 
-# Modules
+## Modules
 
 Each package is made up of modules. For each module, there is a dedicated header file. The real-time operating system contains quite a lot of modules. The rationale behind this is [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns), which means, that each module should address a single concern, only.
 
@@ -57,7 +57,7 @@ However, having separate modules focusing on individual concerns leads to interd
 
 Such interdependencies can exist both between modules and between packages. However, there is a strict top-down hierarchy for packages. Therefore, kernel modules can depend on other kernel modules or environment modules, whereas the latter can depend on other environment modules, but not on kernel modules.
 
-# Platform-Agnostic Modules
+## Platform-Agnostic Modules
 
 The modules of the environment and kernel packages are implemented in a strict platform-agnostic fashion. That is, they do not contain interrupt handlers, assembly code, or the like.
 
@@ -81,7 +81,7 @@ Obviously, since the real-time operating system itself is such a host, it cannot
 
 The aforementioned `ao_assert()` macro function is a good example. Although a similar macro function is defined in the `assert.h` header file, it is not being used, because that header file is not part of a freestanding runtime environment. 
 
-# Platform-Specific Modules
+## Platform-Specific Modules
 
 In contrast, the modules of the port package are platform-specific. For example, they include the compiler's `xc.h` header file and make heavy use of non-standard language features, primarily for the sake of execution speed. 
 
@@ -89,13 +89,13 @@ Also, they call functions declared in header files of a hosted runtime environme
 
 And all that makes perfect sense. Since the port package is explicitly devoted to the XC32 toolchain, there is no point in not using its rich and highly optimized features.
 
-# Abstract Modules
+## Abstract Modules
 
 Kernel functions cannot be implemented thoroughly without platform-specific features. In order to achieve platform independency nonetheless, the environment and kernel packages contain abstract modules. These modules declare necessary functions, but do not define them.
 
 For example, the aforementioned `ao_break.h` module of the environment package is abstract, because the execution of a breakpoint is platform-specific.
 
-# Overriding Modules
+## Overriding Modules
 
 An implementation of the `ao_break()` function can be found in the port package. There, it simply forwards the call to a built-in function provided by the XC32 compiler. For the sake of simplicity and execution speed, it is implemented as a macro function rather than an ordinary function.
 

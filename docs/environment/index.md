@@ -11,18 +11,18 @@ title: "Environment"
 
 The environment [package](../code/index.md#packages) is ...
 
-# General
+## General
 
 - Runtime environment
 - Freestanding vs. Hosted, Headers
 
-# Debugging
+## Debugging
 
 - [debugging](debug.md)
 - [breakpoints](break.md)
 - [assertions](assert.md)
 
-# Types
+## Types
 
 - [characters](char.md)
 - [floating-point numbers](float.md)
@@ -32,7 +32,7 @@ The environment [package](../code/index.md#packages) is ...
 - [sizes](size.md)
 - [unsigned integers](uint.md)
 
-# Utilities
+## Utilities
 
 - [alignment](align.md)
 - [linear-feedback shift registers](lfsr.md)
@@ -44,7 +44,7 @@ The environment [package](../code/index.md#packages) is ...
 - [structs](struct.md)
 - [variables](var.md)
 
-# Data structures
+## Data structures
 
 - [AVL trees](avl.md)
 - [buffers](buffer.md)
