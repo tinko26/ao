@@ -13,32 +13,32 @@ The environment [package](../code/index.md#packages) is an extension to a freest
 
 | Module | |
 |--------|-|
-| [`ao_align.h`](align.md) | Memory [alignment](align.md). |
-| `ao_assert.h` | Defines a macro function, that executes a runtime [assertion](assert.md). |
-| `ao_avl.h` | Defines [AVL trees](avl.md). |
-| `ao_break.h` | Defines a function, that executes a [breakpoint](break.md). |
-| `ao_buffer.h` | Defines [buffers](buffer.md). |
-| `ao_buffer4obj.h` | Defines [buffers for fixed-size objects](buffer4obj.md). |
-| `ao_buffer4ptr.h` | Defines [buffers for pointers](buffer4ptr.md). |
-| `ao_char.h` | Contains functions to classify [characters](char.md). |
-| `ao_debug.h` | Defines a macro constant, that indicates, whether an application is running in [debug](debug.md) mode. |
-| `ao_float.h` | Defines the fastest [floating-point](float.md) type of the target platform and a couple of mathematical operations for that type. |
-| `ao_func.h` | Defines general-purpose [function](func.md) types. |
-| `ao_heap.h` | Defines pointer-based [binary heaps](heap.md). |
-| `ao_heap4obj.h` | Defines array-based [binary heaps for fixed-size objects](heap4obj.md). |
-| `ao_heap4ptr.h` | Defines array-based [binary heaps for pointers](heap4ptr.md). |
-| `ao_lfsr.h` | Defines [linear-feedback shift registers](lfsr.md), that can be used to generate pseudo-random numbers. |
-| `ao_list.h` | Defines doubly-linked [lists](list.md). |
-| `ao_math.h` | Defines [mathematical functions](math.md) for all arithmetic types. |
-| `ao_mathf.h` | Defines [mathematical functions](mathf.md) for floating-point types. |
-| `ao_mem.h` | Defines operations on [memory blocks](mem.md), such as copying or filling. |
-| `ao_print.h` | Defines functions to [convert a number to a string](print.md). |
-| `ao_rand.h` | Defines [random value generator](rand.md) types. |
-| `ao_int.h` | Defines the fastest [signed integer](int.md) type of the target platform. |
-| `ao_rb.h` | Defines [red-black trees](rb.md). |
-| `ao_scan.h` | Defines functions to [convert a string to a number](scan.md). |
-| `ao_size.h` | Defines useful operations for the standard library's [size](size.md) type. |
-| `ao_slist.h` | Defines doubly-linked [sorted lists](slist.md). |
-| `ao_struct.h` | Defines a macro function supporting compound types such as [structs](struct.md). |
-| `ao_uint.h` | Defines the fastest [unsigned integer](uint.md) type of the target platform and a couple of operations for that type. |
-| `ao_var.h` | Defines convenience macro functions for working with [variables](var.md). |
+| [`ao_align.h`](align.md) | Memory alignment. |
+| [`ao_assert.h`](assert.md) | Defines a macro function, that executes a runtime assertion. |
+| [`ao_avl.h`](avl.md) | Defines AVL trees. |
+| [`ao_break.h`](break.md) | Defines a function, that executes a breakpoint. |
+| [`ao_buffer.h`](buffer.md) | Defines buffers. |
+| [`ao_buffer4obj.h`](buffer4obj.md) | Defines buffers for fixed-size objects. |
+| [`ao_buffer4ptr.h`](buffer4ptr.md) | Defines buffers for pointers. |
+| [`ao_char.h`](char.md) | Contains functions to classify characters. |
+| [`ao_debug.h`](debug.md) | Defines a macro constant, that indicates, whether an application is running in debug mode. |
+| [`ao_float.h`](float.md) | Defines the fastest floating-point type of the target platform and a couple of mathematical operations for that type. |
+| [`ao_func.h`](func.md) | Defines general-purpose function types. |
+| [`ao_heap.h`](heap.md) | Defines pointer-based binary heaps. |
+| [`ao_heap4obj.h`](heap4obj.md) | Defines array-based binary heaps for fixed-size objects. |
+| [`ao_heap4ptr.h`](heap4ptr.md) | Defines array-based binary heaps for pointers. |
+| [`ao_int.h`](int.md) | Defines the fastest signed integer type of the target platform. |
+| [`ao_lfsr.h`](lfsr.md) | Defines linear-feedback shift registers, that can be used to generate pseudo-random numbers. |
+| [`ao_list.h`](list.md) | Defines doubly-linked lists. |
+| [`ao_math.h`](math.md) | Defines mathematical functions for all arithmetic types. |
+| [`ao_mathf.h`](mathf.md) | Defines mathematical functions for floating-point types. |
+| [`ao_mem.h`](mem.md) | Defines operations on memory blocks, such as copying or filling. |
+| [`ao_print.h`](print.md) | Defines functions to convert a number to a string. |
+| [`ao_rand.h`](rand.md) | Defines random value generator types. |
+| [`ao_rb.h`](rb.md) | Defines red-black trees. |
+| [`ao_scan.h`](scan.md) | Defines functions to convert a string to a number. |
+| [`ao_size.h`](size.md) | Defines useful operations for the standard library's `size_t` type. |
+| [`ao_slist.h`](slist.md) | Defines doubly-linked sorted lists. |
+| [`ao_struct.h`](struct.md) | Defines a macro function supporting compound types such as structs. |
+| [`ao_uint.h`](uint.md) | Defines the fastest unsigned integer type of the target platform and a couple of operations for that type. |
+| [`ao_var.h`](var.md) | Defines convenience macro functions for working with variables. |
