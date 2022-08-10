@@ -9,6 +9,8 @@ title: "Environment"
 
 # Environment
 
+The environment [package](../code/index.md#packages) is ...
+
 ## General
 
 - Runtime environment
