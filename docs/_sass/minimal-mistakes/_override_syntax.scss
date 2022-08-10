@@ -20,6 +20,15 @@ div.highlighter-rouge {
       content: none;
     }
   }
+
+  a > code
+  {
+    color: deeppink;
+
+    &:hover {
+      color: deeppink;
+    }
+  }
 }
 
 .highlight {

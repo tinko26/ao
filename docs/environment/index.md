@@ -17,9 +17,9 @@ The following modules support the debugging of an application. Especially, runti
 
 | Module | |
 |--------|-|
-| [`ao_assert`](assert.md) | Defines a macro function, that executes a runtime assertion. |
-| [`ao_break`](break.md) | Defines a function, that executes a breakpoint. |
-| [`ao_debug`](debug.md) | Defines a macro constant, that indicates, whether an application is running in debug mode. |
+| [`ao_assert.h`](assert.md) | Defines a macro function, that executes a runtime assertion. |
+| [`ao_break.h`](break.md) | Defines a function, that executes a breakpoint. |
+| [`ao_debug.h`](debug.md) | Defines a macro constant, that indicates, whether an application is running in debug mode. |
 
 ## Types
 
