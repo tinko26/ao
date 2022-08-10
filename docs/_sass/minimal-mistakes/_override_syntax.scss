@@ -21,11 +21,9 @@ div.highlighter-rouge {
     }
   }
 
-  a > code
-  {
-    color: deeppink;
-
-    &:hover {
+  a {
+    &:has > code
+    {
       color: deeppink;
     }
   }
