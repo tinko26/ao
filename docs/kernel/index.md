@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-08
-description: "The Kernel of the ao Real-Time Operating System (RTOS)."
+date: 2022-08-10
+description: "The Kernel Package of the ao Real-Time Operating System (RTOS)."
 draft: true
 permalink: /kernel/
 title: "Kernel"

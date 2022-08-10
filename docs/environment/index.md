@@ -1,26 +1,25 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-10
-description: "The Runtime Environment of the ao Real-Time Operating System (RTOS)."
-draft: true
+description: "The Environment Package of the ao Real-Time Operating System (RTOS)."
+draft: false
 permalink: /environment/
 title: "Environment"
 ---
 
 # Environment
 
-The environment [package](../code/index.md#packages) is ...
-
-## General
-
-- Runtime environment
-- Freestanding vs. Hosted, Headers
+The environment [package](../code/index.md#packages) is an extension to a freestanding runtime environment. It contains miscellaneous essential modules that are to support both the [kernel](../kernel/index.md) and [port](../port/index.md) packages as well as embedded applications in their entirety.
 
 ## Debugging
 
-- [debugging](debug.md)
-- [breakpoints](break.md)
-- [assertions](assert.md)
+The following modules support the debugging of an application. Especially, runtime assertions are being used extensively through the entire framework.
+
+| Module | |
+|--------|-|
+| [`ao_assert`](assert.md) | Defines a macro function, that executes a runtime assertion. |
+| [`ao_break`](break.md) | Defines a function, that executes a breakpoint. |
+| [`ao_debug`](debug.md) | Defines a macro constant, that indicates, whether an application is running in debug mode. |
 
 ## Types
 

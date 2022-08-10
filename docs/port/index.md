@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
-date: 2022-07-31
-description: "The Port of the ao Real-Time Operating System (RTOS)."
+date: 2022-08-10
+description: "The Port Package of the ao Real-Time Operating System (RTOS)."
 draft: true
 permalink: /port/
 title: "Port"
