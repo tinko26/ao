@@ -11,10 +11,10 @@ title: "Timing"
 
 | Module | |
 |--------|-|
-| `ao_alarm.h` | |
-| `ao_alarm_queue.h` | |
-| `ao_count.h` | |
-| `ao_ir_alarm.h` | |
-| `ao_spin.h` | |
-| `ao_time.h` | |
-| `ao_timer.h` | |
+| [`ao_alarm.h`](alarm.md) | |
+| [`ao_alarm_queue.h`](alarm-queue.md) | |
+| [`ao_count.h`](count.md) | |
+| [`ao_ir_alarm.h`](ir_alarm.md) | |
+| [`ao_spin.h`](spin.md) | |
+| [`ao_time.h`](time.md) | |
+| [`ao_timer.h`](timer.md) | |
