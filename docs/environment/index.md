@@ -36,7 +36,7 @@ Yet, in order to improve platform independency and portability, the environment 
 
 ## Function Pointer Types
 
-Function pointers enable the selection of a thread of execution or callback to be executed at runtime, which is essential for implementing operating system services. The following modules define commonplace function pointer types.
+Using function pointers, a function to be executed can be chosen at runtime rather than compile time. In general, this supports abstraction. The following modules define commonplace function pointer types.
 
 | Module | |
 |--------|-|
@@ -45,7 +45,7 @@ Function pointers enable the selection of a thread of execution or callback to b
 
 ## Memory Blocks and Strings
 
-In a hosted runtime environment, the standard library offers a wide range of functions dealing with memory blocks or strings, respectively. However, these functions are not available in a freestanding runtime environment. Therefore, the environment package provides a subset thereof.
+In a hosted runtime environment, the standard library offers a wide range of functions dealing with memory blocks and strings. However, these functions are not available in a freestanding runtime environment. Therefore, the environment package provides a subset thereof.
 
 | Module | |
 |--------|-|
