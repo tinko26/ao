@@ -32,6 +32,8 @@ title: "Kernel"
 
 ## Timing
 
+[Timing](timing.md).
+
 - [hardware counter](count.md)
 - [time](time.md)
 - [alarms](alarm.md)

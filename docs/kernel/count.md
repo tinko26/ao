@@ -1,15 +1,15 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-08
+date: 2022-08-11
 description: "The Hardware Counter of the ao Real-Time Operating System (RTOS)."
-draft: true
+draft: false
 permalink: /kernel/count/
 title: "Hardware Counter"
 ---
 
 # Hardware Counter
 
-The `ao_count.h` module encapsulates a hardware counter that increments continuously at a constant rate. The counter makes up the basis for measuring time. Additionally, this counter and a corresponding interrupt make up the basis for alarms.
+The `ao_count.h` module encapsulates a hardware counter that increments continuously at a constant rate. The counter makes up the basis for measuring time. Additionally, this counter and a [corresponding interrupt](ir_alarm.md) make up the basis for [alarms](alarm.md).
 
 The module defines the `ao_count_t`, which is an unsigned integer that can hold a value of the hardware counter. Additionally, it the defines the following constants.
 
