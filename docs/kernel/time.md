@@ -1,17 +1,23 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-08
+date: 2022-08-11
 description: "Time in the ao Real-Time Operating System (RTOS)."
-draft: true
+draft: false
 permalink: /kernel/time/
 title: "Time"
 ---
 
 # Time
 
-The `ao_time.h` module contains a couple of time-related definitions, that are based on the `ao_count.h` module.
+The `ao_time.h` module contains a couple of time-related definitions, that are based on a [hardware counter](count.md).
 
-Therefore, it defines the unsigned integer type `ao_time_t` to hold a time point or time span, respectively.
+## Type
+
+First and foremost, the module defines the `ao_time_t` type, that represents both time points and time spans. Because it is an alias for the `ao_count_t` type, which is an unsigned integer type, it cannot represent negative time spans.
+
+```c
+typedef ao_count_t ao_time_t;
+```
 
 ## Constants
 
@@ -30,7 +36,7 @@ The value representing infinity.
 
 ## Functions
 
-Get the current time.
+Get the current time point.
 
 ```c
 #define ao_now()
