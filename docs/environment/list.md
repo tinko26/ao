@@ -9,7 +9,7 @@ title: "Lists"
 
 # Lists
 
-The `ao_list.h` module defines [doubly-linked lists](https://en.wikipedia.org/wiki/Doubly_linked_list).
+The `ao_list.h` module defines [doubly linked lists](https://en.wikipedia.org/wiki/Doubly_linked_list).
 
 ## Types
 
