@@ -17,21 +17,21 @@ The source code is subdivided into C files and folders containing header files. 
 
 | Package     | Folders        | File                  |
 |-------------|----------------|-----------------------|
-| Environment | `ao`           | `ao.c`                |
-| Kernel      | `ao_sys`       | `ao_sys.c`            |
 | Port        | `ao_sys_xc32*` | `ao_sys_xc32_pic32.c` |
+| Kernel      | `ao_sys`       | `ao_sys.c`            |
+| Environment | `ao`           | `ao.c`                |
 
-### Environment
+### Port
 
-The [environment](../environment/index.md) package is an extension to a freestanding runtime environment. It provides environment constants and variables, type definitions, support for debugging, as well as plenty of useful functions and data structures.
+The [port](../port/index.md) package contains all the ingredients required to make an application run on PIC32 microcontrollers.
 
 ### Kernel
 
 The [kernel](../kernel/index.md) package provides functions for timing, multitasking, real-time scheduling, inter-process communication, synchronization, and dynamic memory management.
 
-### Port
+### Environment
 
-The [port](../port/index.md) package contains all the ingredients required to make an application run on PIC32 microcontrollers.
+The [environment](../environment/index.md) package is an extension to a freestanding runtime environment. It provides environment constants and variables, type definitions, support for debugging, as well as plenty of useful functions and data structures.
 
 ## Modules
 
