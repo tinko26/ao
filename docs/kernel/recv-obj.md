@@ -1,0 +1,10 @@
+---
+author: "Stefan Wagner"
+date: 2022-08-12
+description: "Receiving Objects in the ao Real-Time Operating System (RTOS)."
+draft: true
+permalink: /kernel/recv-obj/
+title: "Receiving Objects"
+---
+
+# Receiving Objects

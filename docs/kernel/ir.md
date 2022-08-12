@@ -13,5 +13,5 @@ The `ao_ir.h` module gathers interrupt-related functions, which it organizes in 
 
 | Submodule | |
 |-----------|-|
-| [`ao_ir_alarm.h`](ir_alarm.md) | The alarm interrupt. |
-| [`ao_ir_task.h`](ir_task.md) | The task switch interrupts. |
+| [`ao_ir_alarm.h`](ir-alarm.md) | The alarm interrupt. |
+| [`ao_ir_task.h`](ir-task.md) | The task switch interrupts. |

@@ -1,0 +1,10 @@
+---
+author: "Stefan Wagner"
+date: 2022-08-12
+description: "Sending Objects in the ao Real-Time Operating System (RTOS)."
+draft: true
+permalink: /kernel/send-obj/
+title: "Sending Objects"
+---
+
+# Sending Objects

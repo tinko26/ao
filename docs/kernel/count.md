@@ -9,7 +9,7 @@ title: "Hardware Counter"
 
 # Hardware Counter
 
-The `ao_count.h` module encapsulates a hardware counter that increments continuously at a constant rate. The counter makes up the basis for measuring time. Additionally, this counter and a corresponding [interrupt](ir_alarm.md) make up the basis for [alarms](alarm.md).
+The `ao_count.h` module encapsulates a hardware counter that increments continuously at a constant rate. The counter makes up the basis for measuring time. Additionally, this counter and a corresponding [interrupt](ir-alarm.md) make up the basis for [alarms](alarm.md).
 
 The module defines the `ao_count_t` type, which is an unsigned integer that can hold a value of the hardware counter. Additionally, it the defines the following constants.
 
