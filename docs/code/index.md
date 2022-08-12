@@ -9,13 +9,13 @@ title: "Code"
 
 # Code
 
-The source code of the real-time operating system is located in the [repository's](https://github.com/tinko26/ao) `src` folder.
+The source code of the real-time operating system is located in the `src` directory of the [repository](https://github.com/tinko26/ao).
 
 ## Packages
 
-The source code is subdivided into C files and folders containing header files. Thereby, folders and corresponding C files constitute the following three packages.
+The source code is subdivided into C files and directories containing header files. Thereby, directories and corresponding C files constitute the following three packages.
 
-| Package     | Folders        | File                  |
+| Package     | Directories    | File                  |
 |-------------|----------------|-----------------------|
 | Port        | `ao_sys_xc32*` | `ao_sys_xc32_pic32.c` |
 | Kernel      | `ao_sys`       | `ao_sys.c`            |
@@ -87,7 +87,7 @@ The aforementioned `ao_assert()` macro function is a good example. Although a si
 
 ## Platform-Specific Modules
 
-In contrast, the modules of the port package are platform-specific. For example, they include the compiler's `xc.h` header file and make heavy use of non-standard language features, primarily for the sake of execution speed. 
+In contrast, the modules of the port package are platform-specific. For example, they include the compiler's `xc.h` header file and make heavy use of non-standard language features, not least for the sake of execution speed. 
 
 Also, they call functions declared in header files of a hosted runtime environment, such as `memset()`, because the XC32 compiler ships with an implementation of a subset of the standard library. 
 
@@ -124,13 +124,13 @@ This hierarchy of include directories is mirrored by the directory names. For ex
 | 3️⃣ | `ao_sys_xc32_pic32` | Port | ⬇️ |
 | 4️⃣ | `ao_sys_xc32` | Port | ⬇️ |
 | 5️⃣ | `ao_sys` | Kernel | ⬇️ |
-| 6️⃣ | `ao` | Environment | ⬇️ |
+| 6️⃣ | `ao` | Environment | |
 
 ## Configuration
 
 In object-oriented programming, overriding is not solely a way to implement an abstract method in a subclass, but can also be used to provide a new implementation for an already implemented method, in order to make instances of that subclass behave more specific. The same is true for a header file, that can be replaced by another version from somewhere upstream the include directory hierarchy, in order to configure the respective module's behavior.
 
-For example, the [`ao_buffer.h`](../environment/buffer.md) module defines a macro constant, that indicates whether data buffers should keep track of their maximum usage. By default, this configuration option is disabled.
+For example, the [`ao_buffer.h`](../environment/buffer.md) module defines a macro constant, that indicates whether buffers should keep track of their maximum usage. By default, this configuration option is disabled.
 
 ```c
 #ifndef AO_BUFFER_COUNT_MAX
@@ -139,6 +139,16 @@ For example, the [`ao_buffer.h`](../environment/buffer.md) module defines a macr
 ```
 
 Now, an application can choose to override this definition by supplying its own `ao_buffer.h` header file. Of course, the include directory hierarchy must be set up properly, in order for the compiler to find the application's version of the header file first.
+
+| | Directory | Package | |
+|-|-----------|---------|-|
+| 1️⃣ | `app_directory` | App | ⬇️ |
+| 2️⃣ | `ao_sys_xc32_pic32mz_ef` | Port | ⬇️ |
+| 3️⃣ | `ao_sys_xc32_pic32mz` | Port | ⬇️ |
+| 4️⃣ | `ao_sys_xc32_pic32` | Port | ⬇️ |
+| 5️⃣ | `ao_sys_xc32` | Port | ⬇️ |
+| 6️⃣ | `ao_sys` | Kernel | ⬇️ |
+| 7️⃣ | `ao` | Environment | |
 
 However, instead of providing a copy of the entire header file, the `#include_next` directive can be used in the override, if that is supported by the compiler.
 
