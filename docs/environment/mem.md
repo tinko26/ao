@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-07
+date: 2022-08-12
 description: "Memory Blocks in the ao Real-Time Operating System (RTOS)."
 draft: false
 permalink: /environment/mem/
@@ -9,7 +9,7 @@ title: "Memory Blocks"
 
 # Memory Blocks
 
-The `ao_mem.h` module declares three functions for copying, moving, and filling memory blocks, respectively. Although the standard library defines such functions, too, they are not available in a freestanding runtime environment.
+The `ao_mem.h` module provides three functions for copying, moving, and filling memory blocks, respectively. Although the standard library contains such functions, too, they are not available in a freestanding runtime environment. Nonetheless, many toolchains provide implementations for these functions, that are highly optimized for the target platform. Therefore, this module is abstract, that is, an implementation must be provided by a port package.
 
 ## Functions
 

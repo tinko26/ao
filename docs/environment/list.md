@@ -13,6 +13,8 @@ The `ao_list.h` module defines [doubly linked lists](https://en.wikipedia.org/wi
 
 ## Types
 
+### List
+
 The `ao_list_t` type represents a list. It holds pointers to the first and last element, respectively.
 
 ```c
@@ -22,6 +24,8 @@ struct ao_list_t
     ao_list_node_t * front;
 }
 ```
+
+### Node
 
 The `ao_list_node_t` type represents an element of a list. It holds pointers to its predecessor and successor, respectively.
 

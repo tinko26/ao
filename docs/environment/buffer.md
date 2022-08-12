@@ -19,7 +19,7 @@ Buffers can be configured to keep track of the maximum number of bytes ever cont
 #define AO_BUFFER_COUNT_MAX
 ```
 
-## Types
+## Type
 
 The `ao_buffer_t` type represents a buffer. 
 

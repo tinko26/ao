@@ -11,7 +11,7 @@ title: "Printing"
 
 The `ao_print.h` module contains functions to convert a number to a string. Although the standard library contains similar functions, these are not available in a freestanding runtime environment.
 
-## Types
+## Type
 
 The `ao_print_t` type represents options for the conversion. It consists of the following members.
 
@@ -26,7 +26,7 @@ The `ao_print_t` type represents options for the conversion. It consists of the 
 | `sign` | Indicates whether the significant is to be preceeded by a `+` character, if the number is positive. Negative numbers are always preceeded by a `-` character. |
 | `sign_exponent` | Indicates whether the exponent is to be preceeded by a `+` character, if it is positive. Negative exponents are always preceeded by a `-` character. If the exponent is zero, then its output will be omitted. |
 | `sign_space` | Indicates whether the significant is to be preceeded by a space character, if the number is positive or zero. Negative numbers are always preceeded by a `-` character. In the case of positive numbers, this option is inferior to the `sign` option. |
-| `uppercase` | Indicates whether alphabetic digits are to be emitted in uppercase. |
+| `uppercase` | Indicates whether alphabetic characters are to be emitted in uppercase. |
 | `width` | The minimum width of the string to output. Eventually, leading or trailing spaces will be added. |
 
 ## Functions

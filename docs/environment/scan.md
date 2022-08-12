@@ -11,7 +11,7 @@ title: "Scanning"
 
 The `ao_scan.h` module contains functions to convert a string to a number. Although the standard library contains similar functions, these are not available in a freestanding runtime environment.
 
-## Types
+## Type
 
 The `ao_scan_t` type represents options for the conversion. It consists of the following members.
 

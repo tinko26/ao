@@ -9,7 +9,7 @@ title: "Characters"
 
 # Characters
 
-The `ao_char.h` module defines a couple of functions that classify characters. Although the standard library contains similar functions, they are not available in a freestanding runtime environment.
+The `ao_char.h` module provides a couple of functions that classify characters. Although the standard library contains similar functions, they are not available in a freestanding runtime environment.
 
 ## Functions
 

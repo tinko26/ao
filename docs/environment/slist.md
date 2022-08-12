@@ -13,6 +13,8 @@ The `ao_slist.h` module defines [doubly-linked lists](https://en.wikipedia.org/w
 
 ## Types
 
+### List
+
 The `ao_slist_t` type represents a sorted list. It holds pointers to the first and last element, respectively, as well as a pointer to a compare function and a compare function parameter. 
 
 ```c
@@ -25,6 +27,8 @@ struct ao_slist_t
 }
 ```
 
+### Node
+
 The `ao_slist_node_t` type represents an element of a sorted list. It holds pointers to its predecessor and successor, respectively.
 
 ```c
@@ -34,6 +38,8 @@ struct ao_slist_node_t
     ao_slist_node_t * prev;
 }
 ```
+
+### Compare Function
 
 The `ao_slist_less_t` type represents a compare function, that implements a strict total order on the list nodes.
 

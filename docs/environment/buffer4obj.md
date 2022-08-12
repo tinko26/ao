@@ -19,7 +19,7 @@ Object buffers can be configured to keep track of the maximum number of objects 
 #define AO_BUFFER4OBJ_COUNT_MAX
 ```
 
-## Types
+## Type
 
 The `ao_buffer4obj_t` type represents an object buffer. 
 

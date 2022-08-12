@@ -19,7 +19,7 @@ Pointer buffers can be configured to keep track of the maximum number of pointer
 #define AO_BUFFER4PTR_COUNT_MAX
 ```
 
-## Types
+## Type
 
 The `ao_buffer4ptr_t` type represents a pointer buffer. 
 
