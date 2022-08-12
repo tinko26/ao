@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-11
+date: 2022-08-12
 description: "Alarm Interrupt in the ao Real-Time Operating System (RTOS)."
 draft: false
 permalink: /kernel/ir_alarm/
@@ -9,15 +9,15 @@ title: "Alarm Interrupt"
 
 # Alarm Interrupt
 
-The `ao_ir_alarm.h` module declares functions for controlling the alarm interrupt as well as a callback function for the interrupt handler.
+The `ao_ir_alarm.h` module declares functions for controlling the alarm interrupt as well as a callback function for the interrupt handler. This module is abstract, that is, an implementation must be provided by a port package in order to support [alarms](alarm.md).
 
 ## Functions
 
 Enable or disable the interrupt, respectively.
 
 ```c
-void ao_ir_alarm_disable();
-void ao_ir_alarm_enable();
+void ao_alarm_enable();
+void ao_alarm_disable();
 ```
 
 Request an interrupt or reply thereto, respectively.
@@ -38,3 +38,9 @@ Callback for the interrupt handler. Actually, this function is implemented by th
 ```c
 void ao_alarm();
 ```
+
+## Porting
+
+The port must implement an interrupt handler, which in turn must execute the callback function. 
+
+On start-up, the alarm interrupt must be disabled.

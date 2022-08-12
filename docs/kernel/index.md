@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-10
+date: 2022-08-12
 description: "The Kernel Package of the ao Real-Time Operating System (RTOS)."
 draft: true
 permalink: /kernel/
@@ -32,7 +32,7 @@ title: "Kernel"
 
 ## Timing
 
-[Timing](timing.md).
+- [Timing](timing.md).
 
 - [hardware counter](count.md)
 - [time](time.md)
@@ -46,17 +46,20 @@ title: "Kernel"
 - [stack](stack.md)
 - allocators
 
-## Tasks
+## Multitasking
+
+- [Multitasking](multitasking.md)
 
 - blocking
 - context
 - diagnostics (count, time, id, name)
 - entry
 - procedure
-- schedulers
+- [schedulers](task-sched.md)
 - self
 - stack
 - state
+- [task](task.md)
 - yield
   
 ## Synchronization and IPC

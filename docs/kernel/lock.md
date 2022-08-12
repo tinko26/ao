@@ -46,13 +46,11 @@ ao_lock_t * l2;
 ao_lock(l1);
 {
     // ...
-
     ao_lock(l2);
     {
         // ...
     }
     ao_unlock(l2);
-
     // ...
 }
 ao_unlock(l1);
