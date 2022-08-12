@@ -37,13 +37,13 @@ The [port](../port/index.md) package contains all the ingredients required to ma
 
 Each package is made up of modules. For each module, there is a dedicated header file. The real-time operating system contains quite a lot of modules. The rationale behind this is [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns), which means, that each module should address a single concern, only.
 
-The environment package, for example, contains the `ao_break.h` module. That module, in turn, contains a single function, which executes a breakpoint.
+The environment package, for example, contains the [`ao_break.h`](../environment/break.md) module. That module, in turn, contains a single function, which executes a breakpoint.
 
 ```c
 void ao_break();
 ```
 
-However, having separate modules focusing on individual concerns leads to interdependency. For example, the `ao_assert.h` module of the environment package contains a macro function for runtime assertions, which executes a breakpoint, when an assertion has failed.
+However, having separate modules focusing on individual concerns leads to interdependency. For example, the [`ao_assert.h`](../environment/assert.md) module of the environment package contains a macro function for runtime assertions, which executes a breakpoint, when an assertion has failed.
 
 ```c
 #define ao_assert(exp)  \
@@ -91,7 +91,7 @@ And all that makes perfect sense. Since the port package is explicitly devoted t
 
 Kernel functions cannot be implemented thoroughly without platform-specific features. In order to achieve platform independency nonetheless, the environment and kernel packages contain abstract modules. These modules declare necessary functions, but do not define them.
 
-For example, the aforementioned `ao_break.h` module of the environment package is abstract, because the execution of a breakpoint is platform-specific. Consequently, there is no implementation of this function in the `ao.c` file.
+For example, the aforementioned [`ao_break.h`](../environment/break.md) module of the environment package is abstract, because the execution of a breakpoint is platform-specific. Consequently, there is no implementation of this function in the `ao.c` file.
 
 ## Overriding Modules
 
@@ -107,24 +107,24 @@ So, the port package contains an `ao_break.h` header file, too, just like the en
 
 When including a header file with the angle-bracket form, the compiler searches a sequence of directories. Although the standard spares the details of the search and leaves it up to the implementation, virtually every compiler first scans a user-defined, then an implementation-defined sequence of directories.
 
-So, in order to include the correct `ao_break.h` header file, the compiler's include directories must be set up properly, so that it searches the `ao_sys_xc32_pic32` directory of the port package before the `ao` directory of the environment package. 
+So, in order to include the correct `ao_break.h` header file, the compiler's include directories must be set up properly, so that it searches the directories of the port package before the directory of the environment package. 
 
 This hierarchy of include directories is mirrored by the directory names. For example, the following setup must be chosen, in order to target a [PIC32MZ EF](https://en.wikipedia.org/wiki/PIC32) microcontroller.
 
-| Directory                |       |
-|--------------------------|-------|
-| `ao_sys_xc32_pic32mz_ef` | First |
-| `ao_sys_xc32_pic32mz`    |       |
-| `ao_sys_xc32_pic32`      |       |
-| `ao_sys_xc32`            |       |
-| `ao_sys`                 |       |
-| `ao`                     | Last  |
+|    | Directory                |     |
+|----|--------------------------|-----|
+| 1️⃣ | `ao_sys_xc32_pic32mz_ef` | ⬇️ |
+| 2️⃣ | `ao_sys_xc32_pic32mz`    | ⬇️ |
+| 3️⃣ | `ao_sys_xc32_pic32`      | ⬇️ |
+| 4️⃣ | `ao_sys_xc32`            | ⬇️ |
+| 5️⃣ | `ao_sys`                 | ⬇️ |
+| 6️⃣ | `ao`                     | ⬇️ |
 
 ## Configuration
 
 In object-oriented programming, overriding is not solely a way to implement an abstract method in a subclass, but can also be used to provide a new implementation for an already implemented method, in order to make instances of that subclass behave more specific. The same is true for a header file, that can be replaced by another version from somewhere upstream the include directory hierarchy, in order to configure the respective module's behavior.
 
-For example, the `ao_buffer.h` module defines a macro constant, that indicates whether data buffers should keep track of their maximum usage. By default, this configuration option is disabled.
+For example, the [`ao_buffer.h`](../environment/buffer.md) module defines a macro constant, that indicates whether data buffers should keep track of their maximum usage. By default, this configuration option is disabled.
 
 ```c
 #ifndef AO_BUFFER_COUNT_MAX
@@ -132,7 +132,7 @@ For example, the `ao_buffer.h` module defines a macro constant, that indicates w
 #endif
 ```
 
-Now, an application can choose to override this definition by supplying its own `ao_buffer.h` header file. Of course, the include directory hierarchy must be set up properly, in order for the compiler to find the application's version of the header file first. 
+Now, an application can choose to override this definition by supplying its own `ao_buffer.h` header file. Of course, the include directory hierarchy must be set up properly, in order for the compiler to find the application's version of the header file first.
 
 However, instead of providing a copy of the entire header file, the `#include_next` directive can be used in the override, if that is supported by the compiler.
 

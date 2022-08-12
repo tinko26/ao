@@ -23,7 +23,7 @@ uint8_t stack[1024];
 ao_stack_fill(stack, 1024);
 ```
 
-Then, after the respective thread of execution has been running for a while, the size that actually been used can be measured.
+Then, after the respective thread of execution has been running for a while, the size that has actually been used can be measured.
 
 ```c
 size_t h = ao_stack_get_high_water_mark(stack, 1024);
