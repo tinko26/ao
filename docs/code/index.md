@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-10
+date: 2022-08-12
 description: "The Source Code of the ao Real-Time Operating System (RTOS)."
 draft: false
 permalink: /code/
@@ -55,7 +55,13 @@ However, having separate modules focusing on individual concerns leads to interd
 }
 ```
 
-Such interdependencies can exist both between modules and between packages. However, there is a strict top-down hierarchy for packages. Therefore, kernel modules can depend on other kernel modules or environment modules, whereas the latter can depend on other environment modules, but not on kernel modules.
+Such interdependencies can exist between modules from different packages, too. However, this is limited to a strict top-down package hierarchy. For example, kernel modules can depend on other kernel modules or environment modules, whereas environment modules can depend on other environment modules, but not on kernel modules.
+
+| Package     | Module Interdependencies |
+|-------------|--------------------------|
+| Port        | ⬅️, ⬇️ |
+| Kernel      | ⬅️, ⬇️ |
+| Environment | ⬅️ |
 
 ## Platform-Agnostic Modules
 
@@ -111,14 +117,14 @@ So, in order to include the correct `ao_break.h` header file, the compiler's inc
 
 This hierarchy of include directories is mirrored by the directory names. For example, the following setup must be chosen, in order to target a [PIC32MZ EF](https://en.wikipedia.org/wiki/PIC32) microcontroller.
 
-|    | Directory                |     |
-|----|--------------------------|-----|
-| 1️⃣ | `ao_sys_xc32_pic32mz_ef` | ⬇️ |
-| 2️⃣ | `ao_sys_xc32_pic32mz`    | ⬇️ |
-| 3️⃣ | `ao_sys_xc32_pic32`      | ⬇️ |
-| 4️⃣ | `ao_sys_xc32`            | ⬇️ |
-| 5️⃣ | `ao_sys`                 | ⬇️ |
-| 6️⃣ | `ao`                     | ⬇️ |
+| | Directory | Package | |
+|-|-----------|---------|-|
+| 1️⃣ | `ao_sys_xc32_pic32mz_ef` | Port | ⬇️ |
+| 2️⃣ | `ao_sys_xc32_pic32mz` | Port | ⬇️ |
+| 3️⃣ | `ao_sys_xc32_pic32` | Port | ⬇️ |
+| 4️⃣ | `ao_sys_xc32` | Port | ⬇️ |
+| 5️⃣ | `ao_sys` | Kernel | ⬇️ |
+| 6️⃣ | `ao` | Environment | ⬇️ |
 
 ## Configuration
 
