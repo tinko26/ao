@@ -11,39 +11,33 @@ title: "Kernel"
 
 ## General
 
-- kernel space only, no user space
-
 - [booting](boot.md)
 - [cores](core.md)
 - [critical sections](lock.md)
 - [interrupts](ir.md)
+- kernel mode only, no user mode
 - [system identifiers](sys.md)
 
 ## Memory Management
 
-- [memory management](memory-management.md)
-
 - [allocators](alloc.md)
+- [memory management](memory-management.md)
 
 ## Timing
 
-- [Timing](timing.md)
-
+- [alarm queue](alarm-queue.md)
+- [alarms](alarm.md)
 - [hardware counter](count.md)
 - [time](time.md)
-- [alarms](alarm.md)
-- [alarm queue](alarm-queue.md)
-- [timer](timer.md)
+- [timers](timer.md)
+- [timing](timing.md)
 - [spinning](spin.md)
 
 ## Multitasking
 
-- main function is a task, no need to explicitly start the scheduler
-  
-- [Multitasking](multitasking.md)
-
 - [blocking](block.md)
-- main task
+- main task - main function is a task, no need to explicitly start the scheduler
+- [multitasking](multitasking.md)
 - [self](self.md)
 - [stacks](stack.md)
 - [task](task.md)
@@ -60,11 +54,10 @@ title: "Kernel"
 
 **Building Blocks**
 
-- [synchronization](synchronization.md)
-
 - [asynchronous events](async.md)
 - [awaiting](await.md)
 - [polling](poll.md)
+- [synchronization](synchronization.md)
 
 **Primitives**
 
@@ -116,7 +109,6 @@ title: "Kernel"
 
 ## Drivers
 
-- [drivers](drivers.md)
-
 - [buttons](buttons.md)
+- [drivers](drivers.md)
 - [LEDs](leds.md)
