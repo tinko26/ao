@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-10
+date: 2022-08-12
 description: "Floating-Point Numbers in the ao Real-Time Operating System (RTOS)."
 draft: false
 permalink: /environment/float/
@@ -9,7 +9,11 @@ title: "Floating-Point Numbers"
 
 # Floating-Point Numbers
 
-The `ao_float.h` module defines the `ao_float_t` type, which represents the fastest floating-point type available on the target platform. Additionally, it contains a couple of mathematical functions for that type.
+The `ao_float.h` module defines the fastest floating-point type available on the target platform. Additionally, it provides a couple of mathematical functions for that type. This module is considered abstract and should be overridden by a port package.
+
+## Type
+
+The `ao_float_t` type represents the fastest floating-point type available on the target platform. It is an alias for one the language-defined floating-point types.
 
 ## Constants
 

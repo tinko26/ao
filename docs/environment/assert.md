@@ -17,7 +17,7 @@ The `ao_assert.h` module defines a single macro function that performs a runtime
 
 Although the standard library contains a similar macro function, it is not available in a freestanding runtime environment. Also, the actions taken by that macro function upon failure are not part of a freestanding runtime environment, namely printing a diagnostic message and terminating the program. 
 
-Especially, outputting a message is probably not a good option in an embedded system, because it requires specific hardware, such as a serial port, which might not be available, and it consumes quite an amount of resources. Therefore, the default implementation of the `ao_assert()` macro function simply executes a [breakpoint](break.md) upon failure.
+Especially, outputting a message is probably not a good option in an embedded system, because it requires specific hardware, such as a serial port, which might not be available, and it consumes quite an amount of resources. Therefore, the default implementation simply executes a [breakpoint](break.md) upon failure.
 
 ```c
 #define ao_assert(exp)  \

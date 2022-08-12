@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-08
+date: 2022-08-12
 description: "Signed Integers in the ao Real-Time Operating System (RTOS)."
 draft: false
 permalink: /environment/int/
@@ -9,7 +9,11 @@ title: "Signed Integers"
 
 # Signed Integers
 
-The `ao_int.h` module defines the `ao_int_t` type, which represents the fastest signed integer type available on the target platform.
+The `ao_int.h` module defines the fastest signed integer type available on the target platform. This module is considered abstract and should be overridden by a port package.
+
+## Type
+
+The `ao_int_t` type represents the fastest signed integer type of the target platform. It is an alias for one of the fixed-width signed integer types defined by the standard library.
 
 ## Constants
 

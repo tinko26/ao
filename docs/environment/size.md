@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-07
+date: 2022-08-12
 description: "Sizes in the ao Real-Time Operating System (RTOS)."
 draft: false
 permalink: /environment/size/
@@ -9,9 +9,7 @@ title: "Sizes"
 
 # Sizes
 
-The standard library's `size_t` type is an unsigned integer type, at least 16 bits wide, that can store the size of any kind of object, from single numbers to huge arrays. It is intended to be used for loop counters and array indexes. 
-
-The `ao_size.h` module specifies properties of the type and contains a couple of useful functions.
+The standard library's `size_t` type is an unsigned integer type, at least 16 bits wide, that can store the size of any kind of object, from single numbers to huge arrays. It is intended to be used for loop counters and array indexes. The `ao_size.h` module specifies properties of the type and provides a couple of useful functions. This module is considered abstract and should be overridden by a port package.
 
 ## Constants
 
