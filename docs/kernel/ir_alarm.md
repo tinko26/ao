@@ -27,7 +27,7 @@ void ao_alarm_request();
 void ao_alarm_reply();
 ```
 
-Set the time for the next interrupt.
+Set the [time](time.md) for the next interrupt.
 
 ```c
 void ao_alarm_set(ao_time_t t);
