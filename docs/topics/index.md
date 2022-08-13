@@ -9,11 +9,12 @@ title: "Topics"
 
 # Topics
 
-[Data Structures](data-structures.md)
-[Debugging](debugging.md)
-[Memory](memory.md)
-[Multitasking](multitasking.md)
+[Data Structures](data-structures.md), [Debugging](debugging.md)
+
+[Memory](memory.md), [Multitasking](multitasking.md)
+
 [Resources](resources.md)
+
 [Synchronization](synchronization.md)
-[Timing](timing.md)
-[Types](types.md)
+
+[Timing](timing.md), [Types](types.md)
