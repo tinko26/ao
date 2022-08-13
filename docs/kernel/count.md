@@ -11,7 +11,7 @@ title: "Hardware Counter"
 
 The `ao_count.h` module encapsulates a hardware counter that increments continuously at a constant rate. The counter makes up the basis for measuring time. Additionally, this counter and a corresponding [interrupt](ir-alarm.md) make up the basis for [alarms](alarm.md).
 
-The module defines the `ao_count_t` type, which is an unsigned integer that can hold a value of the hardware counter. Additionally, it the defines the following constants.
+The module defines the `ao_count_t` type, which is an unsigned integer that can hold a value of the hardware counter. Additionally, it defines the following constants.
 
 The minimum and maximum value, respectively.
 
@@ -26,7 +26,7 @@ The frequency, in Hertz, at which the counter is incremented.
 #define AO_COUNT_FREQUENCY
 ```
 
-Additionally, the module contains a function that returns the current value of the hardware counter.
+Finally, the module contains a function that returns the current value of the hardware counter.
 
 ```c
 ao_count_t ao_count();
