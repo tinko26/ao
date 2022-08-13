@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-12
+date: 2022-08-13
 description: "The Kernel Package of the ao Real-Time Operating System (RTOS)."
 draft: true
 permalink: /kernel/
@@ -12,26 +12,27 @@ title: "Kernel"
 ## General
 
 - [booting](boot.md)
-- [cores](core.md)
-- [critical sections](lock.md)
-- [interrupts](ir.md)
-- kernel mode only, no user mode
-- [system identifiers](sys.md)
+- [cores](core.md) ✅
+- [critical sections](lock.md) ✅
+- [interrupts](ir.md) ✅
+- [memory](memory.md)
+- [mode](mode.md)
+- [resources](resources.md)
+- [system identifiers](sys.md) ✅
 
 ## Memory Management
 
 - [allocators](alloc.md)
-- [memory management](memory-management.md)
 
 ## Timing
 
 - [alarm queue](alarm-queue.md)
 - [alarms](alarm.md)
-- [hardware counter](count.md)
-- [time](time.md)
+- [hardware counter](count.md) (✅)
+- [time](time.md) (✅)
 - [timers](timer.md)
 - [timing](timing.md)
-- [spinning](spin.md)
+- [spinning](spin.md) (✅)
 
 ## Multitasking
 

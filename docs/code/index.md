@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-12
+date: 2022-08-13
 description: "The Source Code of the ao Real-Time Operating System (RTOS)."
 draft: false
 permalink: /code/
@@ -15,15 +15,15 @@ The source code of the real-time operating system is located in the `src` direct
 
 The source code is subdivided into C files and directories containing header files. Thereby, directories and corresponding C files constitute the following three packages.
 
-| Package     | Directories    | File                  |
-|-------------|----------------|-----------------------|
-| Port        | `ao_sys_xc32*` | `ao_sys_xc32_pic32.c` |
-| Kernel      | `ao_sys`       | `ao_sys.c`            |
-| Environment | `ao`           | `ao.c`                |
+| Package     | Directories | Files        |
+|-------------|-------------|--------------|
+| Port        | `ao_sys_*`  | `ao_sys_*.c` |
+| Kernel      | `ao_sys`    | `ao_sys.c`   |
+| Environment | `ao`        | `ao.c`       |
 
 ### Port
 
-The [port](../port/index.md) package contains all the ingredients required to make an application run on PIC32 microcontrollers.
+The [port](../port/index.md) package contains all the ingredients required to make an application run on a target platform.
 
 ### Kernel
 
