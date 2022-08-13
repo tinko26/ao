@@ -63,7 +63,7 @@ Although a node's height is always positive, the `height` member is a signed int
 
 ### Compare Function
 
-The `ao_avl_less_t` type represents a compare function, that implements a strict total order on the nodes.
+The `ao_avl_less_t` type represents a compare function, that implements a [strict total order](https://en.wikipedia.org/wiki/Total_order) on the nodes.
 
 ```c
 typedef bool (* ao_avl_less_t)

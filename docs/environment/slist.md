@@ -9,7 +9,7 @@ title: "Sorted Lists"
 
 # Sorted Lists
 
-The `ao_slist.h` module defines [doubly-linked lists](https://en.wikipedia.org/wiki/Doubly_linked_list), whose elements are sorted by a [strict total order](https://en.wikipedia.org/wiki/Total_order).
+The `ao_slist.h` module defines [doubly linked lists](https://en.wikipedia.org/wiki/Doubly_linked_list), whose elements are sorted by a [strict total order](https://en.wikipedia.org/wiki/Total_order).
 
 ## Types
 

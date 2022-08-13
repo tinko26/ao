@@ -61,7 +61,7 @@ It consists of the following members.
 
 ### Compare Function
 
-The `ao_rb_less_t` type represents a compare function, that implements a strict total order on the nodes.
+The `ao_rb_less_t` type represents a compare function, that implements a [strict total order](https://en.wikipedia.org/wiki/Total_order) on the nodes.
 
 ```c
 typedef bool (* ao_rb_less_t)
