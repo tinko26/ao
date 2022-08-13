@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-12
-description: "Yielding in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: true
 permalink: /kernel/yield/
 title: "Yielding"

@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-05
-description: "Linear-Feedback Shift Registers in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: false
 permalink: /environment/lfsr/
 title: "Linear-Feedback Shift Registers"

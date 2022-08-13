@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-12
-description: "Unsigned Integers in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: false
 permalink: /environment/uint/
 title: "Unsigned Integers"

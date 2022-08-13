@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-13
-description: "Allocator 2 in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: true
 permalink: /kernel/alloc-2/
 title: "Allocator 2"

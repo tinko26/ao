@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-12
-description: "Task Switch Interrupts in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: false
 permalink: /kernel/ir_task/
 title: "Task Switch Interrupts"

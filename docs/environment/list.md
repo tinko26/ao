@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-03
-description: "Lists in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: false
 permalink: /environment/list/
 title: "Lists"

@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-11
-description: "The Environment Package of the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: false
 permalink: /environment/
 title: "Environment"

@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-12
-description: "Breakpoints in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: false
 permalink: /environment/break/
 title: "Breakpoints"

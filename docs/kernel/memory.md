@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-13
-description: "Memory in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: true
 permalink: /kernel/memory/
 title: "Memory"

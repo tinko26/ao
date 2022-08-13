@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-07
-description: "Scanning in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: false
 permalink: /environment/scan/
 title: "Scanning"

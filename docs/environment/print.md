@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-07
-description: "Printing in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: false
 permalink: /environment/print/
 title: "Printing"

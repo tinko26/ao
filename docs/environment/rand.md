@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-08
-description: "Random Value Generators in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: false
 permalink: /environment/rand/
 title: "Random Value Generators"

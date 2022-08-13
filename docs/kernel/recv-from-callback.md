@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-12
-description: "Receiving from Callbacks in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: true
 permalink: /kernel/recv-from-callback/
 title: "Receiving from Callbacks"

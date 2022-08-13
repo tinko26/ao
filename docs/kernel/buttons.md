@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-08
-description: "Buttons in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: true
 permalink: /kernel/buttons/
 title: "Buttons"

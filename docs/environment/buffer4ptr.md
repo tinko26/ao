@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-04
-description: "Pointer Buffers in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: false
 permalink: /environment/buffer4ptr/
 title: "Pointer Buffers"

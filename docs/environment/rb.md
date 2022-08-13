@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-04
-description: "Red-Black Trees in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: false
 permalink: /environment/rb/
 title: "Red-Black Trees"

@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-04
-description: "Object Buffers in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: false
 permalink: /environment/buffer4obj/
 title: "Object Buffers"

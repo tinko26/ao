@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-13
-description: "The Source Code of the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: false
 permalink: /code/
 title: "Code"

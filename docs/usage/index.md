@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-09
-description: "Usage of the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: true
 permalink: /usage/
 title: "Usage"

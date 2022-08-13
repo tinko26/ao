@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-13
-description: "Allocators in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: true
 permalink: /kernel/alloc/
 title: "Allocators"

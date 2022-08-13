@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-08
-description: "Characters in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: false
 permalink: /environment/char/
 title: "Characters"

@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-11
-description: "Time in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: false
 permalink: /kernel/time/
 title: "Time"

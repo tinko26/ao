@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-13
-description: "System Identifiers in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: false
 permalink: /kernel/sys/
 title: "System Identifiers"

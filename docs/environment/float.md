@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-12
-description: "Floating-Point Numbers in the ao Real-Time Operating System (RTOS)."
+description: ""
 draft: false
 permalink: /environment/float/
 title: "Floating-Point Numbers"
