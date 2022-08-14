@@ -34,3 +34,7 @@ When specifying an infinite timeout, the spinning functions never return. Howeve
 ```c
 void ao_spin_forever();
 ```
+
+## External Links
+
+[https://en.wikipedia.org/wiki/Busy_waiting](https://en.wikipedia.org/wiki/Busy_waiting)

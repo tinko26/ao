@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-12
+date: 2022-08-14
 description: "The ao_ir_task.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/ir-task/
@@ -32,6 +32,8 @@ Determine whether an interrupt is pending on the specified core.
 ```c
 bool ao_task_switch_is_pending(ao_core_t c);
 ```
+
+## Callback
 
 Callback for the interrupt handlers. Actually, this function is implemented by the [`ao_task_sched.h`](task-sched.md) module.
 

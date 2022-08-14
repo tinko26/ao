@@ -28,3 +28,7 @@ Then, after the respective thread of execution has been running for a while, the
 ```c
 size_t h = ao_stack_get_high_water_mark(stack, 1024);
 ```
+
+## External Links
+
+[https://en.wikipedia.org/wiki/Call_stack](https://en.wikipedia.org/wiki/Call_stack)

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-12
+date: 2022-08-14
 description: "The ao_ir_alarm.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/ir-alarm/
@@ -32,6 +32,8 @@ Set the [time](time.md) for the next interrupt.
 ```c
 void ao_alarm_set(ao_time_t t);
 ```
+
+## Callback
 
 Callback for the interrupt handler. Actually, this function is implemented by the [`ao_alarm.h`](alarm.md) module.
 

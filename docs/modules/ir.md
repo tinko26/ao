@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-12
+date: 2022-08-14
 description: "The ao_ir.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/ir/
@@ -9,9 +9,9 @@ title: "ao_ir.h"
 
 # ao_ir.h
 
-This module gathers interrupt-related functions, which it organizes in the following submodules.
+This module gathers interrupt-related functions from the following modules.
 
-| Submodule | |
-|-----------|-|
+| Module | |
+|--------|-|
 | [`ao_ir_alarm.h`](ir-alarm.md) | The alarm interrupt. |
 | [`ao_ir_task.h`](ir-task.md) | The task switch interrupts. |

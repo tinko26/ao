@@ -14,7 +14,8 @@ title: "Home"
 [allocator](allocator.md) ✅, 
 [assertions](assertions.md) ✅
 
-[breakpoints](breakpoints.md) ✅
+[breakpoints](breakpoints.md) ✅, 
+[buffers](buffers.md) ✅
 
 [cores](cores.md) ✅
 
