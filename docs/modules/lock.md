@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-12
-description: ""
+description: "The ao_lock.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/lock/
 title: "ao_lock.h"

@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-14
-description: ""
+description: "The ao_buffer4obj.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/buffer4obj/
 title: "ao_buffer4obj.h"

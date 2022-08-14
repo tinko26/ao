@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-11
-description: ""
+description: "The ao_spin.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/spin/
 title: "ao_spin.h"

@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-10
-description: ""
+description: "The ao_align.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/align/
 title: "ao_align.h"

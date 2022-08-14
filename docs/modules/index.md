@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-14
-description: ""
+description: "The modules of the ao real-time operating system."
 draft: false
 permalink: /modules/
 title: "Modules"

@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-14
-description: ""
+description: "The ao_heap4ptr.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/heap4ptr/
 title: "ao_heap4ptr.h"
