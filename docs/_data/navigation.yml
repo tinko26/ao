@@ -1,19 +1,7 @@
 main:
 
 side:
-  - title: "Home"
-    url: /
-  - title: "Topics"
-    url: /topics/
-  - title: "Code"
-    url: /code/
-  - title: "Environment"
-    url: /environment/
-  - title: "Kernel"
-    url: /kernel/
-  - title: "Port"
-    url: /port/
-  - title: "Usage"
-    url: /usage/
-  - title: "Demos"
-    url: /demos/
+  - title: "Modules"
+    url: /modules/
+  - title: "Packages"
+    url: /packages/
