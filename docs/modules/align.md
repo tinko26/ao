@@ -40,4 +40,4 @@ if (AO_IS_ALIGNED(xu, 8))
 
 ## See Also
 
-[https://en.wikipedia.org/wiki/Data_structure_alignment](https://en.wikipedia.org/wiki/Data_structure_alignment)
+🌎 [https://en.wikipedia.org/wiki/Data_structure_alignment](https://en.wikipedia.org/wiki/Data_structure_alignment)

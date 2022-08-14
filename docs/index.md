@@ -9,7 +9,10 @@ title: "Home"
 
 # Home
 
-- [Breakpoints](breakpoints.md)
+- [Alignment](alignment.md) ✅
+- [Assertions](assertions.md) ✅
+- [Breakpoints](breakpoints.md) ✅
+- [Debugging](debugging.md) ✅
 - [Modules](modules/index.md)
 - [Packages](packages.md)
 - [Source Code](source-code.md)

@@ -1,8 +1,8 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-14
+date: 2022-08-12
 description: "The ao_debug.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/debug/
 title: "ao_debug.h"
 ---
@@ -14,3 +14,7 @@ This module defines a single macro constant indicating whether an application is
 ```c
 #define AO_DEBUG
 ```
+
+## See Also
+
+[Debugging](../debugging.md)

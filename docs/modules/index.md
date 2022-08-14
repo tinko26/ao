@@ -43,7 +43,7 @@ title: "Modules"
 | [`ao_core.h`](core.md) | Processor cores |
 | [`ao_count.h`](count.md) | Hardware counter |
 | [`ao_counter.h`](counter.md) | Counters |
-| [`ao_debug.h`](debug.md) | Debug mode |
+| [`ao_debug.h`](debug.md) | Debug mode | ✅ |
 | [`ao_flag.h`](flag.md) | Flags |
 | [`ao_float.h`](float.md) | Floating-point numbers |
 | [`ao_floatd.h`](floatd.md) | Floating-point numbers based on double numbers |
