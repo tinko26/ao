@@ -1,19 +1,19 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-14
+date: 2022-08-04
 description: "The ao_heap.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/heap/
 title: "ao_heap.h"
 ---
 
 # ao_heap.h
 
-This module defines [binary heaps](https://en.wikipedia.org/wiki/Binary_heap). 
+This module defines binary heaps. 
 
-A binary heap is a special kind of [binary tree](https://en.wikipedia.org/wiki/Binary_tree) that maintains both the shape of a complete binary tree and the heap property. The latter implies, that a node is always less than its children, with respect to a [strict total order](https://en.wikipedia.org/wiki/Total_order). 
+A binary heap is a special kind of binary tree that maintains both the shape of a complete binary tree and the heap property. The latter implies, that a node is always less than its children, with respect to a strict total order.
 
-Both insertion into and removal from heaps take logarithmic time. This makes them a perfect choice for implementing [priority queues](https://en.wikipedia.org/wiki/Priority_queue).
+Both insertion into and removal from heaps take logarithmic time. This makes them a perfect choice for implementing priority queues.
 
 Commonly, heaps are implemented based on an array that stores all the nodes. However, this module provides a pointer-based implementation, that is, each node holds pointers to its parent and children. Therefore, the capacity of a heap is virtually unbounded. This is useful, for example, if the maximum number of nodes cannot be estimated well.
 
@@ -161,10 +161,20 @@ ao_heap_remove(h, n);
 n = ao_heap_pop(h);
 ```
 
-The correctness of a heap can be asserted in linear time. The function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a runtime [assertion](assert.md) failure.
+The correctness of a heap can be asserted in linear time. The function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a runtime [assertion](../assertions.md) failure.
 
 It is therefore useful in debugging scenarios. However, the function is implemented recursively, which violates a common rule in embedded software engineering.
 
 ```c
 ao_heap_assert(h);
 ```
+
+## External Links
+
+[https://en.wikipedia.org/wiki/Binary_heap](https://en.wikipedia.org/wiki/Binary_heap)
+
+[https://en.wikipedia.org/wiki/Binary_tree](https://en.wikipedia.org/wiki/Binary_tree)
+
+[https://en.wikipedia.org/wiki/Priority_queue](https://en.wikipedia.org/wiki/Priority_queue)
+
+[https://en.wikipedia.org/wiki/Total_order](https://en.wikipedia.org/wiki/Total_order)

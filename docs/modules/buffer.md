@@ -1,15 +1,15 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-14
+date: 2022-08-04
 description: "The ao_buffer.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/buffer/
 title: "ao_buffer.h"
 ---
 
 # ao_buffer.h
 
-This module defines [buffers](https://en.wikipedia.org/wiki/Data_buffer), that is, places to temporarily store data.
+This module defines buffers, that is, places to temporarily store data.
 
 ## Configuration
 
@@ -150,3 +150,7 @@ ao_buffer_peek_front(b, &d1);
 ao_buffer_peek_range_back(b, &d4, 1, 4);
 ao_buffer_peek_range_front(b, &d4, 1, 4);
 ```
+
+## External Links
+
+[https://en.wikipedia.org/wiki/Data_buffer](https://en.wikipedia.org/wiki/Data_buffer)

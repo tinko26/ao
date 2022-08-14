@@ -1,15 +1,15 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-14
+date: 2022-08-03
 description: "The ao_list.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/list/
 title: "ao_list.h"
 ---
 
 # ao_list.h
 
-This module defines [doubly linked lists](https://en.wikipedia.org/wiki/Doubly_linked_list).
+This module defines doubly linked lists.
 
 ## Types
 
@@ -70,7 +70,7 @@ if (ao_list_is_empty(l))
 }
 ```
 
-Most commonly, lists are used as [double-ended queues](https://en.wikipedia.org/wiki/Double-ended_queue), that support insertion and removal of elements at either end. Therefore, they can be used to implement [FIFOs](https://en.wikipedia.org/wiki/FIFO_(computing_and_electronics)) or [LIFOs](https://en.wikipedia.org/wiki/LIFO_(computing)).
+Most commonly, lists are used as double-ended queues, that support insertion and removal of elements at either end. Therefore, they can be used to implement FIFOs or LIFOs.
 
 ```c
 ao_list_node_t * n1;
@@ -105,3 +105,13 @@ ao_list_reverse(l);
 ```c
 ao_list_remove_all(l);
 ```
+
+## External Links
+
+[https://en.wikipedia.org/wiki/Double-ended_queue](https://en.wikipedia.org/wiki/Double-ended_queue)
+
+[https://en.wikipedia.org/wiki/Doubly_linked_list](https://en.wikipedia.org/wiki/Doubly_linked_list)
+
+[https://en.wikipedia.org/wiki/FIFO](https://en.wikipedia.org/wiki/FIFO)
+
+[https://en.wikipedia.org/wiki/LIFO](https://en.wikipedia.org/wiki/LIFO)

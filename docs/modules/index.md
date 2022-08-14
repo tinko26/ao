@@ -34,46 +34,43 @@ title: "Modules"
 | [`ao_boot.h`](boot.md) | Booting |
 | [`ao_break.h`](break.md) | Breakpoints | ✅ |
 | [`ao_bsem.h`](bsem.md) | Binary semaphores |
-| [`ao_buffer.h`](buffer.md) | Buffers |
-| [`ao_buffer4obj.h`](buffer4obj.md) | Buffers for objects |
-| [`ao_buffer4ptr.h`](buffer4ptr.md) | Buffers for pointers |
+| [`ao_buffer.h`](buffer.md) | Buffers | ✅ |
+| [`ao_buffer4obj.h`](buffer4obj.md) | Buffers for objects | ✅ |
+| [`ao_buffer4ptr.h`](buffer4ptr.md) | Buffers for pointers | ✅ |
 | [`ao_button.h`](button.md) | Buttons |
-| [`ao_char.h`](char.md) | Characters |
+| [`ao_char.h`](char.md) | Characters | ✅ |
 | [`ao_cond.h`](cond.md) | Condition variables |
-| [`ao_core.h`](core.md) | Processor cores |
-| [`ao_count.h`](count.md) | Hardware counter |
+| [`ao_core.h`](core.md) | Processor cores | ✅ |
+| [`ao_count.h`](count.md) | Hardware counter | ✅ |
 | [`ao_counter.h`](counter.md) | Counters |
 | [`ao_debug.h`](debug.md) | Debug mode | ✅ |
 | [`ao_flag.h`](flag.md) | Flags |
-| [`ao_float.h`](float.md) | Floating-point numbers |
-| [`ao_floatd.h`](floatd.md) | Floating-point numbers based on double numbers |
-| [`ao_floatf.h`](floatf.md) | Floating-point numbers based on float numbers |
-| [`ao_floatl.h`](floatl.md) | Floating-point numbers based on long double numbers |
-| [`ao_func.h`](func.md) | Function pointer types |
-| [`ao_heap.h`](heap.md) | Pointer-based heaps |
-| [`ao_heap4obj.h`](heap4obj.md) | Array-based heaps for objects |
-| [`ao_heap4ptr.h`](heap4ptr.md) | Array-based heaps for pointers |
-| [`ao_int.h`](int.md) | Signed integers |
-| [`ao_ir.h`](ir.md) | Interrupts |
-| [`ao_ir_alarm.h`](ir-alarm.md) | Alarm interrupt |
-| [`ao_ir_task.h`](ir-task.md) | Task switch interrupts |
+| [`ao_float.h`](float.md) | Floating-point numbers | ✅ |
+| [`ao_func.h`](func.md) | Function pointer types | ✅ |
+| [`ao_heap.h`](heap.md) | Pointer-based heaps | ✅ |
+| [`ao_heap4obj.h`](heap4obj.md) | Array-based heaps for objects | ✅ |
+| [`ao_heap4ptr.h`](heap4ptr.md) | Array-based heaps for pointers | ✅ |
+| [`ao_int.h`](int.md) | Signed integers | ✅ |
+| [`ao_ir.h`](ir.md) | Interrupts | ✅ |
+| [`ao_ir_alarm.h`](ir-alarm.md) | Alarm interrupt | ✅ |
+| [`ao_ir_task.h`](ir-task.md) | Task switch interrupts | ✅ |
 | [`ao_led.h`](led.md) | LEDs |
-| [`ao_lfsr.h`](lfsr.md) | Linear-feedback shift registers |
-| [`ao_list.h`](list.md) | Doubly linked lists |
-| [`ao_lock.h`](lock.md) | Locks |
+| [`ao_lfsr.h`](lfsr.md) | Linear-feedback shift registers | ✅ |
+| [`ao_list.h`](list.md) | Doubly linked lists | ✅ |
+| [`ao_lock.h`](lock.md) | Locks | ✅ |
 | [`ao_mail.h`](mail.md) | Mail for asynchronous messaging |
-| [`ao_math.h`](math.md) | Mathematics |
-| [`ao_mathf.h`](mathf.md) | Mathematics for floating-point numbers |
-| [`ao_mem.h`](mem.md) | Memory blocks |
+| [`ao_math.h`](math.md) | Mathematics | ✅ |
+| [`ao_mathf.h`](mathf.md) | Mathematics for floating-point numbers | ✅ |
+| [`ao_mem.h`](mem.md) | Memory blocks | ✅ |
 | [`ao_monitor.h`](monitor.md) | Monitors |
 | [`ao_mutex.h`](mutex.md) | Mutexes |
 | [`ao_pmail.h`](pmail.md) | Priority mail for asynchronous messaging |
 | [`ao_poll.h`](poll.md) | Polling for asynchronous events |
-| [`ao_print.h`](print.md) | Converting numbers to string |
+| [`ao_print.h`](print.md) | Converting numbers to string | ✅ |
 | [`ao_queue4obj.h`](queue4obj.md) | Queues for objects |
 | [`ao_queue4ptr.h`](queue4ptr.md) | Queues for pointers |
-| [`ao_rand.h`](rand.md) | Random value generators |
-| [`ao_rb.h`](rb.md) | Red-black trees |
+| [`ao_rand.h`](rand.md) | Random value generators | ✅ |
+| [`ao_rb.h`](rb.md) | Red-black trees | ✅ |
 | [`ao_recv.h`](recv.md) | Receiving |
 | [`ao_recv_from_callback.h`](recv-from-callback.md) | Receiving from callbacks |
 | [`ao_recv_from_stream.h`](recv-from-stream.md) | Receiving from streams |
@@ -87,7 +84,7 @@ title: "Modules"
 | [`ao_recv_ptr_from_stream.h`](recv-ptr-from-stream.md) | Receiving pointers from streams |
 | [`ao_rendezvous.h`](rendezvous.md) | Rendezvous |
 | [`ao_rw.h`](rw.md) | Readers-writer locks preferring readers |
-| [`ao_scan.h`](scan.md) | Converting numbers from string |
+| [`ao_scan.h`](scan.md) | Converting numbers from string | ✅ |
 | [`ao_self.h`](self.md) | Running task |
 | [`ao_sem.h`](sem.md) | Counting semaphores |
 | [`ao_send.h`](send.md) | Sending |
@@ -102,16 +99,16 @@ title: "Modules"
 | [`ao_send_to_callback.h`](send-to-callback.md) | Sending to callbacks |
 | [`ao_send_to_stream.h`](send-to-stream.md) | Sending to streams |
 | [`ao_signal.h`](signal.md) | Signals |
-| [`ao_size.h`](size.md) | Sizes |
+| [`ao_size.h`](size.md) | Sizes | ✅ |
 | [`ao_sleep.h`](sleep.md) | Sleeping |
-| [`ao_slist.h`](slist.md) | Sorted doubly linked lists |
-| [`ao_spin.h`](spin.md) | Spinning |
-| [`ao_stack.h`](stack.md) | Stacks |
+| [`ao_slist.h`](slist.md) | Sorted doubly linked lists | ✅ |
+| [`ao_spin.h`](spin.md) | Spinning | ✅ |
+| [`ao_stack.h`](stack.md) | Stacks | ✅ |
 | [`ao_stream.h`](stream.md) | Streams |
 | [`ao_stream4obj.h`](stream4obj.md) | Streams for objects |
 | [`ao_stream4ptr.h`](stream4ptr.md) | Streams for pointers |
-| [`ao_struct.h`](struct.md) | Structs |
-| [`ao_sys.h`](sys.md) | System |
+| [`ao_struct.h`](struct.md) | Structs | ✅ |
+| [`ao_sys.h`](sys.md) | System | ✅ |
 | [`ao_task.h`](task.md) | Tasks |
 | [`ao_task_context.h`](task-context.md) | Task context |
 | [`ao_task_sched.h`](task-sched.md) | Task scheduler |
@@ -123,10 +120,10 @@ title: "Modules"
 | [`ao_task_stack_1.h`](task-stack-1.md) | Task stack from injection |
 | [`ao_task_stack_2.h`](task-stack-2.md) | Task stack from allocator |
 | [`ao_threshold.h`](threshold.md) | Thresholds |
-| [`ao_time.h`](time.md) | Time |
+| [`ao_time.h`](time.md) | Time | ✅ |
 | [`ao_timer.h`](timer.md) | Timers |
-| [`ao_uint.h`](uint.md) | Unsigned integers |
-| [`ao_var.h`](var.md) | Variables |
+| [`ao_uint.h`](uint.md) | Unsigned integers | ✅ |
+| [`ao_var.h`](var.md) | Variables | ✅ |
 | [`ao_wr.h`](wr.md) | Readers-writer locks preferring writers |
 | [`ao_xch.h`](xch.md) | Exchanges for client-server messaging |
 | [`ao_yield.h`](yield.md) | Yielding |

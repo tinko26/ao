@@ -1,8 +1,8 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-14
+date: 2022-08-12
 description: "The ao_mem.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/mem/
 title: "ao_mem.h"
 ---

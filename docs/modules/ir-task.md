@@ -2,18 +2,18 @@
 author: "Stefan Wagner"
 date: 2022-08-12
 description: "The ao_ir_task.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/ir-task/
 title: "ao_ir_task.h"
 ---
 
 # ao_ir_task.h
 
-This module declares functions for controlling the task switch interrupts as well as callback functions for the interrupt handlers. This module is abstract, that is, an implementation must be provided by a port package in order to support [multitasking](multitasking.md).
+This module declares functions for controlling the task switch interrupts as well as callback functions for the interrupt handlers. This module is abstract, that is, an implementation must be provided by a port package in order to support [multitasking](../multitasking.md).
 
 ## Functions
 
-Enable or disable the interrupt, respectively, on the specified [core](core.md).
+Enable or disable the interrupt, respectively, on the specified [core](../cores.md).
 
 ```c
 void ao_task_switch_enable(ao_core_t c);

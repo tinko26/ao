@@ -9,8 +9,12 @@ title: "ao_led.h"
 
 # ao_led.h
 
-This module encapsulates [LEDs](https://en.wikipedia.org/wiki/Light-emitting_diode) that can be switched on and off. The number of LEDs is defined by a macro constant.
+This module encapsulates LEDs that can be switched on and off. The number of LEDs is defined by a macro constant.
 
 ```c
 #define AO_LED_COUNT
 ```
+
+## External Links
+
+[https://en.wikipedia.org/wiki/Light-emitting_diode](https://en.wikipedia.org/wiki/Light-emitting_diode)

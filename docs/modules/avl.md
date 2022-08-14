@@ -54,7 +54,7 @@ It consists of the following members.
 
 | Member | |
 |--------|-|
-| `height` | The height of the node, that is, the length of the longest downward path to a leaf from that node. |
+| `height` | The height of the node, that is, the length of the longest path from the node downwards to a leaf. |
 | `left` | The left child. |
 | `parent` | The parent. |
 | `right` | The right child. |
@@ -161,12 +161,12 @@ ao_avl_assert(a);
 
 ## External Links
 
-https://en.wikipedia.org/wiki/AVL_tree
+[https://en.wikipedia.org/wiki/AVL_tree](https://en.wikipedia.org/wiki/AVL_tree)
 
-https://en.wikipedia.org/wiki/Binary_search_tree
+[https://en.wikipedia.org/wiki/Binary_search_tree](https://en.wikipedia.org/wiki/Binary_search_tree)
 
-https://en.wikipedia.org/wiki/Priority_queue
+[https://en.wikipedia.org/wiki/Priority_queue](https://en.wikipedia.org/wiki/Priority_queue)
 
-https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree
+[https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree)
 
-https://en.wikipedia.org/wiki/Total_order
+[https://en.wikipedia.org/wiki/Total_order](https://en.wikipedia.org/wiki/Total_order)

@@ -2,7 +2,7 @@
 author: "Stefan Wagner"
 date: 2022-08-12
 description: "The ao_core.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/core/
 title: "ao_core.h"
 ---
@@ -23,4 +23,4 @@ Therefore, it defines the number of cores ...
 ao_core_t ao_core();
 ```
 
-This module is abstract, that is, an implementation must be provided by a port package in order to support [multitasking](multitasking.md), even on a single-core platform.
+This module is abstract, that is, an implementation must be provided by a port package in order to support [multitasking](../multitasking.md), even on a single-core platform.

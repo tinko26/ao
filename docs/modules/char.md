@@ -1,8 +1,8 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-14
+date: 2022-08-08
 description: "The ao_char.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/char/
 title: "ao_char.h"
 ---

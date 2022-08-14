@@ -2,14 +2,14 @@
 author: "Stefan Wagner"
 date: 2022-08-12
 description: "The ao_ir_alarm.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/ir-alarm/
 title: "ao_ir_alarm.h"
 ---
 
 # ao_ir_alarm.h
 
-This module declares functions for controlling the alarm interrupt as well as a callback function for the interrupt handler. This module is abstract, that is, an implementation must be provided by a port package in order to support [alarms](alarm.md).
+This module declares functions for controlling the alarm interrupt as well as a callback function for the interrupt handler. This module is abstract, that is, an implementation must be provided by a port package in order to support [alarms](../alarms.md).
 
 ## Functions
 

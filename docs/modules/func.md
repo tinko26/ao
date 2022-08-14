@@ -1,8 +1,8 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-14
+date: 2022-08-04
 description: "The ao_func.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/func/
 title: "ao_func.h"
 ---

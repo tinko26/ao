@@ -1,8 +1,8 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-14
+date: 2022-08-07
 description: "The ao_print.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/print/
 title: "ao_print.h"
 ---
@@ -21,7 +21,7 @@ The `ao_print_t` type represents options for the conversion. It consists of the 
 | `digits_fractional` | The minimum number of fractional digits to output. Eventually, trailing zeros will be added. |
 | `digits_integral` | The minimum number of integral digits to output. Eventually, leading zeros will be added. |
 | `precision` | The maximum number of fractional digits to output. |
-| `radix` | The [radix](https://en.wikipedia.org/wiki/Radix) of the positional numeral system, wherein the number is to be represented. |
+| `radix` | The radix of the positional numeral system, wherein the number is to be represented. |
 | `right` | Indicates whether to right-justify the string, if its length is less than the specified minimum `width`. |
 | `sign` | Indicates whether the significant is to be preceeded by a `+` character, if the number is positive. Negative numbers are always preceeded by a `-` character. |
 | `sign_exponent` | Indicates whether the exponent is to be preceeded by a `+` character, if it is positive. Negative exponents are always preceeded by a `-` character. If the exponent is zero, then its output will be omitted. |
@@ -101,3 +101,7 @@ double v = 1234.567;
 ```c
 ao_printfd(s, n, &o, &v);
 ```
+
+## External Links
+
+[https://en.wikipedia.org/wiki/Radix](https://en.wikipedia.org/wiki/Radix)

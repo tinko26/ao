@@ -1,19 +1,19 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-14
+date: 2022-08-04
 description: "The ao_heap4ptr.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/heap4ptr/
 title: "ao_heap4ptr.h"
 ---
 
 # ao_heap4ptr.h
 
-This module defines [binary heaps](https://en.wikipedia.org/wiki/Binary_heap) for pointers.
+This module defines binary heaps for pointers.
 
-A binary heap is a special kind of [binary tree](https://en.wikipedia.org/wiki/Binary_tree) that maintains both the shape of a complete binary tree and the heap property. The latter implies, that a node is always less than its children, with respect to a [strict total order](https://en.wikipedia.org/wiki/Total_order). 
+A binary heap is a special kind of binary tree that maintains both the shape of a complete binary tree and the heap property. The latter implies, that a node is always less than its children, with respect to a strict total order. 
 
-Both insertion into and removal from heaps take logarithmic time. This makes them a perfect choice for implementing [priority queues](https://en.wikipedia.org/wiki/Priority_queue).
+Both insertion into and removal from heaps take logarithmic time. This makes them a perfect choice for implementing priority queues.
 
 This module provides an array-based implementation.
 
@@ -167,8 +167,18 @@ ao_heap4ptr_pop(h, &p);
 
 All three functions return a boolean value indicating whether the respective operation was successful. Therefore, one can safely try to insert a node into a full heap or retrieve or remove the root node from an empty heap.
 
-The correctness of a heap can be asserted in linear time. The function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a runtime [assertion](assert.md) failure.
+The correctness of a heap can be asserted in linear time. The function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a runtime [assertion](../assertions.md) failure.
 
 ```c
 ao_heap4ptr_assert(h);
 ```
+
+## External Links
+
+[https://en.wikipedia.org/wiki/Binary_heap](https://en.wikipedia.org/wiki/Binary_heap)
+
+[https://en.wikipedia.org/wiki/Binary_tree](https://en.wikipedia.org/wiki/Binary_tree)
+
+[https://en.wikipedia.org/wiki/Priority_queue](https://en.wikipedia.org/wiki/Priority_queue)
+
+[https://en.wikipedia.org/wiki/Total_order](https://en.wikipedia.org/wiki/Total_order)

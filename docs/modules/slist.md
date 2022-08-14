@@ -1,15 +1,15 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-14
+date: 2022-08-03
 description: "The ao_slist.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/slist/
 title: "ao_slist.h"
 ---
 
 # ao_slist.h
 
-This module defines [doubly linked lists](https://en.wikipedia.org/wiki/Doubly_linked_list), whose elements are sorted by a [strict total order](https://en.wikipedia.org/wiki/Total_order).
+This module defines doubly linked lists, whose elements are sorted by a strict total order.
 
 ## Types
 
@@ -148,8 +148,14 @@ Removing all nodes at once, however, takes linear time.
 ao_slist_remove_all(l);
 ```
 
-The correct ordering of a list can be asserted in linear time, too. The function traverses the list from front to back and, for each node, checks, whether it is less than its successor. If that is not the case, the function triggers a runtime [assertion](assert.md) failure.
+The correct ordering of a list can be asserted in linear time, too. The function traverses the list from front to back and, for each node, checks, whether it is less than its successor. If that is not the case, the function triggers a runtime [assertion](../assertions.md) failure.
 
 ```c
 ao_slist_assert(l);
 ```
+
+## External Links
+
+[https://en.wikipedia.org/wiki/Doubly_linked_list](https://en.wikipedia.org/wiki/Doubly_linked_list)
+
+[https://en.wikipedia.org/wiki/Total_order](https://en.wikipedia.org/wiki/Total_order)

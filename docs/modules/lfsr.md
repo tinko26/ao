@@ -1,15 +1,15 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-14
+date: 2022-08-05
 description: "The ao_lfsr.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/lfsr/
 title: "ao_lfsr.h"
 ---
 
 # ao_lfsr.h
 
-This module defines [linear-feedback shift registers](https://en.wikipedia.org/wiki/Linear-feedback_shift_register) in Galois configuration, that can be used to generate pseudo-random values.
+This module defines linear-feedback shift registers in Galois configuration, that can be used to generate pseudo-random values.
 
 ## Types
 
@@ -74,3 +74,7 @@ The new bit is located at the same position as the polynomial's most significant
 ```c
 uint32_t newbit = (l->seed >> 17) & (uint32_t) 1;
 ```
+
+## External Links
+
+[https://en.wikipedia.org/wiki/Linear-feedback_shift_register](https://en.wikipedia.org/wiki/Linear-feedback_shift_register)

@@ -1,8 +1,8 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-14
+date: 2022-08-12
 description: "The ao_uint.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/uint/
 title: "ao_uint.h"
 ---

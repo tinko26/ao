@@ -2,18 +2,18 @@
 author: "Stefan Wagner"
 date: 2022-08-11
 description: "The ao_time.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/time/
 title: "ao_time.h"
 ---
 
 # ao_time.h
 
-This module contains a couple of time-related definitions, that are based on a [hardware counter](count.md).
+This module contains a couple of time-related definitions, that are based on a [hardware counter](../hardware-counter.md).
 
 ## Type
 
-First and foremost, the module defines the `ao_time_t` type, that represents both time points and time spans. Because it is an alias for the `ao_count_t` type, which is an unsigned integer type, it cannot represent negative time spans.
+First and foremost, the module defines the `ao_time_t` type, that represents both time points and time spans. Because it is an alias for the [`ao_count_t`](count.md) type, which is an unsigned integer type, it cannot represent negative time spans.
 
 ```c
 typedef ao_count_t ao_time_t;

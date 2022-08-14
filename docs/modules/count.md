@@ -2,14 +2,14 @@
 author: "Stefan Wagner"
 date: 2022-08-11
 description: "The ao_count.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/count/
 title: "ao_count.h"
 ---
 
 # ao_count.h
 
-This module encapsulates a hardware counter that increments continuously at a constant rate. The counter makes up the basis for measuring time. Additionally, this counter and a corresponding [interrupt](ir-alarm.md) make up the basis for [alarms](alarm.md).
+This module encapsulates a hardware counter that increments continuously at a constant rate. The counter makes up the basis for measuring time. Additionally, this counter and a corresponding [interrupt](../alarm-interrupt.md) make up the basis for [alarms](../alarms.md).
 
 The module defines the `ao_count_t` type, which is an unsigned integer that can hold a value of the hardware counter. Additionally, it defines the following constants.
 

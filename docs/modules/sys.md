@@ -2,7 +2,7 @@
 author: "Stefan Wagner"
 date: 2022-08-13
 description: "The ao_sys.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/sys/
 title: "ao_sys.h"
 ---

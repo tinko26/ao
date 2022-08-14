@@ -2,7 +2,7 @@
 author: "Stefan Wagner"
 date: 2022-08-12
 description: "The ao_ir.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/ir/
 title: "ao_ir.h"
 ---

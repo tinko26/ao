@@ -1,8 +1,8 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-14
+date: 2022-08-07
 description: "The ao_scan.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/scan/
 title: "ao_scan.h"
 ---
@@ -17,7 +17,7 @@ The `ao_scan_t` type represents options for the conversion. It consists of the f
 
 | Member | |
 |--------|-|
-| `radix` | The [radix](https://en.wikipedia.org/wiki/Radix) of the positional numeral system, wherein the number is represented. |
+| `radix` | The radix of the positional numeral system, wherein the number is represented. |
 | `seek` | Indicates whether to seek for a valid character (sign, digit, or decimal separator) before the conversion. |
 
 ## Functions
@@ -80,3 +80,7 @@ double v;
 ```c
 ao_scanfd(s, n, &o, &v);
 ```
+
+## External Links
+
+[https://en.wikipedia.org/wiki/Radix](https://en.wikipedia.org/wiki/Radix)
