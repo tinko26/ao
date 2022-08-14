@@ -2,16 +2,12 @@
 author: "Stefan Wagner"
 date: 2022-08-14
 description: "The modules of the ao real-time operating system."
-draft: false
+draft: true
 permalink: /modules/
 title: "Modules"
 ---
 
 # Modules
-
-Modules are the building blocks of the framework, and there really are a lot of modules. The rationale behind this is 🌎 [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concerns), which means, that each module should address a single concern, only. For each module, there is a dedicated header file.
-
-## List
 
 | Module | | |
 |--------|-|-|
