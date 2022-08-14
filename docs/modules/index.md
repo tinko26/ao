@@ -9,8 +9,8 @@ title: "Modules"
 
 # Modules
 
-| Module | |
-|--------|-|
+| Module | | |
+|--------|-|-|
 | [`ao_alarm.h`](alarm.md) | Alarms |
 | [`ao_alarm_queue.h`](alarm-queue.md) | Alarm queue |
 | [`ao_alarm_queue_0.h`](alarm-queue-0.md) | Alarm queue stub |
@@ -19,7 +19,7 @@ title: "Modules"
 | [`ao_alarm_queue_3.h`](alarm-queue-3.md) | Alarm queue based on a pointer-based heap |
 | [`ao_alarm_queue_4.h`](alarm-queue-4.md) | Alarm queue based on an AVL tree |
 | [`ao_alarm_queue_5.h`](alarm-queue-5.md) | Alarm queue based on a red-black tree |
-| [`ao_align.h`](align.md) | Memory alignment |
+| [`ao_align.h`](align.md) | Memory alignment | ✅ |
 | [`ao_alloc.h`](alloc.md) | Allocator |
 | [`ao_alloc_0.h`](alloc-0.md) | Allocator stub |
 | [`ao_alloc_1.h`](alloc-1.md) | Allocator based on pools of fixed-size memory blocks |
