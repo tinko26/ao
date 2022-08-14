@@ -9,7 +9,7 @@ title: "ao_alloc_1.h"
 
 # ao_alloc_1.h
 
-This module implements an [allocator](alloc.md) that supplies memory blocks from configurated memory pools.
+This module implements an [allocator](../allocator.md) that supplies memory blocks from configurated memory pools.
 
 ## Configuration
 

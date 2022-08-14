@@ -1,17 +1,17 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-14
+date: 2022-08-04
 description: "The ao_avl.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/avl/
 title: "ao_avl.h"
 ---
 
 # ao_avl.h
 
-This module defines [AVL trees](https://en.wikipedia.org/wiki/AVL_tree). 
+This module defines AVL trees. 
 
-An AVL tree is a special kind of [binary search tree](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree), that keeps itself balanced, which guarantees that insertion, removal, and search always take logarithmic time. It is therefore a perfect choice when implementing a [priority queue](https://en.wikipedia.org/wiki/Priority_queue).
+An AVL tree is a special kind of binary search tree, that keeps itself balanced, which guarantees that insertion, removal, and search always take logarithmic time. It is therefore a perfect choice when implementing a priority queue.
 
 ## Types
 
@@ -54,7 +54,7 @@ It consists of the following members.
 
 | Member | |
 |--------|-|
-| `height` | The [height](https://en.wikipedia.org/wiki/Tree_(data_structure)#Terminology) of the node. |
+| `height` | The height of the node, that is, the length of the longest downward path to a leaf from that node. |
 | `left` | The left child. |
 | `parent` | The parent. |
 | `right` | The right child. |
@@ -63,7 +63,7 @@ Although a node's height is always positive, the `height` member is a signed int
 
 ### Compare Function
 
-The `ao_avl_less_t` type represents a compare function, that implements a [strict total order](https://en.wikipedia.org/wiki/Total_order) on the nodes.
+The `ao_avl_less_t` type represents a compare function, that implements a strict total order on the nodes.
 
 ```c
 typedef bool (* ao_avl_less_t)
@@ -151,10 +151,22 @@ Removing a node takes logarithmic time, too.
 ao_avl_remove(a, n);
 ```
 
-The correctness of a tree can be asserted in linear time. The function traverses the tree top-down and checks, whether the relevant properties are maintained. If that is not the case, the function triggers a runtime [assertion](assert.md) failure.
+The correctness of a tree can be asserted in linear time. The function traverses the tree top-down and checks, whether the relevant properties are maintained. If that is not the case, the function triggers a runtime [assertion](../assertions.md) failure.
 
 It is therefore useful in debugging scenarios. However, the function is implemented recursively, which violates a common rule in embedded software engineering.
 
 ```c
 ao_avl_assert(a);
 ```
+
+## External Links
+
+https://en.wikipedia.org/wiki/AVL_tree
+
+https://en.wikipedia.org/wiki/Binary_search_tree
+
+https://en.wikipedia.org/wiki/Priority_queue
+
+https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree
+
+https://en.wikipedia.org/wiki/Total_order

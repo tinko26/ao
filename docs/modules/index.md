@@ -27,7 +27,7 @@ title: "Modules"
 | [`ao_are.h`](are.md) | Auto-reset events |
 | [`ao_assert.h`](assert.md) | Runtime assertions | ✅ |
 | [`ao_async.h`](async.md) | Asynchronous events |
-| [`ao_avl.h`](avl.md) | AVL trees |
+| [`ao_avl.h`](avl.md) | AVL trees | ✅ |
 | [`ao_await.h`](await.md) | Awaiting |
 | [`ao_barrier.h`](barrier.md) | Barriers |
 | [`ao_block.h`](block.md) | Blocking |

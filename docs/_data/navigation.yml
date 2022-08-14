@@ -3,7 +3,3 @@ main:
 side:
   - title: "Modules"
     url: /modules/
-  - title: "Packages"
-    url: /packages/
-  - title: "Source Code"
-    url: /source-code/

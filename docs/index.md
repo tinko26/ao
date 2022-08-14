@@ -9,10 +9,12 @@ title: "Home"
 
 # Home
 
-- [Alignment](alignment.md) ✅
-- [Assertions](assertions.md) ✅
-- [Breakpoints](breakpoints.md) ✅
-- [Debugging](debugging.md) ✅
-- [Modules](modules/index.md)
-- [Packages](packages.md)
-- [Source Code](source-code.md)
+- [alignment](alignment.md) ✅
+- [allocator](allocator.md) ✅
+- [assertions](assertions.md) ✅
+- [AVL trees](avl-trees.md) ✅
+- [breakpoints](breakpoints.md) ✅
+- [debugging](debugging.md) ✅
+- [modules](modules/index.md)
+- [packages](packages.md)
+- [source code](source-code.md)
