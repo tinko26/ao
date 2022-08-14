@@ -8,6 +8,7 @@
     {% for nav in navigation %}
       <li>
         {% if nav.url %}
+          {% comment %}
           {% if forloop.first %}
             {% if page.url == nav.url %}
               <a href="{{ nav.url | relative_url }}"><span class="nav__sub-title-active">{{ nav.title }}</span></a>
@@ -15,12 +16,15 @@
               <a href="{{ nav.url | relative_url }}"><span class="nav__sub-title">{{ nav.title }}</span></a>
             {% endif %}
           {% else %}
+          {% endcomment %}
             {% if page.url contains nav.url %}
               <a href="{{ nav.url | relative_url }}"><span class="nav__sub-title-active">{{ nav.title }}</span></a>
             {% else %}
               <a href="{{ nav.url | relative_url }}"><span class="nav__sub-title">{{ nav.title }}</span></a>
             {% endif %}
+          {% comment %}
           {% endif %}
+          {% endcomment %}
         {% else %}
           <span class="nav__sub-title">{{ nav.title }}</span>
         {% endif %}

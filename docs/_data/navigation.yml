@@ -1,8 +1,6 @@
 main:
 
 side:
-  - title: "Home"
-    url: /
   - title: "Modules"
     url: /modules/
   - title: "Packages"
