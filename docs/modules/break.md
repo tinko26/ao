@@ -19,6 +19,6 @@ void ao_break();
 
 [Debugging](../debugging.md)
 
-## See Also
+## External Links
 
-🌎 [https://en.wikipedia.org/wiki/Breakpoint](https://en.wikipedia.org/wiki/Breakpoint)
+[https://en.wikipedia.org/wiki/Breakpoint](https://en.wikipedia.org/wiki/Breakpoint)

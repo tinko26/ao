@@ -38,6 +38,10 @@ if (AO_IS_ALIGNED(xu, 8))
 }
 ```
 
-## See Also
+## External Links
 
-🌎 [https://en.wikipedia.org/wiki/Data_structure_alignment](https://en.wikipedia.org/wiki/Data_structure_alignment)
+[https://en.wikipedia.org/wiki/Data_structure_alignment](https://en.wikipedia.org/wiki/Data_structure_alignment)
+
+[https://stackoverflow.com/questions/tagged/memory-alignment](https://stackoverflow.com/questions/tagged/memory-alignment)
+
+[https://stackoverflow.com/questions/tagged/memory-alignment+c](https://stackoverflow.com/questions/tagged/memory-alignment+c)
