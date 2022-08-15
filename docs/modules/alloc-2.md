@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-13
+date: 2022-08-15
 description: "The ao_alloc_2.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/alloc-2/
@@ -11,33 +11,81 @@ title: "ao_alloc_2.h"
 
 This module implements a constant-time dynamic storage allocator based on the two-level segregated fit (TLSF) algorithm proposed by Masmano et al.
 
-## Constants
+...
 
-The maximum and minimum segregation value.
+- allocation
+- deallocation
+- constant time
 
-```c
-#define AO_ALLOC_SEGREGATION_MAX
-#define AO_ALLOC_SEGREGATION_MIN
-```
+...
 
 ## Configuration
 
-| Option | |
-|--------|-|
-| `AO_ALLOC_ALLOCATED` | Indicates, whether to keep track of the current number of allocated bytes. |
-| `AO_ALLOC_ALLOCATED_MAX` | Indicates, whether to keep track of the maximum number of allocated bytes. |
-| `AO_ALLOC_FREE` | Indicates, whether to keep track of the current number of free bytes. |
-| `AO_ALLOC_FREE_MIN` | Indicates, whether to keep track of the minimum number of free bytes. |
-| `AO_ALLOC_SEGREGATION` | The base-2 logarithm of the number of secondary levels. |
-| `AO_ALLOC_SIZE` | The total size of the heap, in bytes. |
+### Allocated
+
+The allocator can be configured to keep track of the current and maximum numbers of allocated bytes. By default, these options are disabled.
+
+```c
+#define AO_ALLOC_ALLOCATED
+```
+
+```c
+#define AO_ALLOC_ALLOCATED_MAX
+```
+
+### Free
+
+Accordingly, the allocator can be configured to keep track of the current and minimum numbers of free bytes. By default, these options are disabled, too.
+
+```c
+#define AO_ALLOC_FREE
+```
+
+```c
+#define AO_ALLOC_FREE_MIN
+```
+
+### Segregation
+
+The segregation must be configured. Thereby, the chosen value must be in the range determined by the minimum and maximum segregation [constants](#constants). The default value is `3`.
+
+```c
+#define AO_ALLOC_SEGREGATION
+```
+
+The segregation has an influence on the performance of the allocator with respect to fragmentation. That is, a high segregation potentially leads to high external fragmentation, but low internal fragmentation. On the other hand, a low segregation potentially leads to low external fragmentation, but high internal fragmentation.
+
+### Size
+
+Finally, the size of the heap must be configured. The default value is `8192` bytes.
+
+```c
+#define AO_ALLOC_SIZE
+```
+
+## Constants
+
+The maximum and minimum segregation.
+
+```c
+#define AO_ALLOC_SEGREGATION_MAX
+```
+
+```c
+#define AO_ALLOC_SEGREGATION_MIN
+```
 
 ## Variables
 
-The allocator provides the following global variables for diagnostic purposes. Each one is present only if the respective configuration option is enabled.
+The module exposes the following global variables.
 
 | Variable | |
 |----------|-|
-| `ao_alloc_allocated` | The current number of allocated bytes. |
-| `ao_alloc_allocated_max` | The maximum number of allocated bytes. |
-| `ao_alloc_free` | The current number of available bytes. |
-| `ao_alloc_free_min` | The minimum number of available bytes. |
+| `ao_alloc_allocated` | The current number of allocated bytes across all pools. This variable is absent, if both the `AO_ALLOC_ALLOCATED` and `AO_ALLOC_ALLOCATED_MAX` configuration options are disabled. |
+| `ao_alloc_allocated_max` | The maximum number of allocated bytes across all pools. This variable is absent, if the `AO_ALLOC_ALLOCATED_MAX` configuration option is disabled. |
+| `ao_alloc_free` | The current number of free bytes across all pools. This variable is absent, if both the `AO_ALLOC_FREE` and `AO_ALLOC_FREE_MIN` configuration options are disabled. |
+| `ao_alloc_free_min` | The minimum number of free bytes across all pools. This variable is absent, if the `AO_ALLOC_FREE_MIN` configuration option is disabled. |
+
+## External Links
+
+[https://doi.org/10.1002/spe.858](https://doi.org/10.1002/spe.858)

@@ -42,8 +42,8 @@ The following implementations are available.
 | Value | Module                     | |
 |-------|----------------------------|-|
 | `0`   | [`ao_alloc_0`](alloc-0.md) | Stub |
-| `1`   | [`ao_alloc_1`](alloc-1.md) | Implementation based on pools of fixed-size memory blocks. |
-| `2`   | [`ao_alloc_2`](alloc-2.md) | Implementation based on the two-level segregated fit algorithm. |
+| `1`   | [`ao_alloc_1`](alloc-1.md) | Implementation based on pools of fixed-size memory blocks |
+| `2`   | [`ao_alloc_2`](alloc-2.md) | Implementation based on the two-level segregated fit algorithm |
 
 ### Callbacks
 
