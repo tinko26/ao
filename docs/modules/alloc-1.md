@@ -25,9 +25,9 @@ That way, up to 64 pools can be configured. However, there is a limit to the num
 
 This is due to the fact, that the module maintains a bitmask of type `size_t`, where each set bit indicates whether the respective pool contains at least one free block. Consequently, a clear bit indicates an empty pool.
 
-Upon allocation, the module walks the bitmask starting at the least significant bit, that is, bit 0. For each bit, it checks, whether the respective pool is not empty and the block size is sufficient to fulfil the request. It stops as soon as it has found a suitable block. Therefore, allocation is a linear-time operation.
+Upon allocation, the module walks the bitmask starting at the least significant bit, that is, bit 0. For each bit, it checks, whether the respective pool is not empty and the block size is sufficient to fulfil the request. It stops as soon as it has found a suitable block. Consequently, pools should be configured with increasing block sizes, in order to minimize internal fragmentation.
 
-In contrast, deallocation takes constant time. This is, because each block contains a header, that stores the pool, to which it belongs.
+Due to its iterative approach, allocation is a linear-time operation. In contrast, deallocation takes constant time. This is, because each block contains a header, that stores the pool, to which it belongs.
 
 ## Configuration
 
@@ -203,7 +203,10 @@ The module exposes the following global variables.
 | `ao_alloc_allocated_max` | The maximum number of allocated bytes across all pools. This variable is absent, if the `AO_ALLOC_ALLOCATED_MAX` configuration option is disabled. |
 | `ao_alloc_free` | The current number of free bytes across all pools. This variable is absent, if both the `AO_ALLOC_FREE` and `AO_ALLOC_FREE_MIN` configuration options are disabled. |
 | `ao_alloc_free_min` | The minimum number of free bytes across all pools. This variable is absent, if the `AO_ALLOC_FREE_MIN` configuration option is disabled. |
-| `ao_alloc_pool_0` | Pool 0. This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_0` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_0` is zero or if the `size_t` type has less than 1 bit. |
-| `ao_alloc_pool_1` | Pool 1. This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_1` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_1` is zero or if the `size_t` type has less than 2 bits. |
+| `ao_alloc_pool_0` | Pool 0. This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_0` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_0` is zero. |
+| `ao_alloc_pool_1` | Pool 1. This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_1` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_1` is zero. |
+| ... | ... |
+| `ao_alloc_pool_15` | Pool 15. This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_15` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_15` is zero. |
+| `ao_alloc_pool_16` | Pool 16. This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_16` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_16` is zero or if the `size_t` type has less than 17 bits. |
 | ... | ... |
 | `ao_alloc_pool_63` | Pool 63. This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_63` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_63` is zero or if the `size_t` type has less than 64 bits. |
