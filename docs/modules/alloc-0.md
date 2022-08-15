@@ -2,7 +2,7 @@
 author: "Stefan Wagner"
 date: 2022-08-13
 description: "The ao_alloc_0.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/alloc-0/
 title: "ao_alloc_0.h"
 ---

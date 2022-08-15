@@ -9,8 +9,11 @@ title: "ao_alloc.h"
 
 # ao_alloc.h
 
+...
+
 This module encapsulates an allocator that supports dynamic memory management.
 
+- standard library contains similar functions, but not in a freestanding runtime environment.
 - dynamic memory management
 - reference counting
 - allocate, release, retain
@@ -22,9 +25,13 @@ This module encapsulates an allocator that supports dynamic memory management.
 
 - wiki: "provide ways to dynamically allocate portions of memory to programs at their request, and free it for reuse when no longer needed"
 
+...
+
 ## Configuration
 
-The implementation of the allocator is selected by a macro constant. Its default value is `2`, which selects a constant-time implementation based on the two-level segregated fit algorithm proposed by Masmano et al.
+### Implementation
+
+The implementation of the allocator is selected by a macro constant. Its default value is `2`, which selects an implementation based on the two-level segregated fit algorithm proposed by Masmano et al.
 
 ```c
 #define AO_ALLOC
@@ -37,6 +44,8 @@ The following implementations are available.
 | `0`   | [`ao_alloc_0`](alloc-0.md) | Stub |
 | `1`   | [`ao_alloc_1`](alloc-1.md) | Implementation based on pools of fixed-size memory blocks. |
 | `2`   | [`ao_alloc_2`](alloc-2.md) | Implementation based on the two-level segregated fit algorithm. |
+
+### Callbacks
 
 Additionally, the allocator can execute a callback upon each call to `ao_acquire()`, `ao_release()`, or `ao_retain()`, respectively, which can aid in debugging an application or tracing and optimizing the memory usage of the allocator. By default, these options are disabled.
 
@@ -149,7 +158,7 @@ The `ao_release()` function reliquinshes ownership of a memory block. Therefore,
 bool ao_release(void * ptr);
 ```
 
-The behavior of this function is undefined, if the memory block has been deallocated previously. Therefore, ownership of a memory block of should be relinquished only, if it has been taken previously by the same thread of execution by calling `ao_acquire()` or `ao_retain()`, respectively.
+The behavior of this function is undefined, if the memory block has been deallocated previously. Therefore, ownership of a memory block should be relinquished only, if it has been taken previously by the same thread of execution by calling `ao_acquire()` or `ao_retain()`, respectively.
 
 The `ao_retain()` function increments the reference count of a memory block, which means, that the calling thread of execution (once again) takes ownership thereof. 
 
