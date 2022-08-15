@@ -9,7 +9,7 @@ title: "ao_buffer4obj.h"
 
 # ao_buffer4obj.h
 
-This module defines object buffer. In contrast to ordinary [buffers](../buffers.md), they do not temporarily store a stream of bytes of arbitrary length, but fixed-size blocks of memory, or objects.
+This module defines object buffers. In contrast to ordinary [buffers](buffer.md), they do not temporarily store a stream of bytes of arbitrary length, but fixed-size blocks of memory, or objects.
 
 ## Configuration
 
@@ -167,5 +167,7 @@ ao_buffer4obj_peek_range_front(b, D, 1, 4);
 ```
 
 ## External Links
+
+[https://en.wikipedia.org/wiki/Circular_buffer](https://en.wikipedia.org/wiki/Circular_buffer)
 
 [https://en.wikipedia.org/wiki/Data_buffer](https://en.wikipedia.org/wiki/Data_buffer)

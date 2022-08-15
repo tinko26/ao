@@ -9,7 +9,7 @@ title: "ao_buffer4ptr.h"
 
 # ao_buffer4ptr.h
 
-This module defines pointer buffers. In contrast to ordinary [buffers](../buffers.md), they do not temporarily store a stream of bytes of arbitrary length, but pointers.
+This module defines pointer buffers. In contrast to ordinary [buffers](buffer.md), they do not temporarily store a stream of bytes of arbitrary length, but pointers.
 
 ## Configuration
 
@@ -152,5 +152,7 @@ ao_buffer4ptr_peek_range_front(b, P, 1, 4);
 ```
 
 ## External Links
+
+[https://en.wikipedia.org/wiki/Circular_buffer](https://en.wikipedia.org/wiki/Circular_buffer)
 
 [https://en.wikipedia.org/wiki/Data_buffer](https://en.wikipedia.org/wiki/Data_buffer)

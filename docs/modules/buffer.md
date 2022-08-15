@@ -153,4 +153,6 @@ ao_buffer_peek_range_front(b, &d4, 1, 4);
 
 ## External Links
 
+[https://en.wikipedia.org/wiki/Circular_buffer](https://en.wikipedia.org/wiki/Circular_buffer)
+
 [https://en.wikipedia.org/wiki/Data_buffer](https://en.wikipedia.org/wiki/Data_buffer)
