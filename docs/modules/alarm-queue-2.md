@@ -46,7 +46,3 @@ The module exposes the following global variables.
 |----------|-|
 | `ao_alloc_queue_count` | The current number of elements. |
 | `ao_alloc_queue_count_max` | The maximum number of elements. This variable is absent, if the `AO_ALARM_QUEUE_COUNT_MAX` configuration option is disabled. |
-
-## External Links
-
-[https://en.wikipedia.org/wiki/Binary_heap](https://en.wikipedia.org/wiki/Binary_heap)

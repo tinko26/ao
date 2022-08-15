@@ -25,7 +25,3 @@ The alarm queue can be configured to check its correctness upon each insertion a
 ```c
 #define AO_ALARM_QUEUE_ASSERT
 ```
-
-## External Links
-
-[https://en.wikipedia.org/wiki/Binary_heap](https://en.wikipedia.org/wiki/Binary_heap)

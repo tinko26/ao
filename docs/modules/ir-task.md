@@ -9,7 +9,7 @@ title: "ao_ir_task.h"
 
 # ao_ir_task.h
 
-This module declares functions for controlling the task switch interrupts as well as callback functions for the interrupt handlers. This module is abstract, that is, an implementation must be provided by a port package in order to support [multitasking](../multitasking.md).
+This module declares functions for controlling the task switch interrupts as well as a callback function for the interrupt handlers. This module is abstract, that is, an implementation must be provided by a port package in order to support [multitasking](../multitasking.md).
 
 ## Functions
 

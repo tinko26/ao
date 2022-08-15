@@ -31,7 +31,3 @@ Peeking the alarm queue is a quite frequent operation. However, with this implem
 ```c
 #define AO_ALARM_QUEUE_CACHE
 ```
-
-## External Links
-
-[https://en.wikipedia.org/wiki/Red–black_tree](https://en.wikipedia.org/wiki/Red–black_tree)
