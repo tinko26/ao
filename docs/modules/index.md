@@ -21,8 +21,8 @@ title: "Modules"
 | [`ao_alarm_queue_5.h`](alarm-queue-5.md) | Alarm queue based on a red-black tree | ✅ |
 | [`ao_align.h`](align.md) | Memory alignment | ✅ |
 | [`ao_alloc.h`](alloc.md) | Allocator |
-| [`ao_alloc_0.h`](alloc-0.md) | Allocator stub |
-| [`ao_alloc_1.h`](alloc-1.md) | Allocator based on pools of fixed-size memory blocks |
+| [`ao_alloc_0.h`](alloc-0.md) | Allocator stub | ✅ |
+| [`ao_alloc_1.h`](alloc-1.md) | Allocator based on pools of fixed-size memory blocks | ✅ |
 | [`ao_alloc_2.h`](alloc-2.md) | Allocator based on the two-level segregated fit algorithm |
 | [`ao_are.h`](are.md) | Auto-reset events |
 | [`ao_assert.h`](assert.md) | Runtime assertions | ✅ |

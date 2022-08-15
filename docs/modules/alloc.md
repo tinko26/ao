@@ -131,7 +131,7 @@ struct ao_retained_t
 It consists of the following members.
 
 | Member | |
-|--------| |
+|--------|-|
 | `ptr` | The pointer to the memory block, that is, the parameter value that the function was called with. |
 | `ref` | The current reference count of the memory block. If the operation has succeeded, then this value should be greater than `1`. |
 | `result` | Indicates whether the operation has succeeded (`true`) or failed (`false`). |
