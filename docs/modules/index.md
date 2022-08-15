@@ -14,11 +14,11 @@ title: "Modules"
 | [`ao_alarm.h`](alarm.md) | Alarms |
 | [`ao_alarm_queue.h`](alarm-queue.md) | Alarm queue |
 | [`ao_alarm_queue_0.h`](alarm-queue-0.md) | Alarm queue stub | ✅ |
-| [`ao_alarm_queue_1.h`](alarm-queue-1.md) | Alarm queue based on a sorted list |
-| [`ao_alarm_queue_2.h`](alarm-queue-2.md) | Alarm queue based on an array-based heap  |
-| [`ao_alarm_queue_3.h`](alarm-queue-3.md) | Alarm queue based on a pointer-based heap |
-| [`ao_alarm_queue_4.h`](alarm-queue-4.md) | Alarm queue based on an AVL tree |
-| [`ao_alarm_queue_5.h`](alarm-queue-5.md) | Alarm queue based on a red-black tree |
+| [`ao_alarm_queue_1.h`](alarm-queue-1.md) | Alarm queue based on a sorted list | ✅ |
+| [`ao_alarm_queue_2.h`](alarm-queue-2.md) | Alarm queue based on an array-based heap  | ✅ |
+| [`ao_alarm_queue_3.h`](alarm-queue-3.md) | Alarm queue based on a pointer-based heap | ✅ |
+| [`ao_alarm_queue_4.h`](alarm-queue-4.md) | Alarm queue based on an AVL tree | ✅ |
+| [`ao_alarm_queue_5.h`](alarm-queue-5.md) | Alarm queue based on a red-black tree | ✅ |
 | [`ao_align.h`](align.md) | Memory alignment | ✅ |
 | [`ao_alloc.h`](alloc.md) | Allocator |
 | [`ao_alloc_0.h`](alloc-0.md) | Allocator stub |

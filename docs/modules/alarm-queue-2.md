@@ -9,7 +9,7 @@ title: "ao_alarm_queue_2.h"
 
 # ao_alarm_queue_2.h
 
-This module implements the [alarm queue](../alarm-queue.md) using an array-based binary heap. Since the array is allocated statically, the capacity of the alarm queue is both fixed and limited, which can pose a challenge on a proper configuration. The following table exhibits the time complexities of the individual operations.
+This module implements the [alarm queue](../alarm-queue.md) using an array-based [binary heap](../binary-heaps.md). Since the array is allocated statically, the capacity of the alarm queue is both fixed and limited, which can pose a challenge on a proper configuration. The following table exhibits the time complexities of the individual operations.
 
 | Operation | |
 |-----------|-|
@@ -26,13 +26,13 @@ The capacity of the alarm queue must be configured properly. The default value i
 #define AO_ALARM_QUEUE_CAPACITY
 ```
 
-The alarm queue keeps track if the current number of elements. Additionally, it can be configured to keep track of the maximum number. By default, this option is disabled.
+The alarm queue keeps track of the current number of elements. Additionally, it can be configured to keep track of the maximum number. By default, this option is disabled.
 
 ```c
 #define AO_ALARM_QUEUE_COUNT_MAX
 ```
 
-The alarm queue can configured to check its correctness upon each insertion and removal, which takes linear time. If that is not the case, a runtime [assertion](../assertions.md) failure is triggered. This can aid in a debugging scenario. By default, this option is disabled.
+The alarm queue can be configured to check its correctness upon each insertion and removal, which takes linear time. If that is not the case, a runtime [assertion](../assertions.md) failure is triggered. This can aid in a debugging scenario. By default, this option is disabled.
 
 ```c
 #define AO_ALARM_QUEUE_ASSERT
