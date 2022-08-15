@@ -9,7 +9,7 @@ title: "ao_alarm_queue_1.h"
 
 # ao_alarm_queue_1.h
 
-This module implements the [alarm queue](../alarm-queue.md) based on a [sorted list](../sorted-lists.md). Therefore, the alarm queue can contain an unbounded number of alarms. The following table exhibits the time complexities of the individual operations.
+This module implements the [alarm queue](../alarm-queue.md) based on a [sorted list](../sorted-lists.md). Therefore, the alarm queue can contain an unlimited number of alarms. The following table exhibits the time complexities of the individual operations.
 
 | Operation | |
 |-----------|-|
@@ -20,7 +20,7 @@ This module implements the [alarm queue](../alarm-queue.md) based on a [sorted l
 
 ## Configuration
 
-Upon each insertion and removal, the alarm queue can be configured to check, whether its elements are still correctly ordered, which takes linear time. This can aid in a debugging scenario. By default, this option is disabled.
+The alarm queue can be configured to check its correctness upon each insertion and removal, which takes linear time. If that is not the case, a runtime [assertion](../assertions.md) failure is triggered. This can aid in a debugging scenario. By default, this option is disabled.
 
 ```c
 #define AO_ALARM_QUEUE_ASSERT
