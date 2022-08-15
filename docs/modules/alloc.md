@@ -35,14 +35,20 @@ The following implementations are available.
 | Value | Module                     | |
 |-------|----------------------------|-|
 | `0`   | [`ao_alloc_0`](alloc-0.md) | Stub |
-| `1`   | [`ao_alloc_1`](alloc-1.md) | Linear-time allocator based on pools of fixed-size memory blocks. |
-| `2`   | [`ao_alloc_2`](alloc-2.md) | Constant-time allocator based on the two-level segregated fit algorithm proposed by Masmano et al. |
+| `1`   | [`ao_alloc_1`](alloc-1.md) | Implementation based on pools of fixed-size memory blocks. |
+| `2`   | [`ao_alloc_2`](alloc-2.md) | Implementation based on the two-level segregated fit algorithm. |
 
 Additionally, the allocator can execute a callback upon each call to `ao_acquire()`, `ao_release()`, or `ao_retain()`, respectively, which can aid in debugging an application or tracing and optimizing the memory usage of the allocator. By default, these options are disabled.
 
 ```c
 #define AO_ACQUIRED
+```
+
+```c
 #define AO_RELEASED
+```
+
+```c
 #define AO_RETAINED
 ```
 
@@ -125,14 +131,54 @@ It consists of the following members.
 
 ## Functions
 
-- ao_acquire()
-- ao_release()
-- ao_retain()
+The `ao_acquire()` function allocates a memory block of the specified size.
 
-- ao_acquired()
-- ao_released()
-- ao_retained()
+```c
+void * ao_acquire(size_t size);
+```
 
-- ao_new()
-- ao_delete()
+If the operation succeeds, then the functions returns a pointer to the beginning of the allocated memory block. Thereby, that pointer is suitably aligned for any object type with fundamental alignment. But, the content of the memory block is not initialized, remaining with indeterminate values.
 
+Additionally, the reference count of the memory block is initialized with `1`. Therefore, the calling thread of execution takes ownership of the memory block.
+
+If the operation fails, then the function returns `NULL`. This is either because the specified size is `0` or the allocator cannot find a memory block large enough.
+
+The `ao_release()` function reliquinshes ownership of a memory block. Therefore, it decrements its reference count. If the reference count reaches zero, then this function additionally deallocates the memory block, making it available for further allocations.
+
+```c
+bool ao_release(void * ptr);
+```
+
+The behavior of this function is undefined, if the memory block has been deallocated previously. Therefore, ownership of a memory block of should be relinquished only, if it has been taken previously by the same thread of execution by calling `ao_acquire()` or `ao_retain()`, respectively.
+
+The `ao_retain()` function increments the reference count of a memory block, which means, that the calling thread of execution (once again) takes ownership thereof. 
+
+The Boolean value returned by the `ao_release()` or `ao_retain()` function, respectively, indicates whether the operation has succeeded or failed. The latter happens, if the specified pointer is `NULL`. Nevertheless, the functions' behavior is well-defined in this case. They simply do nothing but return.
+
+In addition to the three core functions, the module defines a macro function that provides a convenient way to allocate a memory block for a specific type of object.
+
+```c
+double * x = ao_new(double);
+```
+
+The opposite operation is defined as a macro function, too.
+
+```c
+ao_delete(x);
+```
+
+## Callbacks
+
+If the respective configuration options are enabled, then the allocator executes the following callbacks, which must be implemented by the application.
+
+```c
+void ao_acquired(ao_acquired_t const * info);
+```
+
+```c
+void ao_released(ao_released_t const * info);
+```
+
+```c
+void ao_retained(ao_retained_t const * info);
+```
