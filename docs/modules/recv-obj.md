@@ -8,3 +8,10 @@ title: "ao_recv_obj.h"
 ---
 
 # ao_recv_obj.h
+
+It consists of the following members.
+
+| Member | |
+|--------|-|
+| `` | |
+

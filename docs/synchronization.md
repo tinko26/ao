@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-12
+date: 2022-08-16
 description: "Synchronization in the ao real-time operating system."
 draft: true
 permalink: /synchronization/
@@ -20,8 +20,25 @@ title: "Synchronization"
 - awaiting or polling for all out many asynchronous events
 
 - proxies
+- task does not directly wait for a resources, but uses a proxy object that represents the waiting.
+- the proxy can be allocated on the stack
+- the proxy encapsulates an asynchronous event and all other information about the waiting (e.g. result)
+- the proxy concept allows to clearly separate three stages of waiting: (1) begin or prepare (2) block (3) end or follow up.
+- that separation, in turn, allows to begin a multitude of waitings, then block only once in order to await (any subset) of the respective asynchronous events, then end the multitude of waitings. 
+- this leads to greater flexibility in task design and less context switches / overhead
 
 - the typical synchronization API
+  
+- wait_begin(proxy) ... begin, not blocking
+- wait_end(proxy) ... end, not blocking
+- in between, there is supposed to be a call to ao_await(), that might block.
+
+- wait(resource, timeout) ... begin, block until timeout expires, end
+- wait_from(resource, timeout, beginning) ... begin, block until timeout expires, end
+
+- wait_forever(resource) ... begin, block indefinitely, end
+
+- wait_try(resource) ... begin, end
 
 ## Primitives
 

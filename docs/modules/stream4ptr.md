@@ -8,3 +8,10 @@ title: "ao_stream4ptr.h"
 ---
 
 # ao_stream4ptr.h
+
+It consists of the following members.
+
+| Member | |
+|--------|-|
+| `` | |
+

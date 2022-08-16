@@ -8,3 +8,10 @@ title: "ao_send_ptr.h"
 ---
 
 # ao_send_ptr.h
+
+It consists of the following members.
+
+| Member | |
+|--------|-|
+| `` | |
+

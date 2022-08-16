@@ -8,3 +8,10 @@ title: "ao_stream4obj.h"
 ---
 
 # ao_stream4obj.h
+
+It consists of the following members.
+
+| Member | |
+|--------|-|
+| `` | |
+
