@@ -146,7 +146,7 @@ The `ao_acquire()` function allocates a memory block of the specified size.
 void * ao_acquire(size_t size);
 ```
 
-If the operation succeeds, then the functions returns a pointer to the beginning of the allocated memory block. Thereby, that pointer is suitably aligned for any object type with fundamental alignment. But, the content of the memory block is not initialized, remaining with indeterminate values.
+If the operation succeeds, then the function returns a pointer to the beginning of the allocated memory block. Thereby, that pointer is suitably aligned for any object type with fundamental alignment. But, the content of the memory block is not initialized, remaining with indeterminate values.
 
 Additionally, the reference count of the memory block is initialized with `1`. Therefore, the calling thread of execution takes ownership of the memory block.
 
