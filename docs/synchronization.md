@@ -58,11 +58,11 @@ The following modules provide synchronization primitives.
 | [`ao_pmail.h`](modules/pmail.md) | Priority mail for asynchronous messaging. |
 | [`ao_queue4obj.h`](modules/queue4obj.md) | Priority queues for objects. |
 | [`ao_queue4ptr.h`](modules/queue4ptr.md) | Priority queues for pointers. |
-| [`ao_rw.h`](modules/rw.md) | Readers-writer locks preferring readers. |
 | [`ao_recv.h`](modules/recv.md) | Receiving bytes. |
 | [`ao_recv_obj.h`](modules/recv-obj.md) | Receiving objects. |
 | [`ao_recv_ptr.h`](modules/recv-ptr.md) | Receiving pointers. |
 | [`ao_rendezvous.h`](modules/rendezvous.md) | Rendezvous. |
+| [`ao_rw.h`](modules/rw.md) | Readers-writer locks preferring readers. |
 | [`ao_sem.h`](modules/sem.md) | Counting semaphores. |
 | [`ao_send.h`](modules/send.md) | Sending bytes. |
 | [`ao_send_obj.h`](modules/send-obj.md) | Sending objects. |
