@@ -3,3 +3,5 @@ main:
 side:
   - title: "Modules"
     url: /modules/
+  - title: "Source Code"
+    url: /source-code/
