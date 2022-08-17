@@ -33,7 +33,7 @@
         <li class="current">{{ page.title }}</li>
         {% if page.draft %}
         <span class="sep">|</span>
-        <li>🚧</li>
+        <li><i class="fas fa-fw fa-person-digging" aria-hidden="true"></i></li>
         {% endif %}
       {% else %}
         {% assign i = i | plus: 1 %}
