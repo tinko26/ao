@@ -11,7 +11,21 @@ title: "ao_task.h"
 
 ...
 
+- pending state:
+- when a task is running, a state transition might not be possible immediately. First, the task must be switched out, which is a scheduler function, which can be executed in the context of a task switch interrupt, only. 
+- task blocks
+- task yields
+- task suspends itself
+- task stops itself
+- task is suspended by an interrupt or by another task (that is running on another core)
+- task is stopped by in interrupt or by another task (that is running on another core)
+- therefore, such a state transition is recorded in the `state_pending` member.
+
+...
+
 ## Configuration
+
+...
 
 ## Types
 
@@ -24,6 +38,7 @@ struct ao_task_t
 {
     ao_block_t *            block;
     ao_task_context_t       context;
+
     struct
     {
         ao_uint_t           activate;
@@ -38,6 +53,7 @@ struct ao_task_t
         ao_uint_t           unblock;
     }
                             count;
+
     ao_uint_t               id;
     char const *            name;
     ao_proc_t               proc;
@@ -48,6 +64,7 @@ struct ao_task_t
     ao_task_state_t         state;
     ao_task_state_pending_t state_pending;
     ao_int_t                suspended;
+
     struct
     {
         struct
@@ -114,7 +131,29 @@ It consists of the following members.
 
 ### Task State
 
+The `ao_task_state_t` type represents task states. It is used as a bitmask and defines the following symbols.
+
+| Symbol                | Bitmask | |
+|-----------------------|---------|-|
+| `AO_TASK_ACTIVE`      | `0011`  | The task is active, that is, it is ready or running. |
+| `AO_TASK_BLOCKED`     | `0100`  | The task is blocked. |
+| `AO_TASK_READY`       | `0001`  | The task is ready. |
+| `AO_TASK_RUNNING`     | `0010`  | The task is running. |
+| `AO_TASK_STARTED`     | `1111`  | The task is started, that is, it is ready, running, blocked, or suspended. |
+| `AO_TASK_STOPPED`     | `0000`  | The task is stopped. |
+| `AO_TASK_SUSPENDABLE` | `0111`  | The task is suspendable, that is, it is ready, running, or blocked. |
+| `AO_TASK_SUSPENDED`   | `1000`  | The task is suspended. |
+
 ### Task State Pending
+
+The `ao_task_state_pending_t` type represents a pending task state transition. It is used as a bitmask and defines the following symbols.
+
+| Symbol               | Bitmask | |
+|----------------------|---------|-|
+| `AO_TASK_STOPPING`   | `0001`  | The task is stopping. |
+| `AO_TASK_BLOCKING`   | `0010`  | The task is blocking. |
+| `AO_TASK_SUSPENDING` | `0100`  | The task is supending. |
+| `AO_TASK_YIELDING`   | `1000`  | The task is yielding. |
 
 ## Initialization
 
