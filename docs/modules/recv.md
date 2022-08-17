@@ -158,7 +158,7 @@ It consists of the following members.
 | `end` | The function ending the receiving. |
 | `parameter` | An additional parameter. |
 | `ptr` | The location to store the received data. |
-| `result` | Indicates whether data has been received. |
+| `result` | Indicates whether at least `count_min` bytes and at most `count_max` bytes have been received. |
 
 ### Receiving Procedure
 
@@ -187,13 +187,13 @@ ao_recv_from(x, AO_MILLISECONDS(500), ao_now());
 ao_recv_forever(x);
 ```
 
-Additionally, data can be received in non-blocking fashion, which succeeds, only if data is available immediately.
+Also, data can be received in a non-blocking fashion, which succeeds, only if data is available immediately.
 
 ```c
 ao_recv_try(x);
 ```
 
-Finally, the receiving can be stripped down.
+Finally, the process can be stripped down into the three stages of beginning, awaiting, and ending the receiving of data.
 
 ```c
 // Begin.
@@ -208,19 +208,25 @@ ao_recv_end(x);
 
 ## Usage
 
-Prior to calling any of the above functions, the receiving must be initialized.
+Prior to calling any of the above functions, the receiving proxy must be initialized properly.
 
 ```c
+// The buffer to store the received data.
 uint8_t data[4];
 ```
 
 ```c
+// The minimum number of bytes to receive.
 x->count_min = 1;
+
+// The maximum number of bytes to receive.
 x->count_max = 4;
+
+// The pointer to the store.
 x->ptr = data;
 ```
 
-Afterwards, the success of the operation can be verified.
+Afterwards, it should be verified whether data has actually been received.
 
 ```c
 if (x->result)
