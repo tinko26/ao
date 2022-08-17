@@ -135,18 +135,18 @@ The `ao_task_state_t` type represents task states. It is used as a bitmask and d
 
 | Symbol                | Bitmask | |
 |-----------------------|---------|-|
-| `AO_TASK_ACTIVE`      | `0011`  | The task is active, that is, it is ready or running. |
-| `AO_TASK_BLOCKED`     | `0100`  | The task is blocked. |
+| `AO_TASK_STOPPED`     | `0000`  | The task is stopped. |
 | `AO_TASK_READY`       | `0001`  | The task is ready. |
 | `AO_TASK_RUNNING`     | `0010`  | The task is running. |
-| `AO_TASK_STARTED`     | `1111`  | The task is started, that is, it is ready, running, blocked, or suspended. |
-| `AO_TASK_STOPPED`     | `0000`  | The task is stopped. |
-| `AO_TASK_SUSPENDABLE` | `0111`  | The task is suspendable, that is, it is ready, running, or blocked. |
+| `AO_TASK_BLOCKED`     | `0100`  | The task is blocked. |
 | `AO_TASK_SUSPENDED`   | `1000`  | The task is suspended. |
+| `AO_TASK_ACTIVE`      | `0011`  | The task is active, that is, it is ready or running. |
+| `AO_TASK_SUSPENDABLE` | `0111`  | The task is suspendable, that is, it is ready, running, or blocked. |
+| `AO_TASK_STARTED`     | `1111`  | The task is started, that is, it is ready, running, blocked, or suspended. |
 
 ### Task State Pending
 
-The `ao_task_state_pending_t` type represents a pending task state transition. It is used as a bitmask and defines the following symbols.
+The `ao_task_state_pending_t` type represents pending task state transitions. It is used as a bitmask and defines the following symbols.
 
 | Symbol               | Bitmask | |
 |----------------------|---------|-|
@@ -165,9 +165,19 @@ The `ao_task_state_pending_t` type represents a pending task state transition. I
 
 ## Callback
 
-...
+The `ao_task_entry()` function is the entry point for each task. It takes the respective task as its only argument.
+
+```c
+void ao_task_entry(ao_task_t const * t);
+```
+
+First, this function calls the task procedure, if specified. Then, after the task procedure has returned, it locks the task in an infinite loop, in order to avoid to return accidentally.
 
 ## Variables
 
-...
+The module exposes the following global variables.
 
+| Variable | |
+|----------|-|
+| `ao_task_main` | The task executing the `main()` function. |
+| `ao_task_running[]` | The running task for each core. |
