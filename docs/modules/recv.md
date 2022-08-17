@@ -174,20 +174,23 @@ Data can be received in a blocking fashion.
 
 ```c
 ao_recv_t * x;
+
+ao_time_t timeout = AO_MILLISECONDS(500);
+ao_time_t beginning = ao_now();
 ```
 
 ```c
 // Receive with timeout.
-ao_recv(x, AO_MILLISECONDS(500));
+ao_recv(x, timeout);
 
 // Receive with timeout and beginning.
-ao_recv_from(x, AO_MILLISECONDS(500), ao_now());
+ao_recv_from(x, timeout, beginning);
 
 // Receive without timeout.
 ao_recv_forever(x);
 ```
 
-Also, data can be received in a non-blocking fashion, which succeeds, only if data is available immediately.
+Also, data can be received in a non-blocking fashion, which succeeds only if data is available immediately.
 
 ```c
 ao_recv_try(x);
@@ -200,7 +203,7 @@ Finally, the process can be stripped down into the three stages of beginning, aw
 ao_recv_begin(x);
 
 // Await.
-ao_await(&x->async, AO_MILLISECONDS(500));
+ao_await(&x->async, timeout);
 
 // End.
 ao_recv_end(x);
@@ -216,10 +219,8 @@ uint8_t data[4];
 ```
 
 ```c
-// The minimum number of bytes to receive.
+// The number of bytes to receive.
 x->count_min = 1;
-
-// The maximum number of bytes to receive.
 x->count_max = 4;
 
 // The pointer to the store.
@@ -231,7 +232,6 @@ Afterwards, it should be verified whether data has actually been received.
 ```c
 if (x->result)
 {
-    // x->count bytes have been received
-    // and stored in the data variable.
+    // x->count bytes have been received.
 }
 ```
