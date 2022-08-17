@@ -84,6 +84,10 @@ It consists of the following members.
 | `queue` | The queue. |
 | `result` | Indicates whether data has been popped from the queue. |
 
+## Initialization
+
+...
+
 ## Functions
 
 ### Inserting

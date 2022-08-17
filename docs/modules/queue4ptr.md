@@ -84,9 +84,17 @@ It consists of the following members.
 | `queue` | The queue. |
 | `result` | Indicates whether a pointer has been popped from the queue. |
 
+## Initialization
+
+...
+
 ## Functions
 
 ### Inserting
+
+...
+
+### Inserting an Acquired Pointer
 
 ...
 

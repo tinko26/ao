@@ -63,7 +63,7 @@ It consists of the following members.
 
 ### Counter Adjusting
 
-The `ao_counter_adjust_t` type represents a function to adjust the value of a counter. That function takes the old value and an additional parameter and returns the new value.
+The `ao_counter_adjust_t` type represents a function to adjust the value of a counter. The function takes the old value and an additional parameter and returns the new value.
 
 ```c
 typedef ao_uint_t (* ao_counter_adjust_t)
@@ -85,6 +85,10 @@ typedef bool (* ao_counter_match_t)
     void *    parameter
 );
 ```
+
+## Initialization
+
+...
 
 ## Functions
 
