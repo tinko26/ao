@@ -42,8 +42,8 @@ ao_spop_t * spop;
 ```c
 char c;
 
-spop->count_max = 1;
 spop->count_min = 1;
+spop->count_max = 1;
 spop->ptr = &c;
 
 while (1)
@@ -78,8 +78,8 @@ ao_recv_t * recv;
 ```c
 char c;
 
-recv->count_max = 1;
 recv->count_min = 1;
+recv->count_max = 1;
 recv->ptr = &c;
 
 while (1)
@@ -109,7 +109,7 @@ Of course, the `recv` object must be properly initialized by the application bef
 ao_recv_from_stream(recv, spop);
 ```
 
-... and [receiving data from a callback](recv-from-callback.md).
+... and [receiving data from a callback](recv-from-callback.md). The latter can be quite useful, for example when implementing a mock for a testing scenario.
 
 ```c
 void callback(ao_recv_t * x)
@@ -157,7 +157,7 @@ It consists of the following members.
 | `count_min` | The minimum number of bytes to receive. |
 | `end` | The function ending the receiving. |
 | `parameter` | An additional parameter. |
-| `ptr` | Points to a location to store the received data. |
+| `ptr` | The location to store the received data. |
 | `result` | Indicates whether data has been received. |
 
 ### Receiving Procedure
@@ -170,4 +170,62 @@ typedef void (* ao_recv_proc_t) (ao_recv_t * x);
 
 ## Functions
 
-...
+Data can be received in a blocking fashion.
+
+```c
+ao_recv_t * x;
+```
+
+```c
+// Receive with timeout.
+ao_recv(x, AO_MILLISECONDS(500));
+
+// Receive with timeout and beginning.
+ao_recv_from(x, AO_MILLISECONDS(500), ao_now());
+
+// Receive without timeout.
+ao_recv_forever(x);
+```
+
+Additionally, data can be received in non-blocking fashion, which succeeds, only if data is available immediately.
+
+```c
+ao_recv_try(x);
+```
+
+Finally, the receiving can be stripped down.
+
+```c
+// Begin.
+ao_recv_begin(x);
+
+// Await.
+ao_await(&x->async, AO_MILLISECONDS(500));
+
+// End.
+ao_recv_end(x);
+```
+
+## Usage
+
+Prior to calling any of the above functions, the receiving must be initialized.
+
+```c
+uint8_t data[4];
+```
+
+```c
+x->count_min = 1;
+x->count_max = 4;
+x->ptr = data;
+```
+
+Afterwards, the success of the operation can be verified.
+
+```c
+if (x->result)
+{
+    // x->count bytes have been received
+    // and stored in the data variable.
+}
+```

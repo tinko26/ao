@@ -75,13 +75,13 @@ title: "Modules"
 | [`ao_recv_from_callback.h`](recv-from-callback.md) | Receiving from callbacks | ✅ |
 | [`ao_recv_from_stream.h`](recv-from-stream.md) | Receiving from streams | ✅ |
 | [`ao_recv_obj.h`](recv-obj.md) | Receiving objects |
-| [`ao_recv_obj_from_callback.h`](recv-obj-from-callback.md) | Receiving objects from callbacks |
-| [`ao_recv_obj_from_queue.h`](recv-obj-from-queue.md) | Receiving objects from queues |
-| [`ao_recv_obj_from_stream.h`](recv-obj-from-stream.md) | Receiving objects from streams |
+| [`ao_recv_obj_from_callback.h`](recv-obj-from-callback.md) | Receiving objects from callbacks | ✅ |
+| [`ao_recv_obj_from_queue.h`](recv-obj-from-queue.md) | Receiving objects from queues | ✅ |
+| [`ao_recv_obj_from_stream.h`](recv-obj-from-stream.md) | Receiving objects from streams | ✅ |
 | [`ao_recv_ptr.h`](recv-ptr.md) | Receiving pointers |
-| [`ao_recv_ptr_from_callback.h`](recv-ptr-from-callback.md) | Receiving pointers from callbacks |
-| [`ao_recv_ptr_from_queue.h`](recv-ptr-from-queue.md) | Receiving pointers from queues |
-| [`ao_recv_ptr_from_stream.h`](recv-ptr-from-stream.md) | Receiving pointers from streams |
+| [`ao_recv_ptr_from_callback.h`](recv-ptr-from-callback.md) | Receiving pointers from callbacks | ✅ |
+| [`ao_recv_ptr_from_queue.h`](recv-ptr-from-queue.md) | Receiving pointers from queues | ✅ |
+| [`ao_recv_ptr_from_stream.h`](recv-ptr-from-stream.md) | Receiving pointers from streams | ✅ |
 | [`ao_rendezvous.h`](rendezvous.md) | Rendezvous |
 | [`ao_rw.h`](rw.md) | Readers-writer locks preferring readers |
 | [`ao_scan.h`](scan.md) | Converting numbers from string | ✅ |
