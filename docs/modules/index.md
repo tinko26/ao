@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-15
+date: 2022-08-17
 description: "The modules of the ao real-time operating system."
 draft: true
 permalink: /modules/
@@ -71,9 +71,9 @@ title: "Modules"
 | [`ao_queue4ptr.h`](queue4ptr.md) | Queues for pointers |
 | [`ao_rand.h`](rand.md) | Random value generators | ✅ |
 | [`ao_rb.h`](rb.md) | Red-black trees | ✅ |
-| [`ao_recv.h`](recv.md) | Receiving |
-| [`ao_recv_from_callback.h`](recv-from-callback.md) | Receiving from callbacks |
-| [`ao_recv_from_stream.h`](recv-from-stream.md) | Receiving from streams |
+| [`ao_recv.h`](recv.md) | Receiving | ✅ |
+| [`ao_recv_from_callback.h`](recv-from-callback.md) | Receiving from callbacks | ✅ |
+| [`ao_recv_from_stream.h`](recv-from-stream.md) | Receiving from streams | ✅ |
 | [`ao_recv_obj.h`](recv-obj.md) | Receiving objects |
 | [`ao_recv_obj_from_callback.h`](recv-obj-from-callback.md) | Receiving objects from callbacks |
 | [`ao_recv_obj_from_queue.h`](recv-obj-from-queue.md) | Receiving objects from queues |
