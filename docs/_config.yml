@@ -19,6 +19,7 @@ search_provider       : lunr
 lunr:
   search_within_pages : true
 breadcrumbs           : true
+toc                   : false
 
 # Site Author
 author:
