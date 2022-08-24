@@ -161,7 +161,7 @@ It consists of the following members.
 | `size_body` | The size of the body of the memory block. |
 | `size_head` | The size of the head of the memory block. |
 
-### `ao_retained_t`
+## `ao_retained_t`
 
 This type represents information about a call to `ao_retain()`.
 
