@@ -131,7 +131,7 @@
                 {% capture anchorAttributes %}{{ anchorAttributes }} class="{{ include.anchor_class | split: '.' | join: ' ' }}"{% endcapture %}
             {% endif %}
 
-            {% capture listItem %}<!--<i class="fas fa-fw fa-arrow-down" aria-hidden="true"></i> --><a{{ anchorAttributes }}>{{ anchorBody }}</a>{% endcapture %}
+            {% capture listItem %}<i class="fas fa-fw fa-circle-dot" aria-hidden="true"></i> <a{{ anchorAttributes }}>{{ anchorBody }}</a>{% endcapture %}
         {% elsif skipNoIDs == true %}
             {% continue %}
         {% else %}
