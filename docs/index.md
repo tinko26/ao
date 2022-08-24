@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-16
+date: 2022-08-24
 description: ""
 draft: true
 permalink: /
@@ -17,6 +17,7 @@ title: "Home"
 - [operating modes](operating-modes.md)
 - [packages](packages.md)
 - [resources](resources.md)
+- [receiving](receiving.md) ✅
 - [source code](source-code.md)
 - [synchronization](synchronization.md)
 - [timing](timing.md)
