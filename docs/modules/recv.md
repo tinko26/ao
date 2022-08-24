@@ -2,7 +2,7 @@
 author: "Stefan Wagner"
 date: 2022-08-24
 description: "The ao_recv.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /modules/recv/
 title: "ao_recv.h"
 toc: true
@@ -57,8 +57,6 @@ typedef void (* ao_recv_proc_t) (ao_recv_t * x);
 
 # Functions
 
-The module defines the following functions.
-
 Receive data in a blocking fashion until the specified timeout has expired. An additional parameter marks the beginning of the timeout period.
 
 ```c
@@ -89,6 +87,75 @@ void ao_recv_begin(ao_recv_t * x);
 
 ```c
 void ao_recv_end(ao_recv_t * x);
+```
+
+# Usage
+
+Prior to calling any functions, a receiving proxy must be initialized properly.
+
+```c
+// The receiving proxy.
+ao_recv_t * x;
+```
+
+```c
+// The buffer to store the received data.
+uint8_t data[4];
+```
+
+```c
+// The number of bytes to receive.
+x->count_min = 1;
+x->count_max = 4;
+
+// The pointer to the store.
+x->ptr = data;
+```
+
+Data can be received in a blocking fashion.
+
+```c
+ao_time_t timeout = AO_MILLISECONDS(500);
+ao_time_t beginning = ao_now();
+```
+
+```c
+// Receive with timeout.
+ao_recv(x, timeout);
+
+// Receive with timeout and beginning.
+ao_recv_from(x, timeout, beginning);
+
+// Receive without timeout.
+ao_recv_forever(x);
+```
+
+Also, data can be received in a non-blocking fashion, which succeeds only if data is available immediately.
+
+```c
+ao_recv_try(x);
+```
+
+Finally, the process can be stripped down into the three stages of beginning, awaiting, and ending the receiving of data.
+
+```c
+// Begin.
+ao_recv_begin(x);
+
+// Await.
+ao_await(&x->async, timeout);
+
+// End.
+ao_recv_end(x);
+```
+
+Afterwards, it should be verified whether data has actually been received.
+
+```c
+if (x->result)
+{
+    // x->count bytes have been received.
+}
 ```
 
 # Example
@@ -203,72 +270,4 @@ void callback(ao_recv_t * x)
 
 ```c
 ao_recv_from_callback(recv, callback);
-```
-
-# Functions
-
-Data can be received in a blocking fashion.
-
-```c
-ao_recv_t * x;
-
-ao_time_t timeout = AO_MILLISECONDS(500);
-ao_time_t beginning = ao_now();
-```
-
-```c
-// Receive with timeout.
-ao_recv(x, timeout);
-
-// Receive with timeout and beginning.
-ao_recv_from(x, timeout, beginning);
-
-// Receive without timeout.
-ao_recv_forever(x);
-```
-
-Also, data can be received in a non-blocking fashion, which succeeds only if data is available immediately.
-
-```c
-ao_recv_try(x);
-```
-
-Finally, the process can be stripped down into the three stages of beginning, awaiting, and ending the receiving of data.
-
-```c
-// Begin.
-ao_recv_begin(x);
-
-// Await.
-ao_await(&x->async, timeout);
-
-// End.
-ao_recv_end(x);
-```
-
-# Usage
-
-Prior to calling any of the above functions, the receiving proxy must be initialized properly.
-
-```c
-// The buffer to store the received data.
-uint8_t data[4];
-```
-
-```c
-// The number of bytes to receive.
-x->count_min = 1;
-x->count_max = 4;
-
-// The pointer to the store.
-x->ptr = data;
-```
-
-Afterwards, it should be verified whether data has actually been received.
-
-```c
-if (x->result)
-{
-    // x->count bytes have been received.
-}
 ```
