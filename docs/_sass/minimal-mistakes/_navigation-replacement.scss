@@ -551,8 +551,8 @@
     */
   
     a {
-      display: block;
-      padding: 0.25rem 0rem;
+      /*display: block;*/
+      /*padding: 0.25rem 0rem;*/
       /*color: $muted-text-color;*/
       /*font-weight: bold;*/
       line-height: 1.5;
@@ -563,6 +563,10 @@
         color: $text-color;
       }
       */
+    }
+
+    li {
+      margin-bottom:0.5rem;
     }
   
     li ul > li a {
