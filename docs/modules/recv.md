@@ -8,11 +8,11 @@ title: "ao_recv.h"
 toc: true
 ---
 
-## Summary
+# Summary
 
 This module provides an abstraction for tasks to receive data from an opaque source either in a blocking or in a non-blocking fashion.
 
-## Example
+# Example
 
 Some sensors send their data as a continuous stream of bytes, that a microcontroller can receive with a serial port, such as UART. For example, GPS receivers usually send NMEA messages in the form of ASCII text.
 
@@ -126,9 +126,9 @@ void callback(ao_recv_t * x)
 ao_recv_from_callback(recv, callback);
 ```
 
-## Types
+# Types
 
-### Receiving
+## Receiving
 
 The `ao_recv_t` type represents the receiving of data.
 
@@ -161,7 +161,7 @@ It consists of the following members.
 | `ptr` | The location to store the received data. |
 | `result` | Indicates whether at least `count_min` bytes and at most `count_max` bytes have been received. |
 
-### Receiving Procedure
+## Receiving Procedure
 
 The `ao_recv_proc_t` represents a function beginning or ending a receiving.
 
@@ -169,7 +169,7 @@ The `ao_recv_proc_t` represents a function beginning or ending a receiving.
 typedef void (* ao_recv_proc_t) (ao_recv_t * x);
 ```
 
-## Functions
+# Functions
 
 Data can be received in a blocking fashion.
 
@@ -210,7 +210,7 @@ ao_await(&x->async, timeout);
 ao_recv_end(x);
 ```
 
-## Usage
+# Usage
 
 Prior to calling any of the above functions, the receiving proxy must be initialized properly.
 
