@@ -11,6 +11,7 @@ title: "Home"
 
 - [binary heaps](binary-heaps.md)
 - [buffers](buffers.md)
+- [configuration](configuration.md)
 - [debugging](debugging.md) ✅
 - [drivers](drivers.md)
 - [memory](memory.md)
