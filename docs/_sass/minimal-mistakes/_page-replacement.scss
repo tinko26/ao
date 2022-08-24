@@ -89,6 +89,10 @@ body {
 }
 
 .page__content {
+  h1:first-of-type {
+    margin-top: 0;
+  }
+
   h2 {
     padding-bottom: 0.5em;
     border-bottom: 0px;
@@ -150,14 +154,6 @@ body {
     padding-bottom: 0.1rem;
     padding-left: 0.3rem;
     padding-right: 0.3rem;
-
-    /*
-    &::before,
-    &::after {
-      letter-spacing: 0em;
-      content: none;
-    }
-    */
   }
 
   a > code {
