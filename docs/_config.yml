@@ -19,8 +19,6 @@ search_provider       : lunr
 lunr:
   search_within_pages : true
 breadcrumbs           : true
-toc                   : false
-toc_label             : "Contents"
 
 # Site Author
 author:
@@ -83,3 +81,5 @@ defaults:
       sidebar:
         nav: "side"
       sitemap: false
+      toc: false
+      toc_label: "Contents"
