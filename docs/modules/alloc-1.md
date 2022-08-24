@@ -105,8 +105,6 @@ It consists of the following members.
 
 This type represents a block. This type is not publicly exposed.
 
-# Type Overrides
-
 ## `ao_acquired_t`
 
 This type represents information about a call to `ao_acquire()`.
