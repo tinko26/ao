@@ -83,3 +83,4 @@ defaults:
       sitemap: false
       toc: false
       toc_label: "Contents"
+      toc_sticky: false
