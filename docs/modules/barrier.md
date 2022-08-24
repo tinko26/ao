@@ -15,7 +15,7 @@ title: "ao_barrier.h"
 
 ### Barrier
 
-The `ao_barrier_t` type represents an barrier.
+The `ao_barrier_t` type represents a barrier.
 
 ```c
 struct ao_barrier_t

@@ -5,6 +5,7 @@ description: "The ao_recv.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/recv/
 title: "ao_recv.h"
+toc: true
 ---
 
 # ao_recv.h
