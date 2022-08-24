@@ -1,8 +1,8 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-17
+date: 2022-08-24
 description: "The ao_recv.h module of the ao real-time operating system."
-draft: false
+draft: true
 permalink: /modules/recv/
 title: "ao_recv.h"
 toc: true
@@ -59,14 +59,37 @@ typedef void (* ao_recv_proc_t) (ao_recv_t * x);
 
 The module defines the following functions.
 
-| Function | |
-|----------|-|
-| `ao_recv()` | Receive data in a blocking fashion until the specified timeout has expired. |
-| `ao_recv_from()` | Receive data in a blocking fashion until the specified timeout has expired. An additional parameter marks the beginning of the timeout period. |
-| `ao_recv_forever()` | Receive data in a blocking fashion with an infinite timeout. |
-| `ao_recv_try()` | Receive data in a non-blocking fashion. |
-| `ao_recv_begin()` | Begin the receiving of data. |
-| `ao_recv_end()` | End the receiving of data. |
+Receive data in a blocking fashion until the specified timeout has expired. An additional parameter marks the beginning of the timeout period.
+
+```c
+void ao_recv(ao_recv_t * x, ao_time_t timeout);
+```
+
+```c
+void ao_recv_from(ao_recv_t * x, ao_time_t timeout, ao_time_t beginning);
+```
+
+Receive data in a blocking fashion with an infinite timeout.
+
+```c
+void ao_recv_forever(ao_recv_t * x);
+```
+
+Receive data in a non-blocking fashion.
+
+```c
+void ao_recv_try(ao_recv_t * x);
+```
+
+Begin or end the receiving of data, respectively.
+
+```c
+void ao_recv_begin(ao_recv_t * x);
+```
+
+```c
+void ao_recv_end(ao_recv_t * x);
+```
 
 # Example
 
