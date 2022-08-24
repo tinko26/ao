@@ -1,6 +1,29 @@
 .masthead {
+  /*
   background-color: #e0f0f5;
   border-bottom: 1px solid #badee9;
+  */
+  background-color: $text-color;
+}
+
+.masthead a.site-title {
+  color: white;
+  text-decoration: none;
+}
+
+.masthead a.site-title:active {
+  color: white;
+  text-decoration: none;
+}
+
+.masthead a.site-title:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.masthead a.site-title:visited {
+  color: white;
+  text-decoration: none;
 }
 
 .site-subtitle {

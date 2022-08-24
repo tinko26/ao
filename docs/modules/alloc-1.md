@@ -190,41 +190,31 @@ It consists of the following members.
 
 # Variables
 
-The current number of allocated bytes across all pools. 
-
-This variable is absent, if both the `AO_ALLOC_ALLOCATED` and `AO_ALLOC_ALLOCATED_MAX` configuration options are disabled.
+The current number of allocated bytes across all pools. This variable is absent, if both the `AO_ALLOC_ALLOCATED` and `AO_ALLOC_ALLOCATED_MAX` configuration options are disabled.
 
 ```c
 extern size_t volatile ao_alloc_allocated;
 ```
 
-The maximum number of allocated bytes across all pools. 
-
-This variable is absent, if the `AO_ALLOC_ALLOCATED_MAX` configuration option is disabled.
+The maximum number of allocated bytes across all pools. This variable is absent, if the `AO_ALLOC_ALLOCATED_MAX` configuration option is disabled.
 
 ```c
 extern size_t volatile ao_alloc_allocated_max;
 ```
 
-The current number of free bytes across all pools. 
-
-This variable is absent, if both the `AO_ALLOC_FREE` and `AO_ALLOC_FREE_MIN` configuration options are disabled.
+The current number of free bytes across all pools. This variable is absent, if both the `AO_ALLOC_FREE` and `AO_ALLOC_FREE_MIN` configuration options are disabled.
 
 ```c
 extern size_t volatile ao_alloc_free;
 ```
 
-The minimum number of free bytes across all pools. 
-
-This variable is absent, if the `AO_ALLOC_FREE_MIN` configuration option is disabled.
+The minimum number of free bytes across all pools. This variable is absent, if the `AO_ALLOC_FREE_MIN` configuration option is disabled.
 
 ```c
 extern size_t volatile ao_alloc_free_min;
 ```
 
-Pool 0. 
-
-This variable is absent, if 
+Pool 0. This variable is absent, if 
 
 - `AO_ALLOC_POOL_BLOCK_COUNT_0` is zero or
 - `AO_ALLOC_POOL_BLOCK_SIZE_0` is zero.
@@ -233,9 +223,7 @@ This variable is absent, if
 extern ao_alloc_pool_t ao_alloc_pool_0;
 ```
 
-Pool 1. 
-
-This variable is absent, if 
+Pool 1. This variable is absent, if 
 
 - `AO_ALLOC_POOL_BLOCK_COUNT_1` is zero or 
 - `AO_ALLOC_POOL_BLOCK_SIZE_1` is zero.
@@ -246,9 +234,7 @@ extern ao_alloc_pool_t ao_alloc_pool_1;
 
 ...
 
-Pool 15. 
-
-This variable is absent, if
+Pool 15. This variable is absent, if
 
 - `AO_ALLOC_POOL_BLOCK_COUNT_15` is zero or
 - `AO_ALLOC_POOL_BLOCK_SIZE_15` is zero.
@@ -257,9 +243,7 @@ This variable is absent, if
 extern ao_alloc_pool_t ao_alloc_pool_15;
 ```
 
-Pool 16. 
-
-This variable is absent, if 
+Pool 16. This variable is absent, if 
 
 - `AO_ALLOC_POOL_BLOCK_COUNT_16` is zero or 
 - `AO_ALLOC_POOL_BLOCK_SIZE_16` is zero or 
@@ -271,9 +255,7 @@ extern ao_alloc_pool_t ao_alloc_pool_16;
 
 ...
 
-Pool 63. 
-
-This variable is absent, if 
+Pool 63. This variable is absent, if 
 
 - `AO_ALLOC_POOL_BLOCK_COUNT_63` is zero or 
 - `AO_ALLOC_POOL_BLOCK_SIZE_63` is zero or 
