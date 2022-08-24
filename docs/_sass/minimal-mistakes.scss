@@ -37,7 +37,7 @@
 @import "minimal-mistakes/utilities";
 
 /* Layout specific */
-@import "minimal-mistakes/page";
+@import "minimal-mistakes/page-replacement";
 @import "minimal-mistakes/archive";
 @import "minimal-mistakes/sidebar";
 @import "minimal-mistakes/print";
@@ -47,7 +47,6 @@
 @import "minimal-mistakes/override_figures";
 @import "minimal-mistakes/override_footer";
 @import "minimal-mistakes/override_masthead";
-@import "minimal-mistakes/override_page";
 @import "minimal-mistakes/override_reset";
 @import "minimal-mistakes/override_search";
 @import "minimal-mistakes/override_sidebar";
