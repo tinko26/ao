@@ -7,9 +7,9 @@ permalink: /modules/alarm-queue-4/
 title: "ao_alarm_queue_4.h"
 ---
 
-# ao_alarm_queue_4.h
+# Overview
 
-This module implements the [alarm queue](../alarm-queue.md) using an [AVL tree](../avl-trees.md). Therefore, the alarm queue can contain an unlimited number of alarms. The following table exhibits the time complexities of the individual operations.
+The `ao_alarm_queue_4` module implements the [alarm queue](../alarm-queue.md) using an [AVL tree](../avl-trees.md). Therefore, the alarm queue can contain an unlimited number of alarms. The following table exhibits the time complexities of the individual operations.
 
 | Operation | |
 |-----------|-|
@@ -18,7 +18,7 @@ This module implements the [alarm queue](../alarm-queue.md) using an [AVL tree](
 | Remove | $$O(\log n)$$ |
 | Remove peek | $$O(\log n)$$ |
 
-## Configuration
+# Configuration
 
 The alarm queue can be configured to check its correctness upon each insertion and removal, which takes linear time. If that is not the case, a runtime [assertion](../assertions.md) failure is triggered. This can aid in a debugging scenario. By default, this option is disabled.
 

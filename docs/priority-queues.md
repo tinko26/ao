@@ -7,7 +7,7 @@ permalink: /priority-queues/
 title: "Priority Queues"
 ---
 
-## Priority Queues
+# Priority Queues
 
 The following modules provide data structures, that can be used to implement priority queues.
 
@@ -20,6 +20,6 @@ The following modules provide data structures, that can be used to implement pri
 | [`ao_rb.h`](modules/rb.md) | Red-black trees. |
 | [`ao_slist.h`](modules/slist.md) | Sorted doubly linked lists. |
 
-## External Links
+# External Links
 
 [https://en.wikipedia.org/wiki/Priority_queue](https://en.wikipedia.org/wiki/Priority_queue)

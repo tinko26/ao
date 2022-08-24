@@ -9,6 +9,8 @@ title: "Home"
 
 # Home
 
+- [binary heaps](binary-heaps.md)
+- [buffers](buffers.md)
 - [debugging](debugging.md) ✅
 - [drivers](drivers.md)
 - [memory](memory.md)
@@ -16,6 +18,7 @@ title: "Home"
 - [multitasking](multitasking.md)
 - [operating modes](operating-modes.md)
 - [packages](packages.md)
+- [priority queues](priority-queues.md)
 - [resources](resources.md)
 - [receiving](receiving.md) ✅
 - [source code](source-code.md)

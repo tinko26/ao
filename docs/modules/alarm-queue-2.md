@@ -7,9 +7,9 @@ permalink: /modules/alarm-queue-2/
 title: "ao_alarm_queue_2.h"
 ---
 
-# ao_alarm_queue_2.h
+# Overview
 
-This module implements the [alarm queue](../alarm-queue.md) using an array-based [binary heap](../binary-heaps.md). Since the array is allocated statically, the capacity of the alarm queue is both fixed and limited, which can pose a challenge on a proper configuration. The following table exhibits the time complexities of the individual operations.
+The `ao_alarm_queue_2` module implements the [alarm queue](../alarm-queue.md) using an array-based binary heap. Since the array is allocated statically, the capacity of the alarm queue is both fixed and limited, which can pose a challenge on a proper configuration. The following table exhibits the time complexities of the individual operations.
 
 | Operation | |
 |-----------|-|
@@ -18,7 +18,7 @@ This module implements the [alarm queue](../alarm-queue.md) using an array-based
 | Remove | $$O(\log n)$$ |
 | Remove peek | $$O(\log n)$$ |
 
-## Configuration
+# Configuration
 
 The capacity of the alarm queue must be configured properly. The default value is `128`.
 
@@ -38,11 +38,16 @@ The alarm queue can be configured to check its correctness upon each insertion a
 #define AO_ALARM_QUEUE_ASSERT
 ```
 
-## Variables
+# Variables
 
-The module exposes the following global variables.
+The current number of elements.
 
-| Variable | |
-|----------|-|
-| `ao_alloc_queue_count` | The current number of elements. |
-| `ao_alloc_queue_count_max` | The maximum number of elements. This variable is absent, if the `AO_ALARM_QUEUE_COUNT_MAX` configuration option is disabled. |
+```c
+extern size_t volatile ao_alarm_queue_count;
+```
+
+The maximum number of elements. This variable is absent, if the `AO_ALARM_QUEUE_COUNT_MAX` configuration option is disabled.
+
+```c
+extern size_t volatile ao_alarm_queue_count_max;
+```

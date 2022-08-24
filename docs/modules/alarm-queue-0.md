@@ -7,6 +7,6 @@ permalink: /modules/alarm-queue-0/
 title: "ao_alarm_queue_0.h"
 ---
 
-# ao_alarm_queue_0.h
+# Overview
 
-This module provides a stub implementation for the [alarm queue](../alarm-queue.md).
+The `ao_alarm_queue_0` module provides a stub implementation for the [alarm queue](../alarm-queue.md).
