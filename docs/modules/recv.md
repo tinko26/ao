@@ -47,7 +47,7 @@ It consists of the following members.
 | `ptr` | The location to store the received data. |
 | `result` | Indicates whether at least `count_min` bytes and at most `count_max` bytes have been received. |
 
-## ao_recv_proc_t
+## `ao_recv_proc_t`
 
 This type represents a function beginning or ending a receiving.
 
