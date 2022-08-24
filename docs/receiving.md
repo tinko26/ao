@@ -2,7 +2,7 @@
 author: "Stefan Wagner"
 date: 2022-08-24
 description: "Receiving data in the ao real-time operating system."
-draft: true
+draft: false
 permalink: /receiving/
 title: "Receiving"
 ---
