@@ -10,7 +10,63 @@ toc: true
 
 # Summary
 
-This module provides an abstraction for tasks to receive data from an opaque source either in a blocking or in a non-blocking fashion.
+The `ao_recv.h` module provides an abstraction for tasks to receive data from an opaque source either in a blocking or in a non-blocking fashion.
+
+# Types
+
+## Receiving
+
+The `ao_recv_t` type represents the receiving of data.
+
+```c
+struct ao_recv_t
+{
+    ao_async_t      async;
+    ao_recv_proc_t  begin;
+    size_t volatile count;
+    size_t          count_max;
+    size_t          count_min;
+    ao_recv_proc_t  end;
+    void *          parameter;
+    void *          ptr;
+    bool   volatile result;
+};
+```
+
+It consists of the following members.
+
+| Member | |
+|--------|-|
+| `async` | The asynchronous event. |
+| `begin` | The function beginning the receiving. |
+| `count` | The number of received bytes. |
+| `count_max` | The maximum number of bytes to receive. |
+| `count_min` | The minimum number of bytes to receive. |
+| `end` | The function ending the receiving. |
+| `parameter` | An additional parameter. |
+| `ptr` | The location to store the received data. |
+| `result` | Indicates whether at least `count_min` bytes and at most `count_max` bytes have been received. |
+
+## Receiving Procedure
+
+The `ao_recv_proc_t` represents a function beginning or ending a receiving.
+
+```c
+typedef void (* ao_recv_proc_t) (ao_recv_t * x);
+```
+
+# Functions
+
+The module defines the following functions.
+
+| Function | |
+|----------|-|
+| `ao_recv()` | Receive data in a blocking fashion until the specified timeout has expired. |
+| `ao_recv_from()` | Receive data in a blocking fashion until the specified timeout has expired. An additional parameter marks the beginning of the timeout period. |
+| `ao_recv_forever()` | Receive data in a blocking fashion with an infinite timeout. |
+| `ao_recv_try()` | Receive data in a non-blocking fashion. |
+| `ao_recv_begin()` | Begin the receiving of data. |
+| `ao_recv_end()` | End the receiving of data. |
 
 # Example
 
@@ -124,49 +180,6 @@ void callback(ao_recv_t * x)
 
 ```c
 ao_recv_from_callback(recv, callback);
-```
-
-# Types
-
-## Receiving
-
-The `ao_recv_t` type represents the receiving of data.
-
-```c
-struct ao_recv_t
-{
-    ao_async_t      async;
-    ao_recv_proc_t  begin;
-    size_t volatile count;
-    size_t          count_max;
-    size_t          count_min;
-    ao_recv_proc_t  end;
-    void *          parameter;
-    void *          ptr;
-    bool   volatile result;
-};
-```
-
-It consists of the following members.
-
-| Member | |
-|--------|-|
-| `async` | The asynchronous event. |
-| `begin` | The function beginning the receiving. |
-| `count` | The number of received bytes. |
-| `count_max` | The maximum number of bytes to receive. |
-| `count_min` | The minimum number of bytes to receive. |
-| `end` | The function ending the receiving. |
-| `parameter` | An additional parameter. |
-| `ptr` | The location to store the received data. |
-| `result` | Indicates whether at least `count_min` bytes and at most `count_max` bytes have been received. |
-
-## Receiving Procedure
-
-The `ao_recv_proc_t` represents a function beginning or ending a receiving.
-
-```c
-typedef void (* ao_recv_proc_t) (ao_recv_t * x);
 ```
 
 # Functions
