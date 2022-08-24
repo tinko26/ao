@@ -224,7 +224,10 @@ extern size_t volatile ao_alloc_free_min;
 
 Pool 0. 
 
-This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_0` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_0` is zero.
+This variable is absent, if 
+
+- `AO_ALLOC_POOL_BLOCK_COUNT_0` is zero or
+- `AO_ALLOC_POOL_BLOCK_SIZE_0` is zero.
 
 ```c
 extern ao_alloc_pool_t ao_alloc_pool_0;
@@ -232,7 +235,10 @@ extern ao_alloc_pool_t ao_alloc_pool_0;
 
 Pool 1. 
 
-This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_1` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_1` is zero.
+This variable is absent, if 
+
+- `AO_ALLOC_POOL_BLOCK_COUNT_1` is zero or 
+- `AO_ALLOC_POOL_BLOCK_SIZE_1` is zero.
 
 ```c
 extern ao_alloc_pool_t ao_alloc_pool_1;
@@ -242,7 +248,10 @@ extern ao_alloc_pool_t ao_alloc_pool_1;
 
 Pool 15. 
 
-This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_15` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_15` is zero.
+This variable is absent, if
+
+- `AO_ALLOC_POOL_BLOCK_COUNT_15` is zero or
+- `AO_ALLOC_POOL_BLOCK_SIZE_15` is zero.
 
 ```c
 extern ao_alloc_pool_t ao_alloc_pool_15;
@@ -250,7 +259,11 @@ extern ao_alloc_pool_t ao_alloc_pool_15;
 
 Pool 16. 
 
-This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_16` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_16` is zero or if the `size_t` type has less than 17 bits.
+This variable is absent, if 
+
+- `AO_ALLOC_POOL_BLOCK_COUNT_16` is zero or 
+- `AO_ALLOC_POOL_BLOCK_SIZE_16` is zero or 
+- the `size_t` type has less than 17 bits.
 
 ```c
 extern ao_alloc_pool_t ao_alloc_pool_16;
@@ -260,7 +273,11 @@ extern ao_alloc_pool_t ao_alloc_pool_16;
 
 Pool 63. 
 
-This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_63` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_63` is zero or if the `size_t` type has less than 64 bits.
+This variable is absent, if 
+
+- `AO_ALLOC_POOL_BLOCK_COUNT_63` is zero or 
+- `AO_ALLOC_POOL_BLOCK_SIZE_63` is zero or 
+- the `size_t` type has less than 64 bits.
 
 ```c
 extern ao_alloc_pool_t ao_alloc_pool_63;

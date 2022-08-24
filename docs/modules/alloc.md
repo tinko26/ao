@@ -5,6 +5,7 @@ description: "The ao_alloc.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/alloc/
 title: "ao_alloc.h"
+toc: true
 ---
 
 # Overview
