@@ -7,11 +7,11 @@ permalink: /modules/alarm-queue/
 title: "ao_alarm_queue.h"
 ---
 
-# ao_alarm_queue.h
+# Overview
 
 The alarm queue ...
 
-## Configuration
+# Configuration
 
 This module defines a single macro constant selecting the implementation of the alarm queue. The default value is `5`, which selects an implementation based on a red-black tree.
 

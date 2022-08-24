@@ -7,7 +7,7 @@ permalink: /modules/recv-obj-from-stream/
 title: "ao_recv_obj_from_stream.h"
 ---
 
-# ao_recv_obj_from_stream.h
+# Overview
 
 This module defines a single function that facilitates [receiving objects](recv-obj.md) from a [stream](stream4obj.md).
 

@@ -9,4 +9,4 @@ title: "ao_alarm_queue_0.h"
 
 # Overview
 
-The `ao_alarm_queue_0` module provides a stub implementation for the [alarm queue](../alarm-queue.md).
+This module provides a stub implementation for the [alarm queue](../alarm-queue.md).

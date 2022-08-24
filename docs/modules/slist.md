@@ -7,7 +7,7 @@ permalink: /modules/slist/
 title: "ao_slist.h"
 ---
 
-# ao_slist.h
+# Overview
 
 This module defines doubly linked lists, whose elements are sorted by a strict total order.
 

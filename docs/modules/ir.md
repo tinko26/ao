@@ -7,7 +7,7 @@ permalink: /modules/ir/
 title: "ao_ir.h"
 ---
 
-# ao_ir.h
+# Overview
 
 This module gathers interrupt-related functions from the following modules.
 

@@ -7,7 +7,7 @@ permalink: /modules/alloc-1/
 title: "ao_alloc_1.h"
 ---
 
-# ao_alloc_1.h
+# Overview
 
 This module implements an [allocator](../allocator.md) that manages a number of pools. Thereby, each pool contains a number of blocks of equal size.
 
@@ -29,9 +29,7 @@ Upon allocation, the module walks the bitmask starting at the least significant 
 
 Due to its iterative approach, allocation is a linear-time operation. In contrast, deallocation takes constant time. This is, because each block contains a header, that stores the pool, to which it belongs.
 
-## Configuration
-
-### Allocated
+# Configuration
 
 The allocator can be configured to keep track of the current and maximum numbers of allocated bytes. If enabled, the respective data is gathered both globally and for each pool. By default, these options are disabled.
 
@@ -43,8 +41,6 @@ The allocator can be configured to keep track of the current and maximum numbers
 #define AO_ALLOC_ALLOCATED_MAX
 ```
 
-### Free
-
 Accordingly, the allocator can be configured to keep track of the current and minimum numbers of free bytes. If enabled, the respective data is gathered both globally and for each pool. By default, these options are disabled.
 
 ```c
@@ -54,8 +50,6 @@ Accordingly, the allocator can be configured to keep track of the current and mi
 ```c
 #define AO_ALLOC_FREE_MIN
 ```
-
-### Pools
 
 For each pool, the number of blocks and the block size must be configured. The respective pool is absent, if either value is zero, which is the default for all pools.
 
@@ -77,11 +71,11 @@ For each pool, the number of blocks and the block size must be configured. The r
 #define AO_ALLOC_POOL_BLOCK_SIZE_63
 ```
 
-## Types
+# Types
 
-### Pool
+## `ao_alloc_pool_t`
 
-The `ao_alloc_pool_t` type represents a pool.
+This type represents a pool.
 
 ```c
 struct ao_alloc_pool_t
@@ -106,15 +100,15 @@ It consists of the following members.
 | `free_min` | The minimum number of free bytes. This member is absent, if the `AO_ALLOC_FREE_MIN` configuration option is disabled. |
 | `front` | The pool keeps its free blocks in a singly linked list. This member points to the front of that list. |
 
-### Pool Node
+## `ao_alloc_pool_node_t`
 
-The `ao_alloc_pool_node_t` type represents a block. This type is not publicly exposed.
+This type represents a block. This type is not publicly exposed.
 
-## Type Overrides
+# Type Overrides
 
-### Acquired
+## `ao_acquired_t`
 
-The `ao_acquired_t` type represents information about a call to `ao_acquire()`.
+This type represents information about a call to `ao_acquire()`.
 
 ```c
 struct ao_acquired_t
@@ -139,9 +133,9 @@ It consists of the following members.
 | `size_body_requested` | The requested size of the body of the memory block, that is, the parameter value that the function was called with. |
 | `size_head` | The size of the head of the memory block. |
 
-### Released
+## `ao_released_t`
 
-The `ao_released_t` type represents information about a call to `ao_release()`.
+This type represents information about a call to `ao_release()`.
 
 ```c
 struct ao_released_t
@@ -166,9 +160,9 @@ It consists of the following members.
 | `size_body` | The size of the body of the memory block. |
 | `size_head` | The size of the head of the memory block. |
 
-### Retained
+### `ao_retained_t`
 
-The `ao_retained_t` type represents information about a call to `ao_retain()`.
+This type represents information about a call to `ao_retain()`.
 
 ```c
 struct ao_retained_t
@@ -193,20 +187,62 @@ It consists of the following members.
 | `size_body` | The size of the body of the memory block. |
 | `size_head` | The size of the head of the memory block. |
 
-## Variables
+# Variables
 
-The module exposes the following global variables.
+The current number of allocated bytes across all pools. This variable is absent, if both the `AO_ALLOC_ALLOCATED` and `AO_ALLOC_ALLOCATED_MAX` configuration options are disabled.
 
-| Variable | |
-|----------|-|
-| `ao_alloc_allocated` | The current number of allocated bytes across all pools. This variable is absent, if both the `AO_ALLOC_ALLOCATED` and `AO_ALLOC_ALLOCATED_MAX` configuration options are disabled. |
-| `ao_alloc_allocated_max` | The maximum number of allocated bytes across all pools. This variable is absent, if the `AO_ALLOC_ALLOCATED_MAX` configuration option is disabled. |
-| `ao_alloc_free` | The current number of free bytes across all pools. This variable is absent, if both the `AO_ALLOC_FREE` and `AO_ALLOC_FREE_MIN` configuration options are disabled. |
-| `ao_alloc_free_min` | The minimum number of free bytes across all pools. This variable is absent, if the `AO_ALLOC_FREE_MIN` configuration option is disabled. |
-| `ao_alloc_pool_0` | Pool 0. This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_0` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_0` is zero. |
-| `ao_alloc_pool_1` | Pool 1. This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_1` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_1` is zero. |
-| ... | ... |
-| `ao_alloc_pool_15` | Pool 15. This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_15` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_15` is zero. |
-| `ao_alloc_pool_16` | Pool 16. This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_16` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_16` is zero or if the `size_t` type has less than 17 bits. |
-| ... | ... |
-| `ao_alloc_pool_63` | Pool 63. This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_63` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_63` is zero or if the `size_t` type has less than 64 bits. |
+```c
+extern size_t volatile ao_alloc_allocated;
+```
+
+The maximum number of allocated bytes across all pools. This variable is absent, if the `AO_ALLOC_ALLOCATED_MAX` configuration option is disabled.
+
+```c
+extern size_t volatile ao_alloc_allocated_max;
+```
+
+The current number of free bytes across all pools. This variable is absent, if both the `AO_ALLOC_FREE` and `AO_ALLOC_FREE_MIN` configuration options are disabled.
+
+```c
+extern size_t volatile ao_alloc_free;
+```
+
+The minimum number of free bytes across all pools. This variable is absent, if the `AO_ALLOC_FREE_MIN` configuration option is disabled.
+
+```c
+extern size_t volatile ao_alloc_free_min;
+```
+
+Pool 0. This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_0` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_0` is zero.
+
+```c
+extern ao_alloc_pool_t ao_alloc_pool_0;
+```
+
+Pool 1. This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_1` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_1` is zero.
+
+```c
+extern ao_alloc_pool_t ao_alloc_pool_1;
+```
+
+...
+
+Pool 15. This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_15` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_15` is zero.
+
+```c
+extern ao_alloc_pool_t ao_alloc_pool_15;
+```
+
+Pool 16. This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_16` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_16` is zero or if the `size_t` type has less than 17 bits.
+
+```c
+extern ao_alloc_pool_t ao_alloc_pool_16;
+```
+
+...
+
+Pool 63. This variable is absent, if `AO_ALLOC_POOL_BLOCK_COUNT_63` is zero or if `AO_ALLOC_POOL_BLOCK_SIZE_63` is zero or if the `size_t` type has less than 64 bits.
+
+```c
+extern ao_alloc_pool_t ao_alloc_pool_63;
+```

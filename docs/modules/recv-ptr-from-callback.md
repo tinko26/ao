@@ -7,7 +7,7 @@ permalink: /modules/recv-ptr-from-callback/
 title: "ao_recv_ptr_from_callback.h"
 ---
 
-# ao_recv_ptr_from_callback.h
+# Overview
 
 This module defines a single function that facilitates [receiving pointers](recv-ptr.md) from a callback.
 

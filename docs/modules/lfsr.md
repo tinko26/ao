@@ -7,7 +7,7 @@ permalink: /modules/lfsr/
 title: "ao_lfsr.h"
 ---
 
-# ao_lfsr.h
+# Overview
 
 This module defines linear-feedback shift registers in Galois configuration, that can be used to generate pseudo-random values.
 

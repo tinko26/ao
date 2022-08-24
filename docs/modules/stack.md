@@ -7,7 +7,7 @@ permalink: /modules/stack/
 title: "ao_stack.h"
 ---
 
-# ao_stack.h
+# Overview
 
 This module contains two functions for measuring the high water mark of a stack, which can be used for optimizing the memory usage in an embedded system.
 

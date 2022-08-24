@@ -7,7 +7,7 @@ permalink: /modules/recv-from-stream/
 title: "ao_recv_from_stream.h"
 ---
 
-# ao_recv_from_stream.h
+# Overview
 
 This module defines a single function that facilitates [receiving data](recv.md) from a [stream](stream.md).
 

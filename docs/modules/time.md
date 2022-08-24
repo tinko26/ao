@@ -7,7 +7,7 @@ permalink: /modules/time/
 title: "ao_time.h"
 ---
 
-# ao_time.h
+# Overview
 
 This module contains a couple of time-related definitions, that are based on a [hardware counter](../hardware-counter.md).
 

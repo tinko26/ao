@@ -7,7 +7,7 @@ permalink: /modules/uint/
 title: "ao_uint.h"
 ---
 
-# ao_uint.h
+# Overview
 
 This module defines the fastest unsigned integer type available on the target platform. Additionally, it provides a couple of useful functions. This module is considered abstract and should be overridden by a port package.
 

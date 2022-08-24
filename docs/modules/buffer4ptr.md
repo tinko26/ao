@@ -7,7 +7,7 @@ permalink: /modules/buffer4ptr/
 title: "ao_buffer4ptr.h"
 ---
 
-# ao_buffer4ptr.h
+# Overview
 
 This module defines pointer buffers. In contrast to ordinary [buffers](buffer.md), they do not temporarily store a stream of bytes of arbitrary length, but pointers.
 

@@ -7,7 +7,7 @@ permalink: /modules/ir-alarm/
 title: "ao_ir_alarm.h"
 ---
 
-# ao_ir_alarm.h
+# Overview
 
 This module declares functions for controlling the alarm interrupt as well as a callback function for the interrupt handler. This module is abstract, that is, an implementation must be provided by a port package in order to support [alarms](../alarms.md).
 

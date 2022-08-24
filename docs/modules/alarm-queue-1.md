@@ -9,7 +9,7 @@ title: "ao_alarm_queue_1.h"
 
 # Overview
 
-The `ao_alarm_queue_1` module implements the [alarm queue](../alarm-queue.md) based on a [sorted list](../sorted-lists.md). Therefore, the alarm queue can contain an unlimited number of alarms. The following table exhibits the time complexities of the individual operations.
+This module implements the [alarm queue](../alarm-queue.md) based on a [sorted list](../sorted-lists.md). Therefore, the alarm queue can contain an unlimited number of alarms. The following table exhibits the time complexities of the individual operations.
 
 | Operation | |
 |-----------|-|

@@ -9,7 +9,7 @@ title: "ao_alarm_queue_2.h"
 
 # Overview
 
-The `ao_alarm_queue_2` module implements the [alarm queue](../alarm-queue.md) using an array-based binary heap. Since the array is allocated statically, the capacity of the alarm queue is both fixed and limited, which can pose a challenge on a proper configuration. The following table exhibits the time complexities of the individual operations.
+This module implements the [alarm queue](../alarm-queue.md) using an array-based binary heap. Since the array is allocated statically, the capacity of the alarm queue is both fixed and limited, which can pose a challenge on a proper configuration. The following table exhibits the time complexities of the individual operations.
 
 | Operation | |
 |-----------|-|

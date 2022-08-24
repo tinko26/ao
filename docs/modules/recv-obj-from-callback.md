@@ -7,7 +7,7 @@ permalink: /modules/recv-obj-from-callback/
 title: "ao_recv_obj_from_callback.h"
 ---
 
-# ao_recv_obj_from_callback.h
+# Overview
 
 This module defines a single function that facilitates [receiving objects](recv-obj.md) from a callback.
 

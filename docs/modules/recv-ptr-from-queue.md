@@ -7,7 +7,7 @@ permalink: /modules/recv-ptr-from-queue/
 title: "ao_recv_ptr_from_queue.h"
 ---
 
-# ao_recv_ptr_from_queue.h
+# Overview
 
 This module defines a single function that facilitates [receiving pointers](recv-ptr.md) from a [queue](queue4ptr.md).
 

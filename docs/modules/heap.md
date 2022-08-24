@@ -7,7 +7,7 @@ permalink: /modules/heap/
 title: "ao_heap.h"
 ---
 
-# ao_heap.h
+# Overview
 
 This module defines binary heaps. 
 

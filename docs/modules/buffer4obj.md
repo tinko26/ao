@@ -7,7 +7,7 @@ permalink: /modules/buffer4obj/
 title: "ao_buffer4obj.h"
 ---
 
-# ao_buffer4obj.h
+# Overview
 
 This module defines object buffers. In contrast to ordinary [buffers](buffer.md), they do not temporarily store a stream of bytes of arbitrary length, but fixed-size blocks of memory, or objects.
 

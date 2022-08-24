@@ -7,7 +7,7 @@ permalink: /modules/align/
 title: "ao_align.h"
 ---
 
-# ao_align.h
+# Overview
 
 Reading from or writing to memory usually requires scalar data, such as an integer or a pointer, to be aligned, that is, its address must be a multiple of its size. This is, because such reads and writes are implemented efficiently on most CPUs, while unaligned accesses impose a penalty on the execution speed.
 
@@ -38,6 +38,6 @@ if (AO_IS_ALIGNED(xu, 8))
 }
 ```
 
-## External Links
+# External Links
 
 [https://en.wikipedia.org/wiki/Data_structure_alignment](https://en.wikipedia.org/wiki/Data_structure_alignment)

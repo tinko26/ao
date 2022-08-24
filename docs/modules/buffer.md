@@ -7,7 +7,7 @@ permalink: /modules/buffer/
 title: "ao_buffer.h"
 ---
 
-# ao_buffer.h
+# Overview
 
 This module defines buffers, that is, places to temporarily store data.
 

@@ -7,7 +7,7 @@ permalink: /modules/core/
 title: "ao_core.h"
 ---
 
-# ao_core.h
+# Overview
 
 This module provides information about identical processor cores and is to support symmetric multiprocessing systems.
 

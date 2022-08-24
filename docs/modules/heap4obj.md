@@ -7,7 +7,7 @@ permalink: /modules/heap4obj/
 title: "ao_heap4obj.h"
 ---
 
-# ao_heap4obj.h
+# Overview
 
 This module defines binary heaps for objects.
 

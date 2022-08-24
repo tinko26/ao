@@ -7,21 +7,23 @@ permalink: /modules/alarm/
 title: "ao_alarm.h"
 ---
 
-# ao_alarm.h
+# Overview
 
-## Configuration
+...
+
+# Configuration
 
 ```c
 #define AO_ALARM_DELAY
 ```
 
-## Constants
+# Constants
 
 ```c
 #define AO_ALARM_UPDATE
 ```
 
-## Type
+# Type
 
 The `ao_alarm_t` type represents an alarm.
 
@@ -46,7 +48,7 @@ It consists of the following members.
 | `node` | The node member for the alarm queue. |
 | `running` | Indicates whether the alarm has been started. |
 
-## Functions
+# Functions
 
 Start an alarm.
 

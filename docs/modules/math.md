@@ -7,7 +7,7 @@ permalink: /modules/math/
 title: "ao_math.h"
 ---
 
-# ao_math.h
+# Overview
 
 This module provides a number of useful mathematical operations. They are implemented as macro functions, that work for all fundamental scalar types. This is for two reasons. First, when called with constant parameter values, the result can be evaluated at compile time. Second, they can be used in the definition of macro constants. However, care must be taken for side effects, as some parameter values get evaluated more than once.
 

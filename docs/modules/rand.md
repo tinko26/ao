@@ -7,7 +7,7 @@ permalink: /modules/rand/
 title: "ao_rand.h"
 ---
 
-# ao_rand.h
+# Overview
 
 This module defines function pointer types for a variety of random value generators.
 

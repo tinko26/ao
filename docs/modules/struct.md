@@ -7,7 +7,7 @@ permalink: /modules/struct/
 title: "ao_struct.h"
 ---
 
-# ao_struct.h
+# Overview
 
 This module defines a single macro function that returns a pointer to the head of a compound when given a pointer to a member of that compound.
 

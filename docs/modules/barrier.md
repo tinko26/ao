@@ -7,7 +7,7 @@ permalink: /modules/barrier/
 title: "ao_barrier.h"
 ---
 
-# ao_barrier.h
+# Overview
 
 ...
 

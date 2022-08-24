@@ -7,7 +7,7 @@ permalink: /modules/alloc/
 title: "ao_alloc.h"
 ---
 
-# ao_alloc.h
+# Overview
 
 ...
 
@@ -27,9 +27,7 @@ This module encapsulates an allocator that supports dynamic memory management.
 
 ...
 
-## Configuration
-
-### Implementation
+# Configuration
 
 The implementation of the allocator is selected by a macro constant. Its default value is `2`, which selects an implementation based on the two-level segregated fit algorithm proposed by Masmano et al.
 
@@ -45,8 +43,6 @@ The following implementations are available.
 | `1`   | [`ao_alloc_1`](alloc-1.md) | Implementation based on pools of fixed-size memory blocks |
 | `2`   | [`ao_alloc_2`](alloc-2.md) | Implementation based on the two-level segregated fit algorithm |
 
-### Callbacks
-
 Additionally, the allocator can execute a callback upon each call to `ao_acquire()`, `ao_release()`, or `ao_retain()`, respectively, which can aid in debugging an application or tracing and optimizing the memory usage of the allocator. By default, these options are disabled.
 
 ```c
@@ -61,11 +57,11 @@ Additionally, the allocator can execute a callback upon each call to `ao_acquire
 #define AO_RETAINED
 ```
 
-## Types
+# Types
 
-### Acquired
+## `ao_acquired_t`
 
-The `ao_acquired_t` type represents information about a call to `ao_acquire()`.
+This type represents information about a call to `ao_acquire()`.
 
 ```c
 struct ao_acquired_t
@@ -88,9 +84,9 @@ It consists of the following members.
 | `size_body_requested` | The requested size of the body of the memory block, that is, the parameter value that the function was called with. |
 | `size_head` | The size of the head of the memory block. |
 
-### Released
+## `ao_released_t`
 
-The `ao_released_t` type represents information about a call to `ao_release()`.
+This type represents information about a call to `ao_release()`.
 
 ```c
 struct ao_released_t
@@ -113,9 +109,9 @@ It consists of the following members.
 | `size_body` | The size of the body of the memory block. |
 | `size_head` | The size of the head of the memory block. |
 
-### Retained
+## `ao_retained_t`
 
-The `ao_retained_t` type represents information about a call to `ao_retain()`.
+This type represents information about a call to `ao_retain()`.
 
 ```c
 struct ao_retained_t
@@ -138,7 +134,7 @@ It consists of the following members.
 | `size_body` | The size of the body of the memory block. |
 | `size_head` | The size of the head of the memory block. |
 
-## Functions
+# Functions
 
 The `ao_acquire()` function allocates a memory block of the specified size.
 
@@ -176,7 +172,7 @@ The opposite operation is defined as a macro function, too.
 ao_delete(x);
 ```
 
-## Callbacks
+# Callbacks
 
 If the respective configuration options are enabled, then the allocator executes the following callbacks, which must be implemented by the application.
 

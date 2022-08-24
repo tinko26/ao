@@ -7,7 +7,7 @@ permalink: /modules/recv-ptr-from-stream/
 title: "ao_recv_ptr_from_stream.h"
 ---
 
-# ao_recv_ptr_from_stream.h
+# Overview
 
 This module defines a single function that facilitates [receiving pointers](recv-ptr.md) from a [stream](stream4ptr.md).
 

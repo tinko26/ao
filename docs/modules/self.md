@@ -7,7 +7,7 @@ permalink: /modules/self/
 title: "ao_self.h"
 ---
 
-# ao_self.h
+# Overview
 
 This module provides functions for a task to stop or suspend itself, respectively.
 

@@ -7,7 +7,7 @@ permalink: /modules/count/
 title: "ao_count.h"
 ---
 
-# ao_count.h
+# Overview
 
 This module encapsulates a hardware counter that increments continuously at a constant rate. The counter makes up the basis for measuring time. Additionally, this counter and a corresponding [interrupt](../alarm-interrupt.md) make up the basis for [alarms](../alarms.md).
 

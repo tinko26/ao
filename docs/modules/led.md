@@ -7,7 +7,7 @@ permalink: /modules/led/
 title: "ao_led.h"
 ---
 
-# ao_led.h
+# Overview
 
 This module encapsulates LEDs that can be switched on and off. The number of LEDs is defined by a macro constant.
 

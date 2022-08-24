@@ -7,7 +7,7 @@ permalink: /modules/rb/
 title: "ao_rb.h"
 ---
 
-# ao_rb.h
+# Overview
 
 This module defines red-black trees.
 

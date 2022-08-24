@@ -7,7 +7,7 @@ permalink: /modules/recv-obj-from-queue/
 title: "ao_recv_obj_from_queue.h"
 ---
 
-# ao_recv_obj_from_queue.h
+# Overview
 
 This module defines a single function that facilitates [receiving objects](recv-obj.md) from a [queue](queue4obj.md).
 

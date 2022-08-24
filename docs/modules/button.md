@@ -7,7 +7,7 @@ permalink: /modules/button/
 title: "ao_button.h"
 ---
 
-# ao_button.h
+# Overview
 
 This module encapsulates buttons that can be pressed by a user. The number of buttons is defined by a macro constant.
 

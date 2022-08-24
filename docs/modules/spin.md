@@ -7,7 +7,7 @@ permalink: /modules/spin/
 title: "ao_spin.h"
 ---
 
-# ao_spin.h
+# Overview
 
 This module defines functions for spinning or busy waiting, respectively, that can be used to generate time delays.  In the simplest form, a thread of execution can spin for a specified time span.
 
