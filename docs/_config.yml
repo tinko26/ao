@@ -20,6 +20,7 @@ lunr:
   search_within_pages : true
 breadcrumbs           : true
 toc                   : false
+toc_label             : Contents
 
 # Site Author
 author:
