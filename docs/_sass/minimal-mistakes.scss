@@ -31,7 +31,7 @@
 @import "minimal-mistakes/navigation-replacement";
 @import "minimal-mistakes/footer";
 @import "minimal-mistakes/search";
-@import "minimal-mistakes/syntax";
+@import "minimal-mistakes/syntax-replacement";
 
 /* Utility classes */
 @import "minimal-mistakes/utilities";
@@ -51,6 +51,4 @@
 @import "minimal-mistakes/override_reset";
 @import "minimal-mistakes/override_search";
 @import "minimal-mistakes/override_sidebar";
-@import "minimal-mistakes/override_syntax";
-@import "minimal-mistakes/override_syntax_console";
 @import "minimal-mistakes/override_tables";
