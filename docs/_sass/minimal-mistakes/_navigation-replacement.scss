@@ -1,50 +1,67 @@
-/* ==========================================================================
-   NAVIGATION
-   ========================================================================== */
+.breadcrumbs__container {
+  background-color: $breadcrumbs-background-color;
+  color: $breadcrumbs-text-color;
+}
 
-/*
-   Breadcrumb navigation links
-   ========================================================================== */
-
-   .breadcrumbs {
-    @include clearfix;
-    margin: 0 auto;
-    max-width: 100%;
-    padding-left: 1em;
-    padding-right: 1em;
-    font-family: $sans-serif;
-    -webkit-animation: $intro-transition;
-    animation: $intro-transition;
-    -webkit-animation-delay: 0.3s;
-    animation-delay: 0.3s;
+.breadcrumbs {
+  @include clearfix;
+  margin: 0 auto;
+  max-width: 100%;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-family: $sans-serif;
+  -webkit-animation: $intro-transition;
+  animation: $intro-transition;
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
   
+  @include breakpoint($x-large) {
+    max-width: $x-large;
+  }
+  
+  ol {
+    padding: 0;
+    list-style: none;
+    font-size: $type-size-6;
+
+    @include breakpoint($large) {
+      float: right;
+      width: calc(100% - #{$right-sidebar-width-narrow});
+    }
+
     @include breakpoint($x-large) {
-      max-width: $x-large;
-    }
-  
-    ol {
-      padding: 0;
-      list-style: none;
-      font-size: $type-size-6;
-  
-      @include breakpoint($large) {
-        float: right;
-        width: calc(100% - #{$right-sidebar-width-narrow});
-      }
-  
-      @include breakpoint($x-large) {
-        width: calc(100% - #{$right-sidebar-width});
-      }
-    }
-  
-    li {
-      display: inline;
-    }
-  
-    .current {
-      font-weight: bold;
+      width: calc(100% - #{$right-sidebar-width});
     }
   }
+
+  li {
+    display: inline;
+  }
+
+  .current {
+    font-weight: bold;
+  }
+
+  a {
+    color: $breadcrumbs-text-color;
+    text-decoration: none;
+  }
+
+  a:active {
+    color: $breadcrumbs-text-color;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $breadcrumbs-text-color;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: $breadcrumbs-text-color;
+    text-decoration: none;
+  }
+}
   
   /*
        Post pagination navigation links
