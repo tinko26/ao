@@ -3,7 +3,7 @@ div.highlighter-rouge {
 }
 
 .page__content {
-  :not(pre) > code {
+  :not(pre, h1, h2, h3, h4, h5, h6) > code {
     background-color: white;
     border:1px solid #e8e8e8;
     border-radius: $border-radius;
