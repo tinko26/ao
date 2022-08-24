@@ -173,6 +173,30 @@ body {
     color: deeppink;
   }
 
+  .toc__menu {
+    a > code {
+      color: $link-color;
+    }
+  
+    a:active > code {
+      color: $link-color;
+    }
+  
+    a:hover > code {
+      color: $link-color;
+      text-decoration: underline;
+    }
+  
+    a:visited > code {
+      color: $link-color;
+    }
+
+    code {
+      border: 0;
+      padding: 0;
+    }
+  }
+
   dt {
     margin-top: 1em;
     font-family: $sans-serif;
