@@ -14,9 +14,9 @@ The `ao_recv.h` module provides an abstraction for tasks to receive data from an
 
 # Types
 
-## Receiving
+## `ao_recv_t`
 
-The `ao_recv_t` type represents the receiving of data.
+This type represents the receiving of data.
 
 ```c
 struct ao_recv_t
@@ -47,9 +47,9 @@ It consists of the following members.
 | `ptr` | The location to store the received data. |
 | `result` | Indicates whether at least `count_min` bytes and at most `count_max` bytes have been received. |
 
-## Receiving Procedure
+## ao_recv_proc_t
 
-The `ao_recv_proc_t` represents a function beginning or ending a receiving.
+This type represents a function beginning or ending a receiving.
 
 ```c
 typedef void (* ao_recv_proc_t) (ao_recv_t * x);
