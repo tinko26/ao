@@ -1,7 +1,7 @@
 # Theme
 remote_theme: "tinko26/theme"
 
-# Site Settings
+# Site
 author: "Stefan Wagner"
 author_url : "https://github.com/tinko26"
 description: "The ao real-time operating system."
@@ -11,7 +11,11 @@ subtitle: "Real-Time Operating System"
 url: "https://tinko26.github.io"
 baseurl: "/ao"
 
-# Reading Files
+# SASS
+sass:
+  style: expanded
+
+# Exclude
 exclude:
   - old/
 
