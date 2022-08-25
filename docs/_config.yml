@@ -73,7 +73,7 @@ defaults:
       classes: wide
       comments: false
       draft: false
-      layout: custom
+      layout: default
       read_time: false
       related: false
       share: false
