@@ -1,0 +1,17 @@
+{%- assign title_separator = '&#124;' -%}
+
+{%- assign title = page.title -%}
+
+{%- assign title = title | append: " " -%}
+{%- assign title = title | append: title_separator -%}
+{%- assign title = title | append: " " -%}
+{%- assign title = title | append: site.title -%}
+
+{%- assign title = title | markdownify -%}
+{%- assign title = title | strip_html -%}
+{%- assign title = title | strip_newlines -%}
+{%- assign title = title | escape_once -%}
+
+{%- assign title = title | default: site.title -%}
+
+<title>{{ title }}</title>

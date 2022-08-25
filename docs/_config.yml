@@ -74,7 +74,7 @@ defaults:
       classes: wide
       comments: false
       draft: false
-      layout: single
+      layout: custom
       read_time: false
       related: false
       share: false
