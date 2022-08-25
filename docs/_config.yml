@@ -8,7 +8,7 @@ title                 : "ao"
 title_separator       : "|"
 subtitle              : "Real-Time Operating System"
 name                  : "Stefan Wagner"
-description           : 
+description           : "The ao real-time operating system."
 url                   : "https://tinko26.github.io"
 baseurl               : "/ao"
 repository            : "tinko26/ao"
