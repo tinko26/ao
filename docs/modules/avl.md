@@ -4,6 +4,7 @@ date: 2022-08-04
 description: "The ao_avl.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/avl/
+subtitle: "AVL trees."
 title: "ao_avl.h"
 ---
 
@@ -13,11 +14,11 @@ This module defines AVL trees.
 
 An AVL tree is a special kind of binary search tree, that keeps itself balanced, which guarantees that insertion, removal, and search always take logarithmic time. It is therefore a perfect choice when implementing a priority queue.
 
-## Types
+# Types
 
-### Tree
+## `ao_avl_t`
 
-The `ao_avl_t` type represents an AVL tree.
+This type represents an AVL tree.
 
 ```c
 struct ao_avl_t
@@ -36,9 +37,9 @@ It consists of the following members.
 | `less_parameter` | The compare function parameter. |
 | `root` | The root. |
 
-### Node
+## `ao_avl_node_t`
 
-The `ao_avl_node_t` type represents an AVL tree node.
+This type represents an AVL tree node.
 
 ```c
 struct ao_avl_node_t
@@ -61,9 +62,9 @@ It consists of the following members.
 
 Although a node's height is always positive, the `height` member is a signed integer. This is, because the heights of a node's children are used to calculate its balance factor, which can be negative.
 
-### Compare Function
+## `ao_avl_less_t`
 
-The `ao_avl_less_t` type represents a compare function, that implements a strict total order on the nodes.
+This type represents a compare function, that implements a strict total order on the nodes.
 
 ```c
 typedef bool (* ao_avl_less_t)
@@ -74,7 +75,7 @@ typedef bool (* ao_avl_less_t)
 );
 ```
 
-## Initialization
+# Initialization
 
 A node can be initialized by clearing all of its members.
 
@@ -121,7 +122,7 @@ bool compare(ao_avl_node_t * n1, ao_avl_node_t * n2, void * p)
 a->less = compare;
 ```
 
-## Functions
+# Functions
 
 If the root is clear, then the tree is empty. This can be checked with a macro function.
 
@@ -159,7 +160,7 @@ It is therefore useful in debugging scenarios. However, the function is implemen
 ao_avl_assert(a);
 ```
 
-## External Links
+# External Links
 
 [https://en.wikipedia.org/wiki/AVL_tree](https://en.wikipedia.org/wiki/AVL_tree)
 

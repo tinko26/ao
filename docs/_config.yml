@@ -39,4 +39,4 @@ defaults:
       layout: default
       subtitle: "This page has not been subtitled."
       title: "Untitled"
-      toc: false
+      toc: true
