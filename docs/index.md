@@ -1,10 +1,11 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-24
+date: 2022-08-26
 description: ""
 draft: true
 permalink: /
-title: "Home"
+subtitle: "A real-time operating system."
+title: "ao"
 ---
 
 # Home
