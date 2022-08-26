@@ -20,8 +20,8 @@ title: "Home"
 - [operating modes](operating-modes.md)
 - [packages](packages.md)
 - [priority queues](priority-queues.md)
-- [resources](resources.md)
 - [receiving](receiving.md) ✅
+- [resources](resources.md)
 - [source code](source-code.md)
 - [synchronization](synchronization.md)
 - [timing](timing.md)

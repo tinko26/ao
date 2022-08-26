@@ -1,14 +1,28 @@
 items:
+  - title: "Binary Heaps"
+    url: /binary-heaps/
   - title: "Buffers"
     url: /buffers/
+  - title: "Configuration"
+    url: /configuration/
   - title: "Debugging"
     url: /debugging/
+  - title: "Drivers"
+    url: /drivers/
   - title: "Memory"
     url: /memory/
   - title: "Modules"
     url: /modules/
   - title: "Multitasking"
     url: /multitasking/
+  - title: "Operating Modes"
+    url: /operating-modes/
+  - title: "Packages"
+    url: /packages/
+  - title: "Priority Queues"
+    url: /priority-queues/
+  - title: "Receiving"
+    url: /receiving/
   - title: "Resources"
     url: /resources/
   - title: "Source Code"
