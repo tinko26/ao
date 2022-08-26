@@ -33,3 +33,4 @@ defaults:
     values:
       draft: false
       layout: default
+      toc: false
