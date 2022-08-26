@@ -1,4 +1,6 @@
-menu:
+items:
+  - title: "Buffers"
+    url: /buffers/
   - title: "Debugging"
     url: /debugging/
   - title: "Memory"
