@@ -4,6 +4,7 @@ date: 2022-08-04
 description: "The ao_rb.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/rb/
+subtitle: "Red-black trees"
 title: "ao_rb.h"
 ---
 
@@ -13,11 +14,11 @@ This module defines red-black trees.
 
 A red-black tree is a special kind of binary search tree, that keeps itself balanced, which guarantees that insertion, removal, and search always take logarithmic time. It is therefore a perfect choice when implementing a priority queue.
 
-## Types
+# Types
 
-### Tree
+## `ao_rb_t`
 
-The `ao_rb_t` type represents a red-black tree.
+This type represents a red-black tree.
 
 ```c
 struct ao_rb_t
@@ -36,9 +37,9 @@ It consists of the following members.
 | `less_parameter` | The compare function parameter. |
 | `root` | The root. |
 
-### Node
+## `ao_rb_node_t`
 
-The `ao_rb_node_t` type represents a red-black tree node.
+This type represents a red-black tree node.
 
 ```c
 struct ao_rb_node_t
@@ -59,9 +60,9 @@ It consists of the following members.
 | `parent` | The parent. |
 | `right` | The right child. |
 
-### Compare Function
+## `ao_rb_less_t`
 
-The `ao_rb_less_t` type represents a compare function, that implements a strict total order on the nodes.
+This type represents a compare function, that implements a strict total order on the nodes.
 
 ```c
 typedef bool (* ao_rb_less_t)
@@ -72,7 +73,7 @@ typedef bool (* ao_rb_less_t)
 );
 ```
 
-## Initialization
+# Initialization
 
 A node can be initialized by clearing all of its members.
 
@@ -119,7 +120,7 @@ bool compare(ao_rb_node_t * n1, ao_rb_node_t * n2, void * p)
 r->less = compare;
 ```
 
-## Functions
+# Functions
 
 If the root is clear, then the tree is empty. This can be checked with a macro function.
 
@@ -157,7 +158,7 @@ It is therefore useful in debugging scenarios. However, the function is implemen
 ao_rb_assert(r);
 ```
 
-## External Links
+# External Links
 
 [https://en.wikipedia.org/wiki/Binary_search_tree](https://en.wikipedia.org/wiki/Binary_search_tree)
 
