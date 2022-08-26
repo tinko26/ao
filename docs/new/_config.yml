@@ -1,0 +1,35 @@
+# Theme
+remote_theme: "tinko26/theme"
+
+# Site
+author: "Stefan Wagner"
+author_url : "https://github.com/tinko26"
+description: "The ao real-time operating system."
+locale: "en-US"
+title: "ao"
+subtitle: "Real-Time Operating System"
+url: "https://tinko26.github.io"
+baseurl: "/ao"
+
+# Exclude
+exclude:
+  - old/
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+
+# Plugins
+plugins:
+  - jemoji
+  - jekyll-include-cache
+  - jekyll-redirect-from
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      draft: false
+      layout: default
