@@ -37,6 +37,6 @@ defaults:
     values:
       draft: false
       layout: default
-      subtitle: "This page has not been subtitled."
+      subtitle: "This page has not been subtitled"
       title: "Untitled"
       toc: true

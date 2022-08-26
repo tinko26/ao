@@ -4,7 +4,7 @@ date: 2022-08-26
 description: ""
 draft: true
 permalink: /
-subtitle: "A real-time operating system."
+subtitle: "Real-time operating system"
 title: "ao"
 ---
 
