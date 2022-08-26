@@ -4,10 +4,10 @@ date: 2022-08-24
 description: "Receiving data in the ao real-time operating system."
 draft: false
 permalink: /receiving/
+subtitle: "Receiving data from an opaque source"
 title: "Receiving"
+toc: false
 ---
-
-# Receiving
 
 Some sensors send their data as a continuous stream of bytes, that a microcontroller can receive with a serial port, such as UART. For example, GPS receivers usually send NMEA messages in the form of ASCII text.
 
