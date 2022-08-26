@@ -25,6 +25,10 @@ plugins:
   - jekyll-include-cache
   - jekyll-redirect-from
 
+# SASS
+sass:
+  style: expanded
+
 # Defaults
 defaults:
   - scope:
@@ -33,4 +37,6 @@ defaults:
     values:
       draft: false
       layout: default
+      subtitle: "This page has not been subtitled."
+      title: "Untitled"
       toc: false
