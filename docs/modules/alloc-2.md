@@ -1,10 +1,11 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-15
-description: "The ao_alloc_2.h module of the ao real-time operating system."
+description: "The alloc_2 module of the ao real-time operating system."
 draft: true
 permalink: /modules/alloc-2/
-title: "ao_alloc_2.h"
+subtitle: "Constant-time allocator based on the two-level segregated fit algorithm"
+title: "alloc_2"
 toc: true
 ---
 

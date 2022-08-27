@@ -1,11 +1,11 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-15
-description: "The ao_alloc_1.h module of the ao real-time operating system."
+description: "The alloc_1 module of the ao real-time operating system."
 draft: false
 permalink: /modules/alloc-1/
-subtitle: "An allocator based on pools of fixed-size memory blocks"
-title: "ao_alloc_1.h"
+subtitle: "Allocator based on pools of fixed-size memory blocks"
+title: "alloc_1"
 toc: true
 ---
 
