@@ -7,9 +7,7 @@ permalink: /modules/
 title: "Modules"
 ---
 
-| Module | | |
-|--------|-|-|
-| [`ao_alarm.h`](alarm.md) | Alarms |
+| [ao_alarm.h](alarm.md) | Alarms |
 | [`ao_alarm_queue.h`](alarm-queue.md) | Alarm queue |
 | [`ao_alarm_queue_0.h`](alarm-queue-0.md) | Alarm queue stub | ✅ |
 | [`ao_alarm_queue_1.h`](alarm-queue-1.md) | Alarm queue based on a sorted list | ✅ |
