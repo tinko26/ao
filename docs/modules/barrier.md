@@ -5,15 +5,16 @@ description: "The ao_barrier.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/barrier/
 title: "ao_barrier.h"
+toc: true
 ---
 
 # Overview
 
 ...
 
-## Types
+# Types
 
-### Barrier
+## Barrier
 
 The `ao_barrier_t` type represents a barrier.
 
@@ -34,7 +35,7 @@ It consists of the following members.
 | `count_threshold` | The maximum number waiting tasks. |
 | `list` | The list of waiting tasks. |
 
-### Barrier Waiting
+## Barrier Waiting
 
 The `ao_barrier_wait_t` type represents the waiting at a barrier.
 
@@ -57,10 +58,10 @@ It consists of the following members.
 | `node` | ... |
 | `result` | ... |
 
-## Functions
+# Functions
 
 ...
 
-## External Links
+# External Links
 
 [https://en.wikipedia.org/wiki/Barrier_(computer_science)](https://en.wikipedia.org/wiki/Barrier_(computer_science))
