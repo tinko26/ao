@@ -4,7 +4,7 @@ date: 2022-08-04
 description: "The ao_heap4obj.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/heap4obj/
-title: "ao_heap4obj.h"
+title: "<code>ao_heap4obj.h</code>"
 ---
 
 # Overview

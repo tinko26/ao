@@ -1,11 +1,11 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-15
-description: "The alloc module of the ao real-time operating system."
+description: "The ao_alloc.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/alloc/
 subtitle: "Allocator"
-title: "alloc"
+title: "<code>ao_alloc.h</code>"
 toc: true
 ---
 

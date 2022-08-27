@@ -4,7 +4,7 @@ date: 2022-08-17
 description: "The ao_recv_obj_from_stream.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/recv-obj-from-stream/
-title: "ao_recv_obj_from_stream.h"
+title: "<code>ao_recv_obj_from_stream.h</code>"
 ---
 
 # Overview

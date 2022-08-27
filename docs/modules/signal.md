@@ -4,7 +4,7 @@ date: 2022-08-17
 description: "The ao_signal.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/signal/
-title: "ao_signal.h"
+title: "<code>ao_signal.h"
 ---
 
 # Overview

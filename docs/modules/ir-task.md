@@ -4,7 +4,7 @@ date: 2022-08-14
 description: "The ao_ir_task.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/ir-task/
-title: "ao_ir_task.h"
+title: "<code>ao_ir_task.h</code>"
 ---
 
 # Overview

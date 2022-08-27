@@ -5,7 +5,7 @@ description: "The ao_avl.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/avl/
 subtitle: "AVL trees"
-title: "ao_avl.h"
+title: "<code>ao_avl.h</code>"
 ---
 
 # Overview

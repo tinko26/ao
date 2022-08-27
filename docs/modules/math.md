@@ -4,7 +4,7 @@ date: 2022-08-08
 description: "The ao_math.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/math/
-title: "ao_math.h"
+title: "<code>ao_math.h</code>"
 ---
 
 # Overview

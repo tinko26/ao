@@ -4,7 +4,7 @@ date: 2022-08-04
 description: "The ao_struct.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/struct/
-title: "ao_struct.h"
+title: "<code>ao_struct.h"
 ---
 
 # Overview

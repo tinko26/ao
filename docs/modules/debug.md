@@ -4,7 +4,7 @@ date: 2022-08-12
 description: "The ao_debug.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/debug/
-title: "ao_debug.h"
+title: "<code>ao_debug.h</code>"
 ---
 
 # Overview

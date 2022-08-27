@@ -4,7 +4,7 @@ date: 2022-08-16
 description: "The ao_recv_ptr.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/recv-ptr/
-title: "ao_recv_ptr.h"
+title: "<code>ao_recv_ptr.h</code>"
 ---
 
 # Overview

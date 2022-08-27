@@ -4,7 +4,7 @@ date: 2022-08-04
 description: "The ao_buffer.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/buffer/
-title: "ao_buffer.h"
+title: "<code>ao_buffer.h</code>"
 ---
 
 # Overview

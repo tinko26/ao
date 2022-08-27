@@ -4,7 +4,7 @@ date: 2022-08-08
 description: "The ao_stack.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/stack/
-title: "ao_stack.h"
+title: "<code>ao_stack.h"
 ---
 
 # Overview

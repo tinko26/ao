@@ -4,7 +4,7 @@ date: 2022-08-16
 description: "The ao_cond.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/cond/
-title: "ao_cond.h"
+title: "<code>ao_cond.h</code>"
 ---
 
 # Overview

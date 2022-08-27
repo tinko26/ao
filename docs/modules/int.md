@@ -4,7 +4,7 @@ date: 2022-08-12
 description: "The ao_int.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/int/
-title: "ao_int.h"
+title: "<code>ao_int.h</code>"
 ---
 
 # Overview

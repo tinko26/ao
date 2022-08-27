@@ -4,7 +4,7 @@ date: 2022-08-04
 description: "The ao_buffer4ptr.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/buffer4ptr/
-title: "ao_buffer4ptr.h"
+title: "<code>ao_buffer4ptr.h</code>"
 ---
 
 # Overview

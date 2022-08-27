@@ -4,7 +4,7 @@ date: 2022-08-12
 description: "The ao_size.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/size/
-title: "ao_size.h"
+title: "<code>ao_size.h"
 ---
 
 # Overview

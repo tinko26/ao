@@ -4,7 +4,7 @@ date: 2022-08-17
 description: "The ao_recv_ptr_from_callback.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/recv-ptr-from-callback/
-title: "ao_recv_ptr_from_callback.h"
+title: "<code>ao_recv_ptr_from_callback.h</code>"
 ---
 
 # Overview

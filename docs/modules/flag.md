@@ -4,7 +4,7 @@ date: 2022-08-16
 description: "The ao_flag.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/flag/
-title: "ao_flag.h"
+title: "<code>ao_flag.h</code>"
 ---
 
 # Overview

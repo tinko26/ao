@@ -4,7 +4,7 @@ date: 2022-08-17
 description: "The ao_recv_ptr_from_queue.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/recv-ptr-from-queue/
-title: "ao_recv_ptr_from_queue.h"
+title: "<code>ao_recv_ptr_from_queue.h</code>"
 ---
 
 # Overview

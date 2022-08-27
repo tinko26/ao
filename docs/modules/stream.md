@@ -4,7 +4,7 @@ date: 2022-08-17
 description: "The ao_stream.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/stream/
-title: "ao_stream.h"
+title: "<code>ao_stream.h"
 ---
 
 # Overview

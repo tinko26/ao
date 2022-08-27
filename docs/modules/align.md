@@ -4,7 +4,7 @@ date: 2022-08-10
 description: "The ao_align.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/align/
-title: "ao_align.h"
+title: "<code>ao_align.h</code>"
 ---
 
 # Overview

@@ -4,7 +4,7 @@ date: 2022-08-04
 description: "The ao_buffer4obj.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/buffer4obj/
-title: "ao_buffer4obj.h"
+title: "<code>ao_buffer4obj.h</code>"
 ---
 
 # Overview

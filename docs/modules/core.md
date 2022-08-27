@@ -4,7 +4,7 @@ date: 2022-08-12
 description: "The ao_core.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/core/
-title: "ao_core.h"
+title: "<code>ao_core.h</code>"
 ---
 
 # Overview

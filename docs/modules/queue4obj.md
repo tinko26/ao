@@ -4,7 +4,7 @@ date: 2022-08-16
 description: "The ao_queue4obj.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/queue4obj/
-title: "ao_queue4obj.h"
+title: "<code>ao_queue4obj.h</code>"
 ---
 
 # Overview

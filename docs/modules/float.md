@@ -4,7 +4,7 @@ date: 2022-08-12
 description: "The ao_float.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/float/
-title: "ao_float.h"
+title: "<code>ao_float.h</code>"
 ---
 
 # Overview

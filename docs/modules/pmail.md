@@ -4,7 +4,7 @@ date: 2022-08-16
 description: "The ao_pmail.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/pmail/
-title: "ao_pmail.h"
+title: "<code>ao_pmail.h</code>"
 ---
 
 # Overview

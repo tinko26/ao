@@ -4,7 +4,7 @@ date: 2022-08-16
 description: "The ao_mail.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/mail/
-title: "ao_mail.h"
+title: "<code>ao_mail.h</code>"
 ---
 
 # Overview

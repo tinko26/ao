@@ -39,5 +39,5 @@ defaults:
       draft: false
       layout: default
       subtitle: ""
-      title: "Untitled"
-      toc: true
+      title: ""
+      toc: false

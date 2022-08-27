@@ -11,7 +11,7 @@ toc: true
 
 # Overview
 
-The `ao_recv.h` module provides an abstraction for tasks to receive data from an opaque source either in a blocking or in a non-blocking fashion.
+This module provides an abstraction for tasks to receive data from an opaque source either in a blocking or in a non-blocking fashion.
 
 # Types
 

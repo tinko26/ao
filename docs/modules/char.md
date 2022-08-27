@@ -4,7 +4,7 @@ date: 2022-08-08
 description: "The ao_char.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/char/
-title: "ao_char.h"
+title: "<code>ao_char.h</code>"
 ---
 
 # Overview

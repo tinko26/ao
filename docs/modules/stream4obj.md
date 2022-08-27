@@ -4,7 +4,7 @@ date: 2022-08-17
 description: "The ao_stream4obj.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/stream4obj/
-title: "ao_stream4obj.h"
+title: "<code>ao_stream4obj.h"
 ---
 
 # Overview

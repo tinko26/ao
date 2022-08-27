@@ -4,7 +4,7 @@ date: 2022-08-05
 description: "The ao_lfsr.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/lfsr/
-title: "ao_lfsr.h"
+title: "<code>ao_lfsr.h</code>"
 ---
 
 # Overview

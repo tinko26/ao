@@ -4,7 +4,7 @@ date: 2022-08-16
 description: "The ao_are.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/are/
-title: "ao_are.h"
+title: "<code>ao_are.h</code>"
 ---
 
 # Overview

@@ -4,7 +4,7 @@ date: 2022-08-16
 description: "The ao_wr.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/wr/
-title: "ao_wr.h"
+title: "<code>ao_wr.h"
 ---
 
 # Overview

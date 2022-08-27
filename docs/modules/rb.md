@@ -5,7 +5,7 @@ description: "The ao_rb.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/rb/
 subtitle: "Red-black trees"
-title: "ao_rb.h"
+title: "<code>ao_rb.h</code>"
 ---
 
 # Overview

@@ -4,7 +4,7 @@ date: 2022-08-16
 description: "The ao_await.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/await/
-title: "ao_await.h"
+title: "<code>ao_await.h</code>"
 ---
 
 # Overview

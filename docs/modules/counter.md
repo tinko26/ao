@@ -4,7 +4,7 @@ date: 2022-08-16
 description: "The ao_counter.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/counter/
-title: "ao_counter.h"
+title: "<code>ao_counter.h</code>"
 ---
 
 # Overview

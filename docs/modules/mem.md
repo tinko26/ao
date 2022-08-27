@@ -4,7 +4,7 @@ date: 2022-08-12
 description: "The ao_mem.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/mem/
-title: "ao_mem.h"
+title: "<code>ao_mem.h</code>"
 ---
 
 # Overview

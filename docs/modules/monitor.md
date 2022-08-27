@@ -4,7 +4,7 @@ date: 2022-08-16
 description: "The ao_monitor.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/monitor/
-title: "ao_monitor.h"
+title: "<code>ao_monitor.h</code>"
 ---
 
 # Overview

@@ -4,7 +4,7 @@ date: 2022-08-15
 description: "The ao_alarm_queue_2.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/alarm-queue-2/
-title: "ao_alarm_queue_2.h"
+title: "<code>ao_alarm_queue_2.h</code>"
 ---
 
 # Overview

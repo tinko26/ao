@@ -4,7 +4,7 @@ date: 2022-08-11
 description: "The ao_time.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/time/
-title: "ao_time.h"
+title: "<code>ao_time.h"
 ---
 
 # Overview
