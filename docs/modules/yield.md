@@ -4,7 +4,7 @@ date: 2022-08-17
 description: "The ao_yield.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/yield/
-title: "<code>ao_yield.h"
+title: "<code>ao_yield.h</code>"
 ---
 
 # Overview

@@ -4,7 +4,7 @@ date: 2022-08-07
 description: "The ao_scan.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/scan/
-title: "<code>ao_scan.h"
+title: "<code>ao_scan.h</code>"
 ---
 
 # Overview

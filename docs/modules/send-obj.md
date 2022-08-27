@@ -4,7 +4,7 @@ date: 2022-08-17
 description: "The ao_send_obj.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/send-obj/
-title: "<code>ao_send_obj.h"
+title: "<code>ao_send_obj.h</code>"
 ---
 
 # Overview

@@ -4,7 +4,7 @@ date: 2022-08-11
 description: "The ao_spin.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/spin/
-title: "<code>ao_spin.h"
+title: "<code>ao_spin.h</code>"
 ---
 
 # Overview

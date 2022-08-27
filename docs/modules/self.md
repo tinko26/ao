@@ -4,7 +4,7 @@ date: 2022-08-16
 description: "The ao_self.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/self/
-title: "<code>ao_self.h"
+title: "<code>ao_self.h</code>"
 ---
 
 # Overview

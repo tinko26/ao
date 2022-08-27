@@ -4,7 +4,7 @@ date: 2022-08-12
 description: "The ao_task_stack.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/task-stack/
-title: "<code>ao_task_stack.h"
+title: "<code>ao_task_stack.h</code>"
 ---
 
 # Overview

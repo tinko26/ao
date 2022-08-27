@@ -4,7 +4,7 @@ date: 2022-08-16
 description: "The ao_rendezvous.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/rendezvous/
-title: "<code>ao_rendezvous.h"
+title: "<code>ao_rendezvous.h</code>"
 ---
 
 # Overview

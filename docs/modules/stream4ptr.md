@@ -4,7 +4,7 @@ date: 2022-08-17
 description: "The ao_stream4ptr.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/stream4ptr/
-title: "<code>ao_stream4ptr.h"
+title: "<code>ao_stream4ptr.h</code>"
 ---
 
 # Overview

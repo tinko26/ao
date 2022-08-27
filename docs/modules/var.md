@@ -4,7 +4,7 @@ date: 2022-08-04
 description: "The ao_var.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/var/
-title: "<code>ao_var.h"
+title: "<code>ao_var.h</code>"
 ---
 
 # Overview

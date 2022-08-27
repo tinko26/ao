@@ -4,7 +4,7 @@ date: 2022-08-03
 description: "The ao_slist.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/slist/
-title: "<code>ao_slist.h"
+title: "<code>ao_slist.h</code>"
 ---
 
 # Overview

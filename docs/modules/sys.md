@@ -4,7 +4,7 @@ date: 2022-08-13
 description: "The ao_sys.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/sys/
-title: "<code>ao_sys.h"
+title: "<code>ao_sys.h</code>"
 ---
 
 # Overview
