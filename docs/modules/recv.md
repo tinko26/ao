@@ -4,6 +4,7 @@ date: 2022-08-24
 description: "The ao_recv.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/recv/
+subtitle: "Receiving data from an opaque source"
 title: "ao_recv.h"
 toc: true
 ---
