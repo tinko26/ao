@@ -6,9 +6,8 @@ draft: true
 permalink: /
 subtitle: "Real-time operating system"
 title: "ao"
+toc: false
 ---
-
-# Home
 
 - [binary heaps](binary-heaps.md)
 - [buffers](buffers.md)
