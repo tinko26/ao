@@ -35,8 +35,9 @@ defaults:
       path: ""
       type: pages
     values:
+      author: "Stefan Wagner"
       draft: false
       layout: default
-      subtitle: "This page has not been subtitled"
+      subtitle: ""
       title: "Untitled"
       toc: true
