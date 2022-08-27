@@ -10,10 +10,6 @@ toc: true
 
 # Overview
 
-```c
-typedef void (* ao_recv_proc_t) (ao_recv_t * x, ao_recv_t * x, ao_recv_t * x, ao_recv_t * x, ao_recv_t * x);
-```
-
 The `ao_recv.h` module provides an abstraction for tasks to receive data from an opaque source either in a blocking or in a non-blocking fashion.
 
 # Types
