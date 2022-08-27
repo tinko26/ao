@@ -4,7 +4,9 @@ date: 2022-08-15
 description: "The ao_alarm_queue_3.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/alarm-queue-3/
+subtitle: "Alarm queue based on a pointer-based binary heap"
 title: "<code>ao_alarm_queue_3.h</code>"
+toc: true
 ---
 
 # Overview

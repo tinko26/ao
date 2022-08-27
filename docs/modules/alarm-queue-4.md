@@ -4,7 +4,9 @@ date: 2022-08-15
 description: "The ao_alarm_queue_4.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/alarm-queue-4/
+subtitle: "Alarm queue based on an AVL tree"
 title: "<code>ao_alarm_queue_4.h</code>"
+toc: true
 ---
 
 # Overview

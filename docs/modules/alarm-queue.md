@@ -4,7 +4,9 @@ date: 2022-08-15
 description: "The ao_alarm_queue.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/alarm-queue/
+subtitle: "Alarm queue"
 title: "<code>ao_alarm_queue.h</code>"
+toc: true
 ---
 
 # Overview

@@ -7,8 +7,6 @@ permalink: /modules/
 title: "Modules"
 ---
 
-# Modules
-
 | Module | | |
 |--------|-|-|
 | [`ao_alarm.h`](alarm.md) | Alarms |

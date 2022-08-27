@@ -4,7 +4,9 @@ date: 2022-08-15
 description: "The ao_alarm.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/alarm/
+subtitle: "Alarms"
 title: "<code>ao_alarm.h</code>"
+toc: true
 ---
 
 # Overview
