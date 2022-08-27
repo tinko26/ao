@@ -9,7 +9,7 @@ title: "Modules"
 
 | [`ao_alarm.h`](alarm.md) | Alarms |
 | [`ao_alarm_queue.h`](alarm-queue.md) | Alarm queue |
-| [`ao_alarm_queue_0.h`](alarm-queue-0.md) | Alarm queue stub | :white_check_mark: |
+| [`ao_alarm_queue_0.h`](alarm-queue-0.md) | Alarm queue stub | ✅ |
 | [`ao_alarm_queue_1.h`](alarm-queue-1.md) | Alarm queue based on a sorted list | ✅ |
 | [`ao_alarm_queue_2.h`](alarm-queue-2.md) | Alarm queue based on an array-based heap  | ✅ |
 | [`ao_alarm_queue_3.h`](alarm-queue-3.md) | Alarm queue based on a pointer-based heap | ✅ |
