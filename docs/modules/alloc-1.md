@@ -4,6 +4,7 @@ date: 2022-08-15
 description: "The ao_alloc_1.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/alloc-1/
+subtitle: "An allocator based on pools of fixed-size memory blocks"
 title: "ao_alloc_1.h"
 toc: true
 ---
