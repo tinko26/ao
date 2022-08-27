@@ -18,7 +18,7 @@ The alarm queue ...
 This module defines a single macro constant selecting the implementation of the alarm queue. The default value is 5, which selects an implementation based on a red-black tree.
 
 ```c
-#define AO_ALARM_QUEUE
+#define AO_ALARM_QUEUE (5)
 ```
 
 The following implementations are available.
