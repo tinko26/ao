@@ -5,7 +5,7 @@ description: "The ao_recv.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/recv/
 subtitle: "Receiving data from an opaque source"
-title: "ao_recv.h"
+title: "<code>ao_recv.h</code>"
 toc: true
 ---
 
