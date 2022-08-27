@@ -11,8 +11,6 @@ toc: false
 
 The following modules support the debugging of an application. Especially, runtime assertions are extensively used throughout the framework.
 
-| Module | |
-|--------|-|
-| [`ao_assert.h`](modules/assert.md) | Defines a single macro function, that executes a runtime assertion. |
-| [`ao_break.h`](modules/break.md) | Defines a single function, that executes a breakpoint. |
-| [`ao_debug.h`](modules/debug.md) | Defines a single macro constant, that indicates, whether an application is running in debug mode. |
+| [`ao_assert.h`](modules/assert.md) | Runtime assertions |
+| [`ao_break.h`](modules/break.md) | Breakpoints |
+| [`ao_debug.h`](modules/debug.md) | Debug mode |
