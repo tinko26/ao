@@ -5,15 +5,16 @@ description: "The ao_bsem.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/bsem/
 title: "ao_bsem.h"
+toc: true
 ---
 
 # Overview
 
 ...
 
-## Types
+# Types
 
-### Binary Semaphore
+## Binary Semaphore
 
 The `ao_bsem_t` type represents a binary semaphore.
 
@@ -32,7 +33,7 @@ It consists of the following members.
 | `list` | The list of tasks attempting to take the semaphore. |
 | `taken` | Indicates whether the semaphore is taken. |
 
-### Binary Semaphore Taking
+## Binary Semaphore Taking
 
 The `ao_bsem_take_t` type represents the taking of a binary semaphore.
 
@@ -55,9 +56,9 @@ It consists of the following members.
 | `result` | Indicates whether the binary semaphore has been taken. |
 | `sem` | The binary semaphore. |
 
-## Functions
+# Functions
 
-### Giving
+## Giving
 
 A binary semaphore can be given from both task and interrupt context.
 
@@ -69,7 +70,7 @@ ao_bsem_t * s;
 ao_bsem_give(s);
 ```
 
-### Taking
+## Taking
 
 In contrast, a binary semaphore can be taken by a task, only.
 
@@ -86,6 +87,6 @@ if (r)
 }
 ```
 
-## External Links
+# External Links
 
 [https://en.wikipedia.org/wiki/Semaphore_(programming)](https://en.wikipedia.org/wiki/Semaphore_(programming))
