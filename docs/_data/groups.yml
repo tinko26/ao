@@ -1,0 +1,13 @@
+priority_queue:
+  title: "Priority Queues"
+  subtitle: "Data structures that can be used to implement priority queues"
+  entries:
+  - title: "AVL trees"
+    url: /avl-trees/
+  - title: "Binary heaps"
+    url: /binary-heaps/
+  - title: "Red-black trees"
+    url: /red-black-trees/
+  - title: "Sorted lists"
+    url: /sorted-lists/
+    

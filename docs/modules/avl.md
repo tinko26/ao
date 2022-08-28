@@ -3,6 +3,8 @@ author: "Stefan Wagner"
 date: 2022-08-04
 description: "The ao_avl.h module of the ao real-time operating system."
 draft: false
+groups:
+- "priority_queue"
 permalink: /modules/avl/
 seealso:
 - title: "Binary heaps"
