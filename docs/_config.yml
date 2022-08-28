@@ -41,10 +41,3 @@ defaults:
       subtitle: ""
       title: ""
       toc: false
-      wiki:
-        - title: "Binary Heaps"
-          url: en.wikipedia.org/wiki/
-        - title: "Buffers"
-          url: en.wikipedia.org/wiki/
-        - title: "Queues"
-          url: en.wikipedia.org/wiki/

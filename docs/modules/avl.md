@@ -6,6 +6,17 @@ draft: false
 permalink: /modules/avl/
 subtitle: "AVL trees"
 title: "<code>ao_avl.h</code>"
+wiki:
+- title: "AVL tree"
+    url: https://en.wikipedia.org/wiki/AVL_tree
+- title: "Binary search tree"
+    url: https://en.wikipedia.org/wiki/Binary_search_tree
+- title: "Priority queue"
+    url: https://en.wikipedia.org/wiki/Priority_queue
+- title: "Self-balancing binary search tree"
+    url: https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree
+- title: "Total order"
+    url: https://en.wikipedia.org/wiki/Total_order
 ---
 
 # Overview
@@ -31,8 +42,6 @@ struct ao_avl_t
 
 It consists of the following members.
 
-| Member | |
-|--------|-|
 | `less` | The compare function. |
 | `less_parameter` | The compare function parameter. |
 | `root` | The root. |
@@ -53,8 +62,6 @@ struct ao_avl_node_t
 
 It consists of the following members.
 
-| Member | |
-|--------|-|
 | `height` | The height of the node, that is, the length of the longest path from the node downwards to a leaf. |
 | `left` | The left child. |
 | `parent` | The parent. |
@@ -159,15 +166,3 @@ It is therefore useful in debugging scenarios. However, the function is implemen
 ```c
 ao_avl_assert(a);
 ```
-
-# External Links
-
-[https://en.wikipedia.org/wiki/AVL_tree](https://en.wikipedia.org/wiki/AVL_tree)
-
-[https://en.wikipedia.org/wiki/Binary_search_tree](https://en.wikipedia.org/wiki/Binary_search_tree)
-
-[https://en.wikipedia.org/wiki/Priority_queue](https://en.wikipedia.org/wiki/Priority_queue)
-
-[https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree)
-
-[https://en.wikipedia.org/wiki/Total_order](https://en.wikipedia.org/wiki/Total_order)
