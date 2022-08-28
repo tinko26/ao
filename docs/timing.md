@@ -7,10 +7,6 @@ permalink: /timing/
 title: "Timing"
 ---
 
-# Timing
-
-| Module | |
-|--------|-|
 | [`ao_alarm.h`](modules/alarm.md) | |
 | [`ao_alarm_queue.h`](modules/alarm-queue.md) | |
 | [`ao_count.h`](modules/count.md) | |

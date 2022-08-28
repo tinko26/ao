@@ -7,8 +7,6 @@ permalink: /multitasking/
 title: "Multitasking"
 ---
 
-# Multitasking
-
 - tasks
 - task context
 - task scheduler

@@ -6,5 +6,3 @@ draft: true
 permalink: /configuration/
 title: "Configuration"
 ---
-
-# Configuration

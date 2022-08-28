@@ -7,6 +7,4 @@ permalink: /source-code/
 title: "Source Code"
 ---
 
-# Source Code
-
-The source code of the framework is located in the `src` directory of the 🌎 [repository](https://github.com/tinko26/ao).
+The source code of the framework is located in the `src` directory of the repository.

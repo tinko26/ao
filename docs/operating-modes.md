@@ -7,8 +7,6 @@ permalink: /operating-modes/
 title: "Operating Modes"
 ---
 
-# Operating Modes
-
 - operating systems can use hardware features to run code in different operating modes.
 - each mode defines restrictions on what can and cannot be done
 - this is to separate applications from each other and from the kernel, thus improving safety, robustness, ...
@@ -19,4 +17,3 @@ title: "Operating Modes"
 - for example, user mode on Pic32, syscall exception, LED toggling 
 
 - kernel package does not deal with operating modes, because (1) hardware specific, (2) usually not required or having negative impact on efficiency in real-time and/or embedded systems.
-

@@ -5,10 +5,10 @@ description: "Priority queues in the ao real-time operating system."
 draft: false
 permalink: /priority-queues/
 title: "Priority Queues"
-toc: true
+wiki:
+- title: "Priority queue"
+  url: https://en.wikipedia.org/wiki/Priority_queue
 ---
-
-# Overview
 
 The following modules provide data structures, that can be used to implement priority queues.
 
@@ -18,7 +18,3 @@ The following modules provide data structures, that can be used to implement pri
 | [`ao_heap4ptr.h`](modules/heap4ptr.md) | Array-based binary heaps for pointers |
 | [`ao_rb.h`](modules/rb.md) | Red-black trees |
 | [`ao_slist.h`](modules/slist.md) | Sorted doubly linked lists |
-
-# External Links
-
-[https://en.wikipedia.org/wiki/Priority_queue](https://en.wikipedia.org/wiki/Priority_queue)

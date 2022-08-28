@@ -7,7 +7,7 @@ permalink: /synchronization/
 title: "Synchronization"
 ---
 
-# Synchronization
+# Overview
 
 - asynchronous events (checking, callbacks)
 
@@ -40,12 +40,10 @@ title: "Synchronization"
 
 - wait_try(resource) ... begin, end
 
-## Primitives
+# Primitives
 
 The following modules provide synchronization primitives.
 
-| Module | |
-|--------|-|
 | [`ao_are.h`](modules/are.md) | Auto-reset events. |
 | [`ao_barrier.h`](modules/barrier.md) | Execution barriers where tasks can meet. |
 | [`ao_bsem.h`](modules/bsem.md) | Binary semaphores. |
