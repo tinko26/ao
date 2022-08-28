@@ -6,6 +6,7 @@ draft: false
 permalink: /modules/avl/
 subtitle: "AVL trees"
 title: "<code>ao_avl.h</code>"
+toc: true
 wiki:
 - title: "AVL tree"
   url: https://en.wikipedia.org/wiki/AVL_tree
