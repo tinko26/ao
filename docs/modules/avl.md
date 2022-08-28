@@ -8,15 +8,15 @@ subtitle: "AVL trees"
 title: "<code>ao_avl.h</code>"
 wiki:
 - title: "AVL tree"
-    url: https://en.wikipedia.org/wiki/AVL_tree
+  url: https://en.wikipedia.org/wiki/AVL_tree
 - title: "Binary search tree"
-    url: https://en.wikipedia.org/wiki/Binary_search_tree
+  url: https://en.wikipedia.org/wiki/Binary_search_tree
 - title: "Priority queue"
-    url: https://en.wikipedia.org/wiki/Priority_queue
+  url: https://en.wikipedia.org/wiki/Priority_queue
 - title: "Self-balancing binary search tree"
-    url: https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree
+  url: https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree
 - title: "Total order"
-    url: https://en.wikipedia.org/wiki/Total_order
+  url: https://en.wikipedia.org/wiki/Total_order
 ---
 
 # Overview
