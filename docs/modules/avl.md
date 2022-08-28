@@ -4,6 +4,11 @@ date: 2022-08-04
 description: "The ao_avl.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/avl/
+seealso:
+- title: "Binary heaps"
+  url: /binary-heaps/
+- title: "Red-black trees"
+  url: /red-black-trees/
 subtitle: "AVL trees"
 title: "<code>ao_avl.h</code>"
 toc: true
