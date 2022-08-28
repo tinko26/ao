@@ -1,9 +1,18 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-24
+date: 2022-08-28
 description: "Receiving data in the ao real-time operating system."
-draft: false
+draft: true
 permalink: /receiving/
+seealso:
+- title: "<code>ao_recv.h</code>"
+  url: /modules/recv/
+- title: "<code>ao_recv_from_callback.h</code>"
+  url: /modules/recv-from-callback/
+- title: "<code>ao_recv_from_stream.h</code>"
+  url: /modules/recv-from-callback/
+- title: "<code>ao_stream.h</code>"
+  url: /modules/stream/
 subtitle: "Receiving data from an opaque source"
 title: "Receiving"
 toc: false
