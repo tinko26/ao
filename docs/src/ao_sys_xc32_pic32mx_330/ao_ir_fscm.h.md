@@ -1,0 +1,78 @@
+---
+api: true
+author: "Stefan Wagner"
+date: 2022-08-29
+description: "The /src/ao_sys_xc32_pic32mx_330/ao_ir_fscm.h file of the ao real-time operating system."
+draft: true
+permalink: /src/ao_sys_xc32_pic32mx_330/ao_ir_fscm.h/ 
+subtitle: ""
+title: "ao_ir_fscm.h"
+toc: true
+---
+
+# Overview
+
+...
+
+# Includes
+
+```c
+#include <stdbool.h>
+#include <sys/attribs.h>
+#include <xc.h>
+
+#ifndef AO_IR_FSCM_ATTRIBUTE
+
+#define AO_IR_FSCM_ATTRIBUTE        __ISR(_FAIL_SAFE_MONITOR_VECTOR, IPL4SOFT)
+
+#endif
+
+#ifndef AO_IR_FSCM_PRIO
+
+#define AO_IR_FSCM_PRIO             (4)
+
+#endif
+
+#ifndef AO_IR_FSCM_SUBPRIO
+
+#define AO_IR_FSCM_SUBPRIO          (0)
+
+#endif
+
+#ifndef ao_ir_fscm_disable
+
+#define ao_ir_fscm_disable()        { IEC0CLR = _IEC0_FSCMIE_MASK; }
+
+#endif
+
+#ifndef ao_ir_fscm_enable
+
+#define ao_ir_fscm_enable()         { IEC0SET = _IEC0_FSCMIE_MASK; }
+
+#endif
+
+#ifndef ao_ir_fscm_is_enabled
+
+#define ao_ir_fscm_is_enabled()     ((IEC0 & _IEC0_FSCMIE_MASK) ? true : false)
+
+#endif
+
+#ifndef ao_ir_fscm_is_pending
+
+#define ao_ir_fscm_is_pending()     ((IFS0 & _IFS0_FSCMIF_MASK) ? true : false)
+
+#endif
+
+#ifndef ao_ir_fscm_reply
+
+#define ao_ir_fscm_reply()          { IFS0CLR = _IFS0_FSCMIF_MASK; }
+
+#endif
+
+#ifndef ao_ir_fscm_request
+
+#define ao_ir_fscm_request()        { IFS0SET = _IFS0_FSCMIF_MASK; }
+
+#endif
+
+```

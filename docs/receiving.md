@@ -38,7 +38,7 @@ while (1)
 }
 ```
 
-In order to not waste time waiting for the next character, the receiving part should be implemented in a blocking fashion. Therefore, the task could utilize a [stream](ao_sys/ao_stream.h.md), given an object encapsulating the popping of data from a stream.
+In order to not waste time waiting for the next character, the receiving part should be implemented in a blocking fashion. Therefore, the task could utilize a [stream](src/ao_sys/ao_stream.h.md), given an object encapsulating the popping of data from a stream.
 
 ```c
 ao_spop_t * spop;
@@ -108,13 +108,13 @@ while (1)
 }
 ```
 
-Of course, the `recv` object must be properly initialized by the application before starting the message processing. Out the box, the framework supports [receiving data from a stream](ao_sys/ao_recv_from_stream.h.md) ...
+Of course, the `recv` object must be properly initialized by the application before starting the message processing. Out the box, the framework supports [receiving data from a stream](src/ao_sys/ao_recv_from_stream.h.md) ...
 
 ```c
 ao_recv_from_stream(recv, spop);
 ```
 
-... and [receiving data from a callback](ao_sys/ao_recv_from_callback.h.md). The latter can be quite useful, for example when implementing a mock for a testing scenario.
+... and [receiving data from a callback](src/ao_sys/ao_recv_from_callback.h.md). The latter can be quite useful, for example when implementing a mock for a testing scenario.
 
 ```c
 void callback(ao_recv_t * x)

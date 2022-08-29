@@ -1,0 +1,78 @@
+---
+api: true
+author: "Stefan Wagner"
+date: 2022-08-29
+description: "The /src/ao_sys_xc32_pic32mk_gpg/ao_ir_ctmu.h file of the ao real-time operating system."
+draft: true
+permalink: /src/ao_sys_xc32_pic32mk_gpg/ao_ir_ctmu.h/ 
+subtitle: ""
+title: "ao_ir_ctmu.h"
+toc: true
+---
+
+# Overview
+
+...
+
+# Includes
+
+```c
+#include <stdbool.h>
+#include <sys/attribs.h>
+#include <xc.h>
+
+#ifndef AO_IR_CTMU_ATTRIBUTE
+
+#define AO_IR_CTMU_ATTRIBUTE        __ISR(_CTMU_VECTOR, IPL4SRS)
+
+#endif
+
+#ifndef AO_IR_CTMU_PRIO
+
+#define AO_IR_CTMU_PRIO             (4)
+
+#endif
+
+#ifndef AO_IR_CTMU_SUBPRIO
+
+#define AO_IR_CTMU_SUBPRIO          (0)
+
+#endif
+
+#ifndef ao_ir_ctmu_disable
+
+#define ao_ir_ctmu_disable()        { IEC2CLR = _IEC2_CTMUIE_MASK; }
+
+#endif
+
+#ifndef ao_ir_ctmu_enable
+
+#define ao_ir_ctmu_enable()         { IEC2SET = _IEC2_CTMUIE_MASK; }
+
+#endif
+
+#ifndef ao_ir_ctmu_is_enabled
+
+#define ao_ir_ctmu_is_enabled()     ((IEC2 & _IEC2_CTMUIE_MASK) ? true : false)
+
+#endif
+
+#ifndef ao_ir_ctmu_is_pending
+
+#define ao_ir_ctmu_is_pending()     ((IFS2 & _IFS2_CTMUIF_MASK) ? true : false)
+
+#endif
+
+#ifndef ao_ir_ctmu_reply
+
+#define ao_ir_ctmu_reply()          { IFS2CLR = _IFS2_CTMUIF_MASK; }
+
+#endif
+
+#ifndef ao_ir_ctmu_request
+
+#define ao_ir_ctmu_request()        { IFS2SET = _IFS2_CTMUIF_MASK; }
+
+#endif
+
+```

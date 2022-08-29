@@ -44,32 +44,32 @@ title: "Synchronization"
 
 The following modules provide synchronization primitives.
 
-| [`ao_are.h`](ao_sys/ao_are.h.md) | Auto-reset events. |
-| [`ao_barrier.h`](ao_sys/ao_barrier.h.md) | Execution barriers where tasks can meet. |
-| [`ao_bsem.h`](ao_sys/ao_bsem.h.md) | Binary semaphores. |
-| [`ao_cond.h`](ao_sys/ao_cond.h.md) | Condition variables. |
-| [`ao_counter.h`](ao_sys/ao_counter.h.md) | Counters. |
-| [`ao_flag.h`](ao_sys/ao_flag.h.md) | Flags. |
-| [`ao_mail.h`](ao_sys/ao_mail.h.md) | Mail for asynchronous messaging. |
-| [`ao_monitor.h`](ao_sys/ao_monitor.h.md) | Monitors. |
-| [`ao_mutex.h`](ao_sys/ao_mutex.h.md) | Mutexes. |
-| [`ao_pmail.h`](ao_sys/ao_pmail.h.md) | Priority mail for asynchronous messaging. |
-| [`ao_queue4obj.h`](ao_sys/ao_queue4obj.h.md) | Priority queues for objects. |
-| [`ao_queue4ptr.h`](ao_sys/ao_queue4ptr.h.md) | Priority queues for pointers. |
-| [`ao_recv.h`](ao_sys/ao_recv.h.md) | Receiving bytes. |
-| [`ao_recv_obj.h`](ao_sys/ao_recv_obj.h.md) | Receiving objects. |
-| [`ao_recv_ptr.h`](ao_sys/ao_recv_ptr.h.md) | Receiving pointers. |
-| [`ao_rendezvous.h`](ao_sys/ao_rendezvous.h.md) | Rendezvous. |
-| [`ao_rw.h`](ao_sys/ao_rw.h.md) | Readers-writer locks preferring readers. |
-| [`ao_sem.h`](ao_sys/ao_sem.h.md) | Counting semaphores. |
-| [`ao_send.h`](ao_sys/ao_send.h.md) | Sending bytes. |
-| [`ao_send_obj.h`](ao_sys/ao_send_obj.h.md) | Sending objects. |
-| [`ao_send_ptr.h`](ao_sys/ao_send_ptr.h.md) | Sending pointers. |
-| [`ao_signal.h`](ao_sys/ao_signal.h.md) | Signals. |
-| [`ao_sleep.h`](ao_sys/ao_sleep.h.md) | Sleeping. |
-| [`ao_stream.h`](ao_sys/ao_stream.h.md) | Streams for bytes. |
-| [`ao_stream4obj.h`](ao_sys/ao_stream4obj.h.md) | Streams for objects. |
-| [`ao_stream4ptr.h`](ao_sys/ao_stream4ptr.h.md) | Streams for pointers. |
-| [`ao_threshold.h`](ao_sys/ao_threshold.h.md) | Thresholds. |
-| [`ao_wr.h`](ao_sys/ao_wr.h.md) | Readers-writer locks preferring writers. |
-| [`ao_xch.h`](ao_sys/ao_xch.h.md) | Exchanges for client-server messaging. |
+| [`ao_are.h`](src/ao_sys/ao_are.h.md) | Auto-reset events. |
+| [`ao_barrier.h`](src/ao_sys/ao_barrier.h.md) | Execution barriers where tasks can meet. |
+| [`ao_bsem.h`](src/ao_sys/ao_bsem.h.md) | Binary semaphores. |
+| [`ao_cond.h`](src/ao_sys/ao_cond.h.md) | Condition variables. |
+| [`ao_counter.h`](src/ao_sys/ao_counter.h.md) | Counters. |
+| [`ao_flag.h`](src/ao_sys/ao_flag.h.md) | Flags. |
+| [`ao_mail.h`](src/ao_sys/ao_mail.h.md) | Mail for asynchronous messaging. |
+| [`ao_monitor.h`](src/ao_sys/ao_monitor.h.md) | Monitors. |
+| [`ao_mutex.h`](src/ao_sys/ao_mutex.h.md) | Mutexes. |
+| [`ao_pmail.h`](src/ao_sys/ao_pmail.h.md) | Priority mail for asynchronous messaging. |
+| [`ao_queue4obj.h`](src/ao_sys/ao_queue4obj.h.md) | Priority queues for objects. |
+| [`ao_queue4ptr.h`](src/ao_sys/ao_queue4ptr.h.md) | Priority queues for pointers. |
+| [`ao_recv.h`](src/ao_sys/ao_recv.h.md) | Receiving bytes. |
+| [`ao_recv_obj.h`](src/ao_sys/ao_recv_obj.h.md) | Receiving objects. |
+| [`ao_recv_ptr.h`](src/ao_sys/ao_recv_ptr.h.md) | Receiving pointers. |
+| [`ao_rendezvous.h`](src/ao_sys/ao_rendezvous.h.md) | Rendezvous. |
+| [`ao_rw.h`](src/ao_sys/ao_rw.h.md) | Readers-writer locks preferring readers. |
+| [`ao_sem.h`](src/ao_sys/ao_sem.h.md) | Counting semaphores. |
+| [`ao_send.h`](src/ao_sys/ao_send.h.md) | Sending bytes. |
+| [`ao_send_obj.h`](src/ao_sys/ao_send_obj.h.md) | Sending objects. |
+| [`ao_send_ptr.h`](src/ao_sys/ao_send_ptr.h.md) | Sending pointers. |
+| [`ao_signal.h`](src/ao_sys/ao_signal.h.md) | Signals. |
+| [`ao_sleep.h`](src/ao_sys/ao_sleep.h.md) | Sleeping. |
+| [`ao_stream.h`](src/ao_sys/ao_stream.h.md) | Streams for bytes. |
+| [`ao_stream4obj.h`](src/ao_sys/ao_stream4obj.h.md) | Streams for objects. |
+| [`ao_stream4ptr.h`](src/ao_sys/ao_stream4ptr.h.md) | Streams for pointers. |
+| [`ao_threshold.h`](src/ao_sys/ao_threshold.h.md) | Thresholds. |
+| [`ao_wr.h`](src/ao_sys/ao_wr.h.md) | Readers-writer locks preferring writers. |
+| [`ao_xch.h`](src/ao_sys/ao_xch.h.md) | Exchanges for client-server messaging. |

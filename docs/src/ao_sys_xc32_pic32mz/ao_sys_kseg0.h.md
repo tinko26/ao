@@ -1,0 +1,46 @@
+---
+api: true
+author: "Stefan Wagner"
+date: 2022-08-29
+description: "The /src/ao_sys_xc32_pic32mz/ao_sys_kseg0.h file of the ao real-time operating system."
+draft: true
+permalink: /src/ao_sys_xc32_pic32mz/ao_sys_kseg0.h/ 
+subtitle: ""
+title: "ao_sys_kseg0.h"
+toc: true
+---
+
+# Overview
+
+...
+
+# Includes
+
+```c
+#include <xc.h>
+
+#ifndef ao_sys_kseg0_cacheable_write_back_alloc
+
+#define ao_sys_kseg0_cacheable_write_back_alloc()           _bcsc0(_CP0_CONFIG, _CP0_CONFIG_SELECT, 4, 3)
+
+#endif
+
+#ifndef ao_sys_kseg0_cacheable_write_through_alloc
+
+#define ao_sys_kseg0_cacheable_write_through_alloc()        _bcsc0(_CP0_CONFIG, _CP0_CONFIG_SELECT, 6, 1)
+
+#endif
+
+#ifndef ao_sys_kseg0_cacheable_write_through_no_alloc
+
+#define ao_sys_kseg0_cacheable_write_through_no_alloc()     _bcc0( _CP0_CONFIG, _CP0_CONFIG_SELECT, 7)
+
+#endif
+
+#ifndef ao_sys_kseg0_uncached
+
+#define ao_sys_kseg0_uncached()                             _bcsc0(_CP0_CONFIG, _CP0_CONFIG_SELECT, 5, 2)
+
+#endif
+
+```

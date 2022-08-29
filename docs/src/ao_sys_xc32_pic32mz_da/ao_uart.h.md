@@ -1,0 +1,34 @@
+---
+api: true
+author: "Stefan Wagner"
+date: 2022-08-29
+description: "The /src/ao_sys_xc32_pic32mz_da/ao_uart.h file of the ao real-time operating system."
+draft: true
+permalink: /src/ao_sys_xc32_pic32mz_da/ao_uart.h/ 
+subtitle: ""
+title: "ao_uart.h"
+toc: true
+---
+
+# Overview
+
+...
+
+# Includes
+
+```c
+#ifndef AO_UART_BRG_BITS
+
+#define AO_UART_BRG_BITS        (16)
+
+#endif
+
+#ifndef AO_UART_FIFO_CAPACITY
+
+#define AO_UART_FIFO_CAPACITY   (8)
+
+#endif
+
+#include_next <ao_uart.h>
+
+```

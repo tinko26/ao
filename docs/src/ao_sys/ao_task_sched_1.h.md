@@ -1,0 +1,97 @@
+---
+api: true
+author: "Stefan Wagner"
+date: 2022-08-29
+description: "The /src/ao_sys/ao_task_sched_1.h file of the ao real-time operating system."
+draft: true
+permalink: /src/ao_sys/ao_task_sched_1.h/ 
+subtitle: ""
+title: "ao_task_sched_1.h"
+toc: true
+---
+
+# Overview
+
+...
+
+# Includes
+
+```c
+#include <ao_list.h>
+#include <ao_time.h>
+#include <stdbool.h>
+
+typedef struct  ao_task_sched_t     ao_task_sched_t;
+
+typedef struct  ao_task_ceiling_t   ao_task_ceiling_t;
+
+typedef struct  ao_task_master_t    ao_task_master_t;
+
+typedef struct  ao_task_slave_t     ao_task_slave_t;
+
+#ifndef AO_TASK_SCHED_1
+
+#define AO_TASK_SCHED_1
+
+#endif
+
+#ifndef AO_TASK_CEILING
+
+#define AO_TASK_CEILING             (false)
+
+#endif
+
+#ifndef AO_TASK_INHERITANCE
+
+#define AO_TASK_INHERITANCE         (false)
+
+#endif
+
+#ifndef AO_TASK_SUBMISSION
+
+#define AO_TASK_SUBMISSION          (false)
+
+#endif
+
+#ifndef AO_TASK_QUANTUM
+
+#define AO_TASK_QUANTUM             (AO_MILLISECONDS(10))
+
+#endif
+
+#ifndef AO_TASK_SCHED_T
+
+#define AO_TASK_SCHED_T
+
+struct  ao_task_sched_t
+{
+        ao_list_node_t              node;
+};
+
+#endif
+
+#ifndef AO_TASK_CEILING_T
+
+#define AO_TASK_CEILING_T
+
+struct  ao_task_ceiling_t           { };
+
+#endif
+
+#ifndef AO_TASK_MASTER_T
+
+#define AO_TASK_MASTER_T
+
+struct  ao_task_master_t            { };
+
+#endif
+
+#ifndef AO_TASK_SLAVE_T
+
+#define AO_TASK_SLAVE_T
+
+struct  ao_task_slave_t             { };
+
+#endif
+
+```

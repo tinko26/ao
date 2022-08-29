@@ -17,7 +17,7 @@ toc: true
 - [memory](memory.md)
 - [operating modes](operating-modes.md)
 - [resources](resources.md)
-- [system identifiers](ao_sys/ao_sys.h.md)
+- [system identifiers](src/ao_sys/ao_sys.h.md)
 
 # Memory Management
 
