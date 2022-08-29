@@ -10,6 +10,7 @@ title: "<code>ao_buffer4obj.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_buffer4obj_t                 ao_buffer4obj_t;
 
 #ifndef AO_BUFFER4OBJ_COUNT_MAX
@@ -87,3 +88,4 @@ size_t  ao_buffer4obj_push_range_front(         ao_buffer4obj_t * x, void const 
 
 size_t  ao_buffer4obj_push_range_front_override(ao_buffer4obj_t * x, void const * p, size_t n_min, size_t n_max);
 
+```

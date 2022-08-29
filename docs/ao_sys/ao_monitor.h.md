@@ -10,6 +10,7 @@ title: "<code>ao_monitor.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_monitor_t        ao_monitor_t;
 
 typedef struct  ao_monitor_enter_t  ao_monitor_enter_t;
@@ -100,3 +101,4 @@ void    ao_monitor_wait_begin(      ao_monitor_wait_t * x);
 
 void    ao_monitor_wait_end(        ao_monitor_wait_t * x);
 
+```

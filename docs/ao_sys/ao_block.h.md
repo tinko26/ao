@@ -10,6 +10,7 @@ title: "<code>ao_block.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_block_t  ao_block_t;
 
 #ifndef AO_BLOCK
@@ -27,3 +28,4 @@ struct  ao_block_t
 
 #endif
 
+```

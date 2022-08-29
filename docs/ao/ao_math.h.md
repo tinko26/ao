@@ -10,6 +10,7 @@ title: "<code>ao_math.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_ABS
 
 #define AO_ABS(x)                   ((x) < (0) ? -(x) : (x))
@@ -82,3 +83,4 @@ toc: true
 
 #endif
 
+```

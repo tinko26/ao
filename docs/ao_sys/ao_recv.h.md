@@ -10,6 +10,7 @@ title: "<code>ao_recv.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_recv_t   ao_recv_t;
 
 typedef void (*             ao_recv_proc_t) (ao_recv_t * x);
@@ -53,3 +54,4 @@ void    ao_recv_begin(      ao_recv_t * x);
 
 void    ao_recv_end(        ao_recv_t * x);
 
+```

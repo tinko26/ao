@@ -10,6 +10,7 @@ title: "<code>ao_poll.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_POLL
 
 #define AO_POLL
@@ -34,3 +35,4 @@ void    ao_poll_any_from(   ao_async_any_t   * x, ao_time_t timeout, ao_time_t b
 
 void    ao_poll_any_forever(ao_async_any_t   * x);
 
+```

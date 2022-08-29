@@ -10,6 +10,7 @@ title: "<code>ao_ir_qei.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_QEI1_ATTRIBUTE
 
 #define AO_IR_QEI1_ATTRIBUTE        __ISR(_QEI1_VECTOR, IPL4SRS)
@@ -172,3 +173,4 @@ toc: true
 
 #endif
 
+```

@@ -10,6 +10,7 @@ title: "<code>ao_spi_4.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_SPI_4
 
 #ifdef  _SPI4
@@ -48,3 +49,4 @@ toc: true
 
 #endif
 
+```

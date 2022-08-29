@@ -10,7 +10,9 @@ title: "<code>ao_sys_lock_ir.h</code>"
 toc: true
 ---
 
+```c
 uint32_t    ao_sys_lock_ir(     uint32_t p);
 
 void        ao_sys_unlock_ir(   uint32_t x);
 
+```

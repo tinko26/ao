@@ -10,6 +10,7 @@ title: "<code>ao_task_stack.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_task_t           ao_task_t;
 
 #ifndef AO_TASK_STACK_CHECK
@@ -32,3 +33,4 @@ void    ao_task_stack_threshold(    ao_task_t const * t, size_t quota);
 
 void    ao_task_stack_underflow(    ao_task_t const * t);
 
+```

@@ -10,9 +10,11 @@ title: "<code>ao_i2c.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_I2C_BRG_BITS
 
 #define AO_I2C_BRG_BITS     (16)
 
 #endif
 
+```

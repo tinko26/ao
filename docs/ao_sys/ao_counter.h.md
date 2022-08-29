@@ -10,6 +10,7 @@ title: "<code>ao_counter.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_counter_t        ao_counter_t;
 
 typedef struct  ao_counter_wait_t   ao_counter_wait_t;
@@ -98,3 +99,4 @@ void    ao_counter_wait_begin(      ao_counter_wait_t * x);
 
 void    ao_counter_wait_end(        ao_counter_wait_t * x);
 
+```

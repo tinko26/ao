@@ -10,6 +10,7 @@ title: "<code>ao_mem.h</code>"
 toc: true
 ---
 
+```c
 #ifndef ao_memcpy
 
 #define ao_memcpy(d, s, n)      memcpy(d, s, n)
@@ -28,3 +29,4 @@ toc: true
 
 #endif
 
+```

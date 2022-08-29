@@ -10,6 +10,7 @@ title: "<code>ao_func.h</code>"
 toc: true
 ---
 
+```c
 typedef void *  (*  ao_func_t)  (void *);
 
 typedef void *  (*  ao_func0_t) ();
@@ -40,3 +41,4 @@ typedef void    (*  ao_proc2_t) (void *, void *);
 
 typedef void    (*  ao_proc3_t) (void *, void *, void *);
 
+```

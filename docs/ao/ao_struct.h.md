@@ -10,9 +10,11 @@ title: "<code>ao_struct.h</code>"
 toc: true
 ---
 
+```c
 #ifndef ao_containerof
 
 #define ao_containerof(p, t, m)     ((t *) ((uint8_t *) (p) - offsetof(t, m)))
 
 #endif
 
+```

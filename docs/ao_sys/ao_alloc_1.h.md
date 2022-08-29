@@ -10,6 +10,7 @@ title: "<code>ao_alloc_1.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_alloc_pool_t         ao_alloc_pool_t;
 
 typedef struct  ao_alloc_pool_node_t    ao_alloc_pool_node_t;
@@ -1055,3 +1056,4 @@ extern  size_t              volatile    ao_alloc_free;
 
 extern  size_t              volatile    ao_alloc_free_min;
 
+```

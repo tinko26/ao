@@ -10,6 +10,7 @@ title: "<code>ao_recv_ptr_from_callback.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_RECV_PTR_FROM_CALLBACK
 
 #define AO_RECV_PTR_FROM_CALLBACK
@@ -18,3 +19,4 @@ toc: true
 
 void    ao_recv_ptr_from_callback(ao_recv_ptr_t * x, ao_recv_ptr_proc_t y);
 
+```

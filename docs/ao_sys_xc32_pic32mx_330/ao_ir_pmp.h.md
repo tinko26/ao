@@ -10,6 +10,7 @@ title: "<code>ao_ir_pmp.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_PMP_ATTRIBUTE
 
 #define AO_IR_PMP_ATTRIBUTE         __ISR(_PMP_VECTOR, IPL4SOFT)
@@ -100,3 +101,4 @@ toc: true
 
 #endif
 
+```

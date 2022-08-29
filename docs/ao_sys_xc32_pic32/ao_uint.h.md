@@ -10,6 +10,7 @@ title: "<code>ao_uint.h</code>"
 toc: true
 ---
 
+```c
 typedef uint32_t            ao_uint_t;
 
 #ifndef AO_UINT_BITS
@@ -120,3 +121,4 @@ typedef uint32_t            ao_uint_t;
 
 #endif
 
+```

@@ -10,6 +10,7 @@ title: "<code>ao_alloc_2.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_ALLOC_2
 
 #define AO_ALLOC_2
@@ -72,3 +73,4 @@ extern  size_t          volatile    ao_alloc_free;
 
 extern  size_t          volatile    ao_alloc_free_min;
 
+```

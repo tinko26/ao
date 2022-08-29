@@ -10,6 +10,7 @@ title: "<code>ao_break.h</code>"
 toc: true
 ---
 
+```c
 #if     AO_DEBUG
 
 #ifndef ao_break
@@ -28,3 +29,4 @@ toc: true
 
 #endif
 
+```

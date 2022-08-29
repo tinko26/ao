@@ -10,6 +10,7 @@ title: "<code>ao_can.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_can_t                ao_can_t;
 
 typedef struct  ao_can_baud_t           ao_can_baud_t;
@@ -1822,3 +1823,4 @@ void    ao_can_baud(                    ao_can_baud_t * x);
 
 #endif
 
+```

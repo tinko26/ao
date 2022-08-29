@@ -10,6 +10,7 @@ title: "<code>ao_ir_prio.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_PRIO_MAX
 
 #define AO_IR_PRIO_MAX  (7)
@@ -22,3 +23,4 @@ toc: true
 
 #endif
 
+```

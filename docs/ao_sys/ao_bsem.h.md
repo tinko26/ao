@@ -10,6 +10,7 @@ title: "<code>ao_bsem.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_bsem_t       ao_bsem_t;
 
 typedef struct  ao_bsem_take_t  ao_bsem_take_t;
@@ -58,3 +59,4 @@ void    ao_bsem_take_begin(     ao_bsem_take_t * x);
 
 void    ao_bsem_take_end(       ao_bsem_take_t * x);
 
+```

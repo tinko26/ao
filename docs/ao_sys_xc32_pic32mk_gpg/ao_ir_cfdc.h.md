@@ -10,6 +10,7 @@ title: "<code>ao_ir_cfdc.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_CFDC_ATTRIBUTE
 
 #define AO_IR_CFDC_ATTRIBUTE        __ISR(_CORE_FAST_DEBUG_CHAN_VECTOR, IPL4SRS)
@@ -64,3 +65,4 @@ toc: true
 
 #endif
 
+```

@@ -10,6 +10,7 @@ title: "<code>ao_mathf.h</code>"
 toc: true
 ---
 
+```c
 #ifndef ao_acosd
 
 #define ao_acosd(x)             acos(x)
@@ -460,3 +461,4 @@ toc: true
 
 #endif
 
+```

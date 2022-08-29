@@ -10,9 +10,11 @@ title: "<code>ao_debug.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_DEBUG
 
 #define AO_DEBUG    (false)
 
 #endif
 
+```

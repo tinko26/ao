@@ -10,6 +10,7 @@ title: "<code>ao_list.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_list_t       ao_list_t;
 
 typedef struct  ao_list_node_t  ao_list_node_t;
@@ -72,3 +73,4 @@ void    ao_list_remove_front(   ao_list_t * x);
 
 void    ao_list_reverse(        ao_list_t * x);
 
+```

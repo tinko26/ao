@@ -10,6 +10,7 @@ title: "<code>ao_sys_lock_device.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_sys_lock_device_t    ao_sys_lock_device_t;
 
 #ifndef AO_SYS_LOCK_DEVICE
@@ -29,3 +30,4 @@ void    ao_sys_unlock_device(           ao_sys_lock_device_t * x);
 
 void    ao_sys_lock_device(             ao_sys_lock_device_t * x);
 
+```

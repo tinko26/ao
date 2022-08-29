@@ -10,6 +10,7 @@ title: "<code>ao_recv_obj_from_stream.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_RECV_OBJ_FROM_STREAM
 
 #define AO_RECV_OBJ_FROM_STREAM
@@ -18,3 +19,4 @@ toc: true
 
 void    ao_recv_obj_from_stream(ao_recv_obj_t * x, ao_spop_obj_t * y);
 
+```

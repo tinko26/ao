@@ -10,6 +10,7 @@ title: "<code>ao_spi.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_SPI_BRG_BITS
 
 #define AO_SPI_BRG_BITS     (9)
@@ -22,3 +23,4 @@ toc: true
 
 #endif
 
+```

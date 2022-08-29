@@ -10,6 +10,7 @@ title: "<code>ao_core.h</code>"
 toc: true
 ---
 
+```c
 typedef     uint32_t        ao_core_t;
 
 #ifndef     AO_CORE_COUNT
@@ -20,3 +21,4 @@ typedef     uint32_t        ao_core_t;
 
 ao_core_t   ao_core();
 
+```

@@ -10,6 +10,7 @@ title: "<code>ao_barrier.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_barrier_t        ao_barrier_t;
 
 typedef struct  ao_barrier_wait_t   ao_barrier_wait_t;
@@ -58,3 +59,4 @@ void    ao_barrier_wait_begin(      ao_barrier_wait_t * x);
 
 void    ao_barrier_wait_end(        ao_barrier_wait_t * x);
 
+```

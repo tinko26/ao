@@ -10,6 +10,7 @@ title: "<code>ao_count.h</code>"
 toc: true
 ---
 
+```c
 typedef uint32_t                    ao_count_t;
 
 #ifndef AO_COUNT_MAX
@@ -48,3 +49,4 @@ typedef uint32_t                    ao_count_t;
 
 #endif
 
+```

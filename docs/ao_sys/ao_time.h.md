@@ -10,6 +10,7 @@ title: "<code>ao_time.h</code>"
 toc: true
 ---
 
+```c
 typedef ao_count_t                      ao_time_t;
 
 #ifndef AO_INFINITY
@@ -120,3 +121,4 @@ typedef ao_count_t                      ao_time_t;
 
 #endif
 
+```

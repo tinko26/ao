@@ -10,6 +10,7 @@ title: "<code>ao_sys_exc.h</code>"
 toc: true
 ---
 
+```c
 typedef enum    ao_sys_exc_t    ao_sys_exc_t;
 
 #ifndef AO_SYS_EXC
@@ -43,3 +44,4 @@ enum    ao_sys_exc_t
 
 #endif
 
+```

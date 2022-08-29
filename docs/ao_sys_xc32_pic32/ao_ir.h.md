@@ -10,9 +10,11 @@ title: "<code>ao_ir.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR
 
 #define AO_IR
 
 #endif
 
+```

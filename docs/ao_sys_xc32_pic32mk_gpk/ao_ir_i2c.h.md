@@ -10,6 +10,7 @@ title: "<code>ao_ir_i2c.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_I2C1B_ATTRIBUTE
 
 #define AO_IR_I2C1B_ATTRIBUTE       __ISR(_I2C1_BUS_VECTOR, IPL4SRS)
@@ -658,3 +659,4 @@ toc: true
 
 #endif
 
+```

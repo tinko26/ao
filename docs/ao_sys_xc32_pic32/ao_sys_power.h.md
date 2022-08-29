@@ -10,6 +10,7 @@ title: "<code>ao_sys_power.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_SYS_POWER
 
 #define AO_SYS_POWER
@@ -26,3 +27,4 @@ void    ao_sys_wait_idle();
 
 void    ao_sys_wait_sleep();
 
+```

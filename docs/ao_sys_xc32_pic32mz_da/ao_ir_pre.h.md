@@ -10,6 +10,7 @@ title: "<code>ao_ir_pre.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_PRE_ATTRIBUTE
 
 #define AO_IR_PRE_ATTRIBUTE     __ISR(_PREFETCH_VECTOR, IPL4SRS)
@@ -64,3 +65,4 @@ toc: true
 
 #endif
 
+```

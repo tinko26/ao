@@ -10,6 +10,7 @@ title: "<code>ao_ir_task.h</code>"
 toc: true
 ---
 
+```c
 void    ao_task_switch();
 
 #ifndef AO_IR_TASK
@@ -53,3 +54,4 @@ static void ao_task_switch_request(ao_core_t c)
 
 #endif
 
+```

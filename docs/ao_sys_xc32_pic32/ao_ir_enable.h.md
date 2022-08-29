@@ -10,6 +10,7 @@ title: "<code>ao_ir_enable.h</code>"
 toc: true
 ---
 
+```c
 #ifndef ao_ir_disable
 
 #define ao_ir_disable()     __builtin_disable_interrupts()
@@ -22,3 +23,4 @@ toc: true
 
 #endif
 
+```

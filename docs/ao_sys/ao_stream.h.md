@@ -10,6 +10,7 @@ title: "<code>ao_stream.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_stream_t ao_stream_t;
 
 typedef struct  ao_spop_t   ao_spop_t;
@@ -103,3 +104,4 @@ void    ao_spush_end(       ao_spush_t * x);
 
 void    ao_spush_override(  ao_spush_t * x);
 
+```

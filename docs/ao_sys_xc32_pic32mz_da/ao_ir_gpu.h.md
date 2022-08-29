@@ -10,6 +10,7 @@ title: "<code>ao_ir_gpu.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_GPU_ATTRIBUTE
 
 #define AO_IR_GPU_ATTRIBUTE     __ISR(_GPU_VECTOR, IPL4SRS)
@@ -64,3 +65,4 @@ toc: true
 
 #endif
 
+```

@@ -10,6 +10,7 @@ title: "<code>ao_ir_u.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_U1_ATTRIBUTE
 
 #define AO_IR_U1_ATTRIBUTE          __ISR(_UART_1_VECTOR, IPL4SOFT)
@@ -640,3 +641,4 @@ toc: true
 
 #endif
 
+```

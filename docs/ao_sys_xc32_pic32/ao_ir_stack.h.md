@@ -10,6 +10,7 @@ title: "<code>ao_ir_stack.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_ir_stack_t       ao_ir_stack_t;
 
 #ifndef AO_IR_STACK_DEPTH_MAX
@@ -84,3 +85,4 @@ void *  ao_ir_stack_func3(          void * p1, void * p2, void * p3, ao_func3_t 
 
 void    ao_ir_stack_high_water_mark();
 
+```

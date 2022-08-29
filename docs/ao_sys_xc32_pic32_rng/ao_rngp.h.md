@@ -10,6 +10,7 @@ title: "<code>ao_rngp.h</code>"
 toc: true
 ---
 
+```c
 #ifndef ao_rngp_disable
 
 #define ao_rngp_disable()               { RNGCONbits.PRNGEN = 0; }
@@ -150,3 +151,4 @@ toc: true
 
 #endif
 
+```

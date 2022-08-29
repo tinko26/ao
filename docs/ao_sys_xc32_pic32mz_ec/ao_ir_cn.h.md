@@ -10,6 +10,7 @@ title: "<code>ao_ir_cn.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_CNA_ATTRIBUTE
 
 #define AO_IR_CNA_ATTRIBUTE     __ISR(_CHANGE_NOTICE_A_VECTOR, IPL4SRS)
@@ -550,3 +551,4 @@ toc: true
 
 #endif
 
+```

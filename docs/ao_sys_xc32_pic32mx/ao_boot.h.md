@@ -10,9 +10,11 @@ title: "<code>ao_boot.h</code>"
 toc: true
 ---
 
+```c
 #ifndef ao_boot_sys_bmx
 
 #define ao_boot_sys_bmx()   ao_sys_bmx_wsdram_disable()
 
 #endif
 
+```

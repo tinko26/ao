@@ -10,6 +10,7 @@ title: "<code>ao_sys_clock.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_SYS_CLOCK_I2C1
 
 #define AO_SYS_CLOCK_I2C1   (0)
@@ -40,3 +41,4 @@ toc: true
 
 #endif
 
+```

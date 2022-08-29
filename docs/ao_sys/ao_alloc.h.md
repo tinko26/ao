@@ -10,6 +10,7 @@ title: "<code>ao_alloc.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_acquired_t   ao_acquired_t;
 
 typedef struct  ao_released_t   ao_released_t;
@@ -129,3 +130,4 @@ void    ao_retained(            ao_retained_t const * info);
 
 #endif
 
+```

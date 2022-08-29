@@ -10,6 +10,7 @@ title: "<code>ao_ir_spi.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_SPI1_ATTRIBUTE
 
 #define AO_IR_SPI1_ATTRIBUTE        __ISR(_SPI_1_VECTOR, IPL4SOFT)
@@ -262,3 +263,4 @@ toc: true
 
 #endif
 
+```

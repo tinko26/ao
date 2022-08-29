@@ -10,6 +10,7 @@ title: "<code>ao_ir_eth.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_ETH_ATTRIBUTE
 
 #define AO_IR_ETH_ATTRIBUTE     __ISR(_ETH_VECTOR, IPL4SOFT)
@@ -64,3 +65,4 @@ toc: true
 
 #endif
 
+```

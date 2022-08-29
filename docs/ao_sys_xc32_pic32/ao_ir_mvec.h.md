@@ -10,6 +10,7 @@ title: "<code>ao_ir_mvec.h</code>"
 toc: true
 ---
 
+```c
 #ifndef ao_ir_mvec_disable
 
 #define ao_ir_mvec_disable()    { INTCONCLR = _INTCON_MVEC_MASK; }
@@ -22,3 +23,4 @@ toc: true
 
 #endif
 
+```

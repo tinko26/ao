@@ -10,6 +10,7 @@ title: "<code>ao_var.h</code>"
 toc: true
 ---
 
+```c
 #ifndef ao_clear
 
 #define ao_clear(p, t)      ao_memset(p, 0, sizeof(t));
@@ -22,3 +23,4 @@ toc: true
 
 #endif
 
+```

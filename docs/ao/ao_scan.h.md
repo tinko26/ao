@@ -10,6 +10,7 @@ title: "<code>ao_scan.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_scan_t   ao_scan_t;
 
 #ifndef AO_SCAN
@@ -47,3 +48,4 @@ size_t  ao_scanu32( char const * s, size_t n, ao_scan_t const * o, uint32_t * v)
 
 size_t  ao_scanu64( char const * s, size_t n, ao_scan_t const * o, uint64_t * v);
 
+```

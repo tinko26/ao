@@ -10,7 +10,9 @@ title: "<code>ao_stack.h</code>"
 toc: true
 ---
 
+```c
 void    ao_stack_fill(                  void * beginning, size_t size);
 
 size_t  ao_stack_get_high_water_mark(   void const * beginning, size_t size);
 
+```

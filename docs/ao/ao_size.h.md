@@ -10,6 +10,7 @@ title: "<code>ao_size.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_SIZE_BITS
 
 #define AO_SIZE_BITS        (32)
@@ -58,3 +59,4 @@ size_t  ao_flsz(size_t x);
 
 #endif
 
+```

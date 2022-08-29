@@ -10,6 +10,7 @@ title: "<code>ao_assert.h</code>"
 toc: true
 ---
 
+```c
 #ifndef ao_assert
 
 #define ao_assert(exp)                                                      \
@@ -22,3 +23,4 @@ toc: true
 
 #endif
 
+```

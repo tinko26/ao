@@ -10,6 +10,7 @@ title: "<code>ao_align.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_ALIGN_DOWN
 
 #define AO_ALIGN_DOWN(x, b)     (((x) / (b)) * (b))
@@ -28,3 +29,4 @@ toc: true
 
 #endif
 
+```

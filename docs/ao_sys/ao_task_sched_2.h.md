@@ -10,6 +10,7 @@ title: "<code>ao_task_sched_2.h</code>"
 toc: true
 ---
 
+```c
 typedef     struct  ao_task_t           ao_task_t;
 
 typedef     struct  ao_task_sched_t     ao_task_sched_t;
@@ -164,3 +165,4 @@ ao_uint_t   ao_task_get_prio(           ao_task_t         const * t);
 
 void        ao_task_set_prio(           ao_task_t               * t, ao_uint_t x);
 
+```

@@ -10,6 +10,7 @@ title: "<code>ao_mutex.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_mutex_t      ao_mutex_t;
 
 typedef struct  ao_mutex_lock_t ao_mutex_lock_t;
@@ -84,3 +85,4 @@ void    ao_mutex_lock_end(      ao_mutex_lock_t * x);
 
 void    ao_mutex_unlock(        ao_mutex_t * x);
 
+```

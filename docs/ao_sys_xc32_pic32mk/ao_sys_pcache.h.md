@@ -10,6 +10,7 @@ title: "<code>ao_sys_pcache.h</code>"
 toc: true
 ---
 
+```c
 #ifndef ao_sys_pfm_ws_set
 
 #define ao_sys_pfm_ws_set(ws)                                               \
@@ -58,3 +59,4 @@ toc: true
 
 #endif
 
+```

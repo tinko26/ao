@@ -10,6 +10,7 @@ title: "<code>ao_print.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_print_t  ao_print_t;
 
 #ifndef AO_PRINT
@@ -71,3 +72,4 @@ size_t  ao_printu32(char * s, size_t n, ao_print_t const * o, uint32_t const * v
 
 size_t  ao_printu64(char * s, size_t n, ao_print_t const * o, uint64_t const * v);
 
+```

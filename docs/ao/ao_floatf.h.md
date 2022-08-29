@@ -10,6 +10,7 @@ title: "<code>ao_floatf.h</code>"
 toc: true
 ---
 
+```c
 typedef float                                           ao_float_t;
 
 #ifndef AO_FLOAT_DIG
@@ -492,3 +493,4 @@ typedef float                                           ao_float_t;
 
 #endif
 
+```

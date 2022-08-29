@@ -10,6 +10,7 @@ title: "<code>ao_lock.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_lock_t   ao_lock_t;
 
 #ifndef AO_LOCK
@@ -24,3 +25,4 @@ void    ao_lock(            ao_lock_t * x);
 
 void    ao_unlock(          ao_lock_t * x);
 
+```

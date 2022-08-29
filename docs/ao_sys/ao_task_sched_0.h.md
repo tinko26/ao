@@ -10,6 +10,7 @@ title: "<code>ao_task_sched_0.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_task_sched_t     ao_task_sched_t;
 
 typedef struct  ao_task_ceiling_t   ao_task_ceiling_t;
@@ -74,3 +75,4 @@ struct  ao_task_slave_t             { };
 
 #endif
 
+```

@@ -10,6 +10,7 @@ title: "<code>ao_send_to_callback.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_SEND_TO_CALLBACK
 
 #define AO_SEND_TO_CALLBACK
@@ -18,3 +19,4 @@ toc: true
 
 void    ao_send_to_callback(ao_send_t * x, ao_send_proc_t y);
 
+```

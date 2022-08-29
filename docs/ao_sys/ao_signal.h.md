@@ -10,6 +10,7 @@ title: "<code>ao_signal.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_signal_t         ao_signal_t;
 
 typedef struct  ao_signal_wait_t    ao_signal_wait_t;
@@ -56,3 +57,4 @@ void    ao_signal_wait_begin(       ao_signal_wait_t * x);
 
 void    ao_signal_wait_end(         ao_signal_wait_t * x);
 
+```

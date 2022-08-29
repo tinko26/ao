@@ -10,6 +10,7 @@ title: "<code>ao_slist.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_slist_t      ao_slist_t;
 
 typedef struct  ao_slist_node_t ao_slist_node_t;
@@ -81,3 +82,4 @@ void    ao_slist_remove_front(  ao_slist_t * x);
 
 void    ao_slist_update(        ao_slist_t * x, ao_slist_node_t * n);
 
+```

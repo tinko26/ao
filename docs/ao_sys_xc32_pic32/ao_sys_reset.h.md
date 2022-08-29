@@ -10,6 +10,7 @@ title: "<code>ao_sys_reset.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_SYS_RESET
 
 #define AO_SYS_RESET
@@ -18,3 +19,4 @@ toc: true
 
 void    ao_sys_reset();
 
+```

@@ -10,6 +10,7 @@ title: "<code>ao_int.h</code>"
 toc: true
 ---
 
+```c
 typedef int32_t         ao_int_t;
 
 #ifndef AO_INT_MAX
@@ -30,3 +31,4 @@ typedef int32_t         ao_int_t;
 
 #endif
 
+```

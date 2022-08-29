@@ -10,6 +10,7 @@ title: "<code>ao_sys_clock.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_SYS_CLOCK_CAN1
 
 #define AO_SYS_CLOCK_CAN1   (AO_SYS_PBCLK)
@@ -178,3 +179,4 @@ toc: true
 
 #endif
 
+```

@@ -10,6 +10,7 @@ title: "<code>ao_send_obj.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_send_obj_t   ao_send_obj_t;
 
 typedef void (*                 ao_send_obj_proc_t) (ao_send_obj_t * x);
@@ -47,3 +48,4 @@ void    ao_send_obj_begin(      ao_send_obj_t * x);
 
 void    ao_send_obj_end(        ao_send_obj_t * x);
 
+```

@@ -10,9 +10,11 @@ title: "<code>ao_sys.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_SYS_XC32
 
 #define AO_SYS_XC32
 
 #endif
 
+```

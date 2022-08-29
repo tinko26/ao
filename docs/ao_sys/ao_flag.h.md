@@ -10,6 +10,7 @@ title: "<code>ao_flag.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_flag_t       ao_flag_t;
 
 typedef struct  ao_flag_wait_t  ao_flag_wait_t;
@@ -77,3 +78,4 @@ void    ao_flag_wait_begin(     ao_flag_wait_t * x);
 
 void    ao_flag_wait_end(       ao_flag_wait_t * x);
 
+```

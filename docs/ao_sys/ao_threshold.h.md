@@ -10,6 +10,7 @@ title: "<code>ao_threshold.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_threshold_t      ao_threshold_t;
 
 typedef struct  ao_threshold_wait_t ao_threshold_wait_t;
@@ -99,3 +100,4 @@ void    ao_threshold_wait_begin(    ao_threshold_wait_t * x);
 
 void    ao_threshold_wait_end(      ao_threshold_wait_t * x);
 
+```

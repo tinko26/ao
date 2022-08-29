@@ -10,6 +10,7 @@ title: "<code>ao_sys_kseg0.h</code>"
 toc: true
 ---
 
+```c
 #ifndef ao_sys_kseg0_cacheable
 
 #define ao_sys_kseg0_cacheable()    _bcsc0(_CP0_CONFIG, _CP0_CONFIG_SELECT, 4, 3)
@@ -22,3 +23,4 @@ toc: true
 
 #endif
 
+```

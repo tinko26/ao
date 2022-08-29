@@ -10,6 +10,7 @@ title: "<code>ao_char.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_CHAR
 
 #define AO_CHAR
@@ -88,3 +89,4 @@ bool    ao_char_is_whitespace(  char x);
 
 #endif
 
+```

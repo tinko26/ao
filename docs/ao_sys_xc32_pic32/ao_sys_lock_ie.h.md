@@ -10,6 +10,7 @@ title: "<code>ao_sys_lock_ie.h</code>"
 toc: true
 ---
 
+```c
 #ifndef ao_sys_lock_ie
 
 #define ao_sys_lock_ie()        __builtin_disable_interrupts()
@@ -22,3 +23,4 @@ toc: true
 
 #endif
 
+```

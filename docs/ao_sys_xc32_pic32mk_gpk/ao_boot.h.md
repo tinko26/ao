@@ -10,6 +10,7 @@ title: "<code>ao_boot.h</code>"
 toc: true
 ---
 
+```c
 #ifndef ao_boot_ir_ad1
 
 #define ao_boot_ir_ad1()                                                    \
@@ -2307,3 +2308,4 @@ toc: true
 
 void    ao_boot_sys_pcache();
 
+```

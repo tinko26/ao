@@ -10,6 +10,7 @@ title: "<code>ao_ir_spi.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_SPI1E_ATTRIBUTE
 
 #define AO_IR_SPI1E_ATTRIBUTE       __ISR(_SPI1_FAULT_VECTOR, IPL4SRS)
@@ -334,3 +335,4 @@ toc: true
 
 #endif
 
+```

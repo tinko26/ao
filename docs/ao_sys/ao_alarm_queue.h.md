@@ -10,6 +10,7 @@ title: "<code>ao_alarm_queue.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_ALARM_QUEUE
 
 #define AO_ALARM_QUEUE      (5)
@@ -30,3 +31,4 @@ toc: true
 
 #endif
 
+```

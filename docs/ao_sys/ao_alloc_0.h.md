@@ -10,9 +10,11 @@ title: "<code>ao_alloc_0.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_ALLOC_0
 
 #define AO_ALLOC_0
 
 #endif
 
+```

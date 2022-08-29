@@ -10,6 +10,7 @@ title: "<code>ao_send_ptr_to_stream.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_SEND_PTR_TO_STREAM
 
 #define AO_SEND_PTR_TO_STREAM
@@ -24,3 +25,4 @@ void    ao_send_ptr_to_stream(          ao_send_ptr_t * x, ao_spush_ptr_t * y);
 
 void    ao_send_ptr_to_stream_override( ao_send_ptr_t * x, ao_spush_ptr_t * y);
 
+```

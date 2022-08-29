@@ -10,6 +10,7 @@ title: "<code>ao_heap4ptr.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_heap4ptr_t       ao_heap4ptr_t;
 
 typedef bool (*                     ao_heap4ptr_less_t)
@@ -76,3 +77,4 @@ bool    ao_heap4ptr_peek(           ao_heap4ptr_t const * x, void ** p);
 
 bool    ao_heap4ptr_pop(            ao_heap4ptr_t * x, void ** p);
 
+```

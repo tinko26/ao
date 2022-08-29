@@ -10,6 +10,7 @@ title: "<code>ao_lock.h</code>"
 toc: true
 ---
 
+```c
 typedef uint32_t        ao_lock_t;
 
 #ifndef AO_LOCK_PRIO
@@ -30,3 +31,4 @@ typedef uint32_t        ao_lock_t;
 
 #endif
 
+```

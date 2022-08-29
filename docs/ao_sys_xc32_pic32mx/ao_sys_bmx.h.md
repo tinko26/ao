@@ -10,6 +10,7 @@ title: "<code>ao_sys_bmx.h</code>"
 toc: true
 ---
 
+```c
 #ifndef ao_sys_bmx_wsdram_disable
 
 #define ao_sys_bmx_wsdram_disable()     { BMXCONCLR = _BMXCON_BMXWSDRM_MASK; }
@@ -22,3 +23,4 @@ toc: true
 
 #endif
 
+```

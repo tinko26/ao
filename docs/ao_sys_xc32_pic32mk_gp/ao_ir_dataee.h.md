@@ -10,6 +10,7 @@ title: "<code>ao_ir_dataee.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_DATAEE_ATTRIBUTE
 
 #define AO_IR_DATAEE_ATTRIBUTE      __ISR(_DATA_EE_VECTOR, IPL4SOFT)
@@ -64,3 +65,4 @@ toc: true
 
 #endif
 
+```

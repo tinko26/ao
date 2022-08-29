@@ -10,6 +10,7 @@ title: "<code>ao_ir_cpc.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_CPC_ATTRIBUTE
 
 #define AO_IR_CPC_ATTRIBUTE     __ISR(_CORE_PERF_COUNT_VECTOR, IPL4SOFT)
@@ -64,3 +65,4 @@ toc: true
 
 #endif
 
+```

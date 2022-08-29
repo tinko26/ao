@@ -10,6 +10,7 @@ title: "<code>ao_boot.h</code>"
 toc: true
 ---
 
+```c
 #ifndef ao_boot_count
 
 #define ao_boot_count()     ao_count_debug_stop()
@@ -24,3 +25,4 @@ toc: true
 
 void    ao_boot_ir_stack();
 
+```

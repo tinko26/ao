@@ -10,6 +10,7 @@ title: "<code>ao_rand.h</code>"
 toc: true
 ---
 
+```c
 typedef bool        (*  ao_randb_t)    ();
 
 typedef double      (*  ao_randd_t)    ();
@@ -34,3 +35,4 @@ typedef uint32_t    (*  ao_randu32_t)  ();
 
 typedef uint64_t    (*  ao_randu64_t)  ();
 
+```

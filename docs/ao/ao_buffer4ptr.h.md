@@ -10,6 +10,7 @@ title: "<code>ao_buffer4ptr.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_buffer4ptr_t                 ao_buffer4ptr_t;
 
 #ifndef AO_BUFFER4PTR_COUNT_MAX
@@ -85,3 +86,4 @@ size_t  ao_buffer4ptr_push_range_front(         ao_buffer4ptr_t * x, void * cons
 
 size_t  ao_buffer4ptr_push_range_front_override(ao_buffer4ptr_t * x, void * const * p, size_t n_min, size_t n_max);
 
+```

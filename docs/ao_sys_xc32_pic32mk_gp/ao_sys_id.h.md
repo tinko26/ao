@@ -10,6 +10,7 @@ title: "<code>ao_sys_id.h</code>"
 toc: true
 ---
 
+```c
 #ifndef ao_sys_id_device
 
 #define ao_sys_id_device()      (DEVIDbits.DEVID)
@@ -40,3 +41,4 @@ toc: true
 
 #endif
 
+```

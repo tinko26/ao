@@ -10,6 +10,7 @@ title: "<code>ao_ir_rtcc.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_RTCC_ATTRIBUTE
 
 #define AO_IR_RTCC_ATTRIBUTE        __ISR(_RTCC_VECTOR, IPL4SOFT)
@@ -64,3 +65,4 @@ toc: true
 
 #endif
 
+```

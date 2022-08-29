@@ -10,6 +10,7 @@ title: "<code>ao_alarm_queue_2.h</code>"
 toc: true
 ---
 
+```c
 typedef size_t                      ao_alarm_queue_node_t;
 
 #ifndef AO_ALARM_QUEUE_2
@@ -40,3 +41,4 @@ extern  size_t          volatile    ao_alarm_queue_count;
 
 extern  size_t          volatile    ao_alarm_queue_count_max;
 
+```

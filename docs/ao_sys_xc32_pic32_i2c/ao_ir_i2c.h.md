@@ -10,6 +10,7 @@ title: "<code>ao_ir_i2c.h</code>"
 toc: true
 ---
 
+```c
 void    ao_ir_i2c1b_disable();
 
 void    ao_ir_i2c1b_enable();
@@ -190,3 +191,4 @@ void    ao_ir_i2c5s_reply();
 
 void    ao_ir_i2c5s_request();
 
+```

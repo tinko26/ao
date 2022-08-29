@@ -10,6 +10,7 @@ title: "<code>ao_queue4ptr.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_queue4ptr_t      ao_queue4ptr_t;
 
 typedef struct  ao_qinsert_ptr_t    ao_qinsert_ptr_t;
@@ -105,3 +106,4 @@ void    ao_qpop_ptr_begin(          ao_qpop_ptr_t * x);
 
 void    ao_qpop_ptr_end(            ao_qpop_ptr_t * x);
 
+```

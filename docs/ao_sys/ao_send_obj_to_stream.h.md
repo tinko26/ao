@@ -10,6 +10,7 @@ title: "<code>ao_send_obj_to_stream.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_SEND_OBJ_TO_STREAM
 
 #define AO_SEND_OBJ_TO_STREAM
@@ -20,3 +21,4 @@ void    ao_send_obj_to_stream(          ao_send_obj_t * x, ao_spush_obj_t * y);
 
 void    ao_send_obj_to_stream_override( ao_send_obj_t * x, ao_spush_obj_t * y);
 
+```

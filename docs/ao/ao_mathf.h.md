@@ -10,6 +10,7 @@ title: "<code>ao_mathf.h</code>"
 toc: true
 ---
 
+```c
 #ifndef     AO_MATHF
 
 #define     AO_MATHF
@@ -1474,3 +1475,4 @@ long double ao_wrapl(long double x, long double beginning, long double length);
 
 #endif
 
+```

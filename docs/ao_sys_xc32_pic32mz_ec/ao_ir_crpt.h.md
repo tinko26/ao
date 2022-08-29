@@ -10,6 +10,7 @@ title: "<code>ao_ir_crpt.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_CRPT_ATTRIBUTE
 
 #define AO_IR_CRPT_ATTRIBUTE        __ISR(_CRYPTO_VECTOR, IPL4SRS)
@@ -64,3 +65,4 @@ toc: true
 
 #endif
 
+```

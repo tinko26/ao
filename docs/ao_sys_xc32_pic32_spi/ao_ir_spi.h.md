@@ -10,6 +10,7 @@ title: "<code>ao_ir_spi.h</code>"
 toc: true
 ---
 
+```c
 void    ao_ir_spi1e_disable();
 
 void    ao_ir_spi1e_enable();
@@ -226,3 +227,4 @@ void    ao_ir_spi6tx_reply();
 
 void    ao_ir_spi6tx_request();
 
+```

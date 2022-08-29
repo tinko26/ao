@@ -10,6 +10,7 @@ title: "<code>ao_sleep.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_sleep_t  ao_sleep_t;
 
 #ifndef AO_SLEEP
@@ -41,3 +42,4 @@ void    ao_sleep_begin(     ao_sleep_t * x);
 
 void    ao_sleep_end(       ao_sleep_t * x);
 
+```

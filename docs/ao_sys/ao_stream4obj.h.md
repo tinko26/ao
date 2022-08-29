@@ -10,6 +10,7 @@ title: "<code>ao_stream4obj.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_stream4obj_t ao_stream4obj_t;
 
 typedef struct  ao_spop_obj_t   ao_spop_obj_t;
@@ -99,3 +100,4 @@ void    ao_spush_obj_end(       ao_spush_obj_t * x);
 
 void    ao_spush_obj_override(  ao_spush_obj_t * x);
 
+```

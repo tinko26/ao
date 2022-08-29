@@ -10,6 +10,7 @@ title: "<code>ao_ir_ctmu.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_CTMU_ATTRIBUTE
 
 #define AO_IR_CTMU_ATTRIBUTE        __ISR(_CTMU_VECTOR, IPL4SOFT)
@@ -64,3 +65,4 @@ toc: true
 
 #endif
 
+```

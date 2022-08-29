@@ -10,6 +10,7 @@ title: "<code>ao_boot.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_BOOT
 
 #define AO_BOOT
@@ -22,3 +23,4 @@ void    ao_boot_alloc();
 
 void    ao_boot_task();
 
+```

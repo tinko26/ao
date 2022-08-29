@@ -10,6 +10,7 @@ title: "<code>ao_rw.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_rw_t             ao_rw_t;
 
 typedef struct  ao_rw_lock_t        ao_rw_lock_t;
@@ -76,3 +77,4 @@ void    ao_rw_unlock_read(          ao_rw_t * x);
 
 void    ao_rw_unlock_write(         ao_rw_t * x);
 
+```

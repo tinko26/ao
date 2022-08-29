@@ -10,6 +10,7 @@ title: "<code>ao_ir_usb.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_USB_ATTRIBUTE
 
 #define AO_IR_USB_ATTRIBUTE     __ISR(_USB_1_VECTOR, IPL4SOFT)
@@ -64,3 +65,4 @@ toc: true
 
 #endif
 
+```

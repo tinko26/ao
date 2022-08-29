@@ -10,6 +10,7 @@ title: "<code>ao_ir_sb.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_SB_ATTRIBUTE
 
 #define AO_IR_SB_ATTRIBUTE      __ISR(_SYSTEM_BUS_PROTECTION_VECTOR, IPL4SRS)
@@ -64,3 +65,4 @@ toc: true
 
 #endif
 
+```

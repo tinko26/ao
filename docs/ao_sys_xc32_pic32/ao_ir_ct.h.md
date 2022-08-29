@@ -10,6 +10,7 @@ title: "<code>ao_ir_ct.h</code>"
 toc: true
 ---
 
+```c
 void    ao_ir_ct_disable();
 
 void    ao_ir_ct_enable();
@@ -22,3 +23,4 @@ void    ao_ir_ct_reply();
 
 void    ao_ir_ct_request();
 
+```

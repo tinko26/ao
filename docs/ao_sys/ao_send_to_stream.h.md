@@ -10,6 +10,7 @@ title: "<code>ao_send_to_stream.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_SEND_TO_STREAM
 
 #define AO_SEND_TO_STREAM
@@ -18,3 +19,4 @@ toc: true
 
 void    ao_send_to_stream(ao_send_t * x, ao_spush_t * y);
 
+```

@@ -10,6 +10,7 @@ title: "<code>ao_task.h</code>"
 toc: true
 ---
 
+```c
 typedef     struct  ao_task_t                   ao_task_t;
 
 typedef     enum    ao_task_state_t             ao_task_state_t;
@@ -320,3 +321,4 @@ extern      ao_task_t                           ao_task_main;
 
 extern      ao_task_t *             volatile    ao_task_running [AO_CORE_COUNT];
 
+```

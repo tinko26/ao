@@ -10,6 +10,7 @@ title: "<code>ao_button.h</code>"
 toc: true
 ---
 
+```c
 typedef enum    ao_buttons_t    ao_buttons_t;
 
 #ifndef AO_BUTTON_COUNT
@@ -35,3 +36,4 @@ ao_buttons_t
 
         ao_buttons();
 
+```

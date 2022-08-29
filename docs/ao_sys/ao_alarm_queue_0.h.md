@@ -10,6 +10,7 @@ title: "<code>ao_alarm_queue_0.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_alarm_queue_node_t   ao_alarm_queue_node_t;
 
 #ifndef AO_ALARM_QUEUE_0
@@ -26,3 +27,4 @@ struct  ao_alarm_queue_node_t           { };
 
 #endif
 
+```

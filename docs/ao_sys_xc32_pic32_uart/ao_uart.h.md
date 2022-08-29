@@ -10,6 +10,7 @@ title: "<code>ao_uart.h</code>"
 toc: true
 ---
 
+```c
 typedef enum    ao_uart_error_flags_t       ao_uart_error_flags_t;
 
 typedef struct  ao_uart_error_info_t        ao_uart_error_info_t;
@@ -404,3 +405,4 @@ void    ao_uart_loopback_disable(           ao_uart_reg_t * r);
 
 void    ao_uart_loopback_enable(            ao_uart_reg_t * r);
 
+```

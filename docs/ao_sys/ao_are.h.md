@@ -10,6 +10,7 @@ title: "<code>ao_are.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_are_t        ao_are_t;
 
 typedef struct  ao_are_wait_t   ao_are_wait_t;
@@ -60,3 +61,4 @@ void    ao_are_wait_begin(      ao_are_wait_t * x);
 
 void    ao_are_wait_end(        ao_are_wait_t * x);
 
+```

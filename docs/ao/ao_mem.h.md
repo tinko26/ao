@@ -10,9 +10,11 @@ title: "<code>ao_mem.h</code>"
 toc: true
 ---
 
+```c
 void *  ao_memcpy(void * d, void const * s, size_t n);
 
 void *  ao_memmove(void * d, void const * s, size_t n);
 
 void *  ao_memset(void * p, uint8_t v, size_t n);
 
+```

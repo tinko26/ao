@@ -10,6 +10,7 @@ title: "<code>ao_i2c.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_i2c_reg_t            ao_i2c_reg_t;
 
 typedef struct  ao_i2c_reg_add_t        ao_i2c_reg_add_t;
@@ -369,3 +370,4 @@ bool    ao_i2c_stop_from(               ao_i2c_reg_t * r, ao_time_t t, ao_time_t
 
 bool    ao_i2c_stop_forever(            ao_i2c_reg_t * r);
 
+```

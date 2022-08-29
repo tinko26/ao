@@ -10,6 +10,7 @@ title: "<code>ao_rngt.h</code>"
 toc: true
 ---
 
+```c
 #ifndef ao_rngt_disable
 
 #define ao_rngt_disable()   { RNGCONbits.TRNGEN = 0; }
@@ -46,3 +47,4 @@ toc: true
 
 #endif
 
+```

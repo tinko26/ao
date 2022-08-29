@@ -10,6 +10,7 @@ title: "<code>ao_sys_lock_pps.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_sys_lock_pps_t   ao_sys_lock_pps_t;
 
 #ifndef AO_SYS_LOCK_PPS
@@ -29,3 +30,4 @@ void    ao_sys_unlock_pps(          ao_sys_lock_pps_t * x);
 
 void    ao_sys_lock_pps(            ao_sys_lock_pps_t * x);
 
+```

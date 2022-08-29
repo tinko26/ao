@@ -10,6 +10,7 @@ title: "<code>ao_cond.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_cond_t       ao_cond_t;
 
 typedef struct  ao_cond_wait_t  ao_cond_wait_t;
@@ -60,3 +61,4 @@ void    ao_cond_wait_begin(     ao_cond_wait_t * x);
 
 void    ao_cond_wait_end(       ao_cond_wait_t * x);
 
+```

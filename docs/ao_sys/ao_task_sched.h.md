@@ -10,6 +10,7 @@ title: "<code>ao_task_sched.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_TASK_SCHED
 
 #define AO_TASK_SCHED       (2)
@@ -24,3 +25,4 @@ toc: true
 
 #endif
 
+```

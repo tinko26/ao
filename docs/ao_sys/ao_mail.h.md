@@ -10,6 +10,7 @@ title: "<code>ao_mail.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_mail_t       ao_mail_t;
 
 typedef struct  ao_mail_fetch_t ao_mail_fetch_t;
@@ -73,3 +74,4 @@ void    ao_mail_fetch_begin(    ao_mail_fetch_t * x);
 
 void    ao_mail_fetch_end(      ao_mail_fetch_t * x);
 
+```

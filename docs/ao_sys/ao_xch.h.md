@@ -10,6 +10,7 @@ title: "<code>ao_xch.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_xch_t                ao_xch_t;
 
 typedef struct  ao_xch_client_t         ao_xch_client_t;
@@ -111,3 +112,4 @@ void    ao_xch_server_end(              ao_xch_server_t * x);
 
 void    ao_xch_server_reply(            ao_xch_server_t * x);
 
+```

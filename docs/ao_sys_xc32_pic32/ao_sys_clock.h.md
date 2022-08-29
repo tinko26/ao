@@ -10,9 +10,11 @@ title: "<code>ao_sys_clock.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_SYS_SYSCLK
 
 #define AO_SYS_SYSCLK   (0)
 
 #endif
 
+```

@@ -10,6 +10,7 @@ title: "<code>ao_lfsr.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_lfsr8_t  ao_lfsr8_t;
 
 typedef struct  ao_lfsr16_t ao_lfsr16_t;
@@ -78,3 +79,4 @@ void    ao_lfsr32(          ao_lfsr32_t * r);
 
 void    ao_lfsr64(          ao_lfsr64_t * r);
 
+```

@@ -10,6 +10,7 @@ title: "<code>ao_avl.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_avl_t        ao_avl_t;
 
 typedef struct  ao_avl_node_t   ao_avl_node_t;
@@ -75,3 +76,4 @@ ao_avl_node_t *
 
 void    ao_avl_remove(          ao_avl_t * x, ao_avl_node_t * n);
 
+```

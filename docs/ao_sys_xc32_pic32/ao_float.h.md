@@ -10,6 +10,7 @@ title: "<code>ao_float.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_FLOAT
 
 #define AO_FLOAT    (32)
@@ -22,3 +23,4 @@ toc: true
 
 #endif
 
+```

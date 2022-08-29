@@ -10,6 +10,7 @@ title: "<code>ao_can_2.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_CAN_2
 
 #ifdef  _CAN2
@@ -1660,3 +1661,4 @@ void    ao_can_underflow_2(             ao_can_underflow_info_t const * info);
 
 void    ao_can_wake_up_2(               ao_can_wake_up_info_t const * info);
 
+```

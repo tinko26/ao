@@ -10,6 +10,7 @@ title: "<code>ao_i2c_1.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_I2C_1
 
 #ifdef  _I2C1
@@ -174,3 +175,4 @@ toc: true
 
 #endif
 
+```

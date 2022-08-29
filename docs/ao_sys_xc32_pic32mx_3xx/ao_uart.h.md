@@ -10,6 +10,7 @@ title: "<code>ao_uart.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_UART_BRG_BITS
 
 #define AO_UART_BRG_BITS        (16)
@@ -22,3 +23,4 @@ toc: true
 
 #endif
 
+```

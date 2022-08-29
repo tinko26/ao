@@ -10,6 +10,7 @@ title: "<code>ao_rendezvous.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_rendezvous_t         ao_rendezvous_t;
 
 typedef struct  ao_rendezvous_wait_t    ao_rendezvous_wait_t;
@@ -69,3 +70,4 @@ void    ao_rendezvous_begin(            ao_rendezvous_wait_t * x);
 
 void    ao_rendezvous_end(              ao_rendezvous_wait_t * x);
 
+```

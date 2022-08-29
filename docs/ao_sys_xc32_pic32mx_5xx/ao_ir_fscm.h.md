@@ -10,6 +10,7 @@ title: "<code>ao_ir_fscm.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_FSCM_ATTRIBUTE
 
 #define AO_IR_FSCM_ATTRIBUTE        __ISR(_FAIL_SAFE_MONITOR_VECTOR, IPL4SOFT)
@@ -64,3 +65,4 @@ toc: true
 
 #endif
 
+```

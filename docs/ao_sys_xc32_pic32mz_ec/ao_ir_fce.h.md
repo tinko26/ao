@@ -10,6 +10,7 @@ title: "<code>ao_ir_fce.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_FCE_ATTRIBUTE
 
 #define AO_IR_FCE_ATTRIBUTE     __ISR(_FLASH_CONTROL_VECTOR, IPL4SRS)
@@ -64,3 +65,4 @@ toc: true
 
 #endif
 
+```

@@ -10,6 +10,7 @@ title: "<code>ao_heap.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_heap_t       ao_heap_t;
 
 typedef struct  ao_heap_node_t  ao_heap_node_t;
@@ -89,3 +90,4 @@ ao_heap_node_t *
 
 void    ao_heap_remove(         ao_heap_t * x, ao_heap_node_t * n);
 
+```

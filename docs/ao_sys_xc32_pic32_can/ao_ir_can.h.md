@@ -10,6 +10,7 @@ title: "<code>ao_ir_can.h</code>"
 toc: true
 ---
 
+```c
 void    ao_ir_can1_disable();
 
 void    ao_ir_can1_enable();
@@ -58,3 +59,4 @@ void    ao_ir_can4_reply();
 
 void    ao_ir_can4_request();
 
+```

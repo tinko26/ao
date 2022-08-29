@@ -10,6 +10,7 @@ title: "<code>ao_ir_mpll.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_MPLLFLT_ATTRIBUTE
 
 #define AO_IR_MPLLFLT_ATTRIBUTE     __ISR(_MPLL_FAULT_VECTOR, IPL4SRS)
@@ -64,3 +65,4 @@ toc: true
 
 #endif
 
+```

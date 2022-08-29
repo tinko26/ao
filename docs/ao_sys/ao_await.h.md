@@ -10,6 +10,7 @@ title: "<code>ao_await.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_AWAIT
 
 #define AO_AWAIT
@@ -34,3 +35,4 @@ void    ao_await_any_from(      ao_async_any_t * x, ao_time_t timeout, ao_time_t
 
 void    ao_await_any_forever(   ao_async_any_t * x);
 
+```

@@ -10,6 +10,7 @@ title: "<code>ao_send_ptr_to_queue.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_SEND_PTR_TO_QUEUE
 
 #define AO_SEND_PTR_TO_QUEUE
@@ -20,3 +21,4 @@ void    ao_send_acq_to_queue(   ao_send_ptr_t * x, ao_qinsert_ptr_t * y);
 
 void    ao_send_ptr_to_queue(   ao_send_ptr_t * x, ao_qinsert_ptr_t * y);
 
+```

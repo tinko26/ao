@@ -10,6 +10,7 @@ title: "<code>ao_yield.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_YIELD
 
 #define AO_YIELD
@@ -20,3 +21,4 @@ void    ao_yield();
 
 void    ao_yield_to(ao_task_t * t);
 
+```

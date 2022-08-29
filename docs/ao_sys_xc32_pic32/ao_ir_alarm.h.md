@@ -10,6 +10,7 @@ title: "<code>ao_ir_alarm.h</code>"
 toc: true
 ---
 
+```c
 void    ao_alarm();
 
 #ifndef ao_alarm_disable
@@ -42,3 +43,4 @@ void    ao_alarm();
 
 #endif
 
+```

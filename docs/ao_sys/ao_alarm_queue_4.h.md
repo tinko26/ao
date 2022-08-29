@@ -10,6 +10,7 @@ title: "<code>ao_alarm_queue_4.h</code>"
 toc: true
 ---
 
+```c
 typedef ao_avl_t                ao_alarm_queue_t;
 
 typedef ao_avl_node_t           ao_alarm_queue_node_t;
@@ -32,3 +33,4 @@ typedef ao_avl_node_t           ao_alarm_queue_node_t;
 
 #endif
 
+```

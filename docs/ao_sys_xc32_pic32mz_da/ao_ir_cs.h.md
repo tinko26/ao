@@ -10,6 +10,7 @@ title: "<code>ao_ir_cs.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_CS0_ATTRIBUTE
 
 #define AO_IR_CS0_ATTRIBUTE     __ISR(_CORE_SOFTWARE_0_VECTOR, IPL2SRS)
@@ -118,3 +119,4 @@ toc: true
 
 #endif
 
+```

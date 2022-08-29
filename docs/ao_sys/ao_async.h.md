@@ -10,6 +10,7 @@ title: "<code>ao_async.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_async_t      ao_async_t;
 
 typedef struct  ao_async_all_t  ao_async_all_t;
@@ -79,3 +80,4 @@ void    ao_async_any_end(       ao_async_any_t * x);
 
 void    ao_async_any_try(       ao_async_any_t * x);
 
+```

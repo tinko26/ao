@@ -10,6 +10,7 @@ title: "<code>ao_size.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_SIZE_BITS
 
 #define AO_SIZE_BITS        (AO_UINT_BITS)
@@ -82,3 +83,4 @@ toc: true
 
 #endif
 
+```

@@ -10,6 +10,7 @@ title: "<code>ao_ir_task.h</code>"
 toc: true
 ---
 
+```c
 void    ao_task_switch();
 
 void    ao_task_switch_disable(     ao_core_t c);
@@ -22,3 +23,4 @@ void    ao_task_switch_reply(       ao_core_t c);
 
 void    ao_task_switch_request(     ao_core_t c);
 
+```

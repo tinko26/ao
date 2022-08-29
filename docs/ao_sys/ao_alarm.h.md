@@ -10,6 +10,7 @@ title: "<code>ao_alarm.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_alarm_t      ao_alarm_t;
 
 #ifndef AO_ALARM_DELAY
@@ -49,3 +50,4 @@ void    ao_alarm_start_from(    ao_alarm_t * x, ao_time_t t, ao_time_t b);
 
 void    ao_alarm_stop(          ao_alarm_t * x);
 
+```

@@ -10,5 +10,7 @@ title: "<code>ao_break.h</code>"
 toc: true
 ---
 
+```c
 void    ao_break();
 
+```

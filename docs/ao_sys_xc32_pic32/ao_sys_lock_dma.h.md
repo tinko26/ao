@@ -10,6 +10,7 @@ title: "<code>ao_sys_lock_dma.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_SYS_LOCK_DMA
 
 #define AO_SYS_LOCK_DMA
@@ -20,3 +21,4 @@ uint32_t    ao_sys_lock_dma();
 
 void        ao_sys_unlock_dma(uint32_t x);
 
+```

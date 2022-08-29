@@ -10,6 +10,7 @@ title: "<code>ao_ir_glcd.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_GLCD_ATTRIBUTE
 
 #define AO_IR_GLCD_ATTRIBUTE        __ISR(_GLCD_VECTOR, IPL4SRS)
@@ -64,3 +65,4 @@ toc: true
 
 #endif
 
+```

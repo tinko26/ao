@@ -10,6 +10,7 @@ title: "<code>ao_uart_3.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_UART_3
 
 #ifdef  _UART3
@@ -158,3 +159,4 @@ void    ao_uart_start_3();
 
 void    ao_uart_stop_3();
 
+```

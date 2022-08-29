@@ -10,6 +10,7 @@ title: "<code>ao_ir_sdhc.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_SDHC_ATTRIBUTE
 
 #define AO_IR_SDHC_ATTRIBUTE        __ISR(_SDHC_VECTOR, IPL4SRS)
@@ -64,3 +65,4 @@ toc: true
 
 #endif
 
+```

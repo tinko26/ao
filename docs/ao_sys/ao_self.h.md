@@ -10,6 +10,7 @@ title: "<code>ao_self.h</code>"
 toc: true
 ---
 
+```c
 #ifndef     AO_SELF
 
 #define     AO_SELF
@@ -22,3 +23,4 @@ void        ao_stop();
 
 void        ao_suspend();
 
+```

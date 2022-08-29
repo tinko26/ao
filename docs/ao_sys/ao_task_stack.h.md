@@ -10,6 +10,7 @@ title: "<code>ao_task_stack.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_TASK_STACK
 
 #define AO_TASK_STACK       (2)
@@ -24,3 +25,4 @@ toc: true
 
 #endif
 
+```

@@ -10,6 +10,7 @@ title: "<code>ao_ir_cmp.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_CMP1_ATTRIBUTE
 
 #define AO_IR_CMP1_ATTRIBUTE        __ISR(_COMPARATOR_1_VECTOR, IPL4SOFT)
@@ -172,3 +173,4 @@ toc: true
 
 #endif
 
+```

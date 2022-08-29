@@ -10,6 +10,7 @@ title: "<code>ao_task_context.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_task_t               ao_task_t;
 
 typedef struct  ao_task_context_t       ao_task_context_t;
@@ -188,3 +189,4 @@ void    ao_task_start_context(          ao_task_t * t);
 
 #endif
 
+```

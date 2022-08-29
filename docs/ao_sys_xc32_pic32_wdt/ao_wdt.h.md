@@ -10,6 +10,7 @@ title: "<code>ao_wdt.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_WDT
 
 #define AO_WDT
@@ -36,3 +37,4 @@ toc: true
 
 void    ao_wdt_reset();
 
+```

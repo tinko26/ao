@@ -10,6 +10,7 @@ title: "<code>ao_task_stack_2.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_task_t                           ao_task_t;
 
 typedef struct  ao_task_stack_t                     ao_task_stack_t;
@@ -68,3 +69,4 @@ void    ao_task_set_stack_size(                     ao_task_t       * t, size_t 
 
 void    ao_task_stack_high_water_mark(              ao_task_t       * t);
 
+```

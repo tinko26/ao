@@ -10,6 +10,7 @@ title: "<code>ao_pmail.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_pmail_t          ao_pmail_t;
 
 typedef struct  ao_pmail_fetch_t    ao_pmail_fetch_t;
@@ -73,3 +74,4 @@ void    ao_pmail_fetch_begin(       ao_pmail_fetch_t * x);
 
 void    ao_pmail_fetch_end(         ao_pmail_fetch_t * x);
 
+```

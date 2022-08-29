@@ -10,6 +10,7 @@ title: "<code>ao_ir_pcache.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_IR_PCACHE_ATTRIBUTE
 
 #define AO_IR_PCACHE_ATTRIBUTE      __ISR(_PCACHE_VECTOR, IPL4SRS)
@@ -64,3 +65,4 @@ toc: true
 
 #endif
 
+```

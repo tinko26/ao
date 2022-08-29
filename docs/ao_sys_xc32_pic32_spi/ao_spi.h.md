@@ -10,6 +10,7 @@ title: "<code>ao_spi.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_spi_reg_t            ao_spi_reg_t;
 
 typedef struct  ao_spi_reg_brg_t        ao_spi_reg_brg_t;
@@ -320,3 +321,4 @@ void    ao_spi_baud
 
 #endif
 
+```

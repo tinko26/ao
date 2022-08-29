@@ -10,6 +10,7 @@ title: "<code>ao_led.h</code>"
 toc: true
 ---
 
+```c
 typedef     enum    ao_leds_t   ao_leds_t;
 
 #ifndef     AO_LED_COUNT
@@ -39,3 +40,4 @@ void        ao_leds_enable(     ao_leds_t x);
 
 void        ao_leds_toggle(     ao_leds_t x);
 
+```

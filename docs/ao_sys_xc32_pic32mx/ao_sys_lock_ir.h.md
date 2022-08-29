@@ -10,6 +10,7 @@ title: "<code>ao_sys_lock_ir.h</code>"
 toc: true
 ---
 
+```c
 #ifndef AO_SYS_LOCK_IR
 
 #define AO_SYS_LOCK_IR
@@ -53,3 +54,4 @@ static void ao_sys_unlock_ir(uint32_t x)
 
 #endif
 
+```

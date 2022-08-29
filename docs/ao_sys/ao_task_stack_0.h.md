@@ -10,6 +10,7 @@ title: "<code>ao_task_stack_0.h</code>"
 toc: true
 ---
 
+```c
 typedef struct  ao_task_t                   ao_task_t;
 
 typedef struct  ao_task_stack_t             ao_task_stack_t;
@@ -36,3 +37,4 @@ size_t  ao_task_get_stack_size(             ao_task_t const * t);
 
 size_t  ao_task_get_stack_size_locked(      ao_task_t const * t);
 
+```

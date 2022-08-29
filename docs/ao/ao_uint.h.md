@@ -10,6 +10,7 @@ title: "<code>ao_uint.h</code>"
 toc: true
 ---
 
+```c
 typedef     uint32_t            ao_uint_t;
 
 #ifndef     AO_UINT_BITS
@@ -96,3 +97,4 @@ ao_uint_t   ao_flsu(ao_uint_t x);
 
 #endif
 
+```
