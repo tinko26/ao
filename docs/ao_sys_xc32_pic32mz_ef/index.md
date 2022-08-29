@@ -4,8 +4,13 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mz_ef package of the ao real-time operating system."
 draft: true
+external:
+- title: "Data sheet"
+  url: http://microchip.com/DS60001320
+- title: "Errata"
+  url: http://microchip.com/DS80000663
 permalink: /ao_sys_xc32_pic32mz_ef/ 
-subtitle: ""
+subtitle: "PIC32MZ Embedded Connectivity with Floating Point Unit (EF) Family"
 title: "ao_sys_xc32_pic32mz_ef"
 toc: false
 ---
