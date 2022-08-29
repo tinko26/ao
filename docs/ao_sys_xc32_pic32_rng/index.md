@@ -10,7 +10,7 @@ title: "ao_sys_xc32_pic32_rng"
 toc: false
 ---
 
-Modules
+# Modules
 
 | [`ao_rngp.h`](ao_rngp.h.md) |
 | [`ao_rngt.h`](ao_rngt.h.md) |

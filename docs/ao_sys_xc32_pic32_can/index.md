@@ -10,7 +10,7 @@ title: "ao_sys_xc32_pic32_can"
 toc: false
 ---
 
-Modules
+# Modules
 
 | [`ao_can.h`](ao_can.h.md) |
 | [`ao_can_1.h`](ao_can_1.h.md) |

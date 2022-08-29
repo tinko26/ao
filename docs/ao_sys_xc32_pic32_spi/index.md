@@ -10,7 +10,7 @@ title: "ao_sys_xc32_pic32_spi"
 toc: false
 ---
 
-Modules
+# Modules
 
 | [`ao_ir.h`](ao_ir.h.md) |
 | [`ao_ir_spi.h`](ao_ir_spi.h.md) |

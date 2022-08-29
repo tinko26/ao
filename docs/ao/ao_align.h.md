@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao/ao_align.h module of the ao real-time operating system."
 draft: true
 permalink: /ao/ao_align.h/ 
-subtitle: ""
+subtitle: "Memory alignment"
 title: "ao_align.h"
 toc: true
 wiki:
