@@ -1,13 +1,11 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-13
-description: ""
+date: 2022-08-29
+description: "The port of the ao real-time operating system."
 draft: true
 permalink: /port/
 title: "Port"
 ---
-
-# Port
 
 - Alarm interrupt is core timer interrupt, default priority 3
 - Task switch interrupt is core software interrupt 1, because lowest natural priority, default priority 1
