@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32 package of the ao real-time operating system."
 draft: false
 external:
-- title: "MPLAB® XC32 C/C++ Compiler. User's Guide"
+- title: "MPLAB® XC32 C/C++ Compiler User's Guide"
   url: http://microchip.com/DS50001686
 permalink: /ao_sys_xc32/ 
 subtitle: "XC32"

@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32_spi package of the ao real-time operating system."
 draft: false
 external:
-- title: "PIC32 Family Reference Manual. Section 23. Serial Peripheral Interface (SPI)."
+- title: "PIC32 Family Reference Manual, Section 23: Serial Peripheral Interface (SPI)"
   url: http://microchip.com/DS61106
 permalink: /ao_sys_xc32_pic32_spi/ 
 subtitle: "SPI driver"

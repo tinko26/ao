@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32_i2c package of the ao real-time operating system."
 draft: false
 external:
-- title: "PIC32 Family Reference Manual. Section 24. Inter-Integrated Circuit (I²C)."
+- title: "PIC32 Family Reference Manual, Section 24: Inter-Integrated Circuit (I²C)"
   url: http://microchip.com/DS60001116
 permalink: /ao_sys_xc32_pic32_i2c/ 
 subtitle: "I²C driver"

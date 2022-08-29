@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32_rng package of the ao real-time operating system."
 draft: false
 external:
-- title: "PIC32 Family Reference Manual. Section 49. Crypto Engine and Random Number Generator (RNG)."
+- title: "PIC32 Family Reference Manual, Section 49: Crypto Engine and Random Number Generator (RNG)"
   url: http://microchip.com/DS60001246
 permalink: /ao_sys_xc32_pic32_rng/ 
 subtitle: "RNG driver"

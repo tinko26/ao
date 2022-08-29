@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32_can package of the ao real-time operating system."
 draft: false
 external:
-- title: "PIC32 Family Reference Manual. Section 34. Controller Area Network (CAN)."
+- title: "PIC32 Family Reference Manual, Section 34: Controller Area Network (CAN)"
   url: http://microchip.com/DS61154
 permalink: /ao_sys_xc32_pic32_can/ 
 subtitle: "CAN driver"
