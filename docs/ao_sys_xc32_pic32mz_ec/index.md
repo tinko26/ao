@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32mz_ec package of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mz_ec/ 
-subtitle: ""
+subtitle: "PIC32MZ Embedded Connectivity (EC) Family"
 title: "<code>ao_sys_xc32_pic32mz_ec</code>"
 toc: false
 ---

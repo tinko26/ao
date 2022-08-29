@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32mx_5xx package of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mx_5xx/ 
-subtitle: ""
+subtitle: "PIC32MX5XX/6XX/7XX Family"
 title: "<code>ao_sys_xc32_pic32mx_5xx</code>"
 toc: false
 ---

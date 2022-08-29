@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32 package of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32/ 
-subtitle: ""
+subtitle: "PIC32"
 title: "<code>ao_sys_xc32_pic32</code>"
 toc: false
 ---

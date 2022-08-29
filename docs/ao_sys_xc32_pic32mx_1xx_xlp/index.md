@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32mx_1xx_xlp package of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mx_1xx_xlp/ 
-subtitle: ""
+subtitle: "PIC32MX1XX/2XX 28/44-Pin XLP Family"
 title: "<code>ao_sys_xc32_pic32mx_1xx_xlp</code>"
 toc: false
 ---

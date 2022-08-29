@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao package of the ao real-time operating system."
 draft: true
 permalink: /ao/ 
-subtitle: "The environment package"
+subtitle: "Environment"
 title: "<code>ao</code>"
 toc: false
 ---

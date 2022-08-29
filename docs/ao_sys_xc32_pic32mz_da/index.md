@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32mz_da package of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mz_da/ 
-subtitle: ""
+subtitle: "PIC32MZ Graphics (DA) Family"
 title: "<code>ao_sys_xc32_pic32mz_da</code>"
 toc: false
 ---

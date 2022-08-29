@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys package of the ao real-time operating system."
 draft: true
 permalink: /ao_sys/ 
-subtitle: ""
+subtitle: "Kernel"
 title: "<code>ao_sys</code>"
 toc: false
 ---

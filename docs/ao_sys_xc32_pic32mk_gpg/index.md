@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32mk_gpg package of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mk_gpg/ 
-subtitle: ""
+subtitle: "PIC32MK General Purpose and Motor Control (GPG/MCJ) with CAN FD Family"
 title: "<code>ao_sys_xc32_pic32mk_gpg</code>"
 toc: false
 ---

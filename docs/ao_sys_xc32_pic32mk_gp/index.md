@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32mk_gp package of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mk_gp/ 
-subtitle: ""
+subtitle: "PIC32MK General Purpose and Motor Control (GP/MC) Family"
 title: "<code>ao_sys_xc32_pic32mk_gp</code>"
 toc: false
 ---
