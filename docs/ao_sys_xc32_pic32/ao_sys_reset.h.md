@@ -1,0 +1,19 @@
+---
+author: "Stefan Wagner"
+date: 2022-08-29
+description: "The ao_sys_xc32_pic32/ao_sys_reset.h module of the ao real-time operating system."
+draft: true
+permalink: /ao_sys_xc32_pic32/ao_sys_reset.h/ 
+subtitle: "<code>ao_sys_xc32_pic32</code>"
+title: "<code>ao_sys_reset.h</code>"
+toc: true
+---
+
+#ifndef AO_SYS_RESET
+
+#define AO_SYS_RESET
+
+#endif
+
+void    ao_sys_reset();
+
