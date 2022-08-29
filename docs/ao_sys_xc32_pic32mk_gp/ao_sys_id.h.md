@@ -10,43 +10,32 @@ title: "ao_sys_id.h"
 toc: true
 ---
 
-# Overview
-
-...
-
-# Includes
+# Include
 
 ```c
 #include <xc.h>
+```
 
-#ifndef ao_sys_id_device
+# Constants
 
-#define ao_sys_id_device()      (DEVIDbits.DEVID)
+```c
+#define AO_SYS_ID_REVISION_A1 (1)
+```
 
-#endif
+```c
+#define AO_SYS_ID_REVISION_A2 (2)
+```
 
-#ifndef ao_sys_id_revision
+# Macro Functions
 
-#define ao_sys_id_revision()    (DEVIDbits.VER)
+```c
+#define ao_sys_id_device()
+```
 
-#endif
+```c
+#define ao_sys_id_revision()
+```
 
-#ifndef AO_SYS_ID_REVISION_A1
-
-#define AO_SYS_ID_REVISION_A1   (1)
-
-#endif
-
-#ifndef AO_SYS_ID_REVISION_A2
-
-#define AO_SYS_ID_REVISION_A2   (2)
-
-#endif
-
-#ifndef ao_sys_id_user
-
-#define ao_sys_id_user()        (DEVCFG3bits.USERID)
-
-#endif
-
+```c
+#define ao_sys_id_user()
 ```

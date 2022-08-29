@@ -4,31 +4,24 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mk_gp/ao_uart.h module of the ao real-time operating system."
 draft: true
-permalink: /ao_sys_xc32_pic32mk_gp/ao_uart.h/ 
+permalink: /ao_sys_xc32_pic32mk_gp/ao_uart.h/
 subtitle: ""
 title: "ao_uart.h"
 toc: true
 ---
 
-# Overview
-
-...
-
-# Includes
+# Constants
 
 ```c
-#ifndef AO_UART_BRG_BITS
+#define AO_UART_BRG_BITS (20)
+```
 
-#define AO_UART_BRG_BITS        (20)
+```c
+#define AO_UART_FIFO_CAPACITY (8)
+```
 
-#endif
+# Include Next
 
-#ifndef AO_UART_FIFO_CAPACITY
-
-#define AO_UART_FIFO_CAPACITY   (8)
-
-#endif
-
+```c
 #include_next <ao_uart.h>
-
 ```

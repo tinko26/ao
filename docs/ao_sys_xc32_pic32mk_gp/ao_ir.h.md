@@ -10,11 +10,7 @@ title: "ao_ir.h"
 toc: true
 ---
 
-# Overview
-
-...
-
-# Includes
+# Include
 
 ```c
 #include <ao_ir_adc.h>
@@ -41,7 +37,10 @@ toc: true
 #include <ao_ir_t.h>
 #include <ao_ir_u.h>
 #include <ao_ir_usb.h>
+```
 
+# Include Next
+
+```c
 #include_next <ao_ir.h>
-
 ```

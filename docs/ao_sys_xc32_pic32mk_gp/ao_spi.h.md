@@ -10,27 +10,24 @@ title: "ao_spi.h"
 toc: true
 ---
 
-# Overview
-
-...
-
-# Includes
+# Include
 
 ```c
 #include <stdbool.h>
+```
 
-#ifndef AO_SPI_BRG_BITS
+# Constants
 
-#define AO_SPI_BRG_BITS     (13)
+```c
+#define AO_SPI_BRG_BITS (13)
+```
 
-#endif
+```c
+#define AO_SPI_ENHBUF (true)
+```
 
-#ifndef AO_SPI_ENHBUF
+# Include Next
 
-#define AO_SPI_ENHBUF       (true)
-
-#endif
-
+```c
 #include_next <ao_spi.h>
-
 ```
