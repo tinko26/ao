@@ -7,7 +7,7 @@ draft: false
 permalink: /src/ 
 subtitle: "Source code"
 title: "src"
-toc: false
+toc: true
 ---
 
 # Directories
@@ -42,6 +42,6 @@ toc: false
 
 # Files
 
-| `ao.c` |
-| `ao_sys.c` |
-| `ao_sys_xc32_pic32.c` |
+| [`ao.c`](ao.c.md) | Environment |
+| [`ao_sys.c`](ao_sys.c.md) | Kernel |
+| [`ao_sys_xc32_pic32.c`](ao_sys_xc32_pic32.c.md) | PIC32 |
