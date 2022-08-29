@@ -109,7 +109,7 @@ title: "Modules"
 | [`ao_task_context.h`](task-context.md) | Task context |
 | [`ao_task_sched.h`](task-sched.md) | Task scheduler |
 | [`ao_task_sched_0.h`](task-sched-0.md) | Task scheduler stub |
-| [`ao_task_sched_1.h`](task-sched-1.md) | Round-robin scheduling without priorities |
+| [`ao_task_sched_1.h`](task-sched-1.md) | Round-robin task scheduler without priorities |
 | [`ao_task_sched_2.h`](task-sched-2.md) | Round-robin scheduling with priorities |
 | [`ao_task_stack.h`](task-stack.md) | Task stack |
 | [`ao_task_stack_0.h`](task-stack-0.md) | Task stack stub |

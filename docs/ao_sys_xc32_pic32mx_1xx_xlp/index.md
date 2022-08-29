@@ -3,39 +3,44 @@ api: true
 author: "Stefan Wagner"
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mx_1xx_xlp package of the ao real-time operating system."
-draft: true
+draft: false
+external:
+- title: "Data sheet"
+  url: http://microchip.com/DS60001404
+- title: "Errata"
+  url: http://microchip.com/DS80000739
 permalink: /ao_sys_xc32_pic32mx_1xx_xlp/ 
-subtitle: ""
+subtitle: "PIC32MX1XX/2XX 28/44-Pin XLP Family"
 title: "ao_sys_xc32_pic32mx_1xx_xlp"
 toc: false
 ---
 
 # Modules
 
-| [`ao_boot.h`](ao_boot.h.md) |
-| [`ao_i2c.h`](ao_i2c.h.md) |
-| [`ao_ir.h`](ao_ir.h.md) |
-| [`ao_ir_adc.h`](ao_ir_adc.h.md) |
-| [`ao_ir_cmp.h`](ao_ir_cmp.h.md) |
-| [`ao_ir_cn.h`](ao_ir_cn.h.md) |
-| [`ao_ir_cs.h`](ao_ir_cs.h.md) |
-| [`ao_ir_ct.h`](ao_ir_ct.h.md) |
-| [`ao_ir_ctmu.h`](ao_ir_ctmu.h.md) |
-| [`ao_ir_dma.h`](ao_ir_dma.h.md) |
-| [`ao_ir_fce.h`](ao_ir_fce.h.md) |
-| [`ao_ir_fscm.h`](ao_ir_fscm.h.md) |
-| [`ao_ir_i2c.h`](ao_ir_i2c.h.md) |
-| [`ao_ir_ic.h`](ao_ir_ic.h.md) |
-| [`ao_ir_int.h`](ao_ir_int.h.md) |
-| [`ao_ir_oc.h`](ao_ir_oc.h.md) |
-| [`ao_ir_pmp.h`](ao_ir_pmp.h.md) |
-| [`ao_ir_rtcc.h`](ao_ir_rtcc.h.md) |
-| [`ao_ir_spi.h`](ao_ir_spi.h.md) |
-| [`ao_ir_t.h`](ao_ir_t.h.md) |
-| [`ao_ir_u.h`](ao_ir_u.h.md) |
-| [`ao_ir_usb.h`](ao_ir_usb.h.md) |
-| [`ao_spi.h`](ao_spi.h.md) |
-| [`ao_sys.h`](ao_sys.h.md) |
-| [`ao_sys_clock.h`](ao_sys_clock.h.md) |
-| [`ao_sys_id.h`](ao_sys_id.h.md) |
-| [`ao_uart.h`](ao_uart.h.md) |
+| [`ao_boot.h`](ao_boot.h.md) | Booting |
+| [`ao_i2c.h`](ao_i2c.h.md) | I²C |
+| [`ao_ir.h`](ao_ir.h.md) | Interrupts |
+| [`ao_ir_adc.h`](ao_ir_adc.h.md) | ADC interrupt |
+| [`ao_ir_cmp.h`](ao_ir_cmp.h.md) | Comparator interrupts |
+| [`ao_ir_cn.h`](ao_ir_cn.h.md) | Change notification interrupt |
+| [`ao_ir_cs.h`](ao_ir_cs.h.md) | Core software interrupts |
+| [`ao_ir_ct.h`](ao_ir_ct.h.md) | Core timer interrupt |
+| [`ao_ir_ctmu.h`](ao_ir_ctmu.h.md) | CTMU interrupt |
+| [`ao_ir_dma.h`](ao_ir_dma.h.md) | DMA interrupts |
+| [`ao_ir_fce.h`](ao_ir_fce.h.md) | Flash control event interrupt |
+| [`ao_ir_fscm.h`](ao_ir_fscm.h.md) | Fail-safe clock monitor interrupt |
+| [`ao_ir_i2c.h`](ao_ir_i2c.h.md) | I²C interrupts |
+| [`ao_ir_ic.h`](ao_ir_ic.h.md) | Input capture interrupts |
+| [`ao_ir_int.h`](ao_ir_int.h.md) | External interrupts |
+| [`ao_ir_oc.h`](ao_ir_oc.h.md) | Output compare interrupts |
+| [`ao_ir_pmp.h`](ao_ir_pmp.h.md) | Parallel master port interrupts |
+| [`ao_ir_rtcc.h`](ao_ir_rtcc.h.md) | Real-time clock and calendar interrupt |
+| [`ao_ir_spi.h`](ao_ir_spi.h.md) | SPI interrupts |
+| [`ao_ir_t.h`](ao_ir_t.h.md) | Timer interrupts |
+| [`ao_ir_u.h`](ao_ir_u.h.md) | UART interrupts |
+| [`ao_ir_usb.h`](ao_ir_usb.h.md) | USB interrupt |
+| [`ao_spi.h`](ao_spi.h.md) | SPI |
+| [`ao_sys.h`](ao_sys.h.md) | System |
+| [`ao_sys_clock.h`](ao_sys_clock.h.md) | System clocks |
+| [`ao_sys_id.h`](ao_sys_id.h.md) | System IDs |
+| [`ao_uart.h`](ao_uart.h.md) | UART |
