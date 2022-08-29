@@ -13,7 +13,7 @@ title: "ao_sys_xc32_pic32_i2c"
 toc: false
 ---
 
-# Modules
+# Headers
 
 | [`ao_i2c.h`](ao_i2c.h.md) | I²C |
 | [`ao_i2c_1.h`](ao_i2c_1.h.md) | I²C 1 |

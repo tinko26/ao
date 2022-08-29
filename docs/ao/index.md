@@ -10,7 +10,7 @@ title: "ao"
 toc: false
 ---
 
-# Modules
+# Headers
 
 | [`ao_align.h`](ao_align.h.md) | Memory alignment |
 | [`ao_assert.h`](ao_assert.h.md) | Runtime assertions |

@@ -13,7 +13,7 @@ title: "ao_sys_xc32_pic32_rng"
 toc: false
 ---
 
-# Modules
+# Headers
 
 | [`ao_rngp.h`](ao_rngp.h.md) | Pseudo-random number generator |
 | [`ao_rngt.h`](ao_rngt.h.md) | True random number generator |

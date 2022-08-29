@@ -13,7 +13,7 @@ title: "ao_sys_xc32_pic32_spi"
 toc: false
 ---
 
-# Modules
+# Headers
 
 | [`ao_ir.h`](ao_ir.h.md) | Interrupts |
 | [`ao_ir_spi.h`](ao_ir_spi.h.md) | SPI interrupts |

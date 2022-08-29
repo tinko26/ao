@@ -13,7 +13,7 @@ title: "ao_sys_xc32_pic32_uart"
 toc: false
 ---
 
-# Modules
+# Headers
 
 | [`ao_ir.h`](ao_ir.h.md) | Interrupts |
 | [`ao_ir_u.h`](ao_ir_u.h.md) | UART interrupts |

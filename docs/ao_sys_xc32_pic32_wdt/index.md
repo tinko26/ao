@@ -13,7 +13,7 @@ title: "ao_sys_xc32_pic32_wdt"
 toc: false
 ---
 
-# Modules
+# Headers
 
 | [`ao_sys.h`](ao_sys.h.md) | System |
 | [`ao_wdt.h`](ao_wdt.h.md) | Watchdog timer |

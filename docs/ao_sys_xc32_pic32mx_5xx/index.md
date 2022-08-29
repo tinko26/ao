@@ -17,7 +17,7 @@ title: "ao_sys_xc32_pic32mx_5xx"
 toc: false
 ---
 
-# Modules
+# Headers
 
 | [`ao_boot.h`](ao_boot.h.md) | Booting |
 | [`ao_i2c.h`](ao_i2c.h.md) | I²C |
