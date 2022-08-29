@@ -12,9 +12,9 @@ wiki:
 
 The following modules provide data structures, that can be used to implement priority queues.
 
-| [`ao_avl.h`](modules/avl.md) | AVL trees |
-| [`ao_heap.h`](modules/heap.md) | Pointer-based binary heaps |
-| [`ao_heap4obj.h`](modules/heap4obj.md) | Array-based binary heaps for fixed-size objects |
-| [`ao_heap4ptr.h`](modules/heap4ptr.md) | Array-based binary heaps for pointers |
-| [`ao_rb.h`](modules/rb.md) | Red-black trees |
-| [`ao_slist.h`](modules/slist.md) | Sorted doubly linked lists |
+| [`ao_avl.h`](ao/ao_avl.h.md) | AVL trees |
+| [`ao_heap.h`](ao/ao_heap.h.md) | Pointer-based binary heaps |
+| [`ao_heap4obj.h`](ao/ao_heap4obj.h.md) | Array-based binary heaps for fixed-size objects |
+| [`ao_heap4ptr.h`](ao/ao_heap4ptr.h.md) | Array-based binary heaps for pointers |
+| [`ao_rb.h`](ao/ao_rb.h.md) | Red-black trees |
+| [`ao_slist.h`](ao/ao_slist.h.md) | Sorted doubly linked lists |

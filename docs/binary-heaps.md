@@ -25,6 +25,6 @@ Both insertion into and removal from heaps take logarithmic time. This makes the
 
 The following modules implement binary heaps.
 
-| [`ao_heap.h`](modules/heap.md) | Pointer-based binary heaps |
-| [`ao_heap4obj.h`](modules/heap4obj.md) | Array-based binary heaps for fixed-size objects |
-| [`ao_heap4ptr.h`](modules/heap4ptr.md) | Array-based binary heaps for pointers |
+| [`ao_heap.h`](ao/ao_heap.h.md) | Pointer-based binary heaps |
+| [`ao_heap4obj.h`](ao/ao_heap4obj.h.md) | Array-based binary heaps for fixed-size objects |
+| [`ao_heap4ptr.h`](ao/ao_heap4ptr.h.md) | Array-based binary heaps for pointers |

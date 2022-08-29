@@ -43,13 +43,13 @@ The environment package is an extension to a freestanding runtime environment. I
 
 Each package is made up of modules. For each module, there is a dedicated header file. The real-time operating system contains quite a lot of modules. The rationale behind this is separation of concerns, which means, that each module should address a single concern, only.
 
-The environment package, for example, contains the [`ao_break.h`](modules/break.md) module. That module, in turn, contains a single function, which executes a breakpoint.
+The environment package, for example, contains the [`ao_break.h`](ao/ao_break.h.md) module. That module, in turn, contains a single function, which executes a breakpoint.
 
 ```c
 void ao_break();
 ```
 
-However, having separate modules focusing on individual concerns leads to interdependency. For example, the [`ao_assert.h`](modules/assert.md) module of the environment package contains a macro function for runtime assertions, which executes a breakpoint, when an assertion has failed.
+However, having separate modules focusing on individual concerns leads to interdependency. For example, the [`ao_assert.h`](ao/ao_assert.h.md) module of the environment package contains a macro function for runtime assertions, which executes a breakpoint, when an assertion has failed.
 
 ```c
 #define ao_assert(exp)  \
@@ -103,7 +103,7 @@ And all that makes perfect sense. Since the port package is explicitly devoted t
 
 Kernel functions cannot be implemented thoroughly without platform-specific features. In order to achieve platform independency nonetheless, the environment and kernel packages contain abstract modules. These modules declare necessary functions, but do not define them.
 
-For example, the aforementioned [`ao_break.h`](modules/break.md) module of the environment package is abstract, because the execution of a breakpoint is platform-specific. Consequently, there is no implementation of this function in the `ao.c` file.
+For example, the aforementioned [`ao_break.h`](ao/ao_break.h.md) module of the environment package is abstract, because the execution of a breakpoint is platform-specific. Consequently, there is no implementation of this function in the `ao.c` file.
 
 # Overriding Modules
 
@@ -136,7 +136,7 @@ This hierarchy of include directories is mirrored by the directory names. For ex
 
 In object-oriented programming, overriding is not solely a way to implement an abstract method in a subclass, but can also be used to provide a new implementation for an already implemented method, in order to make instances of that subclass behave more specific. The same is true for a header file, that can be replaced by another version from somewhere upstream the include directory hierarchy, in order to configure the respective module's behavior.
 
-For example, the [`ao_buffer.h`](modules/buffer.md) module defines a macro constant, that indicates whether buffers should keep track of their maximum usage. By default, this configuration option is disabled.
+For example, the [`ao_buffer.h`](ao/ao_buffer.h.md) module defines a macro constant, that indicates whether buffers should keep track of their maximum usage. By default, this configuration option is disabled.
 
 ```c
 #ifndef AO_BUFFER_COUNT_MAX

@@ -6,13 +6,13 @@ draft: true
 permalink: /receiving/
 seealso:
 - title: "<code>ao_recv.h</code>"
-  url: /modules/recv/
+  url: /ao_sys/ao_recv.h/
 - title: "<code>ao_recv_from_callback.h</code>"
-  url: /modules/recv-from-callback/
+  url: /ao_sys/ao_recv_from_callback.h/
 - title: "<code>ao_recv_from_stream.h</code>"
-  url: /modules/recv-from-callback/
+  url: /ao_sys/ao_recv_from_callback.h/
 - title: "<code>ao_stream.h</code>"
-  url: /modules/stream/
+  url: /ao_sys/ao_stream.h/
 subtitle: "Receiving data from an opaque source"
 title: "Receiving"
 toc: false
@@ -38,7 +38,7 @@ while (1)
 }
 ```
 
-In order to not waste time waiting for the next character, the receiving part should be implemented in a blocking fashion. Therefore, the task could utilize a [stream](modules/stream.md), given an object encapsulating the popping of data from a stream.
+In order to not waste time waiting for the next character, the receiving part should be implemented in a blocking fashion. Therefore, the task could utilize a [stream](ao_sys/ao_stream.h.md), given an object encapsulating the popping of data from a stream.
 
 ```c
 ao_spop_t * spop;
@@ -108,13 +108,13 @@ while (1)
 }
 ```
 
-Of course, the `recv` object must be properly initialized by the application before starting the message processing. Out the box, the framework supports [receiving data from a stream](modules/recv-from-stream.md) ...
+Of course, the `recv` object must be properly initialized by the application before starting the message processing. Out the box, the framework supports [receiving data from a stream](ao_sys/ao_recv_from_stream.h.md) ...
 
 ```c
 ao_recv_from_stream(recv, spop);
 ```
 
-... and [receiving data from a callback](modules/recv-from-callback.md). The latter can be quite useful, for example when implementing a mock for a testing scenario.
+... and [receiving data from a callback](ao_sys/ao_recv_from_callback.h.md). The latter can be quite useful, for example when implementing a mock for a testing scenario.
 
 ```c
 void callback(ao_recv_t * x)

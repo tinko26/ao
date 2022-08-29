@@ -7,10 +7,10 @@ permalink: /timing/
 title: "Timing"
 ---
 
-| [`ao_alarm.h`](modules/alarm.md) | |
-| [`ao_alarm_queue.h`](modules/alarm-queue.md) | |
-| [`ao_count.h`](modules/count.md) | |
-| [`ao_ir_alarm.h`](modules/ir-alarm.md) | |
-| [`ao_spin.h`](modules/spin.md) | |
-| [`ao_time.h`](modules/time.md) | |
-| [`ao_timer.h`](modules/timer.md) | |
+| [`ao_alarm.h`](ao_sys/alarm.h.md) | |
+| [`ao_alarm_queue.h`](ao_sys/alarm_queue.h.md) | |
+| [`ao_count.h`](ao_sys/count.h.md) | |
+| [`ao_ir_alarm.h`](ao_sys/ir_alarm.h.md) | |
+| [`ao_spin.h`](ao_sys/spin.h.md) | |
+| [`ao_time.h`](ao_sys/time.h.md) | |
+| [`ao_timer.h`](ao_sys/timer.h.md) | |

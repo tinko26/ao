@@ -44,32 +44,32 @@ title: "Synchronization"
 
 The following modules provide synchronization primitives.
 
-| [`ao_are.h`](modules/are.md) | Auto-reset events. |
-| [`ao_barrier.h`](modules/barrier.md) | Execution barriers where tasks can meet. |
-| [`ao_bsem.h`](modules/bsem.md) | Binary semaphores. |
-| [`ao_cond.h`](modules/cond.md) | Condition variables. |
-| [`ao_counter.h`](modules/counter.md) | Counters. |
-| [`ao_flag.h`](modules/flag.md) | Flags. |
-| [`ao_mail.h`](modules/mail.md) | Mail for asynchronous messaging. |
-| [`ao_monitor.h`](modules/monitor.md) | Monitors. |
-| [`ao_mutex.h`](modules/mutex.md) | Mutexes. |
-| [`ao_pmail.h`](modules/pmail.md) | Priority mail for asynchronous messaging. |
-| [`ao_queue4obj.h`](modules/queue4obj.md) | Priority queues for objects. |
-| [`ao_queue4ptr.h`](modules/queue4ptr.md) | Priority queues for pointers. |
-| [`ao_recv.h`](modules/recv.md) | Receiving bytes. |
-| [`ao_recv_obj.h`](modules/recv-obj.md) | Receiving objects. |
-| [`ao_recv_ptr.h`](modules/recv-ptr.md) | Receiving pointers. |
-| [`ao_rendezvous.h`](modules/rendezvous.md) | Rendezvous. |
-| [`ao_rw.h`](modules/rw.md) | Readers-writer locks preferring readers. |
-| [`ao_sem.h`](modules/sem.md) | Counting semaphores. |
-| [`ao_send.h`](modules/send.md) | Sending bytes. |
-| [`ao_send_obj.h`](modules/send-obj.md) | Sending objects. |
-| [`ao_send_ptr.h`](modules/send-ptr.md) | Sending pointers. |
-| [`ao_signal.h`](modules/signal.md) | Signals. |
-| [`ao_sleep.h`](modules/sleep.md) | Sleeping. |
-| [`ao_stream.h`](modules/stream.md) | Streams for bytes. |
-| [`ao_stream4obj.h`](modules/stream4obj.md) | Streams for objects. |
-| [`ao_stream4ptr.h`](modules/stream4ptr.md) | Streams for pointers. |
-| [`ao_threshold.h`](modules/threshold.md) | Thresholds. |
-| [`ao_wr.h`](modules/wr.md) | Readers-writer locks preferring writers. |
-| [`ao_xch.h`](modules/xch.md) | Exchanges for client-server messaging. |
+| [`ao_are.h`](ao_sys/ao_are.h.md) | Auto-reset events. |
+| [`ao_barrier.h`](ao_sys/ao_barrier.h.md) | Execution barriers where tasks can meet. |
+| [`ao_bsem.h`](ao_sys/ao_bsem.h.md) | Binary semaphores. |
+| [`ao_cond.h`](ao_sys/ao_cond.h.md) | Condition variables. |
+| [`ao_counter.h`](ao_sys/ao_counter.h.md) | Counters. |
+| [`ao_flag.h`](ao_sys/ao_flag.h.md) | Flags. |
+| [`ao_mail.h`](ao_sys/ao_mail.h.md) | Mail for asynchronous messaging. |
+| [`ao_monitor.h`](ao_sys/ao_monitor.h.md) | Monitors. |
+| [`ao_mutex.h`](ao_sys/ao_mutex.h.md) | Mutexes. |
+| [`ao_pmail.h`](ao_sys/ao_pmail.h.md) | Priority mail for asynchronous messaging. |
+| [`ao_queue4obj.h`](ao_sys/ao_queue4obj.h.md) | Priority queues for objects. |
+| [`ao_queue4ptr.h`](ao_sys/ao_queue4ptr.h.md) | Priority queues for pointers. |
+| [`ao_recv.h`](ao_sys/ao_recv.h.md) | Receiving bytes. |
+| [`ao_recv_obj.h`](ao_sys/ao_recv_obj.h.md) | Receiving objects. |
+| [`ao_recv_ptr.h`](ao_sys/ao_recv_ptr.h.md) | Receiving pointers. |
+| [`ao_rendezvous.h`](ao_sys/ao_rendezvous.h.md) | Rendezvous. |
+| [`ao_rw.h`](ao_sys/ao_rw.h.md) | Readers-writer locks preferring readers. |
+| [`ao_sem.h`](ao_sys/ao_sem.h.md) | Counting semaphores. |
+| [`ao_send.h`](ao_sys/ao_send.h.md) | Sending bytes. |
+| [`ao_send_obj.h`](ao_sys/ao_send_obj.h.md) | Sending objects. |
+| [`ao_send_ptr.h`](ao_sys/ao_send_ptr.h.md) | Sending pointers. |
+| [`ao_signal.h`](ao_sys/ao_signal.h.md) | Signals. |
+| [`ao_sleep.h`](ao_sys/ao_sleep.h.md) | Sleeping. |
+| [`ao_stream.h`](ao_sys/ao_stream.h.md) | Streams for bytes. |
+| [`ao_stream4obj.h`](ao_sys/ao_stream4obj.h.md) | Streams for objects. |
+| [`ao_stream4ptr.h`](ao_sys/ao_stream4ptr.h.md) | Streams for pointers. |
+| [`ao_threshold.h`](ao_sys/ao_threshold.h.md) | Thresholds. |
+| [`ao_wr.h`](ao_sys/ao_wr.h.md) | Readers-writer locks preferring writers. |
+| [`ao_xch.h`](ao_sys/ao_xch.h.md) | Exchanges for client-server messaging. |

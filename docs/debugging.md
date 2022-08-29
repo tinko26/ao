@@ -11,6 +11,6 @@ toc: false
 
 The following modules support the debugging of an application. Especially, runtime assertions are extensively used throughout the framework.
 
-| [`ao_assert.h`](modules/assert.md) | Runtime assertions |
-| [`ao_break.h`](modules/break.md) | Breakpoints |
-| [`ao_debug.h`](modules/debug.md) | Debug mode |
+| [`ao_assert.h`](ao/ao_assert.h.md) | Runtime assertions |
+| [`ao_break.h`](ao/ao_break.h.md) | Breakpoints |
+| [`ao_debug.h`](ao/ao_debug.h.md) | Debug mode |
