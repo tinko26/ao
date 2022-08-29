@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32mx_1xx_64_100/ao_ir_ic.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mx_1xx_64_100/ao_ir_ic.h/ 
-subtitle: "ao_sys_xc32_pic32mx_1xx_64_100"
+subtitle: ""
 title: "ao_ir_ic.h"
 toc: true
 ---

@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32_i2c/ao_i2c_3.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32_i2c/ao_i2c_3.h/ 
-subtitle: "ao_sys_xc32_pic32_i2c"
+subtitle: ""
 title: "ao_i2c_3.h"
 toc: true
 ---

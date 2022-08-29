@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32mx_3xx/ao_boot.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mx_3xx/ao_boot.h/ 
-subtitle: "ao_sys_xc32_pic32mx_3xx"
+subtitle: ""
 title: "ao_boot.h"
 toc: true
 ---

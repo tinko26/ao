@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao/ao_list.h module of the ao real-time operating system."
 draft: true
 permalink: /ao/ao_list.h/ 
-subtitle: "ao"
+subtitle: ""
 title: "ao_list.h"
 toc: true
 ---

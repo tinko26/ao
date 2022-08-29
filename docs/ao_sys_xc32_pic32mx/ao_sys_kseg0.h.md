@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32mx/ao_sys_kseg0.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mx/ao_sys_kseg0.h/ 
-subtitle: "ao_sys_xc32_pic32mx"
+subtitle: ""
 title: "ao_sys_kseg0.h"
 toc: true
 ---

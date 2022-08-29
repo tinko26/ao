@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32/ao_ir_mvec.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32/ao_ir_mvec.h/ 
-subtitle: "ao_sys_xc32_pic32"
+subtitle: ""
 title: "ao_ir_mvec.h"
 toc: true
 ---

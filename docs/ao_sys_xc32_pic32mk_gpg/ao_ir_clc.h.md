@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32mk_gpg/ao_ir_clc.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mk_gpg/ao_ir_clc.h/ 
-subtitle: "ao_sys_xc32_pic32mk_gpg"
+subtitle: ""
 title: "ao_ir_clc.h"
 toc: true
 ---

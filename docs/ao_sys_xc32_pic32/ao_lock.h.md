@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32/ao_lock.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32/ao_lock.h/ 
-subtitle: "ao_sys_xc32_pic32"
+subtitle: ""
 title: "ao_lock.h"
 toc: true
 ---

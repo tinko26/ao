@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32mz_ec/ao_ir_fce.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mz_ec/ao_ir_fce.h/ 
-subtitle: "ao_sys_xc32_pic32mz_ec"
+subtitle: ""
 title: "ao_ir_fce.h"
 toc: true
 ---

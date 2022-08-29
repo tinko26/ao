@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32mk/ao_sys_lock_ir.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mk/ao_sys_lock_ir.h/ 
-subtitle: "ao_sys_xc32_pic32mk"
+subtitle: ""
 title: "ao_sys_lock_ir.h"
 toc: true
 ---

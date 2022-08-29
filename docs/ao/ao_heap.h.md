@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao/ao_heap.h module of the ao real-time operating system."
 draft: true
 permalink: /ao/ao_heap.h/ 
-subtitle: "ao"
+subtitle: ""
 title: "ao_heap.h"
 toc: true
 ---

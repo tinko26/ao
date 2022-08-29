@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The ao_sys_xc32_pic32_spi/ao_sys_clock.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32_spi/ao_sys_clock.h/ 
-subtitle: "ao_sys_xc32_pic32_spi"
+subtitle: ""
 title: "ao_sys_clock.h"
 toc: true
 ---
