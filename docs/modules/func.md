@@ -5,6 +5,7 @@ description: "The ao_func.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/func/
 title: "<code>ao_func.h</code>"
+toc: true
 ---
 
 # Overview

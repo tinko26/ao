@@ -5,6 +5,7 @@ description: "The ao_stream4obj.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/stream4obj/
 title: "<code>ao_stream4obj.h</code>"
+toc: true
 ---
 
 # Overview

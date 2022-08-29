@@ -5,6 +5,7 @@ description: "The ao_heap4ptr.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/heap4ptr/
 title: "<code>ao_heap4ptr.h</code>"
+toc: true
 ---
 
 # Overview

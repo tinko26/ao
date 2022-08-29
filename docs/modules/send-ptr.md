@@ -5,6 +5,7 @@ description: "The ao_send_ptr.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/send-ptr/
 title: "<code>ao_send_ptr.h</code>"
+toc: true
 ---
 
 # Overview

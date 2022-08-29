@@ -5,6 +5,7 @@ description: "The ao_char.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/char/
 title: "<code>ao_char.h</code>"
+toc: true
 ---
 
 # Overview

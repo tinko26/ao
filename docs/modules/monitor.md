@@ -5,6 +5,7 @@ description: "The ao_monitor.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/monitor/
 title: "<code>ao_monitor.h</code>"
+toc: true
 ---
 
 # Overview

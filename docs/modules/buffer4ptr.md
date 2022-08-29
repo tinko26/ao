@@ -5,6 +5,7 @@ description: "The ao_buffer4ptr.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/buffer4ptr/
 title: "<code>ao_buffer4ptr.h</code>"
+toc: true
 ---
 
 # Overview

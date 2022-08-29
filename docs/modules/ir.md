@@ -5,6 +5,7 @@ description: "The ao_ir.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/ir/
 title: "<code>ao_ir.h</code>"
+toc: true
 ---
 
 # Overview

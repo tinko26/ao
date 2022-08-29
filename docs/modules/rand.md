@@ -5,6 +5,7 @@ description: "The ao_rand.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/rand/
 title: "<code>ao_rand.h</code>"
+toc: true
 ---
 
 # Overview

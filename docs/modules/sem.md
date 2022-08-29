@@ -5,6 +5,7 @@ description: "The ao_sem.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/sem/
 title: "<code>ao_sem.h</code>"
+toc: true
 ---
 
 # Overview

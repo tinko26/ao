@@ -5,6 +5,7 @@ description: "The ao_sys.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/sys/
 title: "<code>ao_sys.h</code>"
+toc: true
 ---
 
 # Overview

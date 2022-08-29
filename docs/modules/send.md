@@ -5,6 +5,7 @@ description: "The ao_send.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/send/
 title: "<code>ao_send.h</code>"
+toc: true
 ---
 
 # Overview

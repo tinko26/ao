@@ -5,6 +5,7 @@ description: "The ao_mathf.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/mathf/
 title: "<code>ao_mathf.h</code>"
+toc: true
 ---
 
 # Overview

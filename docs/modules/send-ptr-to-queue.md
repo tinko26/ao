@@ -5,6 +5,7 @@ description: "The ao_send_ptr_to_queue.h module of the ao real-time operating sy
 draft: true
 permalink: /modules/send-ptr-to-queue/
 title: "<code>ao_send_ptr_to_queue.h</code>"
+toc: true
 ---
 
 # Overview

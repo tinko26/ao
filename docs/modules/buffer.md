@@ -5,6 +5,7 @@ description: "The ao_buffer.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/buffer/
 title: "<code>ao_buffer.h</code>"
+toc: true
 ---
 
 # Overview

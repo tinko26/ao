@@ -5,6 +5,7 @@ description: "The ao_align.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/align/
 title: "<code>ao_align.h</code>"
+toc: true
 ---
 
 # Overview

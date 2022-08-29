@@ -5,6 +5,7 @@ description: "The ao_queue4ptr.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/queue4ptr/
 title: "<code>ao_queue4ptr.h</code>"
+toc: true
 ---
 
 # Overview

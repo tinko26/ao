@@ -5,6 +5,7 @@ description: "The ao_heap.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/heap/
 title: "<code>ao_heap.h</code>"
+toc: true
 ---
 
 # Overview

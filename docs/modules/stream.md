@@ -5,6 +5,7 @@ description: "The ao_stream.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/stream/
 title: "<code>ao_stream.h</code>"
+toc: true
 ---
 
 # Overview

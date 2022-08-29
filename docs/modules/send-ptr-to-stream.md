@@ -5,6 +5,7 @@ description: "The ao_send_ptr_to_stream.h module of the ao real-time operating s
 draft: true
 permalink: /modules/send-ptr-to-stream/
 title: "<code>ao_send_ptr_to_stream.h</code>"
+toc: true
 ---
 
 # Overview

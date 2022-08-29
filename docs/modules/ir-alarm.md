@@ -5,6 +5,7 @@ description: "The ao_ir_alarm.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/ir-alarm/
 title: "<code>ao_ir_alarm.h</code>"
+toc: true
 ---
 
 # Overview

@@ -5,6 +5,7 @@ description: "The ao_scan.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/scan/
 title: "<code>ao_scan.h</code>"
+toc: true
 ---
 
 # Overview

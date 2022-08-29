@@ -5,6 +5,7 @@ description: "The ao_uint.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/uint/
 title: "<code>ao_uint.h</code>"
+toc: true
 ---
 
 # Overview

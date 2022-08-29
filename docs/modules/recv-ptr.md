@@ -5,6 +5,7 @@ description: "The ao_recv_ptr.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/recv-ptr/
 title: "<code>ao_recv_ptr.h</code>"
+toc: true
 ---
 
 # Overview

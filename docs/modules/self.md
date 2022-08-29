@@ -5,6 +5,7 @@ description: "The ao_self.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/self/
 title: "<code>ao_self.h</code>"
+toc: true
 ---
 
 # Overview

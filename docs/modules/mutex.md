@@ -5,6 +5,7 @@ description: "The ao_mutex.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/mutex/
 title: "<code>ao_mutex.h</code>"
+toc: true
 ---
 
 # Overview

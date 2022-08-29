@@ -5,6 +5,7 @@ description: "The ao_async.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/async/
 title: "<code>ao_async.h</code>"
+toc: true
 ---
 
 # Overview

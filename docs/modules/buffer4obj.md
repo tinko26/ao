@@ -5,6 +5,7 @@ description: "The ao_buffer4obj.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/buffer4obj/
 title: "<code>ao_buffer4obj.h</code>"
+toc: true
 ---
 
 # Overview

@@ -5,6 +5,7 @@ description: "The ao_send_obj_to_queue.h module of the ao real-time operating sy
 draft: true
 permalink: /modules/send-obj-to-queue/
 title: "<code>ao_send_obj_to_queue.h</code>"
+toc: true
 ---
 
 # Overview

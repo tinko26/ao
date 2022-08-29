@@ -5,6 +5,7 @@ description: "The ao_var.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/var/
 title: "<code>ao_var.h</code>"
+toc: true
 ---
 
 # Overview

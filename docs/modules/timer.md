@@ -5,6 +5,7 @@ description: "The ao_timer.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/timer/
 title: "<code>ao_timer.h</code>"
+toc: true
 ---
 
 # Overview

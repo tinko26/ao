@@ -5,6 +5,7 @@ description: "The ao_xch.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/xch/
 title: "<code>ao_xch.h</code>"
+toc: true
 ---
 
 # Overview

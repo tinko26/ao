@@ -5,6 +5,7 @@ description: "The ao_core.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/core/
 title: "<code>ao_core.h</code>"
+toc: true
 ---
 
 # Overview

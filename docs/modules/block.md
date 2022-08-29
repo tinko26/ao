@@ -5,6 +5,7 @@ description: "The ao_block.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/block/
 title: "<code>ao_block.h</code>"
+toc: true
 ---
 
 # Overview

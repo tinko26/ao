@@ -5,6 +5,7 @@ description: "The ao_size.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/size/
 title: "<code>ao_size.h</code>"
+toc: true
 ---
 
 # Overview

@@ -5,6 +5,7 @@ description: "The ao_flag.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/flag/
 title: "<code>ao_flag.h</code>"
+toc: true
 ---
 
 # Overview

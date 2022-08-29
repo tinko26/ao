@@ -5,6 +5,7 @@ description: "The ao_count.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/count/
 title: "<code>ao_count.h</code>"
+toc: true
 ---
 
 # Overview

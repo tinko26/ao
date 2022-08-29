@@ -5,6 +5,7 @@ description: "The ao_time.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/time/
 title: "<code>ao_time.h</code>"
+toc: true
 ---
 
 # Overview

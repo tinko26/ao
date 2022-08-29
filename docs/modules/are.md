@@ -5,6 +5,7 @@ description: "The ao_are.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/are/
 title: "<code>ao_are.h</code>"
+toc: true
 ---
 
 # Overview

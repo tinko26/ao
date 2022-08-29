@@ -5,6 +5,7 @@ description: "The ao_math.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/math/
 title: "<code>ao_math.h</code>"
+toc: true
 ---
 
 # Overview

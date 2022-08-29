@@ -5,6 +5,7 @@ description: "The ao_recv_ptr_from_stream.h module of the ao real-time operating
 draft: false
 permalink: /modules/recv-ptr-from-stream/
 title: "<code>ao_recv_ptr_from_stream.h</code>"
+toc: true
 ---
 
 # Overview

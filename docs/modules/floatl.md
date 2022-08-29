@@ -6,4 +6,5 @@ draft: false
 permalink: /modules/floatl/
 title: "<code>ao_floatl.h</code>"
 redirect_to: /modules/float/
+toc: true
 ---

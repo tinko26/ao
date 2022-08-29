@@ -5,6 +5,7 @@ description: "The ao_send_obj_to_stream.h module of the ao real-time operating s
 draft: true
 permalink: /modules/send-obj-to-stream/
 title: "<code>ao_send_obj_to_stream.h</code>"
+toc: true
 ---
 
 # Overview

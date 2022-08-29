@@ -5,6 +5,7 @@ description: "The ao_lfsr.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/lfsr/
 title: "<code>ao_lfsr.h</code>"
+toc: true
 ---
 
 # Overview

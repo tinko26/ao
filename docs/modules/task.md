@@ -5,6 +5,7 @@ description: "The ao_task.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/task/
 title: "<code>ao_task.h</code>"
+toc: true
 ---
 
 # Overview

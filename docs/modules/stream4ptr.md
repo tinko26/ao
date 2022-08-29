@@ -5,6 +5,7 @@ description: "The ao_stream4ptr.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/stream4ptr/
 title: "<code>ao_stream4ptr.h</code>"
+toc: true
 ---
 
 # Overview

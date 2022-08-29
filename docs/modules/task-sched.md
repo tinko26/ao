@@ -5,6 +5,7 @@ description: "The ao_task_sched.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/task-sched/
 title: "<code>ao_task_sched.h</code>"
+toc: true
 ---
 
 # Overview

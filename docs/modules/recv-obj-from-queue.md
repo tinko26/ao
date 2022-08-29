@@ -5,6 +5,7 @@ description: "The ao_recv_obj_from_queue.h module of the ao real-time operating 
 draft: false
 permalink: /modules/recv-obj-from-queue/
 title: "<code>ao_recv_obj_from_queue.h</code>"
+toc: true
 ---
 
 # Overview

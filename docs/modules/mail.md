@@ -5,6 +5,7 @@ description: "The ao_mail.h module of the ao real-time operating system."
 draft: true
 permalink: /modules/mail/
 title: "<code>ao_mail.h</code>"
+toc: true
 ---
 
 # Overview

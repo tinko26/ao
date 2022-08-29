@@ -5,6 +5,7 @@ description: "The ao_lock.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/lock/
 title: "<code>ao_lock.h</code>"
+toc: true
 ---
 
 # Overview

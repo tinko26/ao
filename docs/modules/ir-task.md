@@ -5,6 +5,7 @@ description: "The ao_ir_task.h module of the ao real-time operating system."
 draft: false
 permalink: /modules/ir-task/
 title: "<code>ao_ir_task.h</code>"
+toc: true
 ---
 
 # Overview
