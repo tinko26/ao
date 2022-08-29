@@ -1,16 +1,20 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys/ao_send_obj.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys/ao_send_obj.h/ 
-subtitle: "<code>ao_sys</code>"
-title: "<code>ao_send_obj.h</code>"
+subtitle: "ao_sys"
+title: "ao_send_obj.h"
 toc: true
 ---
 
 ```c
+#include <ao_async.h>
+#include <ao_time.h>
+#include <stdbool.h>
+
 typedef struct  ao_send_obj_t   ao_send_obj_t;
 
 typedef void (*                 ao_send_obj_proc_t) (ao_send_obj_t * x);

@@ -1,16 +1,19 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao/ao_buffer4ptr.h module of the ao real-time operating system."
 draft: true
 permalink: /ao/ao_buffer4ptr.h/ 
-subtitle: "<code>ao</code>"
-title: "<code>ao_buffer4ptr.h</code>"
+subtitle: "ao"
+title: "ao_buffer4ptr.h"
 toc: true
 ---
 
 ```c
+#include <stdbool.h>
+#include <stddef.h>
+
 typedef struct  ao_buffer4ptr_t                 ao_buffer4ptr_t;
 
 #ifndef AO_BUFFER4PTR_COUNT_MAX

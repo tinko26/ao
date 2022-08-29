@@ -1,16 +1,20 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mz_dak/ao_ir_ctmu.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mz_dak/ao_ir_ctmu.h/ 
-subtitle: "<code>ao_sys_xc32_pic32mz_dak</code>"
-title: "<code>ao_ir_ctmu.h</code>"
+subtitle: "ao_sys_xc32_pic32mz_dak"
+title: "ao_ir_ctmu.h"
 toc: true
 ---
 
 ```c
+#include <stdbool.h>
+#include <sys/attribs.h>
+#include <xc.h>
+
 #ifndef AO_IR_CTMU_ATTRIBUTE
 
 #define AO_IR_CTMU_ATTRIBUTE        __ISR(_CTMU_VECTOR, IPL4SRS)

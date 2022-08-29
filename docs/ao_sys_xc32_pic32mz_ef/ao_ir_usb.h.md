@@ -1,16 +1,20 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mz_ef/ao_ir_usb.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mz_ef/ao_ir_usb.h/ 
-subtitle: "<code>ao_sys_xc32_pic32mz_ef</code>"
-title: "<code>ao_ir_usb.h</code>"
+subtitle: "ao_sys_xc32_pic32mz_ef"
+title: "ao_ir_usb.h"
 toc: true
 ---
 
 ```c
+#include <stdbool.h>
+#include <sys/attribs.h>
+#include <xc.h>
+
 #ifndef AO_IR_USB_ATTRIBUTE
 
 #define AO_IR_USB_ATTRIBUTE         __ISR(_USB_VECTOR, IPL4SRS)

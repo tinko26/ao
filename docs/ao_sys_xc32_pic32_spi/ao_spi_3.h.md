@@ -1,16 +1,21 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32_spi/ao_spi_3.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32_spi/ao_spi_3.h/ 
-subtitle: "<code>ao_sys_xc32_pic32_spi</code>"
-title: "<code>ao_spi_3.h</code>"
+subtitle: "ao_sys_xc32_pic32_spi"
+title: "ao_spi_3.h"
 toc: true
 ---
 
 ```c
+#include <ao_spi.h>
+#include <ao_sys.h>
+#include <stdbool.h>
+#include <xc.h>
+
 #ifndef AO_SPI_3
 
 #ifdef  _SPI3

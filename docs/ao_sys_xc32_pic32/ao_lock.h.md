@@ -1,16 +1,20 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32/ao_lock.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32/ao_lock.h/ 
-subtitle: "<code>ao_sys_xc32_pic32</code>"
-title: "<code>ao_lock.h</code>"
+subtitle: "ao_sys_xc32_pic32"
+title: "ao_lock.h"
 toc: true
 ---
 
 ```c
+#include <ao_ir.h>
+#include <ao_sys.h>
+#include <stdint.h>
+
 typedef uint32_t        ao_lock_t;
 
 #ifndef AO_LOCK_PRIO

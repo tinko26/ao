@@ -1,16 +1,18 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao/ao_int.h module of the ao real-time operating system."
 draft: true
 permalink: /ao/ao_int.h/ 
-subtitle: "<code>ao</code>"
-title: "<code>ao_int.h</code>"
+subtitle: "ao"
+title: "ao_int.h"
 toc: true
 ---
 
 ```c
+#include <stdint.h>
+
 typedef int32_t         ao_int_t;
 
 #ifndef AO_INT_MAX

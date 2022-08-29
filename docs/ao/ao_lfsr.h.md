@@ -1,16 +1,18 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao/ao_lfsr.h module of the ao real-time operating system."
 draft: true
 permalink: /ao/ao_lfsr.h/ 
-subtitle: "<code>ao</code>"
-title: "<code>ao_lfsr.h</code>"
+subtitle: "ao"
+title: "ao_lfsr.h"
 toc: true
 ---
 
 ```c
+#include <stdint.h>
+
 typedef struct  ao_lfsr8_t  ao_lfsr8_t;
 
 typedef struct  ao_lfsr16_t ao_lfsr16_t;

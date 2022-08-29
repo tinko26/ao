@@ -1,16 +1,18 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32/ao_ir_mvec.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32/ao_ir_mvec.h/ 
-subtitle: "<code>ao_sys_xc32_pic32</code>"
-title: "<code>ao_ir_mvec.h</code>"
+subtitle: "ao_sys_xc32_pic32"
+title: "ao_ir_mvec.h"
 toc: true
 ---
 
 ```c
+#include <xc.h>
+
 #ifndef ao_ir_mvec_disable
 
 #define ao_ir_mvec_disable()    { INTCONCLR = _INTCON_MVEC_MASK; }

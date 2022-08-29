@@ -1,16 +1,20 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mz_da/ao_ir_glcd.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mz_da/ao_ir_glcd.h/ 
-subtitle: "<code>ao_sys_xc32_pic32mz_da</code>"
-title: "<code>ao_ir_glcd.h</code>"
+subtitle: "ao_sys_xc32_pic32mz_da"
+title: "ao_ir_glcd.h"
 toc: true
 ---
 
 ```c
+#include <stdbool.h>
+#include <sys/attribs.h>
+#include <xc.h>
+
 #ifndef AO_IR_GLCD_ATTRIBUTE
 
 #define AO_IR_GLCD_ATTRIBUTE        __ISR(_GLCD_VECTOR, IPL4SRS)

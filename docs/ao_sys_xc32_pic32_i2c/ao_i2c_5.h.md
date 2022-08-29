@@ -1,16 +1,21 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32_i2c/ao_i2c_5.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32_i2c/ao_i2c_5.h/ 
-subtitle: "<code>ao_sys_xc32_pic32_i2c</code>"
-title: "<code>ao_i2c_5.h</code>"
+subtitle: "ao_sys_xc32_pic32_i2c"
+title: "ao_i2c_5.h"
 toc: true
 ---
 
 ```c
+#include <ao_i2c.h>
+#include <ao_sys.h>
+#include <stdbool.h>
+#include <xc.h>
+
 #ifndef AO_I2C_5
 
 #ifdef  _I2C5

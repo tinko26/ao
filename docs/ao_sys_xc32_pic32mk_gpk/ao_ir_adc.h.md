@@ -1,16 +1,20 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mk_gpk/ao_ir_adc.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mk_gpk/ao_ir_adc.h/ 
-subtitle: "<code>ao_sys_xc32_pic32mk_gpk</code>"
-title: "<code>ao_ir_adc.h</code>"
+subtitle: "ao_sys_xc32_pic32mk_gpk"
+title: "ao_ir_adc.h"
 toc: true
 ---
 
 ```c
+#include <stdbool.h>
+#include <sys/attribs.h>
+#include <xc.h>
+
 #ifndef AO_IR_AD1_ATTRIBUTE
 
 #define AO_IR_AD1_ATTRIBUTE         __ISR(_ADC_VECTOR, IPL4SRS)

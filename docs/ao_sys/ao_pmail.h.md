@@ -1,16 +1,22 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys/ao_pmail.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys/ao_pmail.h/ 
-subtitle: "<code>ao_sys</code>"
-title: "<code>ao_pmail.h</code>"
+subtitle: "ao_sys"
+title: "ao_pmail.h"
 toc: true
 ---
 
 ```c
+#include <ao_async.h>
+#include <ao_list.h>
+#include <ao_rb.h>
+#include <ao_time.h>
+#include <stdbool.h>
+
 typedef struct  ao_pmail_t          ao_pmail_t;
 
 typedef struct  ao_pmail_fetch_t    ao_pmail_fetch_t;

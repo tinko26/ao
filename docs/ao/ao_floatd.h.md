@@ -1,16 +1,19 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao/ao_floatd.h module of the ao real-time operating system."
 draft: true
 permalink: /ao/ao_floatd.h/ 
-subtitle: "<code>ao</code>"
-title: "<code>ao_floatd.h</code>"
+subtitle: "ao"
+title: "ao_floatd.h"
 toc: true
 ---
 
 ```c
+#include <ao_mathf.h>
+#include <float.h>
+
 typedef double                                          ao_float_t;
 
 #ifndef AO_FLOAT_DIG

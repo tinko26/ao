@@ -1,12 +1,12 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mz_ef/ao_i2c.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mz_ef/ao_i2c.h/ 
-subtitle: "<code>ao_sys_xc32_pic32mz_ef</code>"
-title: "<code>ao_i2c.h</code>"
+subtitle: "ao_sys_xc32_pic32mz_ef"
+title: "ao_i2c.h"
 toc: true
 ---
 
@@ -16,5 +16,7 @@ toc: true
 #define AO_I2C_BRG_BITS     (16)
 
 #endif
+
+#include_next <ao_i2c.h>
 
 ```

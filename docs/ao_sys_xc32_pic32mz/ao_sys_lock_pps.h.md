@@ -1,16 +1,19 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mz/ao_sys_lock_pps.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mz/ao_sys_lock_pps.h/ 
-subtitle: "<code>ao_sys_xc32_pic32mz</code>"
-title: "<code>ao_sys_lock_pps.h</code>"
+subtitle: "ao_sys_xc32_pic32mz"
+title: "ao_sys_lock_pps.h"
 toc: true
 ---
 
 ```c
+#include <ao_sys_lock_device.h>
+#include <stdint.h>
+
 typedef struct  ao_sys_lock_pps_t   ao_sys_lock_pps_t;
 
 #ifndef AO_SYS_LOCK_PPS

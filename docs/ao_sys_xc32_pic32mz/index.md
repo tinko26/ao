@@ -1,14 +1,16 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mz package of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mz/ 
-subtitle: "PIC32MZ"
-title: "<code>ao_sys_xc32_pic32mz</code>"
+subtitle: ""
+title: "ao_sys_xc32_pic32mz"
 toc: false
 ---
+
+Modules
 
 | [`ao_sys.h`](ao_sys.h.md) |
 | [`ao_sys_exc.h`](ao_sys_exc.h.md) |

@@ -1,16 +1,23 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32_can/ao_can_3.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32_can/ao_can_3.h/ 
-subtitle: "<code>ao_sys_xc32_pic32_can</code>"
-title: "<code>ao_can_3.h</code>"
+subtitle: "ao_sys_xc32_pic32_can"
+title: "ao_can_3.h"
 toc: true
 ---
 
 ```c
+#include <ao_can.h>
+#include <ao_recv_obj.h>
+#include <ao_send_obj.h>
+#include <ao_task.h>
+#include <stdbool.h>
+#include <xc.h>
+
 #ifndef AO_CAN_3
 
 #ifdef  _CAN3

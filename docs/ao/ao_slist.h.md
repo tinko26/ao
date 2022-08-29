@@ -1,16 +1,19 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao/ao_slist.h module of the ao real-time operating system."
 draft: true
 permalink: /ao/ao_slist.h/ 
-subtitle: "<code>ao</code>"
-title: "<code>ao_slist.h</code>"
+subtitle: "ao"
+title: "ao_slist.h"
 toc: true
 ---
 
 ```c
+#include <stdbool.h>
+#include <stddef.h>
+
 typedef struct  ao_slist_t      ao_slist_t;
 
 typedef struct  ao_slist_node_t ao_slist_node_t;

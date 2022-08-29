@@ -1,16 +1,18 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mz/ao_sys_pcache.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mz/ao_sys_pcache.h/ 
-subtitle: "<code>ao_sys_xc32_pic32mz</code>"
-title: "<code>ao_sys_pcache.h</code>"
+subtitle: "ao_sys_xc32_pic32mz"
+title: "ao_sys_pcache.h"
 toc: true
 ---
 
 ```c
+#include <xc.h>
+
 #ifndef ao_sys_pfm_ws_set
 
 #define ao_sys_pfm_ws_set(ws)                                               \

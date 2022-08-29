@@ -1,16 +1,20 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao/ao_avl.h module of the ao real-time operating system."
 draft: true
 permalink: /ao/ao_avl.h/ 
-subtitle: "<code>ao</code>"
-title: "<code>ao_avl.h</code>"
+subtitle: "ao"
+title: "ao_avl.h"
 toc: true
 ---
 
 ```c
+#include <ao_int.h>
+#include <stdbool.h>
+#include <stddef.h>
+
 typedef struct  ao_avl_t        ao_avl_t;
 
 typedef struct  ao_avl_node_t   ao_avl_node_t;

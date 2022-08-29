@@ -1,12 +1,12 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys/ao_led.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys/ao_led.h/ 
-subtitle: "<code>ao_sys</code>"
-title: "<code>ao_led.h</code>"
+subtitle: "ao_sys"
+title: "ao_led.h"
 toc: true
 ---
 

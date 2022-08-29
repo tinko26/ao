@@ -1,16 +1,20 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mk_gpg/ao_ir_cn.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mk_gpg/ao_ir_cn.h/ 
-subtitle: "<code>ao_sys_xc32_pic32mk_gpg</code>"
-title: "<code>ao_ir_cn.h</code>"
+subtitle: "ao_sys_xc32_pic32mk_gpg"
+title: "ao_ir_cn.h"
 toc: true
 ---
 
 ```c
+#include <stdbool.h>
+#include <sys/attribs.h>
+#include <xc.h>
+
 #ifndef AO_IR_CNA_ATTRIBUTE
 
 #define AO_IR_CNA_ATTRIBUTE     __ISR(_CHANGE_NOTICE_A_VECTOR, IPL4SRS)

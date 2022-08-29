@@ -1,16 +1,20 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mx_1xx_xlp/ao_ir_fscm.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mx_1xx_xlp/ao_ir_fscm.h/ 
-subtitle: "<code>ao_sys_xc32_pic32mx_1xx_xlp</code>"
-title: "<code>ao_ir_fscm.h</code>"
+subtitle: "ao_sys_xc32_pic32mx_1xx_xlp"
+title: "ao_ir_fscm.h"
 toc: true
 ---
 
 ```c
+#include <stdbool.h>
+#include <sys/attribs.h>
+#include <xc.h>
+
 #ifndef AO_IR_FSCM_ATTRIBUTE
 
 #define AO_IR_FSCM_ATTRIBUTE        __ISR(_FAIL_SAFE_MONITOR_VECTOR, IPL4SOFT)

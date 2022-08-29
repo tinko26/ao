@@ -1,16 +1,18 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32_can/ao_ir_can.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32_can/ao_ir_can.h/ 
-subtitle: "<code>ao_sys_xc32_pic32_can</code>"
-title: "<code>ao_ir_can.h</code>"
+subtitle: "ao_sys_xc32_pic32_can"
+title: "ao_ir_can.h"
 toc: true
 ---
 
 ```c
+#include <stdbool.h>
+
 void    ao_ir_can1_disable();
 
 void    ao_ir_can1_enable();

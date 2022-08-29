@@ -1,16 +1,22 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys/ao_wr.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys/ao_wr.h/ 
-subtitle: "<code>ao_sys</code>"
-title: "<code>ao_wr.h</code>"
+subtitle: "ao_sys"
+title: "ao_wr.h"
 toc: true
 ---
 
 ```c
+#include <ao_async.h>
+#include <ao_list.h>
+#include <ao_time.h>
+#include <ao_uint.h>
+#include <stdbool.h>
+
 typedef struct  ao_wr_t             ao_wr_t;
 
 typedef struct  ao_wr_lock_t        ao_wr_lock_t;

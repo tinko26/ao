@@ -1,12 +1,12 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mx_1xx/ao_uart.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mx_1xx/ao_uart.h/ 
-subtitle: "<code>ao_sys_xc32_pic32mx_1xx</code>"
-title: "<code>ao_uart.h</code>"
+subtitle: "ao_sys_xc32_pic32mx_1xx"
+title: "ao_uart.h"
 toc: true
 ---
 
@@ -22,5 +22,7 @@ toc: true
 #define AO_UART_FIFO_CAPACITY   (8)
 
 #endif
+
+#include_next <ao_uart.h>
 
 ```

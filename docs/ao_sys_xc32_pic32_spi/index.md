@@ -1,14 +1,16 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32_spi package of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32_spi/ 
-subtitle: "SPI driver"
-title: "<code>ao_sys_xc32_pic32_spi</code>"
+subtitle: ""
+title: "ao_sys_xc32_pic32_spi"
 toc: false
 ---
+
+Modules
 
 | [`ao_ir.h`](ao_ir.h.md) |
 | [`ao_ir_spi.h`](ao_ir_spi.h.md) |

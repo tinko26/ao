@@ -1,16 +1,19 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys/ao_send_obj_to_queue.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys/ao_send_obj_to_queue.h/ 
-subtitle: "<code>ao_sys</code>"
-title: "<code>ao_send_obj_to_queue.h</code>"
+subtitle: "ao_sys"
+title: "ao_send_obj_to_queue.h"
 toc: true
 ---
 
 ```c
+#include <ao_queue4obj.h>
+#include <ao_send_obj.h>
+
 #ifndef AO_SEND_OBJ_TO_QUEUE
 
 #define AO_SEND_OBJ_TO_QUEUE

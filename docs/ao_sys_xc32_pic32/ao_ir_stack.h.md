@@ -1,16 +1,23 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32/ao_ir_stack.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32/ao_ir_stack.h/ 
-subtitle: "<code>ao_sys_xc32_pic32</code>"
-title: "<code>ao_ir_stack.h</code>"
+subtitle: "ao_sys_xc32_pic32"
+title: "ao_ir_stack.h"
 toc: true
 ---
 
 ```c
+#include <ao_align.h>
+#include <ao_func.h>
+#include <ao_stack.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
 typedef struct  ao_ir_stack_t       ao_ir_stack_t;
 
 #ifndef AO_IR_STACK_DEPTH_MAX

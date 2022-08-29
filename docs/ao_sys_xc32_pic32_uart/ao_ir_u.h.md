@@ -1,16 +1,18 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32_uart/ao_ir_u.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32_uart/ao_ir_u.h/ 
-subtitle: "<code>ao_sys_xc32_pic32_uart</code>"
-title: "<code>ao_ir_u.h</code>"
+subtitle: "ao_sys_xc32_pic32_uart"
+title: "ao_ir_u.h"
 toc: true
 ---
 
 ```c
+#include <stdbool.h>
+
 void    ao_ir_u1e_disable();
 
 void    ao_ir_u1e_enable();

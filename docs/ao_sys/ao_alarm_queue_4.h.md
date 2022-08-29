@@ -1,16 +1,19 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys/ao_alarm_queue_4.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys/ao_alarm_queue_4.h/ 
-subtitle: "<code>ao_sys</code>"
-title: "<code>ao_alarm_queue_4.h</code>"
+subtitle: "ao_sys"
+title: "ao_alarm_queue_4.h"
 toc: true
 ---
 
 ```c
+#include <ao_avl.h>
+#include <stdbool.h>
+
 typedef ao_avl_t                ao_alarm_queue_t;
 
 typedef ao_avl_node_t           ao_alarm_queue_node_t;

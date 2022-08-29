@@ -1,16 +1,20 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao/ao_size.h module of the ao real-time operating system."
 draft: true
 permalink: /ao/ao_size.h/ 
-subtitle: "<code>ao</code>"
-title: "<code>ao_size.h</code>"
+subtitle: "ao"
+title: "ao_size.h"
 toc: true
 ---
 
 ```c
+#include <ao_uint.h>
+#include <stddef.h>
+#include <stdint.h>
+
 #ifndef AO_SIZE_BITS
 
 #define AO_SIZE_BITS        (32)

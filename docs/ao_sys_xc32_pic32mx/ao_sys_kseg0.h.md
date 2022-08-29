@@ -1,16 +1,18 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mx/ao_sys_kseg0.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mx/ao_sys_kseg0.h/ 
-subtitle: "<code>ao_sys_xc32_pic32mx</code>"
-title: "<code>ao_sys_kseg0.h</code>"
+subtitle: "ao_sys_xc32_pic32mx"
+title: "ao_sys_kseg0.h"
 toc: true
 ---
 
 ```c
+#include <xc.h>
+
 #ifndef ao_sys_kseg0_cacheable
 
 #define ao_sys_kseg0_cacheable()    _bcsc0(_CP0_CONFIG, _CP0_CONFIG_SELECT, 4, 3)

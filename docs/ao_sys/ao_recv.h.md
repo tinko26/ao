@@ -1,16 +1,21 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys/ao_recv.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys/ao_recv.h/ 
-subtitle: "<code>ao_sys</code>"
-title: "<code>ao_recv.h</code>"
+subtitle: "ao_sys"
+title: "ao_recv.h"
 toc: true
 ---
 
 ```c
+#include <ao_async.h>
+#include <ao_time.h>
+#include <stdbool.h>
+#include <stddef.h>
+
 typedef struct  ao_recv_t   ao_recv_t;
 
 typedef void (*             ao_recv_proc_t) (ao_recv_t * x);

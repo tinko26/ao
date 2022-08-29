@@ -1,14 +1,16 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mz_ef package of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mz_ef/ 
-subtitle: "PIC32MZ Embedded Connectivity with Floating Point Unit (EF) Family"
-title: "<code>ao_sys_xc32_pic32mz_ef</code>"
+subtitle: ""
+title: "ao_sys_xc32_pic32mz_ef"
 toc: false
 ---
+
+Modules
 
 | [`ao_boot.h`](ao_boot.h.md) |
 | [`ao_i2c.h`](ao_i2c.h.md) |

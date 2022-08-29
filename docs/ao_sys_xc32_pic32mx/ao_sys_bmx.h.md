@@ -1,16 +1,18 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mx/ao_sys_bmx.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mx/ao_sys_bmx.h/ 
-subtitle: "<code>ao_sys_xc32_pic32mx</code>"
-title: "<code>ao_sys_bmx.h</code>"
+subtitle: "ao_sys_xc32_pic32mx"
+title: "ao_sys_bmx.h"
 toc: true
 ---
 
 ```c
+#include <xc.h>
+
 #ifndef ao_sys_bmx_wsdram_disable
 
 #define ao_sys_bmx_wsdram_disable()     { BMXCONCLR = _BMXCON_BMXWSDRM_MASK; }

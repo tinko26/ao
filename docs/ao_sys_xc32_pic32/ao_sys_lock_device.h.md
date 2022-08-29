@@ -1,16 +1,18 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32/ao_sys_lock_device.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32/ao_sys_lock_device.h/ 
-subtitle: "<code>ao_sys_xc32_pic32</code>"
-title: "<code>ao_sys_lock_device.h</code>"
+subtitle: "ao_sys_xc32_pic32"
+title: "ao_sys_lock_device.h"
 toc: true
 ---
 
 ```c
+#include <stdint.h>
+
 typedef struct  ao_sys_lock_device_t    ao_sys_lock_device_t;
 
 #ifndef AO_SYS_LOCK_DEVICE

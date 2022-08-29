@@ -1,12 +1,12 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys/ao_task_stack.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys/ao_task_stack.h/ 
-subtitle: "<code>ao_sys</code>"
-title: "<code>ao_task_stack.h</code>"
+subtitle: "ao_sys"
+title: "ao_task_stack.h"
 toc: true
 ---
 
@@ -19,9 +19,15 @@ toc: true
 
 #if     AO_TASK_STACK ==    (0)
 
+#include <ao_task_stack_0.h>
+
 #elif   AO_TASK_STACK ==    (1)
 
+#include <ao_task_stack_1.h>
+
 #elif   AO_TASK_STACK ==    (2)
+
+#include <ao_task_stack_2.h>
 
 #endif
 

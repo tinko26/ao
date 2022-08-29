@@ -1,16 +1,19 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao/ao_heap4ptr.h module of the ao real-time operating system."
 draft: true
 permalink: /ao/ao_heap4ptr.h/ 
-subtitle: "<code>ao</code>"
-title: "<code>ao_heap4ptr.h</code>"
+subtitle: "ao"
+title: "ao_heap4ptr.h"
 toc: true
 ---
 
 ```c
+#include <stdbool.h>
+#include <stddef.h>
+
 typedef struct  ao_heap4ptr_t       ao_heap4ptr_t;
 
 typedef bool (*                     ao_heap4ptr_less_t)

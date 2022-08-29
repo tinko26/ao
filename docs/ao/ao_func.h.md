@@ -1,16 +1,18 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao/ao_func.h module of the ao real-time operating system."
 draft: true
 permalink: /ao/ao_func.h/ 
-subtitle: "<code>ao</code>"
-title: "<code>ao_func.h</code>"
+subtitle: "ao"
+title: "ao_func.h"
 toc: true
 ---
 
 ```c
+#include <stdbool.h>
+
 typedef void *  (*  ao_func_t)  (void *);
 
 typedef void *  (*  ao_func0_t) ();

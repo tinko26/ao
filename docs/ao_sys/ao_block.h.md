@@ -1,16 +1,19 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys/ao_block.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys/ao_block.h/ 
-subtitle: "<code>ao_sys</code>"
-title: "<code>ao_block.h</code>"
+subtitle: "ao_sys"
+title: "ao_block.h"
 toc: true
 ---
 
 ```c
+#include <ao_alarm.h>
+#include <ao_time.h>
+
 typedef struct  ao_block_t  ao_block_t;
 
 #ifndef AO_BLOCK

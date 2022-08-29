@@ -1,16 +1,18 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys/ao_time.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys/ao_time.h/ 
-subtitle: "<code>ao_sys</code>"
-title: "<code>ao_time.h</code>"
+subtitle: "ao_sys"
+title: "ao_time.h"
 toc: true
 ---
 
 ```c
+#include <ao_count.h>
+
 typedef ao_count_t                      ao_time_t;
 
 #ifndef AO_INFINITY

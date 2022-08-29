@@ -1,16 +1,22 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys/ao_stream.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys/ao_stream.h/ 
-subtitle: "<code>ao_sys</code>"
-title: "<code>ao_stream.h</code>"
+subtitle: "ao_sys"
+title: "ao_stream.h"
 toc: true
 ---
 
 ```c
+#include <ao_async.h>
+#include <ao_buffer.h>
+#include <ao_time.h>
+#include <stdbool.h>
+#include <stddef.h>
+
 typedef struct  ao_stream_t ao_stream_t;
 
 typedef struct  ao_spop_t   ao_spop_t;

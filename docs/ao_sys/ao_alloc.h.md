@@ -1,16 +1,19 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys/ao_alloc.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys/ao_alloc.h/ 
-subtitle: "<code>ao_sys</code>"
-title: "<code>ao_alloc.h</code>"
+subtitle: "ao_sys"
+title: "ao_alloc.h"
 toc: true
 ---
 
 ```c
+#include <stdbool.h>
+#include <stddef.h>
+
 typedef struct  ao_acquired_t   ao_acquired_t;
 
 typedef struct  ao_released_t   ao_released_t;
@@ -25,9 +28,15 @@ typedef struct  ao_retained_t   ao_retained_t;
 
 #if     AO_ALLOC ==             (0)
 
+#include <ao_alloc_0.h>
+
 #elif   AO_ALLOC ==             (1)
 
+#include <ao_alloc_1.h>
+
 #elif   AO_ALLOC ==             (2)
+
+#include <ao_alloc_2.h>
 
 #endif
 

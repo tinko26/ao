@@ -1,16 +1,19 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao/ao_var.h module of the ao real-time operating system."
 draft: true
 permalink: /ao/ao_var.h/ 
-subtitle: "<code>ao</code>"
-title: "<code>ao_var.h</code>"
+subtitle: "ao"
+title: "ao_var.h"
 toc: true
 ---
 
 ```c
+#include <ao_mem.h>
+#include <stddef.h>
+
 #ifndef ao_clear
 
 #define ao_clear(p, t)      ao_memset(p, 0, sizeof(t));

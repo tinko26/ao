@@ -1,16 +1,20 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32/ao_ir_task.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32/ao_ir_task.h/ 
-subtitle: "<code>ao_sys_xc32_pic32</code>"
-title: "<code>ao_ir_task.h</code>"
+subtitle: "ao_sys_xc32_pic32"
+title: "ao_ir_task.h"
 toc: true
 ---
 
 ```c
+#include <ao_core.h>
+#include <ao_ir_cs.h>
+#include <stdbool.h>
+
 void    ao_task_switch();
 
 #ifndef AO_IR_TASK

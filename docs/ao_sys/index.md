@@ -1,14 +1,16 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys package of the ao real-time operating system."
 draft: true
 permalink: /ao_sys/ 
-subtitle: "Kernel"
-title: "<code>ao_sys</code>"
+subtitle: ""
+title: "ao_sys"
 toc: false
 ---
+
+Modules
 
 | [`ao_alarm.h`](ao_alarm.h.md) |
 | [`ao_alarm_queue.h`](ao_alarm_queue.h.md) |

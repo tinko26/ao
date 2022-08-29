@@ -1,16 +1,18 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys/ao_task_sched_0.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys/ao_task_sched_0.h/ 
-subtitle: "<code>ao_sys</code>"
-title: "<code>ao_task_sched_0.h</code>"
+subtitle: "ao_sys"
+title: "ao_task_sched_0.h"
 toc: true
 ---
 
 ```c
+#include <stdbool.h>
+
 typedef struct  ao_task_sched_t     ao_task_sched_t;
 
 typedef struct  ao_task_ceiling_t   ao_task_ceiling_t;

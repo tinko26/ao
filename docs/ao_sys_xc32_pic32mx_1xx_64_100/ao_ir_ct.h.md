@@ -1,16 +1,20 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mx_1xx_64_100/ao_ir_ct.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mx_1xx_64_100/ao_ir_ct.h/ 
-subtitle: "<code>ao_sys_xc32_pic32mx_1xx_64_100</code>"
-title: "<code>ao_ir_ct.h</code>"
+subtitle: "ao_sys_xc32_pic32mx_1xx_64_100"
+title: "ao_ir_ct.h"
 toc: true
 ---
 
 ```c
+#include <stdbool.h>
+#include <sys/attribs.h>
+#include <xc.h>
+
 #ifndef AO_IR_CT_ATTRIBUTE
 
 #define AO_IR_CT_ATTRIBUTE      __ISR(_CORE_TIMER_VECTOR, IPL3SOFT)

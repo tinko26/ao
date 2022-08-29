@@ -1,14 +1,19 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mk/ao_task.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mk/ao_task.h/ 
-subtitle: "<code>ao_sys_xc32_pic32mk</code>"
-title: "<code>ao_task.h</code>"
+subtitle: "ao_sys_xc32_pic32mk"
+title: "ao_task.h"
 toc: true
 ---
 
 ```c
+#include <ao_task_context.h>
+#include <ao_task_stack.h>
+
+#include_next <ao_task.h>
+
 ```

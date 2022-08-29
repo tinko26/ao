@@ -1,16 +1,18 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32_uart/ao_uart.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32_uart/ao_uart.h/ 
-subtitle: "<code>ao_sys_xc32_pic32_uart</code>"
-title: "<code>ao_uart.h</code>"
+subtitle: "ao_sys_xc32_pic32_uart"
+title: "ao_uart.h"
 toc: true
 ---
 
 ```c
+#include <stdint.h>
+
 typedef enum    ao_uart_error_flags_t       ao_uart_error_flags_t;
 
 typedef struct  ao_uart_error_info_t        ao_uart_error_info_t;

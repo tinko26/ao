@@ -1,16 +1,21 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys/ao_sleep.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys/ao_sleep.h/ 
-subtitle: "<code>ao_sys</code>"
-title: "<code>ao_sleep.h</code>"
+subtitle: "ao_sys"
+title: "ao_sleep.h"
 toc: true
 ---
 
 ```c
+#include <ao_alarm.h>
+#include <ao_async.h>
+#include <ao_time.h>
+#include <stdbool.h>
+
 typedef struct  ao_sleep_t  ao_sleep_t;
 
 #ifndef AO_SLEEP

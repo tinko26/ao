@@ -1,14 +1,16 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32_can package of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32_can/ 
-subtitle: "CAN driver"
-title: "<code>ao_sys_xc32_pic32_can</code>"
+subtitle: ""
+title: "ao_sys_xc32_pic32_can"
 toc: false
 ---
+
+Modules
 
 | [`ao_can.h`](ao_can.h.md) |
 | [`ao_can_1.h`](ao_can_1.h.md) |

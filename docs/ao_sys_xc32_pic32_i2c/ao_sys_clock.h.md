@@ -1,12 +1,12 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32_i2c/ao_sys_clock.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32_i2c/ao_sys_clock.h/ 
-subtitle: "<code>ao_sys_xc32_pic32_i2c</code>"
-title: "<code>ao_sys_clock.h</code>"
+subtitle: "ao_sys_xc32_pic32_i2c"
+title: "ao_sys_clock.h"
 toc: true
 ---
 
@@ -40,5 +40,7 @@ toc: true
 #define AO_SYS_CLOCK_I2C5   (0)
 
 #endif
+
+#include_next <ao_sys_clock.h>
 
 ```

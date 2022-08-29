@@ -1,16 +1,19 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mx_1xx_64_100/ao_boot.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mx_1xx_64_100/ao_boot.h/ 
-subtitle: "<code>ao_sys_xc32_pic32mx_1xx_64_100</code>"
-title: "<code>ao_boot.h</code>"
+subtitle: "ao_sys_xc32_pic32mx_1xx_64_100"
+title: "ao_boot.h"
 toc: true
 ---
 
 ```c
+#include <ao_ir.h>
+#include <xc.h>
+
 #ifndef ao_boot_ir_adc
 
 #define ao_boot_ir_adc()                                                    \
@@ -512,5 +515,7 @@ toc: true
 #endif
 
 void    ao_boot_sys_pcache();
+
+#include_next <ao_boot.h>
 
 ```

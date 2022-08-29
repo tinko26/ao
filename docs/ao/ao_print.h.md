@@ -1,16 +1,20 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao/ao_print.h module of the ao real-time operating system."
 draft: true
 permalink: /ao/ao_print.h/ 
-subtitle: "<code>ao</code>"
-title: "<code>ao_print.h</code>"
+subtitle: "ao"
+title: "ao_print.h"
 toc: true
 ---
 
 ```c
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
 typedef struct  ao_print_t  ao_print_t;
 
 #ifndef AO_PRINT

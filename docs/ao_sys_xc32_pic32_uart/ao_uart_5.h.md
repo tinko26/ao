@@ -1,16 +1,24 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32_uart/ao_uart_5.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32_uart/ao_uart_5.h/ 
-subtitle: "<code>ao_sys_xc32_pic32_uart</code>"
-title: "<code>ao_uart_5.h</code>"
+subtitle: "ao_sys_xc32_pic32_uart"
+title: "ao_uart_5.h"
 toc: true
 ---
 
 ```c
+#include <ao_recv.h>
+#include <ao_send.h>
+#include <ao_sys.h>
+#include <ao_task.h>
+#include <ao_uart.h>
+#include <stdbool.h>
+#include <xc.h>
+
 #ifndef AO_UART_5
 
 #ifdef  _UART5

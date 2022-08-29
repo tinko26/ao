@@ -1,16 +1,19 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32/ao_uint.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32/ao_uint.h/ 
-subtitle: "<code>ao_sys_xc32_pic32</code>"
-title: "<code>ao_uint.h</code>"
+subtitle: "ao_sys_xc32_pic32"
+title: "ao_uint.h"
 toc: true
 ---
 
 ```c
+#include <stdint.h>
+#include <xc.h>
+
 typedef uint32_t            ao_uint_t;
 
 #ifndef AO_UINT_BITS

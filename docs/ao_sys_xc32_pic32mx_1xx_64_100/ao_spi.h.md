@@ -1,16 +1,18 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mx_1xx_64_100/ao_spi.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mx_1xx_64_100/ao_spi.h/ 
-subtitle: "<code>ao_sys_xc32_pic32mx_1xx_64_100</code>"
-title: "<code>ao_spi.h</code>"
+subtitle: "ao_sys_xc32_pic32mx_1xx_64_100"
+title: "ao_spi.h"
 toc: true
 ---
 
 ```c
+#include <stdbool.h>
+
 #ifndef AO_SPI_BRG_BITS
 
 #define AO_SPI_BRG_BITS     (9)
@@ -22,5 +24,7 @@ toc: true
 #define AO_SPI_ENHBUF       (true)
 
 #endif
+
+#include_next <ao_spi.h>
 
 ```

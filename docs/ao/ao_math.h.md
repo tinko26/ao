@@ -1,16 +1,18 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao/ao_math.h module of the ao real-time operating system."
 draft: true
 permalink: /ao/ao_math.h/ 
-subtitle: "<code>ao</code>"
-title: "<code>ao_math.h</code>"
+subtitle: "ao"
+title: "ao_math.h"
 toc: true
 ---
 
 ```c
+#include <stdbool.h>
+
 #ifndef AO_ABS
 
 #define AO_ABS(x)                   ((x) < (0) ? -(x) : (x))

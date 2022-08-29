@@ -1,20 +1,25 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys_xc32_pic32mx_5xx/ao_sys.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys_xc32_pic32mx_5xx/ao_sys.h/ 
-subtitle: "<code>ao_sys_xc32_pic32mx_5xx</code>"
-title: "<code>ao_sys.h</code>"
+subtitle: "ao_sys_xc32_pic32mx_5xx"
+title: "ao_sys.h"
 toc: true
 ---
 
 ```c
+#include <ao_sys_clock.h>
+#include <ao_sys_id.h>
+
 #ifndef AO_SYS_XC32_PIC32MX_5XX
 
 #define AO_SYS_XC32_PIC32MX_5XX
 
 #endif
+
+#include_next <ao_sys.h>
 
 ```

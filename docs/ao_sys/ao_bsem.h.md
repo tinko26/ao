@@ -1,16 +1,21 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao_sys/ao_bsem.h module of the ao real-time operating system."
 draft: true
 permalink: /ao_sys/ao_bsem.h/ 
-subtitle: "<code>ao_sys</code>"
-title: "<code>ao_bsem.h</code>"
+subtitle: "ao_sys"
+title: "ao_bsem.h"
 toc: true
 ---
 
 ```c
+#include <ao_async.h>
+#include <ao_list.h>
+#include <ao_time.h>
+#include <stdbool.h>
+
 typedef struct  ao_bsem_t       ao_bsem_t;
 
 typedef struct  ao_bsem_take_t  ao_bsem_take_t;

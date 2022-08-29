@@ -1,16 +1,20 @@
 ---
+api: true
 author: "Stefan Wagner"
-breadcrumbs: 2
 date: 2022-08-29
 description: "The ao/ao_heap.h module of the ao real-time operating system."
 draft: true
 permalink: /ao/ao_heap.h/ 
-subtitle: "<code>ao</code>"
-title: "<code>ao_heap.h</code>"
+subtitle: "ao"
+title: "ao_heap.h"
 toc: true
 ---
 
 ```c
+#include <ao_uint.h>
+#include <stdbool.h>
+#include <stddef.h>
+
 typedef struct  ao_heap_t       ao_heap_t;
 
 typedef struct  ao_heap_node_t  ao_heap_node_t;
