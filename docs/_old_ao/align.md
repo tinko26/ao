@@ -38,7 +38,3 @@ if (AO_IS_ALIGNED(xu, 8))
     // xu is aligned to an 8-byte boundary.
 }
 ```
-
-# External Links
-
-[https://en.wikipedia.org/wiki/Data_structure_alignment](https://en.wikipedia.org/wiki/Data_structure_alignment)

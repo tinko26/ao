@@ -13,7 +13,7 @@ baseurl: "/ao"
 
 # Exclude
 exclude:
-  - modules/
+  - _old/
 
 # Conversion
 markdown: kramdown
@@ -35,9 +35,4 @@ defaults:
       path: ""
       type: pages
     values:
-      author: "Stefan Wagner"
-      draft: false
       layout: default
-      subtitle: ""
-      title: ""
-      toc: false

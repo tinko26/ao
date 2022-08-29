@@ -3,30 +3,36 @@ author: "Stefan Wagner"
 breadcrumbs: 2
 date: 2022-08-29
 description: "The ao/ao_align.h module of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /ao/ao_align.h/ 
 subtitle: "<code>ao</code>"
 title: "<code>ao_align.h</code>"
 toc: true
+wiki:
+- title: Memory alignment
+  url: https://en.wikipedia.org/wiki/Memory_alignment
 ---
 
+# Overview
+
+Reading from or writing to memory usually requires scalar data, such as an integer or a pointer, to be aligned, that is, its address must be a multiple of its size. This is, because such reads and writes are implemented efficiently on most CPUs, while unaligned accesses impose a penalty on the execution speed.
+
+Normally, the compiler takes care of the correct alignment of variables automatically. However, there are situations, when this is not the case, for example, when dealing with dynamic memory management functions or stack pointers.
+
+# Macro Functions
+
+Align value `x` up or down, respectively, to boundary `b`.
+
 ```c
-#ifndef AO_ALIGN_DOWN
+#define AO_ALIGN_DOWN(x, b)
+```
 
-#define AO_ALIGN_DOWN(x, b)     (((x) / (b)) * (b))
+```c
+#define AO_ALIGN_UP(x, b)
+```
 
-#endif
+Check whether value `x` is aligned to boundary `b`.
 
-#ifndef AO_ALIGN_UP
-
-#define AO_ALIGN_UP(x, b)       ((((x) + ((b) - 1)) / (b)) * (b))
-
-#endif
-
-#ifndef AO_IS_ALIGNED
-
-#define AO_IS_ALIGNED(x, b)     ((x) % (b) ? false : true)
-
-#endif
-
+```c
+#define AO_IS_ALIGNED(x, b)
 ```
