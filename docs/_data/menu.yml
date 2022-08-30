@@ -1,4 +1,6 @@
 entries:
+  - title: "API"
+    url: /api/
   - title: "Binary Heaps"
     url: /binary-heaps/
   - title: "Booting"
