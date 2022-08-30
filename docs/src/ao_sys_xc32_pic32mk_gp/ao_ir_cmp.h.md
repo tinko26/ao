@@ -2,15 +2,15 @@
 api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The /src/ao_sys_xc32_pic32mk_gp/ao_ir_cmp.h file of the ao real-time operating system."
+description: "The ao_sys_xc32_pic32mk_gp/ao_ir_cmp.h module of the ao real-time operating system."
 draft: true
-permalink: /src/ao_sys_xc32_pic32mk_gp/ao_ir_cmp.h/ 
+permalink: /ao_sys_xc32_pic32mk_gp/ao_ir_cmp.h/
 subtitle: ""
 title: "ao_ir_cmp.h"
 toc: true
 ---
 
-# Includes
+# Include
 
 ```c
 #include <stdbool.h>
@@ -18,17 +18,69 @@ toc: true
 #include <xc.h>
 ```
 
+# Constants
+
 ```c
-#define AO_IR_CMP1_ATTRIBUTE        __ISR(_COMPARATOR_1_VECTOR, IPL4SOFT)
+#define AO_IR_CMP1_ATTRIBUTE __ISR(_COMPARATOR_1_VECTOR, IPL4SOFT)
 ```
 
 ```c
-#define AO_IR_CMP1_PRIO             (4)
+#define AO_IR_CMP1_PRIO (4)
 ```
 
 ```c
-#define AO_IR_CMP1_SUBPRIO          (0)
+#define AO_IR_CMP1_SUBPRIO (0)
 ```
+
+```c
+#define AO_IR_CMP2_ATTRIBUTE __ISR(_COMPARATOR_2_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_CMP2_PRIO (4)
+```
+
+```c
+#define AO_IR_CMP2_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_CMP3_ATTRIBUTE __ISR(_COMPARATOR_3_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_CMP3_PRIO (4)
+```
+
+```c
+#define AO_IR_CMP3_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_CMP4_ATTRIBUTE __ISR(_COMPARATOR_4_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_CMP4_PRIO (4)
+```
+
+```c
+#define AO_IR_CMP4_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_CMP5_ATTRIBUTE __ISR(_COMPARATOR_5_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_CMP5_PRIO (4)
+```
+
+```c
+#define AO_IR_CMP5_SUBPRIO (0)
+```
+
+# Functions
 
 ```c
 #define ao_ir_cmp1_disable()
@@ -52,18 +104,6 @@ toc: true
 
 ```c
 #define ao_ir_cmp1_request()
-```
-
-```c
-#define AO_IR_CMP2_ATTRIBUTE        __ISR(_COMPARATOR_2_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_CMP2_PRIO             (4)
-```
-
-```c
-#define AO_IR_CMP2_SUBPRIO          (0)
 ```
 
 ```c
@@ -91,18 +131,6 @@ toc: true
 ```
 
 ```c
-#define AO_IR_CMP3_ATTRIBUTE        __ISR(_COMPARATOR_3_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_CMP3_PRIO             (4)
-```
-
-```c
-#define AO_IR_CMP3_SUBPRIO          (0)
-```
-
-```c
 #define ao_ir_cmp3_disable()
 ```
 
@@ -127,18 +155,6 @@ toc: true
 ```
 
 ```c
-#define AO_IR_CMP4_ATTRIBUTE        __ISR(_COMPARATOR_4_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_CMP4_PRIO             (4)
-```
-
-```c
-#define AO_IR_CMP4_SUBPRIO          (0)
-```
-
-```c
 #define ao_ir_cmp4_disable()
 ```
 
@@ -160,18 +176,6 @@ toc: true
 
 ```c
 #define ao_ir_cmp4_request()
-```
-
-```c
-#define AO_IR_CMP5_ATTRIBUTE        __ISR(_COMPARATOR_5_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_CMP5_PRIO             (4)
-```
-
-```c
-#define AO_IR_CMP5_SUBPRIO          (0)
 ```
 
 ```c

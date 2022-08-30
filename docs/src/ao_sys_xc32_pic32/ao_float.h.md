@@ -4,33 +4,22 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32/ao_float.h file of the ao real-time operating system."
 draft: true
-permalink: /src/ao_sys_xc32_pic32/ao_float.h/ 
+permalink: /src/ao_sys_xc32_pic32/ao_float.h/
 subtitle: ""
 title: "ao_float.h"
 toc: true
 ---
 
-# Overview
-
-...
-
-# Includes
+# Include
 
 ```c
-#ifndef AO_FLOAT
-
-#define AO_FLOAT    (32)
-
-#endif
-
-#if     AO_FLOAT == (32)
-
 #include <ao_floatf.h>
-
-#elif   AO_FLOAT == (64)
-
 #include <ao_floatl.h>
-
-#endif
-
 ```
+
+# Constants
+
+```c
+#define AO_FLOAT (32)
+```
+

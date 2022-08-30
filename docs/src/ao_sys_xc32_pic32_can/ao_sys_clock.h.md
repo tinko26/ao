@@ -4,43 +4,33 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32_can/ao_sys_clock.h file of the ao real-time operating system."
 draft: true
-permalink: /src/ao_sys_xc32_pic32_can/ao_sys_clock.h/ 
+permalink: /src/ao_sys_xc32_pic32_can/ao_sys_clock.h/
 subtitle: ""
 title: "ao_sys_clock.h"
 toc: true
 ---
 
-# Overview
-
-...
-
-# Includes
+# Constants
 
 ```c
-#ifndef AO_SYS_CLOCK_CAN1
-
-#define AO_SYS_CLOCK_CAN1   (0)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_CAN2
-
-#define AO_SYS_CLOCK_CAN2   (0)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_CAN3
-
-#define AO_SYS_CLOCK_CAN3   (0)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_CAN4
-
-#define AO_SYS_CLOCK_CAN4   (0)
-
-#endif
-
-#include_next <ao_sys_clock.h>
-
+#define AO_SYS_CLOCK_CAN1 (0)
 ```
+
+```c
+#define AO_SYS_CLOCK_CAN2 (0)
+```
+
+```c
+#define AO_SYS_CLOCK_CAN3 (0)
+```
+
+```c
+#define AO_SYS_CLOCK_CAN4 (0)
+```
+
+# Include Next
+
+```c
+#include_next <ao_sys_clock.h>
+```
+

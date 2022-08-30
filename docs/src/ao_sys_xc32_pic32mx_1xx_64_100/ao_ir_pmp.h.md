@@ -4,111 +4,81 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mx_1xx_64_100/ao_ir_pmp.h file of the ao real-time operating system."
 draft: true
-permalink: /src/ao_sys_xc32_pic32mx_1xx_64_100/ao_ir_pmp.h/ 
+permalink: /src/ao_sys_xc32_pic32mx_1xx_64_100/ao_ir_pmp.h/
 subtitle: ""
 title: "ao_ir_pmp.h"
 toc: true
 ---
 
-# Overview
-
-...
-
-# Includes
+# Include
 
 ```c
 #include <stdbool.h>
 #include <sys/attribs.h>
 #include <xc.h>
-
-#ifndef AO_IR_PMP_ATTRIBUTE
-
-#define AO_IR_PMP_ATTRIBUTE         __ISR(_PMP_VECTOR, IPL4SOFT)
-
-#endif
-
-#ifndef AO_IR_PMP_PRIO
-
-#define AO_IR_PMP_PRIO              (4)
-
-#endif
-
-#ifndef AO_IR_PMP_SUBPRIO
-
-#define AO_IR_PMP_SUBPRIO           (0)
-
-#endif
-
-#ifndef ao_ir_pmp_disable
-
-#define ao_ir_pmp_disable()         { IEC1CLR = _IEC1_PMPIE_MASK; }
-
-#endif
-
-#ifndef ao_ir_pmp_enable
-
-#define ao_ir_pmp_enable()          { IEC1SET = _IEC1_PMPIE_MASK; }
-
-#endif
-
-#ifndef ao_ir_pmp_is_enabled
-
-#define ao_ir_pmp_is_enabled()      ((IEC1 & _IEC1_PMPIE_MASK) ? true : false)
-
-#endif
-
-#ifndef ao_ir_pmp_is_pending
-
-#define ao_ir_pmp_is_pending()      ((IFS1 & _IFS1_PMPIF_MASK) ? true : false)
-
-#endif
-
-#ifndef ao_ir_pmp_reply
-
-#define ao_ir_pmp_reply()           { IFS1CLR = _IFS1_PMPIF_MASK; }
-
-#endif
-
-#ifndef ao_ir_pmp_request
-
-#define ao_ir_pmp_request()         { IFS1SET = _IFS1_PMPIF_MASK; }
-
-#endif
-
-#ifndef ao_ir_pmpe_disable
-
-#define ao_ir_pmpe_disable()        { IEC1CLR = _IEC1_PMPEIE_MASK; }
-
-#endif
-
-#ifndef ao_ir_pmpe_enable
-
-#define ao_ir_pmpe_enable()         { IEC1SET = _IEC1_PMPEIE_MASK; }
-
-#endif
-
-#ifndef ao_ir_pmpe_is_enabled
-
-#define ao_ir_pmpe_is_enabled()     ((IEC1 & _IEC1_PMPEIE_MASK) ? true : false)
-
-#endif
-
-#ifndef ao_ir_pmpe_is_pending
-
-#define ao_ir_pmpe_is_pending()     ((IFS1 & _IFS1_PMPEIF_MASK) ? true : false)
-
-#endif
-
-#ifndef ao_ir_pmpe_reply
-
-#define ao_ir_pmpe_reply()          { IFS1CLR = _IFS1_PMPEIF_MASK; }
-
-#endif
-
-#ifndef ao_ir_pmpe_request
-
-#define ao_ir_pmpe_request()        { IFS1SET = _IFS1_PMPEIF_MASK; }
-
-#endif
-
 ```
+
+# Constants
+
+```c
+#define AO_IR_PMP_ATTRIBUTE __ISR(_PMP_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_PMP_PRIO (4)
+```
+
+```c
+#define AO_IR_PMP_SUBPRIO (0)
+```
+
+# Functions
+
+```c
+#define ao_ir_pmp_disable()
+```
+
+```c
+#define ao_ir_pmp_enable()
+```
+
+```c
+#define ao_ir_pmp_is_enabled()
+```
+
+```c
+#define ao_ir_pmp_is_pending()
+```
+
+```c
+#define ao_ir_pmp_reply()
+```
+
+```c
+#define ao_ir_pmp_request()
+```
+
+```c
+#define ao_ir_pmpe_disable()
+```
+
+```c
+#define ao_ir_pmpe_enable()
+```
+
+```c
+#define ao_ir_pmpe_is_enabled()
+```
+
+```c
+#define ao_ir_pmpe_is_pending()
+```
+
+```c
+#define ao_ir_pmpe_reply()
+```
+
+```c
+#define ao_ir_pmpe_request()
+```
+

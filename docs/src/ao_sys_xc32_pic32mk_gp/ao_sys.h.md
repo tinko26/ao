@@ -2,9 +2,9 @@
 api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The /src/ao_sys_xc32_pic32mk_gp/ao_sys.h file of the ao real-time operating system."
+description: "The ao_sys_xc32_pic32mk_gp/ao_sys.h module of the ao real-time operating system."
 draft: true
-permalink: /src/ao_sys_xc32_pic32mk_gp/ao_sys.h/ 
+permalink: /ao_sys_xc32_pic32mk_gp/ao_sys.h/
 subtitle: ""
 title: "ao_sys.h"
 toc: true
@@ -17,14 +17,9 @@ toc: true
 #include <ao_sys_id.h>
 ```
 
-# Constants
-
-```c
-#define AO_SYS_XC32_PIC32MK_GP
-```
-
 # Include Next
 
 ```c
 #include_next <ao_sys.h>
 ```
+

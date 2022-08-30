@@ -4,31 +4,21 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao/ao_assert.h file of the ao real-time operating system."
 draft: true
-permalink: /src/ao/ao_assert.h/ 
+permalink: /src/ao/ao_assert.h/
 subtitle: ""
 title: "ao_assert.h"
 toc: true
 ---
 
-# Overview
-
-...
-
-# Includes
+# Include
 
 ```c
 #include <ao_break.h>
-
-#ifndef ao_assert
-
-#define ao_assert(exp)                                                      \
-{                                                                           \
-        if (!(exp))                                                         \
-        {                                                                   \
-            ao_break();                                                     \
-        }                                                                   \
-}
-
-#endif
-
 ```
+
+# Functions
+
+```c
+#define ao_assert(exp)
+```
+

@@ -4,31 +4,29 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys/ao_self.h file of the ao real-time operating system."
 draft: true
-permalink: /src/ao_sys/ao_self.h/ 
+permalink: /src/ao_sys/ao_self.h/
 subtitle: ""
 title: "ao_self.h"
 toc: true
 ---
 
-# Overview
-
-...
-
-# Includes
+# Include
 
 ```c
 #include <ao_task.h>
-
-#ifndef     AO_SELF
-
-#define     AO_SELF
-
-#endif
-
-ao_task_t * ao_self();
-
-void        ao_stop();
-
-void        ao_suspend();
-
 ```
+
+# Functions
+
+```c
+ao_task_t * ao_self();
+```
+
+```c
+void ao_stop();
+```
+
+```c
+void ao_suspend();
+```
+

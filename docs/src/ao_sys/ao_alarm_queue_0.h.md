@@ -4,33 +4,23 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys/ao_alarm_queue_0.h file of the ao real-time operating system."
 draft: true
-permalink: /src/ao_sys/ao_alarm_queue_0.h/ 
+permalink: /src/ao_sys/ao_alarm_queue_0.h/
 subtitle: ""
 title: "ao_alarm_queue_0.h"
 toc: true
 ---
 
-# Overview
-
-...
-
-# Includes
+# Typedefs
 
 ```c
-typedef struct  ao_alarm_queue_node_t   ao_alarm_queue_node_t;
-
-#ifndef AO_ALARM_QUEUE_0
-
-#define AO_ALARM_QUEUE_0
-
-#endif
-
-#ifndef AO_ALARM_QUEUE_NODE
-
-#define AO_ALARM_QUEUE_NODE
-
-struct  ao_alarm_queue_node_t           { };
-
-#endif
-
+typedef struct ao_alarm_queue_node_t ao_alarm_queue_node_t;
 ```
+
+# Types
+
+## `ao_alarm_queue_node_t`
+
+```c
+struct ao_alarm_queue_node_t { };
+```
+

@@ -4,36 +4,32 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys/ao_alarm_queue_3.h file of the ao real-time operating system."
 draft: true
-permalink: /src/ao_sys/ao_alarm_queue_3.h/ 
+permalink: /src/ao_sys/ao_alarm_queue_3.h/
 subtitle: ""
 title: "ao_alarm_queue_3.h"
 toc: true
 ---
 
-# Overview
-
-...
-
-# Includes
+# Include
 
 ```c
 #include <ao_heap.h>
 #include <stdbool.h>
-
-typedef ao_heap_t               ao_alarm_queue_t;
-
-typedef ao_heap_node_t          ao_alarm_queue_node_t;
-
-#ifndef AO_ALARM_QUEUE_3
-
-#define AO_ALARM_QUEUE_3
-
-#endif
-
-#ifndef AO_ALARM_QUEUE_ASSERT
-
-#define AO_ALARM_QUEUE_ASSERT   (false)
-
-#endif
-
 ```
+
+# Typedefs
+
+```c
+typedef ao_heap_t ao_alarm_queue_t;
+```
+
+```c
+typedef ao_heap_node_t ao_alarm_queue_node_t;
+```
+
+# Constants
+
+```c
+#define AO_ALARM_QUEUE_ASSERT (false)
+```
+

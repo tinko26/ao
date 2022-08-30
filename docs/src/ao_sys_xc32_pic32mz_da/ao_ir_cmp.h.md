@@ -4,129 +4,93 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mz_da/ao_ir_cmp.h file of the ao real-time operating system."
 draft: true
-permalink: /src/ao_sys_xc32_pic32mz_da/ao_ir_cmp.h/ 
+permalink: /src/ao_sys_xc32_pic32mz_da/ao_ir_cmp.h/
 subtitle: ""
 title: "ao_ir_cmp.h"
 toc: true
 ---
 
-# Overview
-
-...
-
-# Includes
+# Include
 
 ```c
 #include <stdbool.h>
 #include <sys/attribs.h>
 #include <xc.h>
-
-#ifndef AO_IR_CMP1_ATTRIBUTE
-
-#define AO_IR_CMP1_ATTRIBUTE        __ISR(_COMPARATOR_1_VECTOR, IPL4SRS)
-
-#endif
-
-#ifndef AO_IR_CMP1_PRIO
-
-#define AO_IR_CMP1_PRIO             (4)
-
-#endif
-
-#ifndef AO_IR_CMP1_SUBPRIO
-
-#define AO_IR_CMP1_SUBPRIO          (0)
-
-#endif
-
-#ifndef ao_ir_cmp1_disable
-
-#define ao_ir_cmp1_disable()        { IEC4CLR = _IEC4_CMP1IE_MASK; }
-
-#endif
-
-#ifndef ao_ir_cmp1_enable
-
-#define ao_ir_cmp1_enable()         { IEC4SET = _IEC4_CMP1IE_MASK; }
-
-#endif
-
-#ifndef ao_ir_cmp1_is_enabled
-
-#define ao_ir_cmp1_is_enabled()     ((IEC4 & _IEC4_CMP1IE_MASK) ? true : false)
-
-#endif
-
-#ifndef ao_ir_cmp1_is_pending
-
-#define ao_ir_cmp1_is_pending()     ((IFS4 & _IFS4_CMP1IF_MASK) ? true : false)
-
-#endif
-
-#ifndef ao_ir_cmp1_reply
-
-#define ao_ir_cmp1_reply()          { IFS4CLR = _IFS4_CMP1IF_MASK; }
-
-#endif
-
-#ifndef ao_ir_cmp1_request
-
-#define ao_ir_cmp1_request()        { IFS4SET = _IFS4_CMP1IF_MASK; }
-
-#endif
-
-#ifndef AO_IR_CMP2_ATTRIBUTE
-
-#define AO_IR_CMP2_ATTRIBUTE        __ISR(_COMPARATOR_2_VECTOR, IPL4SRS)
-
-#endif
-
-#ifndef AO_IR_CMP2_PRIO
-
-#define AO_IR_CMP2_PRIO             (4)
-
-#endif
-
-#ifndef AO_IR_CMP2_SUBPRIO
-
-#define AO_IR_CMP2_SUBPRIO          (0)
-
-#endif
-
-#ifndef ao_ir_cmp2_disable
-
-#define ao_ir_cmp2_disable()        { IEC4CLR = _IEC4_CMP2IE_MASK; }
-
-#endif
-
-#ifndef ao_ir_cmp2_enable
-
-#define ao_ir_cmp2_enable()         { IEC4SET = _IEC4_CMP2IE_MASK; }
-
-#endif
-
-#ifndef ao_ir_cmp2_is_enabled
-
-#define ao_ir_cmp2_is_enabled()     ((IEC4 & _IEC4_CMP2IE_MASK) ? true : false)
-
-#endif
-
-#ifndef ao_ir_cmp2_is_pending
-
-#define ao_ir_cmp2_is_pending()     ((IFS4 & _IFS4_CMP2IF_MASK) ? true : false)
-
-#endif
-
-#ifndef ao_ir_cmp2_reply
-
-#define ao_ir_cmp2_reply()          { IFS4CLR = _IFS4_CMP2IF_MASK; }
-
-#endif
-
-#ifndef ao_ir_cmp2_request
-
-#define ao_ir_cmp2_request()        { IFS4SET = _IFS4_CMP2IF_MASK; }
-
-#endif
-
 ```
+
+# Constants
+
+```c
+#define AO_IR_CMP1_ATTRIBUTE __ISR(_COMPARATOR_1_VECTOR, IPL4SRS)
+```
+
+```c
+#define AO_IR_CMP1_PRIO (4)
+```
+
+```c
+#define AO_IR_CMP1_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_CMP2_ATTRIBUTE __ISR(_COMPARATOR_2_VECTOR, IPL4SRS)
+```
+
+```c
+#define AO_IR_CMP2_PRIO (4)
+```
+
+```c
+#define AO_IR_CMP2_SUBPRIO (0)
+```
+
+# Functions
+
+```c
+#define ao_ir_cmp1_disable()
+```
+
+```c
+#define ao_ir_cmp1_enable()
+```
+
+```c
+#define ao_ir_cmp1_is_enabled()
+```
+
+```c
+#define ao_ir_cmp1_is_pending()
+```
+
+```c
+#define ao_ir_cmp1_reply()
+```
+
+```c
+#define ao_ir_cmp1_request()
+```
+
+```c
+#define ao_ir_cmp2_disable()
+```
+
+```c
+#define ao_ir_cmp2_enable()
+```
+
+```c
+#define ao_ir_cmp2_is_enabled()
+```
+
+```c
+#define ao_ir_cmp2_is_pending()
+```
+
+```c
+#define ao_ir_cmp2_reply()
+```
+
+```c
+#define ao_ir_cmp2_request()
+```
+

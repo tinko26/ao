@@ -4,86 +4,100 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao/ao_avl.h file of the ao real-time operating system."
 draft: true
-permalink: /src/ao/ao_avl.h/ 
+permalink: /src/ao/ao_avl.h/
 subtitle: ""
 title: "ao_avl.h"
 toc: true
 ---
 
-# Overview
-
-...
-
-# Includes
+# Include
 
 ```c
 #include <ao_int.h>
 #include <stdbool.h>
 #include <stddef.h>
-
-typedef struct  ao_avl_t        ao_avl_t;
-
-typedef struct  ao_avl_node_t   ao_avl_node_t;
-
-typedef bool (*                 ao_avl_less_t)
-(
-        ao_avl_node_t *         n1,
-
-        ao_avl_node_t *         n2,
-
-        void *                  parameter
-);
-
-#ifndef AO_AVL
-
-#define AO_AVL
-
-struct  ao_avl_t
-{
-        ao_avl_less_t           less;
-
-        void *                  less_parameter;
-
-        ao_avl_node_t *         root;
-};
-
-#endif
-
-#ifndef AO_AVL_NODE
-
-#define AO_AVL_NODE
-
-struct  ao_avl_node_t
-{
-        ao_int_t                height;
-
-        ao_avl_node_t *         left;
-
-        ao_avl_node_t *         parent;
-
-        ao_avl_node_t *         right;
-};
-
-#endif
-
-#ifndef ao_avl_is_empty
-
-#define ao_avl_is_empty(x)      ((x)->root == NULL ? true : false)
-
-#endif
-
-void    ao_avl_assert(          ao_avl_t * x);
-
-void    ao_avl_insert(          ao_avl_t * x, ao_avl_node_t * n);
-
-ao_avl_node_t *
-
-        ao_avl_max(             ao_avl_t * x);
-
-ao_avl_node_t *
-
-        ao_avl_min(             ao_avl_t * x);
-
-void    ao_avl_remove(          ao_avl_t * x, ao_avl_node_t * n);
-
 ```
+
+# Typedefs
+
+```c
+typedef struct ao_avl_t ao_avl_t;
+```
+
+```c
+typedef struct ao_avl_node_t ao_avl_node_t;
+```
+
+```c
+typedef bool (* ao_avl_less_t)
+(
+ao_avl_node_t * n1,
+ao_avl_node_t * n2,
+void * parameter
+);
+```
+
+# Types
+
+## `ao_avl_t`
+
+```c
+struct ao_avl_t
+{
+    ao_avl_less_t less;
+    void * less_parameter;
+    ao_avl_node_t * root;
+};
+```
+
+Members:
+
+| `less` | |
+| `less_parameter` | |
+| `root` | |
+
+## `ao_avl_node_t`
+
+```c
+struct ao_avl_node_t
+{
+    ao_int_t height;
+    ao_avl_node_t * left;
+    ao_avl_node_t * parent;
+    ao_avl_node_t * right;
+};
+```
+
+Members:
+
+| `height` | |
+| `left` | |
+| `parent` | |
+| `right` | |
+
+# Functions
+
+```c
+#define ao_avl_is_empty(x)
+```
+
+```c
+void ao_avl_assert( ao_avl_t * x);
+```
+
+```c
+void ao_avl_insert( ao_avl_t * x, ao_avl_node_t * n);
+```
+
+```c
+ao_avl_node_t * ao_avl_max( ao_avl_t * x);
+```
+
+```c
+ao_avl_node_t * ao_avl_min( ao_avl_t * x);
+```
+
+```c
+void ao_avl_remove( ao_avl_t * x, ao_avl_node_t * n);
+```
+

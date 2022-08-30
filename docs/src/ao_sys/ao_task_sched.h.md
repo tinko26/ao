@@ -4,37 +4,23 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys/ao_task_sched.h file of the ao real-time operating system."
 draft: true
-permalink: /src/ao_sys/ao_task_sched.h/ 
+permalink: /src/ao_sys/ao_task_sched.h/
 subtitle: ""
 title: "ao_task_sched.h"
 toc: true
 ---
 
-# Overview
-
-...
-
-# Includes
+# Include
 
 ```c
-#ifndef AO_TASK_SCHED
-
-#define AO_TASK_SCHED       (2)
-
-#endif
-
-#if     AO_TASK_SCHED ==    (0)
-
 #include <ao_task_sched_0.h>
-
-#elif   AO_TASK_SCHED ==    (1)
-
 #include <ao_task_sched_1.h>
-
-#elif   AO_TASK_SCHED ==    (2)
-
 #include <ao_task_sched_2.h>
-
-#endif
-
 ```
+
+# Constants
+
+```c
+#define AO_TASK_SCHED (2)
+```
+

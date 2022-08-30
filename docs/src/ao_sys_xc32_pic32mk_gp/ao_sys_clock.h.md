@@ -2,9 +2,9 @@
 api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The /src/ao_sys_xc32_pic32mk_gp/ao_sys_clock.h file of the ao real-time operating system."
+description: "The ao_sys_xc32_pic32mk_gp/ao_sys_clock.h module of the ao real-time operating system."
 draft: true
-permalink: /src/ao_sys_xc32_pic32mk_gp/ao_sys_clock.h/ 
+permalink: /ao_sys_xc32_pic32mk_gp/ao_sys_clock.h/
 subtitle: ""
 title: "ao_sys_clock.h"
 toc: true
@@ -49,6 +49,34 @@ toc: true
 ```
 
 ```c
+#define AO_SYS_CLOCK_IC10 (AO_SYS_PBCLK3)
+```
+
+```c
+#define AO_SYS_CLOCK_IC11 (AO_SYS_PBCLK3)
+```
+
+```c
+#define AO_SYS_CLOCK_IC12 (AO_SYS_PBCLK3)
+```
+
+```c
+#define AO_SYS_CLOCK_IC13 (AO_SYS_PBCLK3)
+```
+
+```c
+#define AO_SYS_CLOCK_IC14 (AO_SYS_PBCLK3)
+```
+
+```c
+#define AO_SYS_CLOCK_IC15 (AO_SYS_PBCLK3)
+```
+
+```c
+#define AO_SYS_CLOCK_IC16 (AO_SYS_PBCLK3)
+```
+
+```c
 #define AO_SYS_CLOCK_IC2 (AO_SYS_PBCLK2)
 ```
 
@@ -81,35 +109,35 @@ toc: true
 ```
 
 ```c
-#define AO_SYS_CLOCK_IC10 (AO_SYS_PBCLK3)
-```
-
-```c
-#define AO_SYS_CLOCK_IC11 (AO_SYS_PBCLK3)
-```
-
-```c
-#define AO_SYS_CLOCK_IC12 (AO_SYS_PBCLK3)
-```
-
-```c
-#define AO_SYS_CLOCK_IC13 (AO_SYS_PBCLK3)
-```
-
-```c
-#define AO_SYS_CLOCK_IC14 (AO_SYS_PBCLK3)
-```
-
-```c
-#define AO_SYS_CLOCK_IC15 (AO_SYS_PBCLK3)
-```
-
-```c
-#define AO_SYS_CLOCK_IC16 (AO_SYS_PBCLK3)
-```
-
-```c
 #define AO_SYS_CLOCK_OC1 (AO_SYS_PBCLK2)
+```
+
+```c
+#define AO_SYS_CLOCK_OC10 (AO_SYS_PBCLK3)
+```
+
+```c
+#define AO_SYS_CLOCK_OC11 (AO_SYS_PBCLK3)
+```
+
+```c
+#define AO_SYS_CLOCK_OC12 (AO_SYS_PBCLK3)
+```
+
+```c
+#define AO_SYS_CLOCK_OC13 (AO_SYS_PBCLK3)
+```
+
+```c
+#define AO_SYS_CLOCK_OC14 (AO_SYS_PBCLK3)
+```
+
+```c
+#define AO_SYS_CLOCK_OC15 (AO_SYS_PBCLK3)
+```
+
+```c
+#define AO_SYS_CLOCK_OC16 (AO_SYS_PBCLK3)
 ```
 
 ```c
@@ -142,34 +170,6 @@ toc: true
 
 ```c
 #define AO_SYS_CLOCK_OC9 (AO_SYS_PBCLK2)
-```
-
-```c
-#define AO_SYS_CLOCK_OC10 (AO_SYS_PBCLK3)
-```
-
-```c
-#define AO_SYS_CLOCK_OC11 (AO_SYS_PBCLK3)
-```
-
-```c
-#define AO_SYS_CLOCK_OC12 (AO_SYS_PBCLK3)
-```
-
-```c
-#define AO_SYS_CLOCK_OC13 (AO_SYS_PBCLK3)
-```
-
-```c
-#define AO_SYS_CLOCK_OC14 (AO_SYS_PBCLK3)
-```
-
-```c
-#define AO_SYS_CLOCK_OC15 (AO_SYS_PBCLK3)
-```
-
-```c
-#define AO_SYS_CLOCK_OC16 (AO_SYS_PBCLK3)
 ```
 
 ```c
@@ -289,3 +289,4 @@ toc: true
 ```c
 #include_next <ao_sys_clock.h>
 ```
+

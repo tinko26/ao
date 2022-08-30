@@ -4,50 +4,46 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys/ao_alarm_queue_2.h file of the ao real-time operating system."
 draft: true
-permalink: /src/ao_sys/ao_alarm_queue_2.h/ 
+permalink: /src/ao_sys/ao_alarm_queue_2.h/
 subtitle: ""
 title: "ao_alarm_queue_2.h"
 toc: true
 ---
 
-# Overview
-
-...
-
-# Includes
+# Include
 
 ```c
 #include <stdbool.h>
 #include <stddef.h>
-
-typedef size_t                      ao_alarm_queue_node_t;
-
-#ifndef AO_ALARM_QUEUE_2
-
-#define AO_ALARM_QUEUE_2
-
-#endif
-
-#ifndef AO_ALARM_QUEUE_ASSERT
-
-#define AO_ALARM_QUEUE_ASSERT       (false)
-
-#endif
-
-#ifndef AO_ALARM_QUEUE_CAPACITY
-
-#define AO_ALARM_QUEUE_CAPACITY     (128)
-
-#endif
-
-#ifndef AO_ALARM_QUEUE_COUNT_MAX
-
-#define AO_ALARM_QUEUE_COUNT_MAX    (false)
-
-#endif
-
-extern  size_t          volatile    ao_alarm_queue_count;
-
-extern  size_t          volatile    ao_alarm_queue_count_max;
-
 ```
+
+# Typedefs
+
+```c
+typedef size_t ao_alarm_queue_node_t;
+```
+
+# Constants
+
+```c
+#define AO_ALARM_QUEUE_ASSERT (false)
+```
+
+```c
+#define AO_ALARM_QUEUE_CAPACITY (128)
+```
+
+```c
+#define AO_ALARM_QUEUE_COUNT_MAX (false)
+```
+
+# Variables
+
+```c
+extern size_t volatile ao_alarm_queue_count;
+```
+
+```c
+extern size_t volatile ao_alarm_queue_count_max;
+```
+

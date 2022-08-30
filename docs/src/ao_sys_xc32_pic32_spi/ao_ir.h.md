@@ -4,21 +4,21 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32_spi/ao_ir.h file of the ao real-time operating system."
 draft: true
-permalink: /src/ao_sys_xc32_pic32_spi/ao_ir.h/ 
+permalink: /src/ao_sys_xc32_pic32_spi/ao_ir.h/
 subtitle: ""
 title: "ao_ir.h"
 toc: true
 ---
 
-# Overview
-
-...
-
-# Includes
+# Include
 
 ```c
 #include <ao_ir_spi.h>
-
-#include_next <ao_ir.h>
-
 ```
+
+# Include Next
+
+```c
+#include_next <ao_ir.h>
+```
+

@@ -4,75 +4,57 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mz_ef/ao_ir_crpt.h file of the ao real-time operating system."
 draft: true
-permalink: /src/ao_sys_xc32_pic32mz_ef/ao_ir_crpt.h/ 
+permalink: /src/ao_sys_xc32_pic32mz_ef/ao_ir_crpt.h/
 subtitle: ""
 title: "ao_ir_crpt.h"
 toc: true
 ---
 
-# Overview
-
-...
-
-# Includes
+# Include
 
 ```c
 #include <stdbool.h>
 #include <sys/attribs.h>
 #include <xc.h>
-
-#ifndef AO_IR_CRPT_ATTRIBUTE
-
-#define AO_IR_CRPT_ATTRIBUTE        __ISR(_CRYPTO_VECTOR, IPL4SRS)
-
-#endif
-
-#ifndef AO_IR_CRPT_PRIO
-
-#define AO_IR_CRPT_PRIO             (4)
-
-#endif
-
-#ifndef AO_IR_CRPT_SUBPRIO
-
-#define AO_IR_CRPT_SUBPRIO          (0)
-
-#endif
-
-#ifndef ao_ir_crpt_disable
-
-#define ao_ir_crpt_disable()        { IEC3CLR = _IEC3_CRPTIE_MASK; }
-
-#endif
-
-#ifndef ao_ir_crpt_enable
-
-#define ao_ir_crpt_enable()         { IEC3SET = _IEC3_CRPTIE_MASK; }
-
-#endif
-
-#ifndef ao_ir_crpt_is_enabled
-
-#define ao_ir_crpt_is_enabled()     ((IEC3 & _IEC3_CRPTIE_MASK) ? true : false)
-
-#endif
-
-#ifndef ao_ir_crpt_is_pending
-
-#define ao_ir_crpt_is_pending()     ((IFS3 & _IFS3_CRPTIF_MASK) ? true : false)
-
-#endif
-
-#ifndef ao_ir_crpt_reply
-
-#define ao_ir_crpt_reply()          { IFS3CLR = _IFS3_CRPTIF_MASK; }
-
-#endif
-
-#ifndef ao_ir_crpt_request
-
-#define ao_ir_crpt_request()        { IFS3SET = _IFS3_CRPTIF_MASK; }
-
-#endif
-
 ```
+
+# Constants
+
+```c
+#define AO_IR_CRPT_ATTRIBUTE __ISR(_CRYPTO_VECTOR, IPL4SRS)
+```
+
+```c
+#define AO_IR_CRPT_PRIO (4)
+```
+
+```c
+#define AO_IR_CRPT_SUBPRIO (0)
+```
+
+# Functions
+
+```c
+#define ao_ir_crpt_disable()
+```
+
+```c
+#define ao_ir_crpt_enable()
+```
+
+```c
+#define ao_ir_crpt_is_enabled()
+```
+
+```c
+#define ao_ir_crpt_is_pending()
+```
+
+```c
+#define ao_ir_crpt_reply()
+```
+
+```c
+#define ao_ir_crpt_request()
+```
+

@@ -4,33 +4,31 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mx_1xx/ao_spi.h file of the ao real-time operating system."
 draft: true
-permalink: /src/ao_sys_xc32_pic32mx_1xx/ao_spi.h/ 
+permalink: /src/ao_sys_xc32_pic32mx_1xx/ao_spi.h/
 subtitle: ""
 title: "ao_spi.h"
 toc: true
 ---
 
-# Overview
-
-...
-
-# Includes
+# Include
 
 ```c
 #include <stdbool.h>
-
-#ifndef AO_SPI_BRG_BITS
-
-#define AO_SPI_BRG_BITS     (13)
-
-#endif
-
-#ifndef AO_SPI_ENHBUF
-
-#define AO_SPI_ENHBUF       (true)
-
-#endif
-
-#include_next <ao_spi.h>
-
 ```
+
+# Constants
+
+```c
+#define AO_SPI_BRG_BITS (13)
+```
+
+```c
+#define AO_SPI_ENHBUF (true)
+```
+
+# Include Next
+
+```c
+#include_next <ao_spi.h>
+```
+

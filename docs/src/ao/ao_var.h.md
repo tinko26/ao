@@ -4,32 +4,26 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao/ao_var.h file of the ao real-time operating system."
 draft: true
-permalink: /src/ao/ao_var.h/ 
+permalink: /src/ao/ao_var.h/
 subtitle: ""
 title: "ao_var.h"
 toc: true
 ---
 
-# Overview
-
-...
-
-# Includes
+# Include
 
 ```c
 #include <ao_mem.h>
 #include <stddef.h>
-
-#ifndef ao_clear
-
-#define ao_clear(p, t)      ao_memset(p, 0, sizeof(t));
-
-#endif
-
-#ifndef ao_copy
-
-#define ao_copy(d, s, t)    ao_memcpy(d, s, sizeof(t));
-
-#endif
-
 ```
+
+# Functions
+
+```c
+#define ao_clear(p, t)
+```
+
+```c
+#define ao_copy(d, s, t)
+```
+

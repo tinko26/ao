@@ -4,36 +4,36 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32/ao_boot.h file of the ao real-time operating system."
 draft: true
-permalink: /src/ao_sys_xc32_pic32/ao_boot.h/ 
+permalink: /src/ao_sys_xc32_pic32/ao_boot.h/
 subtitle: ""
 title: "ao_boot.h"
 toc: true
 ---
 
-# Overview
-
-...
-
-# Includes
+# Include
 
 ```c
 #include <ao_count.h>
 #include <ao_ir.h>
-
-#ifndef ao_boot_count
-
-#define ao_boot_count()     ao_count_debug_stop()
-
-#endif
-
-#ifndef ao_boot_ir_mvec
-
-#define ao_boot_ir_mvec()   ao_ir_mvec_enable()
-
-#endif
-
-void    ao_boot_ir_stack();
-
-#include_next <ao_boot.h>
-
 ```
+
+# Functions
+
+```c
+#define ao_boot_count()
+```
+
+```c
+#define ao_boot_ir_mvec()
+```
+
+```c
+void ao_boot_ir_stack();
+```
+
+# Include Next
+
+```c
+#include_next <ao_boot.h>
+```
+

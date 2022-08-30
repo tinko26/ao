@@ -2,15 +2,15 @@
 api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The /src/ao_sys_xc32_pic32mk_gp/ao_ir_u.h file of the ao real-time operating system."
+description: "The ao_sys_xc32_pic32mk_gp/ao_ir_u.h module of the ao real-time operating system."
 draft: true
-permalink: /src/ao_sys_xc32_pic32mk_gp/ao_ir_u.h/ 
+permalink: /ao_sys_xc32_pic32mk_gp/ao_ir_u.h/
 subtitle: ""
 title: "ao_ir_u.h"
 toc: true
 ---
 
-# Includes
+# Include
 
 ```c
 #include <stdbool.h>
@@ -18,17 +18,225 @@ toc: true
 #include <xc.h>
 ```
 
+# Constants
+
 ```c
-#define AO_IR_U1E_ATTRIBUTE         __ISR(_UART1_FAULT_VECTOR, IPL4SOFT)
+#define AO_IR_U1E_ATTRIBUTE __ISR(_UART1_FAULT_VECTOR, IPL4SOFT)
 ```
 
 ```c
-#define AO_IR_U1E_PRIO              (4)
+#define AO_IR_U1E_PRIO (4)
 ```
 
 ```c
-#define AO_IR_U1E_SUBPRIO           (0)
+#define AO_IR_U1E_SUBPRIO (0)
 ```
+
+```c
+#define AO_IR_U1RX_ATTRIBUTE __ISR(_UART1_RX_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_U1RX_PRIO (4)
+```
+
+```c
+#define AO_IR_U1RX_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_U1TX_ATTRIBUTE __ISR(_UART1_TX_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_U1TX_PRIO (4)
+```
+
+```c
+#define AO_IR_U1TX_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_U2E_ATTRIBUTE __ISR(_UART2_FAULT_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_U2E_PRIO (4)
+```
+
+```c
+#define AO_IR_U2E_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_U2RX_ATTRIBUTE __ISR(_UART2_RX_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_U2RX_PRIO (4)
+```
+
+```c
+#define AO_IR_U2RX_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_U2TX_ATTRIBUTE __ISR(_UART2_TX_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_U2TX_PRIO (4)
+```
+
+```c
+#define AO_IR_U2TX_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_U3E_ATTRIBUTE __ISR(_UART3_FAULT_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_U3E_PRIO (4)
+```
+
+```c
+#define AO_IR_U3E_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_U3RX_ATTRIBUTE __ISR(_UART3_RX_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_U3RX_PRIO (4)
+```
+
+```c
+#define AO_IR_U3RX_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_U3TX_ATTRIBUTE __ISR(_UART3_TX_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_U3TX_PRIO (4)
+```
+
+```c
+#define AO_IR_U3TX_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_U4E_ATTRIBUTE __ISR(_UART4_FAULT_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_U4E_PRIO (4)
+```
+
+```c
+#define AO_IR_U4E_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_U4RX_ATTRIBUTE __ISR(_UART4_RX_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_U4RX_PRIO (4)
+```
+
+```c
+#define AO_IR_U4RX_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_U4TX_ATTRIBUTE __ISR(_UART4_TX_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_U4TX_PRIO (4)
+```
+
+```c
+#define AO_IR_U4TX_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_U5E_ATTRIBUTE __ISR(_UART5_FAULT_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_U5E_PRIO (4)
+```
+
+```c
+#define AO_IR_U5E_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_U5RX_ATTRIBUTE __ISR(_UART5_RX_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_U5RX_PRIO (4)
+```
+
+```c
+#define AO_IR_U5RX_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_U5TX_ATTRIBUTE __ISR(_UART5_TX_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_U5TX_PRIO (4)
+```
+
+```c
+#define AO_IR_U5TX_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_U6E_ATTRIBUTE __ISR(_UART6_FAULT_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_U6E_PRIO (4)
+```
+
+```c
+#define AO_IR_U6E_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_U6RX_ATTRIBUTE __ISR(_UART6_RX_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_U6RX_PRIO (4)
+```
+
+```c
+#define AO_IR_U6RX_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_U6TX_ATTRIBUTE __ISR(_UART6_TX_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_U6TX_PRIO (4)
+```
+
+```c
+#define AO_IR_U6TX_SUBPRIO (0)
+```
+
+# Functions
 
 ```c
 #define ao_ir_u1e_disable()
@@ -52,18 +260,6 @@ toc: true
 
 ```c
 #define ao_ir_u1e_request()
-```
-
-```c
-#define AO_IR_U1RX_ATTRIBUTE        __ISR(_UART1_RX_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_U1RX_PRIO             (4)
-```
-
-```c
-#define AO_IR_U1RX_SUBPRIO          (0)
 ```
 
 ```c
@@ -91,18 +287,6 @@ toc: true
 ```
 
 ```c
-#define AO_IR_U1TX_ATTRIBUTE        __ISR(_UART1_TX_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_U1TX_PRIO             (4)
-```
-
-```c
-#define AO_IR_U1TX_SUBPRIO          (0)
-```
-
-```c
 #define ao_ir_u1tx_disable()
 ```
 
@@ -124,18 +308,6 @@ toc: true
 
 ```c
 #define ao_ir_u1tx_request()
-```
-
-```c
-#define AO_IR_U2E_ATTRIBUTE         __ISR(_UART2_FAULT_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_U2E_PRIO              (4)
-```
-
-```c
-#define AO_IR_U2E_SUBPRIO           (0)
 ```
 
 ```c
@@ -163,18 +335,6 @@ toc: true
 ```
 
 ```c
-#define AO_IR_U2RX_ATTRIBUTE        __ISR(_UART2_RX_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_U2RX_PRIO             (4)
-```
-
-```c
-#define AO_IR_U2RX_SUBPRIO          (0)
-```
-
-```c
 #define ao_ir_u2rx_disable()
 ```
 
@@ -196,18 +356,6 @@ toc: true
 
 ```c
 #define ao_ir_u2rx_request()
-```
-
-```c
-#define AO_IR_U2TX_ATTRIBUTE        __ISR(_UART2_TX_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_U2TX_PRIO             (4)
-```
-
-```c
-#define AO_IR_U2TX_SUBPRIO          (0)
 ```
 
 ```c
@@ -235,18 +383,6 @@ toc: true
 ```
 
 ```c
-#define AO_IR_U3E_ATTRIBUTE         __ISR(_UART3_FAULT_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_U3E_PRIO              (4)
-```
-
-```c
-#define AO_IR_U3E_SUBPRIO           (0)
-```
-
-```c
 #define ao_ir_u3e_disable()
 ```
 
@@ -268,18 +404,6 @@ toc: true
 
 ```c
 #define ao_ir_u3e_request()
-```
-
-```c
-#define AO_IR_U3RX_ATTRIBUTE        __ISR(_UART3_RX_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_U3RX_PRIO             (4)
-```
-
-```c
-#define AO_IR_U3RX_SUBPRIO          (0)
 ```
 
 ```c
@@ -307,18 +431,6 @@ toc: true
 ```
 
 ```c
-#define AO_IR_U3TX_ATTRIBUTE        __ISR(_UART3_TX_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_U3TX_PRIO             (4)
-```
-
-```c
-#define AO_IR_U3TX_SUBPRIO          (0)
-```
-
-```c
 #define ao_ir_u3tx_disable()
 ```
 
@@ -340,18 +452,6 @@ toc: true
 
 ```c
 #define ao_ir_u3tx_request()
-```
-
-```c
-#define AO_IR_U4E_ATTRIBUTE         __ISR(_UART4_FAULT_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_U4E_PRIO              (4)
-```
-
-```c
-#define AO_IR_U4E_SUBPRIO           (0)
 ```
 
 ```c
@@ -379,18 +479,6 @@ toc: true
 ```
 
 ```c
-#define AO_IR_U4RX_ATTRIBUTE        __ISR(_UART4_RX_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_U4RX_PRIO             (4)
-```
-
-```c
-#define AO_IR_U4RX_SUBPRIO          (0)
-```
-
-```c
 #define ao_ir_u4rx_disable()
 ```
 
@@ -412,18 +500,6 @@ toc: true
 
 ```c
 #define ao_ir_u4rx_request()
-```
-
-```c
-#define AO_IR_U4TX_ATTRIBUTE        __ISR(_UART4_TX_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_U4TX_PRIO             (4)
-```
-
-```c
-#define AO_IR_U4TX_SUBPRIO          (0)
 ```
 
 ```c
@@ -451,18 +527,6 @@ toc: true
 ```
 
 ```c
-#define AO_IR_U5E_ATTRIBUTE         __ISR(_UART5_FAULT_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_U5E_PRIO              (4)
-```
-
-```c
-#define AO_IR_U5E_SUBPRIO           (0)
-```
-
-```c
 #define ao_ir_u5e_disable()
 ```
 
@@ -484,18 +548,6 @@ toc: true
 
 ```c
 #define ao_ir_u5e_request()
-```
-
-```c
-#define AO_IR_U5RX_ATTRIBUTE        __ISR(_UART5_RX_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_U5RX_PRIO             (4)
-```
-
-```c
-#define AO_IR_U5RX_SUBPRIO          (0)
 ```
 
 ```c
@@ -523,18 +575,6 @@ toc: true
 ```
 
 ```c
-#define AO_IR_U5TX_ATTRIBUTE        __ISR(_UART5_TX_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_U5TX_PRIO             (4)
-```
-
-```c
-#define AO_IR_U5TX_SUBPRIO          (0)
-```
-
-```c
 #define ao_ir_u5tx_disable()
 ```
 
@@ -556,18 +596,6 @@ toc: true
 
 ```c
 #define ao_ir_u5tx_request()
-```
-
-```c
-#define AO_IR_U6E_ATTRIBUTE         __ISR(_UART6_FAULT_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_U6E_PRIO              (4)
-```
-
-```c
-#define AO_IR_U6E_SUBPRIO           (0)
 ```
 
 ```c
@@ -595,18 +623,6 @@ toc: true
 ```
 
 ```c
-#define AO_IR_U6RX_ATTRIBUTE        __ISR(_UART6_RX_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_U6RX_PRIO             (4)
-```
-
-```c
-#define AO_IR_U6RX_SUBPRIO          (0)
-```
-
-```c
 #define ao_ir_u6rx_disable()
 ```
 
@@ -628,18 +644,6 @@ toc: true
 
 ```c
 #define ao_ir_u6rx_request()
-```
-
-```c
-#define AO_IR_U6TX_ATTRIBUTE        __ISR(_UART6_TX_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_U6TX_PRIO             (4)
-```
-
-```c
-#define AO_IR_U6TX_SUBPRIO          (0)
 ```
 
 ```c

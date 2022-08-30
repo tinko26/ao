@@ -2,15 +2,15 @@
 api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The /src/ao_sys_xc32_pic32mk_gp/ao_ir_pwm.h file of the ao real-time operating system."
+description: "The ao_sys_xc32_pic32mk_gp/ao_ir_pwm.h module of the ao real-time operating system."
 draft: true
-permalink: /src/ao_sys_xc32_pic32mk_gp/ao_ir_pwm.h/ 
+permalink: /ao_sys_xc32_pic32mk_gp/ao_ir_pwm.h/
 subtitle: ""
 title: "ao_ir_pwm.h"
 toc: true
 ---
 
-# Includes
+# Include
 
 ```c
 #include <stdbool.h>
@@ -18,17 +18,177 @@ toc: true
 #include <xc.h>
 ```
 
+# Constants
+
 ```c
-#define AO_IR_PWM1_ATTRIBUTE        __ISR(_PWM1_VECTOR, IPL4SOFT)
+#define AO_IR_PWM1_ATTRIBUTE __ISR(_PWM1_VECTOR, IPL4SOFT)
 ```
 
 ```c
-#define AO_IR_PWM1_PRIO             (4)
+#define AO_IR_PWM1_PRIO (4)
 ```
 
 ```c
-#define AO_IR_PWM1_SUBPRIO          (0)
+#define AO_IR_PWM1_SUBPRIO (0)
 ```
+
+```c
+#define AO_IR_PWM10_ATTRIBUTE __ISR(_PWM10_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_PWM10_PRIO (4)
+```
+
+```c
+#define AO_IR_PWM10_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_PWM11_ATTRIBUTE __ISR(_PWM11_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_PWM11_PRIO (4)
+```
+
+```c
+#define AO_IR_PWM11_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_PWM12_ATTRIBUTE __ISR(_PWM12_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_PWM12_PRIO (4)
+```
+
+```c
+#define AO_IR_PWM12_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_PWM2_ATTRIBUTE __ISR(_PWM2_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_PWM2_PRIO (4)
+```
+
+```c
+#define AO_IR_PWM2_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_PWM3_ATTRIBUTE __ISR(_PWM3_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_PWM3_PRIO (4)
+```
+
+```c
+#define AO_IR_PWM3_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_PWM4_ATTRIBUTE __ISR(_PWM4_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_PWM4_PRIO (4)
+```
+
+```c
+#define AO_IR_PWM4_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_PWM5_ATTRIBUTE __ISR(_PWM5_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_PWM5_PRIO (4)
+```
+
+```c
+#define AO_IR_PWM5_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_PWM6_ATTRIBUTE __ISR(_PWM6_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_PWM6_PRIO (4)
+```
+
+```c
+#define AO_IR_PWM6_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_PWM7_ATTRIBUTE __ISR(_PWM7_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_PWM7_PRIO (4)
+```
+
+```c
+#define AO_IR_PWM7_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_PWM8_ATTRIBUTE __ISR(_PWM8_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_PWM8_PRIO (4)
+```
+
+```c
+#define AO_IR_PWM8_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_PWM9_ATTRIBUTE __ISR(_PWM9_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_PWM9_PRIO (4)
+```
+
+```c
+#define AO_IR_PWM9_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_PWMPEVT_ATTRIBUTE __ISR(_PWM_PRI_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_PWMPEVT_PRIO (4)
+```
+
+```c
+#define AO_IR_PWMPEVT_SUBPRIO (0)
+```
+
+```c
+#define AO_IR_PWMSEVT_ATTRIBUTE __ISR(_PWM_SEC_VECTOR, IPL4SOFT)
+```
+
+```c
+#define AO_IR_PWMSEVT_PRIO (4)
+```
+
+```c
+#define AO_IR_PWMSEVT_SUBPRIO (0)
+```
+
+# Functions
 
 ```c
 #define ao_ir_pwm1_disable()
@@ -52,18 +212,6 @@ toc: true
 
 ```c
 #define ao_ir_pwm1_request()
-```
-
-```c
-#define AO_IR_PWM2_ATTRIBUTE        __ISR(_PWM2_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_PWM2_PRIO             (4)
-```
-
-```c
-#define AO_IR_PWM2_SUBPRIO          (0)
 ```
 
 ```c
@@ -91,18 +239,6 @@ toc: true
 ```
 
 ```c
-#define AO_IR_PWM3_ATTRIBUTE        __ISR(_PWM3_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_PWM3_PRIO             (4)
-```
-
-```c
-#define AO_IR_PWM3_SUBPRIO          (0)
-```
-
-```c
 #define ao_ir_pwm3_disable()
 ```
 
@@ -124,18 +260,6 @@ toc: true
 
 ```c
 #define ao_ir_pwm3_request()
-```
-
-```c
-#define AO_IR_PWM4_ATTRIBUTE        __ISR(_PWM4_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_PWM4_PRIO             (4)
-```
-
-```c
-#define AO_IR_PWM4_SUBPRIO          (0)
 ```
 
 ```c
@@ -163,18 +287,6 @@ toc: true
 ```
 
 ```c
-#define AO_IR_PWM5_ATTRIBUTE        __ISR(_PWM5_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_PWM5_PRIO             (4)
-```
-
-```c
-#define AO_IR_PWM5_SUBPRIO          (0)
-```
-
-```c
 #define ao_ir_pwm5_disable()
 ```
 
@@ -196,18 +308,6 @@ toc: true
 
 ```c
 #define ao_ir_pwm5_request()
-```
-
-```c
-#define AO_IR_PWM6_ATTRIBUTE        __ISR(_PWM6_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_PWM6_PRIO             (4)
-```
-
-```c
-#define AO_IR_PWM6_SUBPRIO          (0)
 ```
 
 ```c
@@ -235,18 +335,6 @@ toc: true
 ```
 
 ```c
-#define AO_IR_PWM7_ATTRIBUTE        __ISR(_PWM7_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_PWM7_PRIO             (4)
-```
-
-```c
-#define AO_IR_PWM7_SUBPRIO          (0)
-```
-
-```c
 #define ao_ir_pwm7_disable()
 ```
 
@@ -268,18 +356,6 @@ toc: true
 
 ```c
 #define ao_ir_pwm7_request()
-```
-
-```c
-#define AO_IR_PWM8_ATTRIBUTE        __ISR(_PWM8_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_PWM8_PRIO             (4)
-```
-
-```c
-#define AO_IR_PWM8_SUBPRIO          (0)
 ```
 
 ```c
@@ -307,18 +383,6 @@ toc: true
 ```
 
 ```c
-#define AO_IR_PWM9_ATTRIBUTE        __ISR(_PWM9_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_PWM9_PRIO             (4)
-```
-
-```c
-#define AO_IR_PWM9_SUBPRIO          (0)
-```
-
-```c
 #define ao_ir_pwm9_disable()
 ```
 
@@ -340,18 +404,6 @@ toc: true
 
 ```c
 #define ao_ir_pwm9_request()
-```
-
-```c
-#define AO_IR_PWM10_ATTRIBUTE       __ISR(_PWM10_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_PWM10_PRIO            (4)
-```
-
-```c
-#define AO_IR_PWM10_SUBPRIO         (0)
 ```
 
 ```c
@@ -379,18 +431,6 @@ toc: true
 ```
 
 ```c
-#define AO_IR_PWM11_ATTRIBUTE       __ISR(_PWM11_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_PWM11_PRIO            (4)
-```
-
-```c
-#define AO_IR_PWM11_SUBPRIO         (0)
-```
-
-```c
 #define ao_ir_pwm11_disable()
 ```
 
@@ -412,18 +452,6 @@ toc: true
 
 ```c
 #define ao_ir_pwm11_request()
-```
-
-```c
-#define AO_IR_PWM12_ATTRIBUTE       __ISR(_PWM12_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_PWM12_PRIO            (4)
-```
-
-```c
-#define AO_IR_PWM12_SUBPRIO         (0)
 ```
 
 ```c
@@ -451,18 +479,6 @@ toc: true
 ```
 
 ```c
-#define AO_IR_PWMPEVT_ATTRIBUTE     __ISR(_PWM_PRI_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_PWMPEVT_PRIO          (4)
-```
-
-```c
-#define AO_IR_PWMPEVT_SUBPRIO       (0)
-```
-
-```c
 #define ao_ir_pwmpevt_disable()
 ```
 
@@ -484,18 +500,6 @@ toc: true
 
 ```c
 #define ao_ir_pwmpevt_request()
-```
-
-```c
-#define AO_IR_PWMSEVT_ATTRIBUTE     __ISR(_PWM_SEC_VECTOR, IPL4SOFT)
-```
-
-```c
-#define AO_IR_PWMSEVT_PRIO          (4)
-```
-
-```c
-#define AO_IR_PWMSEVT_SUBPRIO       (0)
 ```
 
 ```c
