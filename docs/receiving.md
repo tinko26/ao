@@ -6,13 +6,13 @@ draft: true
 permalink: /receiving/
 seealso:
 - title: "<code>ao_recv.h</code>"
-  url: /ao_sys/ao_recv.h/
+  url: /src/ao_sys/ao_recv.h/
 - title: "<code>ao_recv_from_callback.h</code>"
-  url: /ao_sys/ao_recv_from_callback.h/
+  url: /src/ao_sys/ao_recv_from_callback.h/
 - title: "<code>ao_recv_from_stream.h</code>"
-  url: /ao_sys/ao_recv_from_callback.h/
+  url: /src/ao_sys/ao_recv_from_callback.h/
 - title: "<code>ao_stream.h</code>"
-  url: /ao_sys/ao_stream.h/
+  url: /src/ao_sys/ao_stream.h/
 subtitle: "Receiving data from an opaque source"
 title: "Receiving"
 toc: false
