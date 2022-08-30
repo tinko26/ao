@@ -13,7 +13,8 @@ baseurl: "/ao"
 
 # Exclude
 exclude:
-  - _old/
+  - _old_ao/
+  - _old_ao_sys/
 
 # Conversion
 markdown: kramdown
