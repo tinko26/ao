@@ -2,9 +2,9 @@
 api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The ao_sys_xc32_pic32mk_gp/ao_ir_cn.h module of the ao real-time operating system."
+description: "The /src/ao_sys_xc32_pic32mk_gp/ao_ir_cn.h file of the ao real-time operating system."
 draft: true
-permalink: /ao_sys_xc32_pic32mk_gp/ao_ir_cn.h/
+permalink: /api/src/ao_sys_xc32_pic32mk_gp/ao_ir_cn.h/
 subtitle: ""
 title: "ao_ir_cn.h"
 toc: true
