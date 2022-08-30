@@ -1,14 +1,18 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-08-30
 description: "The /src/ao/ao_math.h file of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /api/src/ao/ao_math.h/
-subtitle: ""
+subtitle: "Mathematics"
 title: "ao_math.h"
 toc: true
 ---
+
+# Overview
+
+This module provides a number of useful mathematical operations. They are implemented as macro functions, that work for all fundamental scalar types. This is for two reasons. First, when called with constant parameter values, the result can be evaluated at compile time. Second, they can be used in the definition of macro constants. However, care must be taken for side effects, as some parameter values get evaluated more than once.
 
 # Include
 
@@ -18,13 +22,19 @@ toc: true
 
 # Functions
 
+Absolute value.
+
 ```c
 #define AO_ABS(x)
 ```
 
+Clamping.
+
 ```c
 #define AO_CLAMP(x, x_min, x_max)
 ```
+
+Comparison.
 
 ```c
 #define AO_IS_EQUAL(x, y)
@@ -46,6 +56,8 @@ toc: true
 #define AO_IS_LESS_EQUAL(x, y)
 ```
 
+Sign.
+
 ```c
 #define AO_IS_NEGATIVE(x)
 ```
@@ -58,6 +70,8 @@ toc: true
 #define AO_IS_ZERO(x)
 ```
 
+Maximum and minimum.
+
 ```c
 #define AO_MAX(x, y)
 ```
@@ -65,4 +79,3 @@ toc: true
 ```c
 #define AO_MIN(x, y)
 ```
-

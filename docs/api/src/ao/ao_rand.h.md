@@ -1,14 +1,18 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-08-30
 description: "The /src/ao/ao_rand.h file of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /api/src/ao/ao_rand.h/
-subtitle: ""
+subtitle: "Random value generators"
 title: "ao_rand.h"
 toc: true
 ---
+
+# Overview
+
+This module defines function pointer types for a variety of random value generators.
 
 # Include
 
@@ -19,9 +23,13 @@ toc: true
 
 # Typedefs
 
+Return a random Boolean value.
+
 ```c
 typedef bool (* ao_randb_t) ();
 ```
+
+Return a random floating-point number.
 
 ```c
 typedef double (* ao_randd_t) ();
@@ -30,6 +38,12 @@ typedef double (* ao_randd_t) ();
 ```c
 typedef float (* ao_randf_t) ();
 ```
+
+```c
+typedef long double (* ao_randl_t) ();
+```
+
+Return a random signed integer.
 
 ```c
 typedef int8_t (* ao_randi8_t) ();
@@ -47,9 +61,7 @@ typedef int32_t (* ao_randi32_t) ();
 typedef int64_t (* ao_randi64_t) ();
 ```
 
-```c
-typedef long double (* ao_randl_t) ();
-```
+Return a random unsigned integer.
 
 ```c
 typedef uint8_t (* ao_randu8_t) ();
@@ -66,4 +78,3 @@ typedef uint32_t (* ao_randu32_t) ();
 ```c
 typedef uint64_t (* ao_randu64_t) ();
 ```
-

@@ -1,14 +1,18 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-08-30
 description: "The /src/ao/ao_var.h file of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /api/src/ao/ao_var.h/
-subtitle: ""
+subtitle: "Variables"
 title: "ao_var.h"
 toc: true
 ---
+
+# Overview
+
+This module defines two convenience macro functions for variables.
 
 # Include
 
@@ -19,11 +23,46 @@ toc: true
 
 # Functions
 
+Clear a variable of type `t` pointed to by `p`. This is especially useful when initializing objects that have been allocated on the stack.
+
 ```c
 #define ao_clear(p, t)
 ```
+
+Copy a variable of `t` from the location pointed to by `s` to the location pointed to by `d`.
 
 ```c
 #define ao_copy(d, s, t)
 ```
 
+# Example
+
+Copy `a` to `b`.
+
+```c
+uint32_t a = 0xDEADBEEFU;
+uint32_t b;
+```
+
+```c
+ao_copy(&b, &a, uint32_t);
+```
+
+```c
+ao_assert(a == b);
+```
+
+Clear list `l`;
+
+```c
+ao_list_t l;
+```
+
+```c
+ao_clear(&l, ao_list_t);
+```
+
+```c
+ao_assert(l.back  == NULL);
+ao_assert(l.front == NULL);
+```

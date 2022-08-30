@@ -1,14 +1,18 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-08-30
 description: "The /src/ao/ao_char.h file of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /api/src/ao/ao_char.h/
-subtitle: ""
+subtitle: "Characters"
 title: "ao_char.h"
 toc: true
 ---
+
+# Overview
+
+This module provides a couple of functions that classify characters. Although the standard library contains similar functions, they are not available in a freestanding runtime environment.
 
 # Include
 
@@ -18,51 +22,52 @@ toc: true
 
 # Functions
 
+Classify a given character.
+
 ```c
 bool ao_char_is_alphanumeric(char x);
 ```
 
 ```c
-bool ao_char_is_alphabetic( char x);
+bool ao_char_is_alphabetic(char x);
 ```
 
 ```c
-bool ao_char_is_blank( char x);
+bool ao_char_is_blank(char x);
 ```
 
 ```c
-bool ao_char_is_control( char x);
+bool ao_char_is_control(char x);
 ```
 
 ```c
-bool ao_char_is_decimal( char x);
+bool ao_char_is_decimal(char x);
 ```
 
 ```c
-bool ao_char_is_graphical( char x);
+bool ao_char_is_graphical(char x);
 ```
 
 ```c
-bool ao_char_is_hexadecimal( char x);
+bool ao_char_is_hexadecimal(char x);
 ```
 
 ```c
-bool ao_char_is_lower( char x);
+bool ao_char_is_lower(char x);
 ```
 
 ```c
-bool ao_char_is_printable( char x);
+bool ao_char_is_printable(char x);
 ```
 
 ```c
-bool ao_char_is_punctuation( char x);
+bool ao_char_is_punctuation(char x);
 ```
 
 ```c
-bool ao_char_is_upper( char x);
+bool ao_char_is_upper(char x);
 ```
 
 ```c
-bool ao_char_is_whitespace( char x);
+bool ao_char_is_whitespace(char x);
 ```
-

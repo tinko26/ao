@@ -1,11 +1,11 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-08-30
 description: "The /src/ao/ao_func.h file of the ao real-time operating system."
-draft: true
+draft: false
 permalink: /api/src/ao/ao_func.h/
-subtitle: ""
+subtitle: "Function pointer types"
 title: "ao_func.h"
 toc: true
 ---
@@ -17,6 +17,8 @@ toc: true
 ```
 
 # Typedefs
+
+## Functions
 
 ```c
 typedef void * (* ao_func_t) (void *);
@@ -38,6 +40,8 @@ typedef void * (* ao_func2_t) (void *, void *);
 typedef void * (* ao_func3_t) (void *, void *, void *);
 ```
 
+## Predicates
+
 ```c
 typedef bool (* ao_pred_t) (void *);
 ```
@@ -58,6 +62,8 @@ typedef bool (* ao_pred2_t) (void *, void *);
 typedef bool (* ao_pred3_t) (void *, void *, void *);
 ```
 
+## Procedures
+
 ```c
 typedef void (* ao_proc_t) (void *);
 ```
@@ -77,4 +83,3 @@ typedef void (* ao_proc2_t) (void *, void *);
 ```c
 typedef void (* ao_proc3_t) (void *, void *, void *);
 ```
-
