@@ -28,9 +28,6 @@ The size in bits and the base-2 logarithm thereof.
 
 ```c
 #define AO_SIZE_BITS (32)
-```
-
-```c
 #define AO_SIZE_BITS_LOG (5)
 ```
 
@@ -38,9 +35,6 @@ The maximum and minimum value.
 
 ```c
 #define AO_SIZE_MAX (SIZE_MAX)
-```
-
-```c
 #define AO_SIZE_MIN (0)
 ```
 
@@ -56,17 +50,8 @@ Count the number of leading or trailing ones or zeros, respectively.
 
 ```c
 size_t ao_cloz(size_t x);
-```
-
-```c
 size_t ao_clzz(size_t x);
-```
-
-```c
 size_t ao_ctoz(size_t x);
-```
-
-```c
 size_t ao_ctzz(size_t x);
 ```
 
@@ -74,9 +59,6 @@ Find the first or last set bit, respectively.
 
 ```c
 size_t ao_ffsz(size_t x);
-```
-
-```c
 size_t ao_flsz(size_t x);
 ```
 

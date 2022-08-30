@@ -31,9 +31,6 @@ Align value `x` up or down, respectively, to boundary `b`.
 
 ```c
 #define AO_ALIGN_DOWN(x, b)
-```
-
-```c
 #define AO_ALIGN_UP(x, b)
 ```
 

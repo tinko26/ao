@@ -32,9 +32,6 @@ The size in bits and the base-2 logarithm thereof.
 
 ```c
 #define AO_UINT_BITS (32)
-```
-
-```c
 #define AO_UINT_BITS_LOG (5)
 ```
 
@@ -42,9 +39,6 @@ The maximum and minimum value.
 
 ```c
 #define AO_UINT_MAX (UINT32_MAX)
-```
-
-```c
 #define AO_UINT_MIN (0)
 ```
 
@@ -60,17 +54,8 @@ Count the number of leading or trailing ones or zeros, respectively.
 
 ```c
 ao_uint_t ao_clou(ao_uint_t x);
-```
-
-```c
 ao_uint_t ao_clzu(ao_uint_t x);
-```
-
-```c
 ao_uint_t ao_ctou(ao_uint_t x);
-```
-
-```c
 ao_uint_t ao_ctzu(ao_uint_t x);
 ```
 
@@ -78,9 +63,6 @@ Find the first or last set bit, respectively.
 
 ```c
 ao_uint_t ao_ffsu(ao_uint_t x);
-```
-
-```c
 ao_uint_t ao_flsu(ao_uint_t x);
 ```
 
@@ -94,24 +76,9 @@ Calculate the base-2 logarithm for a fixed-width unsigned integer.
 
 ```c
 #define AO_LOG2U2(x)
-```
-
-```c
 #define AO_LOG2U4(x)
-```
-
-```c
 #define AO_LOG2U8(x)
-```
-
-```c
 #define AO_LOG2U16(x)
-```
-
-```c
 #define AO_LOG2U32(x)
-```
-
-```c
 #define AO_LOG2U64(x)
 ```

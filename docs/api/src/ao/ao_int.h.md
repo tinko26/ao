@@ -34,9 +34,6 @@ The maximum and minimum value.
 
 ```c
 #define AO_INT_MAX (INT32_MAX)
-```
-
-```c
 #define AO_INT_MIN (INT32_MIN)
 ```
 

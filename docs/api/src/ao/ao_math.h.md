@@ -38,21 +38,9 @@ Comparison.
 
 ```c
 #define AO_IS_EQUAL(x, y)
-```
-
-```c
 #define AO_IS_GREATER(x, y)
-```
-
-```c
 #define AO_IS_GREATER_EQUAL(x, y)
-```
-
-```c
 #define AO_IS_LESS(x, y)
-```
-
-```c
 #define AO_IS_LESS_EQUAL(x, y)
 ```
 
@@ -60,13 +48,7 @@ Sign.
 
 ```c
 #define AO_IS_NEGATIVE(x)
-```
-
-```c
 #define AO_IS_POSITIVE(x)
-```
-
-```c
 #define AO_IS_ZERO(x)
 ```
 
@@ -74,8 +56,5 @@ Maximum and minimum.
 
 ```c
 #define AO_MAX(x, y)
-```
-
-```c
 #define AO_MIN(x, y)
 ```

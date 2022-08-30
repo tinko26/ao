@@ -26,48 +26,15 @@ Classify a given character.
 
 ```c
 bool ao_char_is_alphanumeric(char x);
-```
-
-```c
 bool ao_char_is_alphabetic(char x);
-```
-
-```c
 bool ao_char_is_blank(char x);
-```
-
-```c
 bool ao_char_is_control(char x);
-```
-
-```c
 bool ao_char_is_decimal(char x);
-```
-
-```c
 bool ao_char_is_graphical(char x);
-```
-
-```c
 bool ao_char_is_hexadecimal(char x);
-```
-
-```c
 bool ao_char_is_lower(char x);
-```
-
-```c
 bool ao_char_is_printable(char x);
-```
-
-```c
 bool ao_char_is_punctuation(char x);
-```
-
-```c
 bool ao_char_is_upper(char x);
-```
-
-```c
 bool ao_char_is_whitespace(char x);
 ```
