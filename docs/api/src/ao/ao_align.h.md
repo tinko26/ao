@@ -19,13 +19,13 @@ Reading from or writing to memory usually requires scalar data, such as an integ
 
 Normally, the compiler takes care of the correct alignment of variables automatically. However, there are situations, when this is not the case, for example, when dealing with dynamic memory management functions or stack pointers.
 
-# Includes
+# Include
 
 ```c
 #include <stdbool.h>
 ```
 
-# Macro Functions
+# Functions
 
 Align value `x` up or down, respectively, to boundary `b`.
 

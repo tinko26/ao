@@ -32,18 +32,18 @@ typedef struct ao_mikroe_2935_t ao_mikroe_2935_t;
 struct ao_mikroe_2935_t
 {
     bool ready;
-    ao_float_t x; // µT.
-    ao_float_t y; // µT.
-    ao_float_t z; // µT.
+    ao_float_t x;
+    ao_float_t y;
+    ao_float_t z;
 };
 ```
 
 Members:
 
-| `µT.` | |
-| `µT.` | |
-| `µT.` | |
 | `ready` | |
+| `x` | |
+| `y` | |
+| `z` | |
 
 # Functions
 
