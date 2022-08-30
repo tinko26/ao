@@ -41,9 +41,9 @@ entries:
     url: /resources/
   - title: "Source Code"
     url: /source-code/
-  - title: "Synchronization"
-    url: /spinning/
   - title: "Spinning"
+    url: /spinning/
+  - title: "Synchronization"
     url: /synchronization/
   - title: "Time"
     url: /time/
