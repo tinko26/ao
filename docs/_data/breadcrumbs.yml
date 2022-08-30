@@ -1,4 +1,7 @@
 breadcrumbs:
-  api:
+  "/api":
     api: false
     title: "API"
+  "/api/src":
+    api: false
+    title: "Gagagugu"
