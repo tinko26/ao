@@ -10,7 +10,7 @@ seealso:
   url: /api/src/ao_sys/ao_queue4obj.h/
 - title: "<code>ao_recv_obj.h</code>"
   url: /api/src/ao_sys/ao_recv_obj.h/
-subtitle: ""
+subtitle: "Receiving objects from queues"
 title: "ao_recv_obj_from_queue.h"
 toc: true
 ---
