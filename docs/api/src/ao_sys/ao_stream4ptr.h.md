@@ -47,7 +47,7 @@ struct ao_stream4ptr_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `buffer` | |
 | `pop` | |
@@ -66,7 +66,7 @@ struct ao_spop_ptr_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `node` | |
@@ -89,7 +89,7 @@ struct ao_spush_ptr_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `node` | |

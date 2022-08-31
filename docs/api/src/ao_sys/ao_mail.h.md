@@ -44,7 +44,7 @@ struct ao_mail_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `node` | |
 
@@ -61,7 +61,7 @@ struct ao_mail_fetch_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `mail` | |
@@ -79,7 +79,7 @@ struct ao_mailbox_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `fetchers` | |
 | `mails` | |

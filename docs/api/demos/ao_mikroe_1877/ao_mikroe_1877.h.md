@@ -86,7 +86,7 @@ enum ao_mikroe_1877_connection_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `AO_MIKROE_1877_CONNECTION_PC_INTEGRATED` | |
 | `AO_MIKROE_1877_CONNECTION_PC_ATTACHED` | |
@@ -117,7 +117,7 @@ enum ao_mikroe_1877_event_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `AO_MIKROE_1877_EVENT_UNKNOWN` | |
 | `AO_MIKROE_1877_EVENT_STATE_CHANGED` | |
@@ -151,7 +151,7 @@ enum ao_mikroe_1877_power_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `AO_MIKROE_1877_POWER_UNDEFINED` | |
 | `AO_MIKROE_1877_POWER_FULL` | |
@@ -174,7 +174,7 @@ enum ao_mikroe_1877_reporting_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `AO_MIKROE_1877_REPORTING_ALL` | |
 | `AO_MIKROE_1877_REPORTING_ALL_WAKE` | |
@@ -199,7 +199,7 @@ enum ao_mikroe_1877_sensor_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `AO_MIKROE_1877_SENSOR_ACCELEROMETER` | |
 | `AO_MIKROE_1877_SENSOR_ACCELEROMETER_RAW` | |
@@ -225,7 +225,7 @@ enum ao_mikroe_1877_state_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `AO_MIKROE_1877_STATE_UNDEFINED` | |
 | `AO_MIKROE_1877_STATE_READY` | |
@@ -247,7 +247,7 @@ struct ao_mikroe_1877_data_accelerometer_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `shake_detected` | |
 | `x` | |
@@ -266,7 +266,7 @@ struct ao_mikroe_1877_data_gyroscope_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `shake_detected` | |
 | `x` | |
@@ -284,7 +284,7 @@ struct ao_mikroe_1877_data_inclinometer_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `x` | |
 | `y` | |
@@ -302,7 +302,7 @@ struct ao_mikroe_1877_data_magnetometer_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `heading` | |
 | `x` | |
@@ -321,7 +321,7 @@ struct ao_mikroe_1877_data_orientation_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `w` | |
 | `x` | |
@@ -348,7 +348,7 @@ struct ao_mikroe_1877_data_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `data` | |
 | `data.accelerometer` | |
@@ -380,7 +380,7 @@ struct ao_mikroe_1877_info_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `accuracy` | |
 | `change_sensitivity` | |

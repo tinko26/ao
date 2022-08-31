@@ -43,7 +43,7 @@ enum ao_leds_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `AO_LEDS_0` | |
 | `AO_LEDS_1` | |

@@ -42,7 +42,7 @@ enum ao_buttons_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `AO_BUTTONS_0` | |
 | `AO_BUTTONS_1` | |

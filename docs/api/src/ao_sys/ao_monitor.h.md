@@ -46,7 +46,7 @@ struct ao_monitor_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `list` | |
 | `mutex` | |
@@ -63,7 +63,7 @@ struct ao_monitor_enter_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `monitor` | |
@@ -87,7 +87,7 @@ struct ao_monitor_wait_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `monitor` | |

@@ -51,7 +51,7 @@ struct ao_mutex_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `ceiling_immediate` | |
 | `ceiling_original` | |
@@ -76,7 +76,7 @@ struct ao_mutex_lock_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `master` | |

@@ -75,7 +75,7 @@ enum ao_task_state_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `AO_TASK_STOPPED` | |
 | `AO_TASK_READY` | |
@@ -98,7 +98,7 @@ enum ao_task_state_pending_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `AO_TASK_STOPPING` | |
 | `AO_TASK_BLOCKING` | |
@@ -169,7 +169,7 @@ struct ao_task_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `block` | |
 | `context` | |

@@ -41,7 +41,7 @@ struct ao_task_context_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `ptr` | |
 
@@ -125,7 +125,7 @@ struct ao_task_context_data_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `a0` | |
 | `a1` | |

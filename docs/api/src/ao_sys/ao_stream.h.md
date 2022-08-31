@@ -47,7 +47,7 @@ struct ao_stream_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `buffer` | |
 | `pop` | |
@@ -68,7 +68,7 @@ struct ao_spop_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `count` | |
@@ -93,7 +93,7 @@ struct ao_spush_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `count` | |

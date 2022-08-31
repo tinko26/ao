@@ -44,7 +44,7 @@ struct ao_wr_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `r_active` | |
 | `r_waiting` | |
@@ -63,7 +63,7 @@ struct ao_wr_lock_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `node` | |

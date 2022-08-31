@@ -59,7 +59,7 @@ struct ao_counter_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `list` | |
 | `value` | |
@@ -79,7 +79,7 @@ struct ao_counter_wait_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `counter` | |

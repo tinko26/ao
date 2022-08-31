@@ -49,7 +49,7 @@ struct ao_send_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `begin` | |

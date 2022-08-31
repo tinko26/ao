@@ -41,7 +41,7 @@ struct ao_are_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `list` | |
 | `state` | |
@@ -58,7 +58,7 @@ struct ao_are_wait_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `are` | |
 | `async` | |

@@ -52,7 +52,7 @@ struct ao_task_stack_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `beginning` | |
 | `high_water_mark` | |

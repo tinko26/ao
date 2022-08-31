@@ -42,7 +42,7 @@ struct ao_sem_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `count` | |
 | `list` | |
@@ -60,7 +60,7 @@ struct ao_sem_take_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `count` | |

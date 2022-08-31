@@ -83,7 +83,7 @@ struct ao_spi_reg_brg_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.brg` | |
@@ -112,7 +112,7 @@ struct ao_spi_reg_buf_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.data` | |
@@ -164,7 +164,7 @@ struct ao_spi_reg_con_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.cke` | |
@@ -227,7 +227,7 @@ struct ao_spi_reg_con2_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.auden` | |
@@ -282,7 +282,7 @@ struct ao_spi_reg_stat_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.frmerr` | |
@@ -319,7 +319,7 @@ struct ao_spi_reg_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `brg` | |
 | `buf` | |

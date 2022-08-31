@@ -38,7 +38,7 @@ struct ao_mikroe_2935_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `ready` | |
 | `x` | |

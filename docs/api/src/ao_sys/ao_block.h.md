@@ -36,7 +36,7 @@ struct ao_block_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `alarm` | |
 | `beginning` | |

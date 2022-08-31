@@ -65,7 +65,7 @@ struct ao_task_sched_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `node` | |
 

@@ -62,7 +62,7 @@ struct ao_threshold_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `adjust` | |
 | `adjust_parameter` | |
@@ -83,7 +83,7 @@ struct ao_threshold_wait_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `node` | |

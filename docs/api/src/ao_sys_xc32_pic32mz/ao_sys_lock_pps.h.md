@@ -35,7 +35,7 @@ struct ao_sys_lock_pps_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `device` | |
 | `io` | |

@@ -47,7 +47,7 @@ struct ao_queue4obj_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `heap` | |
 | `insert` | |
@@ -66,7 +66,7 @@ struct ao_qinsert_obj_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `node` | |
@@ -87,7 +87,7 @@ struct ao_qpop_obj_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `node` | |

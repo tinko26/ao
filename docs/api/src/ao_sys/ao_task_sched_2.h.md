@@ -91,7 +91,7 @@ struct ao_task_sched_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `masters` | |
 | `node` | |
@@ -110,7 +110,7 @@ struct ao_task_ceiling_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `prio` | |
 | `slave` | |
@@ -129,7 +129,7 @@ struct ao_task_master_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `prio` | |
 | `slave` | |
@@ -154,7 +154,7 @@ struct ao_task_slave_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `ceilings` | |
 | `masters` | |

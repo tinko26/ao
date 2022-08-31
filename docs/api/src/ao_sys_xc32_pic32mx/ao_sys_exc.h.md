@@ -37,7 +37,7 @@ enum ao_sys_exc_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `AO_SYS_EXC_INT` | |
 | `AO_SYS_EXC_ADEL` | |

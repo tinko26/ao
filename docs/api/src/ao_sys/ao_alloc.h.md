@@ -67,7 +67,7 @@ struct ao_acquired_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `ptr` | |
 | `result` | |
@@ -88,7 +88,7 @@ struct ao_released_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `ptr` | |
 | `ref` | |
@@ -109,7 +109,7 @@ struct ao_retained_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `ptr` | |
 | `ref` | |

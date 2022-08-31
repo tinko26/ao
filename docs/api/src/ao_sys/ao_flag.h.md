@@ -51,7 +51,7 @@ struct ao_flag_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `list` | |
 | `mask` | |
@@ -71,7 +71,7 @@ struct ao_flag_wait_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `flag` | |

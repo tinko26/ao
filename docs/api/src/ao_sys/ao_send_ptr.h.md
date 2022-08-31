@@ -44,7 +44,7 @@ struct ao_send_ptr_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `begin` | |

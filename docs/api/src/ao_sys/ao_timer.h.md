@@ -39,7 +39,7 @@ struct ao_timer_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `alarm` | |
 | `callback` | |

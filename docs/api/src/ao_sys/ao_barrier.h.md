@@ -43,7 +43,7 @@ struct ao_barrier_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `count` | |
 | `count_threshold` | |
@@ -61,7 +61,7 @@ struct ao_barrier_wait_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `barrier` | |

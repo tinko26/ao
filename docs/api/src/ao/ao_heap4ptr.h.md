@@ -85,7 +85,7 @@ struct ao_heap4ptr_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `capacity` | The maximum number of pointers that can be stored in the heap. |
 | `count` | The current number of pointers stored in the heap. |

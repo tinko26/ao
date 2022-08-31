@@ -107,7 +107,7 @@ enum ao_uart_error_flags_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `AO_UART_ERROR_ALL` | |
 | `AO_UART_ERROR_FRAMING` | |
@@ -124,7 +124,7 @@ struct ao_uart_error_info_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `flags` | |
 
@@ -148,7 +148,7 @@ struct ao_uart_reg_brg_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.brg` | |
@@ -195,7 +195,7 @@ struct ao_uart_reg_mode_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.abaud` | |
@@ -242,7 +242,7 @@ struct ao_uart_reg_rx_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.rx` | |
@@ -286,7 +286,7 @@ struct ao_uart_reg_sta_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.adden` | |
@@ -330,7 +330,7 @@ struct ao_uart_reg_tx_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.tx` | |
@@ -352,7 +352,7 @@ struct ao_uart_reg_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `brg` | |
 | `mode` | |

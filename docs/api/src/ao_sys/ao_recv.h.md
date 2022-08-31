@@ -48,7 +48,7 @@ struct ao_recv_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `begin` | |

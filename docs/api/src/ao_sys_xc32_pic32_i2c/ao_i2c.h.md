@@ -89,7 +89,7 @@ struct ao_i2c_reg_add_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.add` | |
@@ -118,7 +118,7 @@ struct ao_i2c_reg_brg_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.brg` | |
@@ -169,7 +169,7 @@ struct ao_i2c_reg_con_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.a10m` | |
@@ -220,7 +220,7 @@ struct ao_i2c_reg_msk_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.msk` | |
@@ -246,7 +246,7 @@ struct ao_i2c_reg_rcv_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.rxdata` | |
@@ -286,7 +286,7 @@ struct ao_i2c_reg_stat_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.ackstat` | |
@@ -329,7 +329,7 @@ struct ao_i2c_reg_trn_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.txdata` | |
@@ -353,7 +353,7 @@ struct ao_i2c_reg_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `add` | |
 | `brg` | |

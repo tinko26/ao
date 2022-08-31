@@ -40,7 +40,7 @@ struct ao_signal_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `list` | |
 
@@ -56,7 +56,7 @@ struct ao_signal_wait_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `node` | |

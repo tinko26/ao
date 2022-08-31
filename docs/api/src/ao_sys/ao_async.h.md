@@ -45,7 +45,7 @@ struct ao_async_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `callback` | |
 | `callback_parameter` | |
@@ -64,7 +64,7 @@ struct ao_async_all_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `count` | |
@@ -84,7 +84,7 @@ struct ao_async_any_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `count` | |

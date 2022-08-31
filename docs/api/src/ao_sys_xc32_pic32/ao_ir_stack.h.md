@@ -69,7 +69,7 @@ struct ao_ir_stack_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `depth` | |
 | `depth_max` | |

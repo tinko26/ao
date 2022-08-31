@@ -34,7 +34,7 @@ struct ao_sys_lock_device_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `dma` | |
 | `ie` | |

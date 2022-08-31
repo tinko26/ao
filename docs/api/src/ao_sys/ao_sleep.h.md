@@ -40,7 +40,7 @@ struct ao_sleep_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `alarm` | |
 | `async` | |

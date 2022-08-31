@@ -41,7 +41,7 @@ struct ao_bsem_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `list` | |
 | `taken` | |
@@ -58,7 +58,7 @@ struct ao_bsem_take_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `node` | |

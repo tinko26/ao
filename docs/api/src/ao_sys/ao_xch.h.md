@@ -46,7 +46,7 @@ struct ao_xch_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `clients` | |
 | `servers` | |
@@ -70,7 +70,7 @@ struct ao_xch_client_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `master` | |
@@ -97,7 +97,7 @@ struct ao_xch_server_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `client` | |

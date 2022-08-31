@@ -593,7 +593,7 @@ struct ao_alloc_pool_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `allocated` | |
 | `allocated_max` | |
@@ -616,7 +616,7 @@ struct ao_acquired_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `pool` | |
 | `ptr` | |
@@ -639,7 +639,7 @@ struct ao_released_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `pool` | |
 | `ptr` | |
@@ -662,7 +662,7 @@ struct ao_retained_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `pool` | |
 | `ptr` | |

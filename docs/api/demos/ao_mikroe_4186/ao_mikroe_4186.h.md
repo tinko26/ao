@@ -49,7 +49,7 @@ union ao_mikroe_4186_port_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `pin0` | |
 | `pin1` | |
@@ -76,7 +76,7 @@ union ao_mikroe_4186_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `port0` | |
 | `port1` | |

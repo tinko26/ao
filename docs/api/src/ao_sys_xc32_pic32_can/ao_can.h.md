@@ -255,7 +255,7 @@ struct ao_can_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `cmsgdata0` | |
 | `cmsgdata1` | |
@@ -314,7 +314,7 @@ struct ao_can_baud_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `brp` | |
 | `cfg` | |
@@ -359,7 +359,7 @@ struct ao_can_bus_info_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `receive_error_counter` | |
 | `receive_error_state` | |
@@ -440,7 +440,7 @@ enum ao_can_fifo_flags_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `AO_CAN_FIFO_FLAGS_0` | |
 | `AO_CAN_FIFO_FLAGS_1` | |
@@ -499,7 +499,7 @@ struct ao_can_overflow_info_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `fifos` | |
 | `fifos_rx` | |
@@ -532,7 +532,7 @@ struct ao_can_reg_cfg_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.brp` | |
@@ -580,7 +580,7 @@ struct ao_can_reg_con_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.abat` | |
@@ -612,7 +612,7 @@ struct ao_can_reg_fifoba_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `clr` | |
 | `inv` | |
@@ -639,7 +639,7 @@ struct ao_can_reg_fifoci_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.cfifoci` | |
@@ -680,7 +680,7 @@ struct ao_can_reg_fifocon_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.donly` | |
@@ -737,7 +737,7 @@ struct ao_can_reg_fifoint_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.rxfullie` | |
@@ -774,7 +774,7 @@ struct ao_can_reg_fifoua_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `clr` | |
 | `inv` | |
@@ -793,7 +793,7 @@ struct ao_can_reg_fifo_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `ci` | |
 | `con` | |
@@ -831,7 +831,7 @@ struct ao_can_reg_fltcon_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.flten0` | |
@@ -882,7 +882,7 @@ struct ao_can_reg_fltcon0_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.flten0` | |
@@ -933,7 +933,7 @@ struct ao_can_reg_fltcon1_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.flten4` | |
@@ -984,7 +984,7 @@ struct ao_can_reg_fltcon2_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.flten10` | |
@@ -1035,7 +1035,7 @@ struct ao_can_reg_fltcon3_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.flten12` | |
@@ -1086,7 +1086,7 @@ struct ao_can_reg_fltcon4_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.flten16` | |
@@ -1137,7 +1137,7 @@ struct ao_can_reg_fltcon5_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.flten20` | |
@@ -1188,7 +1188,7 @@ struct ao_can_reg_fltcon6_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.flten24` | |
@@ -1239,7 +1239,7 @@ struct ao_can_reg_fltcon7_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.flten28` | |
@@ -1310,7 +1310,7 @@ struct ao_can_reg_fstat_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.fifoip0` | |
@@ -1389,7 +1389,7 @@ struct ao_can_reg_int_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.cerrie` | |
@@ -1441,7 +1441,7 @@ struct ao_can_reg_rxf_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.eid` | |
@@ -1478,7 +1478,7 @@ struct ao_can_reg_rxm_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.eid` | |
@@ -1542,7 +1542,7 @@ struct ao_can_reg_rxovf_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.rxovf0` | |
@@ -1603,7 +1603,7 @@ struct ao_can_reg_tmr_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.cants` | |
@@ -1640,7 +1640,7 @@ struct ao_can_reg_trec_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.ewarn` | |
@@ -1678,7 +1678,7 @@ struct ao_can_reg_vec_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `bits` | |
 | `bits.filhit` | |
@@ -1810,7 +1810,7 @@ struct ao_can_reg_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `cfg` | |
 | `con` | |
@@ -1912,7 +1912,7 @@ struct ao_can_sent_info_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `fifo` | |
 | `fifo_tx` | |
@@ -1931,7 +1931,7 @@ enum ao_can_system_flags_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `AO_CAN_SYSTEM_ADDRESSING` | |
 | `AO_CAN_SYSTEM_BANDWIDTH` | |
@@ -1947,7 +1947,7 @@ struct ao_can_system_info_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `flags` | |
 
@@ -1967,7 +1967,7 @@ struct ao_can_underflow_info_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `fifos` | |
 | `fifos_tx` | |

@@ -48,7 +48,7 @@ struct ao_rendezvous_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `wait` | |
 
@@ -67,7 +67,7 @@ struct ao_rendezvous_wait_t
 };
 ```
 
-Members:
+It consists of the following members.
 
 | `async` | |
 | `exchange` | |
