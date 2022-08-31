@@ -78,22 +78,22 @@ It consists of the following members.
 
 # Functions
 
-Check whether a list is empty in constant time.
-
-```c
-#define ao_list_is_empty(x)
-```
-
 Insert `n2` after `n1` into a list in constant time.
 
 ```c
-void ao_list_insert_after( ao_list_t * x, ao_list_node_t * n1, ao_list_node_t * n2);
+void ao_list_insert_after(ao_list_t * x, ao_list_node_t * n1, ao_list_node_t * n2);
 ```
 
 Insert `n1` before `n2` into a list in constant time.
 
 ```c
 void ao_list_insert_before(ao_list_t * x, ao_list_node_t * n1, ao_list_node_t * n2);
+```
+
+Check whether a list is empty in constant time.
+
+```c
+#define ao_list_is_empty(x)
 ```
 
 Remove and return the back or front node, respectively, in constant time.

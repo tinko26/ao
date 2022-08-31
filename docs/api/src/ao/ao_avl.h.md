@@ -104,12 +104,6 @@ This type represents a compare function, that implements a strict total order on
 
 # Functions
 
-Check whether a tree is empty in constant time.
-
-```c
-#define ao_avl_is_empty(x)
-```
-
 Check whether a tree is valid in linear time. This function traverses the tree top-down and checks, whether the relevant properties are maintained. If that is not the case, the function triggers a runtime assertion failure.
 
 It is therefore useful in debugging scenarios. However, the function is implemented recursively, which violates a common rule in embedded software engineering.
@@ -122,6 +116,12 @@ Insert a node into a tree in logarithmic time.
 
 ```c
 void ao_avl_insert(ao_avl_t * x, ao_avl_node_t * n);
+```
+
+Check whether a tree is empty in constant time.
+
+```c
+#define ao_avl_is_empty(x)
 ```
 
 Get the maximum or minimum node, respectively, of a tree in logarithmic time. Thereby, the maximum node is the rightmost node and the minimum node is the leftmost node in the tree. Both functions return `NULL`, if the tree is empty.

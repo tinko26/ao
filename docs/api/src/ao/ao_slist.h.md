@@ -91,12 +91,6 @@ This type represents a compare function, that implements a strict total order on
 
 # Functions
 
-Check whether a list is empty in constant time.
-
-```c
-#define ao_slist_is_empty(x)
-```
-
 Check whether a list is valid in linear time. This function traverses the list from front to back and, for each node, checks, whether it is less than its successor. If that is not the case, the function triggers a runtime assertion failure. It is therefore useful in debugging scenarios.
 
 ```c
@@ -107,6 +101,12 @@ Insert a node into a list in linear time.
 
 ```c
 void ao_slist_insert(ao_slist_t * x, ao_slist_node_t * n);
+```
+
+Check whether a list is empty in constant time.
+
+```c
+#define ao_slist_is_empty(x)
 ```
 
 Remove and return the back or front node, respectively, in constant time.
