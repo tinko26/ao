@@ -41,7 +41,7 @@ This type represents options for the conversion.
 struct ao_scan_t
 {
     size_t radix;
-    bool seek;
+    bool   seek;
 };
 ```
 

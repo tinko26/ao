@@ -113,7 +113,7 @@ void ao_lfsr32(ao_lfsr32_t * r);
 void ao_lfsr64(ao_lfsr64_t * r);
 ```
 
-# Usage
+# Example
 
 The register must be initialized with a generator polynomial, which appears in natural order. That is, bit 0, or the least significant bit, contains the polynomial's term $$x^1$$, bit 1 contains term $$x^2$$, and so on.
 
