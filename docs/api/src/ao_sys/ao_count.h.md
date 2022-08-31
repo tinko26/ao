@@ -1,14 +1,20 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-08-31
 description: "The /src/ao_sys/ao_count.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_count.h/
-subtitle: ""
+subtitle: "Hardware counter"
 title: "ao_count.h"
 toc: true
 ---
+
+# Overview
+
+This module encapsulates a hardware counter that increments continuously at a constant rate. The hardware counter makes up the basis for measuring time. Additionally, this hardware counter and a corresponding interrupt make up the basis for alarms.
+
+This module is abstract, that is, an implementation must be provided by a port package in order to support timing.
 
 # Include
 
@@ -24,21 +30,29 @@ typedef uint32_t ao_count_t;
 
 # Constants
 
+The frequency, in Hertz, at which the hardware counter is incremented.
+
 ```c
 #define AO_COUNT_FREQUENCY (0)
 ```
 
-```c
-#define AO_COUNT_MAX (UINT32_MAX)
-```
+The maximum and minimum hardware counter value, respectively.
 
 ```c
-#define AO_COUNT_MIN (0)
+#define AO_COUNT_MAX       (UINT32_MAX)
+#define AO_COUNT_MIN       (0)
 ```
+
+# Types
+
+## `ao_count_t`
+
+This type is an alias for an unsigned integer type that can hold a value of the hardware counter.
 
 # Functions
+
+Get the current value of the hardware counter.
 
 ```c
 ao_count_t ao_count();
 ```
-

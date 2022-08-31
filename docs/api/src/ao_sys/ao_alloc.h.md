@@ -64,9 +64,9 @@ Select the allocator implementation.
 
 The following options are available.
 
-| `0` | [`ao_alloc_0`](ao_alloc_0.h.md) | Stub |
-| `1` | [`ao_alloc_1`](ao_alloc_1.h.md) | Linear-time allocator based on pools of fixed-size memory blocks |
-| `2` | [`ao_alloc_2`](ao_alloc_2.h.md) | Constant-time allocator based on the two-level segregated fit algorithm proposed by Masmano et al. |
+| [`ao_alloc_0`](ao_alloc_0.h.md) | Stub |
+| [`ao_alloc_1`](ao_alloc_1.h.md) | Linear-time allocator based on pools of fixed-size memory blocks |
+| [`ao_alloc_2`](ao_alloc_2.h.md) | Constant-time allocator based on the two-level segregated fit algorithm proposed by Masmano et al. |
 
 Execute a callback upon each call to `ao_acquire()`, `ao_release()`, or `ao_retain()`, respectively, which can aid in debugging an application or tracing and optimizing the memory usage of the allocator.
 

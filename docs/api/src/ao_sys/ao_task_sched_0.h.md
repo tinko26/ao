@@ -1,11 +1,11 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-08-31
 description: "The /src/ao_sys/ao_task_sched_0.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_task_sched_0.h/
-subtitle: ""
+subtitle: "Task scheduler stub"
 title: "ao_task_sched_0.h"
 toc: true
 ---
@@ -19,7 +19,7 @@ toc: true
 # Typedefs
 
 ```c
-typedef struct ao_task_sched_t ao_task_sched_t;
+typedef struct ao_task_sched_t   ao_task_sched_t;
 ```
 
 ```c
@@ -27,17 +27,17 @@ typedef struct ao_task_ceiling_t ao_task_ceiling_t;
 ```
 
 ```c
-typedef struct ao_task_master_t ao_task_master_t;
+typedef struct ao_task_master_t  ao_task_master_t;
 ```
 
 ```c
-typedef struct ao_task_slave_t ao_task_slave_t;
+typedef struct ao_task_slave_t   ao_task_slave_t;
 ```
 
 # Constants
 
 ```c
-#define AO_TASK_CEILING (false)
+#define AO_TASK_CEILING     (false)
 ```
 
 ```c
@@ -45,7 +45,7 @@ typedef struct ao_task_slave_t ao_task_slave_t;
 ```
 
 ```c
-#define AO_TASK_SUBMISSION (false)
+#define AO_TASK_SUBMISSION  (false)
 ```
 
 # Types
@@ -73,4 +73,3 @@ struct ao_task_master_t { };
 ```c
 struct ao_task_slave_t { };
 ```
-

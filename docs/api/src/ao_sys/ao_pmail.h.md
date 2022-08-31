@@ -1,11 +1,11 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-08-31
 description: "The /src/ao_sys/ao_pmail.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_pmail.h/
-subtitle: ""
+subtitle: "Priority mail for asynchronous messaging"
 title: "ao_pmail.h"
 toc: true
 ---
@@ -23,7 +23,7 @@ toc: true
 # Typedefs
 
 ```c
-typedef struct ao_pmail_t ao_pmail_t;
+typedef struct ao_pmail_t       ao_pmail_t;
 ```
 
 ```c
@@ -31,12 +31,14 @@ typedef struct ao_pmail_fetch_t ao_pmail_fetch_t;
 ```
 
 ```c
-typedef struct ao_pmailbox_t ao_pmailbox_t;
+typedef struct ao_pmailbox_t    ao_pmailbox_t;
 ```
 
 # Types
 
 ## `ao_pmail_t`
+
+This type represents a mail.
 
 ```c
 struct ao_pmail_t
@@ -47,18 +49,20 @@ struct ao_pmail_t
 
 It consists of the following members.
 
-| `node` | |
+| `node` | The node for the mailbox's priority queue of mails. |
 
 ## `ao_pmail_fetch_t`
+
+This type represents the fetching of a mail.
 
 ```c
 struct ao_pmail_fetch_t
 {
-    ao_async_t async;
+    ao_async_t            async;
     ao_pmail_t * volatile mail;
-    ao_pmailbox_t * mailbox;
-    ao_list_node_t node;
-    bool volatile result;
+    ao_pmailbox_t *       mailbox;
+    ao_list_node_t        node;
+    bool         volatile result;
 };
 ```
 
@@ -72,46 +76,47 @@ It consists of the following members.
 
 ## `ao_pmailbox_t`
 
+This type represents a mailbox.
+
 ```c
 struct ao_pmailbox_t
 {
     ao_list_t fetchers;
-    ao_rb_t mails;
+    ao_rb_t   mails;
 };
 ```
 
 It consists of the following members.
 
-| `fetchers` | |
-| `mails` | |
+| `fetchers` | The list of fetchers. |
+| `mails` | The priority queue of mails. |
 
 # Functions
 
 ```c
-void ao_pmail_post( ao_pmailbox_t * x, ao_pmail_t * m);
+void ao_pmail_post(ao_pmailbox_t * x, ao_pmail_t * m);
 ```
 
 ```c
-bool ao_pmail_fetch( ao_pmailbox_t * x, ao_pmail_t ** m, ao_time_t timeout);
+bool ao_pmail_fetch(ao_pmailbox_t * x, ao_pmail_t ** m, ao_time_t timeout);
 ```
 
 ```c
-bool ao_pmail_fetch_from( ao_pmailbox_t * x, ao_pmail_t ** m, ao_time_t timeout, ao_time_t beginning);
+bool ao_pmail_fetch_from(ao_pmailbox_t * x, ao_pmail_t ** m, ao_time_t timeout, ao_time_t beginning);
 ```
 
 ```c
-bool ao_pmail_fetch_forever( ao_pmailbox_t * x, ao_pmail_t ** m);
+bool ao_pmail_fetch_forever(ao_pmailbox_t * x, ao_pmail_t ** m);
 ```
 
 ```c
-bool ao_pmail_fetch_try( ao_pmailbox_t * x, ao_pmail_t ** m);
+bool ao_pmail_fetch_try(ao_pmailbox_t * x, ao_pmail_t ** m);
 ```
 
 ```c
-void ao_pmail_fetch_begin( ao_pmail_fetch_t * x);
+void ao_pmail_fetch_begin(ao_pmail_fetch_t * x);
 ```
 
 ```c
-void ao_pmail_fetch_end( ao_pmail_fetch_t * x);
+void ao_pmail_fetch_end(ao_pmail_fetch_t * x);
 ```
-

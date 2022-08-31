@@ -1,11 +1,14 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-08-31
 description: "The /src/ao_sys/ao_send_to_callback.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_send_to_callback.h/
-subtitle: ""
+seealso:
+- title: "<code>ao_send.h</code>"
+  url: /api/src/ao_sys/ao_send.h/
+subtitle: "Sending to callbacks"
 title: "ao_send_to_callback.h"
 toc: true
 ---
@@ -21,4 +24,3 @@ toc: true
 ```c
 void ao_send_to_callback(ao_send_t * x, ao_send_proc_t y);
 ```
-

@@ -1,14 +1,23 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-08-31
 description: "The /src/ao_sys/ao_cond.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_cond.h/
-subtitle: ""
+subtitle: "Condition variables"
 title: "ao_cond.h"
 toc: true
 ---
+
+# Overview
+
+...
+
+- Condition (variable), but not that monitor-based kind implemented in the STL.
+- actually the same behavior as a binary semaphore
+
+...
 
 # Include
 
@@ -22,7 +31,7 @@ toc: true
 # Typedefs
 
 ```c
-typedef struct ao_cond_t ao_cond_t;
+typedef struct ao_cond_t      ao_cond_t;
 ```
 
 ```c
@@ -33,11 +42,13 @@ typedef struct ao_cond_wait_t ao_cond_wait_t;
 
 ## `ao_cond_t`
 
+This type represents a condition.
+
 ```c
 struct ao_cond_t
 {
     ao_list_t list;
-    bool state;
+    bool      state;
 };
 ```
 
@@ -48,13 +59,15 @@ It consists of the following members.
 
 ## `ao_cond_wait_t`
 
+This type represents the waiting for a condition.
+
 ```c
 struct ao_cond_wait_t
 {
-    ao_async_t async;
-    ao_cond_t * cond;
+    ao_async_t     async;
+    ao_cond_t *    cond;
     ao_list_node_t node;
-    bool volatile result;
+    bool volatile  result;
 };
 ```
 
@@ -68,34 +81,27 @@ It consists of the following members.
 # Functions
 
 ```c
-void ao_cond_clear( ao_cond_t * x);
+void ao_cond_clear(ao_cond_t * x);
 ```
 
 ```c
-void ao_cond_set( ao_cond_t * x);
+void ao_cond_set(ao_cond_t * x);
 ```
 
 ```c
-bool ao_cond_wait( ao_cond_t * x, ao_time_t timeout);
+bool ao_cond_wait(     ao_cond_t * x, ao_time_t timeout);
+bool ao_cond_wait_from(ao_cond_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
 ```c
-bool ao_cond_wait_from( ao_cond_t * x, ao_time_t timeout, ao_time_t beginning);
+bool ao_cond_wait_forever(ao_cond_t * x);
 ```
 
 ```c
-bool ao_cond_wait_forever( ao_cond_t * x);
+bool ao_cond_wait_try(ao_cond_t * x);
 ```
 
 ```c
-bool ao_cond_wait_try( ao_cond_t * x);
+void ao_cond_wait_begin(ao_cond_wait_t * x);
+void ao_cond_wait_end(  ao_cond_wait_t * x);
 ```
-
-```c
-void ao_cond_wait_begin( ao_cond_wait_t * x);
-```
-
-```c
-void ao_cond_wait_end( ao_cond_wait_t * x);
-```
-

@@ -1,26 +1,25 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-08-31
 description: "The /src/ao_sys/ao_task_stack.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_task_stack.h/
-subtitle: ""
+subtitle: "Task stack"
 title: "ao_task_stack.h"
 toc: true
 ---
 
-# Include
+# Configuration
 
-```c
-#include <ao_task_stack_0.h>
-#include <ao_task_stack_1.h>
-#include <ao_task_stack_2.h>
-```
-
-# Constants
+Select the task stack implementation.
 
 ```c
 #define AO_TASK_STACK (2)
 ```
 
+The following options are available.
+
+| [`ao_task_stack_0`](ao_task_stack_0.h.md) | Stub |
+| [`ao_task_stack_1`](ao_task_stack_1.h.md) | Injection |
+| [`ao_task_stack_2`](ao_task_stack_2.h.md) | Allocation |

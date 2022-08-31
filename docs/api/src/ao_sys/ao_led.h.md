@@ -1,13 +1,16 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-08-31
 description: "The /src/ao_sys/ao_led.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_led.h/
-subtitle: ""
+subtitle: "LEDs"
 title: "ao_led.h"
 toc: true
+wiki:
+- title: "LED"
+  url: https://en.wikipedia.org/wiki/Light-emitting_diode
 ---
 
 # Typedefs
@@ -29,7 +32,7 @@ typedef enum ao_leds_t ao_leds_t;
 ```c
 enum ao_leds_t
 {
-    AO_LEDS_ALL = 0,
+    AO_LEDS_ALL  = 0,
     AO_LEDS_NONE = 0
 };
 ```
@@ -46,14 +49,13 @@ ao_leds_t ao_leds();
 ```
 
 ```c
-void ao_leds_disable( ao_leds_t x);
+void ao_leds_disable(ao_leds_t x);
 ```
 
 ```c
-void ao_leds_enable( ao_leds_t x);
+void ao_leds_enable(ao_leds_t x);
 ```
 
 ```c
-void ao_leds_toggle( ao_leds_t x);
+void ao_leds_toggle(ao_leds_t x);
 ```
-

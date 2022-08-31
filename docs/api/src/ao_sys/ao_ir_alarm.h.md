@@ -1,14 +1,18 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-08-31
 description: "The /src/ao_sys/ao_ir_alarm.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_ir_alarm.h/
-subtitle: ""
+subtitle: "Alarm interrupt"
 title: "ao_ir_alarm.h"
 toc: true
 ---
+
+# Overview
+
+This module declares functions for controlling the alarm interrupt as well as a callback function for the interrupt handler. This module is abstract, that is, an implementation must be provided by a port package in order to support alarms.
 
 # Include
 
@@ -18,27 +22,34 @@ toc: true
 
 # Functions
 
+Callback for the interrupt handler. Actually, this function is implemented by the [`ao_alarm.h`](ao_alarm.h.md) module.
+
 ```c
 void ao_alarm();
 ```
 
-```c
-void ao_alarm_disable();
-```
+Enable or disable the interrupt, respectively.
 
 ```c
 void ao_alarm_enable();
+void ao_alarm_disable();
 ```
 
-```c
-void ao_alarm_reply();
-```
+Request an interrupt or reply thereto, respectively.
 
 ```c
 void ao_alarm_request();
+void ao_alarm_reply();
 ```
+
+Set the time for the next interrupt.
 
 ```c
 void ao_alarm_set(ao_time_t t);
 ```
 
+# Porting
+
+The port must implement an interrupt handler, which in turn must execute the callback function. 
+
+On start-up, the alarm interrupt must be disabled.

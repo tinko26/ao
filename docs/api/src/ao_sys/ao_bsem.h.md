@@ -1,13 +1,16 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-08-31
 description: "The /src/ao_sys/ao_bsem.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_bsem.h/
-subtitle: ""
+subtitle: "Binary semaphores"
 title: "ao_bsem.h"
 toc: true
+wiki:
+- title: "Semaphore"
+  url: https://en.wikipedia.org/wiki/Semaphore_(programming)
 ---
 
 # Include
@@ -22,7 +25,7 @@ toc: true
 # Typedefs
 
 ```c
-typedef struct ao_bsem_t ao_bsem_t;
+typedef struct ao_bsem_t      ao_bsem_t;
 ```
 
 ```c
@@ -33,65 +36,64 @@ typedef struct ao_bsem_take_t ao_bsem_take_t;
 
 ## `ao_bsem_t`
 
+This type represents a binary semaphore.
+
 ```c
 struct ao_bsem_t
 {
     ao_list_t list;
-    bool taken;
+    bool      taken;
 };
 ```
 
 It consists of the following members.
 
-| `list` | |
-| `taken` | |
+| `list` | The list of tasks attempting to take the semaphore. |
+| `taken` | Indicates whether the semaphore is taken. |
 
 ## `ao_bsem_take_t`
+
+This type represents the taking of a binary semaphore.
 
 ```c
 struct ao_bsem_take_t
 {
-    ao_async_t async;
+    ao_async_t     async;
     ao_list_node_t node;
-    bool volatile result;
-    ao_bsem_t * sem;
+    bool volatile  result;
+    ao_bsem_t *    sem;
 };
 ```
 
 It consists of the following members.
 
-| `async` | |
-| `node` | |
-| `result` | |
-| `sem` | |
+| `async` | The asynchronous event. |
+| `node` | The list node. |
+| `result` | Indicates whether the binary semaphore has been taken. |
+| `sem` | The binary semaphore. |
 
 # Functions
 
+Give a binary semaphore. This function can be called from both task and interrupt context.
+
 ```c
-void ao_bsem_give( ao_bsem_t * x);
+void ao_bsem_give(ao_bsem_t * x);
 ```
 
 ```c
-bool ao_bsem_take( ao_bsem_t * x, ao_time_t timeout);
+bool ao_bsem_take(     ao_bsem_t * x, ao_time_t timeout);
+bool ao_bsem_take_from(ao_bsem_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
 ```c
-bool ao_bsem_take_from( ao_bsem_t * x, ao_time_t timeout, ao_time_t beginning);
+bool ao_bsem_take_forever(ao_bsem_t * x);
 ```
 
 ```c
-bool ao_bsem_take_forever( ao_bsem_t * x);
+bool ao_bsem_take_try(ao_bsem_t * x);
 ```
 
 ```c
-bool ao_bsem_take_try( ao_bsem_t * x);
+void ao_bsem_take_begin(ao_bsem_take_t * x);
+void ao_bsem_take_end(  ao_bsem_take_t * x);
 ```
-
-```c
-void ao_bsem_take_begin( ao_bsem_take_t * x);
-```
-
-```c
-void ao_bsem_take_end( ao_bsem_take_t * x);
-```
-

@@ -1,13 +1,18 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-08-31
 description: "The /src/ao_sys/ao_yield.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_yield.h/
-subtitle: ""
+subtitle: "Yielding"
 title: "ao_yield.h"
 toc: true
+wiki:
+- title: "Coroutine"
+  url: https://en.wikipedia.org/wiki/Coroutine
+- title: "Producer-consumer problem"
+  url: https://en.wikipedia.org/wiki/Producer-consumer_problem
 ---
 
 # Include
@@ -25,4 +30,3 @@ void ao_yield();
 ```c
 void ao_yield_to(ao_task_t * t);
 ```
-

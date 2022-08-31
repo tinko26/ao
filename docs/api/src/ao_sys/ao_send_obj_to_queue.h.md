@@ -1,11 +1,16 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-08-31
 description: "The /src/ao_sys/ao_send_obj_to_queue.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_send_obj_to_queue.h/
-subtitle: ""
+seealso:
+- title: "<code>ao_queue4obj.h</code>"
+  url: /api/src/ao_sys/ao_queue4obj.h/
+- title: "<code>ao_send_obj.h</code>"
+  url: /api/src/ao_sys/ao_send_obj.h/
+subtitle: "Sending objects to queues"
 title: "ao_send_obj_to_queue.h"
 toc: true
 ---
@@ -22,4 +27,3 @@ toc: true
 ```c
 void ao_send_obj_to_queue(ao_send_obj_t * x, ao_qinsert_obj_t * y);
 ```
-

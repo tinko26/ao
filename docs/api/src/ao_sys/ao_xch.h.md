@@ -1,14 +1,23 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-08-31
 description: "The /src/ao_sys/ao_xch.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_xch.h/
-subtitle: ""
+subtitle: "Exchanges for client-server messaging"
 title: "ao_xch.h"
 toc: true
 ---
+
+# Overview
+
+...
+
+- client-server messaging.
+- request-reply messaging
+
+...
 
 # Include
 
@@ -23,7 +32,7 @@ toc: true
 # Typedefs
 
 ```c
-typedef struct ao_xch_t ao_xch_t;
+typedef struct ao_xch_t        ao_xch_t;
 ```
 
 ```c
@@ -38,6 +47,8 @@ typedef struct ao_xch_server_t ao_xch_server_t;
 
 ## `ao_xch_t`
 
+This type represents an exchange.
+
 ```c
 struct ao_xch_t
 {
@@ -48,112 +59,127 @@ struct ao_xch_t
 
 It consists of the following members.
 
-| `clients` | |
-| `servers` | |
+| `clients` | The list of waiting clients. |
+| `servers` | The list of waiting servers. |
 
 ## `ao_xch_client_t`
+
+This type represents the exchange activity of a client.
 
 ```c
 struct ao_xch_client_t
 {
-    ao_async_t async;
+    ao_async_t                 async;
+
 #if AO_TASK_INHERITANCE
-    ao_task_master_t master;
+
+    ao_task_master_t           master;
+
 #endif
-    ao_list_node_t node;
-    bool volatile result;
+
+    ao_list_node_t             node;
+    bool              volatile result;
     ao_xch_server_t * volatile server;
+
 #if AO_TASK_INHERITANCE
-    ao_task_t * task;
+
+    ao_task_t *                task;
+
 #endif
-    ao_xch_t * xch;
+
+    ao_xch_t *                 xch;
 };
 ```
 
 It consists of the following members.
 
-| `async` | |
-| `master` | |
-| `node` | |
-| `result` | |
-| `server` | |
-| `task` | |
-| `xch` | |
+| `async` | The asynchronous event. |
+| `master` | The task master. |
+| `node` | The node for the exchange's waiting list. |
+| `result` | Indicates whether a server has replied. |
+| `server` | The server. |
+| `task` | The client task. |
+| `xch` | The exchange. |
 
 ## `ao_xch_server_t`
+
+This type represents the exchange activity of a server.
 
 ```c
 struct ao_xch_server_t
 {
-    ao_async_t async;
+    ao_async_t                 async;
     ao_xch_client_t * volatile client;
-    ao_list_node_t node;
-    bool volatile result;
+    ao_list_node_t             node;
+    bool              volatile result;
+
 #if AO_TASK_INHERITANCE
-    ao_task_slave_t slave;
-    ao_task_t * task;
+
+    ao_task_slave_t            slave;
+    ao_task_t *                task;
+
 #endif
-    ao_xch_t * xch;
+
+    ao_xch_t *                 xch;
 };
 ```
 
 It consists of the following members.
 
-| `async` | |
-| `client` | |
-| `node` | |
-| `result` | |
-| `slave` | |
-| `task` | |
-| `xch` | |
+| `async` | The asynchronous event. |
+| `client` | The client. |
+| `node` | The node for the exchange's waiting list. |
+| `result` | Indicates whether a client's request has arrived. |
+| `slave` | The task slave. |
+| `task` | The server task. |
+| `xch` | The exchange. |
 
 # Functions
 
 ```c
-void ao_xch_client( ao_xch_client_t * x, ao_time_t timeout);
+void ao_xch_client(ao_xch_client_t * x, ao_time_t timeout);
 ```
 
 ```c
-void ao_xch_client_from( ao_xch_client_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_xch_client_from(ao_xch_client_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
 ```c
-void ao_xch_client_forever( ao_xch_client_t * x);
+void ao_xch_client_forever(ao_xch_client_t * x);
 ```
 
 ```c
-void ao_xch_client_begin( ao_xch_client_t * x);
+void ao_xch_client_begin(ao_xch_client_t * x);
 ```
 
 ```c
-void ao_xch_client_end( ao_xch_client_t * x);
+void ao_xch_client_end(ao_xch_client_t * x);
 ```
 
 ```c
-void ao_xch_server( ao_xch_server_t * x, ao_time_t timeout);
+void ao_xch_server(ao_xch_server_t * x, ao_time_t timeout);
 ```
 
 ```c
-void ao_xch_server_from( ao_xch_server_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_xch_server_from(ao_xch_server_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
 ```c
-void ao_xch_server_forever( ao_xch_server_t * x);
+void ao_xch_server_forever(ao_xch_server_t * x);
 ```
 
 ```c
-void ao_xch_server_try( ao_xch_server_t * x);
+void ao_xch_server_try(ao_xch_server_t * x);
 ```
 
 ```c
-void ao_xch_server_begin( ao_xch_server_t * x);
+void ao_xch_server_begin(ao_xch_server_t * x);
 ```
 
 ```c
-void ao_xch_server_end( ao_xch_server_t * x);
+void ao_xch_server_end(ao_xch_server_t * x);
 ```
 
 ```c
-void ao_xch_server_reply( ao_xch_server_t * x);
+void ao_xch_server_reply(ao_xch_server_t * x);
 ```
-

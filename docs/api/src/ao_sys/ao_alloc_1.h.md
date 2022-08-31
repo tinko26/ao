@@ -82,11 +82,7 @@ The number of blocks in each pool.
 ```c
 #define AO_ALLOC_POOL_BLOCK_COUNT_0  (0)
 #define AO_ALLOC_POOL_BLOCK_COUNT_1  (0)
-```
-
 ...
-
-```c
 #define AO_ALLOC_POOL_BLOCK_COUNT_63 (0)
 ```
 
@@ -95,11 +91,7 @@ The size of the blocks in each pool in bytes.
 ```c
 #define AO_ALLOC_POOL_BLOCK_SIZE_0   (0)
 #define AO_ALLOC_POOL_BLOCK_SIZE_1   (0)
-```
-
 ...
-
-```c
 #define AO_ALLOC_POOL_BLOCK_SIZE_63  (0)
 ```
 
@@ -240,11 +232,7 @@ The pools.
 ```c
 extern ao_alloc_pool_t ao_alloc_pool_0;
 extern ao_alloc_pool_t ao_alloc_pool_1;
-```
-
 ...
-
-```c
 extern ao_alloc_pool_t ao_alloc_pool_63;
 ```
 
