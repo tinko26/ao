@@ -22,6 +22,8 @@ This module defines the fastest unsigned integer type available on the target pl
 
 # Typedefs
 
+The `ao_uint_t` type represents the fastest unsigned integer type of the target platform. It is an alias for one of the fixed-width unsigned integer types defined by the standard library.
+
 ```c
 typedef uint32_t ao_uint_t;
 ```
