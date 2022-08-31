@@ -242,7 +242,7 @@ long double ao_tanhl(long double x);
 
 ## Logarithmic functions
 
-Break $$\texttt{x}$$ into its binary significant and an integral exponent for $$2$$.
+Break $$\texttt{x}$$ into its binary significant and an integral exponent for 2.
 
 ```c
 double      ao_frexpd(double x, int * exp);
@@ -250,7 +250,7 @@ float       ao_frexpf(float x, int * exp);
 long double ao_frexpl(long double x, int * exp);
 ```
 
-Break $$\texttt{x}$$ into its decimal significant and an integral exponent for $$10$$.
+Break $$\texttt{x}$$ into its decimal significant and an integral exponent for 10.
 
 ```c
 double      ao_frexp10d(double x, int * exp);
@@ -316,7 +316,7 @@ float       ao_ldexp10f(float x, int exp);
 long double ao_ldexp10l(long double x, int exp);
 ```
 
-Get $$x^y$$.
+Get $$\texttt{x}^\texttt{y}$$.
 
 ```c
 double      ao_powd(double x, double y);

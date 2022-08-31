@@ -205,13 +205,13 @@ Get the hyperbolic tangent of $$\texttt{x}$$.
 
 ## Logarithmic functions
 
-Break $$\texttt{x}$$ into its binary significant and an integral exponent for $$2$$.
+Break $$\texttt{x}$$ into its binary significant and an integral exponent for 2.
 
 ```c
 #define ao_frexp(x, exp)
 ```
 
-Break $$\texttt{x}$$ into its decimal significant and an integral exponent for $$10$$.
+Break $$\texttt{x}$$ into its decimal significant and an integral exponent for 10.
 
 ```c
 #define ao_frexp10(x, exp)
@@ -261,7 +261,7 @@ Get $$\texttt{x} \cdot 10^{\texttt{exp}}$$.
 #define ao_ldexp10(x, exp)
 ```
 
-Get $$x^y$$.
+Get $$\texttt{x}^\texttt{y}$$.
 
 ```c
 #define ao_pow(x, y)
