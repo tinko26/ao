@@ -23,8 +23,7 @@ This module defines a single macro function that returns a pointer to the head o
 
 # Functions
 
-// Given a pointer `p` to a member `m` of a compound type `t`,
-// return a pointer to the head of the compound.
+Given a pointer `p` to a member `m` of a compound type `t`, return a pointer to the head of the compound.
 
 ```c
 #define ao_containerof(p, t, m)

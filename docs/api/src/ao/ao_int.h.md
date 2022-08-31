@@ -33,8 +33,8 @@ typedef int32_t ao_int_t;
 The maximum and minimum value.
 
 ```c
-#define AO_INT_MAX (INT32_MAX)
-#define AO_INT_MIN (INT32_MIN)
+#define AO_INT_MAX  (INT32_MAX)
+#define AO_INT_MIN  (INT32_MIN)
 ```
 
 The size in bytes.

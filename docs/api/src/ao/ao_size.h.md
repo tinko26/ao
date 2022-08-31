@@ -27,21 +27,21 @@ The standard library's `size_t` type is an unsigned integer type, at least 16 bi
 The size in bits and the base-2 logarithm thereof.
 
 ```c
-#define AO_SIZE_BITS (32)
+#define AO_SIZE_BITS     (32)
 #define AO_SIZE_BITS_LOG (5)
 ```
 
 The maximum and minimum value.
 
 ```c
-#define AO_SIZE_MAX (SIZE_MAX)
-#define AO_SIZE_MIN (0)
+#define AO_SIZE_MAX      (SIZE_MAX)
+#define AO_SIZE_MIN      (0)
 ```
 
 The size in bytes.
 
 ```c
-#define AO_SIZE_SIZE (4)
+#define AO_SIZE_SIZE     (4)
 ```
 
 # Functions

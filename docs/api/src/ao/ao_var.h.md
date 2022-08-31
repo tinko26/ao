@@ -52,7 +52,7 @@ ao_copy(&b, &a, uint32_t);
 ao_assert(a == b);
 ```
 
-Clear list `l`;
+Clear list `l`.
 
 ```c
 ao_list_t l;

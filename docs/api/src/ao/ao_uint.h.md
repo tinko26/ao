@@ -31,21 +31,21 @@ typedef uint32_t ao_uint_t;
 The size in bits and the base-2 logarithm thereof.
 
 ```c
-#define AO_UINT_BITS (32)
+#define AO_UINT_BITS     (32)
 #define AO_UINT_BITS_LOG (5)
 ```
 
 The maximum and minimum value.
 
 ```c
-#define AO_UINT_MAX (UINT32_MAX)
-#define AO_UINT_MIN (0)
+#define AO_UINT_MAX      (UINT32_MAX)
+#define AO_UINT_MIN      (0)
 ```
 
 The size in bytes.
 
 ```c
-#define AO_UINT_SIZE (4)
+#define AO_UINT_SIZE     (4)
 ```
 
 # Functions
