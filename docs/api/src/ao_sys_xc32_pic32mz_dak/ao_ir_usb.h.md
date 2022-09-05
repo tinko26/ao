@@ -1,7 +1,7 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-05
 description: "The /src/ao_sys_xc32_pic32mz_dak/ao_ir_usb.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mz_dak/ao_ir_usb.h/
@@ -18,114 +18,135 @@ toc: true
 #include <xc.h>
 ```
 
-# Constants
+# Configuration
+
+## `AO_IR_USB`
+
+The interrupt handler attribute.
 
 ```c
 #define AO_IR_USB_ATTRIBUTE __ISR(_USB_VECTOR, IPL4SRS)
 ```
 
-```c
-#define AO_IR_USB_PRIO (4)
-```
+The interrupt priority and subpriority.
 
 ```c
-#define AO_IR_USB_SUBPRIO (0)
+#define AO_IR_USB_PRIO      (4)
+#define AO_IR_USB_SUBPRIO   (0)
 ```
+
+## `AO_IR_USBDMA`
+
+The interrupt handler attribute.
 
 ```c
 #define AO_IR_USBDMA_ATTRIBUTE __ISR(_USB_DMA_VECTOR, IPL4SRS)
 ```
 
-```c
-#define AO_IR_USBDMA_PRIO (4)
-```
+The interrupt priority and subpriority.
 
 ```c
-#define AO_IR_USBDMA_SUBPRIO (0)
+#define AO_IR_USBDMA_PRIO      (4)
+#define AO_IR_USBDMA_SUBPRIO   (0)
 ```
+
+## `AO_IR_USBSR`
+
+The interrupt handler attribute.
 
 ```c
 #define AO_IR_USBSR_ATTRIBUTE __ISR(_USB_SR_VECTOR, IPL4SRS)
 ```
 
-```c
-#define AO_IR_USBSR_PRIO (4)
-```
+The interrupt priority and subpriority.
 
 ```c
-#define AO_IR_USBSR_SUBPRIO (0)
+#define AO_IR_USBSR_PRIO      (4)
+#define AO_IR_USBSR_SUBPRIO   (0)
 ```
 
 # Functions
 
-```c
-#define ao_ir_usb_disable()
-```
+## `ao_ir_usb`
+
+Enable or disable the interrupt.
 
 ```c
 #define ao_ir_usb_enable()
+#define ao_ir_usb_disable()
 ```
+
+Request the interrupt or reply thereto.
+
+```c
+#define ao_ir_usb_request()
+#define ao_ir_usb_reply()
+```
+
+Check whether the interrupt is enabled.
 
 ```c
 #define ao_ir_usb_is_enabled()
 ```
 
+Check whether the interrupt is pending.
+
 ```c
 #define ao_ir_usb_is_pending()
 ```
 
-```c
-#define ao_ir_usb_reply()
-```
+## `ao_ir_usbdma`
 
-```c
-#define ao_ir_usb_request()
-```
-
-```c
-#define ao_ir_usbdma_disable()
-```
+Enable or disable the interrupt.
 
 ```c
 #define ao_ir_usbdma_enable()
+#define ao_ir_usbdma_disable()
 ```
+
+Request the interrupt or reply thereto.
+
+```c
+#define ao_ir_usbdma_request()
+#define ao_ir_usbdma_reply()
+```
+
+Check whether the interrupt is enabled.
 
 ```c
 #define ao_ir_usbdma_is_enabled()
 ```
 
+Check whether the interrupt is pending.
+
 ```c
 #define ao_ir_usbdma_is_pending()
 ```
 
-```c
-#define ao_ir_usbdma_reply()
-```
+## `ao_ir_usbsr`
 
-```c
-#define ao_ir_usbdma_request()
-```
-
-```c
-#define ao_ir_usbsr_disable()
-```
+Enable or disable the interrupt.
 
 ```c
 #define ao_ir_usbsr_enable()
+#define ao_ir_usbsr_disable()
 ```
+
+Request the interrupt or reply thereto.
+
+```c
+#define ao_ir_usbsr_request()
+#define ao_ir_usbsr_reply()
+```
+
+Check whether the interrupt is enabled.
 
 ```c
 #define ao_ir_usbsr_is_enabled()
 ```
 
+Check whether the interrupt is pending.
+
 ```c
 #define ao_ir_usbsr_is_pending()
-```
-
-```c
-#define ao_ir_usbsr_reply()
-```
-
-```c
-#define ao_ir_usbsr_request()
 ```

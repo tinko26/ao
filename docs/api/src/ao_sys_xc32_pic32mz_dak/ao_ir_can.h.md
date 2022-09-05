@@ -1,7 +1,7 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-05
 description: "The /src/ao_sys_xc32_pic32mz_dak/ao_ir_can.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mz_dak/ao_ir_can.h/
@@ -18,78 +18,92 @@ toc: true
 #include <xc.h>
 ```
 
-# Constants
+# Configuration
+
+## `AO_IR_CAN1`
+
+The interrupt handler attribute.
 
 ```c
 #define AO_IR_CAN1_ATTRIBUTE __ISR(_CAN1_VECTOR, IPL4SRS)
 ```
 
-```c
-#define AO_IR_CAN1_PRIO (4)
-```
+The interrupt priority and subpriority.
 
 ```c
-#define AO_IR_CAN1_SUBPRIO (0)
+#define AO_IR_CAN1_PRIO      (4)
+#define AO_IR_CAN1_SUBPRIO   (0)
 ```
+
+## `AO_IR_CAN2`
+
+The interrupt handler attribute.
 
 ```c
 #define AO_IR_CAN2_ATTRIBUTE __ISR(_CAN2_VECTOR, IPL4SRS)
 ```
 
-```c
-#define AO_IR_CAN2_PRIO (4)
-```
+The interrupt priority and subpriority.
 
 ```c
-#define AO_IR_CAN2_SUBPRIO (0)
+#define AO_IR_CAN2_PRIO      (4)
+#define AO_IR_CAN2_SUBPRIO   (0)
 ```
 
 # Functions
 
-```c
-#define ao_ir_can1_disable()
-```
+## `ao_ir_can1`
+
+Enable or disable the interrupt.
 
 ```c
 #define ao_ir_can1_enable()
+#define ao_ir_can1_disable()
 ```
+
+Request the interrupt or reply thereto.
+
+```c
+#define ao_ir_can1_request()
+#define ao_ir_can1_reply()
+```
+
+Check whether the interrupt is enabled.
 
 ```c
 #define ao_ir_can1_is_enabled()
 ```
 
+Check whether the interrupt is pending.
+
 ```c
 #define ao_ir_can1_is_pending()
 ```
 
-```c
-#define ao_ir_can1_reply()
-```
+## `ao_ir_can2`
 
-```c
-#define ao_ir_can1_request()
-```
-
-```c
-#define ao_ir_can2_disable()
-```
+Enable or disable the interrupt.
 
 ```c
 #define ao_ir_can2_enable()
+#define ao_ir_can2_disable()
 ```
+
+Request the interrupt or reply thereto.
+
+```c
+#define ao_ir_can2_request()
+#define ao_ir_can2_reply()
+```
+
+Check whether the interrupt is enabled.
 
 ```c
 #define ao_ir_can2_is_enabled()
 ```
 
+Check whether the interrupt is pending.
+
 ```c
 #define ao_ir_can2_is_pending()
-```
-
-```c
-#define ao_ir_can2_reply()
-```
-
-```c
-#define ao_ir_can2_request()
 ```

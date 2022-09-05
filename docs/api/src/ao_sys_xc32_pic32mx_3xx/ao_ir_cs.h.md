@@ -1,7 +1,7 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-05
 description: "The /src/ao_sys_xc32_pic32mx_3xx/ao_ir_cs.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mx_3xx/ao_ir_cs.h/
@@ -18,78 +18,92 @@ toc: true
 #include <xc.h>
 ```
 
-# Constants
+# Configuration
+
+## `AO_IR_CS0`
+
+The interrupt handler attribute.
 
 ```c
 #define AO_IR_CS0_ATTRIBUTE __ISR(_CORE_SOFTWARE_0_VECTOR, IPL2SOFT)
 ```
 
-```c
-#define AO_IR_CS0_PRIO (2)
-```
+The interrupt priority and subpriority.
 
 ```c
-#define AO_IR_CS0_SUBPRIO (0)
+#define AO_IR_CS0_PRIO      (2)
+#define AO_IR_CS0_SUBPRIO   (0)
 ```
+
+## `AO_IR_CS1`
+
+The interrupt handler attribute.
 
 ```c
 #define AO_IR_CS1_ATTRIBUTE __attribute__ ((naked, vector(_CORE_SOFTWARE_1_VECTOR)))
 ```
 
-```c
-#define AO_IR_CS1_PRIO (1)
-```
+The interrupt priority and subpriority.
 
 ```c
-#define AO_IR_CS1_SUBPRIO (0)
+#define AO_IR_CS1_PRIO      (1)
+#define AO_IR_CS1_SUBPRIO   (0)
 ```
 
 # Functions
 
-```c
-#define ao_ir_cs0_disable()
-```
+## `ao_ir_cs0`
+
+Enable or disable the interrupt.
 
 ```c
 #define ao_ir_cs0_enable()
+#define ao_ir_cs0_disable()
 ```
+
+Request the interrupt or reply thereto.
+
+```c
+#define ao_ir_cs0_request()
+#define ao_ir_cs0_reply()
+```
+
+Check whether the interrupt is enabled.
 
 ```c
 #define ao_ir_cs0_is_enabled()
 ```
 
+Check whether the interrupt is pending.
+
 ```c
 #define ao_ir_cs0_is_pending()
 ```
 
-```c
-#define ao_ir_cs0_reply()
-```
+## `ao_ir_cs1`
 
-```c
-#define ao_ir_cs0_request()
-```
-
-```c
-#define ao_ir_cs1_disable()
-```
+Enable or disable the interrupt.
 
 ```c
 #define ao_ir_cs1_enable()
+#define ao_ir_cs1_disable()
 ```
+
+Request the interrupt or reply thereto.
+
+```c
+#define ao_ir_cs1_request()
+#define ao_ir_cs1_reply()
+```
+
+Check whether the interrupt is enabled.
 
 ```c
 #define ao_ir_cs1_is_enabled()
 ```
 
+Check whether the interrupt is pending.
+
 ```c
 #define ao_ir_cs1_is_pending()
-```
-
-```c
-#define ao_ir_cs1_reply()
-```
-
-```c
-#define ao_ir_cs1_request()
 ```

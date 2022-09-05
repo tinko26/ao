@@ -1,7 +1,7 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-05
 description: "The /src/ao_sys_xc32_pic32mx_1xx_64_100/ao_ir_dma.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mx_1xx_64_100/ao_ir_dma.h/
@@ -18,150 +18,178 @@ toc: true
 #include <xc.h>
 ```
 
-# Constants
+# Configuration
+
+## `AO_IR_DMA0`
+
+The interrupt handler attribute.
 
 ```c
 #define AO_IR_DMA0_ATTRIBUTE __ISR(_DMA_0_VECTOR, IPL4SOFT)
 ```
 
-```c
-#define AO_IR_DMA0_PRIO (4)
-```
+The interrupt priority and subpriority.
 
 ```c
-#define AO_IR_DMA0_SUBPRIO (0)
+#define AO_IR_DMA0_PRIO      (4)
+#define AO_IR_DMA0_SUBPRIO   (0)
 ```
+
+## `AO_IR_DMA1`
+
+The interrupt handler attribute.
 
 ```c
 #define AO_IR_DMA1_ATTRIBUTE __ISR(_DMA_1_VECTOR, IPL4SOFT)
 ```
 
-```c
-#define AO_IR_DMA1_PRIO (4)
-```
+The interrupt priority and subpriority.
 
 ```c
-#define AO_IR_DMA1_SUBPRIO (0)
+#define AO_IR_DMA1_PRIO      (4)
+#define AO_IR_DMA1_SUBPRIO   (0)
 ```
+
+## `AO_IR_DMA2`
+
+The interrupt handler attribute.
 
 ```c
 #define AO_IR_DMA2_ATTRIBUTE __ISR(_DMA_2_VECTOR, IPL4SOFT)
 ```
 
-```c
-#define AO_IR_DMA2_PRIO (4)
-```
+The interrupt priority and subpriority.
 
 ```c
-#define AO_IR_DMA2_SUBPRIO (0)
+#define AO_IR_DMA2_PRIO      (4)
+#define AO_IR_DMA2_SUBPRIO   (0)
 ```
+
+## `AO_IR_DMA3`
+
+The interrupt handler attribute.
 
 ```c
 #define AO_IR_DMA3_ATTRIBUTE __ISR(_DMA_3_VECTOR, IPL4SOFT)
 ```
 
-```c
-#define AO_IR_DMA3_PRIO (4)
-```
+The interrupt priority and subpriority.
 
 ```c
-#define AO_IR_DMA3_SUBPRIO (0)
+#define AO_IR_DMA3_PRIO      (4)
+#define AO_IR_DMA3_SUBPRIO   (0)
 ```
 
 # Functions
 
-```c
-#define ao_ir_dma0_disable()
-```
+## `ao_ir_dma0`
+
+Enable or disable the interrupt.
 
 ```c
 #define ao_ir_dma0_enable()
+#define ao_ir_dma0_disable()
 ```
+
+Request the interrupt or reply thereto.
+
+```c
+#define ao_ir_dma0_request()
+#define ao_ir_dma0_reply()
+```
+
+Check whether the interrupt is enabled.
 
 ```c
 #define ao_ir_dma0_is_enabled()
 ```
 
+Check whether the interrupt is pending.
+
 ```c
 #define ao_ir_dma0_is_pending()
 ```
 
-```c
-#define ao_ir_dma0_reply()
-```
+## `ao_ir_dma1`
 
-```c
-#define ao_ir_dma0_request()
-```
-
-```c
-#define ao_ir_dma1_disable()
-```
+Enable or disable the interrupt.
 
 ```c
 #define ao_ir_dma1_enable()
+#define ao_ir_dma1_disable()
 ```
+
+Request the interrupt or reply thereto.
+
+```c
+#define ao_ir_dma1_request()
+#define ao_ir_dma1_reply()
+```
+
+Check whether the interrupt is enabled.
 
 ```c
 #define ao_ir_dma1_is_enabled()
 ```
 
+Check whether the interrupt is pending.
+
 ```c
 #define ao_ir_dma1_is_pending()
 ```
 
-```c
-#define ao_ir_dma1_reply()
-```
+## `ao_ir_dma2`
 
-```c
-#define ao_ir_dma1_request()
-```
-
-```c
-#define ao_ir_dma2_disable()
-```
+Enable or disable the interrupt.
 
 ```c
 #define ao_ir_dma2_enable()
+#define ao_ir_dma2_disable()
 ```
+
+Request the interrupt or reply thereto.
+
+```c
+#define ao_ir_dma2_request()
+#define ao_ir_dma2_reply()
+```
+
+Check whether the interrupt is enabled.
 
 ```c
 #define ao_ir_dma2_is_enabled()
 ```
 
+Check whether the interrupt is pending.
+
 ```c
 #define ao_ir_dma2_is_pending()
 ```
 
-```c
-#define ao_ir_dma2_reply()
-```
+## `ao_ir_dma3`
 
-```c
-#define ao_ir_dma2_request()
-```
-
-```c
-#define ao_ir_dma3_disable()
-```
+Enable or disable the interrupt.
 
 ```c
 #define ao_ir_dma3_enable()
+#define ao_ir_dma3_disable()
 ```
+
+Request the interrupt or reply thereto.
+
+```c
+#define ao_ir_dma3_request()
+#define ao_ir_dma3_reply()
+```
+
+Check whether the interrupt is enabled.
 
 ```c
 #define ao_ir_dma3_is_enabled()
 ```
 
+Check whether the interrupt is pending.
+
 ```c
 #define ao_ir_dma3_is_pending()
-```
-
-```c
-#define ao_ir_dma3_reply()
-```
-
-```c
-#define ao_ir_dma3_request()
 ```

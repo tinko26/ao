@@ -1,7 +1,7 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-05
 description: "The /src/ao_sys_xc32_pic32mz_ec/ao_ir_crpt.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mz_ec/ao_ir_crpt.h/
@@ -18,42 +18,49 @@ toc: true
 #include <xc.h>
 ```
 
-# Constants
+# Configuration
+
+## `AO_IR_CRPT`
+
+The interrupt handler attribute.
 
 ```c
 #define AO_IR_CRPT_ATTRIBUTE __ISR(_CRYPTO_VECTOR, IPL4SRS)
 ```
 
-```c
-#define AO_IR_CRPT_PRIO (4)
-```
+The interrupt priority and subpriority.
 
 ```c
-#define AO_IR_CRPT_SUBPRIO (0)
+#define AO_IR_CRPT_PRIO      (4)
+#define AO_IR_CRPT_SUBPRIO   (0)
 ```
 
 # Functions
 
-```c
-#define ao_ir_crpt_disable()
-```
+## `ao_ir_crpt`
+
+Enable or disable the interrupt.
 
 ```c
 #define ao_ir_crpt_enable()
+#define ao_ir_crpt_disable()
 ```
+
+Request the interrupt or reply thereto.
+
+```c
+#define ao_ir_crpt_request()
+#define ao_ir_crpt_reply()
+```
+
+Check whether the interrupt is enabled.
 
 ```c
 #define ao_ir_crpt_is_enabled()
 ```
 
+Check whether the interrupt is pending.
+
 ```c
 #define ao_ir_crpt_is_pending()
-```
-
-```c
-#define ao_ir_crpt_reply()
-```
-
-```c
-#define ao_ir_crpt_request()
 ```
