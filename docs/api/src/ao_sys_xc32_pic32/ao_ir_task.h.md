@@ -1,14 +1,18 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-05
 description: "The /src/ao_sys_xc32_pic32/ao_ir_task.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_ir_task.h/
-subtitle: ""
+subtitle: "Task switch interrupts"
 title: "ao_ir_task.h"
 toc: true
 ---
+
+# Overview
+
+This module declares functions for controlling the task switch interrupts as well as a callback function for the interrupt handlers.
 
 # Include
 
@@ -20,27 +24,28 @@ toc: true
 
 # Functions
 
+Callback for the interrupt handlers. Actually, this function is implemented by the [`ao_task_sched.h`](../ao_sys/ao_task_sched.h.md) module.
+
 ```c
 void ao_task_switch();
 ```
 
+Enable or disable the interrupt, respectively, on the specified processor core.
+
 ```c
+void ao_task_switch_enable( ao_core_t c);
 void ao_task_switch_disable(ao_core_t c);
 ```
 
-```c
-void ao_task_switch_enable(ao_core_t c);
-```
+Determine whether an interrupt is pending on the specified processor core.
 
 ```c
 bool ao_task_switch_is_pending(ao_core_t c);
 ```
 
-```c
-void ao_task_switch_reply(ao_core_t c);
-```
+Request an interrupt or reply thereto, respectively, on the specified processor core.
 
 ```c
 void ao_task_switch_request(ao_core_t c);
+void ao_task_switch_reply(  ao_core_t c);
 ```
-

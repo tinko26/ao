@@ -1,11 +1,11 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-05
 description: "The /src/ao_sys_xc32_pic32/ao_ir_stack.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_ir_stack.h/
-subtitle: ""
+subtitle: "Interrupt stack"
 title: "ao_ir_stack.h"
 toc: true
 ---
@@ -27,31 +27,45 @@ toc: true
 typedef struct ao_ir_stack_t ao_ir_stack_t;
 ```
 
-# Constants
+# Configuration
+
+Keep track of the maximum depth.
 
 ```c
 #define AO_IR_STACK_DEPTH_MAX (false)
 ```
 
-```c
-#define AO_IR_STACK_FILL (false)
-```
+Keep track of the high water mark.
 
 ```c
-#define AO_IR_STACK_SIZE (4096)
+#define AO_IR_STACK_FILL      (false)
 ```
+
+The size of the interrupt stack, in bytes.
+
+```c
+#define AO_IR_STACK_SIZE      (4096)
+```
+
+# Constants
+
+The aligned stack size, in bytes.
 
 ```c
 #define AO_IR_STACK_SIZE_ALIGNED AO_ALIGN_UP(AO_IR_STACK_SIZE, AO_STACK_ALIGN)
 ```
 
+The size of the argument section, in bytes.
+
 ```c
-#define AO_IR_STACK_SIZE_AS (24)
+#define AO_IR_STACK_SIZE_AS     (24)
 ```
 
 # Types
 
 ## `ao_ir_stack_t`
+
+This type represents the interrupt stack.
 
 ```c
 struct ao_ir_stack_t
@@ -60,41 +74,43 @@ struct ao_ir_stack_t
     uint32_t sp_backup;
     uint32_t fp_backup;
     uint32_t depth;
+
 #if AO_IR_STACK_DEPTH_MAX
+
     uint32_t depth_max;
+
 #endif
+
 #if AO_IR_STACK_FILL
-    size_t high_water_mark;
+
+    size_t   high_water_mark;
+
 #endif
+
 };
 ```
 
 It consists of the following members.
 
-| `depth` | |
-| `depth_max` | |
-| `fp_backup` | |
-| `high_water_mark` | |
-| `sp` | |
-| `sp_backup` | |
+| `depth` | The current depth. |
+| `depth_max` | The maximum depth. |
+| `fp_backup` | The frame pointer backup. |
+| `high_water_mark` | The high water mark, in bytes. |
+| `sp` | The stack pointer. |
+| `sp_backup` | The stack pointer backup. |
 
 # Functions
 
-```c
-void * ao_ir_stack_func0( ao_func0_t f);
-```
+Execute function `f` on the interrupt stack.
 
 ```c
-void * ao_ir_stack_func1( void * p1, ao_func1_t f);
+void * ao_ir_stack_func0(ao_func0_t f);
+void * ao_ir_stack_func1(void * p1, ao_func1_t f);
+void * ao_ir_stack_func2(void * p1, void * p2, ao_func2_t f);
+void * ao_ir_stack_func3(void * p1, void * p2, void * p3, ao_func3_t f);
 ```
 
-```c
-void * ao_ir_stack_func2( void * p1, void * p2, ao_func2_t f);
-```
-
-```c
-void * ao_ir_stack_func3( void * p1, void * p2, void * p3, ao_func3_t f);
-```
+Measure the high water mark of the interrupt stack.
 
 ```c
 void ao_ir_stack_high_water_mark();
@@ -102,7 +118,8 @@ void ao_ir_stack_high_water_mark();
 
 # Variables
 
+The interrupt stack.
+
 ```c
 extern ao_ir_stack_t ao_ir_stack;
 ```
-

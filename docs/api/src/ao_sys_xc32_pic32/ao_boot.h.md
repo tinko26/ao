@@ -1,11 +1,11 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-05
 description: "The /src/ao_sys_xc32_pic32/ao_boot.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_boot.h/
-subtitle: ""
+subtitle: "Booting"
 title: "ao_boot.h"
 toc: true
 ---
@@ -19,13 +19,19 @@ toc: true
 
 # Functions
 
+Boot the [`ao_count.h`](ao_count.h.md) module.
+
 ```c
 #define ao_boot_count()
 ```
 
+Boot the [`ao_ir_mvec.h`](ao_ir_mvec.h.md) module. This function sets up the multi-vectored interrupt mode.
+
 ```c
 #define ao_boot_ir_mvec()
 ```
+
+Boot the [`ao_ir_stack.h`](ao_ir_stack.h.md) module. This function sets up the interrupts stack.
 
 ```c
 void ao_boot_ir_stack();
@@ -36,4 +42,3 @@ void ao_boot_ir_stack();
 ```c
 #include_next <ao_boot.h>
 ```
-

@@ -28,15 +28,6 @@
 
 // ----------------------------------------------------------------------------
 
-// Microchip provides an implementation for log10.
-
-// However, there seems to be a typo in math.h.
-
-// If doubles are short, then math.h does not define the symbol log10, but only
-// the symbols log10f and log10l.
-
-// ----------------------------------------------------------------------------
-
 // Microchip provides implementations for the following functions.
 
 // * asinh
