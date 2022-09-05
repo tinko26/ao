@@ -1,4 +1,4 @@
-entries:
+list:
   - title: "API"
     url: /api/
   - title: "Binary Heaps"
