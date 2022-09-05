@@ -1,28 +1,29 @@
-- /api/
-- /binary-heaps/
-- /booting/
-- /buffers/
-- /configuration/
-- /critical-sections/
-- /debugging/
-- /demos/
-- /drivers/
-- /environment/
-- /interrupts/
-- /kernel/
-- /memory/
-- /modules/
-- /multitasking/
-- /operating-modes/
-- /packages/
-- /port/
-- /priority-queues/
-- /receiving/
-- /resources/
-- /source-code/
-- /spinning/
-- /synchronization/
-- /time/
-- /timers/
-- /timing/
-- /usage/
+/api/
+/api/src/
+/binary-heaps/
+/booting/
+/buffers/
+/configuration/
+/critical-sections/
+/debugging/
+/demos/
+/drivers/
+/environment/
+/interrupts/
+/kernel/
+/memory/
+/modules/
+/multitasking/
+/operating-modes/
+/packages/
+/port/
+/priority-queues/
+/receiving/
+/resources/
+/source-code/
+/spinning/
+/synchronization/
+/time/
+/timers/
+/timing/
+/usage/
