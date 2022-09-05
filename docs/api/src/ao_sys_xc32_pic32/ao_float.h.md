@@ -25,7 +25,7 @@ The size of a floating-point number in bits.
 # Include
 
 ```c
-#if   AO_FLOAT == (32)
+#if AO_FLOAT == (32)
 
 #include <ao_floatf.h>
 
