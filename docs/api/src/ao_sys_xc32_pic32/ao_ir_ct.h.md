@@ -18,6 +18,8 @@ toc: true
 
 # Functions
 
+## `ao_ir_ct`
+
 Enable or disable the interrupt.
 
 ```c

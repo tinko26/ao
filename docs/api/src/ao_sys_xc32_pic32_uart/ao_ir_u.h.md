@@ -18,7 +18,7 @@ toc: true
 
 # Functions
 
-## UART 1 Error Interrupt
+## `ao_ir_u1e`
 
 Enable or disable the interrupt.
 
@@ -46,7 +46,7 @@ Check whether the interrupt is pending.
 bool ao_ir_u1e_is_pending();
 ```
 
-## UART 1 Receive Interrupt
+## `ao_ir_u1rx`
 
 Enable or disable the interrupt.
 
@@ -74,7 +74,7 @@ Check whether the interrupt is pending.
 bool ao_ir_u1rx_is_pending();
 ```
 
-## UART 1 Transmit Interrupt
+## `ao_ir_u1tx`
 
 Enable or disable the interrupt.
 
@@ -102,7 +102,7 @@ Check whether the interrupt is pending.
 bool ao_ir_u1tx_is_pending();
 ```
 
-## UART 2 Error Interrupt
+## `ao_ir_u2e`
 
 Enable or disable the interrupt.
 
@@ -130,7 +130,7 @@ Check whether the interrupt is pending.
 bool ao_ir_u2e_is_pending();
 ```
 
-## UART 2 Receive Interrupt
+## `ao_ir_u2rx`
 
 Enable or disable the interrupt.
 
@@ -158,7 +158,7 @@ Check whether the interrupt is pending.
 bool ao_ir_u2rx_is_pending();
 ```
 
-## UART 2 Transmit Interrupt
+## `ao_ir_u2tx`
 
 Enable or disable the interrupt.
 
@@ -186,7 +186,7 @@ Check whether the interrupt is pending.
 bool ao_ir_u2tx_is_pending();
 ```
 
-## UART 3 Error Interrupt
+## `ao_ir_u3e`
 
 Enable or disable the interrupt.
 
@@ -214,7 +214,7 @@ Check whether the interrupt is pending.
 bool ao_ir_u3e_is_pending();
 ```
 
-## UART 3 Receive Interrupt
+## `ao_ir_u3rx`
 
 Enable or disable the interrupt.
 
@@ -242,7 +242,7 @@ Check whether the interrupt is pending.
 bool ao_ir_u3rx_is_pending();
 ```
 
-## UART 3 Transmit Interrupt
+## `ao_ir_u3tx`
 
 Enable or disable the interrupt.
 
@@ -270,7 +270,7 @@ Check whether the interrupt is pending.
 bool ao_ir_u3tx_is_pending();
 ```
 
-## UART 4 Error Interrupt
+## `ao_ir_u4e`
 
 Enable or disable the interrupt.
 
@@ -298,7 +298,7 @@ Check whether the interrupt is pending.
 bool ao_ir_u4e_is_pending();
 ```
 
-## UART 4 Receive Interrupt
+## `ao_ir_u4rx`
 
 Enable or disable the interrupt.
 
@@ -326,7 +326,7 @@ Check whether the interrupt is pending.
 bool ao_ir_u4rx_is_pending();
 ```
 
-## UART 4 Transmit Interrupt
+## `ao_ir_u4tx`
 
 Enable or disable the interrupt.
 
@@ -354,7 +354,7 @@ Check whether the interrupt is pending.
 bool ao_ir_u4tx_is_pending();
 ```
 
-## UART 5 Error Interrupt
+## `ao_ir_u5e`
 
 Enable or disable the interrupt.
 
@@ -382,7 +382,7 @@ Check whether the interrupt is pending.
 bool ao_ir_u5e_is_pending();
 ```
 
-## UART 5 Receive Interrupt
+## `ao_ir_u5rx`
 
 Enable or disable the interrupt.
 
@@ -410,7 +410,7 @@ Check whether the interrupt is pending.
 bool ao_ir_u5rx_is_pending();
 ```
 
-## UART 5 Transmit Interrupt
+## `ao_ir_u5tx`
 
 Enable or disable the interrupt.
 
@@ -438,7 +438,7 @@ Check whether the interrupt is pending.
 bool ao_ir_u5tx_is_pending();
 ```
 
-## UART 6 Error Interrupt
+## `ao_ir_u6e`
 
 Enable or disable the interrupt.
 
@@ -466,7 +466,7 @@ Check whether the interrupt is pending.
 bool ao_ir_u6e_is_pending();
 ```
 
-## UART 6 Receive Interrupt
+## `ao_ir_u6rx`
 
 Enable or disable the interrupt.
 
@@ -494,7 +494,7 @@ Check whether the interrupt is pending.
 bool ao_ir_u6rx_is_pending();
 ```
 
-## UART 6 Transmit Interrupt
+## `ao_ir_u6tx`
 
 Enable or disable the interrupt.
 

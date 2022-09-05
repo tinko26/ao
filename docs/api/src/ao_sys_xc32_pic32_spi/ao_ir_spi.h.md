@@ -18,7 +18,7 @@ toc: true
 
 # Functions
 
-## SPI 1 Error Interrupt
+## `ao_ir_spi1e`
 
 Enable or disable the interrupt.
 
@@ -46,7 +46,7 @@ Check whether the interrupt is pending.
 bool ao_ir_spi1e_is_pending();
 ```
 
-## SPI 1 Receive Interrupt
+## `ao_ir_spi1rx`
 
 Enable or disable the interrupt.
 
@@ -74,7 +74,7 @@ Check whether the interrupt is pending.
 bool ao_ir_spi1rx_is_pending();
 ```
 
-## SPI 1 Transmit Interrupt
+## `ao_ir_spi1tx`
 
 Enable or disable the interrupt.
 
@@ -102,7 +102,7 @@ Check whether the interrupt is pending.
 bool ao_ir_spi1tx_is_pending();
 ```
 
-## SPI 2 Error Interrupt
+## `ao_ir_spi2e`
 
 Enable or disable the interrupt.
 
@@ -130,7 +130,7 @@ Check whether the interrupt is pending.
 bool ao_ir_spi2e_is_pending();
 ```
 
-## SPI 2 Receive Interrupt
+## `ao_ir_spi2rx`
 
 Enable or disable the interrupt.
 
@@ -158,7 +158,7 @@ Check whether the interrupt is pending.
 bool ao_ir_spi2rx_is_pending();
 ```
 
-## SPI 2 Transmit Interrupt
+## `ao_ir_spi2tx`
 
 Enable or disable the interrupt.
 
@@ -186,7 +186,7 @@ Check whether the interrupt is pending.
 bool ao_ir_spi2tx_is_pending();
 ```
 
-## SPI 3 Error Interrupt
+## `ao_ir_spi3e`
 
 Enable or disable the interrupt.
 
@@ -214,7 +214,7 @@ Check whether the interrupt is pending.
 bool ao_ir_spi3e_is_pending();
 ```
 
-## SPI 3 Receive Interrupt
+## `ao_ir_spi3rx`
 
 Enable or disable the interrupt.
 
@@ -242,7 +242,7 @@ Check whether the interrupt is pending.
 bool ao_ir_spi3rx_is_pending();
 ```
 
-## SPI 3 Transmit Interrupt
+## `ao_ir_spi3tx`
 
 Enable or disable the interrupt.
 
@@ -270,7 +270,7 @@ Check whether the interrupt is pending.
 bool ao_ir_spi3tx_is_pending();
 ```
 
-## SPI 4 Error Interrupt
+## `ao_ir_spi4e`
 
 Enable or disable the interrupt.
 
@@ -298,7 +298,7 @@ Check whether the interrupt is pending.
 bool ao_ir_spi4e_is_pending();
 ```
 
-## SPI 4 Receive Interrupt
+## `ao_ir_spi4rx`
 
 Enable or disable the interrupt.
 
@@ -326,7 +326,7 @@ Check whether the interrupt is pending.
 bool ao_ir_spi4rx_is_pending();
 ```
 
-## SPI 4 Transmit Interrupt
+## `ao_ir_spi4tx`
 
 Enable or disable the interrupt.
 
@@ -354,7 +354,7 @@ Check whether the interrupt is pending.
 bool ao_ir_spi4tx_is_pending();
 ```
 
-## SPI 5 Error Interrupt
+## `ao_ir_spi5e`
 
 Enable or disable the interrupt.
 
@@ -382,7 +382,7 @@ Check whether the interrupt is pending.
 bool ao_ir_spi5e_is_pending();
 ```
 
-## SPI 5 Receive Interrupt
+## `ao_ir_spi5rx`
 
 Enable or disable the interrupt.
 
@@ -410,7 +410,7 @@ Check whether the interrupt is pending.
 bool ao_ir_spi5rx_is_pending();
 ```
 
-## SPI 5 Transmit Interrupt
+## `ao_ir_spi5tx`
 
 Enable or disable the interrupt.
 
@@ -438,7 +438,7 @@ Check whether the interrupt is pending.
 bool ao_ir_spi5tx_is_pending();
 ```
 
-## SPI 6 Error Interrupt
+## `ao_ir_spi6e`
 
 Enable or disable the interrupt.
 
@@ -466,7 +466,7 @@ Check whether the interrupt is pending.
 bool ao_ir_spi6e_is_pending();
 ```
 
-## SPI 6 Receive Interrupt
+## `ao_ir_spi6rx`
 
 Enable or disable the interrupt.
 
@@ -494,7 +494,7 @@ Check whether the interrupt is pending.
 bool ao_ir_spi6rx_is_pending();
 ```
 
-## SPI 6 Transmit Interrupt
+## `ao_ir_spi6tx`
 
 Enable or disable the interrupt.
 

@@ -18,7 +18,7 @@ toc: true
 
 # Functions
 
-## CAN 1 Interrupt
+## `ao_ir_can1`
 
 Enable or disable the interrupt.
 
@@ -46,7 +46,7 @@ Check whether the interrupt is pending.
 bool ao_ir_can1_is_pending();
 ```
 
-## CAN 2 Interrupt
+## `ao_ir_can2`
 
 Enable or disable the interrupt.
 
@@ -74,7 +74,7 @@ Check whether the interrupt is pending.
 bool ao_ir_can2_is_pending();
 ```
 
-## CAN 3 Interrupt
+## `ao_ir_can3`
 
 Enable or disable the interrupt.
 
@@ -102,7 +102,7 @@ Check whether the interrupt is pending.
 bool ao_ir_can3_is_pending();
 ```
 
-## CAN 4 Interrupt
+## `ao_ir_can4`
 
 Enable or disable the interrupt.
 
