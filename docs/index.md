@@ -5,7 +5,6 @@ description: ""
 draft: true
 permalink: /
 subtitle: "Real-time operating system"
-title: "ao"
 toc: false
 ---
 

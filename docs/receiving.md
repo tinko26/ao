@@ -14,7 +14,6 @@ seealso:
 - title: "<code>ao_stream.h</code>"
   url: /api/src/ao_sys/ao_stream.h/
 subtitle: "Receiving data from an opaque source"
-title: "Receiving"
 toc: false
 ---
 

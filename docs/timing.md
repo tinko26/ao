@@ -4,7 +4,6 @@ date: 2022-08-11
 description: "Timing in the ao real-time operating system."
 draft: true
 permalink: /timing/
-title: "Timing"
 ---
 
 | [`ao_alarm.h`](api/src/ao_sys/alarm.h.md) | |

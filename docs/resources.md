@@ -4,7 +4,6 @@ date: 2022-08-13
 description: "Resources in the ao real-time operating system."
 draft: true
 permalink: /resources/
-title: "Resources"
 ---
 
 # Resources

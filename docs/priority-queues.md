@@ -4,7 +4,6 @@ date: 2022-08-15
 description: "Priority queues in the ao real-time operating system."
 draft: false
 permalink: /priority-queues/
-title: "Priority Queues"
 wiki:
 - title: "Priority queue"
   url: https://en.wikipedia.org/wiki/Priority_queue

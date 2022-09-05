@@ -4,7 +4,6 @@ date: 2022-08-29
 description: "The port of the ao real-time operating system."
 draft: true
 permalink: /port/
-title: "Port"
 ---
 
 - Alarm interrupt is core timer interrupt, default priority 3

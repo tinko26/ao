@@ -4,7 +4,6 @@ date: 2022-08-13
 description: "Memory in the ao real-time operating system."
 draft: true
 permalink: /memory/
-title: "Memory"
 ---
 
 # Memory

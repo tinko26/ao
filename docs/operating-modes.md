@@ -4,7 +4,6 @@ date: 2022-08-13
 description: "Operating modes in the ao real-time operating system."
 draft: true
 permalink: /operating-modes/
-title: "Operating Modes"
 ---
 
 - operating systems can use hardware features to run code in different operating modes.

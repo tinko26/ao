@@ -4,7 +4,6 @@ date: 2022-08-14
 description: "The source code of the ao real-time operating system."
 draft: true
 permalink: /source-code/
-title: "Source Code"
 toc: true
 wiki:
   - title: "PIC32"

@@ -5,5 +5,4 @@ description: "Spinning in the ao real-time operating system."
 draft: true
 permalink: /spinning/
 subtitle: "Busy waiting"
-title: "Spinning"
 ---

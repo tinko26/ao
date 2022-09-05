@@ -4,7 +4,6 @@ date: 2022-08-09
 description: "Usage of the ao real-time operating system."
 draft: true
 permalink: /usage/
-title: "Usage"
 toc: true
 ---
 

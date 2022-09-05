@@ -4,5 +4,4 @@ date: 2022-08-14
 description: "The allocator in the ao real-time operating system."
 draft: true
 permalink: /allocator/
-title: "Allocator"
 ---

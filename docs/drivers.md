@@ -4,7 +4,6 @@ date: 2022-08-12
 description: "Drivers in the ao real-time operating system."
 draft: true
 permalink: /drivers/
-title: "Drivers"
 ---
 
 - not implemented in the kernel package but in the port packages

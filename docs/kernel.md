@@ -4,7 +4,6 @@ date: 2022-08-13
 description: "The kernel of the ao real-time operating system."
 draft: true
 permalink: /kernel/
-title: "Kernel"
 toc: true
 ---
 

@@ -5,7 +5,6 @@ description: "Debugging in the ao real-time operating system."
 draft: false
 permalink: /debugging/
 subtitle: "Finding and removing bugs"
-title: "Debugging"
 toc: false
 ---
 

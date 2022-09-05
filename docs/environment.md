@@ -4,7 +4,6 @@ date: 2022-08-11
 description: "The environment of the ao real-time operating system."
 draft: true
 permalink: /environment/
-title: "Environment"
 toc: true
 ---
 
