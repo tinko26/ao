@@ -28,21 +28,6 @@
 
 // ----------------------------------------------------------------------------
 
-// Microchip provides implementations for the following functions.
-
-// * asinh
-
-// * cosh
-
-// * sinh
-
-// * tanh
-
-// However, these implementations return false outputs on individual inputs on
-// devices with a floating point unit.
-
-// ----------------------------------------------------------------------------
-
 #include <math.h>
 
 // ----------------------------------------------------------------------------
@@ -102,6 +87,26 @@
 #ifndef ao_asinl
 
 #define ao_asinl(x)             asinl(x)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef ao_asinhd
+
+#define ao_asinhd(x)            asinh(x)
+
+#endif
+
+#ifndef ao_asinhf
+
+#define ao_asinhf(x)            asinhf(x)
+
+#endif
+
+#ifndef ao_asinhl
+
+#define ao_asinhl(x)            asinhl(x)
 
 #endif
 
@@ -222,6 +227,26 @@
 #ifndef ao_cosl
 
 #define ao_cosl(x)              cosl(x)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef ao_coshd
+
+#define ao_coshd(x)             cosh(x)
+
+#endif
+
+#ifndef ao_coshf
+
+#define ao_coshf(x)             coshf(x)
+
+#endif
+
+#ifndef ao_coshl
+
+#define ao_coshl(x)             coshl(x)
 
 #endif
 
@@ -447,6 +472,26 @@
 
 // ----------------------------------------------------------------------------
 
+#ifndef ao_log10d
+
+#define ao_log10d(x)            log10(x)
+
+#endif
+
+#ifndef ao_log10f
+
+#define ao_log10f(x)            log10f(x)
+
+#endif
+
+#ifndef ao_log10l
+
+#define ao_log10l(x)            log10l(x)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
 #ifndef ao_modfd
 
 #define ao_modfd(x, intpart)    modf(x, intpart)
@@ -507,6 +552,26 @@
 
 // ----------------------------------------------------------------------------
 
+#ifndef ao_sinhd
+
+#define ao_sinhd(x)             sinh(x)
+
+#endif
+
+#ifndef ao_sinhf
+
+#define ao_sinhf(x)             sinhf(x)
+
+#endif
+
+#ifndef ao_sinhl
+
+#define ao_sinhl(x)             sinhl(x)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
 #ifndef ao_sqrtd
 
 #define ao_sqrtd(x)             sqrt(x)
@@ -542,6 +607,26 @@
 #ifndef ao_tanl
 
 #define ao_tanl(x)              tanl(x)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef ao_tanhd
+
+#define ao_tanhd(x)             tanh(x)
+
+#endif
+
+#ifndef ao_tanhf
+
+#define ao_tanhf(x)             tanhf(x)
+
+#endif
+
+#ifndef ao_tanhl
+
+#define ao_tanhl(x)             tanhl(x)
 
 #endif
 
