@@ -6,7 +6,6 @@ draft: false
 groups:
 - "priority_queues"
 permalink: /binary-heaps/
-title: "Binary Heaps"
 toc: false
 wiki:
 - title: "Binary heap"
