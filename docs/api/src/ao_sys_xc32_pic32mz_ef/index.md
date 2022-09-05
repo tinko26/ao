@@ -6,9 +6,9 @@ description: "The /src/ao_sys_xc32_pic32mz_ef directory of the ao real-time oper
 draft: false
 external:
 - title: "Data sheet"
-  url: http://microchip.com/DS60001320
+  url: https://microchip.com/DS60001320
 - title: "Errata"
-  url: http://microchip.com/DS80000663
+  url: https://microchip.com/DS80000663
 permalink: /api/src/ao_sys_xc32_pic32mz_ef/ 
 subtitle: "PIC32MZ Embedded Connectivity with Floating Point Unit (EF) Family"
 title: "ao_sys_xc32_pic32mz_ef"

@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32_uart/ao_uart_1.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_uart/ao_uart_1.h/
-subtitle: ""
+subtitle: "UART 1"
 title: "ao_uart_1.h"
 toc: true
 ---
@@ -151,4 +151,3 @@ extern ao_recv_t ao_uart_out_1;
 ```c
 extern ao_task_t ao_uart_task_1;
 ```
-

@@ -6,7 +6,7 @@ description: "The /src/ao_sys_xc32_pic32_uart directory of the ao real-time oper
 draft: false
 external:
 - title: "PIC32 Family Reference Manual, Section 21: UART"
-  url: http://microchip.com/DS60001107
+  url: https://microchip.com/DS60001107
 permalink: /api/src/ao_sys_xc32_pic32_uart/ 
 subtitle: "UART driver"
 title: "ao_sys_xc32_pic32_uart"

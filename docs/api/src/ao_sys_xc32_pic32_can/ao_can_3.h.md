@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32_can/ao_can_3.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_can/ao_can_3.h/
-subtitle: ""
+subtitle: "CAN 3"
 title: "ao_can_3.h"
 toc: true
 ---
@@ -1200,4 +1200,3 @@ extern ao_recv_obj_t ao_can_out_3 [AO_CAN_FIFOS_TX_3];
 ```c
 extern ao_task_t ao_can_task_3;
 ```
-

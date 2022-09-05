@@ -6,7 +6,7 @@ description: "The /src/ao_sys_xc32_pic32_spi directory of the ao real-time opera
 draft: false
 external:
 - title: "PIC32 Family Reference Manual, Section 23: Serial Peripheral Interface (SPI)"
-  url: http://microchip.com/DS61106
+  url: https://microchip.com/DS61106
 permalink: /api/src/ao_sys_xc32_pic32_spi/ 
 subtitle: "SPI driver"
 title: "ao_sys_xc32_pic32_spi"

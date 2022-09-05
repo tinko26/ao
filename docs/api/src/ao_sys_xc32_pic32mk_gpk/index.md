@@ -6,9 +6,9 @@ description: "The /src/ao_sys_xc32_pic32mk_gpk directory of the ao real-time ope
 draft: false
 external:
 - title: "Data sheet"
-  url: http://microchip.com/DS60001519
+  url: https://microchip.com/DS60001519
 - title: "Errata"
-  url: http://microchip.com/DS80000898
+  url: https://microchip.com/DS80000898
 permalink: /api/src/ao_sys_xc32_pic32mk_gpk/ 
 subtitle: "PIC32MK General Purpose and Motor Control (GPK/MCM) with CAN FD Family"
 title: "ao_sys_xc32_pic32mk_gpk"

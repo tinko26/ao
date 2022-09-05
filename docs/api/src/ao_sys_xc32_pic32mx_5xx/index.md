@@ -6,11 +6,11 @@ description: "The /src/ao_sys_xc32_pic32mx_5xx directory of the ao real-time ope
 draft: false
 external:
 - title: "Data sheet"
-  url: http://microchip.com/DS60001156
+  url: https://microchip.com/DS60001156
 - title: "Errata (575/675/695/775/795)"
-  url: http://microchip.com/DS80000480
+  url: https://microchip.com/DS80000480
 - title: "Errata (534/564/664/764)"
-  url: http://microchip.com/DS80000511
+  url: https://microchip.com/DS80000511
 permalink: /api/src/ao_sys_xc32_pic32mx_5xx/ 
 subtitle: "PIC32MX5XX/6XX/7XX Family"
 title: "ao_sys_xc32_pic32mx_5xx"

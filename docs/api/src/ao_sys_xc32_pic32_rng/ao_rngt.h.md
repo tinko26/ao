@@ -1,11 +1,11 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-05
 description: "The /src/ao_sys_xc32_pic32_rng/ao_rngt.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_rng/ao_rngt.h/
-subtitle: ""
+subtitle: "True random number generator"
 title: "ao_rngt.h"
 toc: true
 ---
@@ -19,27 +19,28 @@ toc: true
 
 # Functions
 
-```c
-#define ao_rngt_disable()
-```
+Enable or disable the true random number generator.
 
 ```c
 #define ao_rngt_enable()
+#define ao_rngt_disable()
 ```
+
+Get the number of bits that have been generate since the last read.
 
 ```c
 #define ao_rngt_bits()
 ```
 
+Read the generated value.
+
 ```c
 #define ao_rngt_value()
 ```
 
+Read the most or least significant 32 bits of the generated value.
+
 ```c
 #define ao_rngt_value_hi()
-```
-
-```c
 #define ao_rngt_value_lo()
 ```
-

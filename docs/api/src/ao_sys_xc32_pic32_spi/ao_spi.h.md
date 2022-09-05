@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32_spi/ao_spi.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_spi/ao_spi.h/
-subtitle: ""
+subtitle: "SPI"
 title: "ao_spi.h"
 toc: true
 ---
@@ -340,4 +340,3 @@ It consists of the following members.
 ```c
 void ao_spi_baud ( ao_spi_reg_t * r, uint32_t f_pbclk, uint32_t f );
 ```
-

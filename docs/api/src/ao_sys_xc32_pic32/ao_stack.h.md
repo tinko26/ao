@@ -1,11 +1,11 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-05
 description: "The /src/ao_sys_xc32_pic32/ao_stack.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_stack.h/
-subtitle: ""
+subtitle: "Stacks"
 title: "ao_stack.h"
 toc: true
 ---
@@ -18,21 +18,24 @@ toc: true
 
 # Constants
 
+The stack pointer alignment, in bytes.
+
 ```c
 #define AO_STACK_ALIGN (8)
 ```
 
+The stack fill pattern.
+
 ```c
-#define AO_STACK_FILL (0xDEADBEEF)
+#define AO_STACK_FILL  (0xDEADBEEF)
 ```
 
 # Functions
 
 ```c
-void ao_stack_fill( void * beginning, size_t size);
+void ao_stack_fill(void * beginning, size_t size);
 ```
 
 ```c
-size_t ao_stack_get_high_water_mark( void const * beginning, size_t size);
+size_t ao_stack_get_high_water_mark(void const * beginning, size_t size);
 ```
-

@@ -6,9 +6,9 @@ description: "The /src/ao_sys_xc32_pic32mk_gpg directory of the ao real-time ope
 draft: false
 external:
 - title: "Data sheet"
-  url: http://microchip.com/DS60001570
+  url: https://microchip.com/DS60001570
 - title: "Errata"
-  url: http://microchip.com/DS80000833
+  url: https://microchip.com/DS80000833
 permalink: /api/src/ao_sys_xc32_pic32mk_gpg/ 
 subtitle: "PIC32MK General Purpose and Motor Control (GPG/MCJ) with CAN FD Family"
 title: "ao_sys_xc32_pic32mk_gpg"

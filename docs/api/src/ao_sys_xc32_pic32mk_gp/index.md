@@ -6,9 +6,9 @@ description: "The /src/ao_sys_xc32_pic32mk_gp directory of the ao real-time oper
 draft: false
 external:
 - title: "Data sheet"
-  url: http://microchip.com/DS60001402
+  url: https://microchip.com/DS60001402
 - title: "Errata"
-  url: http://microchip.com/DS80000737
+  url: https://microchip.com/DS80000737
 permalink: /api/src/ao_sys_xc32_pic32mk_gp/ 
 subtitle: "PIC32MK General Purpose and Motor Control (GP/MC) Family"
 title: "ao_sys_xc32_pic32mk_gp"

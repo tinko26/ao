@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32_i2c/ao_i2c.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_i2c/ao_i2c.h/
-subtitle: ""
+subtitle: "I²C"
 title: "ao_i2c.h"
 toc: true
 ---
@@ -460,4 +460,3 @@ bool ao_i2c_stop_from( ao_i2c_reg_t * r, ao_time_t t, ao_time_t b);
 ```c
 bool ao_i2c_stop_forever( ao_i2c_reg_t * r);
 ```
-

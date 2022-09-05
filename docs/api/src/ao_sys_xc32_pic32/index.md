@@ -38,6 +38,6 @@ toc: false
 | [`ao_sys_lock_dma.h`](ao_sys_lock_dma.h.md) | System locking (DMA) |
 | [`ao_sys_lock_ie.h`](ao_sys_lock_ie.h.md) | System locking (interrupts globally) |
 | [`ao_sys_lock_ir.h`](ao_sys_lock_ir.h.md) | System locking (interrupts) |
-| [`ao_sys_power.h`](ao_sys_power.h.md) | System power modes |
+| [`ao_sys_power.h`](ao_sys_power.h.md) | System power-saving modes |
 | [`ao_sys_reset.h`](ao_sys_reset.h.md) | System reset |
 | [`ao_uint.h`](ao_uint.h.md) | Unsigned integers |

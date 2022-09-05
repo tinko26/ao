@@ -1,11 +1,11 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-05
 description: "The /src/ao_sys_xc32_pic32/ao_sys_lock_ir.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_sys_lock_ir.h/
-subtitle: ""
+subtitle: "System locking (interrupts)"
 title: "ao_sys_lock_ir.h"
 toc: true
 ---
@@ -19,10 +19,9 @@ toc: true
 # Functions
 
 ```c
-uint32_t ao_sys_lock_ir( uint32_t p);
+uint32_t ao_sys_lock_ir(uint32_t p);
 ```
 
 ```c
-void ao_sys_unlock_ir( uint32_t x);
+void ao_sys_unlock_ir(uint32_t x);
 ```
-

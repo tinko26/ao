@@ -1,11 +1,11 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-05
 description: "The /src/ao_sys_xc32_pic32_can/ao_can.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_can/ao_can.h/
-subtitle: ""
+subtitle: "CAN"
 title: "ao_can.h"
 toc: true
 ---
@@ -1980,15 +1980,15 @@ struct ao_can_wake_up_info_t { };
 
 # Functions
 
-```c
-#define AO_CAN_BAUD_MAX(f_pbclk)
-```
+Get the maximum or minumum baud rate, respectively, for a given periphal bus clock frequency.
 
 ```c
+#define AO_CAN_BAUD_MAX(f_pbclk)
 #define AO_CAN_BAUD_MIN(f_pbclk)
 ```
+
+Setup the baud rate.
 
 ```c
 void ao_can_baud( ao_can_baud_t * x);
 ```
-

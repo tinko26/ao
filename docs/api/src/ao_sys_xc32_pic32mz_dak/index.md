@@ -6,9 +6,9 @@ description: "The /src/ao_sys_xc32_pic32mz_dak directory of the ao real-time ope
 draft: false
 external:
 - title: "Data sheet"
-  url: http://microchip.com/DS60001565
+  url: https://microchip.com/DS60001565
 - title: "Errata"
-  url: http://microchip.com/DS80000823
+  url: https://microchip.com/DS80000823
 permalink: /api/src/ao_sys_xc32_pic32mz_dak/ 
 subtitle: "PIC32MZ Graphics (DAK/DAL/DAR/DAS) Family"
 title: "ao_sys_xc32_pic32mz_dak"

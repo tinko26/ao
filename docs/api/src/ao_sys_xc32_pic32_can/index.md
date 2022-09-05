@@ -6,7 +6,7 @@ description: "The /src/ao_sys_xc32_pic32_can directory of the ao real-time opera
 draft: false
 external:
 - title: "PIC32 Family Reference Manual, Section 34: Controller Area Network (CAN)"
-  url: http://microchip.com/DS61154
+  url: https://microchip.com/DS61154
 permalink: /api/src/ao_sys_xc32_pic32_can/ 
 subtitle: "CAN driver"
 title: "ao_sys_xc32_pic32_can"

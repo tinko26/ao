@@ -6,7 +6,7 @@ description: "The /src/ao_sys_xc32 directory of the ao real-time operating syste
 draft: false
 external:
 - title: "MPLAB® XC32 C/C++ Compiler User's Guide"
-  url: http://microchip.com/DS50001686
+  url: https://microchip.com/DS50001686
 permalink: /api/src/ao_sys_xc32/ 
 subtitle: "XC32"
 title: "ao_sys_xc32"

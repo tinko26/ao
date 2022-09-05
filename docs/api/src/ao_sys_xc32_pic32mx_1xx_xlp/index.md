@@ -6,9 +6,9 @@ description: "The /src/ao_sys_xc32_pic32mx_1xx_xlp directory of the ao real-time
 draft: false
 external:
 - title: "Data sheet"
-  url: http://microchip.com/DS60001404
+  url: https://microchip.com/DS60001404
 - title: "Errata"
-  url: http://microchip.com/DS80000739
+  url: https://microchip.com/DS80000739
 permalink: /api/src/ao_sys_xc32_pic32mx_1xx_xlp/ 
 subtitle: "PIC32MX1XX/2XX 28/44-Pin XLP Family"
 title: "ao_sys_xc32_pic32mx_1xx_xlp"

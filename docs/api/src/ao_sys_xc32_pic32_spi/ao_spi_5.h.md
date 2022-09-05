@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32_spi/ao_spi_5.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_spi/ao_spi_5.h/
-subtitle: ""
+subtitle: "SPI 5"
 title: "ao_spi_5.h"
 toc: true
 ---
@@ -46,4 +46,3 @@ toc: true
 ```c
 #define ao_spi_reg_5()
 ```
-

@@ -18,7 +18,7 @@ toc: true
 
 # Functions
 
-## Core software interrupt 0
+## Core Software Interrupt 0
 
 Enable or disable the interrupt.
 
@@ -46,7 +46,7 @@ Check whether the interrupt is pending.
 bool ao_ir_cs0_is_pending();
 ```
 
-## Core software interrupt 1
+## Core Software Interrupt 1
 
 Enable or disable the interrupt.
 

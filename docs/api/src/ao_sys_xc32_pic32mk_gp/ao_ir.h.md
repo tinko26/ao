@@ -10,6 +10,10 @@ title: "ao_ir.h"
 toc: true
 ---
 
+# Overview
+
+This module gathers interrupt-related functions.
+
 # Include
 
 ```c

@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32_uart/ao_uart.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_uart/ao_uart.h/
-subtitle: ""
+subtitle: "UART"
 title: "ao_uart.h"
 toc: true
 ---
@@ -405,4 +405,3 @@ void ao_uart_loopback_disable( ao_uart_reg_t * r);
 ```c
 void ao_uart_loopback_enable( ao_uart_reg_t * r);
 ```
-

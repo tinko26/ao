@@ -1,14 +1,18 @@
 ---
 api: true
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-05
 description: "The /src/ao_sys_xc32_pic32/ao_size.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_size.h/
-subtitle: ""
+subtitle: "Sizes"
 title: "ao_size.h"
 toc: true
 ---
+
+# Overview
+
+The standard library's `size_t` type is an unsigned integer type, at least 16 bits wide, that can store the size of any kind of object, from single numbers to huge arrays. It is intended to be used for loop counters and array indexes. This module specifies properties of the type and provides a couple of useful functions.
 
 # Include
 
@@ -18,53 +22,46 @@ toc: true
 
 # Constants
 
-```c
-#define AO_SIZE_BITS (AO_UINT_BITS)
-```
+The size in bits and the base-2 logarithm thereof.
 
 ```c
+#define AO_SIZE_BITS     (AO_UINT_BITS)
 #define AO_SIZE_BITS_LOG (AO_UINT_BITS_LOG)
 ```
 
-```c
-#define AO_SIZE_MAX (AO_UINT_MAX)
-```
+The maximum and minimum value.
 
 ```c
-#define AO_SIZE_MIN (AO_UINT_MIN)
+#define AO_SIZE_MAX      (AO_UINT_MAX)
+#define AO_SIZE_MIN      (AO_UINT_MIN)
 ```
 
+The size in bytes.
+
 ```c
-#define AO_SIZE_SIZE (AO_UINT_SIZE)
+#define AO_SIZE_SIZE     (AO_UINT_SIZE)
 ```
 
 # Functions
 
+Count the number of leading or trailing ones or zeros, respectively.
+
 ```c
 #define ao_cloz(x)
-```
-
-```c
 #define ao_clzz(x)
-```
-
-```c
 #define ao_ctoz(x)
-```
-
-```c
 #define ao_ctzz(x)
 ```
 
-```c
-#define ao_ffsz(x)
-```
+Find the first or last set bit, respectively.
 
 ```c
+#define ao_ffsz(x)
 #define ao_flsz(x)
 ```
+
+Calculate the base-2 logarithm.
 
 ```c
 #define AO_LOG2Z(x)
 ```
-

@@ -6,9 +6,9 @@ description: "The /src/ao_sys_xc32_pic32mx_3xx directory of the ao real-time ope
 draft: false
 external:
 - title: "Data sheet"
-  url: http://microchip.com/DS61143
+  url: https://microchip.com/DS61143
 - title: "Errata"
-  url: http://microchip.com/DS80000440
+  url: https://microchip.com/DS80000440
 permalink: /api/src/ao_sys_xc32_pic32mx_3xx/ 
 subtitle: "PIC32MX3XX/4XX Family"
 title: "ao_sys_xc32_pic32mx_3xx"
