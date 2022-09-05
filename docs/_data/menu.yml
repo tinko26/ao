@@ -1,57 +1,28 @@
-list:
-  - title: "API"
-    url: /api/
-  - title: "Binary Heaps"
-    url: /binary-heaps/
-  - title: "Booting"
-    url: /booting/
-  - title: "Buffers"
-    url: /buffers/
-  - title: "Configuration"
-    url: /configuration/
-  - title: "Critical Sections"
-    url: /critical-sections/
-  - title: "Debugging"
-    url: /debugging/
-  - title: "Demos"
-    url: /demos/
-  - title: "Drivers"
-    url: /drivers/
-  - title: "Environment"
-    url: /environment/
-  - title: "Interrupts"
-    url: /interrupts/
-  - title: "Kernel"
-    url: /kernel/
-  - title: "Memory"
-    url: /memory/
-  - title: "Modules"
-    url: /modules/
-  - title: "Multitasking"
-    url: /multitasking/
-  - title: "Operating Modes"
-    url: /operating-modes/
-  - title: "Packages"
-    url: /packages/
-  - title: "Port"
-    url: /port/
-  - title: "Priority Queues"
-    url: /priority-queues/
-  - title: "Receiving"
-    url: /receiving/
-  - title: "Resources"
-    url: /resources/
-  - title: "Source Code"
-    url: /source-code/
-  - title: "Spinning"
-    url: /spinning/
-  - title: "Synchronization"
-    url: /synchronization/
-  - title: "Time"
-    url: /time/
-  - title: "Timers"
-    url: /timers/
-  - title: "Timing"
-    url: /timing/
-  - title: "Usage"
-    url: /usage/
+- /api/
+- /binary-heaps/
+- /booting/
+- /buffers/
+- /configuration/
+- /critical-sections/
+- /debugging/
+- /demos/
+- /drivers/
+- /environment/
+- /interrupts/
+- /kernel/
+- /memory/
+- /modules/
+- /multitasking/
+- /operating-modes/
+- /packages/
+- /port/
+- /priority-queues/
+- /receiving/
+- /resources/
+- /source-code/
+- /spinning/
+- /synchronization/
+- /time/
+- /timers/
+- /timing/
+- /usage/
