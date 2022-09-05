@@ -26,4 +26,3 @@ void ao_mikroe_3063_reset( size_t i);
 ```c
 bool ao_mikroe_3063_suspended( size_t i);
 ```
-

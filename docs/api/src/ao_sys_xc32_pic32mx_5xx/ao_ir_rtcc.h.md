@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mx_5xx/ao_ir_rtcc.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mx_5xx/ao_ir_rtcc.h/
-subtitle: ""
+subtitle: "Real-time clock and calendar interrupt"
 title: "ao_ir_rtcc.h"
 toc: true
 ---
@@ -57,4 +57,3 @@ toc: true
 ```c
 #define ao_ir_rtcc_request()
 ```
-

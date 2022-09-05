@@ -21,4 +21,3 @@ toc: true
 #include <ao_spin.h>
 #include <ao_time.h>
 ```
-

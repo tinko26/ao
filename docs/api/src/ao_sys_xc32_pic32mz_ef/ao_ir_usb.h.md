@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mz_ef/ao_ir_usb.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mz_ef/ao_ir_usb.h/
-subtitle: ""
+subtitle: "USB interrupts"
 title: "ao_ir_usb.h"
 toc: true
 ---
@@ -93,4 +93,3 @@ toc: true
 ```c
 #define ao_ir_usbdma_request()
 ```
-

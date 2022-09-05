@@ -58,4 +58,3 @@ void ao_mikroe_2935_start( size_t i);
 ```c
 void ao_mikroe_2935_stop( size_t i);
 ```
-

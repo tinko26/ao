@@ -91,4 +91,3 @@ extern ao_task_t ao_mikroe_1877_task_d;
 ```c
 #include_next <ao_mikroe_1877.h>
 ```
-

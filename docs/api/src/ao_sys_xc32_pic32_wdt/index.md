@@ -8,7 +8,7 @@ external:
 - title: "PIC32 Family Reference Manual, Section 9: Watchdog, Deadman, and Power-up Timers"
   url: https://microchip.com/DS60001114
 permalink: /api/src/ao_sys_xc32_pic32_wdt/ 
-subtitle: "Watchdog timer driver"
+subtitle: "PIC32 watchdog timer driver"
 title: "ao_sys_xc32_pic32_wdt"
 toc: false
 ---

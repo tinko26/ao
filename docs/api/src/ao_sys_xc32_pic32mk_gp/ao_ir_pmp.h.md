@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mk_gp/ao_ir_pmp.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mk_gp/ao_ir_pmp.h/
-subtitle: ""
+subtitle: "Parallel master port interrupts"
 title: "ao_ir_pmp.h"
 toc: true
 ---
@@ -93,4 +93,3 @@ toc: true
 ```c
 #define ao_ir_pmpe_request()
 ```
-

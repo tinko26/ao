@@ -22,4 +22,3 @@ toc: true
 ```c
 bool ao_mikroe_2674_suspended(size_t i);
 ```
-

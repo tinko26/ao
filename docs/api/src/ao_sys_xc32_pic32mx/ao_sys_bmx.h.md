@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mx/ao_sys_bmx.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mx/ao_sys_bmx.h/
-subtitle: ""
+subtitle: "System bus matrix"
 title: "ao_sys_bmx.h"
 toc: true
 ---
@@ -25,4 +25,3 @@ toc: true
 ```c
 #define ao_sys_bmx_wsdram_enable()
 ```
-

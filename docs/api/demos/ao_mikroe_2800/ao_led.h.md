@@ -67,4 +67,3 @@ It consists of the following members.
 ```c
 #define ao_leds_toggle(leds)
 ```
-

@@ -27,4 +27,3 @@ toc: true
 ```c
 #define AO_MIKROE_D (4)
 ```
-

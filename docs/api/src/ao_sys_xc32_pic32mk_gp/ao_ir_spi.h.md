@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mk_gp/ao_ir_spi.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mk_gp/ao_ir_spi.h/
-subtitle: ""
+subtitle: "SPI interrupts"
 title: "ao_ir_spi.h"
 toc: true
 ---
@@ -669,4 +669,3 @@ toc: true
 ```c
 #define ao_ir_spi6tx_request()
 ```
-

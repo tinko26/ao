@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The demos directory of the ao real-time operating system."
 draft: false
 permalink: /api/demos/ 
-subtitle: "Demos"
+subtitle: ""
 title: "demos"
 toc: true
 ---

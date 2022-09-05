@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mx_1xx_xlp/ao_ir_cn.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mx_1xx_xlp/ao_ir_cn.h/
-subtitle: ""
+subtitle: "Change notification interrupt"
 title: "ao_ir_cn.h"
 toc: true
 ---
@@ -105,4 +105,3 @@ toc: true
 ```c
 #define ao_ir_cnc_request()
 ```
-

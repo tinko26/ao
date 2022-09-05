@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mk_gpg/ao_ir_i2c.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mk_gpg/ao_ir_i2c.h/
-subtitle: ""
+subtitle: "I²C interrupts"
 title: "ao_ir_i2c.h"
 toc: true
 ---
@@ -237,4 +237,3 @@ toc: true
 ```c
 #define ao_ir_i2c2s_request()
 ```
-

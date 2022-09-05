@@ -448,4 +448,3 @@ void ao_mikroe_1877_stop( size_t i);
 ```c
 void ao_mikroe_1877_wake( size_t i);
 ```
-

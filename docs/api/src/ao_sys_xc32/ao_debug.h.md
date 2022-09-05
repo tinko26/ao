@@ -24,9 +24,7 @@ This module defines a single macro constant indicating whether an application is
 
 ```c
 #ifndef AO_DEBUG
-
 #ifndef NDEBUG
-
 #ifndef __DEBUG
 
 #define AO_DEBUG (false)
@@ -36,12 +34,10 @@ This module defines a single macro constant indicating whether an application is
 #define AO_DEBUG (true)
 
 #endif
-
 #else
 
 #define AO_DEBUG (false)
 
 #endif
-
 #endif
 ```

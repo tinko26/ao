@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The src directory of the ao real-time operating system."
 draft: false
 permalink: /api/src/ 
-subtitle: "Framework"
+subtitle: ""
 title: "src"
 toc: true
 ---

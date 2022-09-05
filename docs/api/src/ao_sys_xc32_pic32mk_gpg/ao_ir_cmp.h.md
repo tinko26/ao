@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mk_gpg/ao_ir_cmp.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mk_gpg/ao_ir_cmp.h/
-subtitle: ""
+subtitle: "Comparator interrupts"
 title: "ao_ir_cmp.h"
 toc: true
 ---
@@ -201,4 +201,3 @@ toc: true
 ```c
 #define ao_ir_cmp5_request()
 ```
-

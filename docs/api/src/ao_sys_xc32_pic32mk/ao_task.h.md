@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mk/ao_task.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mk/ao_task.h/
-subtitle: ""
+subtitle: "Tasks"
 title: "ao_task.h"
 toc: true
 ---
@@ -22,4 +22,3 @@ toc: true
 ```c
 #include_next <ao_task.h>
 ```
-

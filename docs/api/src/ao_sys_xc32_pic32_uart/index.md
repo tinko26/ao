@@ -8,7 +8,7 @@ external:
 - title: "PIC32 Family Reference Manual, Section 21: UART"
   url: https://microchip.com/DS60001107
 permalink: /api/src/ao_sys_xc32_pic32_uart/ 
-subtitle: "UART driver"
+subtitle: "PIC32 UART driver"
 title: "ao_sys_xc32_pic32_uart"
 toc: false
 ---

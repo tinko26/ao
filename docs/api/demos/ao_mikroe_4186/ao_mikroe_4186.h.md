@@ -156,4 +156,3 @@ void ao_mikroe_4186_set_port_output( size_t i, size_t p, uint8_t x);
 ```c
 void ao_mikroe_4186_set_port_polarity( size_t i, size_t p, uint8_t x);
 ```
-

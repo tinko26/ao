@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mx_1xx_64_100/ao_ir_fscm.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mx_1xx_64_100/ao_ir_fscm.h/
-subtitle: ""
+subtitle: "Fail-safe clock monitor interrupt"
 title: "ao_ir_fscm.h"
 toc: true
 ---
@@ -57,4 +57,3 @@ toc: true
 ```c
 #define ao_ir_fscm_request()
 ```
-

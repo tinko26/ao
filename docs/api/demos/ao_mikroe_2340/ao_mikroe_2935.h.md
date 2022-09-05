@@ -123,4 +123,3 @@ extern ao_task_t ao_mikroe_2935_task_d;
 ```c
 #include_next <ao_mikroe_2935.h>
 ```
-

@@ -49,5 +49,3 @@ toc: false
 | [`ao_sys_clock.h`](ao_sys_clock.h.md) | System clocks |
 | [`ao_sys_id.h`](ao_sys_id.h.md) | System IDs |
 | [`ao_uart.h`](ao_uart.h.md) | UART |
-
-

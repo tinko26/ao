@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mk/ao_sys_lock_pps.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mk/ao_sys_lock_pps.h/
-subtitle: ""
+subtitle: "System locking (peripheral pin select)"
 title: "ao_sys_lock_pps.h"
 toc: true
 ---
@@ -49,4 +49,3 @@ void ao_sys_unlock_pps( ao_sys_lock_pps_t * x);
 ```c
 void ao_sys_lock_pps( ao_sys_lock_pps_t * x);
 ```
-

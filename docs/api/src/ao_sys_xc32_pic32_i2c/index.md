@@ -8,7 +8,7 @@ external:
 - title: "PIC32 Family Reference Manual, Section 24: Inter-Integrated Circuit (I²C)"
   url: https://microchip.com/DS60001116
 permalink: /api/src/ao_sys_xc32_pic32_i2c/ 
-subtitle: "I²C driver"
+subtitle: "PIC32 I²C driver"
 title: "ao_sys_xc32_pic32_i2c"
 toc: false
 ---

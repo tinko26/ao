@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mx/ao_sys_exc.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mx/ao_sys_exc.h/
-subtitle: ""
+subtitle: "System exceptions"
 title: "ao_sys_exc.h"
 toc: true
 ---
@@ -50,4 +50,3 @@ It consists of the following members.
 | `AO_SYS_EXC_CPU` | |
 | `AO_SYS_EXC_OV` | |
 | `AO_SYS_EXC_TR` | |
-

@@ -627,4 +627,3 @@ void ao_mikroe_2950_luminance_down( size_t i, uint8_t l, ao_time_t t);
 ```c
 void ao_mikroe_2950_luminance_up( size_t i, uint8_t l, ao_time_t t);
 ```
-

@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mk_gpk/ao_ir_adc.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mk_gpk/ao_ir_adc.h/
-subtitle: ""
+subtitle: "ADC interrupts"
 title: "ao_ir_adc.h"
 toc: true
 ---
@@ -2145,4 +2145,3 @@ toc: true
 ```c
 #define ao_ir_ad1rs_request()
 ```
-

@@ -32,4 +32,3 @@ AO_MIKROE_3063_2 \
 ```c
 #include_next <ao_uart_3.h>
 ```
-

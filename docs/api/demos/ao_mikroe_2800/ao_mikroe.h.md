@@ -19,4 +19,3 @@ toc: true
 ```c
 #define AO_MIKROE_2 (2)
 ```
-

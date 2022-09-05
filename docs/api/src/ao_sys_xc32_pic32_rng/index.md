@@ -8,7 +8,7 @@ external:
 - title: "PIC32 Family Reference Manual, Section 49: Crypto Engine and Random Number Generator (RNG)"
   url: https://microchip.com/DS60001246
 permalink: /api/src/ao_sys_xc32_pic32_rng/ 
-subtitle: "RNG driver"
+subtitle: "PIC32 RNG driver"
 title: "ao_sys_xc32_pic32_rng"
 toc: false
 ---

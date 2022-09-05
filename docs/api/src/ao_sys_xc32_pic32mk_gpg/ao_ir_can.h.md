@@ -5,7 +5,7 @@ date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mk_gpg/ao_ir_can.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mk_gpg/ao_ir_can.h/
-subtitle: ""
+subtitle: "CAN interrupts"
 title: "ao_ir_can.h"
 toc: true
 ---
@@ -57,4 +57,3 @@ toc: true
 ```c
 #define ao_ir_can1_request()
 ```
-
