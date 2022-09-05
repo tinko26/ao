@@ -29,14 +29,14 @@ Callback for the interrupt handler. Actually, this function is implemented by th
 void ao_alarm();
 ```
 
-Enable or disable the interrupt, respectively.
+Enable or disable the interrupt.
 
 ```c
 #define ao_alarm_enable()
 #define ao_alarm_disable()
 ```
 
-Request an interrupt or reply thereto, respectively.
+Request the interrupt or reply thereto.
 
 ```c
 #define ao_alarm_request()
