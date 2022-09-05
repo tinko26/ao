@@ -50,9 +50,9 @@ typedef struct ao_heap_node_t ao_heap_node_t;
 ```c
 typedef bool (* ao_heap_less_t)
 (
-ao_heap_node_t * n1,
-ao_heap_node_t * n2,
-void * parameter
+    ao_heap_node_t * n1,
+    ao_heap_node_t * n2,
+    void           * parameter
 );
 ```
 
