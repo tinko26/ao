@@ -32,9 +32,9 @@
 
 // @seeAlso
 
-// http://microchip.com/DS60001191 (Data sheet)
+// https://microchip.com/DS60001191 (Data sheet)
 
-// http://microchip.com/DS80000588 (Errata)
+// https://microchip.com/DS80000588 (Errata)
 
 // ----------------------------------------------------------------------------
 

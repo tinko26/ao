@@ -40,7 +40,7 @@
 
 // Inter-Integrated Circuit (I²C).
 
-// http://microchip.com/DS60001116
+// https://microchip.com/DS60001116
 
 // ----------------------------------------------------------------------------
 

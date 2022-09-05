@@ -40,7 +40,7 @@
 
 // Watchdog, Deadman, and Power-up Timers.
 
-// http://microchip.com/DS60001114
+// https://microchip.com/DS60001114
 
 // ----------------------------------------------------------------------------
 

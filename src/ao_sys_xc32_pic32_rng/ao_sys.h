@@ -40,7 +40,7 @@
 
 // Crypto Engine and Random Number Generator (RNG).
 
-// http://microchip.com/DS60001246
+// https://microchip.com/DS60001246
 
 // ----------------------------------------------------------------------------
 

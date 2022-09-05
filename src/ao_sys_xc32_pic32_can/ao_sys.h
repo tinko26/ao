@@ -40,7 +40,7 @@
 
 // Controller Area Network (CAN).
 
-// http://microchip.com/DS61154
+// https://microchip.com/DS61154
 
 // ----------------------------------------------------------------------------
 

@@ -40,7 +40,7 @@
 
 // Serial Peripheral Interface (SPI).
 
-// http://microchip.com/DS61106
+// https://microchip.com/DS61106
 
 // ----------------------------------------------------------------------------
 
