@@ -6,8 +6,7 @@ description: "The /src/ao_sys/ao_recv_from_callback.h file of the ao real-time o
 draft: true
 permalink: /api/src/ao_sys/ao_recv_from_callback.h/
 seealso:
-- title: "<code>ao_recv.h</code>"
-  url: /api/src/ao_sys/ao_recv.h/
+- /api/src/ao_sys/ao_recv.h/
 subtitle: "Receiving from callbacks"
 title: "ao_recv_from_callback.h"
 toc: true

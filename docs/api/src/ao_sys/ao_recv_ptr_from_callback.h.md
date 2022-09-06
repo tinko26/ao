@@ -6,8 +6,7 @@ description: "The /src/ao_sys/ao_recv_ptr_from_callback.h file of the ao real-ti
 draft: true
 permalink: /api/src/ao_sys/ao_recv_ptr_from_callback.h/
 seealso:
-- title: "<code>ao_recv_ptr.h</code>"
-  url: /api/src/ao_sys/ao_recv_ptr.h/
+- /api/src/ao_sys/ao_recv_ptr.h/
 subtitle: "Receiving pointers from callbacks"
 title: "ao_recv_ptr_from_callback.h"
 toc: true

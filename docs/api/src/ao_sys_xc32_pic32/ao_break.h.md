@@ -6,8 +6,7 @@ description: "The /src/ao_sys_xc32_pic32/ao_break.h file of the ao real-time ope
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_break.h/
 seealso:
-- title: "<code>ao_debug.h</code>"
-  url: /api/src/ao_sys_xc32/ao_debug.h/
+- /api/src/ao_sys_xc32/ao_debug.h/
 subtitle: "Breakpoints"
 title: "ao_break.h"
 toc: true

@@ -6,10 +6,8 @@ description: "The /src/ao_sys/ao_alarm_queue_4.h file of the ao real-time operat
 draft: true
 permalink: /api/src/ao_sys/ao_alarm_queue_4.h/
 seealso:
-- title: "<code>ao_alarm_queue.h</code>"
-  url: /api/src/ao_sys/ao_alarm_queue.h/
-- title: "<code>ao_avl.h</code>"
-  url: /api/src/ao/ao_avl.h/
+- /api/src/ao_sys/ao_alarm_queue.h/
+- /api/src/ao/ao_avl.h/
 subtitle: "Alarm queue based on an AVL tree"
 title: "ao_alarm_queue_4.h"
 toc: true

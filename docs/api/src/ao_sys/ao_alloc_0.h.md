@@ -6,8 +6,7 @@ description: "The /src/ao_sys/ao_alloc_0.h file of the ao real-time operating sy
 draft: true
 permalink: /api/src/ao_sys/ao_alloc_0.h/
 seealso:
-- title: "<code>ao_alloc.h</code>"
-  url: /api/src/ao_sys/ao_alloc.h/
+- /api/src/ao_sys/ao_alloc.h/
 subtitle: "Allocator stub"
 title: "ao_alloc_0.h"
 toc: true

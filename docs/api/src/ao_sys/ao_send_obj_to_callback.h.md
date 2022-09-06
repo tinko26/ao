@@ -6,8 +6,7 @@ description: "The /src/ao_sys/ao_send_obj_to_callback.h file of the ao real-time
 draft: true
 permalink: /api/src/ao_sys/ao_send_obj_to_callback.h/
 seealso:
-- title: "<code>ao_send_obj.h</code>"
-  url: /api/src/ao_sys/ao_send_obj.h/
+- /api/src/ao_sys/ao_send_obj.h/
 subtitle: "Sending objects to callbacks"
 title: "ao_send_obj_to_callback.h"
 toc: true

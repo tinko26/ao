@@ -6,10 +6,8 @@ description: "The /src/ao_sys/ao_send_ptr_to_queue.h file of the ao real-time op
 draft: true
 permalink: /api/src/ao_sys/ao_send_ptr_to_queue.h/
 seealso:
-- title: "<code>ao_queue4ptr.h</code>"
-  url: /api/src/ao_sys/ao_queue4ptr.h/
-- title: "<code>ao_send_ptr.h</code>"
-  url: /api/src/ao_sys/ao_send_ptr.h/
+- /api/src/ao_sys/ao_queue4ptr.h/
+- /api/src/ao_sys/ao_send_ptr.h/
 subtitle: "Sending pointers to queues"
 title: "ao_send_ptr_to_queue.h"
 toc: true

@@ -6,10 +6,8 @@ description: "The /src/ao_sys/ao_send_ptr_to_stream.h file of the ao real-time o
 draft: true
 permalink: /api/src/ao_sys/ao_send_ptr_to_stream.h/
 seealso:
-- title: "<code>ao_send_ptr.h</code>"
-  url: /api/src/ao_sys/ao_send_ptr.h/
-- title: "<code>ao_stream4ptr.h</code>"
-  url: /api/src/ao_sys/ao_stream4ptr.h/
+- /api/src/ao_sys/ao_send_ptr.h/
+- /api/src/ao_sys/ao_stream4ptr.h/
 subtitle: "Sending pointers to streams"
 title: "ao_send_ptr_to_stream.h"
 toc: true

@@ -6,8 +6,7 @@ description: "The /src/ao_sys/ao_alarm_queue.h file of the ao real-time operatin
 draft: true
 permalink: /api/src/ao_sys/ao_alarm_queue.h/
 seealso:
-- title: "<code>ao_alarm.h</code>"
-  url: /api/src/ao_sys/ao_alarm.h/
+- /api/src/ao_sys/ao_alarm.h/
 subtitle: "Alarm queue"
 title: "ao_alarm_queue.h"
 toc: true

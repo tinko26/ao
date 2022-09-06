@@ -6,10 +6,8 @@ description: "The /src/ao_sys/ao_send_obj_to_queue.h file of the ao real-time op
 draft: true
 permalink: /api/src/ao_sys/ao_send_obj_to_queue.h/
 seealso:
-- title: "<code>ao_queue4obj.h</code>"
-  url: /api/src/ao_sys/ao_queue4obj.h/
-- title: "<code>ao_send_obj.h</code>"
-  url: /api/src/ao_sys/ao_send_obj.h/
+- /api/src/ao_sys/ao_queue4obj.h/
+- /api/src/ao_sys/ao_send_obj.h/
 subtitle: "Sending objects to queues"
 title: "ao_send_obj_to_queue.h"
 toc: true

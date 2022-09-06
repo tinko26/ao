@@ -6,10 +6,8 @@ description: "The /src/ao_sys/ao_recv_ptr_from_queue.h file of the ao real-time 
 draft: true
 permalink: /api/src/ao_sys/ao_recv_ptr_from_queue.h/
 seealso:
-- title: "<code>ao_queue4ptr.h</code>"
-  url: /api/src/ao_sys/ao_queue4ptr.h/
-- title: "<code>ao_recv_ptr.h</code>"
-  url: /api/src/ao_sys/ao_recv_ptr.h/
+- /api/src/ao_sys/ao_queue4ptr.h/
+- /api/src/ao_sys/ao_recv_ptr.h/
 subtitle: "Receiving pointers from queues"
 title: "ao_recv_ptr_from_queue.h"
 toc: true

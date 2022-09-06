@@ -6,8 +6,7 @@ description: "The /src/ao_sys_xc32_pic32/ao_count.h file of the ao real-time ope
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_count.h/
 seealso:
-- title: "<code>ao_sys_clock.h</code>"
-  url: /api/src/ao_sys_xc32_pic32/ao_sys_clock.h/
+- /api/src/ao_sys_xc32_pic32/ao_sys_clock.h/
 subtitle: "Hardware counter"
 title: "ao_count.h"
 toc: true

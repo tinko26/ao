@@ -6,8 +6,7 @@ description: "The /src/ao_sys/ao_send_ptr_to_callback.h file of the ao real-time
 draft: true
 permalink: /api/src/ao_sys/ao_send_ptr_to_callback.h/
 seealso:
-- title: "<code>ao_send_ptr.h</code>"
-  url: /api/src/ao_sys/ao_send_ptr.h/
+- /api/src/ao_sys/ao_send_ptr.h/
 subtitle: "Sending pointers to callbacks"
 title: "ao_send_ptr_to_callback.h"
 toc: true

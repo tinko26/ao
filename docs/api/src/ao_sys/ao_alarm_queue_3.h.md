@@ -6,10 +6,8 @@ description: "The /src/ao_sys/ao_alarm_queue_3.h file of the ao real-time operat
 draft: true
 permalink: /api/src/ao_sys/ao_alarm_queue_3.h/
 seealso:
-- title: "<code>ao_alarm_queue.h</code>"
-  url: /api/src/ao_sys/ao_alarm_queue.h/
-- title: "<code>ao_heap.h</code>"
-  url: /api/src/ao/ao_heap.h/
+- /api/src/ao_sys/ao_alarm_queue.h/
+- /api/src/ao/ao_heap.h/
 subtitle: "Alarm queue based on a pointer-based binary heap"
 title: "ao_alarm_queue_3.h"
 toc: true

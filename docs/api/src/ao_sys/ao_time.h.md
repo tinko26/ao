@@ -6,8 +6,7 @@ description: "The /src/ao_sys/ao_time.h file of the ao real-time operating syste
 draft: true
 permalink: /api/src/ao_sys/ao_time.h/
 seealso:
-- title: "<code>ao_count.h</code>"
-  url: /api/src/ao_sys/ao_count.h/
+- /api/src/ao_sys/ao_count.h/
 subtitle: "Time"
 title: "ao_time.h"
 toc: true

@@ -6,10 +6,8 @@ description: "The /src/ao_sys/ao_recv_ptr_from_stream.h file of the ao real-time
 draft: true
 permalink: /api/src/ao_sys/ao_recv_ptr_from_stream.h/
 seealso:
-- title: "<code>ao_recv_ptr.h</code>"
-  url: /api/src/ao_sys/ao_recv_ptr.h/
-- title: "<code>ao_stream.h</code>"
-  url: /api/src/ao_sys/ao_stream4ptr.h/
+- /api/src/ao_sys/ao_recv_ptr.h/
+- /api/src/ao_sys/ao_stream4ptr.h/
 subtitle: "Receiving pointers from streams"
 title: "ao_recv_ptr_from_stream.h"
 toc: true

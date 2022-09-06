@@ -6,10 +6,8 @@ description: "The /src/ao_sys/ao_recv_obj_from_stream.h file of the ao real-time
 draft: true
 permalink: /api/src/ao_sys/ao_recv_obj_from_stream.h/
 seealso:
-- title: "<code>ao_recv_obj.h</code>"
-  url: /api/src/ao_sys/ao_recv_obj.h/
-- title: "<code>ao_stream.h</code>"
-  url: /api/src/ao_sys/ao_stream4obj.h/
+- /api/src/ao_sys/ao_recv_obj.h/
+- /api/src/ao_sys/ao_stream4obj.h/
 subtitle: "Receiving objects from streams"
 title: "ao_recv_obj_from_stream.h"
 toc: true

@@ -6,8 +6,7 @@ description: "The /src/ao/ao_assert.h file of the ao real-time operating system.
 draft: false
 permalink: /api/src/ao/ao_assert.h/
 seealso:
-- title: "<code>ao_break.h</code>"
-  url: /api/src/ao/ao_break.h/
+- /api/src/ao/ao_break.h/
 subtitle: "Runtime assertions"
 title: "ao_assert.h"
 toc: true
