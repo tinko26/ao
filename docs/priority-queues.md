@@ -3,7 +3,7 @@ author: "Stefan Wagner"
 date: 2022-08-15
 draft: false
 groups:
-- priority-queue
+- priority-queues
 permalink: /priority-queues/
 toc: true
 wiki:
