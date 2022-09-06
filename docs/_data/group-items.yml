@@ -3,9 +3,3 @@ priority-queues:
   - /binary-heaps/
   - /red-black-trees/
   - /sorted-lists/
-
-trees:
-  - /avl-trees/
-  - /binary-heaps/
-  - /red-black-trees/
-  - /api/src/ao/ao_buffer.h/
