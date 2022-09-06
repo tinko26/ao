@@ -4,9 +4,6 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32_can directory of the ao real-time operating system."
 draft: false
-external:
-- title: "PIC32 Family Reference Manual, Section 34: Controller Area Network (CAN)"
-  url: https://microchip.com/DS61154
 permalink: /api/src/ao_sys_xc32_pic32_can/ 
 subtitle: "PIC32 CAN driver"
 title: "ao_sys_xc32_pic32_can"
@@ -24,3 +21,7 @@ toc: false
 | [`ao_ir_can.h`](ao_ir_can.h.md) | CAN interrupts |
 | [`ao_sys.h`](ao_sys.h.md) | System |
 | [`ao_sys_clock.h`](ao_sys_clock.h.md) | System clocks |
+
+# External Links
+
+| [PIC32 Family Reference Manual, Section 34, Controller Area Network (CAN)](https://microchip.com/DS61154) |

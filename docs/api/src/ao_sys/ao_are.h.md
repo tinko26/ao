@@ -4,9 +4,6 @@ author: "Stefan Wagner"
 date: 2022-08-31
 description: "The /src/ao_sys/ao_are.h file of the ao real-time operating system."
 draft: true
-external:
-- title: "AutoResetEvent"
-  url: https://docs.microsoft.com/en-us/dotnet/api/system.threading.autoresetevent
 permalink: /api/src/ao_sys/ao_are.h/
 subtitle: "Auto-reset events"
 title: "ao_are.h"
@@ -119,3 +116,7 @@ Begin or end the waiting for an auto-reset event, respectively.
 void ao_are_wait_begin(ao_are_wait_t * x);
 void ao_are_wait_end(  ao_are_wait_t * x);
 ```
+
+# External Links
+
+| [AutoResetEvent](https://docs.microsoft.com/en-us/dotnet/api/system.threading.autoresetevent) |

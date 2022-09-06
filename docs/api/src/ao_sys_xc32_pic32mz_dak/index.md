@@ -4,11 +4,6 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mz_dak directory of the ao real-time operating system."
 draft: false
-external:
-- title: "Data sheet"
-  url: https://microchip.com/DS60001565
-- title: "Errata"
-  url: https://microchip.com/DS80000823
 permalink: /api/src/ao_sys_xc32_pic32mz_dak/ 
 subtitle: "PIC32MZ Graphics (DAK/DAL/DAR/DAS) Family"
 title: "ao_sys_xc32_pic32mz_dak"
@@ -55,3 +50,8 @@ toc: false
 | [`ao_sys_clock.h`](ao_sys_clock.h.md) | System clocks |
 | [`ao_sys_id.h`](ao_sys_id.h.md) | System IDs |
 | [`ao_uart.h`](ao_uart.h.md) | UART |
+
+# External Links
+
+| [PIC32MZ Graphics (DAK/DAL/DAR/DAS) Family Data sheet](https://microchip.com/DS60001565) |
+| [PIC32MZ Graphics (DAK/DAL/DAR/DAS) Family Errata](https://microchip.com/DS80000823) |

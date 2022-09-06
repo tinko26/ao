@@ -4,9 +4,6 @@ author: "Stefan Wagner"
 date: 2022-09-05
 description: "The /src/ao_sys_xc32_pic32/ao_sys_power.h file of the ao real-time operating system."
 draft: true
-external:
-- title: "PIC32 Family Reference Manual, Section 10: Power-Saving Modes"
-  url: https://microchip.com/DS61130
 permalink: /api/src/ao_sys_xc32_pic32/ao_sys_power.h/
 subtitle: "System power-saving modes"
 title: "ao_sys_power.h"
@@ -44,3 +41,7 @@ Enter sleep mode upon a `WAIT`.
 ```c
 void ao_sys_wait_sleep();
 ```
+
+# External Links
+
+| [PIC32 Family Reference Manual, Section 10, Power-Saving Modes](https://microchip.com/DS61130) |

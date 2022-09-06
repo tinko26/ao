@@ -4,9 +4,6 @@ author: "Stefan Wagner"
 date: 2022-08-30
 description: "The /demos/ao_mikroe_2800 directory of the ao real-time operating system."
 draft: false
-external:
-- title: "Clicker 2 for PIC32MZ"
-  url: https://www.mikroe.com/clicker-2-for-pic32mz
 permalink: /api/demos/ao_mikroe_2800/ 
 subtitle: "Clicker 2 for PIC32MZ"
 title: "ao_mikroe_2800"
@@ -35,3 +32,7 @@ toc: false
 | [`ao_sys_config.h`](ao_sys_config.h.md) | System configuration bits |
 | [`ao_uart_2.h`](ao_uart_2.h.md) | UART 2 |
 | [`ao_uart_3.h`](ao_uart_3.h.md) | UART 3 |
+
+# External Links
+
+| [Clicker 2 for PIC32MZ](https://www.mikroe.com/clicker-2-for-pic32mz) |

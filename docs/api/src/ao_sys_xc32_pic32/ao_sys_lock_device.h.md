@@ -4,9 +4,6 @@ author: "Stefan Wagner"
 date: 2022-09-05
 description: "The /src/ao_sys_xc32_pic32/ao_sys_lock_device.h file of the ao real-time operating system."
 draft: true
-external:
-- title: "PIC32 Family Reference Manual, Section 6: Oscillators"
-  url: https://microchip.com/DS61112
 permalink: /api/src/ao_sys_xc32_pic32/ao_sys_lock_device.h/
 subtitle: "System locking (device)"
 title: "ao_sys_lock_device.h"
@@ -51,3 +48,7 @@ void ao_sys_unlock_device(ao_sys_lock_device_t * x);
 ```c
 void ao_sys_lock_device(ao_sys_lock_device_t * x);
 ```
+
+# External Links
+
+| [PIC32 Family Reference Manual, Section 6, Oscillators](https://microchip.com/DS61112) |

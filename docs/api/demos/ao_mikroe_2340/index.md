@@ -4,9 +4,6 @@ author: "Stefan Wagner"
 date: 2022-08-30
 description: "The /demos/ao_mikroe_2340 directory of the ao real-time operating system."
 draft: false
-external:
-- title: "Flip&Click PIC32MZ"
-  url: https://www.mikroe.com/flipclick-pic32mz
 permalink: /api/demos/ao_mikroe_2340/ 
 subtitle: "Flip&Click PIC32MZ"
 title: "ao_mikroe_2340"
@@ -38,3 +35,7 @@ toc: false
 | [`ao_uart_3.h`](ao_uart_3.h.md) | UART 3 |
 | [`ao_uart_4.h`](ao_uart_4.h.md) | UART 4 |
 | [`ao_uart_5.h`](ao_uart_5.h.md) | UART 5 |
+
+# External Links
+
+| [Flip&Click PIC32MZ](https://www.mikroe.com/flipclick-pic32mz) |
