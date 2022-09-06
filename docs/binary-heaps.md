@@ -22,6 +22,8 @@ wiki:
 - total-order
 ---
 
+# Overview
+
 A binary heap is a special kind of binary tree that maintains both the shape of a complete binary tree and the heap property. The latter implies, that a node is always less than its children, with respect to a strict total order.
 
 Both insertion into and removal from heaps take logarithmic time. This makes them a perfect choice for implementing priority queues.
