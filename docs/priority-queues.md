@@ -2,10 +2,15 @@
 author: "Stefan Wagner"
 date: 2022-08-15
 draft: false
+groups:
+- priority-queue
 permalink: /priority-queues/
+toc: true
 wiki:
 - priority-queue
 ---
+
+# Overview
 
 The following modules provide data structures, that can be used to implement priority queues.
 
