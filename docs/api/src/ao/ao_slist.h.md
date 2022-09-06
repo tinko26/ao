@@ -9,10 +9,8 @@ subtitle: "Sorted doubly linked lists"
 title: "ao_slist.h"
 toc: true
 wiki:
-- title: "Doubly linked list"
-  url: https://en.wikipedia.org/wiki/Doubly_linked_list
-- title: "Total order"
-  url: https://en.wikipedia.org/wiki/Total_order
+- doubly-linked-list
+- total-order
 ---
 
 # Overview

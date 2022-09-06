@@ -9,8 +9,7 @@ subtitle: "Spinning"
 title: "ao_spin.h"
 toc: true
 wiki:
-- title: "Busy waiting"
-  url: https://en.wikipedia.org/wiki/Busy_waiting
+- busy-waiting
 ---
 
 # Overview

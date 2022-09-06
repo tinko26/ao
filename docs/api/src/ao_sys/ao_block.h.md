@@ -9,8 +9,7 @@ subtitle: "Blocking"
 title: "ao_block.h"
 toc: true
 wiki:
-- title: "Blocking"
-  url: https://en.wikipedia.org/wiki/Blocking_(computing)
+- blocking
 ---
 
 # Include

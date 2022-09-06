@@ -9,10 +9,8 @@ subtitle: "Yielding"
 title: "ao_yield.h"
 toc: true
 wiki:
-- title: "Coroutine"
-  url: https://en.wikipedia.org/wiki/Coroutine
-- title: "Producer-consumer problem"
-  url: https://en.wikipedia.org/wiki/Producer-consumer_problem
+- coroutine
+- producer-consumer-problem
 ---
 
 # Include

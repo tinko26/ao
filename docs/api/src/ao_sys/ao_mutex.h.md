@@ -9,10 +9,8 @@ subtitle: "Mutexes"
 title: "ao_mutex.h"
 toc: true
 wiki:
-- title: "Lock"
-  url: https://en.wikipedia.org/wiki/Lock_(computer_science)
-- title: "Mutual exclusion"
-  url: https://en.wikipedia.org/wiki/Mutual_exclusion
+- lock
+- mutual-exclusion
 ---
 
 # Overview

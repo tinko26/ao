@@ -9,8 +9,7 @@ subtitle: "Locks"
 title: "ao_lock.h"
 toc: true
 wiki:
-- title: "Critical section"
-  url: https://en.wikipedia.org/wiki/Critical_section
+- critical-section
 ---
 
 # Overview

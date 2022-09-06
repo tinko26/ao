@@ -9,8 +9,7 @@ subtitle: "Stacks"
 title: "ao_stack.h"
 toc: true
 wiki:
-- title: "Call stack"
-  url: https://en.wikipedia.org/wiki/Call_stack
+- call-stack
 ---
 
 # Overview

@@ -9,8 +9,7 @@ subtitle: "Memory alignment"
 title: "ao_align.h"
 toc: true
 wiki:
-- title: Memory alignment
-  url: https://en.wikipedia.org/wiki/Memory_alignment
+- memory-alignment
 ---
 
 # Overview

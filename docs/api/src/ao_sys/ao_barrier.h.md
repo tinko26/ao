@@ -9,8 +9,7 @@ subtitle: "Barriers"
 title: "ao_barrier.h"
 toc: true
 wiki:
-- title: "Barrier"
-  url: https://en.wikipedia.org/wiki/Barrier_(computer_science)
+- barrier
 ---
 
 # Include

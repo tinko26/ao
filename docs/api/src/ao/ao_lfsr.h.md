@@ -9,8 +9,7 @@ subtitle: "Linear-feedback shift registers"
 title: "ao_lfsr.h"
 toc: true
 wiki:
-- title: "Linear-feedback shift register"
-  url: https://en.wikipedia.org/wiki/Linear-feedback_shift_register
+- linear-feedback-shift-register
 ---
 
 # Overview

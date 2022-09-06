@@ -6,10 +6,8 @@ draft: true
 permalink: /source-code/
 toc: true
 wiki:
-  - title: "PIC32"
-    url: https://en.wikipedia.org/wiki/PIC32
-  - title: "Separation of concerns"
-    url: https://en.wikipedia.org/wiki/Separation_of_concerns
+- pic32
+- separation-of-concerns
 ---
 
 # Overview

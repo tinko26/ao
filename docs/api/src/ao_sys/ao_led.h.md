@@ -9,8 +9,7 @@ subtitle: "LEDs"
 title: "ao_led.h"
 toc: true
 wiki:
-- title: "LED"
-  url: https://en.wikipedia.org/wiki/Light-emitting_diode
+- light-emitting-diode
 ---
 
 # Typedefs

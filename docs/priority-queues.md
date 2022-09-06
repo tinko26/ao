@@ -5,8 +5,7 @@ description: "Priority queues in the ao real-time operating system."
 draft: false
 permalink: /priority-queues/
 wiki:
-- title: "Priority queue"
-  url: https://en.wikipedia.org/wiki/Priority_queue
+- priority-queue
 ---
 
 The following modules provide data structures, that can be used to implement priority queues.

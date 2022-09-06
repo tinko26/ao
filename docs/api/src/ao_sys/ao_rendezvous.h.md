@@ -9,8 +9,7 @@ subtitle: "Rendezvous"
 title: "ao_rendezvous.h"
 toc: true
 wiki:
-- title: "Rendezvous (Plan 9)"
-  url: https://en.wikipedia.org/wiki/Rendezvous_(Plan_9)
+- rendezvous
 ---
 
 # Include

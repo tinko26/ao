@@ -9,14 +9,10 @@ subtitle: "Doubly linked lists"
 title: "ao_list.h"
 toc: true
 wiki:
-- title: "Double-ended queue"
-  url: https://en.wikipedia.org/wiki/Double-ended_queue
-- title: "Doubly linked list"
-  url: https://en.wikipedia.org/wiki/Doubly_linked_list
-- title: "LIFO"
-  url: https://en.wikipedia.org/wiki/FIFO
-- title: "FIFO"
-  url: https://en.wikipedia.org/wiki/LIFO
+- double-ended-queue
+- doubly-linked-list
+- fifo
+- lifo
 ---
 
 # Overview

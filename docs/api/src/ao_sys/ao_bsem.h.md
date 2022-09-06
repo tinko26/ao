@@ -9,8 +9,7 @@ subtitle: "Binary semaphores"
 title: "ao_bsem.h"
 toc: true
 wiki:
-- title: "Semaphore"
-  url: https://en.wikipedia.org/wiki/Semaphore_(programming)
+- semaphore
 ---
 
 # Include

@@ -9,8 +9,7 @@ subtitle: "Converting numbers from string"
 title: "ao_scan.h"
 toc: true
 wiki:
-- title: "Radix"
-  url: https://en.wikipedia.org/wiki/Radix
+- radix
 ---
 
 # Overview

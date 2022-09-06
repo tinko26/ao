@@ -12,8 +12,7 @@ subtitle: "Runtime assertions"
 title: "ao_assert.h"
 toc: true
 wiki:
-- title: "Assertion"
-  url: https://en.wikipedia.org/wiki/Assertion_(software_development)
+- assertion
 ---
 
 # Overview

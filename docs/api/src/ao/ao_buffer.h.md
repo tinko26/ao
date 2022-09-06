@@ -9,10 +9,8 @@ subtitle: "Buffers"
 title: "ao_buffer.h"
 toc: true
 wiki:
-- title: "Circular buffer"
-  url: https://en.wikipedia.org/wiki/Circular_buffer
-- title: "Data buffer"
-  url: https://en.wikipedia.org/wiki/Data_buffer
+- circular-buffer
+- data-buffer
 ---
 
 # Overview

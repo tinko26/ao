@@ -9,14 +9,10 @@ subtitle: "Array-based binary heaps for pointers"
 title: "ao_heap4ptr.h"
 toc: true
 wiki:
-- title: "Binary heap"
-  url: https://en.wikipedia.org/wiki/Binary_heap
-- title: "Binary tree"
-  url: https://en.wikipedia.org/wiki/Binary_tree
-- title: "Priority queue"
-  url: https://en.wikipedia.org/wiki/Priority_queue
-- title: "Total order"
-  url: https://en.wikipedia.org/wiki/Total_order
+- binary-heap
+- binary-tree
+- priority-queue
+- total-order
 ---
 
 # Overview

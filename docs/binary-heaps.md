@@ -9,14 +9,10 @@ groups:
 permalink: /binary-heaps/
 toc: false
 wiki:
-- title: "Binary heap"
-  url: https://en.wikipedia.org/wiki/Binary_heap
-- title: "Binary tree"
-  url: https://en.wikipedia.org/wiki/Binary_tree
-- title: "Priority queue"
-  url: https://en.wikipedia.org/wiki/Priority_queue
-- title: "Total order"
-  url: https://en.wikipedia.org/wiki/Total_order
+- binary-heap
+- binary-tree
+- priority-queue
+- total-order
 ---
 
 A binary heap is a special kind of binary tree that maintains both the shape of a complete binary tree and the heap property. The latter implies, that a node is always less than its children, with respect to a strict total order.

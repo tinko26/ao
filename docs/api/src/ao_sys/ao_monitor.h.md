@@ -9,8 +9,7 @@ subtitle: "Monitors"
 title: "ao_monitor.h"
 toc: true
 wiki:
-- title: "Monitor"
-  url: https://en.wikipedia.org/wiki/Monitor_(synchronization)
+- monitor
 ---
 
 # Include

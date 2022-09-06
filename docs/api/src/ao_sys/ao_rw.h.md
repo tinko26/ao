@@ -9,8 +9,7 @@ subtitle: "Readers-writer locks preferring readers"
 title: "ao_rw.h"
 toc: true
 wiki:
-- title: "Readers-writer lock"
-  url: https://en.wikipedia.org/wiki/Readers–writer_lock
+- readers-writer-lock
 ---
 
 # Overview

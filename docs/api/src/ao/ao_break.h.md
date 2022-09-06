@@ -9,8 +9,7 @@ subtitle: "Breakpoints"
 title: "ao_break.h"
 toc: true
 wiki:
-- title: "Breakpoint"
-  url: https://en.wikipedia.org/wiki/Breakpoint
+- breakpoint
 ---
 
 # Overview

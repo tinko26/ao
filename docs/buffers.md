@@ -6,10 +6,8 @@ draft: false
 permalink: /buffers/
 toc: false
 wiki:
-- title: "Circular buffer"
-  url: https://en.wikipedia.org/wiki/Circular_buffer
-- title: "Data buffer"
-  url: https://en.wikipedia.org/wiki/Data_buffer
+- circular-buffer
+- data-buffer
 ---
 
 The following modules implement array-based circular buffers.

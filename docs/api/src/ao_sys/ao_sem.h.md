@@ -9,8 +9,7 @@ subtitle: "Counting semaphores"
 title: "ao_sem.h"
 toc: true
 wiki:
-- title: "Semaphore"
-  url: https://en.wikipedia.org/wiki/Semaphore_(programming)
+- semaphore
 ---
 
 # Include
