@@ -2,11 +2,19 @@
 author: "Stefan Wagner"
 date: 2022-08-15
 draft: false
+external:
+- https://microchip.com/DS60001156 : "PIC32MX5XX/6XX/7XX Family Data sheet"
+- https://microchip.com/DS80000480 : "PIC32MX5XX/6XX/7XX Family Errata (575/675/695/775/795)"
+- https://microchip.com/DS80000511 : "PIC32MX5XX/6XX/7XX Family Errata (534/564/664/764)"
 groups:
 - priority-queues
 - trees
 permalink: /binary-heaps/
-toc: false
+seealso:
+- /api/src/ao/ao_heap.h/
+- /api/src/ao/ao_heap4obj.h/
+- /api/src/ao/ao_heap4ptr.h/
+toc: true
 wiki:
 - binary-heap
 - binary-tree
