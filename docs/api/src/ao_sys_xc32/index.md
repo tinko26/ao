@@ -4,6 +4,8 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys_xc32 directory of the ao real-time operating system."
 draft: false
+external:
+- https://microchip.com/DS50001686 : "MPLAB® XC32 C/C++ Compiler User's Guide"
 permalink: /api/src/ao_sys_xc32/ 
 subtitle: "XC32"
 title: "ao_sys_xc32"
@@ -14,7 +16,3 @@ toc: false
 
 | [`ao_debug.h`](ao_debug.h.md) | Debug mode |
 | [`ao_sys.h`](ao_sys.h.md) | System |
-
-# External Links
-
-| [MPLAB® XC32 C/C++ Compiler User's Guide](https://microchip.com/DS50001686) |

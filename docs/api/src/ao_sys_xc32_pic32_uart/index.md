@@ -4,6 +4,8 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32_uart directory of the ao real-time operating system."
 draft: false
+external:
+- https://microchip.com/DS60001107 : "PIC32 Family Reference Manual, Section 21, UART"
 permalink: /api/src/ao_sys_xc32_pic32_uart/ 
 subtitle: "PIC32 UART driver"
 title: "ao_sys_xc32_pic32_uart"
@@ -23,7 +25,3 @@ toc: false
 | [`ao_uart_4.h`](ao_uart_4.h.md) | UART 4 |
 | [`ao_uart_5.h`](ao_uart_5.h.md) | UART 5 |
 | [`ao_uart_6.h`](ao_uart_6.h.md) | UART 6 |
-
-# External Links
-
-| [PIC32 Family Reference Manual, Section 21, UART](https://microchip.com/DS60001107) |

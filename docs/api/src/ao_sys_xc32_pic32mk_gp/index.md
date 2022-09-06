@@ -4,6 +4,9 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mk_gp directory of the ao real-time operating system."
 draft: false
+external:
+- https://microchip.com/DS60001402 : "PIC32MK General Purpose and Motor Control (GP/MC) Family Data sheet"
+- https://microchip.com/DS80000737 : "PIC32MK General Purpose and Motor Control (GP/MC) Family Errata"
 permalink: /api/src/ao_sys_xc32_pic32mk_gp/ 
 subtitle: "PIC32MK General Purpose and Motor Control (GP/MC) Family"
 title: "ao_sys_xc32_pic32mk_gp"
@@ -44,8 +47,3 @@ toc: false
 | [`ao_sys_clock.h`](ao_sys_clock.h.md) | System clocks |
 | [`ao_sys_id.h`](ao_sys_id.h.md) | System IDs |
 | [`ao_uart.h`](ao_uart.h.md) | UART |
-
-# External Links
-
-| [PIC32MK General Purpose and Motor Control (GP/MC) Family Data sheet](https://microchip.com/DS60001402) |
-| [PIC32MK General Purpose and Motor Control (GP/MC) Family Errata](https://microchip.com/DS80000737) |

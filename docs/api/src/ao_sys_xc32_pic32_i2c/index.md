@@ -4,6 +4,8 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32_i2c directory of the ao real-time operating system."
 draft: false
+external:
+- https://microchip.com/DS60001116 : "PIC32 Family Reference Manual, Section 24, Inter-Integrated Circuit (I²C)"
 permalink: /api/src/ao_sys_xc32_pic32_i2c/ 
 subtitle: "PIC32 I²C driver"
 title: "ao_sys_xc32_pic32_i2c"
@@ -22,7 +24,3 @@ toc: false
 | [`ao_ir_i2c.h`](ao_ir_i2c.h.md) | I²C interrupts |
 | [`ao_sys.h`](ao_sys.h.md) | System |
 | [`ao_sys_clock.h`](ao_sys_clock.h.md) | System clocks |
-
-# External Links
-
-| [PIC32 Family Reference Manual, Section 24, Inter-Integrated Circuit (I²C)](https://microchip.com/DS60001116) |

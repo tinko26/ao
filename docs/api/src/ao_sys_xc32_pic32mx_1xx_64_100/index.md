@@ -4,6 +4,9 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mx_1xx_64_100 directory of the ao real-time operating system."
 draft: false
+external:
+- https://microchip.com/DS60001290 : "PIC32MX1XX/2XX/5XX 64/100-Pin Family Data sheet"
+- https://microchip.com/DS80000616 : "PIC32MX1XX/2XX/5XX 64/100-Pin Family Errata"
 permalink: /api/src/ao_sys_xc32_pic32mx_1xx_64_100/ 
 subtitle: "PIC32MX1XX/2XX/5XX 64/100-Pin Family"
 title: "ao_sys_xc32_pic32mx_1xx_64_100"
@@ -40,8 +43,3 @@ toc: false
 | [`ao_sys_clock.h`](ao_sys_clock.h.md) | System clocks |
 | [`ao_sys_id.h`](ao_sys_id.h.md) | System IDs |
 | [`ao_uart.h`](ao_uart.h.md) | UART |
-
-# External Links
-
-| [PIC32MX1XX/2XX/5XX 64/100-Pin Family Data sheet](https://microchip.com/DS60001290) |
-| [PIC32MX1XX/2XX/5XX 64/100-Pin Family Errata](https://microchip.com/DS80000616) |

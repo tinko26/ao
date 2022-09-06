@@ -4,6 +4,9 @@ author: "Stefan Wagner"
 date: 2022-08-29
 description: "The /src/ao_sys_xc32_pic32mz_ec directory of the ao real-time operating system."
 draft: false
+external:
+- https://microchip.com/DS60001191 : "PIC32MZ Embedded Connectivity (EC) Family Data sheet"
+- https://microchip.com/DS80000588 : "PIC32MZ Embedded Connectivity (EC) Family Errata"
 permalink: /api/src/ao_sys_xc32_pic32mz_ec/ 
 subtitle: "PIC32MZ Embedded Connectivity (EC) Family"
 title: "ao_sys_xc32_pic32mz_ec"
@@ -45,8 +48,3 @@ toc: false
 | [`ao_sys_clock.h`](ao_sys_clock.h.md) | System clocks |
 | [`ao_sys_id.h`](ao_sys_id.h.md) | System IDs |
 | [`ao_uart.h`](ao_uart.h.md) | UART |
-
-# External Links
-
-| [PIC32MZ Embedded Connectivity (EC) Family Data sheet](https://microchip.com/DS60001191) |
-| [PIC32MZ Embedded Connectivity (EC) Family Errata](https://microchip.com/DS80000588) |
