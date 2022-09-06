@@ -1,14 +1,10 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_are.h file of the ao real-time operating system."
 draft: true
 external:
 - https://docs.microsoft.com/en-us/dotnet/api/system.threading.autoresetevent : "AutoResetEvent"
 permalink: /api/src/ao_sys/ao_are.h/
-subtitle: "Auto-reset events"
-title: "ao_are.h"
 toc: true
 ---
 
@@ -48,8 +44,8 @@ This type represents an auto-reset event.
 ```c
 struct ao_are_t
 {
-    ao_list_t list;
-    bool      state;
+ao_list_t list;
+bool      state;
 };
 ```
 
@@ -65,10 +61,10 @@ This type represents the waiting for an auto-reset event.
 ```c
 struct ao_are_wait_t
 {
-    ao_are_t * are;
-    ao_async_t async;
-    ao_list_node_t node;
-    bool volatile result;
+ao_are_t * are;
+ao_async_t async;
+ao_list_node_t node;
+bool volatile result;
 };
 ```
 

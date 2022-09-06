@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao/ao_heap4ptr.h file of the ao real-time operating system."
 draft: false
 permalink: /api/src/ao/ao_heap4ptr.h/
-subtitle: "Array-based binary heaps for pointers"
-title: "ao_heap4ptr.h"
 toc: true
 wiki:
 - binary-heap
@@ -19,7 +15,7 @@ wiki:
 
 This module defines binary heaps for pointers.
 
-A binary heap is a special kind of binary tree that maintains both the shape of a complete binary tree and the heap property. The latter implies, that a node is always less than its children, with respect to a strict total order. 
+A binary heap is a special kind of binary tree that maintains both the shape of a complete binary tree and the heap property. The latter implies, that a node is always less than its children, with respect to a strict total order.
 
 Both insertion into and removal from heaps take logarithmic time. This makes them a perfect choice for implementing priority queues.
 
@@ -41,9 +37,9 @@ typedef struct ao_heap4ptr_t ao_heap4ptr_t;
 ```c
 typedef bool (* ao_heap4ptr_less_t)
 (
-    void * p1,
-    void * p2,
-    void * parameter
+void * p1,
+void * p2,
+void * parameter
 );
 ```
 
@@ -64,20 +60,20 @@ This type represents a heap for pointers.
 ```c
 struct ao_heap4ptr_t
 {
-    size_t             capacity;
-    size_t             count;
+size_t             capacity;
+size_t             count;
 
 #if AO_HEAP4PTR_COUNT_MAX
 
-    size_t             count_max;
+size_t             count_max;
 
 #endif
 
-    size_t *           heap1;
-    size_t *           heap2;
-    ao_heap4ptr_less_t less;
-    void *             less_parameter;
-    void **            store;
+size_t *           heap1;
+size_t *           heap2;
+ao_heap4ptr_less_t less;
+void *             less_parameter;
+void **            store;
 };
 ```
 
@@ -168,14 +164,14 @@ Also, prior to inserting pointers, a compare function must be set.
 ```c
 bool compare(void * p1, void * p2, void * p)
 {
-    if (/* p1 is less than p2 */)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+if (/* p1 is less than p2 */)
+{
+return true;
+}
+else
+{
+return false;
+}
 }
 ```
 

@@ -1,14 +1,10 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The /src/ao_sys_xc32_pic32_spi directory of the ao real-time operating system."
 draft: false
 external:
 - https://microchip.com/DS61106 : "PIC32 Family Reference Manual, Section 23, Serial Peripheral Interface (SPI)"
-permalink: /api/src/ao_sys_xc32_pic32_spi/ 
-subtitle: "PIC32 SPI driver"
-title: "ao_sys_xc32_pic32_spi"
+permalink: /api/src/ao_sys_xc32_pic32_spi/
 toc: false
 ---
 

@@ -1,7 +1,6 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-13
-description: "Memory in the ao real-time operating system."
 draft: true
 permalink: /memory/
 ---
@@ -11,7 +10,7 @@ permalink: /memory/
 # Memory Management
 
 - a form of resource management
-- allocate memory upon 
+- allocate memory upon
 
 # Automatic Memory Management
 
@@ -39,12 +38,12 @@ permalink: /memory/
 
 # Manual Memory Management
 
-- calling a dedicated function, such as malloc() for allocating from the heap or `alloca()` for allocating from the stack. 
+- calling a dedicated function, such as malloc() for allocating from the heap or `alloca()` for allocating from the stack.
 - the RTOS supports the heap variant, only
 
 # Automatic Memory Management
 
-- runtime environment is responsible for allocation and freeing. 
+- runtime environment is responsible for allocation and freeing.
 - automatic allocation supported only for variables allocated globally or on the stack.
 - automatic freeing supported only for variables allocated on the stack.
 - automatic freeing not supported for memory allocated on the heap (so, no garbage collection)

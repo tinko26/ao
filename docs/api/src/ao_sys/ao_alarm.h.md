@@ -1,14 +1,10 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_alarm.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_alarm.h/
 seealso:
 - /api/src/ao_sys/ao_alarm_queue.h/
-subtitle: "Alarms"
-title: "ao_alarm.h"
 toc: true
 ---
 
@@ -48,11 +44,11 @@ This type represents an alarm.
 ```c
 struct ao_alarm_t
 {
-    ao_proc_t             callback;
-    void *                callback_parameter;
-    ao_time_t             end;
-    ao_alarm_queue_node_t node;
-    bool                  running;
+ao_proc_t             callback;
+void *                callback_parameter;
+ao_time_t             end;
+ao_alarm_queue_node_t node;
+bool                  running;
 };
 ```
 

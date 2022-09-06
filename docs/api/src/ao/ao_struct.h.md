@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-30
-description: "The /src/ao/ao_struct.h file of the ao real-time operating system."
 draft: false
 permalink: /api/src/ao/ao_struct.h/
-subtitle: "Structs"
-title: "ao_struct.h"
 toc: true
 ---
 
@@ -40,10 +36,10 @@ typedef struct compound_t compound_t;
 ```c
 struct compound_t
 {
-    uint32_t member_a;
-    uint16_t member_b;
-    char     member_c;
-    uint64_t member_d;
+uint32_t member_a;
+uint16_t member_b;
+char     member_c;
+uint64_t member_d;
 };
 ```
 

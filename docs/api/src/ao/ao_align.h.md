@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-30
-description: "The /src/ao/ao_align.h file of the ao real-time operating system."
 draft: false
-permalink: /api/src/ao/ao_align.h/ 
-subtitle: "Memory alignment"
-title: "ao_align.h"
+permalink: /api/src/ao/ao_align.h/
 toc: true
 wiki:
 - memory-alignment
@@ -62,10 +58,10 @@ Check whether `xu` is aligned to an 8-byte boundary.
 ```c
 if (AO_IS_ALIGNED(xu, 8))
 {
-    // yes.
+// yes.
 }
 else
 {
-    // no.
+// no.
 }
 ```

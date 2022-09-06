@@ -1,14 +1,10 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_time.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_time.h/
 seealso:
 - /api/src/ao_sys/ao_count.h/
-subtitle: "Time"
-title: "ao_time.h"
 toc: true
 ---
 

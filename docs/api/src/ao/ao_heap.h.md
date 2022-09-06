@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao/ao_heap.h file of the ao real-time operating system."
 draft: false
 permalink: /api/src/ao/ao_heap.h/
-subtitle: "Pointer-based binary heaps"
-title: "ao_heap.h"
 toc: true
 wiki:
 - binary-heap
@@ -17,7 +13,7 @@ wiki:
 
 # Overview
 
-This module defines binary heaps. 
+This module defines binary heaps.
 
 A binary heap is a special kind of binary tree that maintains both the shape of a complete binary tree and the heap property. The latter implies, that a node is always less than its children, with respect to a strict total order.
 
@@ -46,9 +42,9 @@ typedef struct ao_heap_node_t ao_heap_node_t;
 ```c
 typedef bool (* ao_heap_less_t)
 (
-    ao_heap_node_t * n1,
-    ao_heap_node_t * n2,
-    void           * parameter
+ao_heap_node_t * n1,
+ao_heap_node_t * n2,
+void           * parameter
 );
 ```
 
@@ -69,17 +65,17 @@ This type represents a heap.
 ```c
 struct ao_heap_t
 {
-    ao_uint_t        count;
+ao_uint_t        count;
 
 #if AO_HEAP_COUNT_MAX
 
-    ao_uint_t        count_max;
+ao_uint_t        count_max;
 
 #endif
 
-    ao_heap_less_t   less;
-    void           * less_parameter;
-    ao_heap_node_t * root;
+ao_heap_less_t   less;
+void           * less_parameter;
+ao_heap_node_t * root;
 };
 ```
 
@@ -98,9 +94,9 @@ This type represents a node.
 ```c
 struct ao_heap_node_t
 {
-    ao_heap_node_t * left;
-    ao_heap_node_t * parent;
-    ao_heap_node_t * right;
+ao_heap_node_t * left;
+ao_heap_node_t * parent;
+ao_heap_node_t * right;
 };
 ```
 
@@ -187,14 +183,14 @@ However, prior to inserting nodes, a compare function must be set.
 ```c
 bool compare(ao_heap_node_t * n1, ao_heap_node_t * n2, void * p)
 {
-    if (/* n1 is less than n2 */)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+if (/* n1 is less than n2 */)
+{
+return true;
+}
+else
+{
+return false;
+}
 }
 ```
 

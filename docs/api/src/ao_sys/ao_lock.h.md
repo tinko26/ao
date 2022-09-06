@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_lock.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_lock.h/
-subtitle: "Locks"
-title: "ao_lock.h"
 toc: true
 wiki:
 - critical-section
@@ -14,7 +10,7 @@ wiki:
 
 # Overview
 
-This module defines a mechanism for critical sections, that are required by the kernel in order to protect its resources from concurrent accesses. Since kernel-level critical sections utilize hardware features, this module is abstract. Therefore, an implementation must be provided by a port package. 
+This module defines a mechanism for critical sections, that are required by the kernel in order to protect its resources from concurrent accesses. Since kernel-level critical sections utilize hardware features, this module is abstract. Therefore, an implementation must be provided by a port package.
 
 # Typedefs
 
@@ -50,7 +46,7 @@ ao_lock_t * l;
 ```c
 ao_lock(l);
 {
-    // Critical section.
+// Critical section.
 }
 ao_unlock(l);
 ```
@@ -69,13 +65,13 @@ ao_lock_t * l2;
 ```c
 ao_lock(l1);
 {
-    // ...
-    ao_lock(l2);
-    {
-        // ...
-    }
-    ao_unlock(l2);
-    // ...
+// ...
+ao_lock(l2);
+{
+// ...
+}
+ao_unlock(l2);
+// ...
 }
 ao_unlock(l1);
 ```

@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao/ao_scan.h file of the ao real-time operating system."
 draft: false
 permalink: /api/src/ao/ao_scan.h/
-subtitle: "Converting numbers from string"
-title: "ao_scan.h"
 toc: true
 wiki:
 - radix
@@ -39,8 +35,8 @@ This type represents options for the conversion.
 ```c
 struct ao_scan_t
 {
-    size_t radix;
-    bool   seek;
+size_t radix;
+bool   seek;
 };
 ```
 
@@ -98,8 +94,8 @@ size_t n = 33;
 // Options.
 ao_scan_t o =
 {
-    .radix = 10,
-    .seek = true
+.radix = 10,
+.seek = true
 };
 
 // Value.

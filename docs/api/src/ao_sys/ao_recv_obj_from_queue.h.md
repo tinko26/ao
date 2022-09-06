@@ -1,15 +1,11 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The /src/ao_sys/ao_recv_obj_from_queue.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_recv_obj_from_queue.h/
 seealso:
 - /api/src/ao_sys/ao_queue4obj.h/
 - /api/src/ao_sys/ao_recv_obj.h/
-subtitle: "Receiving objects from queues"
-title: "ao_recv_obj_from_queue.h"
 toc: true
 ---
 

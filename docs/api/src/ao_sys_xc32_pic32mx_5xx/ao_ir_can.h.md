@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-09-05
-description: "The /src/ao_sys_xc32_pic32mx_5xx/ao_ir_can.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mx_5xx/ao_ir_can.h/
-subtitle: "CAN interrupts"
-title: "ao_ir_can.h"
 toc: true
 ---
 

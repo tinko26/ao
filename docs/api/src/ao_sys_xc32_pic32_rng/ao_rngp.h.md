@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-09-05
-description: "The /src/ao_sys_xc32_pic32_rng/ao_rngp.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_rng/ao_rngp.h/
-subtitle: "Pseudo-random number generator"
-title: "ao_rngp.h"
 toc: true
 ---
 

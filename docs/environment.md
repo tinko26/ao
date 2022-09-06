@@ -1,7 +1,6 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-11
-description: "The environment of the ao real-time operating system."
 draft: true
 permalink: /environment/
 toc: true
@@ -55,7 +54,7 @@ The following modules support the debugging of an application. Especially, runti
 
 # Arithmetic Types
 
-Based on the language-defined types, the standard library defines plenty of arithmetic types for specific purposes. The use of these types in embedded applications is strongly encouraged by several industrial coding standards, especially fixed-width integer types. 
+Based on the language-defined types, the standard library defines plenty of arithmetic types for specific purposes. The use of these types in embedded applications is strongly encouraged by several industrial coding standards, especially fixed-width integer types.
 
 Yet, in order to improve platform independency and portability, the environment package defines its own types for floating-point numbers as well as signed and unsigned integers.
 

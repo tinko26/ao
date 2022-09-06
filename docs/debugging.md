@@ -1,10 +1,8 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-13
-description: "Debugging in the ao real-time operating system."
 draft: false
 permalink: /debugging/
-subtitle: "Finding and removing bugs"
 toc: false
 ---
 

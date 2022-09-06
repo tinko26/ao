@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-30
-description: "The /demos/ao_mikroe_2935/ao_mikroe_2935.h file of the ao real-time operating system."
 draft: true
 permalink: /api/demos/ao_mikroe_2935/ao_mikroe_2935.h/
-subtitle: "GeoMagnetic Click"
-title: "ao_mikroe_2935.h"
 toc: true
 ---
 
@@ -31,10 +27,10 @@ typedef struct ao_mikroe_2935_t ao_mikroe_2935_t;
 ```c
 struct ao_mikroe_2935_t
 {
-    bool ready;
-    ao_float_t x;
-    ao_float_t y;
-    ao_float_t z;
+bool ready;
+ao_float_t x;
+ao_float_t y;
+ao_float_t z;
 };
 ```
 

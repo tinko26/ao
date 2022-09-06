@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao/ao_floatf.h file of the ao real-time operating system."
 draft: false
 permalink: /api/src/ao/ao_floatf.h/
-subtitle: "Floating-point numbers based on <code>float</code>"
-title: "ao_floatf.h"
 toc: true
 ---
 

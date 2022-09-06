@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-30
-description: "The /src/ao/ao_mathf.h file of the ao real-time operating system."
 draft: false
 permalink: /api/src/ao/ao_mathf.h/
-subtitle: "Mathematics for floating-point numbers"
-title: "ao_mathf.h"
 toc: true
 ---
 

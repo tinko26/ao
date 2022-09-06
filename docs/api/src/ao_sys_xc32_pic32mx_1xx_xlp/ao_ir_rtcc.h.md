@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-09-05
-description: "The /src/ao_sys_xc32_pic32mx_1xx_xlp/ao_ir_rtcc.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mx_1xx_xlp/ao_ir_rtcc.h/
-subtitle: "Real-time clock and calendar interrupt"
-title: "ao_ir_rtcc.h"
 toc: true
 ---
 

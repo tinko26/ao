@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_monitor.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_monitor.h/
-subtitle: "Monitors"
-title: "ao_monitor.h"
 toc: true
 wiki:
 - monitor
@@ -45,8 +41,8 @@ This type represents a monitor.
 ```c
 struct ao_monitor_t
 {
-    ao_list_t    list;
-    ao_mutex_t * mutex;
+ao_list_t    list;
+ao_mutex_t * mutex;
 };
 ```
 
@@ -62,10 +58,10 @@ This type represents the entering of a monitor.
 ```c
 struct ao_monitor_enter_t
 {
-    ao_async_t      async;
-    ao_monitor_t *  monitor;
-    ao_mutex_lock_t mutex_lock;
-    bool volatile   result;
+ao_async_t      async;
+ao_monitor_t *  monitor;
+ao_mutex_lock_t mutex_lock;
+bool volatile   result;
 };
 ```
 
@@ -83,15 +79,15 @@ This type represents the waiting for a monitor.
 ```c
 struct ao_monitor_wait_t
 {
-    ao_async_t          async;
-    ao_monitor_t *      monitor;
-    union
-    {
-        ao_mutex_lock_t mutex_lock;
-        ao_list_node_t  node;
-    };
-    bool volatile       result;
-    bool volatile       waiting;
+ao_async_t          async;
+ao_monitor_t *      monitor;
+union
+{
+ao_mutex_lock_t mutex_lock;
+ao_list_node_t  node;
+};
+bool volatile       result;
+bool volatile       waiting;
 };
 ```
 

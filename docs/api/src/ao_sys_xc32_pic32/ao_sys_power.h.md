@@ -1,14 +1,10 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-09-05
-description: "The /src/ao_sys_xc32_pic32/ao_sys_power.h file of the ao real-time operating system."
 draft: true
 external:
 - https://microchip.com/DS61130 : "PIC32 Family Reference Manual, Section 10, Power-Saving Modes"
 permalink: /api/src/ao_sys_xc32_pic32/ao_sys_power.h/
-subtitle: "System power-saving modes"
-title: "ao_sys_power.h"
 toc: true
 ---
 

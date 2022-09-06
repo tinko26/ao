@@ -1,7 +1,6 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-11
-description: "Timing in the ao real-time operating system."
 draft: true
 permalink: /timing/
 ---

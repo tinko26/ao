@@ -1,14 +1,10 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The /src/ao_sys_xc32_pic32_uart directory of the ao real-time operating system."
 draft: false
 external:
 - https://microchip.com/DS60001107 : "PIC32 Family Reference Manual, Section 21, UART"
-permalink: /api/src/ao_sys_xc32_pic32_uart/ 
-subtitle: "PIC32 UART driver"
-title: "ao_sys_xc32_pic32_uart"
+permalink: /api/src/ao_sys_xc32_pic32_uart/
 toc: false
 ---
 

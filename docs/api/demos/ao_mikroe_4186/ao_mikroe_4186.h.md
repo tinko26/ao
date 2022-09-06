@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-30
-description: "The /demos/ao_mikroe_4186/ao_mikroe_4186.h file of the ao real-time operating system."
 draft: true
 permalink: /api/demos/ao_mikroe_4186/ao_mikroe_4186.h/
-subtitle: "EXPAND 5 Click"
-title: "ao_mikroe_4186.h"
 toc: true
 ---
 
@@ -34,18 +30,18 @@ typedef union ao_mikroe_4186_port_t ao_mikroe_4186_port_t;
 ```c
 union ao_mikroe_4186_port_t
 {
-    uint8_t pins;
-    struct
-    {
-        uint8_t pin0 : 1;
-        uint8_t pin1 : 1;
-        uint8_t pin2 : 1;
-        uint8_t pin3 : 1;
-        uint8_t pin4 : 1;
-        uint8_t pin5 : 1;
-        uint8_t pin6 : 1;
-        uint8_t pin7 : 1;
-    };
+uint8_t pins;
+struct
+{
+uint8_t pin0 : 1;
+uint8_t pin1 : 1;
+uint8_t pin2 : 1;
+uint8_t pin3 : 1;
+uint8_t pin4 : 1;
+uint8_t pin5 : 1;
+uint8_t pin6 : 1;
+uint8_t pin7 : 1;
+};
 };
 ```
 
@@ -66,13 +62,13 @@ It consists of the following members.
 ```c
 union ao_mikroe_4186_t
 {
-    uint32_t ports;
-    struct
-    {
-        ao_mikroe_4186_port_t port0;
-        ao_mikroe_4186_port_t port1;
-        ao_mikroe_4186_port_t port2;
-    };
+uint32_t ports;
+struct
+{
+ao_mikroe_4186_port_t port0;
+ao_mikroe_4186_port_t port1;
+ao_mikroe_4186_port_t port2;
+};
 };
 ```
 

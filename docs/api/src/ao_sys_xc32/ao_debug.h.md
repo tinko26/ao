@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-09-05
-description: "The /src/ao_sys_xc32/ao_debug.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32/ao_debug.h/
-subtitle: "Debug mode"
-title: "ao_debug.h"
 toc: true
 ---
 

@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_send_ptr.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_send_ptr.h/
-subtitle: "Sending pointers"
-title: "ao_send_ptr.h"
 toc: true
 ---
 
@@ -27,7 +23,7 @@ typedef struct ao_send_ptr_t ao_send_ptr_t;
 ```c
 typedef void (* ao_send_ptr_proc_t)
 (
-    ao_send_ptr_t * x
+ao_send_ptr_t * x
 );
 ```
 
@@ -40,12 +36,12 @@ This type represents the sending of a pointer.
 ```c
 struct ao_send_ptr_t
 {
-    ao_async_t         async;
-    ao_send_ptr_proc_t begin;
-    ao_send_ptr_proc_t end;
-    void *             parameter;
-    void *             ptr;
-    bool volatile      result;
+ao_async_t         async;
+ao_send_ptr_proc_t begin;
+ao_send_ptr_proc_t end;
+void *             parameter;
+void *             ptr;
+bool volatile      result;
 };
 ```
 

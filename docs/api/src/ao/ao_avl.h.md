@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao/ao_avl.h file of the ao real-time operating system."
 draft: false
 permalink: /api/src/ao/ao_avl.h/
-subtitle: "AVL trees"
-title: "ao_avl.h"
 toc: true
 wiki:
 - avl-tree
@@ -18,7 +14,7 @@ wiki:
 
 # Overview
 
-This module defines AVL trees. 
+This module defines AVL trees.
 
 An AVL tree is a special kind of binary search tree, that keeps itself balanced, which guarantees that insertion, removal, and search always take logarithmic time. It is therefore a perfect choice when implementing a priority queue.
 
@@ -43,9 +39,9 @@ typedef struct ao_avl_node_t ao_avl_node_t;
 ```c
 typedef bool (* ao_avl_less_t)
 (
-    ao_avl_node_t * n1,
-    ao_avl_node_t * n2,
-    void          * parameter
+ao_avl_node_t * n1,
+ao_avl_node_t * n2,
+void          * parameter
 );
 ```
 
@@ -58,9 +54,9 @@ This type represents an AVL tree.
 ```c
 struct ao_avl_t
 {
-    ao_avl_less_t   less;
-    void          * less_parameter;
-    ao_avl_node_t * root;
+ao_avl_less_t   less;
+void          * less_parameter;
+ao_avl_node_t * root;
 };
 ```
 
@@ -77,10 +73,10 @@ This type represents an AVL tree node.
 ```c
 struct ao_avl_node_t
 {
-    ao_int_t        height;
-    ao_avl_node_t * left;
-    ao_avl_node_t * parent;
-    ao_avl_node_t * right;
+ao_int_t        height;
+ao_avl_node_t * left;
+ao_avl_node_t * parent;
+ao_avl_node_t * right;
 };
 ```
 
@@ -164,14 +160,14 @@ However, prior to inserting nodes, a compare function must be set.
 ```c
 bool compare(ao_avl_node_t * n1, ao_avl_node_t * n2, void * p)
 {
-    if (/* n1 is less than n2 */)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+if (/* n1 is less than n2 */)
+{
+return true;
+}
+else
+{
+return false;
+}
 }
 ```
 

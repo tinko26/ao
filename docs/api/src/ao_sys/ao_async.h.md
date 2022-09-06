@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_async.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_async.h/
-subtitle: "Asynchronous events"
-title: "ao_async.h"
 toc: true
 ---
 
@@ -41,9 +37,9 @@ This type represents an asynchronous event.
 ```c
 struct ao_async_t
 {
-    ao_proc_t     callback;
-    void *        callback_parameter;
-    bool volatile checked;
+ao_proc_t     callback;
+void *        callback_parameter;
+bool volatile checked;
 };
 ```
 
@@ -60,11 +56,11 @@ This type represents the waiting for all out of a collection of asynchronous eve
 ```c
 struct ao_async_all_t
 {
-    ao_async_t      async;
-    size_t          count;
-    size_t volatile count_checked;
-    bool   volatile result;
-    ao_async_t **   store;
+ao_async_t      async;
+size_t          count;
+size_t volatile count_checked;
+bool   volatile result;
+ao_async_t **   store;
 };
 ```
 
@@ -83,10 +79,10 @@ This type represents the waiting for one out of a collection of asynchronous eve
 ```c
 struct ao_async_any_t
 {
-    ao_async_t    async;
-    size_t        count;
-    bool volatile result;
-    ao_async_t ** store;
+ao_async_t    async;
+size_t        count;
+bool volatile result;
+ao_async_t ** store;
 };
 ```
 

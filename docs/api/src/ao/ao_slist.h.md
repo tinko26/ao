@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao/ao_slist.h file of the ao real-time operating system."
 draft: false
 permalink: /api/src/ao/ao_slist.h/
-subtitle: "Sorted doubly linked lists"
-title: "ao_slist.h"
 toc: true
 wiki:
 - doubly-linked-list
@@ -37,9 +33,9 @@ typedef struct ao_slist_node_t ao_slist_node_t;
 ```c
 typedef bool (* ao_slist_less_t)
 (
-    ao_slist_node_t * n1,
-    ao_slist_node_t * n2,
-    void            * parameter
+ao_slist_node_t * n1,
+ao_slist_node_t * n2,
+void            * parameter
 );
 ```
 
@@ -52,10 +48,10 @@ This type represents a sorted list.
 ```c
 struct ao_slist_t
 {
-    ao_slist_node_t * back;
-    ao_slist_node_t * front;
-    ao_slist_less_t   less;
-    void            * less_parameter;
+ao_slist_node_t * back;
+ao_slist_node_t * front;
+ao_slist_less_t   less;
+void            * less_parameter;
 };
 ```
 
@@ -73,8 +69,8 @@ This type represents a node of a sorted list.
 ```c
 struct ao_slist_node_t
 {
-    ao_slist_node_t * next;
-    ao_slist_node_t * prev;
+ao_slist_node_t * next;
+ao_slist_node_t * prev;
 };
 ```
 
@@ -168,14 +164,14 @@ However, prior to inserting elements, a compare function must be set.
 ```c
 bool compare(ao_slist_node_t * n1, ao_slist_node_t * n2, void * p)
 {
-    if (/* n1 is less than n2 */)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+if (/* n1 is less than n2 */)
+{
+return true;
+}
+else
+{
+return false;
+}
 }
 ```
 

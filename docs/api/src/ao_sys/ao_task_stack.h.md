@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_task_stack.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_task_stack.h/
-subtitle: "Task stack"
-title: "ao_task_stack.h"
 toc: true
 ---
 

@@ -1,15 +1,13 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-28
-description: "Receiving data in the ao real-time operating system."
 draft: true
 permalink: /receiving/
 seealso:
 - /api/src/ao_sys/ao_recv.h/
 - /api/src/ao_sys/ao_recv_from_callback.h/
-- /api/src/ao_sys/ao_recv_from_callback.h/
+- /api/src/ao_sys/ao_recv_from_stream.h/
 - /api/src/ao_sys/ao_stream.h/
-subtitle: "Receiving data from an opaque source"
 toc: false
 ---
 
@@ -20,16 +18,16 @@ In order to process such data in software, one could develop a module that runs 
 ```c
 while (1)
 {
-    // Receive next character.
+// Receive next character.
 
-    // Append the character to the buffer.
+// Append the character to the buffer.
 
-    if (/* character marks end of message */)
-    {
-        // Process the message.
+if (/* character marks end of message */)
+{
+// Process the message.
 
-        // Clear the buffer.
-    }
+// Clear the buffer.
+}
 }
 ```
 
@@ -48,22 +46,22 @@ spop->ptr = &c;
 
 while (1)
 {
-    ao_spop_forever(spop);
+ao_spop_forever(spop);
 
-    if (spop->result)
-    {
-        // Character has been received and stored
-        // in variable c.
+if (spop->result)
+{
+// Character has been received and stored
+// in variable c.
 
-        // Append c to the buffer.
+// Append c to the buffer.
 
-        if (/* c marks end of message */)
-        {
-            // Process the message.
+if (/* c marks end of message */)
+{
+// Process the message.
 
-            // Clear the buffer.
-        }
-    }
+// Clear the buffer.
+}
+}
 }
 ```
 
@@ -84,22 +82,22 @@ recv->ptr = &c;
 
 while (1)
 {
-    ao_recv_forever(recv);
+ao_recv_forever(recv);
 
-    if (recv->result)
-    {
-        // Character has been received and stored
-        // in variable c.
+if (recv->result)
+{
+// Character has been received and stored
+// in variable c.
 
-        // Append c to the buffer.
+// Append c to the buffer.
 
-        if (/* c marks end of message */)
-        {
-            // Process the message.
+if (/* c marks end of message */)
+{
+// Process the message.
 
-            // Clear the buffer.
-        }
-    }
+// Clear the buffer.
+}
+}
 }
 ```
 
@@ -114,10 +112,10 @@ ao_recv_from_stream(recv, spop);
 ```c
 void callback(ao_recv_t * x)
 {
-    static char c = 'A';
+static char c = 'A';
 
-    *((char *) x->ptr) = c++;
-    x->result = true;
+*((char *) x->ptr) = c++;
+x->result = true;
 }
 ```
 

@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_flag.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_flag.h/
-subtitle: "Flags"
-title: "ao_flag.h"
 toc: true
 ---
 
@@ -33,9 +29,9 @@ typedef struct ao_flag_wait_t ao_flag_wait_t;
 ```c
 typedef bool (* ao_flag_match_t)
 (
-    ao_uint_t mask,
-    ao_uint_t mask_wait,
-    void *    parameter
+ao_uint_t mask,
+ao_uint_t mask_wait,
+void *    parameter
 );
 ```
 
@@ -48,8 +44,8 @@ This type represents a set of event flags.
 ```c
 struct ao_flag_t
 {
-    ao_list_t list;
-    ao_uint_t mask;
+ao_list_t list;
+ao_uint_t mask;
 };
 ```
 
@@ -65,13 +61,13 @@ This type represents the waiting for a set of event flags.
 ```c
 struct ao_flag_wait_t
 {
-    ao_async_t      async;
-    ao_flag_t *     flag;
-    ao_uint_t       mask;
-    ao_flag_match_t match;
-    void *          match_parameter;
-    ao_list_node_t  node;
-    bool volatile   result;
+ao_async_t      async;
+ao_flag_t *     flag;
+ao_uint_t       mask;
+ao_flag_match_t match;
+void *          match_parameter;
+ao_list_node_t  node;
+bool volatile   result;
 };
 ```
 

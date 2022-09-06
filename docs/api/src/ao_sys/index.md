@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The /src/ao_sys directory of the ao real-time operating system."
 draft: false
-permalink: /api/src/ao_sys/ 
-subtitle: ""
-title: "ao_sys"
+permalink: /api/src/ao_sys/
 toc: false
 ---
 

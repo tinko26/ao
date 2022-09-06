@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_bsem.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_bsem.h/
-subtitle: "Binary semaphores"
-title: "ao_bsem.h"
 toc: true
 wiki:
 - semaphore
@@ -40,8 +36,8 @@ This type represents a binary semaphore.
 ```c
 struct ao_bsem_t
 {
-    ao_list_t list;
-    bool      taken;
+ao_list_t list;
+bool      taken;
 };
 ```
 
@@ -57,10 +53,10 @@ This type represents the taking of a binary semaphore.
 ```c
 struct ao_bsem_take_t
 {
-    ao_async_t     async;
-    ao_list_node_t node;
-    bool volatile  result;
-    ao_bsem_t *    sem;
+ao_async_t     async;
+ao_list_node_t node;
+bool volatile  result;
+ao_bsem_t *    sem;
 };
 ```
 

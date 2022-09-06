@@ -1,14 +1,10 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_alloc_1.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_alloc_1.h/
 seealso:
 - /api/src/ao_sys/ao_alloc.h/
-subtitle: "Allocator based on pools of fixed-size memory blocks"
-title: "ao_alloc_1.h"
 toc: true
 ---
 
@@ -76,7 +72,7 @@ Keep track of the current and minimum number of free bytes, respectively. If thi
 #define AO_ALLOC_FREE_MIN            (false)
 ```
 
-The number of blocks in each pool. 
+The number of blocks in each pool.
 
 ```c
 #define AO_ALLOC_POOL_BLOCK_COUNT_0  (0)
@@ -105,34 +101,34 @@ struct ao_alloc_pool_t
 {
 
 #if AO_ALLOC_ALLOCATED_MAX || \
-    AO_ALLOC_ALLOCATED
+AO_ALLOC_ALLOCATED
 
-    size_t volatile        allocated;
+size_t volatile        allocated;
 
 #endif
 
 #if AO_ALLOC_ALLOCATED_MAX
 
-    size_t volatile        allocated_max;
+size_t volatile        allocated_max;
 
 #endif
 
-    size_t                 block_size;
+size_t                 block_size;
 
 #if AO_ALLOC_FREE_MIN || \
-    AO_ALLOC_FREE
+AO_ALLOC_FREE
 
-    size_t volatile        free;
+size_t volatile        free;
 
 #endif
 
 #if AO_ALLOC_FREE_MIN
 
-    size_t volatile        free_min;
+size_t volatile        free_min;
 
 #endif
 
-    ao_alloc_pool_node_t * front;
+ao_alloc_pool_node_t * front;
 };
 ```
 
@@ -156,12 +152,12 @@ This type represents the information about a call to `ao_acquire()`.
 ```c
 struct ao_acquired_t
 {
-    size_t pool;
-    void * ptr;
-    bool   result;
-    size_t size_body;
-    size_t size_body_requested;
-    size_t size_head;
+size_t pool;
+void * ptr;
+bool   result;
+size_t size_body;
+size_t size_body_requested;
+size_t size_head;
 };
 ```
 
@@ -181,12 +177,12 @@ This type represents the information about a call to `ao_release()`.
 ```c
 struct ao_released_t
 {
-    size_t pool;
-    void * ptr;
-    size_t ref;
-    bool   result;
-    size_t size_body;
-    size_t size_head;
+size_t pool;
+void * ptr;
+size_t ref;
+bool   result;
+size_t size_body;
+size_t size_head;
 };
 ```
 
@@ -206,12 +202,12 @@ This type represents the information about a call to `ao_retain()`.
 ```c
 struct ao_retained_t
 {
-    size_t pool;
-    void * ptr;
-    size_t ref;
-    bool   result;
-    size_t size_body;
-    size_t size_head;
+size_t pool;
+void * ptr;
+size_t ref;
+bool   result;
+size_t size_body;
+size_t size_head;
 };
 ```
 

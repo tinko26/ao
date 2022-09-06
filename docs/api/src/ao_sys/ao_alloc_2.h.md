@@ -1,14 +1,10 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_alloc_2.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_alloc_2.h/
 seealso:
 - /api/src/ao_sys/ao_alloc.h/
-subtitle: "Constant-time allocator based on the two-level segregated fit algorithm"
-title: "ao_alloc_2.h"
 toc: true
 ---
 

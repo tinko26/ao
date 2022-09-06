@@ -1,14 +1,10 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-09-05
-description: "The /src/ao_sys_xc32_pic32/ao_sys_lock_device.h file of the ao real-time operating system."
 draft: true
 external:
 - https://microchip.com/DS61112 : "PIC32 Family Reference Manual, Section 6, Oscillators"
 permalink: /api/src/ao_sys_xc32_pic32/ao_sys_lock_device.h/
-subtitle: "System locking (device)"
-title: "ao_sys_lock_device.h"
 toc: true
 ---
 
@@ -31,8 +27,8 @@ typedef struct ao_sys_lock_device_t ao_sys_lock_device_t;
 ```c
 struct ao_sys_lock_device_t
 {
-    uint32_t dma;
-    uint32_t ie;
+uint32_t dma;
+uint32_t ie;
 };
 ```
 

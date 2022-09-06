@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_timer.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_timer.h/
-subtitle: "Timers"
-title: "ao_timer.h"
 toc: true
 ---
 
@@ -43,11 +39,11 @@ This type represents a timer.
 ```c
 struct ao_timer_t
 {
-    ao_alarm_t alarm;
-    ao_proc_t  callback;
-    void *     callback_parameter;
-    ao_time_t  end;
-    ao_time_t  period;
+ao_alarm_t alarm;
+ao_proc_t  callback;
+void *     callback_parameter;
+ao_time_t  end;
+ao_time_t  period;
 };
 ```
 

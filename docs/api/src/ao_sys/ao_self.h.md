@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_self.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_self.h/
-subtitle: "Running task"
-title: "ao_self.h"
 toc: true
 ---
 
@@ -24,7 +20,7 @@ Get the running task.
 ao_task_t * ao_self();
 ```
 
-Stop or suspend the running task, respectively. 
+Stop or suspend the running task, respectively.
 
 ```c
 void ao_stop();

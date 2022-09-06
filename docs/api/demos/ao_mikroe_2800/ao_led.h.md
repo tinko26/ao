@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-30
-description: "The /demos/ao_mikroe_2800/ao_led.h file of the ao real-time operating system."
 draft: true
 permalink: /api/demos/ao_mikroe_2800/ao_led.h/
-subtitle: "LEDs"
-title: "ao_led.h"
 toc: true
 ---
 
@@ -36,10 +32,10 @@ typedef enum ao_leds_t ao_leds_t;
 ```c
 enum ao_leds_t
 {
-    AO_LEDS_0 = (1 << 0),
-    AO_LEDS_1 = (1 << 1),
-    AO_LEDS_ALL = AO_LEDS_0 | AO_LEDS_1,
-    AO_LEDS_NONE = 0
+AO_LEDS_0 = (1 << 0),
+AO_LEDS_1 = (1 << 1),
+AO_LEDS_ALL = AO_LEDS_0 | AO_LEDS_1,
+AO_LEDS_NONE = 0
 };
 ```
 

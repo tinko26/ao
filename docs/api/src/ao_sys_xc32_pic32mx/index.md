@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The /src/ao_sys_xc32_pic32mx directory of the ao real-time operating system."
 draft: false
-permalink: /api/src/ao_sys_xc32_pic32mx/ 
-subtitle: "PIC32MX"
-title: "ao_sys_xc32_pic32mx"
+permalink: /api/src/ao_sys_xc32_pic32mx/
 toc: false
 ---
 

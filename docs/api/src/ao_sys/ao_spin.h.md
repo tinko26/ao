@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_spin.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_spin.h/
-subtitle: "Spinning"
-title: "ao_spin.h"
 toc: true
 wiki:
 - busy-waiting
@@ -14,7 +10,7 @@ wiki:
 
 # Overview
 
-This module defines functions for spinning or busy waiting, respectively, that can be used to generate time delays. 
+This module defines functions for spinning or busy waiting, respectively, that can be used to generate time delays.
 
 # Include
 
@@ -52,9 +48,9 @@ ao_time_t period = AO_MILLISECONDS(500);
 
 while (1)
 {
-    ao_spin_from(period, beginning);
-    // Toggle pin.
-    beginning += period;
+ao_spin_from(period, beginning);
+// Toggle pin.
+beginning += period;
 }
 ```
 

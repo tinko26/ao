@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-30
-description: "The /src/ao/ao_rand.h file of the ao real-time operating system."
 draft: false
 permalink: /api/src/ao/ao_rand.h/
-subtitle: "Random value generators"
-title: "ao_rand.h"
 toc: true
 ---
 

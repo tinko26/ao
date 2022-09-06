@@ -1,14 +1,10 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-30
-description: "The /demos/ao_mikroe_2800 directory of the ao real-time operating system."
 draft: false
 external:
 - https://www.mikroe.com/clicker-2-for-pic32mz : "Clicker 2 for PIC32MZ"
-permalink: /api/demos/ao_mikroe_2800/ 
-subtitle: "Clicker 2 for PIC32MZ"
-title: "ao_mikroe_2800"
+permalink: /api/demos/ao_mikroe_2800/
 toc: false
 ---
 

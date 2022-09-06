@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-09-05
-description: "The /src/ao_sys_xc32_pic32mx_330/ao_ir_fce.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mx_330/ao_ir_fce.h/
-subtitle: "Flash control event interrupt"
-title: "ao_ir_fce.h"
 toc: true
 ---
 

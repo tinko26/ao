@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao/ao_buffer.h file of the ao real-time operating system."
 draft: false
 permalink: /api/src/ao/ao_buffer.h/
-subtitle: "Buffers"
-title: "ao_buffer.h"
 toc: true
 wiki:
 - circular-buffer
@@ -47,17 +43,17 @@ This type represents a buffer.
 ```c
 struct ao_buffer_t
 {
-    size_t capacity;
-    size_t count;
+size_t capacity;
+size_t count;
 
 #if AO_BUFFER_COUNT_MAX
 
-    size_t count_max;
+size_t count_max;
 
 #endif
 
-    size_t front;
-    void * store;
+size_t front;
+void * store;
 };
 ```
 
@@ -136,7 +132,7 @@ size_t ao_buffer_push_range_front_override(ao_buffer_t * x, void const * p, size
 
 # Usage
 
-A buffer can be initialized by clearing all of its members. 
+A buffer can be initialized by clearing all of its members.
 
 ```c
 ao_buffer_t * b;

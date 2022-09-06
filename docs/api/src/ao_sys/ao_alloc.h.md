@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_alloc.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_alloc.h/
-subtitle: "Allocator"
-title: "ao_alloc.h"
 toc: true
 ---
 
@@ -85,11 +81,11 @@ This type represents the information about a call to `ao_acquire()`.
 ```c
 struct ao_acquired_t
 {
-    void * ptr;
-    bool   result;
-    size_t size_body;
-    size_t size_body_requested;
-    size_t size_head;
+void * ptr;
+bool   result;
+size_t size_body;
+size_t size_body_requested;
+size_t size_head;
 };
 ```
 
@@ -108,11 +104,11 @@ This type represents the information about a call to `ao_release()`.
 ```c
 struct ao_released_t
 {
-    void * ptr;
-    size_t ref;
-    bool   result;
-    size_t size_body;
-    size_t size_head;
+void * ptr;
+size_t ref;
+bool   result;
+size_t size_body;
+size_t size_head;
 };
 ```
 
@@ -131,11 +127,11 @@ This type represents the information about a call to `ao_retain()`.
 ```c
 struct ao_retained_t
 {
-    void * ptr;
-    size_t ref;
-    bool   result;
-    size_t size_body;
-    size_t size_head;
+void * ptr;
+size_t ref;
+bool   result;
+size_t size_body;
+size_t size_head;
 };
 ```
 
@@ -195,7 +191,7 @@ The callback for each call to `ao_release()`. This function must be implemented 
 void ao_released(ao_released_t const * info);
 ```
 
-Increment the reference count of a memory block, which means, that the calling thread of execution (once again) takes ownership thereof. 
+Increment the reference count of a memory block, which means, that the calling thread of execution (once again) takes ownership thereof.
 
 The return value indicates whether the operation has succeeded or failed. The latter happens, if the specified pointer is `NULL`. Nevertheless, the functions' behavior is well-defined in this case, that is, it simply does nothing but return.
 

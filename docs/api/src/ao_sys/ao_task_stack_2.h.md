@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_task_stack_2.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_task_stack_2.h/
-subtitle: "Task stack from allocation"
-title: "ao_task_stack_2.h"
 toc: true
 ---
 
@@ -44,12 +40,12 @@ typedef struct ao_task_stack_t ao_task_stack_t;
 ```c
 struct ao_task_stack_t
 {
-    void * beginning;
-    size_t size;
+void * beginning;
+size_t size;
 
 #if AO_TASK_STACK_HIGH_WATER_MARK
 
-    size_t high_water_mark;
+size_t high_water_mark;
 
 #endif
 

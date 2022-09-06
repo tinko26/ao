@@ -1,7 +1,6 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-13
-description: "The kernel of the ao real-time operating system."
 draft: true
 permalink: /kernel/
 toc: true
@@ -48,7 +47,7 @@ toc: true
 - [task stack](task-stack.md)
 - task states
 - yielding
-  
+
 # Synchronization and IPC
 
 ## Building Blocks

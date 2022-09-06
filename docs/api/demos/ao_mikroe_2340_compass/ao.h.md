@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-30
-description: "The /demos/ao_mikroe_2340_compass/ao.h file of the ao real-time operating system."
 draft: true
 permalink: /api/demos/ao_mikroe_2340_compass/ao.h/
-subtitle: "App"
-title: "ao.h"
 toc: true
 ---
 

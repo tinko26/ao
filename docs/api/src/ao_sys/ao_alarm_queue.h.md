@@ -1,14 +1,10 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_alarm_queue.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_alarm_queue.h/
 seealso:
 - /api/src/ao_sys/ao_alarm.h/
-subtitle: "Alarm queue"
-title: "ao_alarm_queue.h"
 toc: true
 ---
 

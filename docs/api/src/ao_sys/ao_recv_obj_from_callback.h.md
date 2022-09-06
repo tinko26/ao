@@ -1,14 +1,10 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The /src/ao_sys/ao_recv_obj_from_callback.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_recv_obj_from_callback.h/
 seealso:
 - /api/src/ao_sys/ao_recv_obj.h/
-subtitle: "Receiving objects from callbacks"
-title: "ao_recv_obj_from_callback.h"
 toc: true
 ---
 

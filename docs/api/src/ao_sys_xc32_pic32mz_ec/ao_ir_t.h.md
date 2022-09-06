@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-09-05
-description: "The /src/ao_sys_xc32_pic32mz_ec/ao_ir_t.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mz_ec/ao_ir_t.h/
-subtitle: "Timer interrupts"
-title: "ao_ir_t.h"
 toc: true
 ---
 

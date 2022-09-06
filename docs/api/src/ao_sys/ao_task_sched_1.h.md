@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_task_sched_1.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_task_sched_1.h/
-subtitle: "Round-robin task scheduler without priorities"
-title: "ao_task_sched_1.h"
 toc: true
 ---
 
@@ -63,7 +59,7 @@ typedef struct ao_task_slave_t   ao_task_slave_t;
 ```c
 struct ao_task_sched_t
 {
-    ao_list_node_t node;
+ao_list_node_t node;
 };
 ```
 

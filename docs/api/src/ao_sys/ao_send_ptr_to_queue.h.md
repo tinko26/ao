@@ -1,15 +1,11 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_send_ptr_to_queue.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_send_ptr_to_queue.h/
 seealso:
 - /api/src/ao_sys/ao_queue4ptr.h/
 - /api/src/ao_sys/ao_send_ptr.h/
-subtitle: "Sending pointers to queues"
-title: "ao_send_ptr_to_queue.h"
 toc: true
 ---
 

@@ -1,10 +1,8 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-26
-description: ""
 draft: true
 permalink: /
-subtitle: "Real-time operating system"
 toc: false
 ---
 
@@ -18,5 +16,5 @@ toc: false
 - no build system, source code only.
 - port targeting PIC32, XC32
 - focus on RTOS concepts
- 
+
 -->

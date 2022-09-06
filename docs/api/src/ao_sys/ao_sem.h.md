@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_sem.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_sem.h/
-subtitle: "Counting semaphores"
-title: "ao_sem.h"
 toc: true
 wiki:
 - semaphore
@@ -41,8 +37,8 @@ This type represents a counting semaphore.
 ```c
 struct ao_sem_t
 {
-    ao_uint_t count;
-    ao_list_t list;
+ao_uint_t count;
+ao_list_t list;
 };
 ```
 
@@ -58,11 +54,11 @@ This type represents the taking of a semaphore count.
 ```c
 struct ao_sem_take_t
 {
-    ao_async_t     async;
-    ao_uint_t      count;
-    ao_list_node_t node;
-    bool volatile  result;
-    ao_sem_t *     sem;
+ao_async_t     async;
+ao_uint_t      count;
+ao_list_node_t node;
+bool volatile  result;
+ao_sem_t *     sem;
 };
 ```
 

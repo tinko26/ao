@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-30
-description: "The /src/ao/ao_break.h file of the ao real-time operating system."
 draft: false
 permalink: /api/src/ao/ao_break.h/
-subtitle: "Breakpoints"
-title: "ao_break.h"
 toc: true
 wiki:
 - breakpoint

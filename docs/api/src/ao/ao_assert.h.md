@@ -1,14 +1,10 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-30
-description: "The /src/ao/ao_assert.h file of the ao real-time operating system."
 draft: false
 permalink: /api/src/ao/ao_assert.h/
 seealso:
 - /api/src/ao/ao_break.h/
-subtitle: "Runtime assertions"
-title: "ao_assert.h"
 toc: true
 wiki:
 - assertion
@@ -18,7 +14,7 @@ wiki:
 
 This module defines a single macro function that performs a runtime assertion on a given expression.
 
-Although the standard library contains a similar macro function, it is not available in a freestanding runtime environment. Also, the actions taken by that macro function upon failure are not part of a freestanding runtime environment, namely printing a diagnostic message and terminating the program. 
+Although the standard library contains a similar macro function, it is not available in a freestanding runtime environment. Also, the actions taken by that macro function upon failure are not part of a freestanding runtime environment, namely printing a diagnostic message and terminating the program.
 
 Especially, outputting a message is probably not a good option in an embedded system, because it requires specific hardware, such as a serial port, which might not be available, and it consumes quite an amount of resources. Therefore, the default implementation simply executes a breakpoint upon failure.
 

@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao/ao_buffer4ptr.h file of the ao real-time operating system."
 draft: false
 permalink: /api/src/ao/ao_buffer4ptr.h/
-subtitle: "Buffers for pointers"
-title: "ao_buffer4ptr.h"
 toc: true
 wiki:
 - circular-buffer
@@ -43,17 +39,17 @@ This type represents a buffer for pointers.
 ```c
 struct ao_buffer4ptr_t
 {
-    size_t  capacity;
-    size_t  count;
+size_t  capacity;
+size_t  count;
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-    size_t  count_max;
+size_t  count_max;
 
 #endif
 
-    size_t  front;
-    void ** store;
+size_t  front;
+void ** store;
 };
 ```
 
@@ -132,7 +128,7 @@ size_t ao_buffer4ptr_push_range_front_override(ao_buffer4ptr_t * x, void * const
 
 # Usage
 
-A pointer buffer can be initialized by clearing all of its members. 
+A pointer buffer can be initialized by clearing all of its members.
 
 ```c
 ao_buffer4ptr_t * b;

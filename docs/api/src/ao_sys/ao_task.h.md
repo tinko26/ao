@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_task.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_task.h/
-subtitle: "Tasks"
-title: "ao_task.h"
 toc: true
 ---
 
@@ -15,7 +11,7 @@ toc: true
 ...
 
 - pending state:
-- when a task is running, a state transition might not be possible immediately. First, the task must be switched out, which is a scheduler function, which can be executed in the context of a task switch interrupt, only. 
+- when a task is running, a state transition might not be possible immediately. First, the task must be switched out, which is a scheduler function, which can be executed in the context of a task switch interrupt, only.
 - task blocks
 - task yields
 - task suspends itself
@@ -82,17 +78,17 @@ This type represents task states.
 ```c
 enum ao_task_state_t
 {
-    AO_TASK_STOPPED     = (0),
-    AO_TASK_READY       = (1 << 0),
-    AO_TASK_RUNNING     = (1 << 1),
-    AO_TASK_BLOCKED     = (1 << 2),
-    AO_TASK_SUSPENDED   = (1 << 3),
-    AO_TASK_ACTIVE      = AO_TASK_READY | 
-                          AO_TASK_RUNNING,
-    AO_TASK_SUSPENDABLE = AO_TASK_ACTIVE | 
-                          AO_TASK_BLOCKED,
-    AO_TASK_STARTED     = AO_TASK_SUSPENDABLE | 
-                          AO_TASK_SUSPENDED
+AO_TASK_STOPPED     = (0),
+AO_TASK_READY       = (1 << 0),
+AO_TASK_RUNNING     = (1 << 1),
+AO_TASK_BLOCKED     = (1 << 2),
+AO_TASK_SUSPENDED   = (1 << 3),
+AO_TASK_ACTIVE      = AO_TASK_READY |
+AO_TASK_RUNNING,
+AO_TASK_SUSPENDABLE = AO_TASK_ACTIVE |
+AO_TASK_BLOCKED,
+AO_TASK_STARTED     = AO_TASK_SUSPENDABLE |
+AO_TASK_SUSPENDED
 };
 ```
 
@@ -114,10 +110,10 @@ This type represents pending task state transitions.
 ```c
 enum ao_task_state_pending_t
 {
-    AO_TASK_STOPPING   = (1 << 0),
-    AO_TASK_BLOCKING   = (1 << 1),
-    AO_TASK_SUSPENDING = (1 << 2),
-    AO_TASK_YIELDING   = (1 << 3)
+AO_TASK_STOPPING   = (1 << 0),
+AO_TASK_BLOCKING   = (1 << 1),
+AO_TASK_SUSPENDING = (1 << 2),
+AO_TASK_YIELDING   = (1 << 3)
 };
 ```
 
@@ -135,69 +131,69 @@ This type represents a task.
 ```c
 struct ao_task_t
 {
-    ao_block_t *            block;
-    ao_task_context_t       context;
+ao_block_t *            block;
+ao_task_context_t       context;
 
 #if AO_TASK_COUNT
 
-    struct
-    {
-        ao_uint_t           activate;
-        ao_uint_t           block;
-        ao_uint_t           inactivate;
-        ao_uint_t           resume;
-        ao_uint_t           start;
-        ao_uint_t           stop;
-        ao_uint_t           suspend;
-        ao_uint_t           switch_in;
-        ao_uint_t           switch_out;
-        ao_uint_t           unblock;
-    }                       count;
+struct
+{
+ao_uint_t           activate;
+ao_uint_t           block;
+ao_uint_t           inactivate;
+ao_uint_t           resume;
+ao_uint_t           start;
+ao_uint_t           stop;
+ao_uint_t           suspend;
+ao_uint_t           switch_in;
+ao_uint_t           switch_out;
+ao_uint_t           unblock;
+}                       count;
 
 #endif
 
 #if AO_TASK_ID
 
-    ao_uint_t               id;
+ao_uint_t               id;
 
 #endif
 
 #if AO_TASK_NAME
 
-    char const *            name;
+char const *            name;
 
 #endif
 
-    ao_proc_t               proc;
-    void *                  proc_parameter;
-    ao_task_sched_t         sched;
-    ao_task_stack_t         stack;
-    ao_int_t                started;
-    ao_task_state_t         state;
-    ao_task_state_pending_t state_pending;
-    ao_int_t                suspended;
+ao_proc_t               proc;
+void *                  proc_parameter;
+ao_task_sched_t         sched;
+ao_task_stack_t         stack;
+ao_int_t                started;
+ao_task_state_t         state;
+ao_task_state_pending_t state_pending;
+ao_int_t                suspended;
 
 #if AO_TASK_TIME
 
-    struct
-    {
-        struct
-        {
-            ao_time_t       activation;
-            ao_time_t       inactivation;
-            ao_time_t       start;
-            ao_time_t       stop;
-            ao_time_t       switch_in;
-            ao_time_t       switch_out;
-        }                   point;
-        struct
-        {
-            ao_time_t       active;
-            ao_time_t       down;
-            ao_time_t       inactive;
-            ao_time_t       up;
-        }                   span;
-    }                       time;
+struct
+{
+struct
+{
+ao_time_t       activation;
+ao_time_t       inactivation;
+ao_time_t       start;
+ao_time_t       stop;
+ao_time_t       switch_in;
+ao_time_t       switch_out;
+}                   point;
+struct
+{
+ao_time_t       active;
+ao_time_t       down;
+ao_time_t       inactive;
+ao_time_t       up;
+}                   span;
+}                       time;
 
 #endif
 

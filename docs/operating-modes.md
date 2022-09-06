@@ -1,7 +1,6 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-13
-description: "Operating modes in the ao real-time operating system."
 draft: true
 permalink: /operating-modes/
 ---
@@ -13,6 +12,6 @@ permalink: /operating-modes/
 - operating modes are usually the basis for more specific features, such as memory protection
 
 - however, applying different operating modes comes at a cost
-- for example, user mode on Pic32, syscall exception, LED toggling 
+- for example, user mode on Pic32, syscall exception, LED toggling
 
 - kernel package does not deal with operating modes, because (1) hardware specific, (2) usually not required or having negative impact on efficiency in real-time and/or embedded systems.

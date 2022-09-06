@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_wr.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_wr.h/
-subtitle: "Readers-writer locks preferring writers"
-title: "ao_wr.h"
 toc: true
 wiki:
 - readers-writer-lock
@@ -50,10 +46,10 @@ This type represents a readers-writer lock.
 ```c
 struct ao_wr_t
 {
-    ao_uint_t r_active;
-    ao_list_t r_waiting;
-    bool      w_active;
-    ao_list_t w_waiting;
+ao_uint_t r_active;
+ao_list_t r_waiting;
+bool      w_active;
+ao_list_t w_waiting;
 };
 ```
 
@@ -71,10 +67,10 @@ This type represents the locking of a readers-writer lock.
 ```c
 struct ao_wr_lock_t
 {
-    ao_async_t     async;
-    ao_list_node_t node;
-    bool volatile  result;
-    ao_wr_t *      wr;
+ao_async_t     async;
+ao_list_node_t node;
+bool volatile  result;
+ao_wr_t *      wr;
 };
 ```
 
@@ -164,11 +160,11 @@ bool can_read = ao_wr_lock_read(&lock, AO_MILLISECONDS(500));
 
 if (can_read)
 {
-    /* ... */ = data[0];
-    /* ... */ = data[1];
-    /* ... */ = data[2];
+/* ... */ = data[0];
+/* ... */ = data[1];
+/* ... */ = data[2];
 
-    ao_wr_unlock_read(&lock);
+ao_wr_unlock_read(&lock);
 }
 ```
 
@@ -183,11 +179,11 @@ bool can_write = ao_wr_lock_write(&lock, AO_MILLISECONDS(500));
 
 if (can_write)
 {
-    data[0] = /* ... */;
-    data[1] = /* ... */;
-    data[2] = /* ... */;
+data[0] = /* ... */;
+data[1] = /* ... */;
+data[2] = /* ... */;
 
-    ao_wr_unlock_write(&lock);
+ao_wr_unlock_write(&lock);
 }
 ```
 

@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The /src/ao_sys/ao_barrier.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_barrier.h/
-subtitle: "Barriers"
-title: "ao_barrier.h"
 toc: true
 wiki:
 - barrier
@@ -41,9 +37,9 @@ This type represents a barrier.
 ```c
 struct ao_barrier_t
 {
-    ao_uint_t count;
-    ao_uint_t count_threshold;
-    ao_list_t list;
+ao_uint_t count;
+ao_uint_t count_threshold;
+ao_list_t list;
 };
 ```
 
@@ -60,10 +56,10 @@ This type represents the waiting at a barrier.
 ```c
 struct ao_barrier_wait_t
 {
-    ao_async_t     async;
-    ao_barrier_t * barrier;
-    ao_list_node_t node;
-    bool volatile  result;
+ao_async_t     async;
+ao_barrier_t * barrier;
+ao_list_node_t node;
+bool volatile  result;
 };
 ```
 

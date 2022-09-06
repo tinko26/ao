@@ -1,15 +1,11 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_recv_ptr_from_queue.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_recv_ptr_from_queue.h/
 seealso:
 - /api/src/ao_sys/ao_queue4ptr.h/
 - /api/src/ao_sys/ao_recv_ptr.h/
-subtitle: "Receiving pointers from queues"
-title: "ao_recv_ptr_from_queue.h"
 toc: true
 ---
 

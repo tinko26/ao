@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The /src/ao_sys_xc32_pic32_i2c/ao_i2c_3.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_i2c/ao_i2c_3.h/
-subtitle: "I²C 3"
-title: "ao_i2c_3.h"
 toc: true
 ---
 

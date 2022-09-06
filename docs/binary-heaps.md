@@ -1,7 +1,6 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-15
-description: "Binary heaps in the ao real-time operating system."
 draft: false
 groups:
 - priority-queues

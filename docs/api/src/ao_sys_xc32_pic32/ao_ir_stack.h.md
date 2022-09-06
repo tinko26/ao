@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-09-05
-description: "The /src/ao_sys_xc32_pic32/ao_ir_stack.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_ir_stack.h/
-subtitle: "Interrupt stack"
-title: "ao_ir_stack.h"
 toc: true
 ---
 
@@ -70,20 +66,20 @@ This type represents the interrupt stack.
 ```c
 struct ao_ir_stack_t
 {
-    uint32_t sp;
-    uint32_t sp_backup;
-    uint32_t fp_backup;
-    uint32_t depth;
+uint32_t sp;
+uint32_t sp_backup;
+uint32_t fp_backup;
+uint32_t depth;
 
 #if AO_IR_STACK_DEPTH_MAX
 
-    uint32_t depth_max;
+uint32_t depth_max;
 
 #endif
 
 #if AO_IR_STACK_FILL
 
-    size_t   high_water_mark;
+size_t   high_water_mark;
 
 #endif
 

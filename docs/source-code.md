@@ -1,7 +1,6 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-14
-description: "The source code of the ao real-time operating system."
 draft: true
 permalink: /source-code/
 toc: true
@@ -51,10 +50,10 @@ However, having separate modules focusing on individual concerns leads to interd
 ```c
 #define ao_assert(exp)  \
 {                       \
-    if (!(exp))         \
-    {                   \
-        ao_break();     \
-    }                   \
+if (!(exp))         \
+{                   \
+ao_break();     \
+}                   \
 }
 ```
 
@@ -86,13 +85,13 @@ All the other header files of the standard library, such as `stdio.h`, are part 
 
 Obviously, since the real-time operating system itself is such a host, it cannot rely on someone else to provide these services. Therefore, the environment and kernel packages provide a lot of functionality themselves, that can otherwise be found in the header files of a hosted runtime environment.
 
-The aforementioned `ao_assert()` macro function is a good example. Although a similar macro function is defined in the standard library's `assert.h` header file, it is not being used, because that header file is not part of a freestanding runtime environment. 
+The aforementioned `ao_assert()` macro function is a good example. Although a similar macro function is defined in the standard library's `assert.h` header file, it is not being used, because that header file is not part of a freestanding runtime environment.
 
 # Platform-Specific Modules
 
-In contrast, the modules of the port package are platform-specific. For example, they include the compiler's `xc.h` header file and make heavy use of non-standard language features, not least for the sake of execution speed. 
+In contrast, the modules of the port package are platform-specific. For example, they include the compiler's `xc.h` header file and make heavy use of non-standard language features, not least for the sake of execution speed.
 
-Also, they call functions declared in header files of a hosted runtime environment, such as `memset()`, because the XC32 compiler ships with an implementation of a subset of the standard library. 
+Also, they call functions declared in header files of a hosted runtime environment, such as `memset()`, because the XC32 compiler ships with an implementation of a subset of the standard library.
 
 And all that makes perfect sense. Since the port package is explicitly devoted to the XC32 toolchain, there is no point in not using its rich and highly optimized features.
 
@@ -116,7 +115,7 @@ So, the port package contains an `ao_break.h` header file, too, just like the en
 
 When including a header file with the angle-bracket form, the compiler searches a sequence of directories. Although the standard spares the details of the search and leaves it up to the implementation, virtually every compiler first scans a user-defined, then an implementation-defined sequence of directories.
 
-So, in order to include the correct `ao_break.h` header file, the compiler's include directories must be set up properly, so that it searches the directories of the port package before the directory of the environment package. 
+So, in order to include the correct `ao_break.h` header file, the compiler's include directories must be set up properly, so that it searches the directories of the port package before the directory of the environment package.
 
 This hierarchy of include directories is mirrored by the directory names. For example, the following setup must be chosen, in order to target a PIC32MZ EF microcontroller.
 

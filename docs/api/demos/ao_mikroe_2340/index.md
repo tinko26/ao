@@ -1,14 +1,10 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-30
-description: "The /demos/ao_mikroe_2340 directory of the ao real-time operating system."
 draft: false
 external:
 - https://www.mikroe.com/flipclick-pic32mz : "Flip&Click PIC32MZ"
-permalink: /api/demos/ao_mikroe_2340/ 
-subtitle: "Flip&Click PIC32MZ"
-title: "ao_mikroe_2340"
+permalink: /api/demos/ao_mikroe_2340/
 toc: false
 ---
 

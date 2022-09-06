@@ -1,14 +1,10 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The /src/ao_sys_xc32_pic32_i2c directory of the ao real-time operating system."
 draft: false
 external:
 - https://microchip.com/DS60001116 : "PIC32 Family Reference Manual, Section 24, Inter-Integrated Circuit (I²C)"
-permalink: /api/src/ao_sys_xc32_pic32_i2c/ 
-subtitle: "PIC32 I²C driver"
-title: "ao_sys_xc32_pic32_i2c"
+permalink: /api/src/ao_sys_xc32_pic32_i2c/
 toc: false
 ---
 

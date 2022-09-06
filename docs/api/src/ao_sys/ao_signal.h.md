@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_signal.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_signal.h/
-subtitle: "Signals"
-title: "ao_signal.h"
 toc: true
 ---
 
@@ -38,7 +34,7 @@ This type represents a signal.
 ```c
 struct ao_signal_t
 {
-    ao_list_t list;
+ao_list_t list;
 };
 ```
 
@@ -53,10 +49,10 @@ This type represents the waiting for a signal.
 ```c
 struct ao_signal_wait_t
 {
-    ao_async_t     async;
-    ao_list_node_t node;
-    bool volatile  result;
-    ao_signal_t *  signal;
+ao_async_t     async;
+ao_list_node_t node;
+bool volatile  result;
+ao_signal_t *  signal;
 };
 ```
 

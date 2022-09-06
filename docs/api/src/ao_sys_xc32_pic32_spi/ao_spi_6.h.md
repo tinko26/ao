@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The /src/ao_sys_xc32_pic32_spi/ao_spi_6.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_spi/ao_spi_6.h/
-subtitle: "SPI 6"
-title: "ao_spi_6.h"
 toc: true
 ---
 

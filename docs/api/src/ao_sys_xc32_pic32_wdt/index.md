@@ -1,14 +1,10 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The /src/ao_sys_xc32_pic32_wdt directory of the ao real-time operating system."
 draft: false
 external:
 - https://microchip.com/DS60001114 : "PIC32 Family Reference Manual, Section 9, Watchdog, Deadman, and Power-up Timers"
-permalink: /api/src/ao_sys_xc32_pic32_wdt/ 
-subtitle: "PIC32 watchdog timer driver"
-title: "ao_sys_xc32_pic32_wdt"
+permalink: /api/src/ao_sys_xc32_pic32_wdt/
 toc: false
 ---
 

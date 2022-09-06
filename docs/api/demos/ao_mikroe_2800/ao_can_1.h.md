@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-30
-description: "The /demos/ao_mikroe_2800/ao_can_1.h file of the ao real-time operating system."
 draft: true
 permalink: /api/demos/ao_mikroe_2800/ao_can_1.h/
-subtitle: "CAN 1"
-title: "ao_can_1.h"
 toc: true
 ---
 

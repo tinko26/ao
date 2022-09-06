@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_send_obj.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_send_obj.h/
-subtitle: "Sending objects"
-title: "ao_send_obj.h"
 toc: true
 ---
 
@@ -27,7 +23,7 @@ typedef struct ao_send_obj_t ao_send_obj_t;
 ```c
 typedef void (* ao_send_obj_proc_t)
 (
-    ao_send_obj_t * x
+ao_send_obj_t * x
 );
 ```
 
@@ -40,12 +36,12 @@ This type represents the sending of an object.
 ```c
 struct ao_send_obj_t
 {
-    ao_async_t         async;
-    ao_send_obj_proc_t begin;
-    ao_send_obj_proc_t end;
-    void *             parameter;
-    void *             ptr;
-    bool volatile      result;
+ao_async_t         async;
+ao_send_obj_proc_t begin;
+ao_send_obj_proc_t end;
+void *             parameter;
+void *             ptr;
+bool volatile      result;
 };
 ```
 

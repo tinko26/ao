@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-30
-description: "The /demos/ao_mikroe_1877/ao_mikroe_1877.h file of the ao real-time operating system."
 draft: true
 permalink: /api/demos/ao_mikroe_1877/ao_mikroe_1877.h/
-subtitle: "3D Motion Click"
-title: "ao_mikroe_1877.h"
 toc: true
 ---
 
@@ -80,9 +76,9 @@ typedef enum ao_mikroe_1877_state_t ao_mikroe_1877_state_t;
 ```c
 enum ao_mikroe_1877_connection_t
 {
-    AO_MIKROE_1877_CONNECTION_PC_INTEGRATED = 1,
-    AO_MIKROE_1877_CONNECTION_PC_ATTACHED = 2,
-    AO_MIKROE_1877_CONNECTION_PC_EXTERNAL = 3
+AO_MIKROE_1877_CONNECTION_PC_INTEGRATED = 1,
+AO_MIKROE_1877_CONNECTION_PC_ATTACHED = 2,
+AO_MIKROE_1877_CONNECTION_PC_EXTERNAL = 3
 };
 ```
 
@@ -97,23 +93,23 @@ It consists of the following members.
 ```c
 enum ao_mikroe_1877_event_t
 {
-    AO_MIKROE_1877_EVENT_UNKNOWN = 1,
-    AO_MIKROE_1877_EVENT_STATE_CHANGED = 2,
-    AO_MIKROE_1877_EVENT_PROPERTY_CHANGED = 3,
-    AO_MIKROE_1877_EVENT_DATA_UPDATED = 4,
-    AO_MIKROE_1877_EVENT_POLL_RESPONSE = 5,
-    AO_MIKROE_1877_EVENT_CHANGE_SENSITIVITY = 6,
-    AO_MIKROE_1877_EVENT_MAX_REACHED = 7,
-    AO_MIKROE_1877_EVENT_MIN_REACHED = 8,
-    AO_MIKROE_1877_EVENT_HIGH_THRESHOLD_CROSS_UPWARD = 9,
-    AO_MIKROE_1877_EVENT_HIGH_THRESHOLD_CROSS_DOWNWARD = 10,
-    AO_MIKROE_1877_EVENT_LOW_THRESHOLD_CROSS_UPWARD = 11,
-    AO_MIKROE_1877_EVENT_LOW_THRESHOLD_CROSS_DOWNWARD = 12,
-    AO_MIKROE_1877_EVENT_ZERO_THRESHOLD_CROSS_UPWARD = 13,
-    AO_MIKROE_1877_EVENT_ZERO_THRESHOLD_CROSS_DOWNWARD = 14,
-    AO_MIKROE_1877_EVENT_PERIOD_EXCEEDED = 15,
-    AO_MIKROE_1877_EVENT_FREQUENCY_EXCEEDED = 16,
-    AO_MIKROE_1877_EVENT_COMPLEX_TRIGGER = 17
+AO_MIKROE_1877_EVENT_UNKNOWN = 1,
+AO_MIKROE_1877_EVENT_STATE_CHANGED = 2,
+AO_MIKROE_1877_EVENT_PROPERTY_CHANGED = 3,
+AO_MIKROE_1877_EVENT_DATA_UPDATED = 4,
+AO_MIKROE_1877_EVENT_POLL_RESPONSE = 5,
+AO_MIKROE_1877_EVENT_CHANGE_SENSITIVITY = 6,
+AO_MIKROE_1877_EVENT_MAX_REACHED = 7,
+AO_MIKROE_1877_EVENT_MIN_REACHED = 8,
+AO_MIKROE_1877_EVENT_HIGH_THRESHOLD_CROSS_UPWARD = 9,
+AO_MIKROE_1877_EVENT_HIGH_THRESHOLD_CROSS_DOWNWARD = 10,
+AO_MIKROE_1877_EVENT_LOW_THRESHOLD_CROSS_UPWARD = 11,
+AO_MIKROE_1877_EVENT_LOW_THRESHOLD_CROSS_DOWNWARD = 12,
+AO_MIKROE_1877_EVENT_ZERO_THRESHOLD_CROSS_UPWARD = 13,
+AO_MIKROE_1877_EVENT_ZERO_THRESHOLD_CROSS_DOWNWARD = 14,
+AO_MIKROE_1877_EVENT_PERIOD_EXCEEDED = 15,
+AO_MIKROE_1877_EVENT_FREQUENCY_EXCEEDED = 16,
+AO_MIKROE_1877_EVENT_COMPLEX_TRIGGER = 17
 };
 ```
 
@@ -142,12 +138,12 @@ It consists of the following members.
 ```c
 enum ao_mikroe_1877_power_t
 {
-    AO_MIKROE_1877_POWER_UNDEFINED = 1,
-    AO_MIKROE_1877_POWER_FULL = 2,
-    AO_MIKROE_1877_POWER_LOW = 3,
-    AO_MIKROE_1877_POWER_STANDBY = 4,
-    AO_MIKROE_1877_POWER_SLEEP = 5,
-    AO_MIKROE_1877_POWER_OFF = 6
+AO_MIKROE_1877_POWER_UNDEFINED = 1,
+AO_MIKROE_1877_POWER_FULL = 2,
+AO_MIKROE_1877_POWER_LOW = 3,
+AO_MIKROE_1877_POWER_STANDBY = 4,
+AO_MIKROE_1877_POWER_SLEEP = 5,
+AO_MIKROE_1877_POWER_OFF = 6
 };
 ```
 
@@ -165,12 +161,12 @@ It consists of the following members.
 ```c
 enum ao_mikroe_1877_reporting_t
 {
-    AO_MIKROE_1877_REPORTING_ALL = 2,
-    AO_MIKROE_1877_REPORTING_ALL_WAKE = 5,
-    AO_MIKROE_1877_REPORTING_NONE = 1,
-    AO_MIKROE_1877_REPORTING_NONE_WAKE = 4,
-    AO_MIKROE_1877_REPORTING_THRESHOLD = 3,
-    AO_MIKROE_1877_REPORTING_THRESHOLD_WAKE = 6
+AO_MIKROE_1877_REPORTING_ALL = 2,
+AO_MIKROE_1877_REPORTING_ALL_WAKE = 5,
+AO_MIKROE_1877_REPORTING_NONE = 1,
+AO_MIKROE_1877_REPORTING_NONE_WAKE = 4,
+AO_MIKROE_1877_REPORTING_THRESHOLD = 3,
+AO_MIKROE_1877_REPORTING_THRESHOLD_WAKE = 6
 };
 ```
 
@@ -188,14 +184,14 @@ It consists of the following members.
 ```c
 enum ao_mikroe_1877_sensor_t
 {
-    AO_MIKROE_1877_SENSOR_ACCELEROMETER = 1,
-    AO_MIKROE_1877_SENSOR_ACCELEROMETER_RAW = 6,
-    AO_MIKROE_1877_SENSOR_GYROSCOPE = 3,
-    AO_MIKROE_1877_SENSOR_GYROSCOPE_RAW = 8,
-    AO_MIKROE_1877_SENSOR_INCLINOMETER = 4,
-    AO_MIKROE_1877_SENSOR_MAGNETOMETER = 2,
-    AO_MIKROE_1877_SENSOR_MAGNETOMETER_RAW = 7,
-    AO_MIKROE_1877_SENSOR_ORIENTATION = 5
+AO_MIKROE_1877_SENSOR_ACCELEROMETER = 1,
+AO_MIKROE_1877_SENSOR_ACCELEROMETER_RAW = 6,
+AO_MIKROE_1877_SENSOR_GYROSCOPE = 3,
+AO_MIKROE_1877_SENSOR_GYROSCOPE_RAW = 8,
+AO_MIKROE_1877_SENSOR_INCLINOMETER = 4,
+AO_MIKROE_1877_SENSOR_MAGNETOMETER = 2,
+AO_MIKROE_1877_SENSOR_MAGNETOMETER_RAW = 7,
+AO_MIKROE_1877_SENSOR_ORIENTATION = 5
 };
 ```
 
@@ -215,13 +211,13 @@ It consists of the following members.
 ```c
 enum ao_mikroe_1877_state_t
 {
-    AO_MIKROE_1877_STATE_UNDEFINED = 1,
-    AO_MIKROE_1877_STATE_READY = 2,
-    AO_MIKROE_1877_STATE_NOT_AVAILABLE = 3,
-    AO_MIKROE_1877_STATE_NO_DATA = 4,
-    AO_MIKROE_1877_STATE_INITIALIZING = 5,
-    AO_MIKROE_1877_STATE_ACCESS_DENIED = 6,
-    AO_MIKROE_1877_STATE_ERROR = 7
+AO_MIKROE_1877_STATE_UNDEFINED = 1,
+AO_MIKROE_1877_STATE_READY = 2,
+AO_MIKROE_1877_STATE_NOT_AVAILABLE = 3,
+AO_MIKROE_1877_STATE_NO_DATA = 4,
+AO_MIKROE_1877_STATE_INITIALIZING = 5,
+AO_MIKROE_1877_STATE_ACCESS_DENIED = 6,
+AO_MIKROE_1877_STATE_ERROR = 7
 };
 ```
 
@@ -240,10 +236,10 @@ It consists of the following members.
 ```c
 struct ao_mikroe_1877_data_accelerometer_t
 {
-    bool shake_detected;
-    ao_float_t x;
-    ao_float_t y;
-    ao_float_t z;
+bool shake_detected;
+ao_float_t x;
+ao_float_t y;
+ao_float_t z;
 };
 ```
 
@@ -259,10 +255,10 @@ It consists of the following members.
 ```c
 struct ao_mikroe_1877_data_gyroscope_t
 {
-    bool shake_detected;
-    ao_float_t x;
-    ao_float_t y;
-    ao_float_t z;
+bool shake_detected;
+ao_float_t x;
+ao_float_t y;
+ao_float_t z;
 };
 ```
 
@@ -278,9 +274,9 @@ It consists of the following members.
 ```c
 struct ao_mikroe_1877_data_inclinometer_t
 {
-    ao_float_t x;
-    ao_float_t y;
-    ao_float_t z;
+ao_float_t x;
+ao_float_t y;
+ao_float_t z;
 };
 ```
 
@@ -295,10 +291,10 @@ It consists of the following members.
 ```c
 struct ao_mikroe_1877_data_magnetometer_t
 {
-    ao_float_t heading;
-    ao_float_t x;
-    ao_float_t y;
-    ao_float_t z;
+ao_float_t heading;
+ao_float_t x;
+ao_float_t y;
+ao_float_t z;
 };
 ```
 
@@ -314,10 +310,10 @@ It consists of the following members.
 ```c
 struct ao_mikroe_1877_data_orientation_t
 {
-    ao_float_t w;
-    ao_float_t x;
-    ao_float_t y;
-    ao_float_t z;
+ao_float_t w;
+ao_float_t x;
+ao_float_t y;
+ao_float_t z;
 };
 ```
 
@@ -333,18 +329,18 @@ It consists of the following members.
 ```c
 struct ao_mikroe_1877_data_t
 {
-    union
-    {
-        ao_mikroe_1877_data_accelerometer_t accelerometer;
-        ao_mikroe_1877_data_gyroscope_t gyroscope;
-        ao_mikroe_1877_data_inclinometer_t inclinometer;
-        ao_mikroe_1877_data_magnetometer_t magnetometer;
-        ao_mikroe_1877_data_orientation_t orientation;
-    }
-    data;
-    ao_mikroe_1877_event_t event;
-    ao_mikroe_1877_sensor_t sensor;
-    ao_mikroe_1877_state_t state;
+union
+{
+ao_mikroe_1877_data_accelerometer_t accelerometer;
+ao_mikroe_1877_data_gyroscope_t gyroscope;
+ao_mikroe_1877_data_inclinometer_t inclinometer;
+ao_mikroe_1877_data_magnetometer_t magnetometer;
+ao_mikroe_1877_data_orientation_t orientation;
+}
+data;
+ao_mikroe_1877_event_t event;
+ao_mikroe_1877_sensor_t sensor;
+ao_mikroe_1877_state_t state;
 };
 ```
 
@@ -365,18 +361,18 @@ It consists of the following members.
 ```c
 struct ao_mikroe_1877_info_t
 {
-    ao_float_t accuracy;
-    ao_float_t change_sensitivity;
-    ao_mikroe_1877_connection_t connection;
-    ao_time_t interval;
-    ao_time_t interval_min;
-    ao_float_t max;
-    ao_float_t min;
-    ao_mikroe_1877_power_t power;
-    ao_mikroe_1877_reporting_t reporting;
-    ao_float_t resolution;
-    ao_mikroe_1877_sensor_t sensor;
-    ao_mikroe_1877_state_t state;
+ao_float_t accuracy;
+ao_float_t change_sensitivity;
+ao_mikroe_1877_connection_t connection;
+ao_time_t interval;
+ao_time_t interval_min;
+ao_float_t max;
+ao_float_t min;
+ao_mikroe_1877_power_t power;
+ao_mikroe_1877_reporting_t reporting;
+ao_float_t resolution;
+ao_mikroe_1877_sensor_t sensor;
+ao_mikroe_1877_state_t state;
 };
 ```
 

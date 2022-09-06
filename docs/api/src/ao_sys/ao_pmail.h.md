@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_pmail.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_pmail.h/
-subtitle: "Priority mail for asynchronous messaging"
-title: "ao_pmail.h"
 toc: true
 ---
 
@@ -43,7 +39,7 @@ This type represents a mail.
 ```c
 struct ao_pmail_t
 {
-    ao_rb_node_t node;
+ao_rb_node_t node;
 };
 ```
 
@@ -58,11 +54,11 @@ This type represents the fetching of a mail.
 ```c
 struct ao_pmail_fetch_t
 {
-    ao_async_t            async;
-    ao_pmail_t * volatile mail;
-    ao_pmailbox_t *       mailbox;
-    ao_list_node_t        node;
-    bool         volatile result;
+ao_async_t            async;
+ao_pmail_t * volatile mail;
+ao_pmailbox_t *       mailbox;
+ao_list_node_t        node;
+bool         volatile result;
 };
 ```
 
@@ -81,8 +77,8 @@ This type represents a mailbox.
 ```c
 struct ao_pmailbox_t
 {
-    ao_list_t fetchers;
-    ao_rb_t   mails;
+ao_list_t fetchers;
+ao_rb_t   mails;
 };
 ```
 

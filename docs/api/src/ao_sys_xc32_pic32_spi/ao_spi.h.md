@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The /src/ao_sys_xc32_pic32_spi/ao_spi.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_spi/ao_spi.h/
-subtitle: "SPI"
-title: "ao_spi.h"
 toc: true
 ---
 
@@ -68,18 +64,18 @@ typedef struct ao_spi_reg_stat_t ao_spi_reg_stat_t;
 ```c
 struct ao_spi_reg_brg_t
 {
-    union
-    {
-        uint32_t volatile reg;
-        struct
-        {
-            uint32_t volatile brg : 13;
-        }
-        bits;
-    };
-    uint32_t volatile clr;
-    uint32_t volatile set;
-    uint32_t volatile inv;
+union
+{
+uint32_t volatile reg;
+struct
+{
+uint32_t volatile brg : 13;
+}
+bits;
+};
+uint32_t volatile clr;
+uint32_t volatile set;
+uint32_t volatile inv;
 };
 ```
 
@@ -97,18 +93,18 @@ It consists of the following members.
 ```c
 struct ao_spi_reg_buf_t
 {
-    union
-    {
-        uint32_t volatile reg;
-        struct
-        {
-            uint32_t volatile data : 32;
-        }
-        bits;
-    };
-    uint32_t volatile : 32;
-    uint32_t volatile : 32;
-    uint32_t volatile : 32;
+union
+{
+uint32_t volatile reg;
+struct
+{
+uint32_t volatile data : 32;
+}
+bits;
+};
+uint32_t volatile : 32;
+uint32_t volatile : 32;
+uint32_t volatile : 32;
 };
 ```
 
@@ -126,41 +122,41 @@ It consists of the following members.
 ```c
 struct ao_spi_reg_con_t
 {
-    union
-    {
-        uint32_t volatile reg;
-        struct
-        {
-            uint32_t volatile srxisel : 2;
-            uint32_t volatile stxisel : 2;
-            uint32_t volatile dissdi : 1;
-            uint32_t volatile msten : 1;
-            uint32_t volatile ckp : 1;
-            uint32_t volatile ssen : 1;
-            uint32_t volatile cke : 1;
-            uint32_t volatile smp : 1;
-            uint32_t volatile mode16 : 1;
-            uint32_t volatile mode32 : 1;
-            uint32_t volatile dissdo : 1;
-            uint32_t volatile sidl : 1;
-            uint32_t volatile : 1;
-            uint32_t volatile on : 1;
-            uint32_t volatile enhbuf : 1;
-            uint32_t volatile spife : 1;
-            uint32_t volatile : 5;
-            uint32_t volatile mclksel : 1;
-            uint32_t volatile frmcnt : 3;
-            uint32_t volatile frmsypw : 1;
-            uint32_t volatile mssen : 1;
-            uint32_t volatile frmpol : 1;
-            uint32_t volatile frmsync : 1;
-            uint32_t volatile frmen : 1;
-        }
-        bits;
-    };
-    uint32_t volatile clr;
-    uint32_t volatile set;
-    uint32_t volatile inv;
+union
+{
+uint32_t volatile reg;
+struct
+{
+uint32_t volatile srxisel : 2;
+uint32_t volatile stxisel : 2;
+uint32_t volatile dissdi : 1;
+uint32_t volatile msten : 1;
+uint32_t volatile ckp : 1;
+uint32_t volatile ssen : 1;
+uint32_t volatile cke : 1;
+uint32_t volatile smp : 1;
+uint32_t volatile mode16 : 1;
+uint32_t volatile mode32 : 1;
+uint32_t volatile dissdo : 1;
+uint32_t volatile sidl : 1;
+uint32_t volatile : 1;
+uint32_t volatile on : 1;
+uint32_t volatile enhbuf : 1;
+uint32_t volatile spife : 1;
+uint32_t volatile : 5;
+uint32_t volatile mclksel : 1;
+uint32_t volatile frmcnt : 3;
+uint32_t volatile frmsypw : 1;
+uint32_t volatile mssen : 1;
+uint32_t volatile frmpol : 1;
+uint32_t volatile frmsync : 1;
+uint32_t volatile frmen : 1;
+}
+bits;
+};
+uint32_t volatile clr;
+uint32_t volatile set;
+uint32_t volatile inv;
 };
 ```
 
@@ -201,29 +197,29 @@ It consists of the following members.
 ```c
 struct ao_spi_reg_con2_t
 {
-    union
-    {
-        uint32_t volatile reg;
-        struct
-        {
-            uint32_t volatile audmod : 2;
-            uint32_t volatile : 1;
-            uint32_t volatile audmono : 1;
-            uint32_t volatile : 3;
-            uint32_t volatile auden : 1;
-            uint32_t volatile igntur : 1;
-            uint32_t volatile ignrov : 1;
-            uint32_t volatile spituren : 1;
-            uint32_t volatile spiroven : 1;
-            uint32_t volatile frmerren : 1;
-            uint32_t volatile : 2;
-            uint32_t volatile spisgnext : 1;
-        }
-        bits;
-    };
-    uint32_t volatile clr;
-    uint32_t volatile set;
-    uint32_t volatile inv;
+union
+{
+uint32_t volatile reg;
+struct
+{
+uint32_t volatile audmod : 2;
+uint32_t volatile : 1;
+uint32_t volatile audmono : 1;
+uint32_t volatile : 3;
+uint32_t volatile auden : 1;
+uint32_t volatile igntur : 1;
+uint32_t volatile ignrov : 1;
+uint32_t volatile spituren : 1;
+uint32_t volatile spiroven : 1;
+uint32_t volatile frmerren : 1;
+uint32_t volatile : 2;
+uint32_t volatile spisgnext : 1;
+}
+bits;
+};
+uint32_t volatile clr;
+uint32_t volatile set;
+uint32_t volatile inv;
 };
 ```
 
@@ -252,33 +248,33 @@ It consists of the following members.
 ```c
 struct ao_spi_reg_stat_t
 {
-    union
-    {
-        uint32_t volatile reg;
-        struct
-        {
-            uint32_t volatile spirbf : 1;
-            uint32_t volatile spitbf : 1;
-            uint32_t volatile : 1;
-            uint32_t volatile spitbe : 1;
-            uint32_t volatile : 1;
-            uint32_t volatile spirbe : 1;
-            uint32_t volatile spirov : 1;
-            uint32_t volatile srmt : 1;
-            uint32_t volatile spitur : 1;
-            uint32_t volatile : 2;
-            uint32_t volatile spibusy : 1;
-            uint32_t volatile frmerr : 1;
-            uint32_t volatile : 3;
-            uint32_t volatile txbufelm : 5;
-            uint32_t volatile : 3;
-            uint32_t volatile rxbufelm : 5;
-        }
-        bits;
-    };
-    uint32_t volatile clr;
-    uint32_t volatile set;
-    uint32_t volatile inv;
+union
+{
+uint32_t volatile reg;
+struct
+{
+uint32_t volatile spirbf : 1;
+uint32_t volatile spitbf : 1;
+uint32_t volatile : 1;
+uint32_t volatile spitbe : 1;
+uint32_t volatile : 1;
+uint32_t volatile spirbe : 1;
+uint32_t volatile spirov : 1;
+uint32_t volatile srmt : 1;
+uint32_t volatile spitur : 1;
+uint32_t volatile : 2;
+uint32_t volatile spibusy : 1;
+uint32_t volatile frmerr : 1;
+uint32_t volatile : 3;
+uint32_t volatile txbufelm : 5;
+uint32_t volatile : 3;
+uint32_t volatile rxbufelm : 5;
+}
+bits;
+};
+uint32_t volatile clr;
+uint32_t volatile set;
+uint32_t volatile inv;
 };
 ```
 
@@ -311,11 +307,11 @@ It consists of the following members.
 ```c
 struct ao_spi_reg_t
 {
-    ao_spi_reg_con_t con;
-    ao_spi_reg_stat_t stat;
-    ao_spi_reg_buf_t buf;
-    ao_spi_reg_brg_t brg;
-    ao_spi_reg_con2_t con2;
+ao_spi_reg_con_t con;
+ao_spi_reg_stat_t stat;
+ao_spi_reg_buf_t buf;
+ao_spi_reg_brg_t brg;
+ao_spi_reg_con2_t con2;
 };
 ```
 

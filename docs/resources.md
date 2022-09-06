@@ -1,7 +1,6 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-13
-description: "Resources in the ao real-time operating system."
 draft: true
 permalink: /resources/
 ---
@@ -11,7 +10,7 @@ permalink: /resources/
 # Resource Management
 
 - in general, the kernel does not track resources, except for specific situations
-- does not keep track of tasks, unless they are active (care of taken by the scheduler) or blocked (care of taken indirectly by an alarm, if any). 
+- does not keep track of tasks, unless they are active (care of taken by the scheduler) or blocked (care of taken indirectly by an alarm, if any).
 - advantage: save time and memory, no need for create() and delete() methods, memory for resources can be allocated automatically or manually --> freedom
 - disadvantage: resources must be tracked by the application.
 

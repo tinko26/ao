@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_sleep.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_sleep.h/
-subtitle: "Sleeping"
-title: "ao_sleep.h"
 toc: true
 ---
 
@@ -34,11 +30,11 @@ This type represents the sleeping of a task.
 ```c
 struct ao_sleep_t
 {
-    ao_alarm_t    alarm;
-    ao_async_t    async;
-    ao_time_t     beginning;
-    bool volatile result;
-    ao_time_t     timeout;
+ao_alarm_t    alarm;
+ao_async_t    async;
+ao_time_t     beginning;
+bool volatile result;
+ao_time_t     timeout;
 };
 ```
 

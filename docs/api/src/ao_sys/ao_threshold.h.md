@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_threshold.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_threshold.h/
-subtitle: "Thresholds"
-title: "ao_threshold.h"
 toc: true
 ---
 
@@ -42,16 +38,16 @@ typedef struct ao_threshold_wait_t ao_threshold_wait_t;
 ```c
 typedef ao_uint_t (* ao_threshold_adjust_t)
 (
-    ao_uint_t value,
-    void *    parameter
+ao_uint_t value,
+void *    parameter
 );
 ```
 
 ```c
 typedef bool      (* ao_threshold_match_t)
 (
-    ao_uint_t value,
-    void *    parameter
+ao_uint_t value,
+void *    parameter
 );
 ```
 
@@ -64,12 +60,12 @@ This type represents a threshold.
 ```c
 struct ao_threshold_t
 {
-    ao_threshold_adjust_t adjust;
-    void *                adjust_parameter;
-    ao_list_t             list;
-    ao_threshold_match_t  match;
-    void *                match_parameter;
-    ao_uint_t             value;
+ao_threshold_adjust_t adjust;
+void *                adjust_parameter;
+ao_list_t             list;
+ao_threshold_match_t  match;
+void *                match_parameter;
+ao_uint_t             value;
 };
 ```
 
@@ -89,10 +85,10 @@ This type represents the waiting for a threshold match.
 ```c
 struct ao_threshold_wait_t
 {
-    ao_async_t       async;
-    ao_list_node_t   node;
-    bool volatile    result;
-    ao_threshold_t * threshold;
+ao_async_t       async;
+ao_list_node_t   node;
+bool volatile    result;
+ao_threshold_t * threshold;
 };
 ```
 

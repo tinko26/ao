@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The /src/ao_sys_xc32_pic32_i2c/ao_i2c.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_i2c/ao_i2c.h/
-subtitle: "I²C"
-title: "ao_i2c.h"
 toc: true
 ---
 
@@ -74,18 +70,18 @@ typedef struct ao_i2c_reg_trn_t ao_i2c_reg_trn_t;
 ```c
 struct ao_i2c_reg_add_t
 {
-    union
-    {
-        uint32_t volatile reg;
-        struct
-        {
-            uint32_t volatile add : 10;
-        }
-        bits;
-    };
-    uint32_t volatile clr;
-    uint32_t volatile set;
-    uint32_t volatile inv;
+union
+{
+uint32_t volatile reg;
+struct
+{
+uint32_t volatile add : 10;
+}
+bits;
+};
+uint32_t volatile clr;
+uint32_t volatile set;
+uint32_t volatile inv;
 };
 ```
 
@@ -103,18 +99,18 @@ It consists of the following members.
 ```c
 struct ao_i2c_reg_brg_t
 {
-    union
-    {
-        uint32_t volatile reg;
-        struct
-        {
-            uint32_t volatile brg : 16;
-        }
-        bits;
-    };
-    uint32_t volatile clr;
-    uint32_t volatile set;
-    uint32_t volatile inv;
+union
+{
+uint32_t volatile reg;
+struct
+{
+uint32_t volatile brg : 16;
+}
+bits;
+};
+uint32_t volatile clr;
+uint32_t volatile set;
+uint32_t volatile inv;
 };
 ```
 
@@ -132,40 +128,40 @@ It consists of the following members.
 ```c
 struct ao_i2c_reg_con_t
 {
-    union
-    {
-        uint32_t volatile reg;
-        struct
-        {
-            uint32_t volatile sen : 1;
-            uint32_t volatile rsen : 1;
-            uint32_t volatile pen : 1;
-            uint32_t volatile rcen : 1;
-            uint32_t volatile acken : 1;
-            uint32_t volatile ackdt : 1;
-            uint32_t volatile stren : 1;
-            uint32_t volatile gcen : 1;
-            uint32_t volatile smen : 1;
-            uint32_t volatile disslw : 1;
-            uint32_t volatile a10m : 1;
-            uint32_t volatile strict : 1;
-            uint32_t volatile sckrel : 1;
-            uint32_t volatile sidl : 1;
-            uint32_t volatile : 1;
-            uint32_t volatile on : 1;
-            uint32_t volatile dhen : 1;
-            uint32_t volatile ahen : 1;
-            uint32_t volatile sbcde : 1;
-            uint32_t volatile sdaht : 1;
-            uint32_t volatile boen : 1;
-            uint32_t volatile scie : 1;
-            uint32_t volatile pcie : 1;
-        }
-        bits;
-    };
-    uint32_t volatile clr;
-    uint32_t volatile set;
-    uint32_t volatile inv;
+union
+{
+uint32_t volatile reg;
+struct
+{
+uint32_t volatile sen : 1;
+uint32_t volatile rsen : 1;
+uint32_t volatile pen : 1;
+uint32_t volatile rcen : 1;
+uint32_t volatile acken : 1;
+uint32_t volatile ackdt : 1;
+uint32_t volatile stren : 1;
+uint32_t volatile gcen : 1;
+uint32_t volatile smen : 1;
+uint32_t volatile disslw : 1;
+uint32_t volatile a10m : 1;
+uint32_t volatile strict : 1;
+uint32_t volatile sckrel : 1;
+uint32_t volatile sidl : 1;
+uint32_t volatile : 1;
+uint32_t volatile on : 1;
+uint32_t volatile dhen : 1;
+uint32_t volatile ahen : 1;
+uint32_t volatile sbcde : 1;
+uint32_t volatile sdaht : 1;
+uint32_t volatile boen : 1;
+uint32_t volatile scie : 1;
+uint32_t volatile pcie : 1;
+}
+bits;
+};
+uint32_t volatile clr;
+uint32_t volatile set;
+uint32_t volatile inv;
 };
 ```
 
@@ -205,18 +201,18 @@ It consists of the following members.
 ```c
 struct ao_i2c_reg_msk_t
 {
-    union
-    {
-        uint32_t volatile reg;
-        struct
-        {
-            uint32_t volatile msk : 10;
-        }
-        bits;
-    };
-    uint32_t volatile clr;
-    uint32_t volatile set;
-    uint32_t volatile inv;
+union
+{
+uint32_t volatile reg;
+struct
+{
+uint32_t volatile msk : 10;
+}
+bits;
+};
+uint32_t volatile clr;
+uint32_t volatile set;
+uint32_t volatile inv;
 };
 ```
 
@@ -234,15 +230,15 @@ It consists of the following members.
 ```c
 struct ao_i2c_reg_rcv_t
 {
-    union
-    {
-        uint32_t volatile reg;
-        struct
-        {
-            uint32_t volatile rxdata : 8;
-        }
-        bits;
-    };
+union
+{
+uint32_t volatile reg;
+struct
+{
+uint32_t volatile rxdata : 8;
+}
+bits;
+};
 };
 ```
 
@@ -257,32 +253,32 @@ It consists of the following members.
 ```c
 struct ao_i2c_reg_stat_t
 {
-    union
-    {
-        uint32_t volatile reg;
-        struct
-        {
-            uint32_t volatile tbf : 1;
-            uint32_t volatile rbf : 1;
-            uint32_t volatile r_w : 1;
-            uint32_t volatile s : 1;
-            uint32_t volatile p : 1;
-            uint32_t volatile d_a : 1;
-            uint32_t volatile i2cov : 1;
-            uint32_t volatile iwcol : 1;
-            uint32_t volatile add10 : 1;
-            uint32_t volatile gcstat : 1;
-            uint32_t volatile bcl : 1;
-            uint32_t volatile : 2;
-            uint32_t volatile acktim : 1;
-            uint32_t volatile trstat : 1;
-            uint32_t volatile ackstat : 1;
-        }
-        bits;
-    };
-    uint32_t volatile clr;
-    uint32_t volatile set;
-    uint32_t volatile inv;
+union
+{
+uint32_t volatile reg;
+struct
+{
+uint32_t volatile tbf : 1;
+uint32_t volatile rbf : 1;
+uint32_t volatile r_w : 1;
+uint32_t volatile s : 1;
+uint32_t volatile p : 1;
+uint32_t volatile d_a : 1;
+uint32_t volatile i2cov : 1;
+uint32_t volatile iwcol : 1;
+uint32_t volatile add10 : 1;
+uint32_t volatile gcstat : 1;
+uint32_t volatile bcl : 1;
+uint32_t volatile : 2;
+uint32_t volatile acktim : 1;
+uint32_t volatile trstat : 1;
+uint32_t volatile ackstat : 1;
+}
+bits;
+};
+uint32_t volatile clr;
+uint32_t volatile set;
+uint32_t volatile inv;
 };
 ```
 
@@ -314,18 +310,18 @@ It consists of the following members.
 ```c
 struct ao_i2c_reg_trn_t
 {
-    union
-    {
-        uint32_t volatile reg;
-        struct
-        {
-            uint32_t volatile txdata : 8;
-        }
-        bits;
-    };
-    uint32_t volatile clr;
-    uint32_t volatile set;
-    uint32_t volatile inv;
+union
+{
+uint32_t volatile reg;
+struct
+{
+uint32_t volatile txdata : 8;
+}
+bits;
+};
+uint32_t volatile clr;
+uint32_t volatile set;
+uint32_t volatile inv;
 };
 ```
 
@@ -343,13 +339,13 @@ It consists of the following members.
 ```c
 struct ao_i2c_reg_t
 {
-    ao_i2c_reg_con_t con;
-    ao_i2c_reg_stat_t stat;
-    ao_i2c_reg_add_t add;
-    ao_i2c_reg_msk_t msk;
-    ao_i2c_reg_brg_t brg;
-    ao_i2c_reg_trn_t trn;
-    ao_i2c_reg_rcv_t rcv;
+ao_i2c_reg_con_t con;
+ao_i2c_reg_stat_t stat;
+ao_i2c_reg_add_t add;
+ao_i2c_reg_msk_t msk;
+ao_i2c_reg_brg_t brg;
+ao_i2c_reg_trn_t trn;
+ao_i2c_reg_rcv_t rcv;
 };
 ```
 

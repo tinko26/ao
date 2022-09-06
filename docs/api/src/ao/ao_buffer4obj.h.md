@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao/ao_buffer4obj.h file of the ao real-time operating system."
 draft: false
 permalink: /api/src/ao/ao_buffer4obj.h/
-subtitle: "Buffers for objects"
-title: "ao_buffer4obj.h"
 toc: true
 wiki:
 - circular-buffer
@@ -43,18 +39,18 @@ This type represents a buffer for objects.
 ```c
 struct ao_buffer4obj_t
 {
-    size_t capacity;
-    size_t count;
+size_t capacity;
+size_t count;
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-    size_t count_max;
+size_t count_max;
 
 #endif
 
-    size_t front;
-    size_t size;
-    void * store;
+size_t front;
+size_t size;
+void * store;
 };
 ```
 
@@ -134,7 +130,7 @@ size_t ao_buffer4obj_push_range_front_override(ao_buffer4obj_t * x, void const *
 
 # Usage
 
-An object buffer can be initialized by clearing all of its members. 
+An object buffer can be initialized by clearing all of its members.
 
 ```c
 ao_buffer4obj_t * b;

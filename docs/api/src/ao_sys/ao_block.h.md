@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_block.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_block.h/
-subtitle: "Blocking"
-title: "ao_block.h"
 toc: true
 wiki:
 - blocking
@@ -34,9 +30,9 @@ This type represents the blocking of a task.
 ```c
 struct ao_block_t
 {
-    ao_alarm_t alarm;
-    ao_time_t  beginning;
-    ao_time_t  timeout;
+ao_alarm_t alarm;
+ao_time_t  beginning;
+ao_time_t  timeout;
 };
 ```
 

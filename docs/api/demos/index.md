@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The demos directory of the ao real-time operating system."
 draft: false
-permalink: /api/demos/ 
-subtitle: ""
-title: "demos"
+permalink: /api/demos/
 toc: true
 ---
 

@@ -1,7 +1,6 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-09
-description: "Usage of the ao real-time operating system."
 draft: true
 permalink: /usage/
 toc: true
@@ -28,9 +27,9 @@ toc: true
 ```c
 void main()
 {
-    ao_boot();
+ao_boot();
 
-    while (1) { }
+while (1) { }
 }
 ```
 
@@ -39,12 +38,12 @@ void main()
 ```c
 void main()
 {
-    ao_boot();
+ao_boot();
 
-    while (1)
-    {
-        ao_sys_idle();
-    }
+while (1)
+{
+ao_sys_idle();
+}
 }
 ```
 
@@ -53,13 +52,13 @@ void main()
 ```c
 void main()
 {
-    ao_boot();
+ao_boot();
 
-    // Start another task.
-    ao_task_start( /* ... */ );
+// Start another task.
+ao_task_start( /* ... */ );
 
-    // Stop.
-    ao_stop();
+// Stop.
+ao_stop();
 }
 ```
 

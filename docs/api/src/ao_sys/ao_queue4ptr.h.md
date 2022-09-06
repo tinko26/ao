@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao_sys/ao_queue4ptr.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys/ao_queue4ptr.h/
-subtitle: "Queues for pointers"
-title: "ao_queue4ptr.h"
 toc: true
 ---
 
@@ -43,9 +39,9 @@ This type represents a queue for pointers.
 ```c
 struct ao_queue4ptr_t
 {
-    ao_heap4ptr_t heap;
-    ao_list_t     insert;
-    ao_list_t     pop;
+ao_heap4ptr_t heap;
+ao_list_t     insert;
+ao_list_t     pop;
 };
 ```
 
@@ -62,11 +58,11 @@ This type represents the inserting into a queue for pointers.
 ```c
 struct ao_qinsert_ptr_t
 {
-    ao_async_t       async;
-    ao_list_node_t   node;
-    void *           ptr;
-    ao_queue4ptr_t * queue;
-    bool volatile    result;
+ao_async_t       async;
+ao_list_node_t   node;
+void *           ptr;
+ao_queue4ptr_t * queue;
+bool volatile    result;
 };
 ```
 
@@ -85,11 +81,11 @@ This type represents the popping from a queue for pointers.
 ```c
 struct ao_qpop_ptr_t
 {
-    ao_async_t       async;
-    ao_list_node_t   node;
-    void * volatile  ptr;
-    ao_queue4ptr_t * queue;
-    bool   volatile  result;
+ao_async_t       async;
+ao_list_node_t   node;
+void * volatile  ptr;
+ao_queue4ptr_t * queue;
+bool   volatile  result;
 };
 ```
 

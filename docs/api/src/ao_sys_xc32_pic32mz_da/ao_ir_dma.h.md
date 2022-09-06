@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-09-05
-description: "The /src/ao_sys_xc32_pic32mz_da/ao_ir_dma.h file of the ao real-time operating system."
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mz_da/ao_ir_dma.h/
-subtitle: "DMA interrupts"
-title: "ao_ir_dma.h"
 toc: true
 ---
 

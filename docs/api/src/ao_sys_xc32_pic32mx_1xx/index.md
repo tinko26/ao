@@ -1,15 +1,11 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The /src/ao_sys_xc32_pic32mx_1xx directory of the ao real-time operating system."
 draft: false
 external:
 - https://microchip.com/DS60001168 : "PIC32MX1XX/2XX 28/36/44-Pin Family Data sheet"
 - https://microchip.com/DS80000531 : "PIC32MX1XX/2XX 28/36/44-Pin Family Errata"
-permalink: /api/src/ao_sys_xc32_pic32mx_1xx/ 
-subtitle: "PIC32MX1XX/2XX 28/36/44-Pin Family"
-title: "ao_sys_xc32_pic32mx_1xx"
+permalink: /api/src/ao_sys_xc32_pic32mx_1xx/
 toc: false
 ---
 

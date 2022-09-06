@@ -1,15 +1,11 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-29
-description: "The /src/ao_sys_xc32_pic32mk_gpg directory of the ao real-time operating system."
 draft: false
 external:
 - https://microchip.com/DS60001570 : "PIC32MK General Purpose and Motor Control (GPG/MCJ) with CAN FD Family Data sheet"
 - https://microchip.com/DS80000833 : "PIC32MK General Purpose and Motor Control (GPG/MCJ) with CAN FD Family Errata"
-permalink: /api/src/ao_sys_xc32_pic32mk_gpg/ 
-subtitle: "PIC32MK General Purpose and Motor Control (GPG/MCJ) with CAN FD Family"
-title: "ao_sys_xc32_pic32mk_gpg"
+permalink: /api/src/ao_sys_xc32_pic32mk_gpg/
 toc: false
 ---
 

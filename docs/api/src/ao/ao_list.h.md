@@ -1,12 +1,8 @@
 ---
-api: true
 author: "Stefan Wagner"
 date: 2022-08-31
-description: "The /src/ao/ao_list.h file of the ao real-time operating system."
 draft: false
 permalink: /api/src/ao/ao_list.h/
-subtitle: "Doubly linked lists"
-title: "ao_list.h"
 toc: true
 wiki:
 - double-ended-queue
@@ -45,8 +41,8 @@ This type represents a list.
 ```c
 struct ao_list_t
 {
-    ao_list_node_t * back;
-    ao_list_node_t * front;
+ao_list_node_t * back;
+ao_list_node_t * front;
 };
 ```
 
@@ -62,8 +58,8 @@ This type represents a list node.
 ```c
 struct ao_list_node_t
 {
-    ao_list_node_t * next;
-    ao_list_node_t * prev;
+ao_list_node_t * next;
+ao_list_node_t * prev;
 };
 ```
 
