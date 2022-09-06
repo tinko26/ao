@@ -4,7 +4,8 @@ date: 2022-08-15
 description: "Binary heaps in the ao real-time operating system."
 draft: false
 groups:
-- "priority_queues"
+- priority-queues
+- trees
 permalink: /binary-heaps/
 toc: false
 wiki:

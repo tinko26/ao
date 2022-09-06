@@ -1,0 +1,10 @@
+priority-queues:
+  - /avl-trees/
+  - /binary-heaps/
+  - /red-black-trees/
+  - /sorted-lists/
+
+trees:
+  - /avl-trees/
+  - /binary-heaps/
+  - /red-black-trees/
