@@ -16,9 +16,6 @@ toc: true
 
 ```c
 #define AO_SYS_ID_REVISION_A0 (0x0)
-```
-
-```c
 #define AO_SYS_ID_REVISION_A1 (0x1)
 ```
 

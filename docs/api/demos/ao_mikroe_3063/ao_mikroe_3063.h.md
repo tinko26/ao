@@ -16,9 +16,9 @@ toc: true
 # Functions
 
 ```c
-void ao_mikroe_3063_reset( size_t i);
+void ao_mikroe_3063_reset(size_t i);
 ```
 
 ```c
-bool ao_mikroe_3063_suspended( size_t i);
+bool ao_mikroe_3063_suspended(size_t i);
 ```

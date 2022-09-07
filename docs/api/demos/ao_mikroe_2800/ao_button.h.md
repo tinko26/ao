@@ -31,10 +31,12 @@ typedef enum ao_buttons_t ao_buttons_t;
 ```c
 enum ao_buttons_t
 {
-AO_BUTTONS_0 = (1 << 0),
-AO_BUTTONS_1 = (1 << 1),
-AO_BUTTONS_ALL = AO_BUTTONS_0 | AO_BUTTONS_1,
-AO_BUTTONS_NONE = 0
+    AO_BUTTONS_NONE = 0,
+    AO_BUTTONS_0    = (1 << 0),
+    AO_BUTTONS_1    = (1 << 1),
+    AO_BUTTONS_ALL  = 
+        AO_BUTTONS_0 | 
+        AO_BUTTONS_1
 };
 ```
 

@@ -27,10 +27,10 @@ typedef struct ao_mikroe_2935_t ao_mikroe_2935_t;
 ```c
 struct ao_mikroe_2935_t
 {
-bool ready;
-ao_float_t x;
-ao_float_t y;
-ao_float_t z;
+    bool       ready;
+    ao_float_t x;
+    ao_float_t y;
+    ao_float_t z;
 };
 ```
 
@@ -44,13 +44,13 @@ It consists of the following members.
 # Functions
 
 ```c
-void ao_mikroe_2935( size_t i, ao_mikroe_2935_t const * x);
+void ao_mikroe_2935(size_t i, ao_mikroe_2935_t const * x);
 ```
 
 ```c
-void ao_mikroe_2935_start( size_t i);
+void ao_mikroe_2935_start(size_t i);
 ```
 
 ```c
-void ao_mikroe_2935_stop( size_t i);
+void ao_mikroe_2935_stop(size_t i);
 ```

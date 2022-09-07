@@ -13,13 +13,13 @@ toc: true
 #include <ao_mikroe_3063.h>
 ```
 
-# Constants
+# Configuration
 
 ```c
-#define AO_UART_3 \
-( \
-AO_MIKROE_2674_2 || \
-AO_MIKROE_3063_2 \
+#define AO_UART_3       \
+(                       \
+    AO_MIKROE_2674_2 || \
+    AO_MIKROE_3063_2    \
 )
 ```
 

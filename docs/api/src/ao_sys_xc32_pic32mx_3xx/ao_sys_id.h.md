@@ -16,17 +16,8 @@ toc: true
 
 ```c
 #define AO_SYS_ID_REVISION_B2 (3)
-```
-
-```c
 #define AO_SYS_ID_REVISION_B3 (4)
-```
-
-```c
 #define AO_SYS_ID_REVISION_B4 (5)
-```
-
-```c
 #define AO_SYS_ID_REVISION_B6 (5)
 ```
 

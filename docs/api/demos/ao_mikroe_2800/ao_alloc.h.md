@@ -8,15 +8,16 @@ toc: true
 
 # Constants
 
+## `AO_ALLOC`
+
 ```c
 #define AO_ALLOC (2)
 ```
 
-```c
-#define AO_ALLOC_SIZE (AO_ALLOC_SIZE_KB * 1024)
-```
+## `AO_ALLOC_SIZE`
 
 ```c
+#define AO_ALLOC_SIZE    (AO_ALLOC_SIZE_KB * 1024)
 #define AO_ALLOC_SIZE_KB (256)
 ```
 

@@ -12,10 +12,10 @@ toc: true
 #include <ao_mikroe_2334.h>
 ```
 
-# Constants
+# Configuration
 
 ```c
-#define AO_CAN_1 (AO_MIKROE_2334_2)
+#define AO_CAN_1 (AO_MIKROE_2334_B)
 ```
 
 # Include Next

@@ -13,29 +13,26 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Constants
+# Configuration
+
+## `AO_MIKROE_4186`
 
 ```c
 #define AO_MIKROE_4186_1 (false)
-```
-
-```c
 #define AO_MIKROE_4186_2 (false)
 ```
 
-```c
-#define AO_MIKROE_4186_BAUD_1 (400000UL)
-```
+## `AO_MIKROE_4186_BAUD`
 
 ```c
+#define AO_MIKROE_4186_BAUD_1 (400000UL)
 #define AO_MIKROE_4186_BAUD_2 (400000UL)
 ```
 
-```c
-#define AO_MIKROE_4186_TIMEOUT_1 (AO_MILLISECONDS(100))
-```
+## `AO_MIKROE_4186_TIMEOUT`
 
 ```c
+#define AO_MIKROE_4186_TIMEOUT_1 (AO_MILLISECONDS(100))
 #define AO_MIKROE_4186_TIMEOUT_2 (AO_MILLISECONDS(100))
 ```
 

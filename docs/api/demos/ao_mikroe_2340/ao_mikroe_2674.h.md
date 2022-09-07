@@ -12,21 +12,12 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Constants
+# Configuration
 
 ```c
 #define AO_MIKROE_2674_A (false)
-```
-
-```c
 #define AO_MIKROE_2674_B (false)
-```
-
-```c
 #define AO_MIKROE_2674_C (false)
-```
-
-```c
 #define AO_MIKROE_2674_D (false)
 ```
 

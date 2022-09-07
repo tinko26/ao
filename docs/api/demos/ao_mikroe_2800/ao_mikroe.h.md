@@ -10,8 +10,5 @@ toc: true
 
 ```c
 #define AO_MIKROE_1 (1)
-```
-
-```c
 #define AO_MIKROE_2 (2)
 ```

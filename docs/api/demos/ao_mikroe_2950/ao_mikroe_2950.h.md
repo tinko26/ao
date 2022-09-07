@@ -609,17 +609,17 @@ toc: true
 ```
 
 ```c
-void ao_mikroe_2950_color( size_t i, uint8_t r, uint8_t g, uint8_t b);
+void ao_mikroe_2950_color(size_t i, uint8_t r, uint8_t g, uint8_t b);
 ```
 
 ```c
-void ao_mikroe_2950_luminance( size_t i, uint8_t l);
+void ao_mikroe_2950_luminance(size_t i, uint8_t l);
 ```
 
 ```c
-void ao_mikroe_2950_luminance_down( size_t i, uint8_t l, ao_time_t t);
+void ao_mikroe_2950_luminance_down(size_t i, uint8_t l, ao_time_t t);
 ```
 
 ```c
-void ao_mikroe_2950_luminance_up( size_t i, uint8_t l, ao_time_t t);
+void ao_mikroe_2950_luminance_up(size_t i, uint8_t l, ao_time_t t);
 ```

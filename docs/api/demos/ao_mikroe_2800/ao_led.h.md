@@ -32,10 +32,12 @@ typedef enum ao_leds_t ao_leds_t;
 ```c
 enum ao_leds_t
 {
-AO_LEDS_0 = (1 << 0),
-AO_LEDS_1 = (1 << 1),
-AO_LEDS_ALL = AO_LEDS_0 | AO_LEDS_1,
-AO_LEDS_NONE = 0
+    AO_LEDS_NONE = 0,
+    AO_LEDS_0    = (1 << 0),
+    AO_LEDS_1    = (1 << 1),
+    AO_LEDS_ALL  = 
+        AO_LEDS_0 | 
+        AO_LEDS_1
 };
 ```
 

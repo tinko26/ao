@@ -14,29 +14,26 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Constants
+# Configuration
+
+## `AO_MIKROE_1877`
 
 ```c
 #define AO_MIKROE_1877_1 (false)
-```
-
-```c
 #define AO_MIKROE_1877_2 (false)
 ```
 
-```c
-#define AO_MIKROE_1877_BAUD_1 (400000UL)
-```
+## `AO_MIKROE_1877_BAUD`
 
 ```c
+#define AO_MIKROE_1877_BAUD_1 (400000UL)
 #define AO_MIKROE_1877_BAUD_2 (400000UL)
 ```
 
-```c
-#define AO_MIKROE_1877_TIMEOUT_1 (AO_MILLISECONDS(100))
-```
+## `AO_MIKROE_1877_TIMEOUT`
 
 ```c
+#define AO_MIKROE_1877_TIMEOUT_1 (AO_MILLISECONDS(100))
 #define AO_MIKROE_1877_TIMEOUT_2 (AO_MILLISECONDS(100))
 ```
 
@@ -44,9 +41,6 @@ toc: true
 
 ```c
 extern ao_task_t ao_mikroe_1877_task_1;
-```
-
-```c
 extern ao_task_t ao_mikroe_1877_task_2;
 ```
 
