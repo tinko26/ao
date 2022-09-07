@@ -20,61 +20,76 @@ toc: true
 
 # Constants
 
-```c
-#define AO_UART_2 (false)
-```
+## `AO_UART`
+
+Indicates whether the UART module is available.
 
 ```c
-#define AO_UART_2 (true)
+#define AO_UART_2
 ```
+
+## `AO_UART_BAUD`
+
+The maximum and minimum baud rate.
+
+```c
+#define AO_UART_BAUD_MAX_2
+#define AO_UART_BAUD_MIN_2
+```
+
+## `AO_UART_BAUD_HIGH`
+
+```c
+#define AO_UART_BAUD_HIGH_MAX_2
+#define AO_UART_BAUD_HIGH_MIN_2
+```
+
+## `AO_UART_BAUD_LOW`
+
+```c
+#define AO_UART_BAUD_LOW_MAX_2
+#define AO_UART_BAUD_LOW_MIN_2
+```
+
+# Configuration
+
+## `AO_UART_BAUD`
 
 ```c
 #define AO_UART_BAUD_2 (9600)
 ```
 
-```c
-#define AO_UART_BAUD_HIGH_MAX_2 AO_UART_BAUD_HIGH_MAX(AO_SYS_CLOCK_U2)
-```
-
-```c
-#define AO_UART_BAUD_HIGH_MIN_2 AO_UART_BAUD_HIGH_MIN(AO_SYS_CLOCK_U2)
-```
-
-```c
-#define AO_UART_BAUD_LOW_MAX_2 AO_UART_BAUD_LOW_MAX(AO_SYS_CLOCK_U2)
-```
-
-```c
-#define AO_UART_BAUD_LOW_MIN_2 AO_UART_BAUD_LOW_MIN(AO_SYS_CLOCK_U2)
-```
-
-```c
-#define AO_UART_BAUD_MAX_2 AO_UART_BAUD_MAX(AO_SYS_CLOCK_U2)
-```
-
-```c
-#define AO_UART_BAUD_MIN_2 AO_UART_BAUD_MIN(AO_SYS_CLOCK_U2)
-```
+## `AO_UART_DATA_BITS_PARITY`
 
 ```c
 #define AO_UART_DATA_BITS_PARITY_2 (AO_UART_DATA_BITS_8_PARITY_NONE)
 ```
 
+## `AO_UART_ERROR`
+
 ```c
 #define AO_UART_ERROR_2 (false)
 ```
+
+## `AO_UART_LOOPBACK`
 
 ```c
 #define AO_UART_LOOPBACK_2 (false)
 ```
 
+## `AO_UART_RX`
+
 ```c
 #define AO_UART_RX_2 (false)
 ```
 
+## `AO_UART_STOP_BITS`
+
 ```c
 #define AO_UART_STOP_BITS_2 (AO_UART_STOP_BITS_ONE)
 ```
+
+## `AO_UART_TX`
 
 ```c
 #define AO_UART_TX_2 (false)
@@ -123,7 +138,7 @@ void ao_uart_config_loopback_2();
 ```
 
 ```c
-void ao_uart_error_2( ao_uart_error_info_t const * info);
+void ao_uart_error_2(ao_uart_error_info_t const * info);
 ```
 
 ```c

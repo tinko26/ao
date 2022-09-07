@@ -19,7 +19,7 @@ toc: true
 
 # Constants
 
-## `AO_CAN_1`
+## `AO_CAN`
 
 Indicates whether the CAN module is available.
 
@@ -27,7 +27,7 @@ Indicates whether the CAN module is available.
 #define AO_CAN_1
 ```
 
-## `AO_CAN_BAUD*`
+## `AO_CAN_BAUD`
 
 The maximum and minimum baud rate.
 
@@ -36,7 +36,7 @@ The maximum and minimum baud rate.
 #define AO_CAN_BAUD_MIN_1
 ```
 
-## `AO_CAN_BUFFERS_1`
+## `AO_CAN_BUFFERS`
 
 The total number of buffers.
 
@@ -44,7 +44,7 @@ The total number of buffers.
 #define AO_CAN_BUFFERS_1
 ```
 
-## `AO_CAN_FIFOS_1`
+## `AO_CAN_FIFOS`
 
 The total number of FIFOs.
 
@@ -52,7 +52,7 @@ The total number of FIFOs.
 #define AO_CAN_FIFOS_1
 ```
 
-## `AO_CAN_RX_1`
+## `AO_CAN_RX`
 
 Indicates whether the module is configured to receive.
 
@@ -60,7 +60,7 @@ Indicates whether the module is configured to receive.
 #define AO_CAN_RX_1
 ```
 
-## `AO_CAN_TX_1`
+## `AO_CAN_TX`
 
 Indicates whether the module is configured to transmit.
 
@@ -70,7 +70,7 @@ Indicates whether the module is configured to transmit.
 
 # Configuration
 
-## `AO_CAN_BAUD*`
+## `AO_CAN_BAUD`
 
 The baud rate.
 
@@ -100,7 +100,7 @@ The synchronization jump width.
 #define AO_CAN_BAUD_WAKE_UP_FILTER_1 (false)
 ```
 
-## `AO_CAN_BUFFERS_1`
+## `AO_CAN_BUFFERS`
 
 The number of buffers in each FIFO.
 
@@ -139,13 +139,13 @@ The number of buffers in each FIFO.
 #define AO_CAN_BUFFERS_1_31 (0)
 ```
 
-## `AO_CAN_BUS_1`
+## `AO_CAN_BUS`
 
 ```c
 #define AO_CAN_BUS_1 (false)
 ```
 
-## `AO_CAN_FIFOS*`
+## `AO_CAN_FIFOS`
 
 The number of receive and transmit FIFOs.
 
@@ -154,7 +154,7 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_FIFOS_TX_1 (0)
 ```
 
-## `AO_CAN_FILTER*`
+## `AO_CAN_FILTER`
 
 ```c
 #define AO_CAN_FILTER_EID_1_0  (0)
@@ -366,7 +366,7 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_FILTER_SID_1_31 (0)
 ```
 
-## `AO_CAN_FILTER_MASK*`
+## `AO_CAN_FILTER_MASK`
 
 ```c
 #define AO_CAN_FILTER_MASK_EID_1_0 (0)
@@ -389,49 +389,49 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_FILTER_MASK_SID_1_3 (0)
 ```
 
-## `AO_CAN_INVALID_1`
+## `AO_CAN_INVALID`
 
 ```c
 #define AO_CAN_INVALID_1 (false)
 ```
 
-## `AO_CAN_MODE_1`
+## `AO_CAN_MODE`
 
 ```c
 #define AO_CAN_MODE_1 (false)
 ```
 
-## `AO_CAN_OVERFLOW_1`
+## `AO_CAN_OVERFLOW`
 
 ```c
 #define AO_CAN_OVERFLOW_1 (false)
 ```
 
-## `AO_CAN_SENT_1`
+## `AO_CAN_SENT`
 
 ```c
 #define AO_CAN_SENT_1 (false)
 ```
 
-## `AO_CAN_SYSTEM_1`
+## `AO_CAN_SYSTEM`
 
 ```c
 #define AO_CAN_SYSTEM_1 (false)
 ```
 
-## `AO_CAN_TIMER_1`
+## `AO_CAN_TIMER`
 
 ```c
 #define AO_CAN_TIMER_1 (false)
 ```
 
-## `AO_CAN_UNDERFLOW_1`
+## `AO_CAN_UNDERFLOW`
 
 ```c
 #define AO_CAN_UNDERFLOW_1 (false)
 ```
 
-## `AO_CAN_WAKE_UP_1`
+## `AO_CAN_WAKE_UP`
 
 ```c
 #define AO_CAN_WAKE_UP_1 (false)

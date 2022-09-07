@@ -48,107 +48,32 @@ typedef struct ao_can_overflow_info_t ao_can_overflow_info_t;
 ```
 
 ```c
-typedef struct ao_can_reg_t ao_can_reg_t;
-```
-
-```c
-typedef struct ao_can_reg_cfg_t ao_can_reg_cfg_t;
-```
-
-```c
-typedef struct ao_can_reg_con_t ao_can_reg_con_t;
-```
-
-```c
-typedef struct ao_can_reg_fifo_t ao_can_reg_fifo_t;
-```
-
-```c
-typedef struct ao_can_reg_fifoba_t ao_can_reg_fifoba_t;
-```
-
-```c
-typedef struct ao_can_reg_fifoci_t ao_can_reg_fifoci_t;
-```
-
-```c
+typedef struct ao_can_reg_t         ao_can_reg_t;
+typedef struct ao_can_reg_cfg_t     ao_can_reg_cfg_t;
+typedef struct ao_can_reg_con_t     ao_can_reg_con_t;
+typedef struct ao_can_reg_fifo_t    ao_can_reg_fifo_t;
+typedef struct ao_can_reg_fifoba_t  ao_can_reg_fifoba_t;
+typedef struct ao_can_reg_fifoci_t  ao_can_reg_fifoci_t;
 typedef struct ao_can_reg_fifocon_t ao_can_reg_fifocon_t;
-```
-
-```c
 typedef struct ao_can_reg_fifoint_t ao_can_reg_fifoint_t;
-```
-
-```c
-typedef struct ao_can_reg_fifoua_t ao_can_reg_fifoua_t;
-```
-
-```c
-typedef struct ao_can_reg_fltcon_t ao_can_reg_fltcon_t;
-```
-
-```c
+typedef struct ao_can_reg_fifoua_t  ao_can_reg_fifoua_t;
+typedef struct ao_can_reg_fltcon_t  ao_can_reg_fltcon_t;
 typedef struct ao_can_reg_fltcon0_t ao_can_reg_fltcon0_t;
-```
-
-```c
 typedef struct ao_can_reg_fltcon1_t ao_can_reg_fltcon1_t;
-```
-
-```c
 typedef struct ao_can_reg_fltcon2_t ao_can_reg_fltcon2_t;
-```
-
-```c
 typedef struct ao_can_reg_fltcon3_t ao_can_reg_fltcon3_t;
-```
-
-```c
 typedef struct ao_can_reg_fltcon4_t ao_can_reg_fltcon4_t;
-```
-
-```c
 typedef struct ao_can_reg_fltcon5_t ao_can_reg_fltcon5_t;
-```
-
-```c
 typedef struct ao_can_reg_fltcon6_t ao_can_reg_fltcon6_t;
-```
-
-```c
 typedef struct ao_can_reg_fltcon7_t ao_can_reg_fltcon7_t;
-```
-
-```c
-typedef struct ao_can_reg_fstat_t ao_can_reg_fstat_t;
-```
-
-```c
-typedef struct ao_can_reg_int_t ao_can_reg_int_t;
-```
-
-```c
-typedef struct ao_can_reg_rxf_t ao_can_reg_rxf_t;
-```
-
-```c
-typedef struct ao_can_reg_rxm_t ao_can_reg_rxm_t;
-```
-
-```c
-typedef struct ao_can_reg_rxovf_t ao_can_reg_rxovf_t;
-```
-
-```c
-typedef struct ao_can_reg_tmr_t ao_can_reg_tmr_t;
-```
-
-```c
-typedef struct ao_can_reg_trec_t ao_can_reg_trec_t;
-```
-
-```c
-typedef struct ao_can_reg_vec_t ao_can_reg_vec_t;
+typedef struct ao_can_reg_fstat_t   ao_can_reg_fstat_t;
+typedef struct ao_can_reg_int_t     ao_can_reg_int_t;
+typedef struct ao_can_reg_rxf_t     ao_can_reg_rxf_t;
+typedef struct ao_can_reg_rxm_t     ao_can_reg_rxm_t;
+typedef struct ao_can_reg_rxovf_t   ao_can_reg_rxovf_t;
+typedef struct ao_can_reg_tmr_t     ao_can_reg_tmr_t;
+typedef struct ao_can_reg_trec_t    ao_can_reg_trec_t;
+typedef struct ao_can_reg_vec_t     ao_can_reg_vec_t;
 ```
 
 ```c

@@ -26,8 +26,8 @@ typedef struct ao_sys_lock_pps_t ao_sys_lock_pps_t;
 ```c
 struct ao_sys_lock_pps_t
 {
-ao_sys_lock_device_t device;
-uint32_t io;
+    ao_sys_lock_device_t device;
+    uint32_t             io;
 };
 ```
 
@@ -39,9 +39,9 @@ It consists of the following members.
 # Functions
 
 ```c
-void ao_sys_unlock_pps( ao_sys_lock_pps_t * x);
+void ao_sys_unlock_pps(ao_sys_lock_pps_t * x);
 ```
 
 ```c
-void ao_sys_lock_pps( ao_sys_lock_pps_t * x);
+void ao_sys_lock_pps(ao_sys_lock_pps_t * x);
 ```

@@ -17,12 +17,12 @@ toc: true
 
 # Constants
 
-```c
-#define AO_I2C_2 (false)
-```
+## `AO_I2C`
+
+Indicates whether the I²C module is available.
 
 ```c
-#define AO_I2C_2 (true)
+#define AO_I2C_2
 ```
 
 # Functions

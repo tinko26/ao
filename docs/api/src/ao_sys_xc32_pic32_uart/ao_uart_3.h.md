@@ -20,61 +20,76 @@ toc: true
 
 # Constants
 
-```c
-#define AO_UART_3 (false)
-```
+## `AO_UART`
+
+Indicates whether the UART module is available.
 
 ```c
-#define AO_UART_3 (true)
+#define AO_UART_3
 ```
+
+## `AO_UART_BAUD`
+
+The maximum and minimum baud rate.
+
+```c
+#define AO_UART_BAUD_MAX_3
+#define AO_UART_BAUD_MIN_3
+```
+
+## `AO_UART_BAUD_HIGH`
+
+```c
+#define AO_UART_BAUD_HIGH_MAX_3
+#define AO_UART_BAUD_HIGH_MIN_3
+```
+
+## `AO_UART_BAUD_LOW`
+
+```c
+#define AO_UART_BAUD_LOW_MAX_3
+#define AO_UART_BAUD_LOW_MIN_3
+```
+
+# Configuration
+
+## `AO_UART_BAUD`
 
 ```c
 #define AO_UART_BAUD_3 (9600)
 ```
 
-```c
-#define AO_UART_BAUD_HIGH_MAX_3 AO_UART_BAUD_HIGH_MAX(AO_SYS_CLOCK_U3)
-```
-
-```c
-#define AO_UART_BAUD_HIGH_MIN_3 AO_UART_BAUD_HIGH_MIN(AO_SYS_CLOCK_U3)
-```
-
-```c
-#define AO_UART_BAUD_LOW_MAX_3 AO_UART_BAUD_LOW_MAX(AO_SYS_CLOCK_U3)
-```
-
-```c
-#define AO_UART_BAUD_LOW_MIN_3 AO_UART_BAUD_LOW_MIN(AO_SYS_CLOCK_U3)
-```
-
-```c
-#define AO_UART_BAUD_MAX_3 AO_UART_BAUD_MAX(AO_SYS_CLOCK_U3)
-```
-
-```c
-#define AO_UART_BAUD_MIN_3 AO_UART_BAUD_MIN(AO_SYS_CLOCK_U3)
-```
+## `AO_UART_DATA_BITS_PARITY`
 
 ```c
 #define AO_UART_DATA_BITS_PARITY_3 (AO_UART_DATA_BITS_8_PARITY_NONE)
 ```
 
+## `AO_UART_ERROR`
+
 ```c
 #define AO_UART_ERROR_3 (false)
 ```
+
+## `AO_UART_LOOPBACK`
 
 ```c
 #define AO_UART_LOOPBACK_3 (false)
 ```
 
+## `AO_UART_RX`
+
 ```c
 #define AO_UART_RX_3 (false)
 ```
 
+## `AO_UART_STOP_BITS`
+
 ```c
 #define AO_UART_STOP_BITS_3 (AO_UART_STOP_BITS_ONE)
 ```
+
+## `AO_UART_TX`
 
 ```c
 #define AO_UART_TX_3 (false)
@@ -123,7 +138,7 @@ void ao_uart_config_loopback_3();
 ```
 
 ```c
-void ao_uart_error_3( ao_uart_error_info_t const * info);
+void ao_uart_error_3(ao_uart_error_info_t const * info);
 ```
 
 ```c

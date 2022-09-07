@@ -17,20 +17,21 @@ toc: true
 
 # Constants
 
-```c
-#define AO_SPI_6 (false)
-```
+## `AO_SPI`
+
+Indicates whether the SPI module is available.
 
 ```c
-#define AO_SPI_6 (true)
+#define AO_SPI_6
 ```
 
-```c
-#define AO_SPI_BAUD_MAX_6 AO_SPI_BAUD_MAX(AO_SYS_CLOCK_SPI6)
-```
+## `AO_SPI_BAUD`
+
+The maximum and minimum baud rate.
 
 ```c
-#define AO_SPI_BAUD_MIN_6 AO_SPI_BAUD_MIN(AO_SYS_CLOCK_SPI6)
+#define AO_SPI_BAUD_MAX_6
+#define AO_SPI_BAUD_MIN_6
 ```
 
 # Functions

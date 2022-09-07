@@ -19,10 +19,10 @@ toc: true
 typedef struct ao_task_t ao_task_t;
 ```
 
-# Constants
+# Configuration
 
 ```c
-#define AO_TASK_STACK_CHECK (false)
+#define AO_TASK_STACK_CHECK     (false)
 ```
 
 ```c
@@ -32,19 +32,19 @@ typedef struct ao_task_t ao_task_t;
 # Functions
 
 ```c
-void ao_task_stack_null( ao_task_t const * t);
+void ao_task_stack_null(ao_task_t const * t);
 ```
 
 ```c
-void ao_task_stack_overflow( ao_task_t const * t);
+void ao_task_stack_overflow(ao_task_t const * t);
 ```
 
 ```c
-void ao_task_stack_threshold( ao_task_t const * t, size_t quota);
+void ao_task_stack_threshold(ao_task_t const * t, size_t quota);
 ```
 
 ```c
-void ao_task_stack_underflow( ao_task_t const * t);
+void ao_task_stack_underflow(ao_task_t const * t);
 ```
 
 # Include Next
