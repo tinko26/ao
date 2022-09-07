@@ -47,6 +47,10 @@ It consists of the following members.
 
 # Functions
 
+## `ao_scanfd`
+## `ao_scanff`
+## `ao_scanfl`
+
 Convert a floating-point number from string.
 
 ```c
@@ -54,6 +58,11 @@ size_t ao_scanfd( char const * s, size_t n, ao_scan_t const * o, double * v);
 size_t ao_scanff( char const * s, size_t n, ao_scan_t const * o, float * v);
 size_t ao_scanfl( char const * s, size_t n, ao_scan_t const * o, long double * v);
 ```
+
+## `ao_scani8`
+## `ao_scani16`
+## `ao_scani32`
+## `ao_scani64`
 
 Convert a signed integer from string.
 
@@ -63,6 +72,11 @@ size_t ao_scani16(char const * s, size_t n, ao_scan_t const * o, int16_t * v);
 size_t ao_scani32(char const * s, size_t n, ao_scan_t const * o, int32_t * v);
 size_t ao_scani64(char const * s, size_t n, ao_scan_t const * o, int64_t * v);
 ```
+
+## `ao_scanu8`
+## `ao_scanu16`
+## `ao_scanu32`
+## `ao_scanu64`
 
 Convert an unsigned integer from string.
 

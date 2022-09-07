@@ -99,6 +99,11 @@ It consists of the following members.
 
 # Functions
 
+## `ao_lfsr8`
+## `ao_lfsr16`
+## `ao_lfsr32`
+## `ao_lfsr64`
+
 Generate a new bit.
 
 ```c

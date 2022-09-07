@@ -29,13 +29,18 @@ Commonly, heaps are implemented based on an array that stores all the nodes. How
 #include <stddef.h>
 ```
 
+# Configuration
+
+Keep track of the maximum number of nodes.
+
+```c
+#define AO_HEAP_COUNT_MAX (false)
+```
+
 # Typedefs
 
 ```c
-typedef struct ao_heap_t ao_heap_t;
-```
-
-```c
+typedef struct ao_heap_t      ao_heap_t;
 typedef struct ao_heap_node_t ao_heap_node_t;
 ```
 
@@ -46,14 +51,6 @@ typedef bool (* ao_heap_less_t)
     ao_heap_node_t * n2,
     void           * parameter
 );
-```
-
-# Configuration
-
-Keep track of the maximum number of nodes.
-
-```c
-#define AO_HEAP_COUNT_MAX (false)
 ```
 
 # Types
@@ -112,6 +109,8 @@ This type represents a compare function, that implements a strict total order on
 
 # Functions
 
+## `ao_heap_assert`
+
 Assert the correctness of a heap in linear time. This function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a runtime assertion failure.
 
 It is therefore useful in debugging scenarios. However, the function is implemented recursively, which violates a common rule in embedded software engineering.
@@ -120,11 +119,15 @@ It is therefore useful in debugging scenarios. However, the function is implemen
 void ao_heap_assert(ao_heap_t * x);
 ```
 
+## `ao_heap_insert`
+
 Insert a node into a heap in logarithmic time.
 
 ```c
 void ao_heap_insert(ao_heap_t * x, ao_heap_node_t * n);
 ```
+
+## `ao_heap_is_empty`
 
 Check whether a heap is empty in constant time.
 
@@ -132,17 +135,23 @@ Check whether a heap is empty in constant time.
 #define ao_heap_is_empty(x)
 ```
 
+## `ao_heap_peek`
+
 Get the root node of a heap without removing it in constant time.
 
 ```c
 #define ao_heap_peek(x)
 ```
 
+## `ao_heap_pop`
+
 Remove the root node from a heap in logarithmic time.
 
 ```c
 ao_heap_node_t * ao_heap_pop(ao_heap_t * x);
 ```
+
+## `ao_heap_remove`
 
 Remove an arbitrary node from a heap in logarithmic time.
 

@@ -18,17 +18,27 @@ This module provides a number of useful mathematical operations. They are implem
 
 # Functions
 
+## `AO_ABS`
+
 Absolute value.
 
 ```c
 #define AO_ABS(x)
 ```
 
+## `AO_CLAMP`
+
 Clamping.
 
 ```c
 #define AO_CLAMP(x, x_min, x_max)
 ```
+
+## `AO_IS_EQUAL`
+## `AO_IS_GREATER`
+## `AO_IS_GREATER_EQUAL`
+## `AO_IS_LESS`
+## `AO_IS_LESS_EQUAL`
 
 Comparison.
 
@@ -40,6 +50,10 @@ Comparison.
 #define AO_IS_LESS_EQUAL(x, y)
 ```
 
+## `AO_IS_NEGATIVE`
+## `AO_IS_POSITIVE`
+## `AO_IS_ZERO`
+
 Sign.
 
 ```c
@@ -47,6 +61,9 @@ Sign.
 #define AO_IS_POSITIVE(x)
 #define AO_IS_ZERO(x)
 ```
+
+## `AO_MAX`
+## `AO_MIN`
 
 Maximum and minimum.
 

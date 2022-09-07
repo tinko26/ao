@@ -65,6 +65,10 @@ It consists of the following members.
 
 # Functions
 
+## `ao_printed`
+## `ao_printef`
+## `ao_printel`
+
 Convert a floating-point number to string in scientific notation.
 
 ```c
@@ -72,6 +76,10 @@ size_t ao_printed( char * s, size_t n, ao_print_t const * o, double const * v);
 size_t ao_printef( char * s, size_t n, ao_print_t const * o, float const * v);
 size_t ao_printel( char * s, size_t n, ao_print_t const * o, long double const * v);
 ```
+
+## `ao_printfd`
+## `ao_printff`
+## `ao_printfl`
 
 Convert a floating-point number to string in decimal notation.
 
@@ -81,6 +89,11 @@ size_t ao_printff( char * s, size_t n, ao_print_t const * o, float const * v);
 size_t ao_printfl( char * s, size_t n, ao_print_t const * o, long double const * v);
 ```
 
+## `ao_printi8`
+## `ao_printi16`
+## `ao_printi32`
+## `ao_printi64`
+
 Convert a signed integer to string.
 
 ```c
@@ -89,6 +102,11 @@ size_t ao_printi16(char * s, size_t n, ao_print_t const * o, int16_t const * v);
 size_t ao_printi32(char * s, size_t n, ao_print_t const * o, int32_t const * v);
 size_t ao_printi64(char * s, size_t n, ao_print_t const * o, int64_t const * v);
 ```
+
+## `ao_printu8`
+## `ao_printu16`
+## `ao_printu32`
+## `ao_printu64`
 
 Convert an unsigned integer to string.
 

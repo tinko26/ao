@@ -26,9 +26,6 @@ This module defines doubly linked lists. Most commonly, lists are used as double
 
 ```c
 typedef struct ao_list_t      ao_list_t;
-```
-
-```c
 typedef struct ao_list_node_t ao_list_node_t;
 ```
 
@@ -70,11 +67,15 @@ It consists of the following members.
 
 # Functions
 
+## `ao_list_insert_after`
+
 Insert `n2` after `n1` into a list in constant time.
 
 ```c
 void ao_list_insert_after(ao_list_t * x, ao_list_node_t * n1, ao_list_node_t * n2);
 ```
+
+## `ao_list_insert_before`
 
 Insert `n1` before `n2` into a list in constant time.
 
@@ -82,11 +83,16 @@ Insert `n1` before `n2` into a list in constant time.
 void ao_list_insert_before(ao_list_t * x, ao_list_node_t * n1, ao_list_node_t * n2);
 ```
 
+## `ao_list_is_empty`
+
 Check whether a list is empty in constant time.
 
 ```c
 #define ao_list_is_empty(x)
 ```
+
+## `ao_list_pop_back`
+## `ao_list_pop_front`
 
 Remove and return the back or front node, respectively, in constant time.
 
@@ -95,6 +101,9 @@ ao_list_node_t * ao_list_pop_back( ao_list_t * x);
 ao_list_node_t * ao_list_pop_front(ao_list_t * x);
 ```
 
+## `ao_list_push_back`
+## `ao_list_push_front`
+
 Push a node to the back or front, respectively, in constant time.
 
 ```c
@@ -102,11 +111,15 @@ void ao_list_push_back( ao_list_t * x, ao_list_node_t * n);
 void ao_list_push_front(ao_list_t * x, ao_list_node_t * n);
 ```
 
+## `ao_list_remove`
+
 Remove a node from a list in constant time.
 
 ```c
 void ao_list_remove(ao_list_t * x, ao_list_node_t * n);
 ```
+
+## `ao_list_remove_all`
 
 Remove all nodes from a list in linear time.
 
@@ -114,12 +127,17 @@ Remove all nodes from a list in linear time.
 void ao_list_remove_all(ao_list_t * x);
 ```
 
+## `ao_list_remove_back`
+## `ao_list_remove_front`
+
 Remove the back or front node, respectively, in constant time.
 
 ```c
 void ao_list_remove_back( ao_list_t * x);
 void ao_list_remove_front(ao_list_t * x);
 ```
+
+## `ao_list_reverse`
 
 Reverse a list in linear time.
 

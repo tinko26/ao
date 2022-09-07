@@ -20,6 +20,9 @@ The standard library's `size_t` type is an unsigned integer type, at least 16 bi
 
 # Constants
 
+## `AO_SIZE_BITS`
+## `AO_SIZE_BITS_LOG`
+
 The size in bits and the base-2 logarithm thereof.
 
 ```c
@@ -27,20 +30,30 @@ The size in bits and the base-2 logarithm thereof.
 #define AO_SIZE_BITS_LOG (5)
 ```
 
+## `AO_SIZE_MAX`
+## `AO_SIZE_MIN`
+
 The maximum and minimum value.
 
 ```c
-#define AO_SIZE_MAX      (SIZE_MAX)
-#define AO_SIZE_MIN      (0)
+#define AO_SIZE_MAX (SIZE_MAX)
+#define AO_SIZE_MIN (0)
 ```
+
+## `AO_SIZE_SIZE`
 
 The size in bytes.
 
 ```c
-#define AO_SIZE_SIZE     (4)
+#define AO_SIZE_SIZE (4)
 ```
 
 # Functions
+
+## `ao_cloz`
+## `ao_clzz`
+## `ao_ctoz`
+## `ao_ctzz`
 
 Count the number of leading or trailing ones or zeros, respectively.
 
@@ -51,12 +64,17 @@ size_t ao_ctoz(size_t x);
 size_t ao_ctzz(size_t x);
 ```
 
+## `ao_ffsz`
+## `ao_flsz`
+
 Find the first or last set bit, respectively.
 
 ```c
 size_t ao_ffsz(size_t x);
 size_t ao_flsz(size_t x);
 ```
+
+## `AO_LOG2Z`
 
 Calculate the base-2 logarithm.
 
