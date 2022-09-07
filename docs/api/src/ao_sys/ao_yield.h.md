@@ -2,11 +2,11 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: true
-permalink: /api/src/ao_sys/ao_yield.h/
-toc: true
-wiki:
+external-wiki:
 - coroutine
 - producer-consumer-problem
+permalink: /api/src/ao_sys/ao_yield.h/
+toc: true
 ---
 
 # Include

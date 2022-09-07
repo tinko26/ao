@@ -2,11 +2,11 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: true
-permalink: /api/src/ao_sys/ao_mutex.h/
-toc: true
-wiki:
+external-wiki:
 - lock
 - mutual-exclusion
+permalink: /api/src/ao_sys/ao_mutex.h/
+toc: true
 ---
 
 # Overview

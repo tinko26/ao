@@ -2,10 +2,10 @@
 author: "Stefan Wagner"
 date: 2022-08-30
 draft: false
+external-wiki:
+- memory-alignment
 permalink: /api/src/ao/ao_align.h/
 toc: true
-wiki:
-- memory-alignment
 ---
 
 # Overview

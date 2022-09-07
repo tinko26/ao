@@ -2,11 +2,11 @@
 author: "Stefan Wagner"
 date: 2022-08-14
 draft: true
-permalink: /source-code/
-toc: true
-wiki:
+external-wiki:
 - pic32
 - separation-of-concerns
+permalink: /source-code/
+toc: true
 ---
 
 # Overview

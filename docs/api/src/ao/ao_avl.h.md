@@ -2,14 +2,14 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: false
-permalink: /api/src/ao/ao_avl.h/
-toc: true
-wiki:
+external-wiki:
 - avl-tree
 - binary-search-tree
 - priority-queue
 - self-balancing-binary-search-tree
 - total-order
+permalink: /api/src/ao/ao_avl.h/
+toc: true
 ---
 
 # Overview

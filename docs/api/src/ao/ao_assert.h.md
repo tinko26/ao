@@ -2,12 +2,12 @@
 author: "Stefan Wagner"
 date: 2022-08-30
 draft: false
+external-wiki:
+- assertion
 permalink: /api/src/ao/ao_assert.h/
 seealso:
 - /api/src/ao/ao_break.h/
 toc: true
-wiki:
-- assertion
 ---
 
 # Overview

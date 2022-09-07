@@ -2,10 +2,10 @@
 author: "Stefan Wagner"
 date: 2022-08-30
 draft: false
+external-wiki:
+- breakpoint
 permalink: /api/src/ao/ao_break.h/
 toc: true
-wiki:
-- breakpoint
 ---
 
 # Overview

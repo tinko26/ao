@@ -2,10 +2,10 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: true
+external-wiki:
+- semaphore
 permalink: /api/src/ao_sys/ao_bsem.h/
 toc: true
-wiki:
-- semaphore
 ---
 
 # Include

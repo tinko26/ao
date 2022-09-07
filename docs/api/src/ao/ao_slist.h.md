@@ -2,11 +2,11 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: false
-permalink: /api/src/ao/ao_slist.h/
-toc: true
-wiki:
+external-wiki:
 - doubly-linked-list
 - total-order
+permalink: /api/src/ao/ao_slist.h/
+toc: true
 ---
 
 # Overview

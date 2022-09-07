@@ -3,7 +3,7 @@ author: "Stefan Wagner"
 date: 2022-08-30
 draft: false
 permalink: /api/
-toc: true
+toc: false
 ---
 
 # Directories

@@ -2,14 +2,14 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: false
-permalink: /api/src/ao/ao_rb.h/
-toc: true
-wiki:
+external-wiki:
 - binary-search-tree
 - priority-queue
 - self-balancing-binary-search-tree
 - red-black-tree
 - total-order
+permalink: /api/src/ao/ao_rb.h/
+toc: true
 ---
 
 # Overview

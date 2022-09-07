@@ -2,13 +2,13 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: false
-permalink: /api/src/ao/ao_heap.h/
-toc: true
-wiki:
+external-wiki:
 - binary-heap
 - binary-tree
 - priority-queue
 - total-order
+permalink: /api/src/ao/ao_heap.h/
+toc: true
 ---
 
 # Overview

@@ -2,10 +2,10 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: true
+external-wiki:
+- call-stack
 permalink: /api/src/ao_sys/ao_stack.h/
 toc: true
-wiki:
-- call-stack
 ---
 
 # Overview

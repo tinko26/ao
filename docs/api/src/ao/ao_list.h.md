@@ -2,13 +2,13 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: false
-permalink: /api/src/ao/ao_list.h/
-toc: true
-wiki:
+external-wiki:
 - double-ended-queue
 - doubly-linked-list
 - fifo
 - lifo
+permalink: /api/src/ao/ao_list.h/
+toc: true
 ---
 
 # Overview

@@ -2,10 +2,10 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: false
+external-wiki:
+- radix
 permalink: /api/src/ao/ao_print.h/
 toc: true
-wiki:
-- radix
 ---
 
 # Overview

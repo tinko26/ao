@@ -2,10 +2,10 @@
 author: "Stefan Wagner"
 date: 2022-08-29
 draft: true
+external-wiki:
+- barrier
 permalink: /api/src/ao_sys/ao_barrier.h/
 toc: true
-wiki:
-- barrier
 ---
 
 # Include

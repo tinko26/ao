@@ -2,11 +2,11 @@
 author: "Stefan Wagner"
 date: 2022-08-15
 draft: false
-permalink: /buffers/
-toc: false
-wiki:
+external-wiki:
 - circular-buffer
 - data-buffer
+permalink: /buffers/
+toc: false
 ---
 
 The following modules implement array-based circular buffers.

@@ -2,12 +2,12 @@
 author: "Stefan Wagner"
 date: 2022-08-15
 draft: false
+external-wiki:
+- priority-queue
 groups:
 - priority-queues
 permalink: /priority-queues/
 toc: true
-wiki:
-- priority-queue
 ---
 
 # Overview

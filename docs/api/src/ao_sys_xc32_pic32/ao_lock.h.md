@@ -2,10 +2,10 @@
 author: "Stefan Wagner"
 date: 2022-09-05
 draft: true
+external-wiki:
+- critical-section
 permalink: /api/src/ao_sys_xc32_pic32/ao_lock.h/
 toc: true
-wiki:
-- critical-section
 ---
 
 # Overview

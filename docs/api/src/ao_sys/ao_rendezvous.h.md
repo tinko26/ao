@@ -2,10 +2,10 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: true
+external-wiki:
+- rendezvous
 permalink: /api/src/ao_sys/ao_rendezvous.h/
 toc: true
-wiki:
-- rendezvous
 ---
 
 # Include

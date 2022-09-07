@@ -2,11 +2,11 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: false
-permalink: /api/src/ao/ao_buffer.h/
-toc: true
-wiki:
+external-wiki:
 - circular-buffer
 - data-buffer
+permalink: /api/src/ao/ao_buffer.h/
+toc: true
 ---
 
 # Overview

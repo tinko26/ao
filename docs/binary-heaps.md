@@ -2,15 +2,15 @@
 author: "Stefan Wagner"
 date: 2022-08-15
 draft: false
-groups:
-- priority-queues
-permalink: /binary-heaps/
-toc: true
-wiki:
+external-wiki:
 - binary-heap
 - binary-tree
 - priority-queue
 - total-order
+groups:
+- priority-queues
+permalink: /binary-heaps/
+toc: true
 ---
 
 # Overview
