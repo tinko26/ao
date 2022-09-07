@@ -26,6 +26,8 @@ Especially, outputting a message is probably not a good option in an embedded sy
 
 # Functions
 
+## `ao_assert`
+
 Perform a runtime assertion on the given expression. If the expression compares equal to zero, then the assertion fails.
 
 ```c
