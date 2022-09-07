@@ -6,6 +6,7 @@ external:
 - https://microchip.com/DS60001114 : "PIC32 Family Reference Manual, Section 9, Watchdog, Deadman, and Power-up Timers"
 permalink: /api/src/ao_sys_xc32_pic32_wdt/
 toc: false
+wide: true
 ---
 
 # Files

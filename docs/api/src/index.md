@@ -4,6 +4,7 @@ date: 2022-08-29
 draft: false
 permalink: /api/src/
 toc: false
+wide: true
 ---
 
 # Directories

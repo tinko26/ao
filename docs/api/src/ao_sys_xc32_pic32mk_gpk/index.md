@@ -7,6 +7,7 @@ external:
 - https://microchip.com/DS80000898 : "PIC32MK General Purpose and Motor Control (GPK/MCM) with CAN FD Family Errata"
 permalink: /api/src/ao_sys_xc32_pic32mk_gpk/
 toc: false
+wide: true
 ---
 
 # Files

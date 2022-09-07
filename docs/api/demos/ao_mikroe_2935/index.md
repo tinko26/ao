@@ -6,6 +6,7 @@ external:
 - https://www.mikroe.com/geomagnetic-click : "GeoMagnetic Click"
 permalink: /api/demos/ao_mikroe_2935/
 toc: false
+wide: true
 ---
 
 # Files

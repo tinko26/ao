@@ -6,6 +6,7 @@ external:
 - https://www.mikroe.com/led-driver-3-click : "LED Driver 3 Click"
 permalink: /api/demos/ao_mikroe_2950/
 toc: false
+wide: true
 ---
 
 # Files

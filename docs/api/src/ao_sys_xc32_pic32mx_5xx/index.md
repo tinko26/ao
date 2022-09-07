@@ -8,6 +8,7 @@ external:
 - https://microchip.com/DS80000511 : "PIC32MX5XX/6XX/7XX Family Errata (534/564/664/764)"
 permalink: /api/src/ao_sys_xc32_pic32mx_5xx/
 toc: false
+wide: true
 ---
 
 # Files

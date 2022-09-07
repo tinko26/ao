@@ -6,6 +6,7 @@ external:
 - https://microchip.com/DS60001116 : "PIC32 Family Reference Manual, Section 24, Inter-Integrated Circuit (I²C)"
 permalink: /api/src/ao_sys_xc32_pic32_i2c/
 toc: false
+wide: true
 ---
 
 # Files

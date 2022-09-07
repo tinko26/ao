@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-31
-draft: false
+draft: true
 external:
 - https://en.wikipedia.org/wiki/Circular_buffer : "Circular buffer"
 - https://en.wikipedia.org/wiki/Data_buffer : "Data buffer"
@@ -39,18 +39,18 @@ This type represents a buffer for objects.
 ```c
 struct ao_buffer4obj_t
 {
-size_t capacity;
-size_t count;
+    size_t capacity;
+    size_t count;
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-size_t count_max;
+    size_t count_max;
 
 #endif
 
-size_t front;
-size_t size;
-void * store;
+    size_t front;
+    size_t size;
+    void * store;
 };
 ```
 

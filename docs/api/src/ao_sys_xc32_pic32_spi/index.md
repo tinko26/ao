@@ -6,6 +6,7 @@ external:
 - https://microchip.com/DS61106 : "PIC32 Family Reference Manual, Section 23, Serial Peripheral Interface (SPI)"
 permalink: /api/src/ao_sys_xc32_pic32_spi/
 toc: false
+wide: true
 ---
 
 # Files

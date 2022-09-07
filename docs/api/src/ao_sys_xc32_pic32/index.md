@@ -4,6 +4,7 @@ date: 2022-08-29
 draft: false
 permalink: /api/src/ao_sys_xc32_pic32/
 toc: false
+wide: true
 ---
 
 # Files

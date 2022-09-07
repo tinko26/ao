@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-31
-draft: false
+draft: true
 external:
 - https://en.wikipedia.org/wiki/Double-ended_queue : "Double-ended queue"
 - https://en.wikipedia.org/wiki/Doubly_linked_list : "Doubly-linked list"
@@ -41,8 +41,8 @@ This type represents a list.
 ```c
 struct ao_list_t
 {
-ao_list_node_t * back;
-ao_list_node_t * front;
+    ao_list_node_t * back;
+    ao_list_node_t * front;
 };
 ```
 
@@ -58,8 +58,8 @@ This type represents a list node.
 ```c
 struct ao_list_node_t
 {
-ao_list_node_t * next;
-ao_list_node_t * prev;
+    ao_list_node_t * next;
+    ao_list_node_t * prev;
 };
 ```
 

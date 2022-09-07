@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-31
-draft: false
+draft: true
 external:
 - https://en.wikipedia.org/wiki/Binary_search_tree : "Binary search tree"
 - https://en.wikipedia.org/wiki/Priority_queue : "Priority queue"
@@ -38,9 +38,9 @@ typedef struct ao_rb_node_t ao_rb_node_t;
 ```c
 typedef bool (* ao_rb_less_t)
 (
-ao_rb_node_t * n1,
-ao_rb_node_t * n2,
-void         * parameter
+    ao_rb_node_t * n1,
+    ao_rb_node_t * n2,
+    void         * parameter
 );
 ```
 
@@ -53,9 +53,9 @@ This type represents a red-black tree.
 ```c
 struct ao_rb_t
 {
-ao_rb_less_t   less;
-void         * less_parameter;
-ao_rb_node_t * root;
+    ao_rb_less_t   less;
+    void         * less_parameter;
+    ao_rb_node_t * root;
 };
 ```
 
@@ -72,10 +72,10 @@ This type represents a red-black tree node.
 ```c
 struct ao_rb_node_t
 {
-bool           black;
-ao_rb_node_t * left;
-ao_rb_node_t * parent;
-ao_rb_node_t * right;
+    bool           black;
+    ao_rb_node_t * left;
+    ao_rb_node_t * parent;
+    ao_rb_node_t * right;
 };
 ```
 
@@ -157,14 +157,14 @@ However, prior to inserting nodes, a compare function must be set.
 ```c
 bool compare(ao_rb_node_t * n1, ao_rb_node_t * n2, void * p)
 {
-if (/* n1 is less than n2 */)
-{
-return true;
-}
-else
-{
-return false;
-}
+    if (/* n1 is less than n2 */)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 ```
 

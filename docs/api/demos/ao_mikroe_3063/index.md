@@ -7,6 +7,7 @@ external:
 - https://www.silabs.com/interface/usb-bridges/usbxpress : "CP2102N USBXpress USB Bridges"
 permalink: /api/demos/ao_mikroe_3063/
 toc: false
+wide: true
 ---
 
 # Files

@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-31
-draft: false
+draft: true
 external:
 - https://en.wikipedia.org/wiki/Binary_heap : "Binary heap"
 - https://en.wikipedia.org/wiki/Binary_tree : "Binary tree"
@@ -37,9 +37,9 @@ typedef struct ao_heap4ptr_t ao_heap4ptr_t;
 ```c
 typedef bool (* ao_heap4ptr_less_t)
 (
-void * p1,
-void * p2,
-void * parameter
+    void * p1,
+    void * p2,
+    void * parameter
 );
 ```
 
@@ -60,20 +60,20 @@ This type represents a heap for pointers.
 ```c
 struct ao_heap4ptr_t
 {
-size_t             capacity;
-size_t             count;
+    size_t             capacity;
+    size_t             count;
 
 #if AO_HEAP4PTR_COUNT_MAX
 
-size_t             count_max;
+    size_t             count_max;
 
 #endif
 
-size_t *           heap1;
-size_t *           heap2;
-ao_heap4ptr_less_t less;
-void *             less_parameter;
-void **            store;
+    size_t *           heap1;
+    size_t *           heap2;
+    ao_heap4ptr_less_t less;
+    void *             less_parameter;
+    void **            store;
 };
 ```
 
@@ -164,14 +164,14 @@ Also, prior to inserting pointers, a compare function must be set.
 ```c
 bool compare(void * p1, void * p2, void * p)
 {
-if (/* p1 is less than p2 */)
-{
-return true;
-}
-else
-{
-return false;
-}
+    if (/* p1 is less than p2 */)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 ```
 

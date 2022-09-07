@@ -7,6 +7,7 @@ external:
 - https://microchip.com/DS80000440 : "PIC32MX3XX/4XX Family Errata"
 permalink: /api/src/ao_sys_xc32_pic32mx_3xx/
 toc: false
+wide: true
 ---
 
 # Files

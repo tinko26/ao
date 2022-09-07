@@ -6,6 +6,7 @@ external:
 - https://www.mikroe.com/ata6563-click : "ATA6563 Click"
 permalink: /api/demos/ao_mikroe_2334/
 toc: false
+wide: true
 ---
 
 # Files

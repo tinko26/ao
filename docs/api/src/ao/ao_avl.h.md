@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-31
-draft: false
+draft: true
 external:
 - https://en.wikipedia.org/wiki/AVL_tree : "AVL tree"
 - https://en.wikipedia.org/wiki/Binary_search_tree : "Binary search tree"

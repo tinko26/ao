@@ -7,6 +7,7 @@ external:
 - https://microchip.com/DS80000737 : "PIC32MK General Purpose and Motor Control (GP/MC) Family Errata"
 permalink: /api/src/ao_sys_xc32_pic32mk_gp/
 toc: false
+wide: true
 ---
 
 # Files

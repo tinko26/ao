@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-31
-draft: false
+draft: true
 external:
 - https://en.wikipedia.org/wiki/Linear-feedback_shift_register : "Linear-feedback shift register"
 permalink: /api/src/ao/ao_lfsr.h/
@@ -36,8 +36,8 @@ This type represents a linear-feedback shift register with a maximum width of 8 
 ```c
 struct ao_lfsr8_t
 {
-uint8_t polynomial;
-uint8_t seed;
+    uint8_t polynomial;
+    uint8_t seed;
 };
 ```
 
@@ -53,8 +53,8 @@ This type represents a linear-feedback shift register with a maximum width of 16
 ```c
 struct ao_lfsr16_t
 {
-uint16_t polynomial;
-uint16_t seed;
+    uint16_t polynomial;
+    uint16_t seed;
 };
 ```
 
@@ -70,8 +70,8 @@ This type represents a linear-feedback shift register with a maximum width of 32
 ```c
 struct ao_lfsr32_t
 {
-uint32_t polynomial;
-uint32_t seed;
+    uint32_t polynomial;
+    uint32_t seed;
 };
 ```
 
@@ -87,8 +87,8 @@ This type represents a linear-feedback shift register with a maximum width of 64
 ```c
 struct ao_lfsr64_t
 {
-uint64_t polynomial;
-uint64_t seed;
+    uint64_t polynomial;
+    uint64_t seed;
 };
 ```
 

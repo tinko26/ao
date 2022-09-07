@@ -7,6 +7,7 @@ external:
 - https://microchip.com/DS80000823 : "PIC32MZ Graphics (DAK/DAL/DAR/DAS) Family Errata"
 permalink: /api/src/ao_sys_xc32_pic32mz_dak/
 toc: false
+wide: true
 ---
 
 # Files

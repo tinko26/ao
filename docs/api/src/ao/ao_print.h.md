@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-31
-draft: false
+draft: true
 external:
 - https://en.wikipedia.org/wiki/Radix : "Radix"
 permalink: /api/src/ao/ao_print.h/
@@ -35,17 +35,17 @@ This type represents options for the conversion.
 ```c
 struct ao_print_t
 {
-size_t digits_exponent;
-size_t digits_fractional;
-size_t digits_integral;
-size_t precision;
-size_t radix;
-bool   right;
-bool   sign;
-bool   sign_exponent;
-bool   sign_space;
-bool   uppercase;
-size_t width;
+    size_t digits_exponent;
+    size_t digits_fractional;
+    size_t digits_integral;
+    size_t precision;
+    size_t radix;
+    bool   right;
+    bool   sign;
+    bool   sign_exponent;
+    bool   sign_space;
+    bool   uppercase;
+    size_t width;
 };
 ```
 
@@ -120,12 +120,12 @@ size_t n = 128;
 // Options.
 ao_print_t o =
 {
-.digits_fractional = 0,
-.digits_integral = 0,
-.precision = 4,
-.right = false,
-.sign = true,
-.width = 0
+    .digits_fractional = 0,
+    .digits_integral = 0,
+    .precision = 4,
+    .right = false,
+    .sign = true,
+    .width = 0
 };
 
 // Value.

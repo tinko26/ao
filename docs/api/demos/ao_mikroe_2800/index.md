@@ -6,6 +6,7 @@ external:
 - https://www.mikroe.com/clicker-2-for-pic32mz : "Clicker 2 for PIC32MZ"
 permalink: /api/demos/ao_mikroe_2800/
 toc: false
+wide: true
 ---
 
 # Files

@@ -6,6 +6,7 @@ external:
 - https://microchip.com/DS61154 : "PIC32 Family Reference Manual, Section 34, Controller Area Network (CAN)"
 permalink: /api/src/ao_sys_xc32_pic32_can/
 toc: false
+wide: true
 ---
 
 # Files

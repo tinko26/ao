@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-31
-draft: false
+draft: true
 external:
 - https://en.wikipedia.org/wiki/Circular_buffer : "Circular buffer"
 - https://en.wikipedia.org/wiki/Data_buffer : "Data buffer"
@@ -43,17 +43,17 @@ This type represents a buffer.
 ```c
 struct ao_buffer_t
 {
-size_t capacity;
-size_t count;
+    size_t capacity;
+    size_t count;
 
 #if AO_BUFFER_COUNT_MAX
 
-size_t count_max;
+    size_t count_max;
 
 #endif
 
-size_t front;
-void * store;
+    size_t front;
+    void * store;
 };
 ```
 

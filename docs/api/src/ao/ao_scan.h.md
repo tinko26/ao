@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-31
-draft: false
+draft: true
 external:
 - https://en.wikipedia.org/wiki/Radix : "Radix"
 permalink: /api/src/ao/ao_scan.h/
@@ -35,8 +35,8 @@ This type represents options for the conversion.
 ```c
 struct ao_scan_t
 {
-size_t radix;
-bool   seek;
+    size_t radix;
+    bool   seek;
 };
 ```
 
@@ -94,8 +94,8 @@ size_t n = 33;
 // Options.
 ao_scan_t o =
 {
-.radix = 10,
-.seek = true
+    .radix = 10,
+    .seek = true
 };
 
 // Value.

@@ -3,7 +3,7 @@ author: "Stefan Wagner"
 date: 2022-08-29
 draft: false
 permalink: /api/demos/
-toc: true
+toc: false
 wide: true
 ---
 

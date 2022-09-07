@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-30
-draft: false
+draft: true
 external:
 - https://en.wikipedia.org/wiki/Memory_alignment : "Memory alignment"
 permalink: /api/src/ao/ao_align.h/
@@ -58,10 +58,10 @@ Check whether `xu` is aligned to an 8-byte boundary.
 ```c
 if (AO_IS_ALIGNED(xu, 8))
 {
-// yes.
+    // yes.
 }
 else
 {
-// no.
+    // no.
 }
 ```

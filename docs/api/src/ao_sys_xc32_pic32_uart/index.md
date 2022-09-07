@@ -6,6 +6,7 @@ external:
 - https://microchip.com/DS60001107 : "PIC32 Family Reference Manual, Section 21, UART"
 permalink: /api/src/ao_sys_xc32_pic32_uart/
 toc: false
+wide: true
 ---
 
 # Files

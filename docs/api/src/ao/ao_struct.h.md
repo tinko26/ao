@@ -1,7 +1,7 @@
 ---
 author: "Stefan Wagner"
 date: 2022-08-30
-draft: false
+draft: true
 permalink: /api/src/ao/ao_struct.h/
 toc: true
 ---
@@ -30,37 +30,37 @@ Given a pointer `p` to a member `m` of a compound type `t`, return a pointer to 
 Given the definition of a compound type (that is, a struct or union) ...
 
 ```c
-typedef struct compound_t compound_t;
+typedef struct struct_t struct_t;
 ```
 
 ```c
-struct compound_t
+struct struct_t
 {
-uint32_t member_a;
-uint16_t member_b;
-char     member_c;
-uint64_t member_d;
+    uint32_t member1;
+    uint16_t member2;
+    char     member3;
+    uint64_t member4;
 };
 ```
 
 ... and an object of that compound type, ...
 
 ```c
-compound_t x;
+struct_t s;
 ```
 
 ... then given a pointer to a member ...
 
 ```c
-char * pc = &x.member_c;
+char * p3 = &s.member3;
 ```
 
 ... one can retrieve a pointer to the object.
 
 ```c
-compound_t * px = ao_containerof(pc, compound_t, member_c);
+struct_t * ps = ao_containerof(p3, struct_t, member3);
 ```
 
 ```c
-ao_assert(px == &x);
+ao_assert(ps == &s);
 ```

@@ -6,6 +6,7 @@ external:
 - https://microchip.com/DS50001686 : "MPLAB® XC32 C/C++ Compiler User's Guide"
 permalink: /api/src/ao_sys_xc32/
 toc: false
+wide: true
 ---
 
 # Files
