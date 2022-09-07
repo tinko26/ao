@@ -18,545 +18,131 @@ This module provides mathematical constants and functions for floating-point num
 
 # Constants
 
+## `AO_1_PI`
+
+$$\frac{1}{\pi}$$
+
 ```c
-#define AO_1_PI               ( 0.31830988618379067153776752674502872406891929148091)
-#define AO_2_PI               ( 0.63661977236758134307553505349005744813783858296183)
-#define AO_2_SQRTPI           ( 1.12837916709551257389615890312154517168810125865800)
+#define AO_1_PI (0.31830988618379067153776752674502872406891929148091)
+```
+
+## `AO_2_PI`
+
+$$\frac{2}{\pi}$$
+
+```c
+#define AO_2_PI (0.63661977236758134307553505349005744813783858296183)
+```
+
+## `AO_2_SQRTPI`
+
+$$\frac{2}{\sqrt{\pi}}$$
+
+```c
+#define AO_2_SQRTPI (1.12837916709551257389615890312154517168810125865800)
+```
+
+## `AO_DEGREES_PER_RADIAN`
+
+The number of degrees per radian.
+
+```c
 #define AO_DEGREES_PER_RADIAN (57.29577951308232087679815481410517033240547246656432)
-#define AO_E                  ( 2.71828182845904523536028747135266249775724709369996)
-#define AO_LN10               ( 2.30258509299404568401799145468436420760110148862877)
-#define AO_LN2                ( 0.69314718055994530941723212145817656807550013436026)
-#define AO_LOG10E             ( 0.43429448190325182765112891891660508229439700580367)
-#define AO_LOG2E              ( 1.44269504088896340735992468100189213742664595415299)
-#define AO_PI                 ( 3.14159265358979323846264338327950288419716939937511)
-#define AO_PI_2               ( 1.57079632679489661923132169163975144209858469968755)
-#define AO_PI_4               ( 0.78539816339744830961566084581987572104929234984378)
-#define AO_RADIANS_PER_DEGREE ( 0.01745329251994329576923690768488612713442871888542)
-#define AO_SQRT1_2            ( 0.70710678118654752440084436210484903928483593768847)
-#define AO_SQRT2              ( 1.41421356237309504880168872420969807856967187537695)
+```
+
+## `AO_E`
+
+Euler's number.
+
+```c
+#define AO_E (2.71828182845904523536028747135266249775724709369996)
+```
+
+## `AO_LN10`
+
+$$\ln{10}$$
+
+```c
+#define AO_LN10 (2.30258509299404568401799145468436420760110148862877)
+```
+
+## `AO_LN2`
+
+$$\ln{2}$$
+
+```c
+#define AO_LN2 (0.69314718055994530941723212145817656807550013436026)
+```
+
+## `AO_LOG10E`
+
+$$\lg{e}$$
+
+```c
+#define AO_LOG10E (0.43429448190325182765112891891660508229439700580367)
+```
+
+## `AO_LOG2E`
+
+$$\lb{e}$$
+
+```c
+#define AO_LOG2E (1.44269504088896340735992468100189213742664595415299)
+```
+
+## `AO_PI`
+
+$$\pi$$
+
+```c
+#define AO_PI (3.14159265358979323846264338327950288419716939937511)
+```
+
+## `AO_PI_2`
+
+$$\frac{\pi}{2}$$
+
+```c
+#define AO_PI_2 (1.57079632679489661923132169163975144209858469968755)
+```
+
+## `AO_PI_4`
+
+$$\frac{\pi}{4}$$
+
+```c
+#define AO_PI_4 (0.78539816339744830961566084581987572104929234984378)
+```
+
+## `AO_RADIANS_PER_DEGREE`
+
+The number of radians per degree.
+
+```c
+#define AO_RADIANS_PER_DEGREE (0.01745329251994329576923690768488612713442871888542)
+```
+
+## `AO_SQRT1_2`
+
+$$\sqrt{\frac{1}{2}}$$
+
+```c
+#define AO_SQRT1_2 (0.70710678118654752440084436210484903928483593768847)
+```
+
+## `AO_SQRT2`
+
+$$\sqrt{2}$$
+
+```c
+#define AO_SQRT2 (1.41421356237309504880168872420969807856967187537695)
 ```
 
 # Functions
 
-## Absolute value
-
-Get the absolute value of $$\texttt{x}$$.
-
-```c
-double      ao_fabsd(double x);
-float       ao_fabsf(float x);
-long double ao_fabsl(long double x);
-```
-
-## Angles
-
-Convert degrees to radians.
-
-```c
-double      ao_deg2radd(double x);
-float       ao_deg2radf(float x);
-long double ao_deg2radl(long double x);
-```
-
-Convert radians to degrees.
-
-```c
-double      ao_rad2degd(double x);
-float       ao_rad2degf(float x);
-long double ao_rad2degl(long double x);
-```
-
-## Classification
-
-Check whether $$\texttt{x}$$ is finite.
-
-```c
-bool        ao_isfinited(double x);
-bool        ao_isfinitef(float x);
-bool        ao_isfinitel(long double x);
-```
-
-Check whether $$\texttt{x}$$ is positive or negative infinity.
-
-```c
-bool        ao_isinfd(double x);
-bool        ao_isinff(float x);
-bool        ao_isinfl(long double x);
-```
-
-Check whether $$\texttt{x}$$ is not a number.
-
-```c
-bool        ao_isnand(double x);
-bool        ao_isnanf(float x);
-bool        ao_isnanl(long double x);
-```
-
-## Division
-
-Get the remainder of $$\frac{\texttt{x}}{\texttt{y}}$$ rounded to zero.
-
-```c
-double      ao_fmodd(double x, double y);
-float       ao_fmodf(float x, float y);
-long double ao_fmodl(long double x, long double y);
-```
-
-## Exponential Functions
-
-Get $$e^\texttt{x}$$.
-
-```c
-double      ao_expd(double x);
-float       ao_expf(float x);
-long double ao_expl(long double x);
-```
-
-Get $$2^\texttt{x}$$.
-
-```c
-double      ao_exp2d(double x);
-float       ao_exp2f(float x);
-long double ao_exp2l(long double x);
-```
-
-## Generators
-
-Generate positive infinity.
-
-```c
-double      ao_infd();
-float       ao_inff();
-long double ao_infl();
-```
-
-Generate not a number.
-
-```c
-double      ao_nand();
-float       ao_nanf();
-long double ao_nanl();
-```
-
-## Hyperbolic functions
-
-Get the area hyperbolic cosine of $$\texttt{x}$$.
-
-```c
-double      ao_acoshd(double x);
-float       ao_acoshf(float x);
-long double ao_acoshl(long double x);
-```
-
-Get the area hyperbolic cotangent of $$\texttt{x}$$.
-
-```c
-double      ao_acothd(double x);
-float       ao_acothf(float x);
-long double ao_acothl(long double x);
-```
-
-Get the area hyperbolic cosecant of $$\texttt{x}$$.
-
-```c
-double      ao_acschd(double x);
-float       ao_acschf(float x);
-long double ao_acschl(long double x);
-```
-
-Get the area hyperbolic secant of $$\texttt{x}$$.
-
-```c
-double      ao_asechd(double x);
-float       ao_asechf(float x);
-long double ao_asechl(long double x);
-```
-
-Get the area hyperbolic sine of $$\texttt{x}$$.
-
-```c
-double      ao_asinhd(double x);
-float       ao_asinhf(float x);
-long double ao_asinhl(long double x);
-```
-
-Get the area hyperbolic tangent of $$\texttt{x}$$.
-
-```c
-double      ao_atanhd(double x);
-float       ao_atanhf(float x);
-long double ao_atanhl(long double x);
-```
-
-Get the hyperbolic cosine of $$\texttt{x}$$.
-
-```c
-double      ao_coshd(double x);
-float       ao_coshf(float x);
-long double ao_coshl(long double x);
-```
-
-Get the hyperbolic cotangent of $$\texttt{x}$$.
-
-```c
-double      ao_cothd(double x);
-float       ao_cothf(float x);
-long double ao_cothl(long double x);
-```
-
-Get the hyperbolic cosecant of $$\texttt{x}$$.
-
-```c
-double      ao_cschd(double x);
-float       ao_cschf(float x);
-long double ao_cschl(long double x);
-```
-
-Get the hyperbolic secant of $$\texttt{x}$$.
-
-```c
-double      ao_sechd(double x);
-float       ao_sechf(float x);
-long double ao_sechl(long double x);
-```
-
-Get the hyperbolic sine of $$\texttt{x}$$.
-
-```c
-double      ao_sinhd(double x);
-float       ao_sinhf(float x);
-long double ao_sinhl(long double x);
-```
-
-Get the hyperbolic tangent of $$\texttt{x}$$.
-
-```c
-double      ao_tanhd(double x);
-float       ao_tanhf(float x);
-long double ao_tanhl(long double x);
-```
-
-## Logarithmic functions
-
-Break $$\texttt{x}$$ into its binary significant and an integral exponent for 2.
-
-```c
-double      ao_frexpd(double x, int * exp);
-float       ao_frexpf(float x, int * exp);
-long double ao_frexpl(long double x, int * exp);
-```
-
-Break $$\texttt{x}$$ into its decimal significant and an integral exponent for 10.
-
-```c
-double      ao_frexp10d(double x, int * exp);
-float       ao_frexp10f(float x, int * exp);
-long double ao_frexp10l(long double x, int * exp);
-```
-
-Get the natural logarithm of $$\texttt{x}$$.
-
-```c
-double      ao_logd(double x);
-float       ao_logf(float x);
-long double ao_logl(long double x);
-```
-
-Get the common logarithm of $$\texttt{x}$$.
-
-```c
-double      ao_log10d(double x);
-float       ao_log10f(float x);
-long double ao_log10l(long double x);
-```
-
-Get the binary logarithm of $$\texttt{x}$$.
-
-```c
-double      ao_log2d(double x);
-float       ao_log2f(float x);
-long double ao_log2l(long double x);
-```
-
-## Power Functions
-
-Get the cubic root of $$\texttt{x}$$.
-
-```c
-double      ao_cbrtd(double x);
-float       ao_cbrtf(float x);
-long double ao_cbrtl(long double x);
-```
-
-Get $$\sqrt{\texttt{x}^2 + \texttt{y}^2}$$.
-
-```c
-double      ao_hypotd(double x, double y);
-float       ao_hypotf(float x, float y);
-long double ao_hypotl(long double x, long double y);
-```
-
-Get $$\texttt{x} \cdot 2^{\texttt{exp}}$$.
-
-```c
-double      ao_ldexpd(double x, int exp);
-float       ao_ldexpf(float x, int exp);
-long double ao_ldexpl(long double x, int exp);
-```
-
-Get $$\texttt{x} \cdot 10^{\texttt{exp}}$$.
-
-```c
-double      ao_ldexp10d(double x, int exp);
-float       ao_ldexp10f(float x, int exp);
-long double ao_ldexp10l(long double x, int exp);
-```
-
-Get $$\texttt{x}^\texttt{y}$$.
-
-```c
-double      ao_powd(double x, double y);
-float       ao_powf(float x, float y);
-long double ao_powl(long double x, long double y);
-```
-
-Get the square root of $$\texttt{x}$$.
-
-```c
-double      ao_sqrtd(double x);
-float       ao_sqrtf(float x);
-long double ao_sqrtl(long double x);
-```
-
-## Rounding
-
-Round $$\texttt{x}$$ up.
-
-```c
-double      ao_ceild(double x);
-float       ao_ceilf(float x);
-long double ao_ceill(long double x);
-```
-
-Round $$\texttt{x}$$ down.
-
-```c
-double      ao_floord(double x);
-float       ao_floorf(float x);
-long double ao_floorl(long double x);
-```
-
-Break $$\texttt{x}$$ into an integral and a fractional part.
-
-```c
-double      ao_modfd(double x, double * intpart);
-float       ao_modff(float x, float * intpart);
-long double ao_modfl(long double x, long double * intpart);
-```
-
-Round $$\texttt{x}$$ to the nearest integer. Round half away from zero.
-
-```c
-#define     ao_roundd(x)
-#define     ao_roundf(x)
-#define     ao_roundl(x)
-```
-
-Round $$\texttt{x}$$ away from infinity.
-
-```c
-#define     ao_roundd_away_from_infinity(x)
-#define     ao_roundf_away_from_infinity(x)
-#define     ao_roundl_away_from_infinity(x)
-```
-
-Round $$\texttt{x}$$ away from negative infinity.
-
-```c
-#define     ao_roundd_away_from_negative_infinity(x)
-#define     ao_roundf_away_from_negative_infinity(x)
-#define     ao_roundl_away_from_negative_infinity(x)
-```
-
-Round $$\texttt{x}$$ away from positive infinity.
-
-```c
-#define     ao_roundd_away_from_positive_infinity(x)
-#define     ao_roundf_away_from_positive_infinity(x)
-#define     ao_roundl_away_from_positive_infinity(x)
-```
-
-Round $$\texttt{x}$$ away from zero.
-
-```c
-double      ao_roundd_away_from_zero(double x);
-float       ao_roundf_away_from_zero(float x);
-long double ao_roundl_away_from_zero(long double x);
-```
-
-Round $$\texttt{x}$$ down.
-
-```c
-#define     ao_roundd_down(x)
-#define     ao_roundf_down(x)
-#define     ao_roundl_down(x)
-```
-
-Round $$\texttt{x}$$ to the nearest integer. Round half away from infinity.
-
-```c
-#define     ao_roundd_half_away_from_infinity(x)
-#define     ao_roundf_half_away_from_infinity(x)
-#define     ao_roundl_half_away_from_infinity(x)
-```
-
-Round $$\texttt{x}$$ to the nearest integer. Round half away from negative infinity.
-
-```c
-#define     ao_roundd_half_away_from_negative_infinity(x)
-#define     ao_roundf_half_away_from_negative_infinity(x)
-#define     ao_roundl_half_away_from_negative_infinity(x)
-```
-
-Round $$\texttt{x}$$ to the nearest integer. Round half away from positive infinity.
-
-```c
-#define     ao_roundd_half_away_from_positive_infinity(x)
-#define     ao_roundf_half_away_from_positive_infinity(x)
-#define     ao_roundl_half_away_from_positive_infinity(x)
-```
-
-Round $$\texttt{x}$$ to the nearest integer. Round half away from zero.
-
-```c
-#define     ao_roundd_half_away_from_zero(x)
-#define     ao_roundf_half_away_from_zero(x)
-#define     ao_roundl_half_away_from_zero(x)
-```
-
-Round $$\texttt{x}$$ to the nearest integer. Round half down.
-
-```c
-double      ao_roundd_half_down(double x);
-float       ao_roundf_half_down(float x);
-long double ao_roundl_half_down(long double x);
-```
-
-Round $$\texttt{x}$$ to the nearest integer. Round half to even.
-
-```c
-double      ao_roundd_half_to_even(double x);
-float       ao_roundf_half_to_even(float x);
-long double ao_roundl_half_to_even(long double x);
-```
-
-Round $$\texttt{x}$$ to the nearest integer. Round half to infinity.
-
-```c
-double      ao_roundd_half_to_infinity(double x);
-float       ao_roundf_half_to_infinity(float x);
-long double ao_roundl_half_to_infinity(long double x);
-```
-
-Round $$\texttt{x}$$ to the nearest integer. Round half to negative infinity.
-
-```c
-#define     ao_roundd_half_to_negative_infinity(x)
-#define     ao_roundf_half_to_negative_infinity(x)
-#define     ao_roundl_half_to_negative_infinity(x)
-```
-
-Round $$\texttt{x}$$ to the nearest integer. Round half to odd.
-
-```c
-double      ao_roundd_half_to_odd(double x);
-float       ao_roundf_half_to_odd(float x);
-long double ao_roundl_half_to_odd(long double x);
-```
-
-Round $$\texttt{x}$$ to the nearest integer. Round half to positive infinity.
-
-```c
-#define     ao_roundd_half_to_positive_infinity(x)
-#define     ao_roundf_half_to_positive_infinity(x)
-#define     ao_roundl_half_to_positive_infinity(x)
-```
-
-Round $$\texttt{x}$$ to the nearest integer. Round half to zero.
-
-```c
-double      ao_roundd_half_to_zero(double x);
-float       ao_roundf_half_to_zero(float x);
-long double ao_roundl_half_to_zero(long double x);
-```
-
-Round $$\texttt{x}$$ to the nearest integer. Round half up.
-
-```c
-double      ao_roundd_half_up(double x);
-float       ao_roundf_half_up(float x);
-long double ao_roundl_half_up(long double x);
-```
-
-Round $$\texttt{x}$$ to infinity.
-
-```c
-#define     ao_roundd_to_infinity(x)
-#define     ao_roundf_to_infinity(x)
-#define     ao_roundl_to_infinity(x)
-```
-
-Round $$\texttt{x}$$ to negative infinity.
-
-```c
-#define     ao_roundd_to_negative_infinity(x)
-#define     ao_roundf_to_negative_infinity(x)
-#define     ao_roundl_to_negative_infinity(x)
-```
-
-Round $$\texttt{x}$$ to positive infinity.
-
-```c
-#define     ao_roundd_to_positive_infinity(x)
-#define     ao_roundf_to_positive_infinity(x)
-#define     ao_roundl_to_positive_infinity(x)
-```
-
-Round $$\texttt{x}$$ to zero.
-
-```c
-#define     ao_roundd_to_zero(x)
-#define     ao_roundf_to_zero(x)
-#define     ao_roundl_to_zero(x)
-```
-
-Round $$\texttt{x}$$ up.
-
-```c
-#define     ao_roundd_up(x)
-#define     ao_roundf_up(x)
-#define     ao_roundl_up(x)
-```
-
-Round $$\texttt{x}$$ to zero.
-
-```c
-double      ao_truncd(double x);
-float       ao_truncf(float x);
-long double ao_truncl(long double x);
-```
-
-## Sign
-
-Get the sign of $$\texttt{x}$$.
-
-```c
-double      ao_signd(double x);
-float       ao_signf(float x);
-long double ao_signl(long double x);
-```
-
-## Trigonometric Functions
+## `ao_acosd`
+## `ao_acosf`
+## `ao_acosl`
 
 Get the arc cosine of $$\texttt{x}$$.
 
@@ -566,6 +152,22 @@ float       ao_acosf(float x);
 long double ao_acosl(long double x);
 ```
 
+## `ao_acoshd`
+## `ao_acoshf`
+## `ao_acoshl`
+
+Get the area hyperbolic cosine of $$\texttt{x}$$.
+
+```c
+double      ao_acoshd(double x);
+float       ao_acoshf(float x);
+long double ao_acoshl(long double x);
+```
+
+## `ao_acotd`
+## `ao_acotf`
+## `ao_acotl`
+
 Get the arc cotangent of $$\texttt{x}$$.
 
 ```c
@@ -573,6 +175,22 @@ double      ao_acotd(double x);
 float       ao_acotf(float x);
 long double ao_acotl(long double x);
 ```
+
+## `ao_acothd`
+## `ao_acothf`
+## `ao_acothl`
+
+Get the area hyperbolic cotangent of $$\texttt{x}$$.
+
+```c
+double      ao_acothd(double x);
+float       ao_acothf(float x);
+long double ao_acothl(long double x);
+```
+
+## `ao_acscd`
+## `ao_acscf`
+## `ao_acscl`
 
 Get the arc cosecant of $$\texttt{x}$$.
 
@@ -582,6 +200,22 @@ float       ao_acscf(float x);
 long double ao_acscl(long double x);
 ```
 
+## `ao_acschd`
+## `ao_acschf`
+## `ao_acschl`
+
+Get the area hyperbolic cosecant of $$\texttt{x}$$.
+
+```c
+double      ao_acschd(double x);
+float       ao_acschf(float x);
+long double ao_acschl(long double x);
+```
+
+## `ao_asecd`
+## `ao_asecf`
+## `ao_asecl`
+
 Get the arc secant of $$\texttt{x}$$.
 
 ```c
@@ -589,6 +223,22 @@ double      ao_asecd(double x);
 float       ao_asecf(float x);
 long double ao_asecl(long double x);
 ```
+
+## `ao_asechd`
+## `ao_asechf`
+## `ao_asechl`
+
+Get the area hyperbolic secant of $$\texttt{x}$$.
+
+```c
+double      ao_asechd(double x);
+float       ao_asechf(float x);
+long double ao_asechl(long double x);
+```
+
+## `ao_asind`
+## `ao_asinf`
+## `ao_asinl`
 
 Get the arc sine of $$\texttt{x}$$.
 
@@ -598,6 +248,22 @@ float       ao_asinf(float x);
 long double ao_asinl(long double x);
 ```
 
+## `ao_asinhd`
+## `ao_asinhf`
+## `ao_asinhl`
+
+Get the area hyperbolic sine of $$\texttt{x}$$.
+
+```c
+double      ao_asinhd(double x);
+float       ao_asinhf(float x);
+long double ao_asinhl(long double x);
+```
+
+## `ao_atand`
+## `ao_atanf`
+## `ao_atanl`
+
 Get the arc tangent of $$\texttt{x}$$.
 
 ```c
@@ -606,13 +272,57 @@ float       ao_atanf(float x);
 long double ao_atanl(long double x);
 ```
 
+## `ao_atan2d`
+## `ao_atan2f`
+## `ao_atan2l`
+
 Get the arc tangent of $$\frac{\texttt{y}}{\texttt{x}}$$.
 
 ```c
-double      ao_atan2d(double y, double x);
-float       ao_atan2f(float y, float x);
+double      ao_atan2d(double y,      double x);
+float       ao_atan2f(float y,       float x);
 long double ao_atan2l(long double y, long double x);
 ```
+
+## `ao_atanhd`
+## `ao_atanhf`
+## `ao_atanhl`
+
+Get the area hyperbolic tangent of $$\texttt{x}$$.
+
+```c
+double      ao_atanhd(double x);
+float       ao_atanhf(float x);
+long double ao_atanhl(long double x);
+```
+
+## `ao_cbrtd`
+## `ao_cbrtf`
+## `ao_cbrtl`
+
+Get the cubic root of $$\texttt{x}$$.
+
+```c
+double      ao_cbrtd(double x);
+float       ao_cbrtf(float x);
+long double ao_cbrtl(long double x);
+```
+
+## `ao_ceild`
+## `ao_ceilf`
+## `ao_ceill`
+
+Round $$\texttt{x}$$ up.
+
+```c
+double      ao_ceild(double x);
+float       ao_ceilf(float x);
+long double ao_ceill(long double x);
+```
+
+## `ao_cosd`
+## `ao_cosf`
+## `ao_cosl`
 
 Get the cosine of $$\texttt{x}$$.
 
@@ -622,6 +332,22 @@ float       ao_cosf(float x);
 long double ao_cosl(long double x);
 ```
 
+## `ao_coshd`
+## `ao_coshf`
+## `ao_coshl`
+
+Get the hyperbolic cosine of $$\texttt{x}$$.
+
+```c
+double      ao_coshd(double x);
+float       ao_coshf(float x);
+long double ao_coshl(long double x);
+```
+
+## `ao_cotd`
+## `ao_cotf`
+## `ao_cotl`
+
 Get the cotangent of $$\texttt{x}$$.
 
 ```c
@@ -629,6 +355,22 @@ double      ao_cotd(double x);
 float       ao_cotf(float x);
 long double ao_cotl(long double x);
 ```
+
+## `ao_cothd`
+## `ao_cothf`
+## `ao_cothl`
+
+Get the hyperbolic cotangent of $$\texttt{x}$$.
+
+```c
+double      ao_cothd(double x);
+float       ao_cothf(float x);
+long double ao_cothl(long double x);
+```
+
+## `ao_cscd`
+## `ao_cscf`
+## `ao_cscl`
 
 Get the cosecant of $$\texttt{x}$$.
 
@@ -638,6 +380,562 @@ float       ao_cscf(float x);
 long double ao_cscl(long double x);
 ```
 
+## `ao_cschd`
+## `ao_cschf`
+## `ao_cschl`
+
+Get the hyperbolic cosecant of $$\texttt{x}$$.
+
+```c
+double      ao_cschd(double x);
+float       ao_cschf(float x);
+long double ao_cschl(long double x);
+```
+
+## `ao_deg2radd`
+## `ao_deg2radf`
+## `ao_deg2radl`
+
+Convert degrees to radians.
+
+```c
+double      ao_deg2radd(double x);
+float       ao_deg2radf(float x);
+long double ao_deg2radl(long double x);
+```
+
+## `ao_expd`
+## `ao_expf`
+## `ao_expl`
+
+Get $$e^\texttt{x}$$.
+
+```c
+double      ao_expd(double x);
+float       ao_expf(float x);
+long double ao_expl(long double x);
+```
+
+## `ao_exp2d`
+## `ao_exp2f`
+## `ao_exp2l`
+
+Get $$2^\texttt{x}$$.
+
+```c
+double      ao_exp2d(double x);
+float       ao_exp2f(float x);
+long double ao_exp2l(long double x);
+```
+
+## `ao_fabsd`
+## `ao_fabsf`
+## `ao_fabsl`
+
+Get the absolute value of $$\texttt{x}$$.
+
+```c
+double      ao_fabsd(double x);
+float       ao_fabsf(float x);
+long double ao_fabsl(long double x);
+```
+
+## `ao_floord`
+## `ao_floorf`
+## `ao_floorl`
+
+Round $$\texttt{x}$$ down.
+
+```c
+double      ao_floord(double x);
+float       ao_floorf(float x);
+long double ao_floorl(long double x);
+```
+
+## `ao_fmodd`
+## `ao_fmodf`
+## `ao_fmodl`
+
+Get the remainder of $$\frac{\texttt{x}}{\texttt{y}}$$ rounded to zero.
+
+```c
+double      ao_fmodd(double x,      double y);
+float       ao_fmodf(float x,       float y);
+long double ao_fmodl(long double x, long double y);
+```
+
+## `ao_frexpd`
+## `ao_frexpf`
+## `ao_frexpl`
+
+Break $$\texttt{x}$$ into its binary significant and an integral exponent for 2.
+
+```c
+double      ao_frexpd(double x,      int * exp);
+float       ao_frexpf(float x,       int * exp);
+long double ao_frexpl(long double x, int * exp);
+```
+
+## `ao_frexp10d`
+## `ao_frexp10f`
+## `ao_frexp10l`
+
+Break $$\texttt{x}$$ into its decimal significant and an integral exponent for 10.
+
+```c
+double      ao_frexp10d(double x,      int * exp);
+float       ao_frexp10f(float x,       int * exp);
+long double ao_frexp10l(long double x, int * exp);
+```
+
+## `ao_hypotd`
+## `ao_hypotf`
+## `ao_hypotl`
+
+Get $$\sqrt{\texttt{x}^2 + \texttt{y}^2}$$.
+
+```c
+double      ao_hypotd(double x,      double y);
+float       ao_hypotf(float x,       float y);
+long double ao_hypotl(long double x, long double y);
+```
+
+## `ao_infd`
+## `ao_inff`
+## `ao_infl`
+
+Generate positive infinity.
+
+```c
+double      ao_infd();
+float       ao_inff();
+long double ao_infl();
+```
+
+## `ao_isfinited`
+## `ao_isfinitef`
+## `ao_isfinitel`
+
+Check whether $$\texttt{x}$$ is finite.
+
+```c
+bool ao_isfinited(double x);
+bool ao_isfinitef(float x);
+bool ao_isfinitel(long double x);
+```
+
+## `ao_isinfd`
+## `ao_isinff`
+## `ao_isinfl`
+
+Check whether $$\texttt{x}$$ is positive or negative infinity.
+
+```c
+bool ao_isinfd(double x);
+bool ao_isinff(float x);
+bool ao_isinfl(long double x);
+```
+
+## `ao_isnand`
+## `ao_isnanf`
+## `ao_isnanl`
+
+Check whether $$\texttt{x}$$ is not a number.
+
+```c
+bool ao_isnand(double x);
+bool ao_isnanf(float x);
+bool ao_isnanl(long double x);
+```
+
+## `ao_ldexpd`
+## `ao_ldexpf`
+## `ao_ldexpl`
+
+Get $$\texttt{x} \cdot 2^{\texttt{exp}}$$.
+
+```c
+double      ao_ldexpd(double x,      int exp);
+float       ao_ldexpf(float x,       int exp);
+long double ao_ldexpl(long double x, int exp);
+```
+
+## `ao_ldexp10d`
+## `ao_ldexp10f`
+## `ao_ldexp10l`
+
+Get $$\texttt{x} \cdot 10^{\texttt{exp}}$$.
+
+```c
+double      ao_ldexp10d(double x,      int exp);
+float       ao_ldexp10f(float x,       int exp);
+long double ao_ldexp10l(long double x, int exp);
+```
+
+## `ao_logd`
+## `ao_logf`
+## `ao_logl`
+
+Get the natural logarithm of $$\texttt{x}$$.
+
+```c
+double      ao_logd(double x);
+float       ao_logf(float x);
+long double ao_logl(long double x);
+```
+
+## `ao_log10d`
+## `ao_log10f`
+## `ao_log10l`
+
+Get the common logarithm of $$\texttt{x}$$.
+
+```c
+double      ao_log10d(double x);
+float       ao_log10f(float x);
+long double ao_log10l(long double x);
+```
+
+## `ao_log2d`
+## `ao_log2f`
+## `ao_log2l`
+
+Get the binary logarithm of $$\texttt{x}$$.
+
+```c
+double      ao_log2d(double x);
+float       ao_log2f(float x);
+long double ao_log2l(long double x);
+```
+
+## `ao_modfd`
+## `ao_modff`
+## `ao_modfl`
+
+Break $$\texttt{x}$$ into an integral and a fractional part.
+
+```c
+double      ao_modfd(double x,      double * intpart);
+float       ao_modff(float x,       float * intpart);
+long double ao_modfl(long double x, long double * intpart);
+```
+
+## `ao_nand`
+## `ao_nanf`
+## `ao_nanl`
+
+Generate not a number.
+
+```c
+double      ao_nand();
+float       ao_nanf();
+long double ao_nanl();
+```
+
+## `ao_powd`
+## `ao_powf`
+## `ao_powl`
+
+Get $$\texttt{x}^\texttt{y}$$.
+
+```c
+double      ao_powd(double x,      double y);
+float       ao_powf(float x,       float y);
+long double ao_powl(long double x, long double y);
+```
+
+## `ao_rad2degd`
+## `ao_rad2degf`
+## `ao_rad2degl`
+
+Convert radians to degrees.
+
+```c
+double      ao_rad2degd(double x);
+float       ao_rad2degf(float x);
+long double ao_rad2degl(long double x);
+```
+
+## `ao_roundd`
+## `ao_roundf`
+## `ao_roundl`
+
+Round $$\texttt{x}$$ to the nearest integer. Round half away from zero.
+
+```c
+double      ao_roundd(double x);
+float       ao_roundf(float x);
+long double ao_roundl(long double x);
+```
+
+## `ao_roundd_away_from_infinity`
+## `ao_roundf_away_from_infinity`
+## `ao_roundl_away_from_infinity`
+
+Round $$\texttt{x}$$ away from infinity.
+
+```c
+double      ao_roundd_away_from_infinity(double x);
+float       ao_roundf_away_from_infinity(float x);
+long double ao_roundl_away_from_infinity(long double x);
+```
+
+## `ao_roundd_away_from_negative_infinity`
+## `ao_roundf_away_from_negative_infinity`
+## `ao_roundl_away_from_negative_infinity`
+
+Round $$\texttt{x}$$ away from negative infinity.
+
+```c
+double      ao_roundd_away_from_negative_infinity(double x);
+float       ao_roundf_away_from_negative_infinity(float x);
+long double ao_roundl_away_from_negative_infinity(long double x);
+```
+
+## `ao_roundd_away_from_positive_infinity`
+## `ao_roundf_away_from_positive_infinity`
+## `ao_roundl_away_from_positive_infinity`
+
+Round $$\texttt{x}$$ away from positive infinity.
+
+```c
+double      ao_roundd_away_from_positive_infinity(double x);
+float       ao_roundf_away_from_positive_infinity(float x);
+long double ao_roundl_away_from_positive_infinity(long double x);
+```
+
+## `ao_roundd_away_from_zero`
+## `ao_roundf_away_from_zero`
+## `ao_roundl_away_from_zero`
+
+Round $$\texttt{x}$$ away from zero.
+
+```c
+double      ao_roundd_away_from_zero(double x);
+float       ao_roundf_away_from_zero(float x);
+long double ao_roundl_away_from_zero(long double x);
+```
+
+## `ao_roundd_down`
+## `ao_roundf_down`
+## `ao_roundl_down`
+
+Round $$\texttt{x}$$ down.
+
+```c
+double      ao_roundd_down(double x);
+float       ao_roundf_down(float x);
+long double ao_roundl_down(long double x);
+```
+
+## `ao_roundd_half_away_from_infinity`
+## `ao_roundf_half_away_from_infinity`
+## `ao_roundl_half_away_from_infinity`
+
+Round $$\texttt{x}$$ to the nearest integer. Round half away from infinity.
+
+```c
+double      ao_roundd_half_away_from_infinity(double x);
+float       ao_roundf_half_away_from_infinity(float x);
+long double ao_roundl_half_away_from_infinity(long double x);
+```
+
+## `ao_roundd_half_away_from_negative_infinity`
+## `ao_roundf_half_away_from_negative_infinity`
+## `ao_roundl_half_away_from_negative_infinity`
+
+Round $$\texttt{x}$$ to the nearest integer. Round half away from negative infinity.
+
+```c
+double      ao_roundd_half_away_from_negative_infinity(double x);
+float       ao_roundf_half_away_from_negative_infinity(float x);
+long double ao_roundl_half_away_from_negative_infinity(long double x);
+```
+
+## `ao_roundd_half_away_from_positive_infinity`
+## `ao_roundf_half_away_from_positive_infinity`
+## `ao_roundl_half_away_from_positive_infinity`
+
+Round $$\texttt{x}$$ to the nearest integer. Round half away from positive infinity.
+
+```c
+double      ao_roundd_half_away_from_positive_infinity(double x);
+float       ao_roundf_half_away_from_positive_infinity(float x);
+long double ao_roundl_half_away_from_positive_infinity(long double x);
+```
+
+## `ao_roundd_half_away_from_zero`
+## `ao_roundf_half_away_from_zero`
+## `ao_roundl_half_away_from_zero`
+
+Round $$\texttt{x}$$ to the nearest integer. Round half away from zero.
+
+```c
+double      ao_roundd_half_away_from_zero(double x);
+float       ao_roundf_half_away_from_zero(float x);
+long double ao_roundl_half_away_from_zero(long double x);
+```
+
+## `ao_roundd_half_down`
+## `ao_roundf_half_down`
+## `ao_roundl_half_down`
+
+Round $$\texttt{x}$$ to the nearest integer. Round half down.
+
+```c
+double      ao_roundd_half_down(double x);
+float       ao_roundf_half_down(float x);
+long double ao_roundl_half_down(long double x);
+```
+
+## `ao_roundd_half_to_even`
+## `ao_roundf_half_to_even`
+## `ao_roundl_half_to_even`
+
+Round $$\texttt{x}$$ to the nearest integer. Round half to even.
+
+```c
+double      ao_roundd_half_to_even(double x);
+float       ao_roundf_half_to_even(float x);
+long double ao_roundl_half_to_even(long double x);
+```
+
+## `ao_roundd_half_to_infinity`
+## `ao_roundf_half_to_infinity`
+## `ao_roundl_half_to_infinity`
+
+Round $$\texttt{x}$$ to the nearest integer. Round half to infinity.
+
+```c
+double      ao_roundd_half_to_infinity(double x);
+float       ao_roundf_half_to_infinity(float x);
+long double ao_roundl_half_to_infinity(long double x);
+```
+
+## `ao_roundd_half_to_negative_infinity`
+## `ao_roundf_half_to_negative_infinity`
+## `ao_roundl_half_to_negative_infinity`
+
+Round $$\texttt{x}$$ to the nearest integer. Round half to negative infinity.
+
+```c
+double      ao_roundd_half_to_negative_infinity(double x);
+float       ao_roundf_half_to_negative_infinity(float x);
+long double ao_roundl_half_to_negative_infinity(long double x);
+```
+
+## `ao_roundd_half_to_odd`
+## `ao_roundf_half_to_odd`
+## `ao_roundl_half_to_odd`
+
+Round $$\texttt{x}$$ to the nearest integer. Round half to odd.
+
+```c
+double      ao_roundd_half_to_odd(double x);
+float       ao_roundf_half_to_odd(float x);
+long double ao_roundl_half_to_odd(long double x);
+```
+
+## `ao_roundd_half_to_positive_infinity`
+## `ao_roundf_half_to_positive_infinity`
+## `ao_roundl_half_to_positive_infinity`
+
+Round $$\texttt{x}$$ to the nearest integer. Round half to positive infinity.
+
+```c
+double      ao_roundd_half_to_positive_infinity(double x);
+float       ao_roundf_half_to_positive_infinity(float x);
+long double ao_roundl_half_to_positive_infinity(long double x);
+```
+
+## `ao_roundd_half_to_zero`
+## `ao_roundf_half_to_zero`
+## `ao_roundl_half_to_zero`
+
+Round $$\texttt{x}$$ to the nearest integer. Round half to zero.
+
+```c
+double      ao_roundd_half_to_zero(double x);
+float       ao_roundf_half_to_zero(float x);
+long double ao_roundl_half_to_zero(long double x);
+```
+
+## `ao_roundd_half_up`
+## `ao_roundf_half_up`
+## `ao_roundl_half_up`
+
+Round $$\texttt{x}$$ to the nearest integer. Round half up.
+
+```c
+double      ao_roundd_half_up(double x);
+float       ao_roundf_half_up(float x);
+long double ao_roundl_half_up(long double x);
+```
+
+## `ao_roundd_to_infinity`
+## `ao_roundf_to_infinity`
+## `ao_roundl_to_infinity`
+
+Round $$\texttt{x}$$ to infinity.
+
+```c
+double      ao_roundd_to_infinity(double x);
+float       ao_roundf_to_infinity(float x);
+long double ao_roundl_to_infinity(long double x);
+```
+
+## `ao_roundd_to_negative_infinity`
+## `ao_roundf_to_negative_infinity`
+## `ao_roundl_to_negative_infinity`
+
+Round $$\texttt{x}$$ to negative infinity.
+
+```c
+double      ao_roundd_to_negative_infinity(double x);
+float       ao_roundf_to_negative_infinity(float x);
+long double ao_roundl_to_negative_infinity(long double x);
+```
+
+## `ao_roundd_to_positive_infinity`
+## `ao_roundf_to_positive_infinity`
+## `ao_roundl_to_positive_infinity`
+
+Round $$\texttt{x}$$ to positive infinity.
+
+```c
+double      ao_roundd_to_positive_infinity(double x);
+float       ao_roundf_to_positive_infinity(float x);
+long double ao_roundl_to_positive_infinity(long double x);
+```
+
+## `ao_roundd_to_zero`
+## `ao_roundf_to_zero`
+## `ao_roundl_to_zero`
+
+Round $$\texttt{x}$$ to zero.
+
+```c
+double      ao_roundd_to_zero(double x);
+float       ao_roundf_to_zero(float x);
+long double ao_roundl_to_zero(long double x);
+```
+
+## `ao_roundd_up`
+## `ao_roundf_up`
+## `ao_roundl_up`
+
+Round $$\texttt{x}$$ up.
+
+```c
+double      ao_roundd_up(double x);
+float       ao_roundf_up(float x);
+long double ao_roundl_up(long double x);
+```
+
+## `ao_secd`
+## `ao_secf`
+## `ao_secl`
+
 Get the secant of $$\texttt{x}$$.
 
 ```c
@@ -645,6 +943,34 @@ double      ao_secd(double x);
 float       ao_secf(float x);
 long double ao_secl(long double x);
 ```
+
+## `ao_sechd`
+## `ao_sechf`
+## `ao_sechl`
+
+Get the hyperbolic secant of $$\texttt{x}$$.
+
+```c
+double      ao_sechd(double x);
+float       ao_sechf(float x);
+long double ao_sechl(long double x);
+```
+
+## `ao_signd`
+## `ao_signf`
+## `ao_signl`
+
+Get the sign of $$\texttt{x}$$.
+
+```c
+double      ao_signd(double x);
+float       ao_signf(float x);
+long double ao_signl(long double x);
+```
+
+## `ao_sind`
+## `ao_sinf`
+## `ao_sinl`
 
 Get the sine of $$\texttt{x}$$.
 
@@ -654,6 +980,34 @@ float       ao_sinf(float x);
 long double ao_sinl(long double x);
 ```
 
+## `ao_sinhd`
+## `ao_sinhf`
+## `ao_sinhl`
+
+Get the hyperbolic sine of $$\texttt{x}$$.
+
+```c
+double      ao_sinhd(double x);
+float       ao_sinhf(float x);
+long double ao_sinhl(long double x);
+```
+
+## `ao_sqrtd`
+## `ao_sqrtf`
+## `ao_sqrtl`
+
+Get the square root of $$\texttt{x}$$.
+
+```c
+double      ao_sqrtd(double x);
+float       ao_sqrtf(float x);
+long double ao_sqrtl(long double x);
+```
+
+## `ao_tand`
+## `ao_tanf`
+## `ao_tanl`
+
 Get the tangent of $$\texttt{x}$$.
 
 ```c
@@ -662,12 +1016,38 @@ float       ao_tanf(float x);
 long double ao_tanl(long double x);
 ```
 
-## Wrapping
+## `ao_tanhd`
+## `ao_tanhf`
+## `ao_tanhl`
+
+Get the hyperbolic tangent of $$\texttt{x}$$.
+
+```c
+double      ao_tanhd(double x);
+float       ao_tanhf(float x);
+long double ao_tanhl(long double x);
+```
+
+## `ao_truncd`
+## `ao_truncf`
+## `ao_truncl`
+
+Round $$\texttt{x}$$ to zero.
+
+```c
+double      ao_truncd(double x);
+float       ao_truncf(float x);
+long double ao_truncl(long double x);
+```
+
+## `ao_wrapd`
+## `ao_wrapf`
+## `ao_wrapl`
 
 Wrap $$\texttt{x}$$ in $$[\texttt{beginning}, \texttt{length})$$.
 
 ```c
-double      ao_wrapd(double x, double beginning, double length);
-float       ao_wrapf(float x, float beginning, float length);
+double      ao_wrapd(double x,      double beginning,      double length);
+float       ao_wrapf(float x,       float beginning,       float length);
 long double ao_wrapl(long double x, long double beginning, long double length);
 ```
