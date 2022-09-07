@@ -2,8 +2,8 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: true
-external-wiki:
-- light-emitting-diode
+external:
+- https://en.wikipedia.org/wiki/Light-emitting_diode : "Light-emitting diode"
 permalink: /api/src/ao_sys/ao_led.h/
 toc: true
 ---

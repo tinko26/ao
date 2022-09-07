@@ -2,8 +2,8 @@
 author: "Stefan Wagner"
 date: 2022-08-29
 draft: true
-external-wiki:
-- barrier
+external:
+- https://en.wikipedia.org/wiki/Barrier_(computer_science) : "Barrier"
 permalink: /api/src/ao_sys/ao_barrier.h/
 toc: true
 ---

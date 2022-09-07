@@ -2,9 +2,9 @@
 author: "Stefan Wagner"
 date: 2022-08-14
 draft: true
-external-wiki:
-- pic32
-- separation-of-concerns
+external:
+- https://en.wikipedia.org/wiki/PIC32 : "PIC32"
+- https://en.wikipedia.org/wiki/Separation_of_concerns : "Separation of concerns"
 permalink: /source-code/
 toc: true
 ---

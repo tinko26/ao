@@ -2,8 +2,8 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: false
-external-wiki:
-- radix
+external:
+- https://en.wikipedia.org/wiki/Radix : "Radix"
 permalink: /api/src/ao/ao_scan.h/
 toc: true
 ---

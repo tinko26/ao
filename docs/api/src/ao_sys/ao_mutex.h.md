@@ -2,9 +2,9 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: true
-external-wiki:
-- lock
-- mutual-exclusion
+external:
+- https://en.wikipedia.org/wiki/Lock_(computer_science) : "Lock"
+- https://en.wikipedia.org/wiki/Mutual_exclusion : "Mutual exclusion"
 permalink: /api/src/ao_sys/ao_mutex.h/
 toc: true
 ---

@@ -2,8 +2,8 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: true
-external-wiki:
-- monitor
+external:
+- https://en.wikipedia.org/wiki/Monitor_(synchronization) : "Monitor"
 permalink: /api/src/ao_sys/ao_monitor.h/
 toc: true
 ---

@@ -2,11 +2,11 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: false
-external-wiki:
-- double-ended-queue
-- doubly-linked-list
-- fifo
-- lifo
+external:
+- https://en.wikipedia.org/wiki/Double-ended_queue : "Double-ended queue"
+- https://en.wikipedia.org/wiki/Doubly_linked_list : "Doubly-linked list"
+- https://en.wikipedia.org/wiki/FIFO : "FIFO"
+- https://en.wikipedia.org/wiki/LIFO : "LIFO"
 permalink: /api/src/ao/ao_list.h/
 toc: true
 ---

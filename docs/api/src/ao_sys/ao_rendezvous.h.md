@@ -2,8 +2,8 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: true
-external-wiki:
-- rendezvous
+external:
+- https://en.wikipedia.org/wiki/Rendezvous_(Plan_9) : "Rendezvous"
 permalink: /api/src/ao_sys/ao_rendezvous.h/
 toc: true
 ---

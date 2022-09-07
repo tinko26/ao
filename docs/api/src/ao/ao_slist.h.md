@@ -2,9 +2,9 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: false
-external-wiki:
-- doubly-linked-list
-- total-order
+external:
+- https://en.wikipedia.org/wiki/Doubly_linked_list : "Doubly-linked list"
+- https://en.wikipedia.org/wiki/Total_order : "Total order"
 permalink: /api/src/ao/ao_slist.h/
 toc: true
 ---

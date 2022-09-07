@@ -2,8 +2,8 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: true
-external-wiki:
-- readers-writer-lock
+external:
+- https://en.wikipedia.org/wiki/Readers–writer_lock : "Readers-writer lock"
 permalink: /api/src/ao_sys/ao_rw.h/
 toc: true
 ---

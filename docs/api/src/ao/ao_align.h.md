@@ -2,8 +2,8 @@
 author: "Stefan Wagner"
 date: 2022-08-30
 draft: false
-external-wiki:
-- memory-alignment
+external:
+- https://en.wikipedia.org/wiki/Memory_alignment : "Memory alignment"
 permalink: /api/src/ao/ao_align.h/
 toc: true
 ---

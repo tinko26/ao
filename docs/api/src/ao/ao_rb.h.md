@@ -2,12 +2,12 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: false
-external-wiki:
-- binary-search-tree
-- priority-queue
-- self-balancing-binary-search-tree
-- red-black-tree
-- total-order
+external:
+- https://en.wikipedia.org/wiki/Binary_search_tree : "Binary search tree"
+- https://en.wikipedia.org/wiki/Priority_queue : "Priority queue"
+- https://en.wikipedia.org/wiki/Red–black_tree : "Red-black tree"
+- https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree : "Self-balancing binary search tree"
+- https://en.wikipedia.org/wiki/Total_order : "Total order"
 permalink: /api/src/ao/ao_rb.h/
 toc: true
 ---

@@ -2,8 +2,8 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: true
-external-wiki:
-- busy-waiting
+external:
+- https://en.wikipedia.org/wiki/Busy_waiting : "Busy waiting"
 permalink: /api/src/ao_sys/ao_spin.h/
 toc: true
 ---

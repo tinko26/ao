@@ -2,8 +2,8 @@
 author: "Stefan Wagner"
 date: 2022-08-30
 draft: false
-external-wiki:
-- assertion
+external:
+- https://en.wikipedia.org/wiki/Assertion_(software_development) : "Assertion"
 permalink: /api/src/ao/ao_assert.h/
 seealso:
 - /api/src/ao/ao_break.h/

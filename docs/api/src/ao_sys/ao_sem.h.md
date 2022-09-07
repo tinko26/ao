@@ -2,8 +2,8 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: true
-external-wiki:
-- semaphore
+external:
+- https://en.wikipedia.org/wiki/Semaphore_(programming) : "Semaphore"
 permalink: /api/src/ao_sys/ao_sem.h/
 toc: true
 ---

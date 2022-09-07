@@ -2,9 +2,9 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: true
-external-wiki:
-- coroutine
-- producer-consumer-problem
+external:
+- https://en.wikipedia.org/wiki/Coroutine : "Coroutine"
+- https://en.wikipedia.org/wiki/Producer-consumer_problem : "Producer-consumer problem"
 permalink: /api/src/ao_sys/ao_yield.h/
 toc: true
 ---

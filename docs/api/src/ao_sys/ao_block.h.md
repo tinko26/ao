@@ -2,8 +2,8 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: true
-external-wiki:
-- blocking
+external:
+- https://en.wikipedia.org/wiki/Blocking_(computing) : "Blocking"
 permalink: /api/src/ao_sys/ao_block.h/
 toc: true
 ---

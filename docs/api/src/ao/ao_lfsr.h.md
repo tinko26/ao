@@ -2,8 +2,8 @@
 author: "Stefan Wagner"
 date: 2022-08-31
 draft: false
-external-wiki:
-- linear-feedback-shift-register
+external:
+- https://en.wikipedia.org/wiki/Linear-feedback_shift_register : "Linear-feedback shift register"
 permalink: /api/src/ao/ao_lfsr.h/
 toc: true
 ---

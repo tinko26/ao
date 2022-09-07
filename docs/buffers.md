@@ -2,9 +2,9 @@
 author: "Stefan Wagner"
 date: 2022-08-15
 draft: false
-external-wiki:
-- circular-buffer
-- data-buffer
+external:
+- https://en.wikipedia.org/wiki/Circular_buffer : "Circular buffer"
+- https://en.wikipedia.org/wiki/Data_buffer : "Data buffer"
 permalink: /buffers/
 toc: false
 ---

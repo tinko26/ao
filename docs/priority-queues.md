@@ -2,8 +2,8 @@
 author: "Stefan Wagner"
 date: 2022-08-15
 draft: false
-external-wiki:
-- priority-queue
+external:
+- https://en.wikipedia.org/wiki/Priority_queue : "Priority queue"
 groups:
 - priority-queues
 permalink: /priority-queues/
