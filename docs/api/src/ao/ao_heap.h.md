@@ -31,6 +31,8 @@ Commonly, heaps are implemented based on an array that stores all the nodes. How
 
 # Configuration
 
+## `AO_HEAP_COUNT_MAX`
+
 Keep track of the maximum number of nodes.
 
 ```c

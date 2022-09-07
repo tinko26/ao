@@ -8,9 +8,7 @@ toc: true
 
 # Overview
 
-This module defines the fastest floating-point type available on the target platform to be the `float` type. Additionally, it provides a couple of mathematical functions for that type.
-
-An override of the [`ao_float.h`](ao_float.h.md) module can conveniently include this module, if actually `float` is the fastest floating-point type available on the target platform.
+This module defines the fastest floating-point type available on the target platform to be the `float` type.
 
 # Include
 
@@ -26,7 +24,7 @@ An override of the [`ao_float.h`](ao_float.h.md) module can conveniently include
 The number of decimal digits that are preserved, when converting a floating-point value to string and back again.
 
 ```c
-#define AO_FLOAT_DIG     (FLT_DIG)
+#define AO_FLOAT_DIG (FLT_DIG)
 ```
 
 ## `AO_FLOAT_EPSILON`
@@ -43,8 +41,8 @@ The difference between one and the next representable value.
 The minimum and maximum value, respectively.
 
 ```c
-#define AO_FLOAT_MAX     (FLT_MAX)
-#define AO_FLOAT_MIN     (FLT_MIN)
+#define AO_FLOAT_MAX (FLT_MAX)
+#define AO_FLOAT_MIN (FLT_MIN)
 ```
 
 # Typedefs
@@ -57,7 +55,7 @@ typedef float ao_float_t;
 
 ## `ao_float_t`
 
-This type represents the fastest floating-point type available on the target platform. It is an alias for one of the language-defined floating-point types.
+This type represents the fastest floating-point type available on the target platform.
 
 # Functions
 

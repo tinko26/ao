@@ -30,6 +30,8 @@ This module provides an array-based implementation.
 
 # Configuration
 
+## `AO_HEAP4OBJ_COUNT_MAX`
+
 Keep track of the maximum number of objects.
 
 ```c

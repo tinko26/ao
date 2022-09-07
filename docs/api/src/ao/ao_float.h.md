@@ -17,7 +17,7 @@ This module defines the fastest floating-point type available on the target plat
 The number of decimal digits that are preserved, when converting a floating-point value to string and back again.
 
 ```c
-#define AO_FLOAT_DIG
+#define AO_FLOAT_DIG (FLT_DIG)
 ```
 
 ## `AO_FLOAT_EPSILON`
@@ -25,7 +25,7 @@ The number of decimal digits that are preserved, when converting a floating-poin
 The difference between one and the next representable value.
 
 ```c
-#define AO_FLOAT_EPSILON
+#define AO_FLOAT_EPSILON (FLT_EPSILON)
 ```
 
 ## `AO_FLOAT_MAX`
@@ -34,14 +34,14 @@ The difference between one and the next representable value.
 The minimum and maximum value, respectively.
 
 ```c
-#define AO_FLOAT_MAX
-#define AO_FLOAT_MIN
+#define AO_FLOAT_MAX (FLT_MAX)
+#define AO_FLOAT_MIN (FLT_MIN)
 ```
 
 # Typedefs
 
 ```c
-typedef ... ao_float_t;
+typedef float ao_float_t;
 ```
 
 # Types
