@@ -95,7 +95,7 @@ This type represents a compare function, that implements a strict total order on
 
 # Functions
 
-## 'ao_avl_assert'
+## `ao_avl_assert`
 
 Check whether a tree is valid in linear time. This function traverses the tree top-down and checks, whether the relevant properties are maintained. If that is not the case, the function triggers a runtime assertion failure.
 
@@ -105,7 +105,7 @@ It is therefore useful in debugging scenarios. However, the function is implemen
 void ao_avl_assert(ao_avl_t * x);
 ```
 
-## 'ao_avl_insert'
+## `ao_avl_insert`
 
 Insert a node into a tree in logarithmic time.
 
@@ -113,7 +113,7 @@ Insert a node into a tree in logarithmic time.
 void ao_avl_insert(ao_avl_t * x, ao_avl_node_t * n);
 ```
 
-## 'ao_avl_is_empty'
+## `ao_avl_is_empty`
 
 Check whether a tree is empty in constant time.
 
@@ -121,7 +121,8 @@ Check whether a tree is empty in constant time.
 #define ao_avl_is_empty(x)
 ```
 
-## 'ao_avl_max'<br/>`ao_avl_min`
+## `ao_avl_max`
+## `ao_avl_min`
 
 Get the maximum or minimum node, respectively, of a tree in logarithmic time. Thereby, the maximum node is the rightmost node and the minimum node is the leftmost node in the tree. Both functions return `NULL`, if the tree is empty.
 
@@ -130,7 +131,7 @@ ao_avl_node_t * ao_avl_max(ao_avl_t * x);
 ao_avl_node_t * ao_avl_min(ao_avl_t * x);
 ```
 
-## 'ao_avl_remove'
+## `ao_avl_remove`
 
 Remove a node from a tree in logarithmic time.
 

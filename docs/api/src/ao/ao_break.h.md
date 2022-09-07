@@ -14,6 +14,8 @@ This module contains a single function that executes a breakpoint. Since breakpo
 
 # Functions
 
+## `ao_break`
+
 Execute a breakpoint.
 
 ```c
