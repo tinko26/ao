@@ -34,7 +34,7 @@
 
 #ifndef AO_CAN_1
 
-#define AO_CAN_1    (AO_MIKROE_2334_2)
+#define AO_CAN_1    (AO_MIKROE_2334_B)
 
 #endif
 

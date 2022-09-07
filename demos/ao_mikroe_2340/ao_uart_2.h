@@ -39,8 +39,8 @@
 
 #define AO_UART_2                                                           \
 (                                                                           \
-        AO_MIKROE_2674_4 ||                                                 \
-        AO_MIKROE_3063_4                                                    \
+        AO_MIKROE_2674_D ||                                                 \
+        AO_MIKROE_3063_D                                                    \
 )
 
 #endif
