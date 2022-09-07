@@ -44,8 +44,8 @@ This type represents an auto-reset event.
 ```c
 struct ao_are_t
 {
-ao_list_t list;
-bool      state;
+    ao_list_t list;
+    bool      state;
 };
 ```
 
@@ -61,10 +61,10 @@ This type represents the waiting for an auto-reset event.
 ```c
 struct ao_are_wait_t
 {
-ao_are_t * are;
-ao_async_t async;
-ao_list_node_t node;
-bool volatile result;
+    ao_are_t *     are;
+    ao_async_t     async;
+    ao_list_node_t node;
+    bool volatile  result;
 };
 ```
 

@@ -43,8 +43,8 @@ This type represents a condition.
 ```c
 struct ao_cond_t
 {
-ao_list_t list;
-bool      state;
+    ao_list_t list;
+    bool      state;
 };
 ```
 
@@ -60,10 +60,10 @@ This type represents the waiting for a condition.
 ```c
 struct ao_cond_wait_t
 {
-ao_async_t     async;
-ao_cond_t *    cond;
-ao_list_node_t node;
-bool volatile  result;
+    ao_async_t     async;
+    ao_cond_t *    cond;
+    ao_list_node_t node;
+    bool volatile  result;
 };
 ```
 

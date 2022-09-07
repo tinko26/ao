@@ -37,8 +37,8 @@ This type represents a counting semaphore.
 ```c
 struct ao_sem_t
 {
-ao_uint_t count;
-ao_list_t list;
+    ao_uint_t count;
+    ao_list_t list;
 };
 ```
 
@@ -54,11 +54,11 @@ This type represents the taking of a semaphore count.
 ```c
 struct ao_sem_take_t
 {
-ao_async_t     async;
-ao_uint_t      count;
-ao_list_node_t node;
-bool volatile  result;
-ao_sem_t *     sem;
+    ao_async_t     async;
+    ao_uint_t      count;
+    ao_list_node_t node;
+    bool volatile  result;
+    ao_sem_t *     sem;
 };
 ```
 

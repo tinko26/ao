@@ -34,7 +34,7 @@ This type represents a signal.
 ```c
 struct ao_signal_t
 {
-ao_list_t list;
+    ao_list_t list;
 };
 ```
 
@@ -49,10 +49,10 @@ This type represents the waiting for a signal.
 ```c
 struct ao_signal_wait_t
 {
-ao_async_t     async;
-ao_list_node_t node;
-bool volatile  result;
-ao_signal_t *  signal;
+    ao_async_t     async;
+    ao_list_node_t node;
+    bool volatile  result;
+    ao_signal_t *  signal;
 };
 ```
 

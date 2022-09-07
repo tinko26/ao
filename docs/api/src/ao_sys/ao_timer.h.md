@@ -39,11 +39,11 @@ This type represents a timer.
 ```c
 struct ao_timer_t
 {
-ao_alarm_t alarm;
-ao_proc_t  callback;
-void *     callback_parameter;
-ao_time_t  end;
-ao_time_t  period;
+    ao_alarm_t alarm;
+    ao_proc_t  callback;
+    void *     callback_parameter;
+    ao_time_t  end;
+    ao_time_t  period;
 };
 ```
 

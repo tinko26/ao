@@ -66,20 +66,20 @@ This type represents the interrupt stack.
 ```c
 struct ao_ir_stack_t
 {
-uint32_t sp;
-uint32_t sp_backup;
-uint32_t fp_backup;
-uint32_t depth;
+    uint32_t sp;
+    uint32_t sp_backup;
+    uint32_t fp_backup;
+    uint32_t depth;
 
 #if AO_IR_STACK_DEPTH_MAX
 
-uint32_t depth_max;
+    uint32_t depth_max;
 
 #endif
 
 #if AO_IR_STACK_FILL
 
-size_t   high_water_mark;
+    size_t   high_water_mark;
 
 #endif
 

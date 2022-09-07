@@ -51,8 +51,8 @@ typedef struct ao_task_slave_t   ao_task_slave_t;
 ```c
 #define AO_TASK_SUBMISSION  \
 (                           \
-AO_TASK_CEILING ||      \
-AO_TASK_INHERITANCE     \
+    AO_TASK_CEILING ||      \
+    AO_TASK_INHERITANCE     \
 )
 ```
 
@@ -77,20 +77,20 @@ AO_TASK_INHERITANCE     \
 ```c
 struct ao_task_sched_t
 {
-ao_list_node_t node;
+    ao_list_node_t node;
 
 #if AO_TASK_INHERITANCE
 
-ao_list_t      masters;
+    ao_list_t      masters;
 
 #endif
 
-ao_uint_t      prio;
+    ao_uint_t      prio;
 
 #if AO_TASK_SUBMISSION
 
-ao_uint_t      prio_backup;
-ao_rb_t        slaves;
+    ao_uint_t      prio_backup;
+    ao_rb_t        slaves;
 
 #endif
 
@@ -110,9 +110,9 @@ It consists of the following members.
 ```c
 struct ao_task_ceiling_t
 {
-ao_uint_t         prio;
-ao_task_slave_t * slave;
-ao_rb_node_t      slave_ceilings_node;
+    ao_uint_t         prio;
+    ao_task_slave_t * slave;
+    ao_rb_node_t      slave_ceilings_node;
 };
 ```
 
@@ -127,11 +127,11 @@ It consists of the following members.
 ```c
 struct ao_task_master_t
 {
-ao_uint_t         prio;
-ao_task_slave_t * slave;
-ao_rb_node_t      slave_masters_node;
-ao_task_t *       task;
-ao_list_node_t    task_masters_node;
+    ao_uint_t         prio;
+    ao_task_slave_t * slave;
+    ao_rb_node_t      slave_masters_node;
+    ao_task_t *       task;
+    ao_list_node_t    task_masters_node;
 };
 ```
 
@@ -151,19 +151,19 @@ struct ao_task_slave_t
 
 #if AO_TASK_CEILING
 
-ao_rb_t      ceilings;
+    ao_rb_t      ceilings;
 
 #endif
 
 #if AO_TASK_INHERITANCE
 
-ao_rb_t      masters;
+    ao_rb_t      masters;
 
 #endif
 
-ao_uint_t    prio_keep;
-ao_task_t *  task;
-ao_rb_node_t task_slaves_node;
+    ao_uint_t    prio_keep;
+    ao_task_t *  task;
+    ao_rb_node_t task_slaves_node;
 };
 ```
 

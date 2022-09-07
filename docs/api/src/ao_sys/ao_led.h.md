@@ -27,8 +27,8 @@ typedef enum ao_leds_t ao_leds_t;
 ```c
 enum ao_leds_t
 {
-AO_LEDS_ALL  = 0,
-AO_LEDS_NONE = 0
+    AO_LEDS_ALL  = 0,
+    AO_LEDS_NONE = 0
 };
 ```
 

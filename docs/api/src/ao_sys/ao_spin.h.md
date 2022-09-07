@@ -48,9 +48,9 @@ ao_time_t period = AO_MILLISECONDS(500);
 
 while (1)
 {
-ao_spin_from(period, beginning);
-// Toggle pin.
-beginning += period;
+    ao_spin_from(period, beginning);
+    // Toggle pin.
+    beginning += period;
 }
 ```
 

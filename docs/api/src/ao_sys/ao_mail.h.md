@@ -38,7 +38,7 @@ This type represents a mail.
 ```c
 struct ao_mail_t
 {
-ao_list_node_t node;
+    ao_list_node_t node;
 };
 ```
 
@@ -53,11 +53,11 @@ This type represents the fetching of a mail.
 ```c
 struct ao_mail_fetch_t
 {
-ao_async_t           async;
-ao_mail_t * volatile mail;
-ao_mailbox_t *       mailbox;
-ao_list_node_t       node;
-bool        volatile result;
+    ao_async_t           async;
+    ao_mail_t * volatile mail;
+    ao_mailbox_t *       mailbox;
+    ao_list_node_t       node;
+    bool        volatile result;
 };
 ```
 
@@ -76,8 +76,8 @@ This type represents a mailbox.
 ```c
 struct ao_mailbox_t
 {
-ao_list_t fetchers;
-ao_list_t mails;
+    ao_list_t fetchers;
+    ao_list_t mails;
 };
 ```
 

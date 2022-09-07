@@ -53,18 +53,18 @@ struct ao_mutex_t
 
 #if AO_TASK_CEILING
 
-ao_task_ceiling_t ceiling_immediate;
-ao_task_ceiling_t ceiling_original;
+    ao_task_ceiling_t ceiling_immediate;
+    ao_task_ceiling_t ceiling_original;
 
 #endif
 
-ao_list_t         list;
-ao_task_t *       owner;
-ao_uint_t         owner_count;
+    ao_list_t         list;
+    ao_task_t *       owner;
+    ao_uint_t         owner_count;
 
 #if AO_TASK_SUBMISSION
 
-ao_task_slave_t   slave;
+    ao_task_slave_t   slave;
 
 #endif
 
@@ -87,18 +87,18 @@ This type represents the locking of a mutex.
 ```c
 struct ao_mutex_lock_t
 {
-ao_async_t       async;
+    ao_async_t       async;
 
 #if AO_TASK_INHERITANCE
 
-ao_task_master_t master;
+    ao_task_master_t master;
 
 #endif
 
-ao_mutex_t *     mutex;
-ao_list_node_t   node;
-bool volatile    result;
-ao_task_t *      task;
+    ao_mutex_t *     mutex;
+    ao_list_node_t   node;
+    bool volatile    result;
+    ao_task_t *      task;
 };
 ```
 

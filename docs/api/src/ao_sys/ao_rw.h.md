@@ -46,10 +46,10 @@ This type represents a readers-writer lock.
 ```c
 struct ao_rw_t
 {
-ao_uint_t r_active;
-ao_list_t r_waiting;
-bool      w_active;
-ao_list_t w_waiting;
+    ao_uint_t r_active;
+    ao_list_t r_waiting;
+    bool      w_active;
+    ao_list_t w_waiting;
 };
 ```
 
@@ -67,10 +67,10 @@ This type represents the locking of a readers-writer lock.
 ```c
 struct ao_rw_lock_t
 {
-ao_async_t     async;
-ao_list_node_t node;
-bool volatile  result;
-ao_rw_t *      rw;
+    ao_async_t     async;
+    ao_list_node_t node;
+    bool volatile  result;
+    ao_rw_t *      rw;
 };
 ```
 
@@ -160,11 +160,11 @@ bool can_read = ao_rw_lock_read(&lock, AO_MILLISECONDS(500));
 
 if (can_read)
 {
-/* ... */ = data[0];
-/* ... */ = data[1];
-/* ... */ = data[2];
+    /* ... */ = data[0];
+    /* ... */ = data[1];
+    /* ... */ = data[2];
 
-ao_rw_unlock_read(&lock);
+    ao_rw_unlock_read(&lock);
 }
 ```
 
@@ -179,11 +179,11 @@ bool can_write = ao_rw_lock_write(&lock, AO_MILLISECONDS(500));
 
 if (can_write)
 {
-data[0] = /* ... */;
-data[1] = /* ... */;
-data[2] = /* ... */;
+    data[0] = /* ... */;
+    data[1] = /* ... */;
+    data[2] = /* ... */;
 
-ao_rw_unlock_write(&lock);
+    ao_rw_unlock_write(&lock);
 }
 ```
 

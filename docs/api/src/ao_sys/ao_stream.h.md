@@ -39,9 +39,9 @@ This type represents a stream.
 ```c
 struct ao_stream_t
 {
-ao_buffer_t  buffer;
-ao_spop_t *  pop;
-ao_spush_t * push;
+    ao_buffer_t  buffer;
+    ao_spop_t *  pop;
+    ao_spush_t * push;
 };
 ```
 
@@ -58,13 +58,13 @@ This type represents the popping of data from a stream.
 ```c
 struct ao_spop_t
 {
-ao_async_t      async;
-size_t volatile count;
-size_t          count_max;
-size_t          count_min;
-void *          ptr;
-bool   volatile result;
-ao_stream_t *   stream;
+    ao_async_t      async;
+    size_t volatile count;
+    size_t          count_max;
+    size_t          count_min;
+    void *          ptr;
+    bool   volatile result;
+    ao_stream_t *   stream;
 };
 ```
 
@@ -85,13 +85,13 @@ This type represents the pushing of data to a stream.
 ```c
 struct ao_spush_t
 {
-ao_async_t      async;
-size_t volatile count;
-size_t          count_max;
-size_t          count_min;
-void *          ptr;
-bool   volatile result;
-ao_stream_t *   stream;
+    ao_async_t      async;
+    size_t volatile count;
+    size_t          count_max;
+    size_t          count_min;
+    void *          ptr;
+    bool   volatile result;
+    ao_stream_t *   stream;
 };
 ```
 

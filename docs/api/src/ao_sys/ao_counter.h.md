@@ -29,17 +29,17 @@ typedef struct ao_counter_wait_t ao_counter_wait_t;
 ```c
 typedef ao_uint_t (* ao_counter_adjust_t)
 (
-ao_uint_t value,
-void *    parameter
+    ao_uint_t value,
+    void *    parameter
 );
 ```
 
 ```c
 typedef bool      (* ao_counter_match_t)
 (
-ao_uint_t value,
-ao_uint_t value_wait,
-void *    parameter
+    ao_uint_t value,
+    ao_uint_t value_wait,
+    void *    parameter
 );
 ```
 
@@ -52,8 +52,8 @@ This type represents a counter.
 ```c
 struct ao_counter_t
 {
-ao_list_t list;
-ao_uint_t value;
+    ao_list_t list;
+    ao_uint_t value;
 };
 ```
 
@@ -69,13 +69,13 @@ This type represents the waiting for a counter match.
 ```c
 struct ao_counter_wait_t
 {
-ao_async_t         async;
-ao_counter_t *     counter;
-ao_counter_match_t match;
-void *             match_parameter;
-ao_list_node_t     node;
-bool volatile      result;
-ao_uint_t          value;
+    ao_async_t         async;
+    ao_counter_t *     counter;
+    ao_counter_match_t match;
+    void *             match_parameter;
+    ao_list_node_t     node;
+    bool volatile      result;
+    ao_uint_t          value;
 };
 ```
 

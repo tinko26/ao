@@ -29,9 +29,9 @@ typedef struct ao_rendezvous_wait_t ao_rendezvous_wait_t;
 ```c
 typedef void (* ao_rendezvous_exchange_t)
 (
-void * ptr_in_other,
-void * ptr_out_self,
-void * parameter
+    void * ptr_in_other,
+    void * ptr_out_self,
+    void * parameter
 );
 ```
 
@@ -44,7 +44,7 @@ This type represents a rendezvous.
 ```c
 struct ao_rendezvous_t
 {
-ao_rendezvous_wait_t * wait;
+    ao_rendezvous_wait_t * wait;
 };
 ```
 
@@ -59,13 +59,13 @@ This type represents the waiting for a rendezvous.
 ```c
 struct ao_rendezvous_wait_t
 {
-ao_async_t               async;
-ao_rendezvous_exchange_t exchange;
-void *                   exchange_parameter;
-void *                   ptr_in;
-void *                   ptr_out;
-ao_rendezvous_t *        rendezvous;
-bool volatile            result;
+    ao_async_t               async;
+    ao_rendezvous_exchange_t exchange;
+    void *                   exchange_parameter;
+    void *                   ptr_in;
+    void *                   ptr_out;
+    ao_rendezvous_t *        rendezvous;
+    bool volatile            result;
 };
 ```
 
@@ -118,10 +118,10 @@ Set up the exchange function. Assume tasks are exchanging doubles.
 ```c
 void exchange(void * pin, void * pout, void * parameter)
 {
-double * din = pin;
-double * dout = pout;
+    double * din = pin;
+    double * dout = pout;
 
-*dout = *din;
+    *dout = *din;
 }
 ```
 
@@ -146,12 +146,12 @@ ao_rendezvous(w, AO_MILLISECONDS(500));
 
 if (w->result)
 {
-// A rendezvous has happened.
+    // A rendezvous has happened.
 
-if (din > dout)
-{
-// Other task has sent a greater value.
-}
+    if (din > dout)
+    {
+        // Other task has sent a greater value.
+    }
 }
 ```
 

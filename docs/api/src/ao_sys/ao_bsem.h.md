@@ -36,8 +36,8 @@ This type represents a binary semaphore.
 ```c
 struct ao_bsem_t
 {
-ao_list_t list;
-bool      taken;
+    ao_list_t list;
+    bool      taken;
 };
 ```
 
@@ -53,10 +53,10 @@ This type represents the taking of a binary semaphore.
 ```c
 struct ao_bsem_take_t
 {
-ao_async_t     async;
-ao_list_node_t node;
-bool volatile  result;
-ao_bsem_t *    sem;
+    ao_async_t     async;
+    ao_list_node_t node;
+    bool volatile  result;
+    ao_bsem_t *    sem;
 };
 ```
 

@@ -30,11 +30,11 @@ This type represents the sleeping of a task.
 ```c
 struct ao_sleep_t
 {
-ao_alarm_t    alarm;
-ao_async_t    async;
-ao_time_t     beginning;
-bool volatile result;
-ao_time_t     timeout;
+    ao_alarm_t    alarm;
+    ao_async_t    async;
+    ao_time_t     beginning;
+    bool volatile result;
+    ao_time_t     timeout;
 };
 ```
 

@@ -25,8 +25,8 @@ typedef enum ao_buttons_t ao_buttons_t;
 ```c
 enum ao_buttons_t
 {
-AO_BUTTONS_ALL  = 0,
-AO_BUTTONS_NONE = 0
+    AO_BUTTONS_ALL  = 0,
+    AO_BUTTONS_NONE = 0
 };
 ```
 

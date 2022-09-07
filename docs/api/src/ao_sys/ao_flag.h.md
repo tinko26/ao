@@ -29,9 +29,9 @@ typedef struct ao_flag_wait_t ao_flag_wait_t;
 ```c
 typedef bool (* ao_flag_match_t)
 (
-ao_uint_t mask,
-ao_uint_t mask_wait,
-void *    parameter
+    ao_uint_t mask,
+    ao_uint_t mask_wait,
+    void *    parameter
 );
 ```
 
@@ -44,8 +44,8 @@ This type represents a set of event flags.
 ```c
 struct ao_flag_t
 {
-ao_list_t list;
-ao_uint_t mask;
+    ao_list_t list;
+    ao_uint_t mask;
 };
 ```
 
@@ -61,13 +61,13 @@ This type represents the waiting for a set of event flags.
 ```c
 struct ao_flag_wait_t
 {
-ao_async_t      async;
-ao_flag_t *     flag;
-ao_uint_t       mask;
-ao_flag_match_t match;
-void *          match_parameter;
-ao_list_node_t  node;
-bool volatile   result;
+    ao_async_t      async;
+    ao_flag_t *     flag;
+    ao_uint_t       mask;
+    ao_flag_match_t match;
+    void *          match_parameter;
+    ao_list_node_t  node;
+    bool volatile   result;
 };
 ```
 

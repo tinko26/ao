@@ -28,7 +28,7 @@ typedef struct ao_recv_t ao_recv_t;
 ```c
 typedef void (* ao_recv_proc_t)
 (
-ao_recv_t * x
+    ao_recv_t * x
 );
 ```
 
@@ -41,15 +41,15 @@ This type represents the receiving of data.
 ```c
 struct ao_recv_t
 {
-ao_async_t      async;
-ao_recv_proc_t  begin;
-size_t volatile count;
-size_t          count_max;
-size_t          count_min;
-ao_recv_proc_t  end;
-void *          parameter;
-void *          ptr;
-bool   volatile result;
+    ao_async_t      async;
+    ao_recv_proc_t  begin;
+    size_t volatile count;
+    size_t          count_max;
+    size_t          count_min;
+    ao_recv_proc_t  end;
+    void *          parameter;
+    void *          ptr;
+    bool   volatile result;
 };
 ```
 
@@ -162,6 +162,6 @@ Afterwards, it should be verified whether data has actually been received.
 ```c
 if (x->result)
 {
-// x->count bytes have been received.
+    // x->count bytes have been received.
 }
 ```

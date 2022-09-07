@@ -37,9 +37,9 @@ This type represents a barrier.
 ```c
 struct ao_barrier_t
 {
-ao_uint_t count;
-ao_uint_t count_threshold;
-ao_list_t list;
+    ao_uint_t count;
+    ao_uint_t count_threshold;
+    ao_list_t list;
 };
 ```
 
@@ -56,10 +56,10 @@ This type represents the waiting at a barrier.
 ```c
 struct ao_barrier_wait_t
 {
-ao_async_t     async;
-ao_barrier_t * barrier;
-ao_list_node_t node;
-bool volatile  result;
+    ao_async_t     async;
+    ao_barrier_t * barrier;
+    ao_list_node_t node;
+    bool volatile  result;
 };
 ```
 

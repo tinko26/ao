@@ -23,7 +23,7 @@ typedef struct ao_recv_ptr_t ao_recv_ptr_t;
 ```c
 typedef void (* ao_recv_ptr_proc_t)
 (
-ao_recv_ptr_t * x
+    ao_recv_ptr_t * x
 );
 ```
 
@@ -36,12 +36,12 @@ This type represents the receiving of a pointer.
 ```c
 struct ao_recv_ptr_t
 {
-ao_async_t         async;
-ao_recv_ptr_proc_t begin;
-ao_recv_ptr_proc_t end;
-void *             parameter;
-void * volatile    ptr;
-bool   volatile    result;
+    ao_async_t         async;
+    ao_recv_ptr_proc_t begin;
+    ao_recv_ptr_proc_t end;
+    void *             parameter;
+    void * volatile    ptr;
+    bool   volatile    result;
 };
 ```
 

@@ -46,7 +46,7 @@ ao_lock_t * l;
 ```c
 ao_lock(l);
 {
-// Critical section.
+    // Critical section.
 }
 ao_unlock(l);
 ```
@@ -65,13 +65,13 @@ ao_lock_t * l2;
 ```c
 ao_lock(l1);
 {
-// ...
-ao_lock(l2);
-{
-// ...
-}
-ao_unlock(l2);
-// ...
+    // ...
+    ao_lock(l2);
+    {
+        // ...
+    }
+    ao_unlock(l2);
+    // ...
 }
 ao_unlock(l1);
 ```

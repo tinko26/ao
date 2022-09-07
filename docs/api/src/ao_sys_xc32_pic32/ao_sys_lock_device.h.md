@@ -27,8 +27,8 @@ typedef struct ao_sys_lock_device_t ao_sys_lock_device_t;
 ```c
 struct ao_sys_lock_device_t
 {
-uint32_t dma;
-uint32_t ie;
+    uint32_t dma;
+    uint32_t ie;
 };
 ```
 

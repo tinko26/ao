@@ -23,7 +23,7 @@ typedef struct ao_send_obj_t ao_send_obj_t;
 ```c
 typedef void (* ao_send_obj_proc_t)
 (
-ao_send_obj_t * x
+    ao_send_obj_t * x
 );
 ```
 
@@ -36,12 +36,12 @@ This type represents the sending of an object.
 ```c
 struct ao_send_obj_t
 {
-ao_async_t         async;
-ao_send_obj_proc_t begin;
-ao_send_obj_proc_t end;
-void *             parameter;
-void *             ptr;
-bool volatile      result;
+    ao_async_t         async;
+    ao_send_obj_proc_t begin;
+    ao_send_obj_proc_t end;
+    void *             parameter;
+    void *             ptr;
+    bool volatile      result;
 };
 ```
 

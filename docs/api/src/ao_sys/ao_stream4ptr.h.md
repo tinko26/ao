@@ -39,9 +39,9 @@ This type represents a stream for pointers.
 ```c
 struct ao_stream4ptr_t
 {
-ao_buffer4ptr_t buffer;
-ao_list_t       pop;
-ao_list_t       push;
+    ao_buffer4ptr_t buffer;
+    ao_list_t       pop;
+    ao_list_t       push;
 };
 ```
 
@@ -58,11 +58,11 @@ This type represents the popping of a pointer from a stream.
 ```c
 struct ao_spop_ptr_t
 {
-ao_async_t        async;
-ao_list_node_t    node;
-void * volatile   ptr;
-bool   volatile   result;
-ao_stream4ptr_t * stream;
+    ao_async_t        async;
+    ao_list_node_t    node;
+    void * volatile   ptr;
+    bool   volatile   result;
+    ao_stream4ptr_t * stream;
 };
 ```
 
@@ -81,13 +81,13 @@ This type represents the pushing of a pointer to a stream.
 ```c
 struct ao_spush_ptr_t
 {
-ao_async_t        async;
-ao_list_node_t    node;
-void *            ptr;
-void * volatile   ptr_override;
-bool   volatile   result;
-bool   volatile   result_override;
-ao_stream4ptr_t * stream;
+    ao_async_t        async;
+    ao_list_node_t    node;
+    void *            ptr;
+    void * volatile   ptr_override;
+    bool   volatile   result;
+    bool   volatile   result_override;
+    ao_stream4ptr_t * stream;
 };
 ```
 

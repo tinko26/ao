@@ -40,12 +40,12 @@ typedef struct ao_task_stack_t ao_task_stack_t;
 ```c
 struct ao_task_stack_t
 {
-void * beginning;
-size_t size;
+    void * beginning;
+    size_t size;
 
 #if AO_TASK_STACK_HIGH_WATER_MARK
 
-size_t high_water_mark;
+    size_t high_water_mark;
 
 #endif
 

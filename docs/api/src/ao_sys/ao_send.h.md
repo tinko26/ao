@@ -25,7 +25,7 @@ typedef struct ao_send_t ao_send_t;
 ```c
 typedef void (* ao_send_proc_t)
 (
-ao_send_t * x
+    ao_send_t * x
 );
 ```
 
@@ -38,15 +38,15 @@ This type represents the sending of data.
 ```c
 struct ao_send_t
 {
-ao_async_t      async;
-ao_send_proc_t  begin;
-size_t volatile count;
-size_t          count_max;
-size_t          count_min;
-ao_send_proc_t  end;
-void *          parameter;
-void *          ptr;
-bool   volatile result;
+    ao_async_t      async;
+    ao_send_proc_t  begin;
+    size_t volatile count;
+    size_t          count_max;
+    size_t          count_min;
+    ao_send_proc_t  end;
+    void *          parameter;
+    void *          ptr;
+    bool   volatile result;
 };
 ```
 

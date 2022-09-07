@@ -59,7 +59,7 @@ typedef struct ao_task_slave_t   ao_task_slave_t;
 ```c
 struct ao_task_sched_t
 {
-ao_list_node_t node;
+    ao_list_node_t node;
 };
 ```
 

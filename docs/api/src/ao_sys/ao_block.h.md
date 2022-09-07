@@ -30,9 +30,9 @@ This type represents the blocking of a task.
 ```c
 struct ao_block_t
 {
-ao_alarm_t alarm;
-ao_time_t  beginning;
-ao_time_t  timeout;
+    ao_alarm_t alarm;
+    ao_time_t  beginning;
+    ao_time_t  timeout;
 };
 ```
 

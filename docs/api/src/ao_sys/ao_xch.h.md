@@ -48,8 +48,8 @@ This type represents an exchange.
 ```c
 struct ao_xch_t
 {
-ao_list_t clients;
-ao_list_t servers;
+    ao_list_t clients;
+    ao_list_t servers;
 };
 ```
 
@@ -65,25 +65,25 @@ This type represents the exchange activity of a client.
 ```c
 struct ao_xch_client_t
 {
-ao_async_t                 async;
+    ao_async_t                 async;
 
 #if AO_TASK_INHERITANCE
 
-ao_task_master_t           master;
+    ao_task_master_t           master;
 
 #endif
 
-ao_list_node_t             node;
-bool              volatile result;
-ao_xch_server_t * volatile server;
+    ao_list_node_t             node;
+    bool              volatile result;
+    ao_xch_server_t * volatile server;
 
 #if AO_TASK_INHERITANCE
 
-ao_task_t *                task;
+    ao_task_t *                task;
 
 #endif
 
-ao_xch_t *                 xch;
+    ao_xch_t *                 xch;
 };
 ```
 
@@ -104,19 +104,19 @@ This type represents the exchange activity of a server.
 ```c
 struct ao_xch_server_t
 {
-ao_async_t                 async;
-ao_xch_client_t * volatile client;
-ao_list_node_t             node;
-bool              volatile result;
+    ao_async_t                 async;
+    ao_xch_client_t * volatile client;
+    ao_list_node_t             node;
+    bool              volatile result;
 
 #if AO_TASK_INHERITANCE
 
-ao_task_slave_t            slave;
-ao_task_t *                task;
+    ao_task_slave_t            slave;
+    ao_task_t *                task;
 
 #endif
 
-ao_xch_t *                 xch;
+    ao_xch_t *                 xch;
 };
 ```
 
