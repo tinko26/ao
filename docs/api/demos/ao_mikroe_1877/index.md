@@ -10,6 +10,7 @@ external:
 - https://microchip.com/DS00001885 : "SSC7150 Motion Coprocessor"
 permalink: /api/demos/ao_mikroe_1877/
 toc: true
+wide: true
 ---
 
 # Files
