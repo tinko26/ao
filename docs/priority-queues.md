@@ -8,7 +8,6 @@ groups:
 - priority-queues
 permalink: /priority-queues/
 toc: true
-wide: true
 ---
 
 # Overview
