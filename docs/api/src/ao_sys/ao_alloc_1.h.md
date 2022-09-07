@@ -101,34 +101,34 @@ struct ao_alloc_pool_t
 {
 
 #if AO_ALLOC_ALLOCATED_MAX || \
-AO_ALLOC_ALLOCATED
+    AO_ALLOC_ALLOCATED
 
-size_t volatile        allocated;
+    size_t volatile        allocated;
 
 #endif
 
 #if AO_ALLOC_ALLOCATED_MAX
 
-size_t volatile        allocated_max;
+    size_t volatile        allocated_max;
 
 #endif
 
-size_t                 block_size;
+    size_t                 block_size;
 
 #if AO_ALLOC_FREE_MIN || \
-AO_ALLOC_FREE
+    AO_ALLOC_FREE
 
-size_t volatile        free;
+    size_t volatile        free;
 
 #endif
 
 #if AO_ALLOC_FREE_MIN
 
-size_t volatile        free_min;
+    size_t volatile        free_min;
 
 #endif
 
-ao_alloc_pool_node_t * front;
+    ao_alloc_pool_node_t * front;
 };
 ```
 
@@ -152,12 +152,12 @@ This type represents the information about a call to `ao_acquire()`.
 ```c
 struct ao_acquired_t
 {
-size_t pool;
-void * ptr;
-bool   result;
-size_t size_body;
-size_t size_body_requested;
-size_t size_head;
+    size_t pool;
+    void * ptr;
+    bool   result;
+    size_t size_body;
+    size_t size_body_requested;
+    size_t size_head;
 };
 ```
 
@@ -177,12 +177,12 @@ This type represents the information about a call to `ao_release()`.
 ```c
 struct ao_released_t
 {
-size_t pool;
-void * ptr;
-size_t ref;
-bool   result;
-size_t size_body;
-size_t size_head;
+    size_t pool;
+    void * ptr;
+    size_t ref;
+    bool   result;
+    size_t size_body;
+    size_t size_head;
 };
 ```
 
@@ -202,12 +202,12 @@ This type represents the information about a call to `ao_retain()`.
 ```c
 struct ao_retained_t
 {
-size_t pool;
-void * ptr;
-size_t ref;
-bool   result;
-size_t size_body;
-size_t size_head;
+    size_t pool;
+    void * ptr;
+    size_t ref;
+    bool   result;
+    size_t size_body;
+    size_t size_head;
 };
 ```
 

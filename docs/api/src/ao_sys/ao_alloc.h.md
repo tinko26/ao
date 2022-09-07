@@ -81,11 +81,11 @@ This type represents the information about a call to `ao_acquire()`.
 ```c
 struct ao_acquired_t
 {
-void * ptr;
-bool   result;
-size_t size_body;
-size_t size_body_requested;
-size_t size_head;
+    void * ptr;
+    bool   result;
+    size_t size_body;
+    size_t size_body_requested;
+    size_t size_head;
 };
 ```
 
@@ -104,11 +104,11 @@ This type represents the information about a call to `ao_release()`.
 ```c
 struct ao_released_t
 {
-void * ptr;
-size_t ref;
-bool   result;
-size_t size_body;
-size_t size_head;
+    void * ptr;
+    size_t ref;
+    bool   result;
+    size_t size_body;
+    size_t size_head;
 };
 ```
 
@@ -127,11 +127,11 @@ This type represents the information about a call to `ao_retain()`.
 ```c
 struct ao_retained_t
 {
-void * ptr;
-size_t ref;
-bool   result;
-size_t size_body;
-size_t size_head;
+    void * ptr;
+    size_t ref;
+    bool   result;
+    size_t size_body;
+    size_t size_head;
 };
 ```
 
