@@ -26,7 +26,7 @@ typedef struct ao_alarm_t ao_alarm_t;
 # Configuration
 
 ```c
-#define AO_ALARM_DELAY (AO_MILLISECONDS(100))
+#define AO_ALARM_DELAY  (AO_MILLISECONDS(100))
 ```
 
 # Constants
@@ -44,11 +44,11 @@ This type represents an alarm.
 ```c
 struct ao_alarm_t
 {
-ao_proc_t             callback;
-void *                callback_parameter;
-ao_time_t             end;
-ao_alarm_queue_node_t node;
-bool                  running;
+    ao_proc_t             callback;
+    void *                callback_parameter;
+    ao_time_t             end;
+    ao_alarm_queue_node_t node;
+    bool                  running;
 };
 ```
 
