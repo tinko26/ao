@@ -22,7 +22,8 @@ Normally, the compiler takes care of the correct alignment of variables automati
 
 # Functions
 
-## `AO_ALIGN`
+## `AO_ALIGN_DOWN`
+## `AO_ALIGN_UP`
 
 Align value `x` up or down, respectively, to boundary `b`.
 
