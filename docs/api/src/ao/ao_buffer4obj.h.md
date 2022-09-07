@@ -16,18 +16,18 @@ toc: true
 #include <stddef.h>
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_buffer4obj_t ao_buffer4obj_t;
-```
-
 # Configuration
 
 Keep track of the maximum number of objects.
 
 ```c
 #define AO_BUFFER4OBJ_COUNT_MAX (false)
+```
+
+# Typedefs
+
+```c
+typedef struct ao_buffer4obj_t ao_buffer4obj_t;
 ```
 
 # Types

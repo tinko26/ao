@@ -20,12 +20,6 @@ This module defines buffers, that is, places to temporarily store data.
 #include <stddef.h>
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_buffer_t ao_buffer_t;
-```
-
 # Configuration
 
 ## `AO_BUFFER_COUNT_MAX`
@@ -34,6 +28,12 @@ Keep track of the maximum number of bytes.
 
 ```c
 #define AO_BUFFER_COUNT_MAX (false)
+```
+
+# Typedefs
+
+```c
+typedef struct ao_buffer_t ao_buffer_t;
 ```
 
 # Types

@@ -18,6 +18,8 @@ This module provides a couple of functions that classify characters. Although th
 
 # Functions
 
+## `ao_char_is`
+
 Classify a given character.
 
 ```c
