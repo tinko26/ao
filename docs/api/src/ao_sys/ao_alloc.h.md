@@ -36,21 +36,9 @@ This module encapsulates an allocator that supports dynamic memory management.
 #include <stddef.h>
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_acquired_t ao_acquired_t;
-```
-
-```c
-typedef struct ao_released_t ao_released_t;
-```
-
-```c
-typedef struct ao_retained_t ao_retained_t;
-```
-
 # Configuration
+
+## `AO_ALLOC`
 
 Select the allocator implementation.
 
@@ -62,7 +50,11 @@ The following options are available.
 
 | [`ao_alloc_0`](ao_alloc_0.h.md) | Stub |
 | [`ao_alloc_1`](ao_alloc_1.h.md) | Linear-time allocator based on pools of fixed-size memory blocks |
-| [`ao_alloc_2`](ao_alloc_2.h.md) | Constant-time allocator based on the two-level segregated fit algorithm proposed by Masmano et al. |
+| [`ao_alloc_2`](ao_alloc_2.h.md) | Constant-time allocator based on the two-level segregated fit algorithm |
+
+## `AO_ACQUIRED`
+## `AO_RELEASED`
+## `AO_RETAINED`
 
 Execute a callback upon each call to `ao_acquire()`, `ao_release()`, or `ao_retain()`, respectively, which can aid in debugging an application or tracing and optimizing the memory usage of the allocator.
 
@@ -70,6 +62,14 @@ Execute a callback upon each call to `ao_acquire()`, `ao_release()`, or `ao_reta
 #define AO_ACQUIRED (false)
 #define AO_RELEASED (false)
 #define AO_RETAINED (false)
+```
+
+# Typedefs
+
+```c
+typedef struct ao_acquired_t ao_acquired_t;
+typedef struct ao_released_t ao_released_t;
+typedef struct ao_retained_t ao_retained_t;
 ```
 
 # Types
@@ -145,6 +145,8 @@ It consists of the following members.
 
 # Functions
 
+## `ao_acquire`
+
 Allocate a memory block of the specified size.
 
 If the operation succeeds, then the function returns a pointer to the beginning of the allocated memory block. Thereby, that pointer is suitably aligned for any object type with fundamental alignment. But, the content of the memory block is not initialized, remaining with indeterminate values.
@@ -157,11 +159,15 @@ If the operation fails, then the function returns `NULL`. This is either because
 void * ao_acquire(size_t size);
 ```
 
+## `ao_acquired`
+
 The callback for each call to `ao_acquire()`. This function must be implemented by the application.
 
 ```c
 void ao_acquired(ao_acquired_t const * info);
 ```
+
+## `ao_delete`
 
 Deallocate a memory block.
 
@@ -169,11 +175,15 @@ Deallocate a memory block.
 #define ao_delete(ptr)
 ```
 
+## `ao_new`
+
 Allocate a memory block large enough for the specified type. If the operation succeeds, then this function returns a pointer of type `type *`.
 
 ```c
 #define ao_new(type)
 ```
+
+## `ao_release`
 
 Reliquinsh ownership of a memory block, which decrements its reference count. If the reference count reaches zero, then this function additionally deallocates the memory block, making it available for further allocations.
 
@@ -185,11 +195,15 @@ The return value indicates whether the operation has succeeded or failed. The la
 bool ao_release(void * ptr);
 ```
 
+## `ao_released`
+
 The callback for each call to `ao_release()`. This function must be implemented by the application.
 
 ```c
 void ao_released(ao_released_t const * info);
 ```
+
+## `ao_retain`
 
 Increment the reference count of a memory block, which means, that the calling thread of execution (once again) takes ownership thereof.
 
@@ -198,6 +212,8 @@ The return value indicates whether the operation has succeeded or failed. The la
 ```c
 bool ao_retain(void * ptr);
 ```
+
+## `ao_retained`
 
 The callback for each call to `ao_retain()`. This function must be implemented by the application.
 

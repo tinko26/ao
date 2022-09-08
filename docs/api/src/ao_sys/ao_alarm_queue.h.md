@@ -10,6 +10,8 @@ toc: true
 
 # Configuration
 
+## `AO_ALARM_QUEUE`
+
 Select the alarm queue implementation.
 
 ```c

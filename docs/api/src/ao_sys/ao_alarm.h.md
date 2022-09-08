@@ -17,22 +17,26 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_alarm_t ao_alarm_t;
-```
-
 # Configuration
 
+## `AO_ALARM_DELAY`
+
 ```c
-#define AO_ALARM_DELAY  (AO_MILLISECONDS(100))
+#define AO_ALARM_DELAY (AO_MILLISECONDS(100))
 ```
 
 # Constants
 
+## `AO_ALARM_UPDATE`
+
 ```c
 #define AO_ALARM_UPDATE (AO_TIME_MAX - AO_ALARM_DELAY + 1)
+```
+
+# Typedefs
+
+```c
+typedef struct ao_alarm_t ao_alarm_t;
 ```
 
 # Types
@@ -62,12 +66,17 @@ It consists of the following members.
 
 # Functions
 
+## `ao_alarm_start`
+## `ao_alarm_start_from`
+
 Start an alarm with a timeout and an optional beginning.
 
 ```c
 void ao_alarm_start(     ao_alarm_t * x, ao_time_t t);
 void ao_alarm_start_from(ao_alarm_t * x, ao_time_t t, ao_time_t b);
 ```
+
+## `ao_alarm_stop`
 
 Stop an alarm.
 

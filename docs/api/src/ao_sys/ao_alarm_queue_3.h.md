@@ -25,22 +25,21 @@ This module provides an implementation for the alarm queue based on a pointer-ba
 #include <stdbool.h>
 ```
 
-# Typedefs
-
-```c
-typedef ao_heap_t      ao_alarm_queue_t;
-```
-
-```c
-typedef ao_heap_node_t ao_alarm_queue_node_t;
-```
-
 # Configuration
+
+## `AO_ALARM_QUEUE_ASSERT`
 
 Assert the correctness of the alarm queue upon each insertion and removal in linear time. If that is not the case, a runtime assertion failure is triggered. This can aid in a debugging scenario.
 
 ```c
 #define AO_ALARM_QUEUE_ASSERT (false)
+```
+
+# Typedefs
+
+```c
+typedef ao_heap_t      ao_alarm_queue_t;
+typedef ao_heap_node_t ao_alarm_queue_node_t;
 ```
 
 # Types

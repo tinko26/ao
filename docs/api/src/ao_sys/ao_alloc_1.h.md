@@ -34,60 +34,69 @@ Due to its iterative approach, allocation is a linear-time operation. In contras
 #include <stddef.h>
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_alloc_pool_t      ao_alloc_pool_t;
-```
-
-```c
-typedef struct ao_alloc_pool_node_t ao_alloc_pool_node_t;
-```
-
-```c
-typedef struct ao_acquired_t        ao_acquired_t;
-```
-
-```c
-typedef struct ao_released_t        ao_released_t;
-```
-
-```c
-typedef struct ao_retained_t        ao_retained_t;
-```
-
 # Configuration
+
+## `AO_ALLOC_ALLOCATED`
+## `AO_ALLOC_ALLOCATED_MAX`
 
 Keep track of the current and maximum number of allocated bytes, respectively. If this configuration option is enabled, then the respective data is gathered both globally and for each pool.
 
 ```c
-#define AO_ALLOC_ALLOCATED           (false)
-#define AO_ALLOC_ALLOCATED_MAX       (false)
+#define AO_ALLOC_ALLOCATED     (false)
+#define AO_ALLOC_ALLOCATED_MAX (false)
 ```
+
+## `AO_ALLOC_FREE`
+## `AO_ALLOC_FREE_MIN`
 
 Keep track of the current and minimum number of free bytes, respectively. If this configuration option is enabled, then the respective data is gathered both globally and for each pool.
 
 ```c
-#define AO_ALLOC_FREE                (false)
-#define AO_ALLOC_FREE_MIN            (false)
+#define AO_ALLOC_FREE     (false)
+#define AO_ALLOC_FREE_MIN (false)
 ```
+
+## `AO_ALLOC_POOL_BLOCK_COUNT`
 
 The number of blocks in each pool.
 
 ```c
 #define AO_ALLOC_POOL_BLOCK_COUNT_0  (0)
 #define AO_ALLOC_POOL_BLOCK_COUNT_1  (0)
+```
+
 ...
+
+```c
 #define AO_ALLOC_POOL_BLOCK_COUNT_63 (0)
 ```
+
+## `AO_ALLOC_POOL_BLOCK_SIZE`
 
 The size of the blocks in each pool in bytes.
 
 ```c
-#define AO_ALLOC_POOL_BLOCK_SIZE_0   (0)
-#define AO_ALLOC_POOL_BLOCK_SIZE_1   (0)
+#define AO_ALLOC_POOL_BLOCK_SIZE_0  (0)
+#define AO_ALLOC_POOL_BLOCK_SIZE_1  (0)
+```
+
 ...
-#define AO_ALLOC_POOL_BLOCK_SIZE_63  (0)
+
+```c
+#define AO_ALLOC_POOL_BLOCK_SIZE_63 (0)
+```
+
+# Typedefs
+
+```c
+typedef struct ao_alloc_pool_t      ao_alloc_pool_t;
+typedef struct ao_alloc_pool_node_t ao_alloc_pool_node_t;
+```
+
+```c
+typedef struct ao_acquired_t ao_acquired_t;
+typedef struct ao_released_t ao_released_t;
+typedef struct ao_retained_t ao_retained_t;
 ```
 
 # Types
@@ -222,14 +231,23 @@ It consists of the following members.
 
 # Variables
 
+## `ao_alloc_pool`
+
 The pools.
 
 ```c
 extern ao_alloc_pool_t ao_alloc_pool_0;
 extern ao_alloc_pool_t ao_alloc_pool_1;
+```
+
 ...
+
+```c
 extern ao_alloc_pool_t ao_alloc_pool_63;
 ```
+
+## `ao_alloc_allocated`
+## `ao_alloc_allocated_max`
 
 The current and maximum number of allocated bytes, respectively.
 
@@ -237,6 +255,9 @@ The current and maximum number of allocated bytes, respectively.
 extern size_t volatile ao_alloc_allocated;
 extern size_t volatile ao_alloc_allocated_max;
 ```
+
+## `ao_alloc_free`
+## `ao_alloc_free_min`
 
 The current and minimum number of free bytes, respectively.
 

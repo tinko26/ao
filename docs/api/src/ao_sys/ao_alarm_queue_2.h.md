@@ -24,13 +24,9 @@ This module provides an implementation for the alarm queue based on an array-bas
 #include <stddef.h>
 ```
 
-# Typedefs
-
-```c
-typedef size_t ao_alarm_queue_node_t;
-```
-
 # Configuration
+
+## `AO_ALARM_QUEUE_ASSERT`
 
 Assert the correctness of the alarm queue upon each insertion and removal in linear time. If that is not the case, a runtime assertion failure is triggered. This can aid in a debugging scenario.
 
@@ -38,16 +34,26 @@ Assert the correctness of the alarm queue upon each insertion and removal in lin
 #define AO_ALARM_QUEUE_ASSERT    (false)
 ```
 
+## `AO_ALARM_QUEUE_CAPACITY`
+
 The capacity of the alarm queue.
 
 ```c
 #define AO_ALARM_QUEUE_CAPACITY  (128)
 ```
 
+## `AO_ALARM_QUEUE_COUNT_MAX`
+
 Keep track of the maximum number of nodes.
 
 ```c
 #define AO_ALARM_QUEUE_COUNT_MAX (false)
+```
+
+# Typedefs
+
+```c
+typedef size_t ao_alarm_queue_node_t;
 ```
 
 # Types
@@ -57,6 +63,9 @@ Keep track of the maximum number of nodes.
 This type represents an alarm queue node.
 
 # Variables
+
+## `ao_alarm_queue_count`
+## `ao_alarm_queue_count_max`
 
 The current and maximum numbers of nodes, respectively, in the alarm queue.
 
