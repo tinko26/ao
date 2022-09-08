@@ -14,6 +14,8 @@ toc: true
 
 # Functions
 
+## `ao_boot_sys_bmx`
+
 ```c
 #define ao_boot_sys_bmx()
 ```

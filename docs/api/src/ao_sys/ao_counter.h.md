@@ -20,9 +20,6 @@ toc: true
 
 ```c
 typedef struct ao_counter_t      ao_counter_t;
-```
-
-```c
 typedef struct ao_counter_wait_t ao_counter_wait_t;
 ```
 
@@ -99,58 +96,88 @@ This type represents a function to check whether a specific value is a match. Th
 
 # Functions
 
+## `ao_counter_adjust`
+
 ```c
 void ao_counter_adjust(ao_counter_t * x, ao_counter_adjust_t adjust, void * adjust_parameter);
 ```
+
+## `ao_counter_add`
 
 ```c
 void ao_counter_add(ao_counter_t * x, ao_uint_t value);
 ```
 
+## `ao_counter_decrement`
+
 ```c
 void ao_counter_decrement(ao_counter_t * x);
 ```
+
+## `ao_counter_divide`
 
 ```c
 void ao_counter_divide(ao_counter_t * x, ao_uint_t value);
 ```
 
+## `ao_counter_increment`
+
 ```c
 void ao_counter_increment(ao_counter_t * x);
 ```
+
+## `ao_counter_modulo`
 
 ```c
 void ao_counter_modulo(ao_counter_t * x, ao_uint_t value);
 ```
 
+## `ao_counter_multiply`
+
 ```c
 void ao_counter_multiply(ao_counter_t * x, ao_uint_t value);
 ```
+
+## `ao_counter_set`
 
 ```c
 void ao_counter_set(ao_counter_t * x, ao_uint_t value);
 ```
 
+## `ao_counter_subtract`
+
 ```c
 void ao_counter_subtract(ao_counter_t * x, ao_uint_t value);
 ```
 
+## `ao_counter_subtract_from`
+
 ```c
 void ao_counter_subtract_from(ao_counter_t * x, ao_uint_t value);
 ```
+
+## `ao_counter_wait`
+## `ao_counter_wait_from`
 
 ```c
 bool ao_counter_wait(     ao_counter_t * x, ao_uint_t value, ao_counter_match_t match, void * match_parameter, ao_time_t timeout);
 bool ao_counter_wait_from(ao_counter_t * x, ao_uint_t value, ao_counter_match_t match, void * match_parameter, ao_time_t timeout, ao_time_t beginning);
 ```
 
+## `ao_counter_wait_forever`
+
 ```c
 bool ao_counter_wait_forever(ao_counter_t * x, ao_uint_t value, ao_counter_match_t match, void * match_parameter);
 ```
 
+## `ao_counter_wait_try`
+
 ```c
 bool ao_counter_wait_try(ao_counter_t * x, ao_uint_t value, ao_counter_match_t match, void * match_parameter);
 ```
+
+## `ao_counter_wait_begin`
+## `ao_counter_wait_end`
 
 ```c
 void ao_counter_wait_begin(ao_counter_wait_t * x);

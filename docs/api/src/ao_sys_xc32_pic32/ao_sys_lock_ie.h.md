@@ -14,9 +14,13 @@ toc: true
 
 # Functions
 
+## `ao_sys_lock_ie`
+
 ```c
 #define ao_sys_lock_ie()
 ```
+
+## `ao_sys_unlock_ie`
 
 ```c
 #define ao_sys_unlock_ie(x)

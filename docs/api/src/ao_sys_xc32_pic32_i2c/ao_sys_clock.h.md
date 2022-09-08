@@ -8,6 +8,12 @@ toc: true
 
 # Constants
 
+## `AO_SYS_CLOCK_I2C1`
+## `AO_SYS_CLOCK_I2C2`
+## `AO_SYS_CLOCK_I2C3`
+## `AO_SYS_CLOCK_I2C4`
+## `AO_SYS_CLOCK_I2C5`
+
 The peripheral bus clock frequency for each I²C module, in Hertz.
 
 ```c

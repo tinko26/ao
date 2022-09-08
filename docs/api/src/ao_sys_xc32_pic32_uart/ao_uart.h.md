@@ -15,44 +15,43 @@ toc: true
 # Typedefs
 
 ```c
-typedef enum ao_uart_error_flags_t ao_uart_error_flags_t;
-```
+typedef enum   ao_uart_error_flags_t ao_uart_error_flags_t;
 
-```c
-typedef struct ao_uart_error_info_t ao_uart_error_info_t;
-```
+typedef struct ao_uart_error_info_t  ao_uart_error_info_t;
 
-```c
-typedef struct ao_uart_reg_t      ao_uart_reg_t;
-typedef struct ao_uart_reg_brg_t  ao_uart_reg_brg_t;
-typedef struct ao_uart_reg_mode_t ao_uart_reg_mode_t;
-typedef struct ao_uart_reg_rx_t   ao_uart_reg_rx_t;
-typedef struct ao_uart_reg_sta_t  ao_uart_reg_sta_t;
-typedef struct ao_uart_reg_tx_t   ao_uart_reg_tx_t;
+typedef struct ao_uart_reg_t         ao_uart_reg_t;
+typedef struct ao_uart_reg_brg_t     ao_uart_reg_brg_t;
+typedef struct ao_uart_reg_mode_t    ao_uart_reg_mode_t;
+typedef struct ao_uart_reg_rx_t      ao_uart_reg_rx_t;
+typedef struct ao_uart_reg_sta_t     ao_uart_reg_sta_t;
+typedef struct ao_uart_reg_tx_t      ao_uart_reg_tx_t;
 ```
 
 # Constants
 
-## `AO_UART_BRG`
+## `AO_UART_BRG_BITS`
 
 ```c
 #define AO_UART_BRG_BITS (16)
 ```
 
+## `AO_UART_BRG_MAX`
+## `AO_UART_BRG_MIN`
+
 ```c
-#define AO_UART_BRG_MAX  ((1 << (AO_UART_BRG_BITS)) - 1)
-#define AO_UART_BRG_MIN  (0)
+#define AO_UART_BRG_MAX ((1 << (AO_UART_BRG_BITS)) - 1)
+#define AO_UART_BRG_MIN (0)
 ```
 
-## `AO_UART_DATA_BITS`
+## `AO_UART_DATA_BITS_8_PARITY_NONE`
+## `AO_UART_DATA_BITS_8_PARITY_EVEN`
+## `AO_UART_DATA_BITS_8_PARITY_ODD`
+## `AO_UART_DATA_BITS_9_PARITY_NONE`
 
 ```c
 #define AO_UART_DATA_BITS_8_PARITY_NONE (0b00)
 #define AO_UART_DATA_BITS_8_PARITY_EVEN (0b01)
 #define AO_UART_DATA_BITS_8_PARITY_ODD  (0b10)
-```
-
-```c
 #define AO_UART_DATA_BITS_9_PARITY_NONE (0b11)
 ```
 
@@ -62,7 +61,8 @@ typedef struct ao_uart_reg_tx_t   ao_uart_reg_tx_t;
 #define AO_UART_FIFO_CAPACITY (8)
 ```
 
-## `AO_UART_STOP_BITS`
+## `AO_UART_STOP_BITS_ONE`
+## `AO_UART_STOP_BITS_TWO`
 
 ```c
 #define AO_UART_STOP_BITS_ONE (0)
@@ -325,46 +325,52 @@ It consists of the following members.
 
 # Functions
 
-```c
-#define AO_UART_BAUD_MAX(f_pbclk)
-```
-
-```c
-#define AO_UART_BAUD_MIN(f_pbclk)
-```
-
-```c
-#define AO_UART_BAUD_HIGH_MAX(f_pbclk)
-```
-
-```c
-#define AO_UART_BAUD_HIGH_MIN(f_pbclk)
-```
-
-```c
-#define AO_UART_BAUD_LOW_MAX(f_pbclk)
-```
-
-```c
-#define AO_UART_BAUD_LOW_MIN(f_pbclk)
-```
+## `ao_uart_baud`
 
 ```c
 void ao_uart_baud(ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f );
 ```
 
+## `AO_UART_BAUD_MAX`
+## `AO_UART_BAUD_MIN`
+
+```c
+#define AO_UART_BAUD_MAX(f_pbclk)
+#define AO_UART_BAUD_MIN(f_pbclk)
+```
+
+## `ao_uart_baud_high`
+
 ```c
 void ao_uart_baud_high(ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f );
 ```
+
+## `AO_UART_BAUD_HIGH_MAX`
+## `AO_UART_BAUD_HIGH_MIN`
+
+```c
+#define AO_UART_BAUD_HIGH_MAX(f_pbclk)
+#define AO_UART_BAUD_HIGH_MIN(f_pbclk)
+```
+
+## `ao_uart_baud_low`
 
 ```c
 void ao_uart_baud_low(ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f );
 ```
 
-```c
-void ao_uart_loopback_disable(ao_uart_reg_t * r);
-```
+## `AO_UART_BAUD_LOW_MAX`
+## `AO_UART_BAUD_LOW_MIN`
 
 ```c
-void ao_uart_loopback_enable(ao_uart_reg_t * r);
+#define AO_UART_BAUD_LOW_MAX(f_pbclk)
+#define AO_UART_BAUD_LOW_MIN(f_pbclk)
+```
+
+## `ao_uart_loopback_enable`
+## `ao_uart_loopback_disable`
+
+```c
+void ao_uart_loopback_enable( ao_uart_reg_t * r);
+void ao_uart_loopback_disable(ao_uart_reg_t * r);
 ```

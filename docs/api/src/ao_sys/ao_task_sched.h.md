@@ -8,6 +8,8 @@ toc: true
 
 # Configuration
 
+## `AO_TASK_SCHED`
+
 Select the task scheduler implementation.
 
 ```c

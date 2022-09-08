@@ -18,13 +18,7 @@ toc: true
 
 ```c
 typedef struct ao_async_t     ao_async_t;
-```
-
-```c
 typedef struct ao_async_all_t ao_async_all_t;
-```
-
-```c
 typedef struct ao_async_any_t ao_async_any_t;
 ```
 
@@ -95,19 +89,29 @@ It consists of the following members.
 
 # Functions
 
+## `ao_async_all_begin`
+## `ao_async_all_end`
+
 ```c
 void ao_async_all_begin(ao_async_all_t * x);
 void ao_async_all_end(  ao_async_all_t * x);
 ```
 
+## `ao_async_all_try`
+
 ```c
 void ao_async_all_try(ao_async_all_t * x);
 ```
+
+## `ao_async_any_begin`
+## `ao_async_any_end`
 
 ```c
 void ao_async_any_begin(ao_async_any_t * x);
 void ao_async_any_end(  ao_async_any_t * x);
 ```
+
+## `ao_async_any_try`
 
 ```c
 void ao_async_any_try(ao_async_any_t * x);

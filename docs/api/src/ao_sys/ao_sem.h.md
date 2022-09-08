@@ -22,9 +22,6 @@ toc: true
 
 ```c
 typedef struct ao_sem_t      ao_sem_t;
-```
-
-```c
 typedef struct ao_sem_take_t ao_sem_take_t;
 ```
 
@@ -72,30 +69,36 @@ It consists of the following members.
 
 # Functions
 
+## `ao_sem_give`
+
 ```c
 void ao_sem_give(ao_sem_t * x, ao_uint_t count);
 ```
 
-```c
-bool ao_sem_take(ao_sem_t * x, ao_uint_t count, ao_time_t timeout);
-```
+## `ao_sem_take`
+## `ao_sem_take_from`
 
 ```c
+bool ao_sem_take(     ao_sem_t * x, ao_uint_t count, ao_time_t timeout);
 bool ao_sem_take_from(ao_sem_t * x, ao_uint_t count, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_sem_take_forever`
 
 ```c
 bool ao_sem_take_forever(ao_sem_t * x, ao_uint_t count);
 ```
 
+## `ao_sem_take_try`
+
 ```c
 bool ao_sem_take_try(ao_sem_t * x, ao_uint_t count);
 ```
 
-```c
-void ao_sem_take_begin(ao_sem_take_t * x);
-```
+## `ao_sem_take_begin`
+## `ao_sem_take_end`
 
 ```c
-void ao_sem_take_end(ao_sem_take_t * x);
+void ao_sem_take_begin(ao_sem_take_t * x);
+void ao_sem_take_end(  ao_sem_take_t * x);
 ```

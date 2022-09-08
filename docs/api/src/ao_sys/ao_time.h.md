@@ -18,13 +18,9 @@ This module contains a couple of time-related definitions, that are based on a h
 #include <ao_count.h>
 ```
 
-# Typedefs
-
-```c
-typedef ao_count_t ao_time_t;
-```
-
 # Constants
+
+## `AO_INFINITY`
 
 Infinity.
 
@@ -32,11 +28,20 @@ Infinity.
 #define AO_INFINITY (AO_COUNT_MAX)
 ```
 
+## `AO_TIME_MAX`
+## `AO_TIME_MIN`
+
 The maximum and minimum time value, respectively.
 
 ```c
 #define AO_TIME_MAX (AO_COUNT_MAX)
 #define AO_TIME_MIN (AO_COUNT_MIN)
+```
+
+# Typedefs
+
+```c
+typedef ao_count_t ao_time_t;
 ```
 
 # Types
@@ -47,11 +52,21 @@ This type is an alias for the `ao_count_t` type. It represents both time points 
 
 # Functions
 
+## `ao_now`
+
 Get the current time point.
 
 ```c
 #define ao_now()
 ```
+
+## `AO_DAYS`
+## `AO_HOURS`
+## `AO_MINUTES`
+## `AO_SECONDS`
+## `AO_MILLISECONDS`
+## `AO_MICROSECOND`
+## `AO_NANOSECONDS`
 
 Convert a time span to an `ao_time_t` value.
 
@@ -59,11 +74,19 @@ Convert a time span to an `ao_time_t` value.
 #define AO_DAYS(x)
 #define AO_HOURS(x)
 #define AO_MINUTES(x)
-#define AO_MICROSECONDS(x)
-#define AO_MILLISECONDS(x)
-#define AO_NANOSECONDS(x)
 #define AO_SECONDS(x)
+#define AO_MILLISECONDS(x)
+#define AO_MICROSECONDS(x)
+#define AO_NANOSECONDS(x)
 ```
+
+## `AO_DAYS_FROM_TIME`
+## `AO_HOURS_FROM_TIME`
+## `AO_MINUTES_FROM_TIME`
+## `AO_SECONDS_FROM_TIME`
+## `AO_MILLISECONDS_FROM_TIME`
+## `AO_MICROSECOND_FROM_TIME`
+## `AO_NANOSECONDS_FROM_TIME`
 
 Convert a time span from an `ao_time_t` value.
 
@@ -71,8 +94,8 @@ Convert a time span from an `ao_time_t` value.
 #define AO_DAYS_FROM_TIME(x)
 #define AO_HOURS_FROM_TIME(x)
 #define AO_MINUTES_FROM_TIME(x)
-#define AO_MICROSECONDS_FROM_TIME(x)
-#define AO_MILLISECONDS_FROM_TIME(x)
-#define AO_NANOSECONDS_FROM_TIME(x)
 #define AO_SECONDS_FROM_TIME(x)
+#define AO_MILLISECONDS_FROM_TIME(x)
+#define AO_MICROSECONDS_FROM_TIME(x)
+#define AO_NANOSECONDS_FROM_TIME(x)
 ```

@@ -6,21 +6,27 @@ permalink: /api/src/ao_sys/ao_button.h/
 toc: true
 ---
 
+# Constants
+
+## `AO_BUTTON_COUNT`
+
+The number of buttons.
+
+```c
+#define AO_BUTTON_COUNT (0)
+```
+
 # Typedefs
 
 ```c
 typedef enum ao_buttons_t ao_buttons_t;
 ```
 
-# Constants
-
-```c
-#define AO_BUTTON_COUNT (0)
-```
-
 # Types
 
 ## `ao_buttons_t`
+
+This type represents buttons.
 
 ```c
 enum ao_buttons_t
@@ -30,12 +36,16 @@ enum ao_buttons_t
 };
 ```
 
-It consists of the following members.
+It is used as a bitmask and defines at least the following symbols.
 
-| `AO_BUTTONS_ALL` | |
-| `AO_BUTTONS_NONE` | |
+| `AO_BUTTONS_ALL` | Represents all buttons. |
+| `AO_BUTTONS_NONE` | Represents no buttons. |
 
 # Functions
+
+## `ao_buttons`
+
+Gets the buttons that are pressed.
 
 ```c
 ao_buttons_t ao_buttons();

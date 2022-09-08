@@ -20,13 +20,7 @@ toc: true
 
 ```c
 typedef struct ao_queue4ptr_t   ao_queue4ptr_t;
-```
-
-```c
 typedef struct ao_qinsert_ptr_t ao_qinsert_ptr_t;
-```
-
-```c
 typedef struct ao_qpop_ptr_t    ao_qpop_ptr_t;
 ```
 
@@ -99,74 +93,86 @@ It consists of the following members.
 
 # Functions
 
-```c
-void ao_qinsert_acq(ao_qinsert_ptr_t * x, ao_time_t timeout);
-```
+## `ao_qinsert_acq`
+## `ao_qinsert_acq_from`
 
 ```c
+void ao_qinsert_acq(     ao_qinsert_ptr_t * x, ao_time_t timeout);
 void ao_qinsert_acq_from(ao_qinsert_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_qinsert_acq_forever`
 
 ```c
 void ao_qinsert_acq_forever(ao_qinsert_ptr_t * x);
 ```
 
+## `ao_qinsert_acq_try`
+
 ```c
 void ao_qinsert_acq_try(ao_qinsert_ptr_t * x);
 ```
 
+## `ao_qinsert_acq_begin`
+## `ao_qinsert_acq_end`
+
 ```c
 void ao_qinsert_acq_begin(ao_qinsert_ptr_t * x);
+void ao_qinsert_acq_end(  ao_qinsert_ptr_t * x);
 ```
 
-```c
-void ao_qinsert_acq_end(ao_qinsert_ptr_t * x);
-```
+## `ao_qinsert_ptr`
+## `ao_qinsert_ptr_from`
 
 ```c
-void ao_qinsert_ptr(ao_qinsert_ptr_t * x, ao_time_t timeout);
-```
-
-```c
+void ao_qinsert_ptr(     ao_qinsert_ptr_t * x, ao_time_t timeout);
 void ao_qinsert_ptr_from(ao_qinsert_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_qinsert_ptr_forever`
 
 ```c
 void ao_qinsert_ptr_forever(ao_qinsert_ptr_t * x);
 ```
 
+## `ao_qinsert_ptr_try`
+
 ```c
 void ao_qinsert_ptr_try(ao_qinsert_ptr_t * x);
 ```
 
+## `ao_qinsert_ptr_begin`
+## `ao_qinsert_ptr_end`
+
 ```c
 void ao_qinsert_ptr_begin(ao_qinsert_ptr_t * x);
+void ao_qinsert_ptr_end(  ao_qinsert_ptr_t * x);
 ```
 
-```c
-void ao_qinsert_ptr_end(ao_qinsert_ptr_t * x);
-```
+## `ao_qpop_ptr`
+## `ao_qpop_ptr_from`
 
 ```c
-void ao_qpop_ptr(ao_qpop_ptr_t * x, ao_time_t timeout);
-```
-
-```c
+void ao_qpop_ptr(     ao_qpop_ptr_t * x, ao_time_t timeout);
 void ao_qpop_ptr_from(ao_qpop_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_qpop_ptr_forever`
 
 ```c
 void ao_qpop_ptr_forever(ao_qpop_ptr_t * x);
 ```
 
+## `ao_qpop_ptr_try`
+
 ```c
 void ao_qpop_ptr_try(ao_qpop_ptr_t * x);
 ```
 
-```c
-void ao_qpop_ptr_begin(ao_qpop_ptr_t * x);
-```
+## `ao_qpop_ptr_begin`
+## `ao_qpop_ptr_end`
 
 ```c
-void ao_qpop_ptr_end(ao_qpop_ptr_t * x);
+void ao_qpop_ptr_begin(ao_qpop_ptr_t * x);
+void ao_qpop_ptr_end(  ao_qpop_ptr_t * x);
 ```

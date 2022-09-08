@@ -20,13 +20,15 @@ This module defines functions for spinning or busy waiting, respectively, that c
 
 # Functions
 
-```c
-void ao_spin(ao_time_t timeout);
-```
+## `ao_spin`
+## `ao_spin_from`
 
 ```c
+void ao_spin(ao_time_t timeout);
 void ao_spin_from(ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_spin_forever`
 
 ```c
 void ao_spin_forever();

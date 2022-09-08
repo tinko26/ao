@@ -20,6 +20,8 @@ This module contains a single function that executes a breakpoint, if the applic
 
 # Functions
 
+## `ao_break`
+
 ```c
 #define ao_break()
 ```

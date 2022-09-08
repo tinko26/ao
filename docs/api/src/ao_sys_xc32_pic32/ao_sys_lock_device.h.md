@@ -39,10 +39,10 @@ It consists of the following members.
 
 # Functions
 
-```c
-void ao_sys_unlock_device(ao_sys_lock_device_t * x);
-```
+## `ao_sys_unlock_device`
+## `ao_sys_lock_device`
 
 ```c
-void ao_sys_lock_device(ao_sys_lock_device_t * x);
+void ao_sys_unlock_device(ao_sys_lock_device_t * x);
+void ao_sys_lock_device(  ao_sys_lock_device_t * x);
 ```

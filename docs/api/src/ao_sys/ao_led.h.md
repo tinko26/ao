@@ -8,21 +8,27 @@ permalink: /api/src/ao_sys/ao_led.h/
 toc: true
 ---
 
+# Constants
+
+## `AO_LED_COUNT`
+
+The number of LEDs.
+
+```c
+#define AO_LED_COUNT (0)
+```
+
 # Typedefs
 
 ```c
 typedef enum ao_leds_t ao_leds_t;
 ```
 
-# Constants
-
-```c
-#define AO_LED_COUNT (0)
-```
-
 # Types
 
 ## `ao_leds_t`
+
+This type represents LEDs.
 
 ```c
 enum ao_leds_t
@@ -32,25 +38,29 @@ enum ao_leds_t
 };
 ```
 
-It consists of the following members.
+It is used as a bitmask and defines at least the following symbols.
 
-| `AO_LEDS_ALL` | |
-| `AO_LEDS_NONE` | |
+| `AO_LEDS_ALL` | Represents all LEDs. |
+| `AO_LEDS_NONE` | Represents no LEDs. |
 
 # Functions
+
+## `ao_leds`
+
+Gets the LEDs that are enabled.
 
 ```c
 ao_leds_t ao_leds();
 ```
 
+## `ao_leds_enable`
+## `ao_leds_disable`
+## `ao_leds_toggle`
+
+Enable, disable, or toggle, respectively, the specified LEDs.
+
 ```c
+void ao_leds_enable( ao_leds_t x);
 void ao_leds_disable(ao_leds_t x);
-```
-
-```c
-void ao_leds_enable(ao_leds_t x);
-```
-
-```c
-void ao_leds_toggle(ao_leds_t x);
+void ao_leds_toggle( ao_leds_t x);
 ```

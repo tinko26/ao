@@ -20,7 +20,7 @@ toc: true
 
 # Constants
 
-## `AO_UART`
+## `AO_UART_5`
 
 Indicates whether the UART module is available.
 
@@ -28,7 +28,8 @@ Indicates whether the UART module is available.
 #define AO_UART_5
 ```
 
-## `AO_UART_BAUD`
+## `AO_UART_BAUD_MAX_5`
+## `AO_UART_BAUD_MIN_5`
 
 The maximum and minimum baud rate.
 
@@ -37,14 +38,16 @@ The maximum and minimum baud rate.
 #define AO_UART_BAUD_MIN_5
 ```
 
-## `AO_UART_BAUD_HIGH`
+## `AO_UART_BAUD_HIGH_MAX_5`
+## `AO_UART_BAUD_HIGH_MIN_5`
 
 ```c
 #define AO_UART_BAUD_HIGH_MAX_5
 #define AO_UART_BAUD_HIGH_MIN_5
 ```
 
-## `AO_UART_BAUD_LOW`
+## `AO_UART_BAUD_LOW_MAX_5`
+## `AO_UART_BAUD_LOW_MIN_5`
 
 ```c
 #define AO_UART_BAUD_LOW_MAX_5
@@ -53,43 +56,43 @@ The maximum and minimum baud rate.
 
 # Configuration
 
-## `AO_UART_BAUD`
+## `AO_UART_BAUD_5`
 
 ```c
 #define AO_UART_BAUD_5 (9600)
 ```
 
-## `AO_UART_DATA_BITS_PARITY`
+## `AO_UART_DATA_BITS_PARITY_5`
 
 ```c
 #define AO_UART_DATA_BITS_PARITY_5 (AO_UART_DATA_BITS_8_PARITY_NONE)
 ```
 
-## `AO_UART_ERROR`
+## `AO_UART_ERROR_5`
 
 ```c
 #define AO_UART_ERROR_5 (false)
 ```
 
-## `AO_UART_LOOPBACK`
+## `AO_UART_LOOPBACK_5`
 
 ```c
 #define AO_UART_LOOPBACK_5 (false)
 ```
 
-## `AO_UART_RX`
+## `AO_UART_RX_5`
 
 ```c
 #define AO_UART_RX_5 (false)
 ```
 
-## `AO_UART_STOP_BITS`
+## `AO_UART_STOP_BITS_5`
 
 ```c
 #define AO_UART_STOP_BITS_5 (AO_UART_STOP_BITS_ONE)
 ```
 
-## `AO_UART_TX`
+## `AO_UART_TX_5`
 
 ```c
 #define AO_UART_TX_5 (false)
@@ -97,53 +100,75 @@ The maximum and minimum baud rate.
 
 # Functions
 
+## `ao_uart_baud_5`
+
 ```c
 #define ao_uart_baud_5(f)
 ```
+
+## `ao_uart_baud_high_5`
 
 ```c
 #define ao_uart_baud_high_5(f)
 ```
 
+## `ao_uart_baud_low_5`
+
 ```c
 #define ao_uart_baud_low_5(f)
 ```
 
-```c
-#define ao_uart_loopback_disable_5()
-```
-
-```c
-#define ao_uart_loopback_enable_5()
-```
-
-```c
-#define ao_uart_reg_5()
-```
+## `ao_uart_config_5`
 
 ```c
 void ao_uart_config_5();
 ```
 
+## `ao_uart_config_baud_5`
+
 ```c
 void ao_uart_config_baud_5();
 ```
+
+## `ao_uart_config_frame_5`
 
 ```c
 void ao_uart_config_frame_5();
 ```
 
+## `ao_uart_config_loopback_5`
+
 ```c
 void ao_uart_config_loopback_5();
 ```
+
+## `ao_uart_error_5`
 
 ```c
 void ao_uart_error_5(ao_uart_error_info_t const * info);
 ```
 
+## `ao_uart_loopback_enable_5`
+## `ao_uart_loopback_disable_5`
+
+```c
+#define ao_uart_loopback_enable_5()
+#define ao_uart_loopback_disable_5()
+```
+
+## `ao_uart_reg_5`
+
+```c
+#define ao_uart_reg_5()
+```
+
+## `ao_uart_start_5`
+
 ```c
 void ao_uart_start_5();
 ```
+
+## `ao_uart_stop_5`
 
 ```c
 void ao_uart_stop_5();
@@ -151,13 +176,19 @@ void ao_uart_stop_5();
 
 # Variables
 
+## `ao_uart_in_5`
+
 ```c
 extern ao_send_t ao_uart_in_5;
 ```
 
+## `ao_uart_out_5`
+
 ```c
 extern ao_recv_t ao_uart_out_5;
 ```
+
+## `ao_uart_task_5`
 
 ```c
 extern ao_task_t ao_uart_task_5;

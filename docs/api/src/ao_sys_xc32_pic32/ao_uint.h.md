@@ -17,15 +17,10 @@ This module defines the fastest unsigned integer type available on the target pl
 #include <xc.h>
 ```
 
-# Typedefs
-
-The `ao_uint_t` type represents the fastest unsigned integer type of the target platform. It is an alias for the `uint32_t` fixed-width unsigned integer type defined by the standard library.
-
-```c
-typedef uint32_t ao_uint_t;
-```
-
 # Constants
+
+## `AO_UINT_BITS`
+## `AO_UINT_BITS_LOG`
 
 The size in bits and the base-2 logarithm thereof.
 
@@ -34,20 +29,42 @@ The size in bits and the base-2 logarithm thereof.
 #define AO_UINT_BITS_LOG (5)
 ```
 
+## `AO_UINT_MAX`
+## `AO_UINT_MIN`
+
 The maximum and minimum value.
 
 ```c
-#define AO_UINT_MAX      (UINT32_MAX)
-#define AO_UINT_MIN      (0)
+#define AO_UINT_MAX (UINT32_MAX)
+#define AO_UINT_MIN (0)
 ```
+
+## `AO_UINT_SIZE`
 
 The size in bytes.
 
 ```c
-#define AO_UINT_SIZE     (4)
+#define AO_UINT_SIZE (4)
 ```
 
+# Typedefs
+
+```c
+typedef uint32_t ao_uint_t;
+```
+
+# Types
+
+## `ao_uint_t`
+
+This type represents the fastest unsigned integer type of the target platform. It defined to be the `uint32_t` type defined by the standard library.
+
 # Functions
+
+## `ao_clou`
+## `ao_clzu`
+## `ao_ctou`
+## `ao_ctzu`
 
 Count the number of leading or trailing ones or zeros, respectively.
 
@@ -58,6 +75,9 @@ Count the number of leading or trailing ones or zeros, respectively.
 #define ao_ctzu(x)
 ```
 
+## `ao_ffsu`
+## `ao_flsu`
+
 Find the first or last set bit, respectively.
 
 ```c
@@ -65,11 +85,20 @@ Find the first or last set bit, respectively.
 #define ao_flsu(x)
 ```
 
+## `AO_LOG2U`
+
 Calculate the base-2 logarithm.
 
 ```c
 #define AO_LOG2U(x)
 ```
+
+## `AO_LOG2U2`
+## `AO_LOG2U4`
+## `AO_LOG2U8`
+## `AO_LOG2U16`
+## `AO_LOG2U32`
+## `AO_LOG2U64`
 
 Calculate the base-2 logarithm for a fixed-width unsigned integer.
 

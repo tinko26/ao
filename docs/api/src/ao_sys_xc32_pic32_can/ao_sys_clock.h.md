@@ -8,6 +8,11 @@ toc: true
 
 # Constants
 
+## `AO_SYS_CLOCK_CAN1`
+## `AO_SYS_CLOCK_CAN2`
+## `AO_SYS_CLOCK_CAN3`
+## `AO_SYS_CLOCK_CAN4`
+
 The peripheral bus clock frequency for each CAN module, in Hertz.
 
 ```c

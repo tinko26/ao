@@ -330,97 +330,117 @@ It consists of the following members.
 
 # Functions
 
-```c
-bool ao_i2c_ack(ao_i2c_reg_t * r, ao_time_t t);
-```
+## `ao_i2c_ack`
+## `ao_i2c_ack_from`
 
 ```c
+bool ao_i2c_ack(     ao_i2c_reg_t * r, ao_time_t t);
 bool ao_i2c_ack_from(ao_i2c_reg_t * r, ao_time_t t, ao_time_t b);
 ```
+
+## `ao_i2c_ack_forever`
 
 ```c
 bool ao_i2c_ack_forever(ao_i2c_reg_t * r);
 ```
 
+## `ao_i2c_acked`
+
 ```c
 bool ao_i2c_acked(ao_i2c_reg_t const * r);
 ```
+
+## `ao_i2c_baud`
 
 ```c
 void ao_i2c_baud(ao_i2c_reg_t * r, uint32_t f_pbclk, uint32_t f);
 ```
 
-```c
-bool ao_i2c_nack(ao_i2c_reg_t * r, ao_time_t t);
-```
+## `ao_i2c_nack`
+## `ao_i2c_nack_from`
 
 ```c
+bool ao_i2c_nack(     ao_i2c_reg_t * r, ao_time_t t);
 bool ao_i2c_nack_from(ao_i2c_reg_t * r, ao_time_t t, ao_time_t b);
 ```
+
+## `ao_i2c_nack_forever`
 
 ```c
 bool ao_i2c_nack_forever(ao_i2c_reg_t * r);
 ```
 
+## `ao_i2c_nacked`
+
 ```c
 bool ao_i2c_nacked(ao_i2c_reg_t const * r);
 ```
 
-```c
-bool ao_i2c_recv(ao_i2c_reg_t * r, uint8_t * v, ao_time_t t);
-```
+## `ao_i2c_recv`
+## `ao_i2c_recv_from`
 
 ```c
+bool ao_i2c_recv(     ao_i2c_reg_t * r, uint8_t * v, ao_time_t t);
 bool ao_i2c_recv_from(ao_i2c_reg_t * r, uint8_t * v, ao_time_t t, ao_time_t b);
 ```
+
+## `ao_i2c_recv_forever`
 
 ```c
 bool ao_i2c_recv_forever(ao_i2c_reg_t * r, uint8_t * v);
 ```
 
-```c
-bool ao_i2c_restart(ao_i2c_reg_t * r, ao_time_t t);
-```
+## `ao_i2c_restart`
+## `ao_i2c_restart_from`
 
 ```c
+bool ao_i2c_restart(     ao_i2c_reg_t * r, ao_time_t t);
 bool ao_i2c_restart_from(ao_i2c_reg_t * r, ao_time_t t, ao_time_t b);
 ```
+
+## `ao_i2c_restart_forever`
 
 ```c
 bool ao_i2c_restart_forever(ao_i2c_reg_t * r);
 ```
 
-```c
-bool ao_i2c_send(ao_i2c_reg_t * r, uint8_t v, ao_time_t t);
-```
+## `ao_i2c_send`
+## `ao_i2c_send_from`
 
 ```c
+bool ao_i2c_send(     ao_i2c_reg_t * r, uint8_t v, ao_time_t t);
 bool ao_i2c_send_from(ao_i2c_reg_t * r, uint8_t v, ao_time_t t, ao_time_t b);
 ```
+
+## `ao_i2c_send_forever`
 
 ```c
 bool ao_i2c_send_forever(ao_i2c_reg_t * r, uint8_t v);
 ```
 
-```c
-bool ao_i2c_start(ao_i2c_reg_t * r, ao_time_t t);
-```
+## `ao_i2c_start`
+## `ao_i2c_start_from`
 
 ```c
+bool ao_i2c_start(     ao_i2c_reg_t * r, ao_time_t t);
 bool ao_i2c_start_from(ao_i2c_reg_t * r, ao_time_t t, ao_time_t b);
 ```
+
+## `ao_i2c_start_forever`
 
 ```c
 bool ao_i2c_start_forever(ao_i2c_reg_t * r);
 ```
 
-```c
-bool ao_i2c_stop(ao_i2c_reg_t * r, ao_time_t t);
-```
+## `ao_i2c_stop`
+## `ao_i2c_stop_from`
 
 ```c
+bool ao_i2c_stop(     ao_i2c_reg_t * r, ao_time_t t);
 bool ao_i2c_stop_from(ao_i2c_reg_t * r, ao_time_t t, ao_time_t b);
 ```
+
+## `ao_i2c_stop_forever`
 
 ```c
 bool ao_i2c_stop_forever(ao_i2c_reg_t * r);

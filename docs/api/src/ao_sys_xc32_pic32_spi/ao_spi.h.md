@@ -26,21 +26,24 @@ typedef struct ao_spi_reg_stat_t ao_spi_reg_stat_t;
 
 # Constants
 
-## `AO_SPI_BRG`
+## `AO_SPI_BRG_BITS`
 
 ```c
 #define AO_SPI_BRG_BITS (13)
 ```
 
+## `AO_SPI_BRG_MAX`
+## `AO_SPI_BRG_MIN`
+
 ```c
-#define AO_SPI_BRG_MAX  ((1 << (AO_SPI_BRG_BITS)) - 1)
-#define AO_SPI_BRG_MIN  (0)
+#define AO_SPI_BRG_MAX ((1 << (AO_SPI_BRG_BITS)) - 1)
+#define AO_SPI_BRG_MIN (0)
 ```
 
 ## `AO_SPI_ENHBUF`
 
 ```c
-#define AO_SPI_ENHBUF   (true)
+#define AO_SPI_ENHBUF (true)
 ```
 
 # Types
@@ -293,14 +296,16 @@ It consists of the following members.
 
 # Functions
 
+## `ao_spi_baud`
+
+```c
+void ao_spi_baud(ao_spi_reg_t * r, uint32_t f_pbclk, uint32_t f );
+```
+
+## `AO_SPI_BAUD_MAX`
+## `AO_SPI_BAUD_MIN`
+
 ```c
 #define AO_SPI_BAUD_MAX(f_pbclk)
-```
-
-```c
 #define AO_SPI_BAUD_MIN(f_pbclk)
-```
-
-```c
-void ao_spi_baud (ao_spi_reg_t * r, uint32_t f_pbclk, uint32_t f );
 ```

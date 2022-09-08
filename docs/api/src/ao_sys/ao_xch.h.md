@@ -29,13 +29,7 @@ toc: true
 
 ```c
 typedef struct ao_xch_t        ao_xch_t;
-```
-
-```c
 typedef struct ao_xch_client_t ao_xch_client_t;
-```
-
-```c
 typedef struct ao_xch_server_t ao_xch_server_t;
 ```
 
@@ -132,49 +126,57 @@ It consists of the following members.
 
 # Functions
 
-```c
-void ao_xch_client(ao_xch_client_t * x, ao_time_t timeout);
-```
+## `ao_xch_client`
+## `ao_xch_client_from`
 
 ```c
+void ao_xch_client(     ao_xch_client_t * x, ao_time_t timeout);
 void ao_xch_client_from(ao_xch_client_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_xch_client_forever`
 
 ```c
 void ao_xch_client_forever(ao_xch_client_t * x);
 ```
 
+## `ao_xch_client_begin`
+## `ao_xch_client_end`
+
 ```c
 void ao_xch_client_begin(ao_xch_client_t * x);
+void ao_xch_client_end(  ao_xch_client_t * x);
 ```
 
-```c
-void ao_xch_client_end(ao_xch_client_t * x);
-```
+## `ao_xch_server`
+## `ao_xch_server_from`
 
 ```c
-void ao_xch_server(ao_xch_server_t * x, ao_time_t timeout);
-```
-
-```c
+void ao_xch_server(     ao_xch_server_t * x, ao_time_t timeout);
 void ao_xch_server_from(ao_xch_server_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_xch_server_forever`
 
 ```c
 void ao_xch_server_forever(ao_xch_server_t * x);
 ```
 
+## `ao_xch_server_try`
+
 ```c
 void ao_xch_server_try(ao_xch_server_t * x);
 ```
 
-```c
-void ao_xch_server_begin(ao_xch_server_t * x);
-```
+## `ao_xch_server_begin`
+## `ao_xch_server_end`
 
 ```c
-void ao_xch_server_end(ao_xch_server_t * x);
+void ao_xch_server_begin(ao_xch_server_t * x);
+void ao_xch_server_end(  ao_xch_server_t * x);
 ```
+
+## `ao_xch_server_reply`
 
 ```c
 void ao_xch_server_reply(ao_xch_server_t * x);

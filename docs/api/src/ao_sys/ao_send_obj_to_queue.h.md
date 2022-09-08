@@ -18,6 +18,8 @@ toc: true
 
 # Functions
 
+## `ao_send_obj_to_queue`
+
 ```c
 void ao_send_obj_to_queue(ao_send_obj_t * x, ao_qinsert_obj_t * y);
 ```

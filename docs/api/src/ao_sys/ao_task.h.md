@@ -37,20 +37,6 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_task_t             ao_task_t;
-```
-
-```c
-typedef enum ao_task_state_t         ao_task_state_t;
-```
-
-```c
-typedef enum ao_task_state_pending_t ao_task_state_pending_t;
-```
-
 # Configuration
 
 ```c
@@ -67,6 +53,15 @@ typedef enum ao_task_state_pending_t ao_task_state_pending_t;
 
 ```c
 #define AO_TASK_TIME  (false)
+```
+
+# Typedefs
+
+```c
+typedef struct ao_task_t               ao_task_t;
+
+typedef enum   ao_task_state_t         ao_task_state_t;
+typedef enum   ao_task_state_pending_t ao_task_state_pending_t;
 ```
 
 # Types
@@ -241,6 +236,8 @@ It consists of the following members.
 
 # Functions
 
+## `ao_task_entry`
+
 The entry point for each task. It takes the respective task as its only argument.
 
 First, this function calls the task procedure, if specified. Then, after the task procedure has returned, it locks the task in an infinite loop, in order to avoid to return accidentally.
@@ -249,241 +246,156 @@ First, this function calls the task procedure, if specified. Then, after the tas
 void ao_task_entry(ao_task_t const * t);
 ```
 
-```c
-ao_uint_t ao_task_get_count_activate(ao_task_t const * t);
-```
+## `ao_task_get_count`
 
 ```c
-ao_uint_t ao_task_get_count_block(ao_task_t const * t);
-```
-
-```c
+ao_uint_t ao_task_get_count_activate(  ao_task_t const * t);
+ao_uint_t ao_task_get_count_block(     ao_task_t const * t);
 ao_uint_t ao_task_get_count_inactivate(ao_task_t const * t);
-```
-
-```c
-ao_uint_t ao_task_get_count_resume(ao_task_t const * t);
-```
-
-```c
-ao_uint_t ao_task_get_count_start(ao_task_t const * t);
-```
-
-```c
-ao_uint_t ao_task_get_count_stop(ao_task_t const * t);
-```
-
-```c
-ao_uint_t ao_task_get_count_suspend(ao_task_t const * t);
-```
-
-```c
-ao_uint_t ao_task_get_count_switch_in(ao_task_t const * t);
-```
-
-```c
+ao_uint_t ao_task_get_count_resume(    ao_task_t const * t);
+ao_uint_t ao_task_get_count_start(     ao_task_t const * t);
+ao_uint_t ao_task_get_count_stop(      ao_task_t const * t);
+ao_uint_t ao_task_get_count_suspend(   ao_task_t const * t);
+ao_uint_t ao_task_get_count_switch_in( ao_task_t const * t);
 ao_uint_t ao_task_get_count_switch_out(ao_task_t const * t);
+ao_uint_t ao_task_get_count_unblock(   ao_task_t const * t);
 ```
 
-```c
-ao_uint_t ao_task_get_count_unblock(ao_task_t const * t);
-```
+## `ao_task_get_id`
 
 ```c
 ao_uint_t ao_task_get_id(ao_task_t const * t);
 ```
 
+## `ao_task_get_name`
+
 ```c
 char const * ao_task_get_name(ao_task_t const * t);
 ```
 
-```c
-ao_proc_t ao_task_get_proc(ao_task_t const * t);
-```
+## `ao_task_get_proc`
 
 ```c
-void * ao_task_get_proc_parameter(ao_task_t const * t);
+ao_proc_t ao_task_get_proc(          ao_task_t const * t);
+void *    ao_task_get_proc_parameter(ao_task_t const * t);
 ```
+
+## `ao_task_get_state`
 
 ```c
 ao_task_state_t ao_task_get_state(ao_task_t const * t);
 ```
 
+## `ao_task_get_state_pending`
+
 ```c
 ao_task_state_pending_t ao_task_get_state_pending(ao_task_t const * t);
 ```
 
-```c
-ao_time_t ao_task_get_time_point_activation(ao_task_t const * t);
-```
+## `ao_task_get_time_point`
 
 ```c
+ao_time_t ao_task_get_time_point_activation(  ao_task_t const * t);
 ao_time_t ao_task_get_time_point_inactivation(ao_task_t const * t);
+ao_time_t ao_task_get_time_point_start(       ao_task_t const * t);
+ao_time_t ao_task_get_time_point_stop(        ao_task_t const * t);
+ao_time_t ao_task_get_time_point_switch_in(   ao_task_t const * t);
+ao_time_t ao_task_get_time_point_switch_out(  ao_task_t const * t);
 ```
 
-```c
-ao_time_t ao_task_get_time_point_start(ao_task_t const * t);
-```
+## `ao_task_get_time_span`
 
 ```c
-ao_time_t ao_task_get_time_point_stop(ao_task_t const * t);
-```
-
-```c
-ao_time_t ao_task_get_time_point_switch_in(ao_task_t const * t);
-```
-
-```c
-ao_time_t ao_task_get_time_point_switch_out(ao_task_t const * t);
-```
-
-```c
-ao_time_t ao_task_get_time_span_active(ao_task_t const * t);
-```
-
-```c
-ao_time_t ao_task_get_time_span_down(ao_task_t const * t);
-```
-
-```c
+ao_time_t ao_task_get_time_span_active(  ao_task_t const * t);
+ao_time_t ao_task_get_time_span_down(    ao_task_t const * t);
 ao_time_t ao_task_get_time_span_inactive(ao_task_t const * t);
+ao_time_t ao_task_get_time_span_up(      ao_task_t const * t);
 ```
 
-```c
-ao_time_t ao_task_get_time_span_up(ao_task_t const * t);
-```
+## `ao_task_is`
 
 ```c
-bool ao_task_is_active(ao_task_t const * t);
-```
-
-```c
-bool ao_task_is_blocked(ao_task_t const * t);
-```
-
-```c
-bool ao_task_is_blocking(ao_task_t const * t);
-```
-
-```c
-bool ao_task_is_ready(ao_task_t const * t);
-```
-
-```c
-bool ao_task_is_running(ao_task_t const * t);
-```
-
-```c
-bool ao_task_is_started(ao_task_t const * t);
-```
-
-```c
-bool ao_task_is_stopped(ao_task_t const * t);
-```
-
-```c
-bool ao_task_is_stopping(ao_task_t const * t);
-```
-
-```c
+bool ao_task_is_active(     ao_task_t const * t);
+bool ao_task_is_blocked(    ao_task_t const * t);
+bool ao_task_is_blocking(   ao_task_t const * t);
+bool ao_task_is_ready(      ao_task_t const * t);
+bool ao_task_is_running(    ao_task_t const * t);
+bool ao_task_is_started(    ao_task_t const * t);
+bool ao_task_is_stopped(    ao_task_t const * t);
+bool ao_task_is_stopping(   ao_task_t const * t);
 bool ao_task_is_suspendable(ao_task_t const * t);
+bool ao_task_is_suspended(  ao_task_t const * t);
+bool ao_task_is_suspending( ao_task_t const * t);
+bool ao_task_is_yielding(   ao_task_t const * t);
 ```
 
-```c
-bool ao_task_is_suspended(ao_task_t const * t);
-```
-
-```c
-bool ao_task_is_suspending(ao_task_t const * t);
-```
-
-```c
-bool ao_task_is_yielding(ao_task_t const * t);
-```
+## `ao_task_resume`
 
 ```c
 void ao_task_resume(ao_task_t * t);
 ```
 
-```c
-void ao_task_set_count_activate(ao_task_t * t, ao_uint_t x);
-```
+## `ao_task_set_count`
 
 ```c
-void ao_task_set_count_block(ao_task_t * t, ao_uint_t x);
-```
-
-```c
+void ao_task_set_count_activate(  ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_block(     ao_task_t * t, ao_uint_t x);
 void ao_task_set_count_inactivate(ao_task_t * t, ao_uint_t x);
-```
-
-```c
-void ao_task_set_count_resume(ao_task_t * t, ao_uint_t x);
-```
-
-```c
-void ao_task_set_count_start(ao_task_t * t, ao_uint_t x);
-```
-
-```c
-void ao_task_set_count_stop(ao_task_t * t, ao_uint_t x);
-```
-
-```c
-void ao_task_set_count_suspend(ao_task_t * t, ao_uint_t x);
-```
-
-```c
-void ao_task_set_count_switch_in(ao_task_t * t, ao_uint_t x);
-```
-
-```c
+void ao_task_set_count_resume(    ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_start(     ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_stop(      ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_suspend(   ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_switch_in( ao_task_t * t, ao_uint_t x);
 void ao_task_set_count_switch_out(ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_unblock(   ao_task_t * t, ao_uint_t x);
 ```
 
-```c
-void ao_task_set_count_unblock(ao_task_t * t, ao_uint_t x);
-```
+## `ao_task_set_id`
 
 ```c
 void ao_task_set_id(ao_task_t * t, ao_uint_t x);
 ```
 
+## `ao_task_set_name`
+
 ```c
 void ao_task_set_name(ao_task_t * t, char const * x);
 ```
+
+## `ao_task_set_proc`
 
 ```c
 void ao_task_set_proc(ao_task_t * t, ao_proc_t proc, void * parameter);
 ```
 
-```c
-void ao_task_set_time_span_active(ao_task_t * t, ao_time_t x);
-```
+## `ao_task_set_time_span`
 
 ```c
-void ao_task_set_time_span_down(ao_task_t * t, ao_time_t x);
-```
-
-```c
+void ao_task_set_time_span_active(  ao_task_t * t, ao_time_t x);
+void ao_task_set_time_span_down(    ao_task_t * t, ao_time_t x);
 void ao_task_set_time_span_inactive(ao_task_t * t, ao_time_t x);
+void ao_task_set_time_span_up(      ao_task_t * t, ao_time_t x);
 ```
 
-```c
-void ao_task_set_time_span_up(ao_task_t * t, ao_time_t x);
-```
+## `ao_task_start`
 
 ```c
 void ao_task_start(ao_task_t * t);
 ```
 
+## `ao_task_stop`
+
 ```c
 void ao_task_stop(ao_task_t * t);
 ```
 
+## `ao_task_suspend`
+
 ```c
 void ao_task_suspend(ao_task_t * t);
 ```
+
+## `ao_task_wake`
 
 ```c
 void ao_task_wake(ao_task_t * t);
@@ -491,11 +403,15 @@ void ao_task_wake(ao_task_t * t);
 
 # Variables
 
+## `ao_task_main`
+
 The task executing the `main()` function.
 
 ```c
-extern ao_task_t            ao_task_main;
+extern ao_task_t ao_task_main;
 ```
+
+## `ao_task_running`
 
 The running task for each core.
 

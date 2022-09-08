@@ -12,36 +12,27 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Constants
+
+## `AO_TASK_CEILING`
+## `AO_TASK_INHERITANCE`
+## `AO_TASK_SUBMISSION`
+
+This scheduler supports neither task ceiling nor task inheritance.
+
+```c
+#define AO_TASK_CEILING     (false)
+#define AO_TASK_INHERITANCE (false)
+#define AO_TASK_SUBMISSION  (false)
+```
+
 # Typedefs
 
 ```c
 typedef struct ao_task_sched_t   ao_task_sched_t;
-```
-
-```c
 typedef struct ao_task_ceiling_t ao_task_ceiling_t;
-```
-
-```c
 typedef struct ao_task_master_t  ao_task_master_t;
-```
-
-```c
 typedef struct ao_task_slave_t   ao_task_slave_t;
-```
-
-# Constants
-
-```c
-#define AO_TASK_CEILING     (false)
-```
-
-```c
-#define AO_TASK_INHERITANCE (false)
-```
-
-```c
-#define AO_TASK_SUBMISSION  (false)
 ```
 
 # Types

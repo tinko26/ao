@@ -14,9 +14,13 @@ toc: true
 
 # Constants
 
+## `AO_SPI_BRG_BITS`
+
 ```c
 #define AO_SPI_BRG_BITS (9)
 ```
+
+## `AO_SPI_ENHBUF`
 
 ```c
 #define AO_SPI_ENHBUF (true)

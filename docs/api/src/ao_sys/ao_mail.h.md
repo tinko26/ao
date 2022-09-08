@@ -19,13 +19,7 @@ toc: true
 
 ```c
 typedef struct ao_mail_t       ao_mail_t;
-```
-
-```c
 typedef struct ao_mail_fetch_t ao_mail_fetch_t;
-```
-
-```c
 typedef struct ao_mailbox_t    ao_mailbox_t;
 ```
 
@@ -88,30 +82,36 @@ It consists of the following members.
 
 # Functions
 
+## `ao_mail_post`
+
 ```c
 void ao_mail_post(ao_mailbox_t * x, ao_mail_t * m);
 ```
 
-```c
-bool ao_mail_fetch(ao_mailbox_t * x, ao_mail_t ** m, ao_time_t timeout);
-```
+## `ao_mail_fetch`
+## `ao_mail_fetch_from`
 
 ```c
+bool ao_mail_fetch(     ao_mailbox_t * x, ao_mail_t ** m, ao_time_t timeout);
 bool ao_mail_fetch_from(ao_mailbox_t * x, ao_mail_t ** m, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_mail_fetch_forever`
 
 ```c
 bool ao_mail_fetch_forever(ao_mailbox_t * x, ao_mail_t ** m);
 ```
 
+## `ao_mail_fetch_try`
+
 ```c
 bool ao_mail_fetch_try(ao_mailbox_t * x, ao_mail_t ** m);
 ```
 
-```c
-void ao_mail_fetch_begin(ao_mail_fetch_t * x);
-```
+## `ao_mail_fetch_begin`
+## `ao_mail_fetch_end`
 
 ```c
-void ao_mail_fetch_end(ao_mail_fetch_t * x);
+void ao_mail_fetch_begin(ao_mail_fetch_t * x);
+void ao_mail_fetch_end(  ao_mail_fetch_t * x);
 ```

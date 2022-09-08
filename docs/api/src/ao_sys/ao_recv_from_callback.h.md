@@ -16,6 +16,8 @@ toc: true
 
 # Functions
 
+## `ao_recv_from_callback`
+
 ```c
 void ao_recv_from_callback(ao_recv_t * x, ao_recv_proc_t y);
 ```

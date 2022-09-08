@@ -50,9 +50,9 @@ Keep track of the current and minimum number of free bytes, respectively.
 #define AO_ALLOC_FREE_MIN (false)
 ```
 
-The segregation has an influence on the performance of the allocator with respect to fragmentation. That is, a high segregation potentially leads to high external fragmentation, but low internal fragmentation. On the other hand, a low segregation potentially leads to low external fragmentation, but high internal fragmentation.
-
 ## `AO_ALLOC_SEGREGATION`
+
+The segregation has an influence on the performance of the allocator with respect to fragmentation. That is, a high segregation potentially leads to high external fragmentation, but low internal fragmentation. On the other hand, a low segregation potentially leads to low external fragmentation, but high internal fragmentation.
 
 ```c
 #define AO_ALLOC_SEGREGATION (3)

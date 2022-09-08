@@ -8,6 +8,9 @@ toc: true
 
 # Constants
 
+## `AO_IR_PRIO_MAX`
+## `AO_IR_PRIO_MIN`
+
 The maximum and minimum interrupt priorities.
 
 ```c

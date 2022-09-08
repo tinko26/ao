@@ -18,13 +18,9 @@ This module is abstract, that is, an implementation must be provided by a port p
 #include <stdint.h>
 ```
 
-# Typedefs
-
-```c
-typedef uint32_t ao_count_t;
-```
-
 # Constants
+
+## `AO_COUNT_FREQUENCY`
 
 The frequency, in Hertz, at which the hardware counter is incremented.
 
@@ -32,11 +28,20 @@ The frequency, in Hertz, at which the hardware counter is incremented.
 #define AO_COUNT_FREQUENCY (0)
 ```
 
+## `AO_COUNT_MAX`
+## `AO_COUNT_MIN`
+
 The maximum and minimum hardware counter value, respectively.
 
 ```c
-#define AO_COUNT_MAX       (UINT32_MAX)
-#define AO_COUNT_MIN       (0)
+#define AO_COUNT_MAX (UINT32_MAX)
+#define AO_COUNT_MIN (0)
+```
+
+# Typedefs
+
+```c
+typedef uint32_t ao_count_t;
 ```
 
 # Types
@@ -46,6 +51,8 @@ The maximum and minimum hardware counter value, respectively.
 This type is an alias for an unsigned integer type that can hold a value of the hardware counter.
 
 # Functions
+
+## `ao_count`
 
 Get the current value of the hardware counter.
 

@@ -18,6 +18,8 @@ toc: true
 
 # Functions
 
+## `ao_send_to_stream`
+
 ```c
 void ao_send_to_stream(ao_send_t * x, ao_spush_t * y);
 ```

@@ -20,9 +20,6 @@ toc: true
 
 ```c
 typedef struct ao_rendezvous_t      ao_rendezvous_t;
-```
-
-```c
 typedef struct ao_rendezvous_wait_t ao_rendezvous_wait_t;
 ```
 
@@ -85,28 +82,32 @@ This type represents the exchanging of data at a rendezvous. It takes three para
 
 # Functions
 
-```c
-void ao_rendezvous(ao_rendezvous_wait_t * x, ao_time_t timeout);
-```
+## `ao_rendezvous`
+## `ao_rendezvous_from`
 
 ```c
+void ao_rendezvous(     ao_rendezvous_wait_t * x, ao_time_t timeout);
 void ao_rendezvous_from(ao_rendezvous_wait_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_rendezvous_forever`
 
 ```c
 void ao_rendezvous_forever(ao_rendezvous_wait_t * x);
 ```
 
+## `ao_rendezvous_try`
+
 ```c
 void ao_rendezvous_try(ao_rendezvous_wait_t * x);
 ```
 
-```c
-void ao_rendezvous_begin(ao_rendezvous_wait_t * x);
-```
+## `ao_rendezvous_begin`
+## `ao_rendezvous_end`
 
 ```c
-void ao_rendezvous_end(ao_rendezvous_wait_t * x);
+void ao_rendezvous_begin(ao_rendezvous_wait_t * x);
+void ao_rendezvous_end(  ao_rendezvous_wait_t * x);
 ```
 
 # Example

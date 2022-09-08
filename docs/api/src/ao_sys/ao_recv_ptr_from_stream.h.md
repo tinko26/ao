@@ -18,6 +18,8 @@ toc: true
 
 # Functions
 
+## `ao_recv_ptr_from_stream`
+
 ```c
 void ao_recv_ptr_from_stream(ao_recv_ptr_t * x, ao_spop_ptr_t * y);
 ```

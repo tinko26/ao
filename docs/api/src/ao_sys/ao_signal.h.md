@@ -19,9 +19,6 @@ toc: true
 
 ```c
 typedef struct ao_signal_t      ao_signal_t;
-```
-
-```c
 typedef struct ao_signal_wait_t ao_signal_wait_t;
 ```
 
@@ -65,30 +62,36 @@ It consists of the following members.
 
 # Functions
 
+## `ao_signal_notify`
+
 ```c
 void ao_signal_notify(ao_signal_t * x);
 ```
+
+## `ao_signal_notify_all`
 
 ```c
 void ao_signal_notify_all(ao_signal_t * x);
 ```
 
-```c
-bool ao_signal_wait(ao_signal_t * x, ao_time_t timeout);
-```
+## `ao_signal_wait`
+## `ao_signal_wait_from`
 
 ```c
+bool ao_signal_wait(     ao_signal_t * x, ao_time_t timeout);
 bool ao_signal_wait_from(ao_signal_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_signal_wait_forever`
 
 ```c
 bool ao_signal_wait_forever(ao_signal_t * x);
 ```
 
-```c
-void ao_signal_wait_begin(ao_signal_wait_t * x);
-```
+## `ao_signal_wait_begin`
+## `ao_signal_wait_end`
 
 ```c
-void ao_signal_wait_end(ao_signal_wait_t * x);
+void ao_signal_wait_begin(ao_signal_wait_t * x);
+void ao_signal_wait_end(  ao_signal_wait_t * x);
 ```

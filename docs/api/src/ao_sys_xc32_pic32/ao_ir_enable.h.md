@@ -8,6 +8,9 @@ toc: true
 
 # Functions
 
+## `ao_ir_enable`
+## `ao_ir_disable`
+
 Enable or disable, respectively, interrupts globally.
 
 ```c

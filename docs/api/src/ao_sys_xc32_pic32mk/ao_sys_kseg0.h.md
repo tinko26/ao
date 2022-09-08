@@ -14,17 +14,25 @@ toc: true
 
 # Functions
 
+## `ao_sys_kseg0_cacheable_write_back_alloc`
+
 ```c
 #define ao_sys_kseg0_cacheable_write_back_alloc()
 ```
+
+## `ao_sys_kseg0_cacheable_write_through_alloc`
 
 ```c
 #define ao_sys_kseg0_cacheable_write_through_alloc()
 ```
 
+## `ao_sys_kseg0_cacheable_write_through_no_alloc`
+
 ```c
 #define ao_sys_kseg0_cacheable_write_through_no_alloc()
 ```
+
+## `ao_sys_kseg0_uncached`
 
 ```c
 #define ao_sys_kseg0_uncached()

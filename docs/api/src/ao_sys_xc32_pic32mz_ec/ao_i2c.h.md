@@ -8,6 +8,8 @@ toc: true
 
 # Constants
 
+## `AO_I2C_BRG_BITS`
+
 ```c
 #define AO_I2C_BRG_BITS (16)
 ```

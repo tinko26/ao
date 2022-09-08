@@ -19,11 +19,16 @@ This module declares functions for controlling the alarm interrupt as well as a 
 
 # Functions
 
+## `ao_alarm`
+
 Callback for the interrupt handler. Actually, this function is implemented by the [`ao_alarm.h`](../ao_sys/ao_alarm.h.md) module.
 
 ```c
 void ao_alarm();
 ```
+
+## `ao_alarm_enable`
+## `ao_alarm_disable`
 
 Enable or disable the interrupt.
 
@@ -32,12 +37,17 @@ Enable or disable the interrupt.
 #define ao_alarm_disable()
 ```
 
+## `ao_alarm_request`
+## `ao_alarm_reply`
+
 Request the interrupt or reply thereto.
 
 ```c
 #define ao_alarm_request()
 #define ao_alarm_reply()
 ```
+
+## `ao_alarm_set`
 
 Set the time for the next interrupt.
 

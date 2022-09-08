@@ -15,10 +15,7 @@ toc: true
 # Typedefs
 
 ```c
-typedef struct ao_task_t ao_task_t;
-```
-
-```c
+typedef struct ao_task_t              ao_task_t;
 typedef struct ao_task_context_t      ao_task_context_t;
 typedef struct ao_task_context_data_t ao_task_context_data_t;
 ```
@@ -195,9 +192,13 @@ It consists of the following members.
 
 # Functions
 
+## `ao_task_start_context`
+
 ```c
 void ao_task_start_context(ao_task_t * t);
 ```
+
+## `ao_task_stop_context`
 
 ```c
 #define ao_task_stop_context(t)

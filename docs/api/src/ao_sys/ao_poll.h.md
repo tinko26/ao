@@ -15,37 +15,43 @@ toc: true
 
 # Functions
 
-```c
-void ao_poll(ao_async_t const * x, ao_time_t timeout);
-```
+## `ao_poll`
+## `ao_poll_from`
 
 ```c
+void ao_poll(     ao_async_t const * x, ao_time_t timeout);
 void ao_poll_from(ao_async_t const * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_poll_forever`
 
 ```c
 void ao_poll_forever(ao_async_t const * x);
 ```
 
-```c
-void ao_poll_all(ao_async_all_t * x, ao_time_t timeout);
-```
+## `ao_poll_all`
+## `ao_poll_all_from`
 
 ```c
+void ao_poll_all(     ao_async_all_t * x, ao_time_t timeout);
 void ao_poll_all_from(ao_async_all_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_poll_all_forever`
 
 ```c
 void ao_poll_all_forever(ao_async_all_t * x);
 ```
 
-```c
-void ao_poll_any(ao_async_any_t * x, ao_time_t timeout);
-```
+## `ao_poll_any`
+## `ao_poll_any_from`
 
 ```c
+void ao_poll_any(     ao_async_any_t * x, ao_time_t timeout);
 void ao_poll_any_from(ao_async_any_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_poll_any_forever`
 
 ```c
 void ao_poll_any_forever(ao_async_any_t * x);

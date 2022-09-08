@@ -15,9 +15,13 @@ toc: true
 
 # Functions
 
+## `ao_sys_lock_ir`
+
 ```c
 uint32_t ao_sys_lock_ir(uint32_t p);
 ```
+
+## `ao_sys_unlock_ir`
 
 ```c
 void ao_sys_unlock_ir(uint32_t x);

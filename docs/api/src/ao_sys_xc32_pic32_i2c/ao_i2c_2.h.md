@@ -17,7 +17,7 @@ toc: true
 
 # Constants
 
-## `AO_I2C`
+## `AO_I2C_2`
 
 Indicates whether the I²C module is available.
 
@@ -27,101 +27,123 @@ Indicates whether the I²C module is available.
 
 # Functions
 
-```c
-#define ao_i2c_ack_2(t)
-```
+## `ao_i2c_ack_2`
+## `ao_i2c_ack_from_2`
 
 ```c
+#define ao_i2c_ack_2(t)
 #define ao_i2c_ack_from_2(t, b)
 ```
+
+## `ao_i2c_ack_forever_2`
 
 ```c
 #define ao_i2c_ack_forever_2()
 ```
 
+## `ao_i2c_acked_2`
+
 ```c
 #define ao_i2c_acked_2()
 ```
+
+## `ao_i2c_baud_2`
 
 ```c
 #define ao_i2c_baud_2(f)
 ```
 
-```c
-#define ao_i2c_nack_2(t)
-```
+## `ao_i2c_nack_2`
+## `ao_i2c_nack_from_2`
 
 ```c
+#define ao_i2c_nack_2(t)
 #define ao_i2c_nack_from_2(t, b)
 ```
+
+## `ao_i2c_nack_forever_2`
 
 ```c
 #define ao_i2c_nack_forever_2()
 ```
 
+## `ao_i2c_nacked_2`
+
 ```c
 #define ao_i2c_nacked_2()
 ```
 
-```c
-#define ao_i2c_recv_2(v, t)
-```
+## `ao_i2c_recv_2`
+## `ao_i2c_recv_from_2`
 
 ```c
+#define ao_i2c_recv_2(v, t)
 #define ao_i2c_recv_from_2(v, t, b)
 ```
+
+## `ao_i2c_recv_forever_2`
 
 ```c
 #define ao_i2c_recv_forever_2(v)
 ```
 
+## `ao_i2c_reg_2`
+
 ```c
 #define ao_i2c_reg_2()
 ```
 
-```c
-#define ao_i2c_restart_2(t)
-```
+## `ao_i2c_restart_2`
+## `ao_i2c_restart_from_2`
 
 ```c
+#define ao_i2c_restart_2(t)
 #define ao_i2c_restart_from_2(t, b)
 ```
+
+## `ao_i2c_restart_forever_2`
 
 ```c
 #define ao_i2c_restart_forever_2()
 ```
 
-```c
-#define ao_i2c_send_2(v, t)
-```
+## `ao_i2c_send_2`
+## `ao_i2c_send_from_2`
 
 ```c
+#define ao_i2c_send_2(v, t)
 #define ao_i2c_send_from_2(v, t, b)
 ```
+
+## `ao_i2c_send_forever_2`
 
 ```c
 #define ao_i2c_send_forever_2(v)
 ```
 
-```c
-#define ao_i2c_start_2(t)
-```
+## `ao_i2c_start_2`
+## `ao_i2c_start_from_2`
 
 ```c
+#define ao_i2c_start_2(t)
 #define ao_i2c_start_from_2(t, b)
 ```
+
+## `ao_i2c_start_forever_2`
 
 ```c
 #define ao_i2c_start_forever_2()
 ```
 
-```c
-#define ao_i2c_stop_2(t)
-```
+## `ao_i2c_stop_2`
+## `ao_i2c_stop_from_2`
 
 ```c
+#define ao_i2c_stop_2(t)
 #define ao_i2c_stop_from_2(t, b)
 ```
+
+## `ao_i2c_stop_forever_2`
 
 ```c
 #define ao_i2c_stop_forever_2()

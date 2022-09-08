@@ -10,9 +10,6 @@ toc: true
 
 ```c
 typedef struct ao_task_t         ao_task_t;
-```
-
-```c
 typedef struct ao_task_context_t ao_task_context_t;
 ```
 
@@ -26,9 +23,13 @@ struct ao_task_context_t { };
 
 # Functions
 
+## `ao_task_start_context`
+
 ```c
 void ao_task_start_context(ao_task_t * t);
 ```
+
+## `ao_task_stop_context`
 
 ```c
 void ao_task_stop_context(ao_task_t * t);

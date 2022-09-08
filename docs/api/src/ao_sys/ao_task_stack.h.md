@@ -8,6 +8,8 @@ toc: true
 
 # Configuration
 
+## `AO_TASK_STACK`
+
 Select the task stack implementation.
 
 ```c

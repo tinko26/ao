@@ -14,6 +14,8 @@ toc: true
 
 # Configuration
 
+## `AO_MIKROE_2674`
+
 ```c
 #define AO_MIKROE_2674_A (false)
 #define AO_MIKROE_2674_B (false)

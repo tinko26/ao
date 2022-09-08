@@ -29,9 +29,6 @@ toc: true
 
 ```c
 typedef struct ao_threshold_t      ao_threshold_t;
-```
-
-```c
 typedef struct ao_threshold_wait_t ao_threshold_wait_t;
 ```
 
@@ -109,66 +106,90 @@ This type represents a function to check whether a specific value is a match. Th
 
 # Functions
 
+## `ao_threshold_adjust`
+
 ```c
 void ao_threshold_adjust(ao_threshold_t * x, ao_threshold_adjust_t adjust, void * adjust_parameter);
 ```
+
+## `ao_threshold_add`
 
 ```c
 void ao_threshold_add(ao_threshold_t * x, ao_uint_t value);
 ```
 
+## `ao_threshold_decrement`
+
 ```c
 void ao_threshold_decrement(ao_threshold_t * x);
 ```
+
+## `ao_threshold_divide`
 
 ```c
 void ao_threshold_divide(ao_threshold_t * x, ao_uint_t value);
 ```
 
+## `ao_threshold_increment`
+
 ```c
 void ao_threshold_increment(ao_threshold_t * x);
 ```
+
+## `ao_threshold_modulo`
 
 ```c
 void ao_threshold_modulo(ao_threshold_t * x, ao_uint_t value);
 ```
 
+## `ao_threshold_multiply`
+
 ```c
 void ao_threshold_multiply(ao_threshold_t * x, ao_uint_t value);
 ```
+
+## `ao_threshold_set`
 
 ```c
 void ao_threshold_set(ao_threshold_t * x, ao_uint_t value);
 ```
 
+## `ao_threshold_subtract`
+
 ```c
 void ao_threshold_subtract(ao_threshold_t * x, ao_uint_t value);
 ```
+
+## `ao_threshold_subtract_from`
 
 ```c
 void ao_threshold_subtract_from(ao_threshold_t * x, ao_uint_t value);
 ```
 
-```c
-bool ao_threshold_wait(ao_threshold_t * x, ao_time_t timeout);
-```
+## `ao_threshold_wait`
+## `ao_threshold_wait_from`
 
 ```c
+bool ao_threshold_wait(     ao_threshold_t * x, ao_time_t timeout);
 bool ao_threshold_wait_from(ao_threshold_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_threshold_wait_forever`
 
 ```c
 bool ao_threshold_wait_forever(ao_threshold_t * x);
 ```
 
+## `ao_threshold_wait_try`
+
 ```c
 bool ao_threshold_wait_try(ao_threshold_t * x);
 ```
 
-```c
-void ao_threshold_wait_begin(ao_threshold_wait_t * x);
-```
+## `ao_threshold_wait_begin`
+## `ao_threshold_wait_end`
 
 ```c
-void ao_threshold_wait_end(ao_threshold_wait_t * x);
+void ao_threshold_wait_begin(ao_threshold_wait_t * x);
+void ao_threshold_wait_end(  ao_threshold_wait_t * x);
 ```

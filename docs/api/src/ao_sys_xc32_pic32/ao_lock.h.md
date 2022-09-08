@@ -20,15 +20,9 @@ This module defines a mechanism for critical sections, that are required by the 
 #include <stdint.h>
 ```
 
-# Typedefs
-
-This type represents a container for lock-related data.
-
-```c
-typedef uint32_t ao_lock_t;
-```
-
 # Configuration
+
+## `AO_LOCK_PRIO`
 
 The maximum priority of interrupts to disable.
 
@@ -36,7 +30,22 @@ The maximum priority of interrupts to disable.
 #define AO_LOCK_PRIO (AO_IR_PRIO_MAX)
 ```
 
+# Typedefs
+
+```c
+typedef uint32_t ao_lock_t;
+```
+
+# Types
+
+## `ao_lock_t`
+
+This type represents a container for lock-related data.
+
 # Functions
+
+## `ao_lock`
+## `ao_unlock`
 
 Enter or exit a critical section, respectively.
 

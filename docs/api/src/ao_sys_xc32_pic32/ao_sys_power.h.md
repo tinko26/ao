@@ -10,11 +10,15 @@ toc: true
 
 # Functions
 
+## `ao_sys_idle`
+
 Enter idle mode.
 
 ```c
 void ao_sys_idle();
 ```
+
+## `ao_sys_sleep`
 
 Enter sleep mode.
 
@@ -22,17 +26,23 @@ Enter sleep mode.
 void ao_sys_sleep();
 ```
 
+## `ao_sys_wait`
+
 Enter idle or sleep mode. This function executes a `WAIT` instruction.
 
 ```c
 void ao_sys_wait();
 ```
 
+## `ao_sys_wait_idle`
+
 Enter idle mode upon a `WAIT`.
 
 ```c
 void ao_sys_wait_idle();
 ```
+
+## `ao_sys_wait_sleep`
 
 Enter sleep mode upon a `WAIT`.
 

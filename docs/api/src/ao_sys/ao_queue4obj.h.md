@@ -20,13 +20,7 @@ toc: true
 
 ```c
 typedef struct ao_queue4obj_t   ao_queue4obj_t;
-```
-
-```c
 typedef struct ao_qinsert_obj_t ao_qinsert_obj_t;
-```
-
-```c
 typedef struct ao_qpop_obj_t    ao_qpop_obj_t;
 ```
 
@@ -99,50 +93,58 @@ It consists of the following members.
 
 # Functions
 
-```c
-void ao_qinsert_obj(ao_qinsert_obj_t * x, ao_time_t timeout);
-```
+## `ao_qinsert_obj`
+## `ao_qinsert_obj_from`
 
 ```c
+void ao_qinsert_obj(     ao_qinsert_obj_t * x, ao_time_t timeout);
 void ao_qinsert_obj_from(ao_qinsert_obj_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_qinsert_obj_forever`
 
 ```c
 void ao_qinsert_obj_forever(ao_qinsert_obj_t * x);
 ```
 
+## `ao_qinsert_obj_try`
+
 ```c
 void ao_qinsert_obj_try(ao_qinsert_obj_t * x);
 ```
 
+## `ao_qinsert_obj_begin`
+## `ao_qinsert_obj_end`
+
 ```c
 void ao_qinsert_obj_begin(ao_qinsert_obj_t * x);
+void ao_qinsert_obj_end(  ao_qinsert_obj_t * x);
 ```
 
-```c
-void ao_qinsert_obj_end(ao_qinsert_obj_t * x);
-```
+## `ao_qpop_obj`
+## `ao_qpop_obj_from`
 
 ```c
-void ao_qpop_obj(ao_qpop_obj_t * x, ao_time_t timeout);
-```
-
-```c
+void ao_qpop_obj(     ao_qpop_obj_t * x, ao_time_t timeout);
 void ao_qpop_obj_from(ao_qpop_obj_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_qpop_obj_forever`
 
 ```c
 void ao_qpop_obj_forever(ao_qpop_obj_t * x);
 ```
 
+## `ao_qpop_obj_try`
+
 ```c
 void ao_qpop_obj_try(ao_qpop_obj_t * x);
 ```
 
-```c
-void ao_qpop_obj_begin(ao_qpop_obj_t * x);
-```
+## `ao_qpop_obj_begin`
+## `ao_qpop_obj_end`
 
 ```c
-void ao_qpop_obj_end(ao_qpop_obj_t * x);
+void ao_qpop_obj_begin(ao_qpop_obj_t * x);
+void ao_qpop_obj_end(  ao_qpop_obj_t * x);
 ```

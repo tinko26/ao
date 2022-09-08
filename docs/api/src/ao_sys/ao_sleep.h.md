@@ -48,22 +48,24 @@ It consists of the following members.
 
 # Functions
 
-```c
-bool ao_sleep(ao_time_t timeout);
-```
+## `ao_sleep`
+## `ao_sleep_from`
 
 ```c
+bool ao_sleep(     ao_time_t timeout);
 bool ao_sleep_from(ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_sleep_forever`
 
 ```c
 bool ao_sleep_forever();
 ```
 
-```c
-void ao_sleep_begin(ao_sleep_t * x);
-```
+## `ao_sleep_begin`
+## `ao_sleep_end`
 
 ```c
-void ao_sleep_end(ao_sleep_t * x);
+void ao_sleep_begin(ao_sleep_t * x);
+void ao_sleep_end(  ao_sleep_t * x);
 ```

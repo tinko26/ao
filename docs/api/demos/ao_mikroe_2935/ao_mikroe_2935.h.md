@@ -43,13 +43,19 @@ It consists of the following members.
 
 # Functions
 
+## `ao_mikroe_2935`
+
 ```c
 void ao_mikroe_2935(size_t i, ao_mikroe_2935_t const * x);
 ```
 
+## `ao_mikroe_2935_start`
+
 ```c
 void ao_mikroe_2935_start(size_t i);
 ```
+
+## `ao_mikroe_2935_stop`
 
 ```c
 void ao_mikroe_2935_stop(size_t i);

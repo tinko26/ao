@@ -16,6 +16,8 @@ toc: true
 
 # Functions
 
+## `ao_send_obj_to_callback`
+
 ```c
 void ao_send_obj_to_callback(ao_send_obj_t * x, ao_send_obj_proc_t y);
 ```

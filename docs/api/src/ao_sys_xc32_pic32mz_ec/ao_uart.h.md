@@ -8,9 +8,13 @@ toc: true
 
 # Constants
 
+## `AO_UART_BRG_BITS`
+
 ```c
 #define AO_UART_BRG_BITS (16)
 ```
+
+## `AO_UART_FIFO_CAPACITY`
 
 ```c
 #define AO_UART_FIFO_CAPACITY (8)

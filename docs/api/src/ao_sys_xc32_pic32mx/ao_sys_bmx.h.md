@@ -14,10 +14,10 @@ toc: true
 
 # Functions
 
-```c
-#define ao_sys_bmx_wsdram_disable()
-```
+## `ao_sys_bmx_wsdram_enable`
+## `ao_sys_bmx_wsdram_disable`
 
 ```c
 #define ao_sys_bmx_wsdram_enable()
+#define ao_sys_bmx_wsdram_disable()
 ```

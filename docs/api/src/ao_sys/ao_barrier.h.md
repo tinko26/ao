@@ -22,9 +22,6 @@ toc: true
 
 ```c
 typedef struct ao_barrier_t      ao_barrier_t;
-```
-
-```c
 typedef struct ao_barrier_wait_t ao_barrier_wait_t;
 ```
 
@@ -72,18 +69,28 @@ It consists of the following members.
 
 # Functions
 
+## `ao_barrier_wait`
+## `ao_barrier_wait_from`
+
 ```c
 bool ao_barrier_wait(     ao_barrier_t * x, ao_time_t timeout);
 bool ao_barrier_wait_from(ao_barrier_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
+## `ao_barrier_wait_forever`
+
 ```c
 bool ao_barrier_wait_forever(ao_barrier_t * x);
 ```
 
+## `ao_barrier_wait_try`
+
 ```c
 bool ao_barrier_wait_try(ao_barrier_t * x);
 ```
+
+## `ao_barrier_wait_begin`
+## `ao_barrier_wait_end`
 
 ```c
 void ao_barrier_wait_begin(ao_barrier_wait_t * x);

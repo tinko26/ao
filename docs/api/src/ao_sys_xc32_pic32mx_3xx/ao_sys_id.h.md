@@ -14,26 +14,31 @@ toc: true
 
 # Constants
 
+## `AO_SYS_ID_REVISION`
+
 ```c
 #define AO_SYS_ID_REVISION_B2 (3)
 #define AO_SYS_ID_REVISION_B3 (4)
 #define AO_SYS_ID_REVISION_B4 (5)
 #define AO_SYS_ID_REVISION_B6 (5)
-```
-
-```c
 #define AO_SYS_ID_REVISION_C0 (6)
 ```
 
 # Functions
 
+## `ao_sys_id_device`
+
 ```c
 #define ao_sys_id_device()
 ```
 
+## `ao_sys_id_revision`
+
 ```c
 #define ao_sys_id_revision()
 ```
+
+## `ao_sys_id_user`
 
 ```c
 #define ao_sys_id_user()

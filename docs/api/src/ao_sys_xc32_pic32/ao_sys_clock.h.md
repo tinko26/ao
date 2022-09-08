@@ -8,6 +8,8 @@ toc: true
 
 # Constants
 
+## `AO_SYS_SYSCLK`
+
 The SYSCLK frequency, in Hertz.
 
 ```c

@@ -60,26 +60,30 @@ This type represents a function beginning or ending a sending.
 
 # Functions
 
-```c
-void ao_send_ptr(ao_send_ptr_t * x, ao_time_t timeout);
-```
+## `ao_send_ptr`
+## `ao_send_ptr_from`
 
 ```c
+void ao_send_ptr(     ao_send_ptr_t * x, ao_time_t timeout);
 void ao_send_ptr_from(ao_send_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_send_ptr_forever`
 
 ```c
 void ao_send_ptr_forever(ao_send_ptr_t * x);
 ```
 
+## `ao_send_ptr_try`
+
 ```c
 void ao_send_ptr_try(ao_send_ptr_t * x);
 ```
 
-```c
-void ao_send_ptr_begin(ao_send_ptr_t * x);
-```
+## `ao_send_ptr_begin`
+## `ao_send_ptr_end`
 
 ```c
-void ao_send_ptr_end(ao_send_ptr_t * x);
+void ao_send_ptr_begin(ao_send_ptr_t * x);
+void ao_send_ptr_end(  ao_send_ptr_t * x);
 ```

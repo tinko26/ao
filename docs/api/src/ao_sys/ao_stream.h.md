@@ -20,13 +20,7 @@ toc: true
 
 ```c
 typedef struct ao_stream_t ao_stream_t;
-```
-
-```c
 typedef struct ao_spop_t   ao_spop_t;
-```
-
-```c
 typedef struct ao_spush_t  ao_spush_t;
 ```
 
@@ -107,53 +101,63 @@ It consists of the following members.
 
 # Functions
 
-```c
-void ao_spop(ao_spop_t * x, ao_time_t timeout);
-```
+## `ao_spop`
+## `ao_spop_from`
 
 ```c
+void ao_spop(     ao_spop_t * x, ao_time_t timeout);
 void ao_spop_from(ao_spop_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_spop_forever`
 
 ```c
 void ao_spop_forever(ao_spop_t * x);
 ```
 
+## `ao_spop_try`
+
 ```c
 void ao_spop_try(ao_spop_t * x);
 ```
 
+## `ao_spop_begin`
+## `ao_spop_end`
+
 ```c
 void ao_spop_begin(ao_spop_t * x);
+void ao_spop_end(  ao_spop_t * x);
 ```
 
-```c
-void ao_spop_end(ao_spop_t * x);
-```
+## `ao_spush`
+## `ao_spush_from`
 
 ```c
-void ao_spush(ao_spush_t * x, ao_time_t timeout);
-```
-
-```c
+void ao_spush(     ao_spush_t * x, ao_time_t timeout);
 void ao_spush_from(ao_spush_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_spush_forever`
 
 ```c
 void ao_spush_forever(ao_spush_t * x);
 ```
 
+## `ao_spush_try`
+
 ```c
 void ao_spush_try(ao_spush_t * x);
 ```
 
-```c
-void ao_spush_begin(ao_spush_t * x);
-```
+## `ao_spush_begin`
+## `ao_spush_end`
 
 ```c
-void ao_spush_end(ao_spush_t * x);
+void ao_spush_begin(ao_spush_t * x);
+void ao_spush_end(  ao_spush_t * x);
 ```
+
+## `ao_spush_override`
 
 ```c
 void ao_spush_override(ao_spush_t * x);

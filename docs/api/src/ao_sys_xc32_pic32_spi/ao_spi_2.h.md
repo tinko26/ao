@@ -17,7 +17,7 @@ toc: true
 
 # Constants
 
-## `AO_SPI`
+## `AO_SPI_2`
 
 Indicates whether the SPI module is available.
 
@@ -25,7 +25,8 @@ Indicates whether the SPI module is available.
 #define AO_SPI_2
 ```
 
-## `AO_SPI_BAUD`
+## `AO_SPI_BAUD_MAX_2`
+## `AO_SPI_BAUD_MIN_2`
 
 The maximum and minimum baud rate.
 
@@ -36,9 +37,13 @@ The maximum and minimum baud rate.
 
 # Functions
 
+## `ao_spi_baud_2`
+
 ```c
 #define ao_spi_baud_2(f)
 ```
+
+## `ao_spi_reg_2`
 
 ```c
 #define ao_spi_reg_2()

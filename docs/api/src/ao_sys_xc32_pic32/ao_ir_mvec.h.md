@@ -14,6 +14,9 @@ toc: true
 
 # Functions
 
+## `ao_ir_mvec_enable`
+## `ao_ir_mvec_disable`
+
 Enable or disable, respectively, the multi-vectored interrupt mode.
 
 ```c

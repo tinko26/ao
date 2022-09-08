@@ -15,6 +15,9 @@ toc: true
 
 # Functions
 
+## `ao_rngt_enable`
+## `ao_rngt_disable`
+
 Enable or disable the true random number generator.
 
 ```c
@@ -22,17 +25,24 @@ Enable or disable the true random number generator.
 #define ao_rngt_disable()
 ```
 
+## `ao_rngt_bits`
+
 Get the number of bits that have been generate since the last read.
 
 ```c
 #define ao_rngt_bits()
 ```
 
+## `ao_rngt_value`
+
 Read the generated value.
 
 ```c
 #define ao_rngt_value()
 ```
+
+## `ao_rngt_value_hi`
+## `ao_rngt_value_lo`
 
 Read the most or least significant 32 bits of the generated value.
 

@@ -29,9 +29,6 @@ microsoft: "Represents a thread synchronization event that, when signaled, reset
 
 ```c
 typedef struct ao_are_t      ao_are_t;
-```
-
-```c
 typedef struct ao_are_wait_t ao_are_wait_t;
 ```
 
@@ -77,17 +74,24 @@ It consists of the following members.
 
 # Functions
 
+## `ao_are_clear`
+
 Clear an auto-reset event, i.e. set its state to `false`. This function can be called from both task and interrupt context.
 
 ```c
 void ao_are_clear(ao_are_t * x);
 ```
 
+## `ao_are_set`
+
 Set an auto-reset event, i.e. set its state to `true`. Eventually, this wakes up the first waiting task. This function can be called from both task and interrupt context.
 
 ```c
 void ao_are_set(ao_are_t * x);
 ```
+
+## `ao_are_wait`
+## `ao_are_wait_from`
 
 Wait for an auto-reset event with a timeout and optional beginning.
 
@@ -96,17 +100,24 @@ bool ao_are_wait(     ao_are_t * x, ao_time_t timeout);
 bool ao_are_wait_from(ao_are_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
+## `ao_are_wait_forever`
+
 Wait for an auto-reset event indefinitely.
 
 ```c
 bool ao_are_wait_forever(ao_are_t * x);
 ```
 
+## `ao_are_wait_try`
+
 Wait for an auto-reset event in a non-blocking fashion.
 
 ```c
 bool ao_are_wait_try(ao_are_t * x);
 ```
+
+## `ao_are_wait_begin`
+## `ao_are_wait_end`
 
 Begin or end the waiting for an auto-reset event, respectively.
 

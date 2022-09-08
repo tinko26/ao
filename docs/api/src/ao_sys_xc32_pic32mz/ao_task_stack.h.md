@@ -13,35 +13,47 @@ toc: true
 #include <stddef.h>
 ```
 
+# Configuration
+
+## `AO_TASK_STACK_CHECK`
+
+```c
+#define AO_TASK_STACK_CHECK (false)
+```
+
+## `AO_TASK_STACK_THRESHOLD`
+
+```c
+#define AO_TASK_STACK_THRESHOLD (70)
+```
+
 # Typedefs
 
 ```c
 typedef struct ao_task_t ao_task_t;
 ```
 
-# Constants
-
-```c
-#define AO_TASK_STACK_CHECK (false)
-```
-
-```c
-#define AO_TASK_STACK_THRESHOLD (70)
-```
-
 # Functions
+
+## `ao_task_stack_null`
 
 ```c
 void ao_task_stack_null(ao_task_t const * t);
 ```
 
+## `ao_task_stack_overflow`
+
 ```c
 void ao_task_stack_overflow(ao_task_t const * t);
 ```
 
+## `ao_task_stack_threshold`
+
 ```c
 void ao_task_stack_threshold(ao_task_t const * t, size_t quota);
 ```
+
+## `ao_task_stack_underflow`
 
 ```c
 void ao_task_stack_underflow(ao_task_t const * t);

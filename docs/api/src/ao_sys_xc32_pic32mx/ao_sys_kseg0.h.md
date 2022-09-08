@@ -14,9 +14,13 @@ toc: true
 
 # Functions
 
+## `ao_sys_kseg0_cacheable`
+
 ```c
 #define ao_sys_kseg0_cacheable()
 ```
+
+## `ao_sys_kseg0_uncached`
 
 ```c
 #define ao_sys_kseg0_uncached()

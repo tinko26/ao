@@ -38,10 +38,10 @@ It consists of the following members.
 
 # Functions
 
-```c
-void ao_sys_unlock_pps(ao_sys_lock_pps_t * x);
-```
+## `ao_sys_unlock_pps`
+## `ao_sys_lock_pps`
 
 ```c
-void ao_sys_lock_pps(ao_sys_lock_pps_t * x);
+void ao_sys_unlock_pps(ao_sys_lock_pps_t * x);
+void ao_sys_lock_pps(  ao_sys_lock_pps_t * x);
 ```

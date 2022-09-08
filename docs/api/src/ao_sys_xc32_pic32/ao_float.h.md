@@ -12,22 +12,15 @@ This module defines the fastest floating-point type available on the target plat
 
 # Configuration
 
+## `AO_FLOAT`
+
 The size of a floating-point number in bits.
 
 ```c
 #define AO_FLOAT (32)
 ```
 
-# Include
+The following options are available.
 
-```c
-#if AO_FLOAT == (32)
-
-#include <ao_floatf.h>
-
-#elif AO_FLOAT == (64)
-
-#include <ao_floatl.h>
-
-#endif
-```
+| 32 | The `ao_float_t` type is defined to be the `float` type, which is always 32 bits wide. |
+| 64 | The `ao_float_t` type is defined to be the `long double` type, which is always 64 bits wide. |

@@ -14,21 +14,31 @@ toc: true
 
 # Functions
 
+## `ao_sys_pfm_ws_set`
+
 ```c
 #define ao_sys_pfm_ws_set(ws)
 ```
+
+## `ao_sys_pref_disable`
 
 ```c
 #define ao_sys_pref_disable()
 ```
 
+## `ao_sys_pref_enable_both`
+
 ```c
 #define ao_sys_pref_enable_both()
 ```
 
+## `ao_sys_pref_enable_cacheable`
+
 ```c
 #define ao_sys_pref_enable_cacheable()
 ```
+
+## `ao_sys_pref_enable_non_cacheable`
 
 ```c
 #define ao_sys_pref_enable_non_cacheable()

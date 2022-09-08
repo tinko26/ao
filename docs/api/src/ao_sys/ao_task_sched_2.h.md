@@ -16,37 +16,47 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Typedefs
+# Configuration
+
+## `AO_TASK_CEILING`
+
+Support task ceiling.
 
 ```c
-typedef struct ao_task_t         ao_task_t;
+#define AO_TASK_CEILING (true)
 ```
 
-```c
-typedef struct ao_task_sched_t   ao_task_sched_t;
-```
+## `AO_TASK_INHERITANCE`
+
+Support task inheritance.
 
 ```c
-typedef struct ao_task_ceiling_t ao_task_ceiling_t;
+#define AO_TASK_INHERITANCE (true)
 ```
 
-```c
-typedef struct ao_task_master_t  ao_task_master_t;
-```
+## `AO_TASK_QUANTUM`
+
+The quantum or time slice.
 
 ```c
-typedef struct ao_task_slave_t   ao_task_slave_t;
+#define AO_TASK_QUANTUM (AO_MILLISECONDS(10))
 ```
 
 # Constants
 
-```c
-#define AO_TASK_PRIO_MAX    (AO_UINT_BITS - 1)
-```
+## `AO_TASK_PRIO_MAX`
+## `AO_TASK_PRIO_MIN`
+
+The maximum and minimum task priority.
 
 ```c
-#define AO_TASK_PRIO_MIN    (0)
+#define AO_TASK_PRIO_MAX (AO_UINT_BITS - 1)
+#define AO_TASK_PRIO_MIN (0)
 ```
+
+## `AO_TASK_SUBMISSION`
+
+Indicates whether task submission is supported.
 
 ```c
 #define AO_TASK_SUBMISSION  \
@@ -56,18 +66,14 @@ typedef struct ao_task_slave_t   ao_task_slave_t;
 )
 ```
 
-# Configuration
+# Typedefs
 
 ```c
-#define AO_TASK_CEILING     (true)
-```
-
-```c
-#define AO_TASK_INHERITANCE (true)
-```
-
-```c
-#define AO_TASK_QUANTUM     (AO_MILLISECONDS(10))
+typedef struct ao_task_t         ao_task_t;
+typedef struct ao_task_sched_t   ao_task_sched_t;
+typedef struct ao_task_ceiling_t ao_task_ceiling_t;
+typedef struct ao_task_master_t  ao_task_master_t;
+typedef struct ao_task_slave_t   ao_task_slave_t;
 ```
 
 # Types
@@ -177,17 +183,25 @@ It consists of the following members.
 
 # Functions
 
+## `ao_task_ceiling_get_prio`
+
 ```c
 ao_uint_t ao_task_ceiling_get_prio(ao_task_ceiling_t const * c);
 ```
+
+## `ao_task_ceiling_set_prio`
 
 ```c
 void ao_task_ceiling_set_prio(ao_task_ceiling_t * c, ao_uint_t x);
 ```
 
+## `ao_task_get_prio`
+
 ```c
 ao_uint_t ao_task_get_prio(ao_task_t const * t);
 ```
+
+## `ao_task_set_prio`
 
 ```c
 void ao_task_set_prio(ao_task_t * t, ao_uint_t x);

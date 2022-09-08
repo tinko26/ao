@@ -19,11 +19,16 @@ This module declares functions for controlling the task switch interrupts as wel
 
 # Functions
 
+## `ao_task_switch`
+
 Callback for the interrupt handlers. Actually, this function is implemented by the [`ao_task_sched.h`](ao_task_sched.h.md) module.
 
 ```c
 void ao_task_switch();
 ```
+
+## `ao_task_switch_enable`
+## `ao_task_switch_disable`
 
 Enable or disable the interrupt on the specified processor core.
 
@@ -32,12 +37,17 @@ void ao_task_switch_enable( ao_core_t c);
 void ao_task_switch_disable(ao_core_t c);
 ```
 
+## `ao_task_switch_request`
+## `ao_task_switch_reply`
+
 Request the interrupt or reply thereto on the specified processor core.
 
 ```c
 void ao_task_switch_request(ao_core_t c);
 void ao_task_switch_reply(  ao_core_t c);
 ```
+
+## `ao_task_switch_is_pending`
 
 Determine whether the interrupt is pending on the specified processor core.
 

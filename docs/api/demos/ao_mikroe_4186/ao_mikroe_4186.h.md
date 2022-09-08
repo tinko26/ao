@@ -16,10 +16,7 @@ toc: true
 # Typedefs
 
 ```c
-typedef union ao_mikroe_4186_t ao_mikroe_4186_t;
-```
-
-```c
+typedef union ao_mikroe_4186_t      ao_mikroe_4186_t;
 typedef union ao_mikroe_4186_port_t ao_mikroe_4186_port_t;
 ```
 
@@ -81,73 +78,109 @@ It consists of the following members.
 
 # Functions
 
+## `ao_mikroe_4186_get_config`
+
 ```c
 uint32_t ao_mikroe_4186_get_config(size_t i);
 ```
+
+## `ao_mikroe_4186_get_input`
 
 ```c
 uint32_t ao_mikroe_4186_get_input(size_t i);
 ```
 
+## `ao_mikroe_4186_get_output`
+
 ```c
 uint32_t ao_mikroe_4186_get_output(size_t i);
 ```
+
+## `ao_mikroe_4186_get_polarity`
 
 ```c
 uint32_t ao_mikroe_4186_get_polarity(size_t i);
 ```
 
+## `ao_mikroe_4186_get_port_config`
+
 ```c
 uint8_t ao_mikroe_4186_get_port_config(size_t i, size_t p);
 ```
+
+## `ao_mikroe_4186_get_port_input`
 
 ```c
 uint8_t ao_mikroe_4186_get_port_input(size_t i, size_t p);
 ```
 
+## `ao_mikroe_4186_get_port_output`
+
 ```c
 uint8_t ao_mikroe_4186_get_port_output(size_t i, size_t p);
 ```
+
+## `ao_mikroe_4186_get_port_polarity`
 
 ```c
 uint8_t ao_mikroe_4186_get_port_polarity(size_t i, size_t p);
 ```
 
+## `ao_mikroe_4186_int`
+
 ```c
 void ao_mikroe_4186_int(size_t i);
 ```
+
+## `ao_mikroe_4186_reset`
 
 ```c
 void ao_mikroe_4186_reset(size_t i);
 ```
 
+## `ao_mikroe_4186_set_config`
+
 ```c
 void ao_mikroe_4186_set_config(size_t i, uint32_t x);
 ```
+
+## `ao_mikroe_4186_set_input`
 
 ```c
 void ao_mikroe_4186_set_input(size_t i, uint32_t x);
 ```
 
+## `ao_mikroe_4186_set_output`
+
 ```c
 void ao_mikroe_4186_set_output(size_t i, uint32_t x);
 ```
+
+## `ao_mikroe_4186_set_polarity`
 
 ```c
 void ao_mikroe_4186_set_polarity(size_t i, uint32_t x);
 ```
 
+## `ao_mikroe_4186_set_port_config`
+
 ```c
 void ao_mikroe_4186_set_port_config(size_t i, size_t p, uint8_t x);
 ```
+
+## `ao_mikroe_4186_set_port_input`
 
 ```c
 void ao_mikroe_4186_set_port_input(size_t i, size_t p, uint8_t x);
 ```
 
+## `ao_mikroe_4186_set_port_output`
+
 ```c
 void ao_mikroe_4186_set_port_output(size_t i, size_t p, uint8_t x);
 ```
+
+## `ao_mikroe_4186_set_port_polarity`
 
 ```c
 void ao_mikroe_4186_set_port_polarity(size_t i, size_t p, uint8_t x);

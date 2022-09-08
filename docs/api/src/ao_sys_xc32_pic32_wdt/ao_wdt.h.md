@@ -15,6 +15,9 @@ toc: true
 
 # Functions
 
+## `ao_wdt_enable`
+## `ao_wdt_disable`
+
 Enable or disable the watchdog timer.
 
 ```c
@@ -22,11 +25,15 @@ Enable or disable the watchdog timer.
 #define ao_wdt_disable()
 ```
 
+## `ao_wdt_is_enabled`
+
 Check whether the watchdog timer is enabled.
 
 ```c
 #define ao_wdt_is_enabled()
 ```
+
+## `ao_wdt_reset`
 
 Reset the watchdog timer.
 

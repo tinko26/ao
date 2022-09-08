@@ -20,13 +20,7 @@ toc: true
 
 ```c
 typedef struct ao_pmail_t       ao_pmail_t;
-```
-
-```c
 typedef struct ao_pmail_fetch_t ao_pmail_fetch_t;
-```
-
-```c
 typedef struct ao_pmailbox_t    ao_pmailbox_t;
 ```
 
@@ -89,30 +83,36 @@ It consists of the following members.
 
 # Functions
 
+## `ao_pmail_post`
+
 ```c
 void ao_pmail_post(ao_pmailbox_t * x, ao_pmail_t * m);
 ```
 
-```c
-bool ao_pmail_fetch(ao_pmailbox_t * x, ao_pmail_t ** m, ao_time_t timeout);
-```
+## `ao_pmail_fetch`
+## `ao_pmail_fetch_from`
 
 ```c
+bool ao_pmail_fetch(     ao_pmailbox_t * x, ao_pmail_t ** m, ao_time_t timeout);
 bool ao_pmail_fetch_from(ao_pmailbox_t * x, ao_pmail_t ** m, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_pmail_fetch_forever`
 
 ```c
 bool ao_pmail_fetch_forever(ao_pmailbox_t * x, ao_pmail_t ** m);
 ```
 
+## `ao_pmail_fetch_try`
+
 ```c
 bool ao_pmail_fetch_try(ao_pmailbox_t * x, ao_pmail_t ** m);
 ```
 
-```c
-void ao_pmail_fetch_begin(ao_pmail_fetch_t * x);
-```
+## `ao_pmail_fetch_begin`
+## `ao_pmail_fetch_end`
 
 ```c
-void ao_pmail_fetch_end(ao_pmail_fetch_t * x);
+void ao_pmail_fetch_begin(ao_pmail_fetch_t * x);
+void ao_pmail_fetch_end(  ao_pmail_fetch_t * x);
 ```

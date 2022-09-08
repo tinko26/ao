@@ -20,13 +20,7 @@ toc: true
 
 ```c
 typedef struct ao_stream4ptr_t ao_stream4ptr_t;
-```
-
-```c
 typedef struct ao_spop_ptr_t   ao_spop_ptr_t;
-```
-
-```c
 typedef struct ao_spush_ptr_t  ao_spush_ptr_t;
 ```
 
@@ -103,81 +97,97 @@ It consists of the following members.
 
 # Functions
 
-```c
-void ao_spop_ptr(ao_spop_ptr_t * x, ao_time_t timeout);
-```
+## `ao_spop_ptr`
+## `ao_spop_ptr_from`
 
 ```c
+void ao_spop_ptr(     ao_spop_ptr_t * x, ao_time_t timeout);
 void ao_spop_ptr_from(ao_spop_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_spop_ptr_forever`
 
 ```c
 void ao_spop_ptr_forever(ao_spop_ptr_t * x);
 ```
 
+## `ao_spop_ptr_try`
+
 ```c
 void ao_spop_ptr_try(ao_spop_ptr_t * x);
 ```
 
+## `ao_spop_ptr_begin`
+## `ao_spop_ptr_end`
+
 ```c
 void ao_spop_ptr_begin(ao_spop_ptr_t * x);
+void ao_spop_ptr_end(  ao_spop_ptr_t * x);
 ```
 
-```c
-void ao_spop_ptr_end(ao_spop_ptr_t * x);
-```
+## `ao_spush_acq`
+## `ao_spush_acq_from`
 
 ```c
-void ao_spush_acq(ao_spush_ptr_t * x, ao_time_t timeout);
-```
-
-```c
+void ao_spush_acq(     ao_spush_ptr_t * x, ao_time_t timeout);
 void ao_spush_acq_from(ao_spush_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_spush_acq_forever`
 
 ```c
 void ao_spush_acq_forever(ao_spush_ptr_t * x);
 ```
 
+## `ao_spush_acq_try`
+
 ```c
 void ao_spush_acq_try(ao_spush_ptr_t * x);
 ```
 
-```c
-void ao_spush_acq_begin(ao_spush_ptr_t * x);
-```
+## `ao_spush_acq_begin`
+## `ao_spush_acq_end`
 
 ```c
-void ao_spush_acq_end(ao_spush_ptr_t * x);
+void ao_spush_acq_begin(ao_spush_ptr_t * x);
+void ao_spush_acq_end(  ao_spush_ptr_t * x);
 ```
+
+## `ao_spush_acq_override`
 
 ```c
 void ao_spush_acq_override(ao_spush_ptr_t * x);
 ```
 
-```c
-void ao_spush_ptr(ao_spush_ptr_t * x, ao_time_t timeout);
-```
+## `ao_spush_ptr`
+## `ao_spush_ptr_from`
 
 ```c
+void ao_spush_ptr(     ao_spush_ptr_t * x, ao_time_t timeout);
 void ao_spush_ptr_from(ao_spush_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_spush_ptr_forever`
 
 ```c
 void ao_spush_ptr_forever(ao_spush_ptr_t * x);
 ```
 
+## `ao_spush_ptr_try`
+
 ```c
 void ao_spush_ptr_try(ao_spush_ptr_t * x);
 ```
 
-```c
-void ao_spush_ptr_begin(ao_spush_ptr_t * x);
-```
+## `ao_spush_ptr_begin`
+## `ao_spush_ptr_end`
 
 ```c
-void ao_spush_ptr_end(ao_spush_ptr_t * x);
+void ao_spush_ptr_begin(ao_spush_ptr_t * x);
+void ao_spush_ptr_end(  ao_spush_ptr_t * x);
 ```
+
+## `ao_spush_ptr_override`
 
 ```c
 void ao_spush_ptr_override(ao_spush_ptr_t * x);

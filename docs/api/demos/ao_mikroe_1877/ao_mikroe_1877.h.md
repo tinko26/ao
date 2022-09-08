@@ -18,40 +18,21 @@ toc: true
 # Typedefs
 
 ```c
-typedef enum ao_mikroe_1877_connection_t ao_mikroe_1877_connection_t;
-```
+typedef enum ao_mikroe_1877_connection_t           ao_mikroe_1877_connection_t;
+typedef enum ao_mikroe_1877_event_t                ao_mikroe_1877_event_t;
+typedef enum ao_mikroe_1877_power_t                ao_mikroe_1877_power_t;
+typedef enum ao_mikroe_1877_reporting_t            ao_mikroe_1877_reporting_t;
+typedef enum ao_mikroe_1877_sensor_t               ao_mikroe_1877_sensor_t;
+typedef enum ao_mikroe_1877_state_t                ao_mikroe_1877_state_t;
 
-```c
 typedef struct ao_mikroe_1877_data_t               ao_mikroe_1877_data_t;
 typedef struct ao_mikroe_1877_data_accelerometer_t ao_mikroe_1877_data_accelerometer_t;
 typedef struct ao_mikroe_1877_data_magnetometer_t  ao_mikroe_1877_data_magnetometer_t;
 typedef struct ao_mikroe_1877_data_gyroscope_t     ao_mikroe_1877_data_gyroscope_t;
 typedef struct ao_mikroe_1877_data_inclinometer_t  ao_mikroe_1877_data_inclinometer_t;
 typedef struct ao_mikroe_1877_data_orientation_t   ao_mikroe_1877_data_orientation_t;
-```
 
-```c
-typedef enum ao_mikroe_1877_event_t ao_mikroe_1877_event_t;
-```
-
-```c
-typedef struct ao_mikroe_1877_info_t ao_mikroe_1877_info_t;
-```
-
-```c
-typedef enum ao_mikroe_1877_power_t ao_mikroe_1877_power_t;
-```
-
-```c
-typedef enum ao_mikroe_1877_reporting_t ao_mikroe_1877_reporting_t;
-```
-
-```c
-typedef enum ao_mikroe_1877_sensor_t ao_mikroe_1877_sensor_t;
-```
-
-```c
-typedef enum ao_mikroe_1877_state_t ao_mikroe_1877_state_t;
+typedef struct ao_mikroe_1877_info_t               ao_mikroe_1877_info_t;
 ```
 
 # Types
@@ -377,53 +358,79 @@ It consists of the following members.
 
 # Functions
 
+## `ao_mikroe_1877_config`
+
 ```c
 void ao_mikroe_1877_config(size_t i, ao_mikroe_1877_info_t const * x);
 ```
+
+## `ao_mikroe_1877_data`
 
 ```c
 void ao_mikroe_1877_data(size_t i, ao_mikroe_1877_data_t const * x);
 ```
 
+## `ao_mikroe_1877_get_data`
+
 ```c
 void ao_mikroe_1877_get_data(size_t i, ao_mikroe_1877_sensor_t x);
 ```
+
+## `ao_mikroe_1877_get_info`
 
 ```c
 void ao_mikroe_1877_get_info(size_t i, ao_mikroe_1877_sensor_t x);
 ```
 
+## `ao_mikroe_1877_info`
+
 ```c
 void ao_mikroe_1877_info(size_t i, ao_mikroe_1877_info_t const * x);
 ```
+
+## `ao_mikroe_1877_off`
 
 ```c
 void ao_mikroe_1877_off(size_t i);
 ```
 
+## `ao_mikroe_1877_on`
+
 ```c
 void ao_mikroe_1877_on(size_t i);
 ```
+
+## `ao_mikroe_1877_reset`
 
 ```c
 void ao_mikroe_1877_reset(size_t i);
 ```
 
+## `ao_mikroe_1877_sleep`
+
 ```c
 void ao_mikroe_1877_sleep(size_t i);
 ```
+
+## `ao_mikroe_1877_sleeping`
 
 ```c
 void ao_mikroe_1877_sleeping(size_t i);
 ```
 
+## `ao_mikroe_1877_start`
+
 ```c
 void ao_mikroe_1877_start(size_t i);
 ```
 
+## `ao_mikroe_1877_stop`
+
 ```c
 void ao_mikroe_1877_stop(size_t i);
 ```
+
+## `ao_mikroe_1877_wake`
 
 ```c
 void ao_mikroe_1877_wake(size_t i);

@@ -15,6 +15,8 @@ toc: true
 
 # Functions
 
+## `ao_mikroe_2674_suspended`
+
 ```c
 bool ao_mikroe_2674_suspended(size_t i);
 ```

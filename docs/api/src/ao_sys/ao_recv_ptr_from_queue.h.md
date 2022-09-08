@@ -18,6 +18,8 @@ toc: true
 
 # Functions
 
+## `ao_recv_ptr_from_queue`
+
 ```c
 void ao_recv_ptr_from_queue(ao_recv_ptr_t * x, ao_qpop_ptr_t * y);
 ```

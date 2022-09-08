@@ -35,9 +35,6 @@ toc: true
 
 ```c
 typedef struct ao_mutex_t      ao_mutex_t;
-```
-
-```c
 typedef struct ao_mutex_lock_t ao_mutex_lock_t;
 ```
 
@@ -113,29 +110,35 @@ It consists of the following members.
 
 # Functions
 
-```c
-bool ao_mutex_lock(ao_mutex_t * x, ao_time_t timeout);
-```
+## `ao_mutex_lock`
+## `ao_mutex_lock_from`
 
 ```c
+bool ao_mutex_lock(     ao_mutex_t * x, ao_time_t timeout);
 bool ao_mutex_lock_from(ao_mutex_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_mutex_lock_forever`
 
 ```c
 bool ao_mutex_lock_forever(ao_mutex_t * x);
 ```
 
+## `ao_mutex_lock_try`
+
 ```c
 bool ao_mutex_lock_try(ao_mutex_t * x);
 ```
 
-```c
-void ao_mutex_lock_begin(ao_mutex_lock_t * x);
-```
+## `ao_mutex_lock_begin`
+## `ao_mutex_lock_end`
 
 ```c
-void ao_mutex_lock_end(ao_mutex_lock_t * x);
+void ao_mutex_lock_begin(ao_mutex_lock_t * x);
+void ao_mutex_lock_end(  ao_mutex_lock_t * x);
 ```
+
+## `ao_mutex_unlock`
 
 ```c
 void ao_mutex_unlock(ao_mutex_t * x);

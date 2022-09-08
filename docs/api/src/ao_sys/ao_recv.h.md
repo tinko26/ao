@@ -71,6 +71,9 @@ This type represents a function beginning or ending a receiving.
 
 # Functions
 
+## `ao_recv`
+## `ao_recv_from`
+
 Receive data in a blocking fashion until the specified timeout has expired. An additional parameter marks the beginning of the timeout period, which is assumed to be in the past.
 
 ```c
@@ -78,17 +81,24 @@ void ao_recv(     ao_recv_t * x, ao_time_t timeout);
 void ao_recv_from(ao_recv_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
+## `ao_recv_forever`
+
 Receive data in a blocking fashion with an infinite timeout.
 
 ```c
 void ao_recv_forever(ao_recv_t * x);
 ```
 
+## `ao_recv_try`
+
 Receive data in a non-blocking fashion.
 
 ```c
 void ao_recv_try(ao_recv_t * x);
 ```
+
+## `ao_recv_begin`
+## `ao_recv_end`
 
 Begin or end the receiving of data, respectively.
 

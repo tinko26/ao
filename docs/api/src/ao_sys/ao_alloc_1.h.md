@@ -227,19 +227,6 @@ It consists of the following members.
 
 # Variables
 
-## `ao_alloc_pool`
-
-The pools.
-
-```c
-extern ao_alloc_pool_t ao_alloc_pool_0;
-extern ao_alloc_pool_t ao_alloc_pool_1;
-
-// ...
-
-extern ao_alloc_pool_t ao_alloc_pool_63;
-```
-
 ## `ao_alloc_allocated`
 ## `ao_alloc_allocated_max`
 
@@ -258,4 +245,17 @@ The current and minimum number of free bytes, respectively.
 ```c
 extern size_t volatile ao_alloc_free;
 extern size_t volatile ao_alloc_free_min;
+```
+
+## `ao_alloc_pool`
+
+The pools.
+
+```c
+extern ao_alloc_pool_t ao_alloc_pool_0;
+extern ao_alloc_pool_t ao_alloc_pool_1;
+
+// ...
+
+extern ao_alloc_pool_t ao_alloc_pool_63;
 ```

@@ -17,9 +17,13 @@ toc: true
 
 # Functions
 
+## `ao_yield`
+
 ```c
 void ao_yield();
 ```
+
+## `ao_yield_to`
 
 ```c
 void ao_yield_to(ao_task_t * t);

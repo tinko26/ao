@@ -16,88 +16,47 @@ toc: true
 # Typedefs
 
 ```c
-typedef struct ao_can_t ao_can_t;
-```
+typedef enum ao_can_bus_state_t        ao_can_bus_state_t;
+typedef enum ao_can_fifo_flags_t       ao_can_fifo_flags_t;
+typedef enum ao_can_system_flags_t     ao_can_system_flags_t;
 
-```c
-typedef struct ao_can_baud_t ao_can_baud_t;
-```
-
-```c
-typedef struct ao_can_bus_info_t ao_can_bus_info_t;
-```
-
-```c
-typedef enum ao_can_bus_state_t ao_can_bus_state_t;
-```
-
-```c
-typedef enum ao_can_fifo_flags_t ao_can_fifo_flags_t;
-```
-
-```c
-typedef struct ao_can_invalid_info_t ao_can_invalid_info_t;
-```
-
-```c
-typedef struct ao_can_mode_info_t ao_can_mode_info_t;
-```
-
-```c
-typedef struct ao_can_overflow_info_t ao_can_overflow_info_t;
-```
-
-```c
-typedef struct ao_can_reg_t         ao_can_reg_t;
-typedef struct ao_can_reg_cfg_t     ao_can_reg_cfg_t;
-typedef struct ao_can_reg_con_t     ao_can_reg_con_t;
-typedef struct ao_can_reg_fifo_t    ao_can_reg_fifo_t;
-typedef struct ao_can_reg_fifoba_t  ao_can_reg_fifoba_t;
-typedef struct ao_can_reg_fifoci_t  ao_can_reg_fifoci_t;
-typedef struct ao_can_reg_fifocon_t ao_can_reg_fifocon_t;
-typedef struct ao_can_reg_fifoint_t ao_can_reg_fifoint_t;
-typedef struct ao_can_reg_fifoua_t  ao_can_reg_fifoua_t;
-typedef struct ao_can_reg_fltcon_t  ao_can_reg_fltcon_t;
-typedef struct ao_can_reg_fltcon0_t ao_can_reg_fltcon0_t;
-typedef struct ao_can_reg_fltcon1_t ao_can_reg_fltcon1_t;
-typedef struct ao_can_reg_fltcon2_t ao_can_reg_fltcon2_t;
-typedef struct ao_can_reg_fltcon3_t ao_can_reg_fltcon3_t;
-typedef struct ao_can_reg_fltcon4_t ao_can_reg_fltcon4_t;
-typedef struct ao_can_reg_fltcon5_t ao_can_reg_fltcon5_t;
-typedef struct ao_can_reg_fltcon6_t ao_can_reg_fltcon6_t;
-typedef struct ao_can_reg_fltcon7_t ao_can_reg_fltcon7_t;
-typedef struct ao_can_reg_fstat_t   ao_can_reg_fstat_t;
-typedef struct ao_can_reg_int_t     ao_can_reg_int_t;
-typedef struct ao_can_reg_rxf_t     ao_can_reg_rxf_t;
-typedef struct ao_can_reg_rxm_t     ao_can_reg_rxm_t;
-typedef struct ao_can_reg_rxovf_t   ao_can_reg_rxovf_t;
-typedef struct ao_can_reg_tmr_t     ao_can_reg_tmr_t;
-typedef struct ao_can_reg_trec_t    ao_can_reg_trec_t;
-typedef struct ao_can_reg_vec_t     ao_can_reg_vec_t;
-```
-
-```c
-typedef struct ao_can_sent_info_t ao_can_sent_info_t;
-```
-
-```c
-typedef enum ao_can_system_flags_t ao_can_system_flags_t;
-```
-
-```c
-typedef struct ao_can_system_info_t ao_can_system_info_t;
-```
-
-```c
-typedef struct ao_can_timer_info_t ao_can_timer_info_t;
-```
-
-```c
+typedef struct ao_can_t                ao_can_t;
+typedef struct ao_can_baud_t           ao_can_baud_t;
+typedef struct ao_can_bus_info_t       ao_can_bus_info_t;
+typedef struct ao_can_invalid_info_t   ao_can_invalid_info_t;
+typedef struct ao_can_mode_info_t      ao_can_mode_info_t;
+typedef struct ao_can_overflow_info_t  ao_can_overflow_info_t;
+typedef struct ao_can_reg_t            ao_can_reg_t;
+typedef struct ao_can_reg_cfg_t        ao_can_reg_cfg_t;
+typedef struct ao_can_reg_con_t        ao_can_reg_con_t;
+typedef struct ao_can_reg_fifo_t       ao_can_reg_fifo_t;
+typedef struct ao_can_reg_fifoba_t     ao_can_reg_fifoba_t;
+typedef struct ao_can_reg_fifoci_t     ao_can_reg_fifoci_t;
+typedef struct ao_can_reg_fifocon_t    ao_can_reg_fifocon_t;
+typedef struct ao_can_reg_fifoint_t    ao_can_reg_fifoint_t;
+typedef struct ao_can_reg_fifoua_t     ao_can_reg_fifoua_t;
+typedef struct ao_can_reg_fltcon_t     ao_can_reg_fltcon_t;
+typedef struct ao_can_reg_fltcon0_t    ao_can_reg_fltcon0_t;
+typedef struct ao_can_reg_fltcon1_t    ao_can_reg_fltcon1_t;
+typedef struct ao_can_reg_fltcon2_t    ao_can_reg_fltcon2_t;
+typedef struct ao_can_reg_fltcon3_t    ao_can_reg_fltcon3_t;
+typedef struct ao_can_reg_fltcon4_t    ao_can_reg_fltcon4_t;
+typedef struct ao_can_reg_fltcon5_t    ao_can_reg_fltcon5_t;
+typedef struct ao_can_reg_fltcon6_t    ao_can_reg_fltcon6_t;
+typedef struct ao_can_reg_fltcon7_t    ao_can_reg_fltcon7_t;
+typedef struct ao_can_reg_fstat_t      ao_can_reg_fstat_t;
+typedef struct ao_can_reg_int_t        ao_can_reg_int_t;
+typedef struct ao_can_reg_rxf_t        ao_can_reg_rxf_t;
+typedef struct ao_can_reg_rxm_t        ao_can_reg_rxm_t;
+typedef struct ao_can_reg_rxovf_t      ao_can_reg_rxovf_t;
+typedef struct ao_can_reg_tmr_t        ao_can_reg_tmr_t;
+typedef struct ao_can_reg_trec_t       ao_can_reg_trec_t;
+typedef struct ao_can_reg_vec_t        ao_can_reg_vec_t;
+typedef struct ao_can_sent_info_t      ao_can_sent_info_t;
+typedef struct ao_can_system_info_t    ao_can_system_info_t;
+typedef struct ao_can_timer_info_t     ao_can_timer_info_t;
 typedef struct ao_can_underflow_info_t ao_can_underflow_info_t;
-```
-
-```c
-typedef struct ao_can_wake_up_info_t ao_can_wake_up_info_t;
+typedef struct ao_can_wake_up_info_t   ao_can_wake_up_info_t;
 ```
 
 # Types
@@ -1861,15 +1820,20 @@ struct ao_can_wake_up_info_t { };
 
 # Functions
 
+## `ao_can_baud`
+
+Setup the baud rate.
+
+```c
+void ao_can_baud(ao_can_baud_t * x);
+```
+
+## `AO_CAN_BAUD_MAX`
+## `AO_CAN_BAUD_MIN`
+
 Get the maximum or minumum baud rate, respectively, for a given periphal bus clock frequency.
 
 ```c
 #define AO_CAN_BAUD_MAX(f_pbclk)
 #define AO_CAN_BAUD_MIN(f_pbclk)
-```
-
-Setup the baud rate.
-
-```c
-void ao_can_baud( ao_can_baud_t * x);
 ```

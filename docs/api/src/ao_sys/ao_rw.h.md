@@ -31,9 +31,6 @@ toc: true
 
 ```c
 typedef struct ao_rw_t      ao_rw_t;
-```
-
-```c
 typedef struct ao_rw_lock_t ao_rw_lock_t;
 ```
 
@@ -83,57 +80,69 @@ It consists of the following members.
 
 # Functions
 
+## `ao_rw_lock_read`
+## `ao_rw_lock_read_from`
+
 ```c
-bool ao_rw_lock_read(ao_rw_t * x, ao_time_t timeout);
+bool ao_rw_lock_read(     ao_rw_t * x, ao_time_t timeout);
+bool ao_rw_lock_read_from(ao_rw_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_rw_lock_read_forever`
 
 ```c
 bool ao_rw_lock_read_forever(ao_rw_t * x);
 ```
 
-```c
-bool ao_rw_lock_read_from(ao_rw_t * x, ao_time_t timeout, ao_time_t beginning);
-```
+## `ao_rw_lock_read_try`
 
 ```c
 bool ao_rw_lock_read_try(ao_rw_t * x);
 ```
 
+## `ao_rw_lock_read_begin`
+## `ao_rw_lock_read_end`
+
 ```c
 void ao_rw_lock_read_begin(ao_rw_lock_t * x);
+void ao_rw_lock_read_end(  ao_rw_lock_t * x);
 ```
 
-```c
-void ao_rw_lock_read_end(ao_rw_lock_t * x);
-```
+## `ao_rw_lock_write`
+## `ao_rw_lock_write_from`
 
 ```c
-bool ao_rw_lock_write(ao_rw_t * x, ao_time_t timeout);
+bool ao_rw_lock_write(     ao_rw_t * x, ao_time_t timeout);
+bool ao_rw_lock_write_from(ao_rw_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+## `ao_rw_lock_write_forever`
 
 ```c
 bool ao_rw_lock_write_forever(ao_rw_t * x);
 ```
 
-```c
-bool ao_rw_lock_write_from(ao_rw_t * x, ao_time_t timeout, ao_time_t beginning);
-```
+## `ao_rw_lock_write_try`
 
 ```c
 bool ao_rw_lock_write_try(ao_rw_t * x);
 ```
 
-```c
-void ao_rw_lock_write_begin(ao_rw_lock_t * x);
-```
+## `ao_rw_lock_write_begin`
+## `ao_rw_lock_write_end`
 
 ```c
-void ao_rw_lock_write_end(ao_rw_lock_t * x);
+void ao_rw_lock_write_begin(ao_rw_lock_t * x);
+void ao_rw_lock_write_end(  ao_rw_lock_t * x);
 ```
+
+## `ao_rw_unlock_read`
 
 ```c
 void ao_rw_unlock_read(ao_rw_t * x);
 ```
+
+## `ao_rw_unlock_write`
 
 ```c
 void ao_rw_unlock_write(ao_rw_t * x);

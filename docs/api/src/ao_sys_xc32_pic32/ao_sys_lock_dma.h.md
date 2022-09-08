@@ -16,9 +16,13 @@ toc: true
 
 # Functions
 
+## `ao_sys_lock_dma`
+
 ```c
 uint32_t ao_sys_lock_dma();
 ```
+
+## `ao_sys_unlock_dma`
 
 ```c
 void ao_sys_unlock_dma(uint32_t x);

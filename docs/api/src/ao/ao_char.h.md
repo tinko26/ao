@@ -18,18 +18,7 @@ This module provides a couple of functions that classify characters. Although th
 
 # Functions
 
-## `ao_char_is_alphanumeric`
-## `ao_char_is_alphabetic`
-## `ao_char_is_blank`
-## `ao_char_is_control`
-## `ao_char_is_decimal`
-## `ao_char_is_graphical`
-## `ao_char_is_hexadecimal`
-## `ao_char_is_lower`
-## `ao_char_is_printable`
-## `ao_char_is_punctuation`
-## `ao_char_is_upper`
-## `ao_char_is_whitespace`
+## `ao_char_is`
 
 Classify a given character.
 

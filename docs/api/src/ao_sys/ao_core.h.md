@@ -18,18 +18,20 @@ This module is abstract, that is, an implementation must be provided by a port p
 #include <stdint.h>
 ```
 
-# Typedefs
-
-```c
-typedef uint32_t ao_core_t;
-```
-
 # Constants
+
+## `AO_CORE_COUNT`
 
 The number of identical processor cores.
 
 ```c
 #define AO_CORE_COUNT (1)
+```
+
+# Typedefs
+
+```c
+typedef uint32_t ao_core_t;
 ```
 
 # Types
@@ -39,6 +41,8 @@ The number of identical processor cores.
 This type is an alias for an unsigned integer type that can hold the zero-based index of a processor core.
 
 # Functions
+
+## `ao_core`
 
 Get the zero-based index of the processor core, on which the calling thread of execution is running.
 

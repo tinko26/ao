@@ -30,6 +30,9 @@ struct ao_lock_t { };
 
 # Functions
 
+## `ao_lock`
+## `ao_unlock`
+
 Enter or exit a critical section, respectively.
 
 ```c

@@ -8,13 +8,19 @@ toc: true
 
 # Functions
 
+## `ao_boot_alarm`
+
 ```c
 void ao_boot_alarm();
 ```
 
+## `ao_boot_alloc`
+
 ```c
 void ao_boot_alloc();
 ```
+
+## `ao_boot_task`
 
 ```c
 void ao_boot_task();

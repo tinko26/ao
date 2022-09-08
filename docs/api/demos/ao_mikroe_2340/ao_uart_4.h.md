@@ -15,6 +15,10 @@ toc: true
 
 # Configuration
 
+## `AO_UART_4`
+
+Indicates whether the UART module is used.
+
 ```c
 #define AO_UART_4       \
 (                       \

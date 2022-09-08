@@ -20,9 +20,6 @@ toc: true
 
 ```c
 typedef struct ao_flag_t      ao_flag_t;
-```
-
-```c
 typedef struct ao_flag_wait_t ao_flag_wait_t;
 ```
 
@@ -87,30 +84,46 @@ This type represents a function checking for a match. It takes the current bitma
 
 # Functions
 
+## `ao_flag_mask_clear`
+
 ```c
 void ao_flag_mask_clear(ao_flag_t * x, ao_uint_t bits);
 ```
+
+## `ao_flag_mask_set`
 
 ```c
 void ao_flag_mask_set(ao_flag_t * x, ao_uint_t bits);
 ```
 
+## `ao_flag_mask_toggle`
+
 ```c
 void ao_flag_mask_toggle(ao_flag_t * x, ao_uint_t bits);
 ```
+
+## `ao_flag_wait`
+## `ao_flag_wait_from`
 
 ```c
 bool ao_flag_wait(     ao_flag_t * x, ao_uint_t mask, ao_flag_match_t match, void * match_parameter, ao_time_t timeout);
 bool ao_flag_wait_from(ao_flag_t * x, ao_uint_t mask, ao_flag_match_t match, void * match_parameter, ao_time_t timeout, ao_time_t beginning);
 ```
 
+## `ao_flag_wait_forever`
+
 ```c
 bool ao_flag_wait_forever(ao_flag_t * x, ao_uint_t mask, ao_flag_match_t match, void * match_parameter);
 ```
 
+## `ao_flag_wait_try`
+
 ```c
 bool ao_flag_wait_try(ao_flag_t * x, ao_uint_t mask, ao_flag_match_t match, void * match_parameter);
 ```
+
+## `ao_flag_wait_begin`
+## `ao_flag_wait_end`
 
 ```c
 void ao_flag_wait_begin(ao_flag_wait_t * x);

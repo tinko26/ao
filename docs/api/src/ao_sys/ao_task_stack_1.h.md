@@ -13,20 +13,21 @@ toc: true
 #include <stddef.h>
 ```
 
+# Configuration
+
+## `AO_TASK_STACK_HIGH_WATER_MARK`
+
+Measure the high water mark for each task stack.
+
+```c
+#define AO_TASK_STACK_HIGH_WATER_MARK (false)
+```
+
 # Typedefs
 
 ```c
 typedef struct ao_task_t       ao_task_t;
-```
-
-```c
 typedef struct ao_task_stack_t ao_task_stack_t;
-```
-
-# Configuration
-
-```c
-#define AO_TASK_STACK_HIGH_WATER_MARK (false)
 ```
 
 # Types
@@ -56,33 +57,47 @@ It consists of the following members.
 
 # Functions
 
-```c
-void * ao_task_get_stack_beginning(ao_task_t const * t);
-```
+## `ao_task_get_stack_beginning`
+## `ao_task_get_stack_beginning_locked`
+
+Gets the stack beginning of the specified task. The latter function assumes, that the kernel is locked.
 
 ```c
+void * ao_task_get_stack_beginning(       ao_task_t const * t);
 void * ao_task_get_stack_beginning_locked(ao_task_t const * t);
 ```
 
-```c
-size_t ao_task_get_stack_high_water_mark(ao_task_t const * t);
-```
+## `ao_task_get_stack_high_water_mark`
+## `ao_task_get_stack_high_water_mark_locked`
+
+Gets the stack high water mark of the specified task. The latter function assumes, that the kernel is locked.
 
 ```c
+size_t ao_task_get_stack_high_water_mark(       ao_task_t const * t);
 size_t ao_task_get_stack_high_water_mark_locked(ao_task_t const * t);
 ```
 
-```c
-size_t ao_task_get_stack_size(ao_task_t const * t);
-```
+## `ao_task_get_stack_size`
+## `ao_task_get_stack_size_locked`
+
+Gets the stack size of the specified task. The latter function assumes, that the kernel is locked.
 
 ```c
+size_t ao_task_get_stack_size(       ao_task_t const * t);
 size_t ao_task_get_stack_size_locked(ao_task_t const * t);
 ```
+
+## `ao_task_set_stack`
+
+Sets the stack of the specified task.
 
 ```c
 void ao_task_set_stack(ao_task_t * t, void * beginning, size_t size);
 ```
+
+## `ao_task_stack_high_water_mark`
+
+Measures the stack high water mark of the specified task.
 
 ```c
 void ao_task_stack_high_water_mark(ao_task_t * t);

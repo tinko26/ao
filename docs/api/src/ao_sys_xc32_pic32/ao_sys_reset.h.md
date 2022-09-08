@@ -10,6 +10,8 @@ toc: true
 
 # Functions
 
+## `ao_sys_reset`
+
 Execute a software reset.
 
 ```c

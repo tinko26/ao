@@ -19,7 +19,7 @@ toc: true
 
 # Constants
 
-## `AO_CAN`
+## `AO_CAN_3`
 
 Indicates whether the CAN module is available.
 
@@ -27,7 +27,8 @@ Indicates whether the CAN module is available.
 #define AO_CAN_3
 ```
 
-## `AO_CAN_BAUD`
+## `AO_CAN_BAUD_MAX_3`
+## `AO_CAN_BAUD_MIN_3`
 
 The maximum and minimum baud rate.
 
@@ -36,7 +37,7 @@ The maximum and minimum baud rate.
 #define AO_CAN_BAUD_MIN_3
 ```
 
-## `AO_CAN_BUFFERS`
+## `AO_CAN_BUFFERS_3`
 
 The total number of buffers.
 
@@ -44,7 +45,7 @@ The total number of buffers.
 #define AO_CAN_BUFFERS_3
 ```
 
-## `AO_CAN_FIFOS`
+## `AO_CAN_FIFOS_3`
 
 The total number of FIFOs.
 
@@ -52,7 +53,7 @@ The total number of FIFOs.
 #define AO_CAN_FIFOS_3
 ```
 
-## `AO_CAN_RX`
+## `AO_CAN_RX_3`
 
 Indicates whether the module is configured to receive.
 
@@ -60,7 +61,7 @@ Indicates whether the module is configured to receive.
 #define AO_CAN_RX_3
 ```
 
-## `AO_CAN_TX`
+## `AO_CAN_TX_3`
 
 Indicates whether the module is configured to transmit.
 
@@ -70,37 +71,45 @@ Indicates whether the module is configured to transmit.
 
 # Configuration
 
-## `AO_CAN_BAUD`
+## `AO_CAN_BAUD_3`
 
 The baud rate.
 
 ```c
-#define AO_CAN_BAUD_3                (100000)
+#define AO_CAN_BAUD_3 (100000)
 ```
+
+## `AO_CAN_BAUD_SAMPLE_3`
 
 The sample point, in per cent.
 
 ```c
-#define AO_CAN_BAUD_SAMPLE_3         (85)
+#define AO_CAN_BAUD_SAMPLE_3 (85)
 ```
+
+## `AO_CAN_BAUD_SAMPLE_THRICE_3`
 
 Indicates whether to sample each bit thrice.
 
 ```c
-#define AO_CAN_BAUD_SAMPLE_THRICE_3  (true)
+#define AO_CAN_BAUD_SAMPLE_THRICE_3 (true)
 ```
+
+## `AO_CAN_BAUD_SJW_3`
 
 The synchronization jump width.
 
 ```c
-#define AO_CAN_BAUD_SJW_3            (1)
+#define AO_CAN_BAUD_SJW_3 (1)
 ```
+
+## `AO_CAN_BAUD_WAKE_UP_FILTER_3`
 
 ```c
 #define AO_CAN_BAUD_WAKE_UP_FILTER_3 (false)
 ```
 
-## `AO_CAN_BUFFERS`
+## `AO_CAN_BUFFERS_3`
 
 The number of buffers in each FIFO.
 
@@ -139,13 +148,14 @@ The number of buffers in each FIFO.
 #define AO_CAN_BUFFERS_3_31 (0)
 ```
 
-## `AO_CAN_BUS`
+## `AO_CAN_BUS_3`
 
 ```c
 #define AO_CAN_BUS_3 (false)
 ```
 
-## `AO_CAN_FIFOS`
+## `AO_CAN_FIFOS_RX_3`
+## `AO_CAN_FIFOS_TX_3`
 
 The number of receive and transmit FIFOs.
 
@@ -154,7 +164,7 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_FIFOS_TX_3 (0)
 ```
 
-## `AO_CAN_FILTER`
+## `AO_CAN_FILTER_EID_3`
 
 ```c
 #define AO_CAN_FILTER_EID_3_0  (0)
@@ -191,6 +201,8 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_FILTER_EID_3_31 (0)
 ```
 
+## `AO_CAN_FILTER_ENABLE_3`
+
 ```c
 #define AO_CAN_FILTER_ENABLE_3_0  (0)
 #define AO_CAN_FILTER_ENABLE_3_1  (0)
@@ -225,6 +237,8 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_FILTER_ENABLE_3_30 (0)
 #define AO_CAN_FILTER_ENABLE_3_31 (0)
 ```
+
+## `AO_CAN_FILTER_FIFO_3`
 
 ```c
 #define AO_CAN_FILTER_FIFO_3_0  (0)
@@ -261,6 +275,8 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_FILTER_FIFO_3_31 (0)
 ```
 
+## `AO_CAN_FILTER_IDE_3`
+
 ```c
 #define AO_CAN_FILTER_IDE_3_0  (0)
 #define AO_CAN_FILTER_IDE_3_1  (0)
@@ -295,6 +311,8 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_FILTER_IDE_3_30 (0)
 #define AO_CAN_FILTER_IDE_3_31 (0)
 ```
+
+## `AO_CAN_FILTER_MASK_3`
 
 ```c
 #define AO_CAN_FILTER_MASK_3_0  (0)
@@ -331,6 +349,35 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_FILTER_MASK_3_31 (0)
 ```
 
+## `AO_CAN_FILTER_MASK_EID_3`
+
+```c
+#define AO_CAN_FILTER_MASK_EID_3_0 (0)
+#define AO_CAN_FILTER_MASK_EID_3_1 (0)
+#define AO_CAN_FILTER_MASK_EID_3_2 (0)
+#define AO_CAN_FILTER_MASK_EID_3_3 (0)
+```
+
+## `AO_CAN_FILTER_MASK_IDE_3`
+
+```c
+#define AO_CAN_FILTER_MASK_IDE_3_0 (0)
+#define AO_CAN_FILTER_MASK_IDE_3_1 (0)
+#define AO_CAN_FILTER_MASK_IDE_3_2 (0)
+#define AO_CAN_FILTER_MASK_IDE_3_3 (0)
+```
+
+## `AO_CAN_FILTER_MASK_SID_3`
+
+```c
+#define AO_CAN_FILTER_MASK_SID_3_0 (0)
+#define AO_CAN_FILTER_MASK_SID_3_1 (0)
+#define AO_CAN_FILTER_MASK_SID_3_2 (0)
+#define AO_CAN_FILTER_MASK_SID_3_3 (0)
+```
+
+## `AO_CAN_FILTER_SID_3`
+
 ```c
 #define AO_CAN_FILTER_SID_3_0  (0)
 #define AO_CAN_FILTER_SID_3_1  (0)
@@ -366,72 +413,49 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_FILTER_SID_3_31 (0)
 ```
 
-## `AO_CAN_FILTER_MASK`
-
-```c
-#define AO_CAN_FILTER_MASK_EID_3_0 (0)
-#define AO_CAN_FILTER_MASK_EID_3_1 (0)
-#define AO_CAN_FILTER_MASK_EID_3_2 (0)
-#define AO_CAN_FILTER_MASK_EID_3_3 (0)
-```
-
-```c
-#define AO_CAN_FILTER_MASK_IDE_3_0 (0)
-#define AO_CAN_FILTER_MASK_IDE_3_1 (0)
-#define AO_CAN_FILTER_MASK_IDE_3_2 (0)
-#define AO_CAN_FILTER_MASK_IDE_3_3 (0)
-```
-
-```c
-#define AO_CAN_FILTER_MASK_SID_3_0 (0)
-#define AO_CAN_FILTER_MASK_SID_3_1 (0)
-#define AO_CAN_FILTER_MASK_SID_3_2 (0)
-#define AO_CAN_FILTER_MASK_SID_3_3 (0)
-```
-
-## `AO_CAN_INVALID`
+## `AO_CAN_INVALID_3`
 
 ```c
 #define AO_CAN_INVALID_3 (false)
 ```
 
-## `AO_CAN_MODE`
+## `AO_CAN_MODE_3`
 
 ```c
 #define AO_CAN_MODE_3 (false)
 ```
 
-## `AO_CAN_OVERFLOW`
+## `AO_CAN_OVERFLOW_3`
 
 ```c
 #define AO_CAN_OVERFLOW_3 (false)
 ```
 
-## `AO_CAN_SENT`
+## `AO_CAN_SENT_3`
 
 ```c
 #define AO_CAN_SENT_3 (false)
 ```
 
-## `AO_CAN_SYSTEM`
+## `AO_CAN_SYSTEM_3`
 
 ```c
 #define AO_CAN_SYSTEM_3 (false)
 ```
 
-## `AO_CAN_TIMER`
+## `AO_CAN_TIMER_3`
 
 ```c
 #define AO_CAN_TIMER_3 (false)
 ```
 
-## `AO_CAN_UNDERFLOW`
+## `AO_CAN_UNDERFLOW_3`
 
 ```c
 #define AO_CAN_UNDERFLOW_3 (false)
 ```
 
-## `AO_CAN_WAKE_UP`
+## `AO_CAN_WAKE_UP_3`
 
 ```c
 #define AO_CAN_WAKE_UP_3 (false)
@@ -439,85 +463,127 @@ The number of receive and transmit FIFOs.
 
 # Functions
 
-```c
-#define ao_can_reg_3()
-```
+## `ao_can_bus_3`
 
 ```c
 void ao_can_bus_3(ao_can_bus_info_t const * info);
 ```
 
+## `ao_can_config_3`
+
 ```c
 void ao_can_config_3();
 ```
+
+## `ao_can_config_baud_3`
 
 ```c
 void ao_can_config_baud_3();
 ```
 
+## `ao_can_config_fifos_3`
+
 ```c
 void ao_can_config_fifos_3();
 ```
+
+## `ao_can_config_filter_masks_3`
 
 ```c
 void ao_can_config_filter_masks_3();
 ```
 
+## `ao_can_config_filters_3`
+
 ```c
 void ao_can_config_filters_3();
 ```
+
+## `ao_can_invalid_3`
 
 ```c
 void ao_can_invalid_3(ao_can_invalid_info_t const * info);
 ```
 
+## `ao_can_listen_all_3`
+
 ```c
 void ao_can_listen_all_3();
 ```
+
+## `ao_can_listen_only_3`
 
 ```c
 void ao_can_listen_only_3();
 ```
 
+## `ao_can_loopback_3`
+
 ```c
 void ao_can_loopback_3();
 ```
+
+## `ao_can_mode_3`
 
 ```c
 void ao_can_mode_3(ao_can_mode_info_t const * info);
 ```
 
+## `ao_can_normal_3`
+
 ```c
 void ao_can_normal_3();
 ```
+
+## `ao_can_overflow_3`
 
 ```c
 void ao_can_overflow_3(ao_can_overflow_info_t const * info);
 ```
 
+## `ao_can_reg_3`
+
+```c
+#define ao_can_reg_3()
+```
+
+## `ao_can_sent_3`
+
 ```c
 void ao_can_sent_3(ao_can_sent_info_t const * info);
 ```
+
+## `ao_can_start_3`
 
 ```c
 void ao_can_start_3();
 ```
 
+## `ao_can_stop_3`
+
 ```c
 void ao_can_stop_3();
 ```
+
+## `ao_can_system_3`
 
 ```c
 void ao_can_system_3(ao_can_system_info_t const * info);
 ```
 
+## `ao_can_timer_3`
+
 ```c
 void ao_can_timer_3(ao_can_timer_info_t const * info);
 ```
 
+## `ao_can_underflow_3`
+
 ```c
 void ao_can_underflow_3(ao_can_underflow_info_t const * info);
 ```
+
+## `ao_can_wake_up_3`
 
 ```c
 void ao_can_wake_up_3(ao_can_wake_up_info_t const * info);
@@ -525,18 +591,26 @@ void ao_can_wake_up_3(ao_can_wake_up_info_t const * info);
 
 # Variables
 
-```c
-extern ao_can_t      ao_can_buffers_3[AO_CAN_BUFFERS_3];
-```
+## `ao_can_buffers_3`
 
 ```c
-extern ao_send_obj_t ao_can_in_3     [AO_CAN_FIFOS_RX_3];
+extern ao_can_t ao_can_buffers_3 [AO_CAN_BUFFERS_3];
 ```
 
-```c
-extern ao_recv_obj_t ao_can_out_3    [AO_CAN_FIFOS_TX_3];
-```
+## `ao_can_in_3`
 
 ```c
-extern ao_task_t     ao_can_task_3;
+extern ao_send_obj_t ao_can_in_3 [AO_CAN_FIFOS_RX_3];
+```
+
+## `ao_can_out_3`
+
+```c
+extern ao_recv_obj_t ao_can_out_3 [AO_CAN_FIFOS_TX_3];
+```
+
+## `ao_can_task_3`
+
+```c
+extern ao_task_t ao_can_task_3;
 ```

@@ -17,13 +17,9 @@ toc: true
 #include <stdint.h>
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_ir_stack_t ao_ir_stack_t;
-```
-
 # Configuration
+
+## `AO_IR_STACK_DEPTH_MAX`
 
 Keep track of the maximum depth.
 
@@ -31,19 +27,25 @@ Keep track of the maximum depth.
 #define AO_IR_STACK_DEPTH_MAX (false)
 ```
 
+## `AO_IR_STACK_FILL`
+
 Keep track of the high water mark.
 
 ```c
-#define AO_IR_STACK_FILL      (false)
+#define AO_IR_STACK_FILL (false)
 ```
+
+## `AO_IR_STACK_SIZE`
 
 The size of the interrupt stack, in bytes.
 
 ```c
-#define AO_IR_STACK_SIZE      (4096)
+#define AO_IR_STACK_SIZE (4096)
 ```
 
 # Constants
+
+## `AO_IR_STACK_SIZE_ALIGNED`
 
 The aligned stack size, in bytes.
 
@@ -51,10 +53,18 @@ The aligned stack size, in bytes.
 #define AO_IR_STACK_SIZE_ALIGNED AO_ALIGN_UP(AO_IR_STACK_SIZE, AO_STACK_ALIGN)
 ```
 
+## `AO_IR_STACK_SIZE_AS`
+
 The size of the argument section, in bytes.
 
 ```c
-#define AO_IR_STACK_SIZE_AS     (24)
+#define AO_IR_STACK_SIZE_AS (24)
+```
+
+# Typedefs
+
+```c
+typedef struct ao_ir_stack_t ao_ir_stack_t;
 ```
 
 # Types
@@ -97,6 +107,11 @@ It consists of the following members.
 
 # Functions
 
+## `ao_ir_stack_func0`
+## `ao_ir_stack_func1`
+## `ao_ir_stack_func2`
+## `ao_ir_stack_func3`
+
 Execute function `f` on the interrupt stack.
 
 ```c
@@ -106,6 +121,8 @@ void * ao_ir_stack_func2(void * p1, void * p2, ao_func2_t f);
 void * ao_ir_stack_func3(void * p1, void * p2, void * p3, ao_func3_t f);
 ```
 
+## `ao_ir_stack_high_water_mark`
+
 Measure the high water mark of the interrupt stack.
 
 ```c
@@ -113,6 +130,8 @@ void ao_ir_stack_high_water_mark();
 ```
 
 # Variables
+
+## `ao_ir_stack`
 
 The interrupt stack.
 

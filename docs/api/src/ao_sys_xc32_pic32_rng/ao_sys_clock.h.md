@@ -8,6 +8,8 @@ toc: true
 
 # Constants
 
+## `AO_SYS_CLOCK_RNG`
+
 The peripheral bus clock frequency for the RNG module, in Hertz.
 
 ```c

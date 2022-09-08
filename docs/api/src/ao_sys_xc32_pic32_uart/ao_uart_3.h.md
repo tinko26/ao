@@ -20,7 +20,7 @@ toc: true
 
 # Constants
 
-## `AO_UART`
+## `AO_UART_3`
 
 Indicates whether the UART module is available.
 
@@ -28,7 +28,8 @@ Indicates whether the UART module is available.
 #define AO_UART_3
 ```
 
-## `AO_UART_BAUD`
+## `AO_UART_BAUD_MAX_3`
+## `AO_UART_BAUD_MIN_3`
 
 The maximum and minimum baud rate.
 
@@ -37,14 +38,16 @@ The maximum and minimum baud rate.
 #define AO_UART_BAUD_MIN_3
 ```
 
-## `AO_UART_BAUD_HIGH`
+## `AO_UART_BAUD_HIGH_MAX_3`
+## `AO_UART_BAUD_HIGH_MIN_3`
 
 ```c
 #define AO_UART_BAUD_HIGH_MAX_3
 #define AO_UART_BAUD_HIGH_MIN_3
 ```
 
-## `AO_UART_BAUD_LOW`
+## `AO_UART_BAUD_LOW_MAX_3`
+## `AO_UART_BAUD_LOW_MIN_3`
 
 ```c
 #define AO_UART_BAUD_LOW_MAX_3
@@ -53,43 +56,43 @@ The maximum and minimum baud rate.
 
 # Configuration
 
-## `AO_UART_BAUD`
+## `AO_UART_BAUD_3`
 
 ```c
 #define AO_UART_BAUD_3 (9600)
 ```
 
-## `AO_UART_DATA_BITS_PARITY`
+## `AO_UART_DATA_BITS_PARITY_3`
 
 ```c
 #define AO_UART_DATA_BITS_PARITY_3 (AO_UART_DATA_BITS_8_PARITY_NONE)
 ```
 
-## `AO_UART_ERROR`
+## `AO_UART_ERROR_3`
 
 ```c
 #define AO_UART_ERROR_3 (false)
 ```
 
-## `AO_UART_LOOPBACK`
+## `AO_UART_LOOPBACK_3`
 
 ```c
 #define AO_UART_LOOPBACK_3 (false)
 ```
 
-## `AO_UART_RX`
+## `AO_UART_RX_3`
 
 ```c
 #define AO_UART_RX_3 (false)
 ```
 
-## `AO_UART_STOP_BITS`
+## `AO_UART_STOP_BITS_3`
 
 ```c
 #define AO_UART_STOP_BITS_3 (AO_UART_STOP_BITS_ONE)
 ```
 
-## `AO_UART_TX`
+## `AO_UART_TX_3`
 
 ```c
 #define AO_UART_TX_3 (false)
@@ -97,53 +100,75 @@ The maximum and minimum baud rate.
 
 # Functions
 
+## `ao_uart_baud_3`
+
 ```c
 #define ao_uart_baud_3(f)
 ```
+
+## `ao_uart_baud_high_3`
 
 ```c
 #define ao_uart_baud_high_3(f)
 ```
 
+## `ao_uart_baud_low_3`
+
 ```c
 #define ao_uart_baud_low_3(f)
 ```
 
-```c
-#define ao_uart_loopback_disable_3()
-```
-
-```c
-#define ao_uart_loopback_enable_3()
-```
-
-```c
-#define ao_uart_reg_3()
-```
+## `ao_uart_config_3`
 
 ```c
 void ao_uart_config_3();
 ```
 
+## `ao_uart_config_baud_3`
+
 ```c
 void ao_uart_config_baud_3();
 ```
+
+## `ao_uart_config_frame_3`
 
 ```c
 void ao_uart_config_frame_3();
 ```
 
+## `ao_uart_config_loopback_3`
+
 ```c
 void ao_uart_config_loopback_3();
 ```
+
+## `ao_uart_error_3`
 
 ```c
 void ao_uart_error_3(ao_uart_error_info_t const * info);
 ```
 
+## `ao_uart_loopback_enable_3`
+## `ao_uart_loopback_disable_3`
+
+```c
+#define ao_uart_loopback_enable_3()
+#define ao_uart_loopback_disable_3()
+```
+
+## `ao_uart_reg_3`
+
+```c
+#define ao_uart_reg_3()
+```
+
+## `ao_uart_start_3`
+
 ```c
 void ao_uart_start_3();
 ```
+
+## `ao_uart_stop_3`
 
 ```c
 void ao_uart_stop_3();
@@ -151,13 +176,19 @@ void ao_uart_stop_3();
 
 # Variables
 
+## `ao_uart_in_3`
+
 ```c
 extern ao_send_t ao_uart_in_3;
 ```
 
+## `ao_uart_out_3`
+
 ```c
 extern ao_recv_t ao_uart_out_3;
 ```
+
+## `ao_uart_task_3`
 
 ```c
 extern ao_task_t ao_uart_task_3;

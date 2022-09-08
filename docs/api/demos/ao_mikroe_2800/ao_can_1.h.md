@@ -14,6 +14,10 @@ toc: true
 
 # Configuration
 
+## `AO_CAN_1`
+
+Indicates whether the CAN module is used.
+
 ```c
 #define AO_CAN_1 (AO_MIKROE_2334_2)
 ```

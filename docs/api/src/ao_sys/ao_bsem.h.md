@@ -21,9 +21,6 @@ toc: true
 
 ```c
 typedef struct ao_bsem_t      ao_bsem_t;
-```
-
-```c
 typedef struct ao_bsem_take_t ao_bsem_take_t;
 ```
 
@@ -69,24 +66,36 @@ It consists of the following members.
 
 # Functions
 
+## ``
+
 Give a binary semaphore. This function can be called from both task and interrupt context.
 
 ```c
 void ao_bsem_give(ao_bsem_t * x);
 ```
 
+## `ao_bsem_take`
+## `ao_bsem_take_from`
+
 ```c
 bool ao_bsem_take(     ao_bsem_t * x, ao_time_t timeout);
 bool ao_bsem_take_from(ao_bsem_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
+## `ao_bsem_take_forever`
+
 ```c
 bool ao_bsem_take_forever(ao_bsem_t * x);
 ```
 
+## `ao_bsem_take_try`
+
 ```c
 bool ao_bsem_take_try(ao_bsem_t * x);
 ```
+
+## `ao_bsem_take_begin`
+## `ao_bsem_take_end`
 
 ```c
 void ao_bsem_take_begin(ao_bsem_take_t * x);
