@@ -17,58 +17,6 @@ toc: true
 #include <xc.h>
 ```
 
-# Constants
-
-## `AO_CAN_4`
-
-Indicates whether the CAN module is available.
-
-```c
-#define AO_CAN_4
-```
-
-## `AO_CAN_BAUD_MAX_4`
-## `AO_CAN_BAUD_MIN_4`
-
-The maximum and minimum baud rate.
-
-```c
-#define AO_CAN_BAUD_MAX_4
-#define AO_CAN_BAUD_MIN_4
-```
-
-## `AO_CAN_BUFFERS_4`
-
-The total number of buffers.
-
-```c
-#define AO_CAN_BUFFERS_4
-```
-
-## `AO_CAN_FIFOS_4`
-
-The total number of FIFOs.
-
-```c
-#define AO_CAN_FIFOS_4
-```
-
-## `AO_CAN_RX_4`
-
-Indicates whether the module is configured to receive.
-
-```c
-#define AO_CAN_RX_4
-```
-
-## `AO_CAN_TX_4`
-
-Indicates whether the module is configured to transmit.
-
-```c
-#define AO_CAN_TX_4
-```
-
 # Configuration
 
 ## `AO_CAN_BAUD_4`
@@ -459,6 +407,58 @@ The number of receive and transmit FIFOs.
 
 ```c
 #define AO_CAN_WAKE_UP_4 (false)
+```
+
+# Constants
+
+## `AO_CAN_4`
+
+Indicates whether the CAN module is available.
+
+```c
+#define AO_CAN_4
+```
+
+## `AO_CAN_BAUD_MAX_4`
+## `AO_CAN_BAUD_MIN_4`
+
+The maximum and minimum baud rate.
+
+```c
+#define AO_CAN_BAUD_MAX_4
+#define AO_CAN_BAUD_MIN_4
+```
+
+## `AO_CAN_BUFFERS_4`
+
+The total number of buffers.
+
+```c
+#define AO_CAN_BUFFERS_4
+```
+
+## `AO_CAN_FIFOS_4`
+
+The total number of FIFOs.
+
+```c
+#define AO_CAN_FIFOS_4
+```
+
+## `AO_CAN_RX_4`
+
+Indicates whether the module is configured to receive.
+
+```c
+#define AO_CAN_RX_4
+```
+
+## `AO_CAN_TX_4`
+
+Indicates whether the module is configured to transmit.
+
+```c
+#define AO_CAN_TX_4
 ```
 
 # Functions

@@ -18,42 +18,6 @@ toc: true
 #include <xc.h>
 ```
 
-# Constants
-
-## `AO_UART_6`
-
-Indicates whether the UART module is available.
-
-```c
-#define AO_UART_6
-```
-
-## `AO_UART_BAUD_MAX_6`
-## `AO_UART_BAUD_MIN_6`
-
-The maximum and minimum baud rate.
-
-```c
-#define AO_UART_BAUD_MAX_6
-#define AO_UART_BAUD_MIN_6
-```
-
-## `AO_UART_BAUD_HIGH_MAX_6`
-## `AO_UART_BAUD_HIGH_MIN_6`
-
-```c
-#define AO_UART_BAUD_HIGH_MAX_6
-#define AO_UART_BAUD_HIGH_MIN_6
-```
-
-## `AO_UART_BAUD_LOW_MAX_6`
-## `AO_UART_BAUD_LOW_MIN_6`
-
-```c
-#define AO_UART_BAUD_LOW_MAX_6
-#define AO_UART_BAUD_LOW_MIN_6
-```
-
 # Configuration
 
 ## `AO_UART_BAUD_6`
@@ -96,6 +60,42 @@ The maximum and minimum baud rate.
 
 ```c
 #define AO_UART_TX_6 (false)
+```
+
+# Constants
+
+## `AO_UART_6`
+
+Indicates whether the UART module is available.
+
+```c
+#define AO_UART_6
+```
+
+## `AO_UART_BAUD_MAX_6`
+## `AO_UART_BAUD_MIN_6`
+
+The maximum and minimum baud rate.
+
+```c
+#define AO_UART_BAUD_MAX_6
+#define AO_UART_BAUD_MIN_6
+```
+
+## `AO_UART_BAUD_HIGH_MAX_6`
+## `AO_UART_BAUD_HIGH_MIN_6`
+
+```c
+#define AO_UART_BAUD_HIGH_MAX_6
+#define AO_UART_BAUD_HIGH_MIN_6
+```
+
+## `AO_UART_BAUD_LOW_MAX_6`
+## `AO_UART_BAUD_LOW_MIN_6`
+
+```c
+#define AO_UART_BAUD_LOW_MAX_6
+#define AO_UART_BAUD_LOW_MIN_6
 ```
 
 # Functions

@@ -15,6 +15,22 @@ toc: true
 #include <stdint.h>
 ```
 
+# Constants
+
+## `AO_I2C_BRG_BITS`
+
+```c
+#define AO_I2C_BRG_BITS (16)
+```
+
+## `AO_I2C_BRG_MAX`
+## `AO_I2C_BRG_MIN`
+
+```c
+#define AO_I2C_BRG_MAX ((1 << (AO_I2C_BRG_BITS)) - 1)
+#define AO_I2C_BRG_MIN (0)
+```
+
 # Typedefs
 
 ```c
@@ -26,19 +42,6 @@ typedef struct ao_i2c_reg_msk_t  ao_i2c_reg_msk_t;
 typedef struct ao_i2c_reg_rcv_t  ao_i2c_reg_rcv_t;
 typedef struct ao_i2c_reg_stat_t ao_i2c_reg_stat_t;
 typedef struct ao_i2c_reg_trn_t  ao_i2c_reg_trn_t;
-```
-
-# Constants
-
-## `AO_I2C_BRG`
-
-```c
-#define AO_I2C_BRG_BITS (16)
-```
-
-```c
-#define AO_I2C_BRG_MAX ((1 << (AO_I2C_BRG_BITS)) - 1)
-#define AO_I2C_BRG_MIN (0)
 ```
 
 # Types

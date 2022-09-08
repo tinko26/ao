@@ -13,17 +13,6 @@ toc: true
 #include <stdint.h>
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_spi_reg_t      ao_spi_reg_t;
-typedef struct ao_spi_reg_brg_t  ao_spi_reg_brg_t;
-typedef struct ao_spi_reg_buf_t  ao_spi_reg_buf_t;
-typedef struct ao_spi_reg_con_t  ao_spi_reg_con_t;
-typedef struct ao_spi_reg_con2_t ao_spi_reg_con2_t;
-typedef struct ao_spi_reg_stat_t ao_spi_reg_stat_t;
-```
-
 # Constants
 
 ## `AO_SPI_BRG_BITS`
@@ -44,6 +33,17 @@ typedef struct ao_spi_reg_stat_t ao_spi_reg_stat_t;
 
 ```c
 #define AO_SPI_ENHBUF (true)
+```
+
+# Typedefs
+
+```c
+typedef struct ao_spi_reg_t      ao_spi_reg_t;
+typedef struct ao_spi_reg_brg_t  ao_spi_reg_brg_t;
+typedef struct ao_spi_reg_buf_t  ao_spi_reg_buf_t;
+typedef struct ao_spi_reg_con_t  ao_spi_reg_con_t;
+typedef struct ao_spi_reg_con2_t ao_spi_reg_con2_t;
+typedef struct ao_spi_reg_stat_t ao_spi_reg_stat_t;
 ```
 
 # Types

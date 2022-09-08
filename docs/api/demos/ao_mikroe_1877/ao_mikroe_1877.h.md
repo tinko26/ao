@@ -18,12 +18,12 @@ toc: true
 # Typedefs
 
 ```c
-typedef enum ao_mikroe_1877_connection_t           ao_mikroe_1877_connection_t;
-typedef enum ao_mikroe_1877_event_t                ao_mikroe_1877_event_t;
-typedef enum ao_mikroe_1877_power_t                ao_mikroe_1877_power_t;
-typedef enum ao_mikroe_1877_reporting_t            ao_mikroe_1877_reporting_t;
-typedef enum ao_mikroe_1877_sensor_t               ao_mikroe_1877_sensor_t;
-typedef enum ao_mikroe_1877_state_t                ao_mikroe_1877_state_t;
+typedef enum   ao_mikroe_1877_connection_t         ao_mikroe_1877_connection_t;
+typedef enum   ao_mikroe_1877_event_t              ao_mikroe_1877_event_t;
+typedef enum   ao_mikroe_1877_power_t              ao_mikroe_1877_power_t;
+typedef enum   ao_mikroe_1877_reporting_t          ao_mikroe_1877_reporting_t;
+typedef enum   ao_mikroe_1877_sensor_t             ao_mikroe_1877_sensor_t;
+typedef enum   ao_mikroe_1877_state_t              ao_mikroe_1877_state_t;
 
 typedef struct ao_mikroe_1877_data_t               ao_mikroe_1877_data_t;
 typedef struct ao_mikroe_1877_data_accelerometer_t ao_mikroe_1877_data_accelerometer_t;

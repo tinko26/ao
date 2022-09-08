@@ -12,21 +12,6 @@ toc: true
 #include <stdint.h>
 ```
 
-# Typedefs
-
-```c
-typedef enum   ao_uart_error_flags_t ao_uart_error_flags_t;
-
-typedef struct ao_uart_error_info_t  ao_uart_error_info_t;
-
-typedef struct ao_uart_reg_t         ao_uart_reg_t;
-typedef struct ao_uart_reg_brg_t     ao_uart_reg_brg_t;
-typedef struct ao_uart_reg_mode_t    ao_uart_reg_mode_t;
-typedef struct ao_uart_reg_rx_t      ao_uart_reg_rx_t;
-typedef struct ao_uart_reg_sta_t     ao_uart_reg_sta_t;
-typedef struct ao_uart_reg_tx_t      ao_uart_reg_tx_t;
-```
-
 # Constants
 
 ## `AO_UART_BRG_BITS`
@@ -67,6 +52,21 @@ typedef struct ao_uart_reg_tx_t      ao_uart_reg_tx_t;
 ```c
 #define AO_UART_STOP_BITS_ONE (0)
 #define AO_UART_STOP_BITS_TWO (1)
+```
+
+# Typedefs
+
+```c
+typedef enum   ao_uart_error_flags_t ao_uart_error_flags_t;
+
+typedef struct ao_uart_error_info_t  ao_uart_error_info_t;
+
+typedef struct ao_uart_reg_t         ao_uart_reg_t;
+typedef struct ao_uart_reg_brg_t     ao_uart_reg_brg_t;
+typedef struct ao_uart_reg_mode_t    ao_uart_reg_mode_t;
+typedef struct ao_uart_reg_rx_t      ao_uart_reg_rx_t;
+typedef struct ao_uart_reg_sta_t     ao_uart_reg_sta_t;
+typedef struct ao_uart_reg_tx_t      ao_uart_reg_tx_t;
 ```
 
 # Types
