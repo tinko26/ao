@@ -40,7 +40,7 @@ Assert the correctness of the alarm queue upon each insertion and removal in lin
 Peeking the alarm queue is a quite frequent operation. However, with this implementation, it is not a constant-time operation, but takes logarithmic time. In order to speed things up a little bit, the alarm queue can be configured to cache the current front element after each insertion and removal.
 
 ```c
-#define AO_ALARM_QUEUE_CACHE  (false)
+#define AO_ALARM_QUEUE_CACHE (false)
 ```
 
 # Typedefs

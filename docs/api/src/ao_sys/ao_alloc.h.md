@@ -29,9 +29,6 @@ This module encapsulates an allocator that supports dynamic memory management.
 # Include
 
 ```c
-#include <ao_alloc_0.h>
-#include <ao_alloc_1.h>
-#include <ao_alloc_2.h>
 #include <stdbool.h>
 #include <stddef.h>
 ```

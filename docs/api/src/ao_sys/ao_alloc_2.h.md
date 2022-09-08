@@ -28,18 +28,6 @@ This module implements a constant-time dynamic storage allocator based on the tw
 #include <stddef.h>
 ```
 
-# Constants
-
-## `AO_ALLOC_SEGREGATION_MAX`
-## `AO_ALLOC_SEGREGATION_MIN`
-
-The maximum and minimum segregation, respectively.
-
-```c
-#define AO_ALLOC_SEGREGATION_MAX (AO_SIZE_BITS_LOG)
-#define AO_ALLOC_SEGREGATION_MIN (0)
-```
-
 # Configuration
 
 ## `AO_ALLOC_ALLOCATED`
@@ -76,6 +64,18 @@ The allocator size, in bytes.
 
 ```c
 #define AO_ALLOC_SIZE (8192)
+```
+
+# Constants
+
+## `AO_ALLOC_SEGREGATION_MAX`
+## `AO_ALLOC_SEGREGATION_MIN`
+
+The maximum and minimum segregation, respectively.
+
+```c
+#define AO_ALLOC_SEGREGATION_MAX (AO_SIZE_BITS_LOG)
+#define AO_ALLOC_SEGREGATION_MIN (0)
 ```
 
 # Variables

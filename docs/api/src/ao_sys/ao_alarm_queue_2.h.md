@@ -31,7 +31,7 @@ This module provides an implementation for the alarm queue based on an array-bas
 Assert the correctness of the alarm queue upon each insertion and removal in linear time. If that is not the case, a runtime assertion failure is triggered. This can aid in a debugging scenario.
 
 ```c
-#define AO_ALARM_QUEUE_ASSERT    (false)
+#define AO_ALARM_QUEUE_ASSERT (false)
 ```
 
 ## `AO_ALARM_QUEUE_CAPACITY`
@@ -39,7 +39,7 @@ Assert the correctness of the alarm queue upon each insertion and removal in lin
 The capacity of the alarm queue.
 
 ```c
-#define AO_ALARM_QUEUE_CAPACITY  (128)
+#define AO_ALARM_QUEUE_CAPACITY (128)
 ```
 
 ## `AO_ALARM_QUEUE_COUNT_MAX`
