@@ -40,30 +40,19 @@ This module provides an array-based implementation.
 
 ## `AO_HEAP4OBJ_COUNT_MAX`
 
-Keep track of the maximum number of objects.
-
 ```c
 #define AO_HEAP4OBJ_COUNT_MAX (false)
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_heap4obj_t ao_heap4obj_t;
-
-typedef bool (* ao_heap4obj_less_t)
-(
-    void * p1,
-    void * p2,
-    void * parameter
-);
-```
+Defines whether to keep track of the maximum number of objects.
 
 # Types
 
 ## `ao_heap4obj_t`
 
-This type represents a heap for objects.
+```c
+typedef struct ao_heap4obj_t ao_heap4obj_t;
+```
 
 ```c
 struct ao_heap4obj_t
@@ -86,7 +75,7 @@ struct ao_heap4obj_t
 };
 ```
 
-It consists of the following members.
+This type represents a heap for objects. It consists of the following members.
 
 | `capacity` | The maximum number of objects that can be stored in the heap. |
 | `count` | The current number of objects stored in the heap. |
@@ -100,48 +89,57 @@ It consists of the following members.
 
 ## `ao_heap4obj_less_t`
 
+```c
+typedef bool (* ao_heap4obj_less_t)
+(
+    void * p1,
+    void * p2,
+    void * parameter
+);
+```
+
 This type represents a compare function, that implements a strict total order on objects.
 
 # Functions
 
 ## `ao_heap4obj_assert`
 
-Assert the correctness of a heap in linear time. This function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a runtime assertion failure.
-
 ```c
 void ao_heap4obj_assert(ao_heap4obj_t * x);
 ```
 
-## `ao_heap4obj_insert`
+Asserts the correctness of a heap in linear time. This function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a runtime assertion failure.
 
-Insert an object into a heap in logarithmic time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the heap is full.
+## `ao_heap4obj_insert`
 
 ```c
 bool ao_heap4obj_insert(ao_heap4obj_t * x, void const * p);
 ```
 
+Inserts an object into a heap in logarithmic time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the heap is full.
+
 ## `ao_heap4obj_is_empty`
 ## `ao_heap4obj_is_full`
-
-Check whether a heap is empty or full, respectively, in constant time.
 
 ```c
 #define ao_heap4obj_is_empty(x)
 #define ao_heap4obj_is_full(x)
 ```
 
-## `ao_heap4obj_peek`
+Checks whether a heap is empty or full, respectively, in constant time.
 
-Get the root object of a heap without removing it in constant time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the heap is empty.
+## `ao_heap4obj_peek`
 
 ```c
 bool ao_heap4obj_peek(ao_heap4obj_t const * x, void * p);
 ```
 
-## `ao_heap4obj_pop`
+Gets the root object of a heap without removing it in constant time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the heap is empty.
 
-Remove the root object from a heap in logarithmic time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the heap is empty.
+## `ao_heap4obj_pop`
 
 ```c
 bool ao_heap4obj_pop(ao_heap4obj_t * x, void * p);
 ```
+
+Removes the root object from a heap in logarithmic time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the heap is empty.

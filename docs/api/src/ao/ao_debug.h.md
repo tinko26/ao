@@ -20,8 +20,8 @@ This module defines a single macro constant indicating whether an application is
 
 ## `AO_DEBUG`
 
-Indicates whether the application is running in debug mode.
-
 ```c
 #define AO_DEBUG (false)
 ```
+
+Indicates whether the application is running in debug mode.

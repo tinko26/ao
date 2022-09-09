@@ -26,23 +26,19 @@ toc: true
 
 # Configuration
 
-Keep track of the maximum number of pointers.
-
 ```c
 #define AO_BUFFER4PTR_COUNT_MAX (false)
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_buffer4ptr_t ao_buffer4ptr_t;
-```
+Defines whether to keep track of the maximum number of pointers.
 
 # Types
 
 ## `ao_buffer4ptr_t`
 
-This type represents a buffer for pointers.
+```c
+typedef struct ao_buffer4ptr_t ao_buffer4ptr_t;
+```
 
 ```c
 struct ao_buffer4ptr_t
@@ -61,7 +57,7 @@ struct ao_buffer4ptr_t
 };
 ```
 
-It consists of the following members.
+This type represents a buffer for pointers. It consists of the following members.
 
 | `capacity` | The maximum number of pointers that can be stored in the buffer. |
 | `count` | The current number of pointers stored in the buffer. |
@@ -74,89 +70,89 @@ It consists of the following members.
 ## `ao_buffer4ptr_is_empty`
 ## `ao_buffer4ptr_is_full`
 
-Check whether a buffer is empty or full, respectively, in constant time.
-
 ```c
 #define ao_buffer4ptr_is_empty(x)
 #define ao_buffer4ptr_is_full(x)
 ```
 
+Checks whether a buffer is empty or full, respectively, in constant time.
+
 ## `ao_buffer4ptr_peek_back`
 ## `ao_buffer4ptr_peek_front`
-
-Peek the back or front pointer, respectively, in constant time. The return value indicates whether the operation was successful. Therefore, it is safe to call this function, if the buffer is empty.
 
 ```c
 bool ao_buffer4ptr_peek_back( ao_buffer4ptr_t const * x, void ** p);
 bool ao_buffer4ptr_peek_front(ao_buffer4ptr_t const * x, void ** p);
 ```
 
+Peeks the back or front pointer, respectively, in constant time. The return value indicates whether the operation was successful. Therefore, it is safe to call this function, if the buffer is empty.
+
 ## `ao_buffer4ptr_peek_range_back`
 ## `ao_buffer4ptr_peek_range_front`
-
-Peek a sequence of back or front pointers, respectively. The `n_min` and `n_max` parameters specify the minimum and maximum number of pointers, respectively. The return value indicates the actual number of pointers and, hence, whether the operation was successful. Therefore, it is safe to call this function, if the buffer is empty.
 
 ```c
 size_t ao_buffer4ptr_peek_range_back( ao_buffer4ptr_t const * x, void ** p, size_t n_min, size_t n_max);
 size_t ao_buffer4ptr_peek_range_front(ao_buffer4ptr_t const * x, void ** p, size_t n_min, size_t n_max);
 ```
 
+Peeks a sequence of back or front pointers, respectively. The `n_min` and `n_max` parameters specify the minimum and maximum number of pointers, respectively. The return value indicates the actual number of pointers and, hence, whether the operation was successful. Therefore, it is safe to call this function, if the buffer is empty.
+
 ## `ao_buffer4ptr_pop_back`
 ## `ao_buffer4ptr_pop_front`
-
-Pop the back or front pointer, respectively, in constant time. The return value indicates whether the operation was successful. Therefore, it is safe to call this function, if the buffer is empty.
 
 ```c
 bool ao_buffer4ptr_pop_back( ao_buffer4ptr_t * x, void ** p);
 bool ao_buffer4ptr_pop_front(ao_buffer4ptr_t * x, void ** p);
 ```
 
+Pops the back or front pointer, respectively, in constant time. The return value indicates whether the operation was successful. Therefore, it is safe to call this function, if the buffer is empty.
+
 ## `ao_buffer4ptr_pop_range_back`
 ## `ao_buffer4ptr_pop_range_front`
-
-Pop a sequence of back or front pointers, respectively. The `n_min` and `n_max` parameters specify the minimum and maximum number of pointers, respectively. The return value indicates the actual number of pointers and, hence, whether the operation was successful. Therefore, it is safe to call this function, if the buffer is empty.
 
 ```c
 size_t ao_buffer4ptr_pop_range_back( ao_buffer4ptr_t * x, void ** p, size_t n_min, size_t n_max);
 size_t ao_buffer4ptr_pop_range_front(ao_buffer4ptr_t * x, void ** p, size_t n_min, size_t n_max);
 ```
 
+Pops a sequence of back or front pointers, respectively. The `n_min` and `n_max` parameters specify the minimum and maximum number of pointers, respectively. The return value indicates the actual number of pointers and, hence, whether the operation was successful. Therefore, it is safe to call this function, if the buffer is empty.
+
 ## `ao_buffer4ptr_push_back`
 ## `ao_buffer4ptr_push_front`
-
-Push a pointer to the back or front, respectively, in constant time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the buffer is full.
 
 ```c
 bool ao_buffer4ptr_push_back( ao_buffer4ptr_t * x, void * p);
 bool ao_buffer4ptr_push_front(ao_buffer4ptr_t * x, void * p);
 ```
 
+Pushes a pointer to the back or front, respectively, in constant time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the buffer is full.
+
 ## `ao_buffer4ptr_push_back_override`
 ## `ao_buffer4ptr_push_front_override`
-
-Push a pointer to the back or front, respectively, in constant time. If the buffer is full, then this function overrides the oldest pointer in the buffer. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the buffer's capacity is zero.
 
 ```c
 bool ao_buffer4ptr_push_back_override( ao_buffer4ptr_t * x, void * p);
 bool ao_buffer4ptr_push_front_override(ao_buffer4ptr_t * x, void * p);
 ```
 
+Pushes a pointer to the back or front, respectively, in constant time. If the buffer is full, then this function overrides the oldest pointer in the buffer. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the buffer's capacity is zero.
+
 ## `ao_buffer4ptr_push_range_back`
 ## `ao_buffer4ptr_push_range_front`
-
-Push a sequence of pointers to the back or front, respectively. The `n_min` and `n_max` parameters specify the minimum and maximum number of pointers, respectively. The return value indicates the actual number of pointers and, hence, whether the operation was successful. Therefore, it is safe to call this function, if the buffer is too full.
 
 ```c
 size_t ao_buffer4ptr_push_range_back( ao_buffer4ptr_t * x, void * const * p, size_t n_min, size_t n_max);
 size_t ao_buffer4ptr_push_range_front(ao_buffer4ptr_t * x, void * const * p, size_t n_min, size_t n_max);
 ```
 
+Pushes a sequence of pointers to the back or front, respectively. The `n_min` and `n_max` parameters specify the minimum and maximum number of pointers, respectively. The return value indicates the actual number of pointers and, hence, whether the operation was successful. Therefore, it is safe to call this function, if the buffer is too full.
+
 ## `ao_buffer4ptr_push_range_back_override`
 ## `ao_buffer4ptr_push_range_front_override`
-
-Push a sequence of pointers to the back or front, respectively. The `n_min` and `n_max` parameters specify the minimum and maximum number of pointers, respectively. If the buffer is too full, then this function overrides the oldest pointers in the buffer. The return value indicates the actual number of pointers and, hence, whether the operation was successful. Therefore, it is safe to call this function, if the buffer's capacity is less than the specified minimum number of pointers.
 
 ```c
 size_t ao_buffer4ptr_push_range_back_override( ao_buffer4ptr_t * x, void * const * p, size_t n_min, size_t n_max);
 size_t ao_buffer4ptr_push_range_front_override(ao_buffer4ptr_t * x, void * const * p, size_t n_min, size_t n_max);
 ```
+
+Pushes a sequence of pointers to the back or front, respectively. The `n_min` and `n_max` parameters specify the minimum and maximum number of pointers, respectively. If the buffer is too full, then this function overrides the oldest pointers in the buffer. The return value indicates the actual number of pointers and, hence, whether the operation was successful. Therefore, it is safe to call this function, if the buffer's capacity is less than the specified minimum number of pointers.

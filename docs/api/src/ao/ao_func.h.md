@@ -12,7 +12,7 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Typedefs
+# Types
 
 Functions.
 

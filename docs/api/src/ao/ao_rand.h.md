@@ -17,7 +17,7 @@ This module defines function pointer types for a variety of random value generat
 #include <stdint.h>
 ```
 
-# Typedefs
+# Types
 
 Generate a random Boolean value.
 

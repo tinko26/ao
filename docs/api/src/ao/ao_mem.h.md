@@ -21,24 +21,24 @@ This module provides three functions for copying, moving, and filling memory blo
 
 ## `ao_memcpy`
 
-Copy the first `n` bytes from the memory block beginning at `s` to the memory block beginning at `d`. This function copies the data directly. Therefore, the memory blocks should not overlap. This function returns `d`.
-
 ```c
 void * ao_memcpy(void * d, void const * s, size_t n);
 ```
 
-## `ao_memmove`
+Copies the first `n` bytes from the memory block beginning at `s` to the memory block beginning at `d`. This function copies the data directly. Therefore, the memory blocks should not overlap. This function returns `d`.
 
-Copy the first `n` bytes from the memory block beginning at `s` to the memory block beginning at `d`. This function copies the data using a temporary buffer. Therefore, the memory blocks can overlap. This function returns `d`.
+## `ao_memmove`
 
 ```c
 void * ao_memmove(void * d, void const * s, size_t n);
 ```
 
-## `ao_memset`
+Copies the first `n` bytes from the memory block beginning at `s` to the memory block beginning at `d`. This function copies the data using a temporary buffer. Therefore, the memory blocks can overlap. This function returns `d`.
 
-Write `v` to the first `n` bytes of the memory block beginning at `p`. This function returns `p`.
+## `ao_memset`
 
 ```c
 void * ao_memset(void * p, uint8_t v, size_t n);
 ```
+
+Writes `v` to the first `n` bytes of the memory block beginning at `p`. This function returns `p`.

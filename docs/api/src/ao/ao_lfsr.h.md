@@ -32,20 +32,13 @@ This module defines linear-feedback shift registers in Galois configuration, tha
 #define AO_LFSR64
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_lfsr8_t  ao_lfsr8_t;
-typedef struct ao_lfsr16_t ao_lfsr16_t;
-typedef struct ao_lfsr32_t ao_lfsr32_t;
-typedef struct ao_lfsr64_t ao_lfsr64_t;
-```
-
 # Types
 
 ## `ao_lfsr8_t`
 
-This type represents a linear-feedback shift register with a maximum width of 8 bits.
+```c
+typedef struct ao_lfsr8_t  ao_lfsr8_t;
+```
 
 ```c
 struct ao_lfsr8_t
@@ -55,14 +48,16 @@ struct ao_lfsr8_t
 };
 ```
 
-It consists of the following members.
+This type represents a linear-feedback shift register with a maximum width of 8 bits. It consists of the following members.
 
 | `polynomial` | The generator polynomial. |
 | `seed` | The seed or current value of the register. |
 
 ## `ao_lfsr16_t`
 
-This type represents a linear-feedback shift register with a maximum width of 16 bits.
+```c
+typedef struct ao_lfsr16_t ao_lfsr16_t;
+```
 
 ```c
 struct ao_lfsr16_t
@@ -72,14 +67,16 @@ struct ao_lfsr16_t
 };
 ```
 
-It consists of the following members.
+This type represents a linear-feedback shift register with a maximum width of 16 bits. It consists of the following members.
 
 | `polynomial` | The generator polynomial. |
 | `seed` | The seed or current value of the register. |
 
 ## `ao_lfsr32_t`
 
-This type represents a linear-feedback shift register with a maximum width of 32 bits.
+```c
+typedef struct ao_lfsr32_t ao_lfsr32_t;
+```
 
 ```c
 struct ao_lfsr32_t
@@ -89,14 +86,16 @@ struct ao_lfsr32_t
 };
 ```
 
-It consists of the following members.
+This type represents a linear-feedback shift register with a maximum width of 32 bits. It consists of the following members.
 
 | `polynomial` | The generator polynomial. |
 | `seed` | The seed or current value of the register. |
 
 ## `ao_lfsr64_t`
 
-This type represents a linear-feedback shift register with a maximum width of 64 bits.
+```c
+typedef struct ao_lfsr64_t ao_lfsr64_t;
+```
 
 ```c
 struct ao_lfsr64_t
@@ -106,7 +105,7 @@ struct ao_lfsr64_t
 };
 ```
 
-It consists of the following members.
+This type represents a linear-feedback shift register with a maximum width of 64 bits. It consists of the following members.
 
 | `polynomial` | The generator polynomial. |
 | `seed` | The seed or current value of the register. |
@@ -118,11 +117,11 @@ It consists of the following members.
 ## `ao_lfsr32`
 ## `ao_lfsr64`
 
-Generate a new bit.
-
 ```c
 void ao_lfsr8( ao_lfsr8_t  * r);
 void ao_lfsr16(ao_lfsr16_t * r);
 void ao_lfsr32(ao_lfsr32_t * r);
 void ao_lfsr64(ao_lfsr64_t * r);
 ```
+
+Generates a new bit.

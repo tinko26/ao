@@ -41,31 +41,19 @@ Commonly, heaps are implemented based on an array that stores all the nodes. How
 
 ## `AO_HEAP_COUNT_MAX`
 
-Keep track of the maximum number of nodes.
-
 ```c
 #define AO_HEAP_COUNT_MAX (false)
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_heap_t      ao_heap_t;
-typedef struct ao_heap_node_t ao_heap_node_t;
-
-typedef bool (* ao_heap_less_t)
-(
-    ao_heap_node_t * n1,
-    ao_heap_node_t * n2,
-    void           * parameter
-);
-```
+Defines whether to keep track of the maximum number of nodes.
 
 # Types
 
 ## `ao_heap_t`
 
-This type represents a heap.
+```c
+typedef struct ao_heap_t ao_heap_t;
+```
 
 ```c
 struct ao_heap_t
@@ -84,7 +72,7 @@ struct ao_heap_t
 };
 ```
 
-It consists of the following members.
+This type represents a heap. It consists of the following members.
 
 | `count` | The current number of nodes. |
 | `count_max` | The maximum number of nodes. |
@@ -94,7 +82,9 @@ It consists of the following members.
 
 ## `ao_heap_node_t`
 
-This type represents a node.
+```c
+typedef struct ao_heap_node_t ao_heap_node_t;
+```
 
 ```c
 struct ao_heap_node_t
@@ -105,7 +95,7 @@ struct ao_heap_node_t
 };
 ```
 
-It consists of the following members.
+This type represents a heap node. It consists of the following members.
 
 | `left` | The left child node. |
 | `parent` | The parent node. |
@@ -113,56 +103,65 @@ It consists of the following members.
 
 ## `ao_heap_less_t`
 
+```c
+typedef bool (* ao_heap_less_t)
+(
+    ao_heap_node_t * n1,
+    ao_heap_node_t * n2,
+    void           * parameter
+);
+```
+
 This type represents a compare function, that implements a strict total order on the nodes.
 
 # Functions
 
 ## `ao_heap_assert`
 
-Assert the correctness of a heap in linear time. This function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a runtime assertion failure.
-
-It is therefore useful in debugging scenarios. However, the function is implemented recursively, which violates a common rule in embedded software engineering.
-
 ```c
 void ao_heap_assert(ao_heap_t * x);
 ```
 
-## `ao_heap_insert`
+Asserts the correctness of a heap in linear time. This function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a runtime assertion failure.
 
-Insert a node into a heap in logarithmic time.
+It is therefore useful in debugging scenarios. However, the function is implemented recursively, which violates a common rule in embedded software engineering.
+
+## `ao_heap_insert`
 
 ```c
 void ao_heap_insert(ao_heap_t * x, ao_heap_node_t * n);
 ```
 
-## `ao_heap_is_empty`
+Inserts a node into a heap in logarithmic time.
 
-Check whether a heap is empty in constant time.
+## `ao_heap_is_empty`
 
 ```c
 #define ao_heap_is_empty(x)
 ```
 
-## `ao_heap_peek`
+Checks whether a heap is empty in constant time.
 
-Get the root node of a heap without removing it in constant time.
+## `ao_heap_peek`
 
 ```c
 #define ao_heap_peek(x)
 ```
 
-## `ao_heap_pop`
+Gets the root node of a heap without removing it in constant time.
 
-Remove the root node from a heap in logarithmic time.
+## `ao_heap_pop`
 
 ```c
 ao_heap_node_t * ao_heap_pop(ao_heap_t * x);
 ```
 
-## `ao_heap_remove`
+Removes the root node from a heap in logarithmic time.
 
-Remove an arbitrary node from a heap in logarithmic time.
+## `ao_heap_remove`
 
 ```c
 void ao_heap_remove(ao_heap_t * x, ao_heap_node_t * n);
 ```
+
+Removes an arbitrary node from a heap in logarithmic time.

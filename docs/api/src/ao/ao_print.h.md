@@ -28,17 +28,13 @@ This module contains functions to convert a number to a string. Although the sta
 #define AO_PRINT
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_print_t ao_print_t;
-```
-
 # Types
 
 ## `ao_print_t`
 
-This type represents options for the conversion.
+```c
+typedef struct ao_print_t ao_print_t;
+```
 
 ```c
 struct ao_print_t
@@ -57,7 +53,7 @@ struct ao_print_t
 };
 ```
 
-It consists of the following members.
+This type represents options for the conversion. It consists of the following members.
 
 | `digits_exponent` | The minimum number of exponent digits to output. Eventually, leading zeros will be added. |
 | `digits_fractional` | The minimum number of fractional digits to output. Eventually, trailing zeros will be added. |
@@ -77,19 +73,22 @@ It consists of the following members.
 ## `ao_printef`
 ## `ao_printel`
 
-Convert a floating-point number to string in scientific notation.
-
 ```c
 size_t ao_printed( char * s, size_t n, ao_print_t const * o, double const * v);
 size_t ao_printef( char * s, size_t n, ao_print_t const * o, float const * v);
 size_t ao_printel( char * s, size_t n, ao_print_t const * o, long double const * v);
 ```
 
+Converts a floating-point number to string in scientific notation. The respective suffix indicates, which kind of number to convert, as well as the source type. The return value indicates the actual number of bytes that have been written. The value `0` indicates, that the conversion has failed. All the functions have the same parameter list.
+
+| `s` | The string to convert to. |
+| `n` | The maximum number of characters to write to the string. |
+| `o` | The conversion options. |
+| `v` | The pointer to the value to convert. |
+
 ## `ao_printfd`
 ## `ao_printff`
 ## `ao_printfl`
-
-Convert a floating-point number to string in decimal notation.
 
 ```c
 size_t ao_printfd( char * s, size_t n, ao_print_t const * o, double const * v);
@@ -97,12 +96,17 @@ size_t ao_printff( char * s, size_t n, ao_print_t const * o, float const * v);
 size_t ao_printfl( char * s, size_t n, ao_print_t const * o, long double const * v);
 ```
 
+Converts a floating-point number to string in decimal notation. The respective suffix indicates, which kind of number to convert, as well as the source type. The return value indicates the actual number of bytes that have been written. The value `0` indicates, that the conversion has failed. All the functions have the same parameter list.
+
+| `s` | The string to convert to. |
+| `n` | The maximum number of characters to write to the string. |
+| `o` | The conversion options. |
+| `v` | The pointer to the value to convert. |
+
 ## `ao_printi8`
 ## `ao_printi16`
 ## `ao_printi32`
 ## `ao_printi64`
-
-Convert a signed integer to string.
 
 ```c
 size_t ao_printi8( char * s, size_t n, ao_print_t const * o, int8_t const * v);
@@ -111,12 +115,17 @@ size_t ao_printi32(char * s, size_t n, ao_print_t const * o, int32_t const * v);
 size_t ao_printi64(char * s, size_t n, ao_print_t const * o, int64_t const * v);
 ```
 
+Converts a signed integer to string. The respective suffix indicates, which kind of number to convert, as well as the source type. The return value indicates the actual number of bytes that have been written. The value `0` indicates, that the conversion has failed. All the functions have the same parameter list.
+
+| `s` | The string to convert to. |
+| `n` | The maximum number of characters to write to the string. |
+| `o` | The conversion options. |
+| `v` | The pointer to the value to convert. |
+
 ## `ao_printu8`
 ## `ao_printu16`
 ## `ao_printu32`
 ## `ao_printu64`
-
-Convert an unsigned integer to string.
 
 ```c
 size_t ao_printu8( char * s, size_t n, ao_print_t const * o, uint8_t const * v);
@@ -125,11 +134,9 @@ size_t ao_printu32(char * s, size_t n, ao_print_t const * o, uint32_t const * v)
 size_t ao_printu64(char * s, size_t n, ao_print_t const * o, uint64_t const * v);
 ```
 
-The respective suffix indicates, which kind of number to convert, as well as the source type. All the functions have the same parameter list.
+Converts an unsigned integer to string. The respective suffix indicates, which kind of number to convert, as well as the source type. The return value indicates the actual number of bytes that have been written. The value `0` indicates, that the conversion has failed. All the functions have the same parameter list.
 
 | `s` | The string to convert to. |
 | `n` | The maximum number of characters to write to the string. |
 | `o` | The conversion options. |
 | `v` | The pointer to the value to convert. |
-
-The return value indicates the actual number of bytes that have been written. The value `0` indicates, that the conversion has failed.

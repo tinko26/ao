@@ -16,8 +16,8 @@ This module contains a single function that executes a breakpoint. Since breakpo
 
 ## `ao_break`
 
-Execute a breakpoint.
-
 ```c
 void ao_break();
 ```
+
+Executes a breakpoint.

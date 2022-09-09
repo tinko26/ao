@@ -28,8 +28,6 @@ This module provides a couple of functions that classify characters. Although th
 
 ## `ao_char_is`
 
-Classify a given character.
-
 ```c
 bool ao_char_is_alphanumeric(char x);
 bool ao_char_is_alphabetic(char x);
@@ -44,3 +42,5 @@ bool ao_char_is_punctuation(char x);
 bool ao_char_is_upper(char x);
 bool ao_char_is_whitespace(char x);
 ```
+
+Classifies a given character.

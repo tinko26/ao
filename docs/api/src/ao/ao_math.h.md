@@ -20,27 +20,25 @@ This module provides a number of useful mathematical operations. They are implem
 
 ## `AO_ABS`
 
-Absolute value.
-
 ```c
 #define AO_ABS(x)
 ```
 
-## `AO_CLAMP`
+Calculates the absolute value of $$\texttt{x}$$.
 
-Clamping.
+## `AO_CLAMP`
 
 ```c
 #define AO_CLAMP(x, x_min, x_max)
 ```
+
+Clamps $$\texttt{x}$$ into the interval $$\left[\texttt{x_min}, \texttt{x_max}\right]$$
 
 ## `AO_IS_EQUAL`
 ## `AO_IS_GREATER`
 ## `AO_IS_GREATER_EQUAL`
 ## `AO_IS_LESS`
 ## `AO_IS_LESS_EQUAL`
-
-Comparison.
 
 ```c
 #define AO_IS_EQUAL(x, y)
@@ -50,11 +48,11 @@ Comparison.
 #define AO_IS_LESS_EQUAL(x, y)
 ```
 
+Compares $$\texttt{x}$$ to $$\texttt{y}$$.
+
 ## `AO_IS_NEGATIVE`
 ## `AO_IS_POSITIVE`
 ## `AO_IS_ZERO`
-
-Sign.
 
 ```c
 #define AO_IS_NEGATIVE(x)
@@ -62,12 +60,14 @@ Sign.
 #define AO_IS_ZERO(x)
 ```
 
+Checks whether $$\texttt{x}$$ is negative, positive, or equal to zero, respectively.
+
 ## `AO_MAX`
 ## `AO_MIN`
-
-Maximum and minimum.
 
 ```c
 #define AO_MAX(x, y)
 #define AO_MIN(x, y)
 ```
+
+Calculates the maximum or minimum, respectively, of $$\texttt{x}$$ and $$\texttt{y}$$.
