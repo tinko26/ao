@@ -32,6 +32,14 @@
 
 // ----------------------------------------------------------------------------
 
+#ifndef AO_STACK
+
+#define AO_STACK
+
+#endif
+
+// ----------------------------------------------------------------------------
+
 // Fills a stack with a pattern.
 
 // This allows for measuring the high water mark of the stack, later on.

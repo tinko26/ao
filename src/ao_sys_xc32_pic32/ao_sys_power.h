@@ -36,28 +36,20 @@
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_SYS_POWER
-
-#define AO_SYS_POWER
-
-#endif
-
-// ----------------------------------------------------------------------------
-
 // Enter idle or sleep mode, respectively.
 
-void    ao_sys_idle();
+void ao_sys_idle();
 
-void    ao_sys_sleep();
+void ao_sys_sleep();
 
-void    ao_sys_wait();
+void ao_sys_wait();
 
 // ----------------------------------------------------------------------------
 
 // Enter idle or sleep mode, respectively, when a wait instruction is executed.
 
-void    ao_sys_wait_idle();
+void ao_sys_wait_idle();
 
-void    ao_sys_wait_sleep();
+void ao_sys_wait_sleep();
 
 // ----------------------------------------------------------------------------

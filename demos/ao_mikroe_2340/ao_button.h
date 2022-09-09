@@ -44,14 +44,6 @@ typedef enum    ao_buttons_t    ao_buttons_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_BUTTON
-
-#define AO_BUTTON
-
-#endif
-
-// ----------------------------------------------------------------------------
-
 #ifndef AO_BUTTONS
 
 #define AO_BUTTONS
