@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-09
 draft: true
 permalink: /api/src/ao/ao_struct.h/
 toc: true
@@ -21,8 +21,8 @@ This module defines a single macro function that returns a pointer to the head o
 
 ## `ao_containerof`
 
-Given a pointer `p` to a member `m` of a compound type `t`, return a pointer to the head of the compound.
-
 ```c
 #define ao_containerof(p, t, m)
 ```
+
+Given a pointer `p` to a member `m` of a compound type `t`, this function returns a pointer of type `t *` to the head of the compound.

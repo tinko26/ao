@@ -34,23 +34,13 @@ An AVL tree is a special kind of binary search tree, that keeps itself balanced,
 #define AO_AVL
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_avl_t      ao_avl_t;
-typedef struct ao_avl_node_t ao_avl_node_t;
-
-typedef bool (* ao_avl_less_t)
-(
-    ao_avl_node_t * n1,
-    ao_avl_node_t * n2,
-    void          * parameter
-);
-```
-
 # Types
 
 ## `ao_avl_t`
+
+```c
+typedef struct ao_avl_t ao_avl_t;
+```
 
 ```c
 struct ao_avl_t
@@ -68,6 +58,10 @@ This type represents an AVL tree. It consists of the following members.
 | `root` | The root. |
 
 ## `ao_avl_node_t`
+
+```c
+typedef struct ao_avl_node_t ao_avl_node_t;
+```
 
 ```c
 struct ao_avl_node_t
@@ -89,6 +83,15 @@ This type represents an AVL tree node. It consists of the following members.
 Although a node's height is always positive, the `height` member is a signed integer. This is, because the heights of a node's children are used to calculate its balance factor, which can be negative.
 
 ## `ao_avl_less_t`
+
+```c
+typedef bool (* ao_avl_less_t)
+(
+    ao_avl_node_t * n1,
+    ao_avl_node_t * n2,
+    void          * parameter
+);
+```
 
 This type represents a compare function, that implements a strict total order on the nodes.
 
