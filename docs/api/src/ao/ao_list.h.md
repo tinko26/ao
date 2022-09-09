@@ -11,7 +11,7 @@ permalink: /api/src/ao/ao_list.h/
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module defines doubly linked lists. Most commonly, lists are used as double-ended queues, that support insertion and removal of elements at either end. Therefore, they can be used to implement FIFOs or LIFOs.
 

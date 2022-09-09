@@ -8,7 +8,7 @@ permalink: /api/src/ao_sys/ao_spin.h/
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module defines functions for spinning or busy waiting, respectively, that can be used to generate time delays.
 

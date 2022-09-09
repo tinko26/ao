@@ -6,7 +6,7 @@ permalink: /api/src/ao_sys_xc32/ao_debug.h/
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module defines a single macro constant indicating whether an application is running in debug mode.
 

@@ -6,7 +6,7 @@ permalink: /api/src/ao_sys/ao_core.h/
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module provides information about identical processor cores and is to support symmetric multiprocessing systems.
 

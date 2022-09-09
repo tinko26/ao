@@ -8,7 +8,7 @@ permalink: /api/src/ao_sys_xc32_pic32/ao_lock.h/
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module defines a mechanism for critical sections, that are required by the kernel in order to protect its resources from concurrent accesses.
 

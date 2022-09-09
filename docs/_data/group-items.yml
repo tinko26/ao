@@ -1,5 +1,7 @@
 priority-queues:
   - /avl-trees/
-  - /binary-heaps/
+  - /heaps/
+  - /heaps-for-objects/
+  - /heaps-for-pointers/
   - /red-black-trees/
   - /sorted-lists/

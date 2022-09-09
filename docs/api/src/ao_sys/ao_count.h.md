@@ -6,7 +6,7 @@ permalink: /api/src/ao_sys/ao_count.h/
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module encapsulates a hardware counter that increments continuously at a constant rate. The hardware counter makes up the basis for measuring time. Additionally, this hardware counter and a corresponding interrupt make up the basis for alarms.
 

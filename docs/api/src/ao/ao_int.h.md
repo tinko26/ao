@@ -6,7 +6,7 @@ permalink: /api/src/ao/ao_int.h/
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module defines the fastest signed integer type available on the target platform. This module is considered abstract and should be overridden by a port package.
 

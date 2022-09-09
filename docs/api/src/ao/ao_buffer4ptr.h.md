@@ -160,30 +160,3 @@ Push a sequence of pointers to the back or front, respectively. The `n_min` and 
 size_t ao_buffer4ptr_push_range_back_override( ao_buffer4ptr_t * x, void * const * p, size_t n_min, size_t n_max);
 size_t ao_buffer4ptr_push_range_front_override(ao_buffer4ptr_t * x, void * const * p, size_t n_min, size_t n_max);
 ```
-
-# Usage
-
-A pointer buffer can be initialized by clearing all of its members.
-
-```c
-ao_buffer4ptr_t * b;
-```
-
-```c
-b->capacity = 0;
-b->count = 0;
-b->count_max = 0;
-b->front = 0;
-b->store = NULL;
-```
-
-However, such a buffer is not very useful, since it cannot store a single pointer. Therefore, it should be equipped with a store.
-
-```c
-void * store[128];
-```
-
-```c
-b->capacity = 128;
-b->store = store;
-```

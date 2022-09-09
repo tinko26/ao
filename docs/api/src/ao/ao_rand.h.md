@@ -6,7 +6,7 @@ permalink: /api/src/ao/ao_rand.h/
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module defines function pointer types for a variety of random value generators.
 

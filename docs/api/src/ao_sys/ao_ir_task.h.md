@@ -6,7 +6,7 @@ permalink: /api/src/ao_sys/ao_ir_task.h/
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module declares functions for controlling the task switch interrupts as well as a callback function for the interrupt handlers. This module is abstract, that is, an implementation must be provided by a port package in order to support multitasking.
 

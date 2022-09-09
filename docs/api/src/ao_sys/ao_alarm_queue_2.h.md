@@ -8,7 +8,7 @@ seealso:
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module provides an implementation for the alarm queue based on an array-based binary heap. Since the array is allocated statically, the capacity of the alarm queue is both fixed and limited, which can pose a challenge on a proper configuration. The following table exhibits the time complexities of the individual operations.
 

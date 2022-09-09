@@ -6,7 +6,7 @@ permalink: /api/src/ao_sys_xc32_pic32/ao_int.h/
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module defines the fastest signed integer type available on the target platform.
 

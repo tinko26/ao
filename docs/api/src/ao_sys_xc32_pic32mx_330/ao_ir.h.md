@@ -6,7 +6,7 @@ permalink: /api/src/ao_sys_xc32_pic32mx_330/ao_ir.h/
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module gathers interrupt-related functions.
 

@@ -10,7 +10,7 @@ seealso:
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module defines a single macro function that performs a runtime assertion on a given expression.
 
@@ -28,7 +28,7 @@ Especially, outputting a message is probably not a good option in an embedded sy
 
 ## `ao_assert`
 
-Perform a runtime assertion on the given expression. If the expression compares equal to zero, then the assertion fails.
+Performs a runtime assertion on the given expression. If the expression compares equal to zero, then the assertion fails.
 
 ```c
 #define ao_assert(exp)

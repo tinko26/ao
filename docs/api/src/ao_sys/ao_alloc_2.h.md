@@ -8,7 +8,7 @@ seealso:
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module implements a constant-time dynamic storage allocator based on the two-level segregated fit (TLSF) algorithm proposed by Masmano et al.
 

@@ -6,7 +6,7 @@ permalink: /api/src/ao_sys_xc32_pic32/ao_float.h/
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module defines the fastest floating-point type available on the target platform. Additionally, it provides a couple of mathematical functions for that type.
 

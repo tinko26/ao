@@ -8,7 +8,7 @@ seealso:
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module provides a stub implementation for the alarm queue.
 

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-26
+date: 2022-09-09
 draft: true
 permalink: /
 toc: false
@@ -8,10 +8,10 @@ toc: false
 
 # Overview
 
-- [Binary heaps](binary-heaps.md)
 - [Buffers](buffers.md)
 - [Critical sections](critical-sections.md)
 - [Debugging](debugging.md)
+- [Heaps](heaps.md)
 - [Interrupts](interrupts.md)
 - [Priority queues](priority-queues.md)
 - [Receiving](receiving.md)

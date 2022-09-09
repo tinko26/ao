@@ -8,7 +8,7 @@ seealso:
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module implements an allocator that manages a number of pools. Thereby, each pool contains a number of blocks of equal size.
 

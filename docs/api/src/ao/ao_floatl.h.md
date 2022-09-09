@@ -6,7 +6,7 @@ permalink: /api/src/ao/ao_floatl.h/
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module defines the fastest floating-point type available on the target platform to be the `long double` type.
 

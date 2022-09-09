@@ -8,7 +8,7 @@ permalink: /api/src/ao/ao_print.h/
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module contains functions to convert a number to a string. Although the standard library contains similar functions, these are not available in a freestanding runtime environment.
 
@@ -133,31 +133,3 @@ The respective suffix indicates, which kind of number to convert, as well as the
 | `v` | The pointer to the value to convert. |
 
 The return value indicates the actual number of bytes that have been written. The value `0` indicates, that the conversion has failed.
-
-# Example
-
-```c
-// String.
-char s[128];
-
-// String length.
-size_t n = 128;
-
-// Options.
-ao_print_t o =
-{
-    .digits_fractional = 0,
-    .digits_integral = 0,
-    .precision = 4,
-    .right = false,
-    .sign = true,
-    .width = 0
-};
-
-// Value.
-double v = 1234.567;
-```
-
-```c
-ao_printfd(s, n, &o, &v);
-```

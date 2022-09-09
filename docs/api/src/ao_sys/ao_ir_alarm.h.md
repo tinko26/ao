@@ -6,7 +6,7 @@ permalink: /api/src/ao_sys/ao_ir_alarm.h/
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module declares functions for controlling the alarm interrupt as well as a callback function for the interrupt handler. This module is abstract, that is, an implementation must be provided by a port package in order to support alarms.
 

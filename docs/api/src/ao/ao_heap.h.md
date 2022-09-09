@@ -11,7 +11,7 @@ permalink: /api/src/ao/ao_heap.h/
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module defines binary heaps.
 
@@ -165,52 +165,4 @@ Remove an arbitrary node from a heap in logarithmic time.
 
 ```c
 void ao_heap_remove(ao_heap_t * x, ao_heap_node_t * n);
-```
-
-# Usage
-
-A heap node can be initialized by clearing all of its members.
-
-```c
-ao_heap_node_t * n;
-```
-
-```c
-n->left = NULL;
-n->parent = NULL;
-n->right = NULL;
-```
-
-A heap can be initialized by clearing all of its members, too.
-
-```c
-ao_heap_t * h;
-```
-
-```c
-h->count = 0;
-h->count_max = 0;
-h->less = NULL;
-h->less_parameter = NULL;
-h->root = NULL;
-```
-
-However, prior to inserting nodes, a compare function must be set.
-
-```c
-bool compare(ao_heap_node_t * n1, ao_heap_node_t * n2, void * p)
-{
-    if (/* n1 is less than n2 */)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-```
-
-```c
-h->less = compare;
 ```

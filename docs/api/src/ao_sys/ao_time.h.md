@@ -8,7 +8,7 @@ seealso:
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module contains a couple of time-related definitions, that are based on a hardware counter.
 

@@ -6,7 +6,7 @@ permalink: /api/src/ao/ao_uint.h/
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module defines the fastest unsigned integer type available on the target platform. Additionally, it provides a couple of useful functions. This module is considered abstract and should be overridden by a port package.
 

@@ -6,7 +6,7 @@ permalink: /api/src/ao/ao_mathf.h/
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module provides mathematical constants and functions for floating-point numbers. Although the standard library provides such constants and functions, too, they are not available in a freestanding runtime environment. Nonetheless, many toolchains provide implementations for mathematical functions, that are highly optimized for the target platform, especially if the platform is equipped with a floating point unit. Therefore, this module is abstract, that is, an implementation must be provided by a port package.
 

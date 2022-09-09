@@ -8,7 +8,7 @@ permalink: /api/src/ao/ao_scan.h/
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module contains functions to convert a string to a number. Although the standard library contains similar functions, these are not available in a freestanding runtime environment.
 
@@ -103,27 +103,3 @@ The respective suffix indicates, which kind of number to convert to, as well as 
 | `v` | The pointer to a location where to store the result. |
 
 The return value indicates the actual number of bytes that have been read. The value `0` indicates, that the conversion has failed.
-
-# Example
-
-```c
-// String.
-char const * s = "The depth is -12.34567e+2 meters.";
-
-// String length.
-size_t n = 33;
-
-// Options.
-ao_scan_t o =
-{
-    .radix = 10,
-    .seek = true
-};
-
-// Value.
-double v;
-```
-
-```c
-ao_scanfd(s, n, &o, &v);
-```

@@ -9,7 +9,7 @@ seealso:
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module provides an implementation for the alarm queue based on a sorted list. Therefore, the alarm queue can contain an unlimited number of alarms. The following table exhibits the time complexities of the individual operations.
 

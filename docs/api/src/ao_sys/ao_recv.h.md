@@ -6,7 +6,7 @@ permalink: /api/src/ao_sys/ao_recv.h/
 toc: true
 ---
 
-# Overview
+# Notes
 
 This module provides an abstraction for tasks to receive data from an opaque source either in a blocking or in a non-blocking fashion.
 
