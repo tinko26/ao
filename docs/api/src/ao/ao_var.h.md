@@ -21,16 +21,16 @@ This module defines two convenience macro functions for variables.
 
 ## `ao_clear`
 
-Clear a variable of type `t` pointed to by `p`. This is especially useful when initializing objects that have been allocated on the stack.
-
 ```c
 #define ao_clear(p, t)
 ```
 
-## `ao_copy`
+Clears a variable of type `t` pointed to by `p`. This is especially useful when initializing objects that have been allocated on the stack.
 
-Copy a variable of `t` from the location pointed to by `s` to the location pointed to by `d`.
+## `ao_copy`
 
 ```c
 #define ao_copy(d, s, t)
 ```
+
+Copies a variable of `t` from the location pointed to by `s` to the location pointed to by `d`.

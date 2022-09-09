@@ -52,8 +52,6 @@ typedef bool (* ao_avl_less_t)
 
 ## `ao_avl_t`
 
-This type represents an AVL tree.
-
 ```c
 struct ao_avl_t
 {
@@ -63,15 +61,13 @@ struct ao_avl_t
 };
 ```
 
-It consists of the following members.
+This type represents an AVL tree. It consists of the following members.
 
 | `less` | The compare function. |
 | `less_parameter` | The compare function parameter. |
 | `root` | The root. |
 
 ## `ao_avl_node_t`
-
-This type represents an AVL tree node.
 
 ```c
 struct ao_avl_node_t
@@ -83,7 +79,7 @@ struct ao_avl_node_t
 };
 ```
 
-It consists of the following members.
+This type represents an AVL tree node. It consists of the following members.
 
 | `height` | The height of the node, that is, the length of the longest path from the node downwards to a leaf. |
 | `left` | The left child. |
@@ -100,44 +96,42 @@ This type represents a compare function, that implements a strict total order on
 
 ## `ao_avl_assert`
 
-Check whether a tree is valid in linear time. This function traverses the tree top-down and checks, whether the relevant properties are maintained. If that is not the case, the function triggers a runtime assertion failure.
-
-It is therefore useful in debugging scenarios. However, the function is implemented recursively, which violates a common rule in embedded software engineering.
-
 ```c
 void ao_avl_assert(ao_avl_t * x);
 ```
 
-## `ao_avl_insert`
+Checks whether a tree is valid in linear time. This function traverses the tree top-down and checks, whether the relevant properties are maintained. If that is not the case, the function triggers a runtime assertion failure. It is therefore useful in debugging scenarios. However, the function is implemented recursively, which violates a common rule in embedded software engineering.
 
-Insert a node into a tree in logarithmic time.
+## `ao_avl_insert`
 
 ```c
 void ao_avl_insert(ao_avl_t * x, ao_avl_node_t * n);
 ```
 
-## `ao_avl_is_empty`
+Inserts a node into a tree in logarithmic time.
 
-Check whether a tree is empty in constant time.
+## `ao_avl_is_empty`
 
 ```c
 #define ao_avl_is_empty(x)
 ```
 
+Checks whether a tree is empty in constant time.
+
 ## `ao_avl_max`
 ## `ao_avl_min`
-
-Get the maximum or minimum node, respectively, of a tree in logarithmic time. Thereby, the maximum node is the rightmost node and the minimum node is the leftmost node in the tree. Both functions return `NULL`, if the tree is empty.
 
 ```c
 ao_avl_node_t * ao_avl_max(ao_avl_t * x);
 ao_avl_node_t * ao_avl_min(ao_avl_t * x);
 ```
 
-## `ao_avl_remove`
+Gets the maximum or minimum node, respectively, of a tree in logarithmic time. Thereby, the maximum node is the rightmost node and the minimum node is the leftmost node in the tree. Both functions return `NULL`, if the tree is empty.
 
-Remove a node from a tree in logarithmic time.
+## `ao_avl_remove`
 
 ```c
 void ao_avl_remove(ao_avl_t * x, ao_avl_node_t * n);
 ```
+
+Removes a node from a tree in logarithmic time.
