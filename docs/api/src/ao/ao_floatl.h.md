@@ -407,7 +407,7 @@ Converts radians to degrees.
 #define ao_round(x)
 ```
 
-Rounds $$\texttt{x}$$ to the nearest integer. Round half away from zero.
+Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from zero.
 
 ## `ao_round_away_from_infinity`
 
@@ -455,7 +455,7 @@ Rounds $$\texttt{x}$$ down.
 #define ao_round_half_away_from_infinity(x)
 ```
 
-Rounds $$\texttt{x}$$ to the nearest integer. Round half away from infinity.
+Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from infinity.
 
 ## `ao_round_half_away_from_negative_infinity`
 
@@ -463,7 +463,7 @@ Rounds $$\texttt{x}$$ to the nearest integer. Round half away from infinity.
 #define ao_round_half_away_from_negative_infinity(x)
 ```
 
-Rounds $$\texttt{x}$$ to the nearest integer. Round half away from negative infinity.
+Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from negative infinity.
 
 ## `ao_round_half_away_from_positive_infinity`
 
@@ -471,7 +471,7 @@ Rounds $$\texttt{x}$$ to the nearest integer. Round half away from negative infi
 #define ao_round_half_away_from_positive_infinity(x)
 ```
 
-Rounds $$\texttt{x}$$ to the nearest integer. Round half away from positive infinity.
+Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from positive infinity.
 
 ## `ao_round_half_away_from_zero`
 
@@ -479,7 +479,7 @@ Rounds $$\texttt{x}$$ to the nearest integer. Round half away from positive infi
 #define ao_round_half_away_from_zero(x)
 ```
 
-Rounds $$\texttt{x}$$ to the nearest integer. Round half away from zero.
+Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from zero.
 
 ## `ao_round_half_down`
 
@@ -487,7 +487,7 @@ Rounds $$\texttt{x}$$ to the nearest integer. Round half away from zero.
 #define ao_round_half_down(x)
 ```
 
-Rounds $$\texttt{x}$$ to the nearest integer. Round half down.
+Rounds $$\texttt{x}$$ to the nearest integer. Rounds half down.
 
 ## `ao_round_half_to_even`
 
@@ -495,7 +495,7 @@ Rounds $$\texttt{x}$$ to the nearest integer. Round half down.
 #define ao_round_half_to_even(x)
 ```
 
-Rounds $$\texttt{x}$$ to the nearest integer. Round half to even.
+Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to even.
 
 ## `ao_round_half_to_infinity`
 
@@ -503,7 +503,7 @@ Rounds $$\texttt{x}$$ to the nearest integer. Round half to even.
 #define ao_round_half_to_infinity(x)
 ```
 
-Rounds $$\texttt{x}$$ to the nearest integer. Round half to infinity.
+Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to infinity.
 
 ## `ao_round_half_to_negative_infinity`
 
@@ -511,7 +511,7 @@ Rounds $$\texttt{x}$$ to the nearest integer. Round half to infinity.
 #define ao_round_half_to_negative_infinity(x)
 ```
 
-Rounds $$\texttt{x}$$ to the nearest integer. Round half to negative infinity.
+Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to negative infinity.
 
 ## `ao_round_half_to_odd`
 
@@ -519,7 +519,7 @@ Rounds $$\texttt{x}$$ to the nearest integer. Round half to negative infinity.
 #define ao_round_half_to_odd(x)
 ```
 
-Rounds $$\texttt{x}$$ to the nearest integer. Round half to odd.
+Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to odd.
 
 ## `ao_round_half_to_positive_infinity`
 
@@ -527,7 +527,7 @@ Rounds $$\texttt{x}$$ to the nearest integer. Round half to odd.
 #define ao_round_half_to_positive_infinity(x)
 ```
 
-Rounds $$\texttt{x}$$ to the nearest integer. Round half to positive infinity.
+Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to positive infinity.
 
 ## `ao_round_half_to_zero`
 
@@ -535,7 +535,7 @@ Rounds $$\texttt{x}$$ to the nearest integer. Round half to positive infinity.
 #define ao_round_half_to_zero(x)
 ```
 
-Rounds $$\texttt{x}$$ to the nearest integer. Round half to zero.
+Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to zero.
 
 ## `ao_round_half_up`
 
@@ -543,7 +543,7 @@ Rounds $$\texttt{x}$$ to the nearest integer. Round half to zero.
 #define ao_round_half_up(x)
 ```
 
-Rounds $$\texttt{x}$$ to the nearest integer. Round half up.
+Rounds $$\texttt{x}$$ to the nearest integer. Rounds half up.
 
 ## `ao_round_to_infinity`
 
