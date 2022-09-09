@@ -15,6 +15,14 @@ toc: true
 #include <stdint.h>
 ```
 
+# Identifiers
+
+## `AO_I2C`
+
+```c
+#define AO_I2C
+```
+
 # Constants
 
 ## `AO_I2C_BRG_BITS`

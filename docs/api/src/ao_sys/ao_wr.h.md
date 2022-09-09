@@ -27,6 +27,14 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_WR`
+
+```c
+#define AO_WR
+```
+
 # Typedefs
 
 ```c

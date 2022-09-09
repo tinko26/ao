@@ -12,6 +12,14 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_TASK_SCHED_0`
+
+```c
+#define AO_TASK_SCHED_0
+```
+
 # Constants
 
 ## `AO_TASK_CEILING`

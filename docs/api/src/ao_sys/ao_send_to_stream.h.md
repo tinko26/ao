@@ -16,6 +16,14 @@ toc: true
 #include <ao_stream.h>
 ```
 
+# Identifiers
+
+## `AO_SEND_TO_STREAM`
+
+```c
+#define AO_SEND_TO_STREAM
+```
+
 # Functions
 
 ## `ao_send_to_stream`

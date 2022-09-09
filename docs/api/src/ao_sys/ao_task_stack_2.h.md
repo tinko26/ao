@@ -13,6 +13,14 @@ toc: true
 #include <stddef.h>
 ```
 
+# Identifiers
+
+## `AO_TASK_STACK_2`
+
+```c
+#define AO_TASK_STACK_2
+```
+
 # Configuration
 
 ## `AO_TASK_STACK_HIGH_WATER_MARK`

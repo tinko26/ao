@@ -14,6 +14,14 @@ toc: true
 #include <ao_recv_ptr.h>
 ```
 
+# Identifiers
+
+## `AO_RECV_PTR_FROM_CALLBACK`
+
+```c
+#define AO_RECV_PTR_FROM_CALLBACK
+```
+
 # Functions
 
 ## `ao_recv_ptr_from_callback`

@@ -6,6 +6,14 @@ permalink: /api/src/ao_sys/ao_boot.h/
 toc: true
 ---
 
+# Identifiers
+
+## `AO_BOOT`
+
+```c
+#define AO_BOOT
+```
+
 # Functions
 
 ## `ao_boot_alarm`

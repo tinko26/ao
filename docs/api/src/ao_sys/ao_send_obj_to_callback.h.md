@@ -14,6 +14,14 @@ toc: true
 #include <ao_send_obj.h>
 ```
 
+# Identifiers
+
+## `AO_SEND_OBJ_TO_CALLBACK`
+
+```c
+#define AO_SEND_OBJ_TO_CALLBACK
+```
+
 # Functions
 
 ## `ao_send_obj_to_callback`

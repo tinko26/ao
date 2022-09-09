@@ -16,3 +16,11 @@ This module gathers interrupt-related functions.
 #include <ao_ir_alarm.h>
 #include <ao_ir_task.h>
 ```
+
+# Identifiers
+
+## `AO_IR`
+
+```c
+#define AO_IR
+```

@@ -14,6 +14,14 @@ toc: true
 #include <stdint.h>
 ```
 
+# Identifiers
+
+## `AO_MIKROE_2950`
+
+```c
+#define AO_MIKROE_2950
+```
+
 # Functions
 
 ## `ao_mikroe_2950_alice_blue`

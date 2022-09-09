@@ -8,6 +8,14 @@ seealso:
 toc: true
 ---
 
+# Identifiers
+
+## `AO_ALARM_QUEUE`
+
+```c
+#define AO_ALARM_QUEUE
+```
+
 # Configuration
 
 ## `AO_ALARM_QUEUE`

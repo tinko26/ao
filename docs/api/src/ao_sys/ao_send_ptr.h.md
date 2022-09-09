@@ -14,13 +14,19 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_SEND_PTR`
+
+```c
+#define AO_SEND_PTR
+```
+
 # Typedefs
 
 ```c
 typedef struct ao_send_ptr_t ao_send_ptr_t;
-```
 
-```c
 typedef void (* ao_send_ptr_proc_t)
 (
     ao_send_ptr_t * x

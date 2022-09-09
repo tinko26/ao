@@ -37,22 +37,38 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_TASK`
+
+```c
+#define AO_TASK
+```
+
 # Configuration
+
+## `AO_TASK_COUNT`
 
 ```c
 #define AO_TASK_COUNT (false)
 ```
 
-```c
-#define AO_TASK_ID    (false)
-```
+## `AO_TASK_ID`
 
 ```c
-#define AO_TASK_NAME  (false)
+#define AO_TASK_ID (false)
 ```
 
+## `AO_TASK_NAME`
+
 ```c
-#define AO_TASK_TIME  (false)
+#define AO_TASK_NAME (false)
+```
+
+## `AO_TASK_TIME`
+
+```c
+#define AO_TASK_TIME (false)
 ```
 
 # Typedefs

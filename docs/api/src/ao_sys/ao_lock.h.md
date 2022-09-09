@@ -12,6 +12,14 @@ toc: true
 
 This module defines a mechanism for critical sections, that are required by the kernel in order to protect its resources from concurrent accesses. Since kernel-level critical sections utilize hardware features, this module is abstract. Therefore, an implementation must be provided by a port package.
 
+# Identifiers
+
+## `AO_LOCK`
+
+```c
+#define AO_LOCK
+```
+
 # Typedefs
 
 ```c

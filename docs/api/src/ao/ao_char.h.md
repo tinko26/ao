@@ -16,6 +16,14 @@ This module provides a couple of functions that classify characters. Although th
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_CHAR`
+
+```c
+#define AO_CHAR
+```
+
 # Functions
 
 ## `ao_char_is`

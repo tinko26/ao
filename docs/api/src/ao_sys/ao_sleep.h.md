@@ -15,6 +15,14 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_SLEEP`
+
+```c
+#define AO_SLEEP
+```
+
 # Typedefs
 
 ```c

@@ -16,6 +16,14 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_STREAM4PTR`
+
+```c
+#define AO_STREAM4PTR
+```
+
 # Typedefs
 
 ```c

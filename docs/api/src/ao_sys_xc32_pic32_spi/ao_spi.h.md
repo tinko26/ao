@@ -13,6 +13,14 @@ toc: true
 #include <stdint.h>
 ```
 
+# Identifiers
+
+## `AO_SPI`
+
+```c
+#define AO_SPI
+```
+
 # Constants
 
 ## `AO_SPI_BRG_BITS`

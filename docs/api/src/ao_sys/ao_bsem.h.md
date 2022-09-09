@@ -17,6 +17,14 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_BSEM`
+
+```c
+#define AO_BSEM
+```
+
 # Typedefs
 
 ```c

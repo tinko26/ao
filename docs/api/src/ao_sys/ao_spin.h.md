@@ -18,6 +18,14 @@ This module defines functions for spinning or busy waiting, respectively, that c
 #include <ao_time.h>
 ```
 
+# Identifiers
+
+## `AO_SPIN`
+
+```c
+#define AO_SPIN
+```
+
 # Functions
 
 ## `ao_spin`

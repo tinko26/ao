@@ -16,6 +16,14 @@ toc: true
 #include <stddef.h>
 ```
 
+# Identifiers
+
+## `AO_BUFFER4PTR`
+
+```c
+#define AO_BUFFER4PTR
+```
+
 # Configuration
 
 Keep track of the maximum number of pointers.

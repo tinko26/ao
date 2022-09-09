@@ -16,14 +16,20 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_RENDEZVOUS`
+
+```c
+#define AO_RENDEZVOUS
+```
+
 # Typedefs
 
 ```c
 typedef struct ao_rendezvous_t      ao_rendezvous_t;
 typedef struct ao_rendezvous_wait_t ao_rendezvous_wait_t;
-```
 
-```c
 typedef void (* ao_rendezvous_exchange_t)
 (
     void * ptr_in_other,

@@ -17,6 +17,14 @@ toc: true
 #include <xc.h>
 ```
 
+# Identifiers
+
+## `AO_CAN_4`
+
+```c
+#define AO_CAN_4
+```
+
 # Configuration
 
 ## `AO_CAN_BAUD_4`

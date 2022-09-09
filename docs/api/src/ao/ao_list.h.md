@@ -22,6 +22,14 @@ This module defines doubly linked lists. Most commonly, lists are used as double
 #include <stddef.h>
 ```
 
+# Identifiers
+
+## `AO_LIST`
+
+```c
+#define AO_LIST
+```
+
 # Typedefs
 
 ```c

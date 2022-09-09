@@ -15,6 +15,14 @@ toc: true
 #include <ao_task.h>
 ```
 
+# Identifiers
+
+## `AO_YIELD`
+
+```c
+#define AO_YIELD
+```
+
 # Functions
 
 ## `ao_yield`

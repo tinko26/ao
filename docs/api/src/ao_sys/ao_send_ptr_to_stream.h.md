@@ -16,6 +16,14 @@ toc: true
 #include <ao_stream4ptr.h>
 ```
 
+# Identifiers
+
+## `AO_SEND_PTR_TO_STREAM`
+
+```c
+#define AO_SEND_PTR_TO_STREAM
+```
+
 # Functions
 
 ## `ao_send_acq_to_stream`

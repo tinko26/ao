@@ -28,6 +28,14 @@ This module provides an array-based implementation.
 #include <stddef.h>
 ```
 
+# Identifiers
+
+## `AO_HEAP4PTR`
+
+```c
+#define AO_HEAP4PTR
+```
+
 # Configuration
 
 ## `AO_HEAP4PTR_COUNT_MAX`
@@ -42,9 +50,7 @@ Keep track of the maximum number of pointers.
 
 ```c
 typedef struct ao_heap4ptr_t ao_heap4ptr_t;
-```
 
-```c
 typedef bool (* ao_heap4ptr_less_t)
 (
     void * p1,

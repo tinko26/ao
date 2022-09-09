@@ -17,6 +17,14 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_ALARM`
+
+```c
+#define AO_ALARM
+```
+
 # Configuration
 
 ## `AO_ALARM_DELAY`

@@ -16,6 +16,14 @@ toc: true
 #include <ao_sys_pcache.h>
 ```
 
+# Identifiers
+
+## `AO_SYS_XC32_PIC32MX`
+
+```c
+#define AO_SYS_XC32_PIC32MX
+```
+
 # Include Next
 
 ```c

@@ -19,13 +19,19 @@ This module provides an abstraction for tasks to receive data from an opaque sou
 #include <stddef.h>
 ```
 
+# Identifiers
+
+## `AO_RECV`
+
+```c
+#define AO_RECV
+```
+
 # Typedefs
 
 ```c
 typedef struct ao_recv_t ao_recv_t;
-```
 
-```c
 typedef void (* ao_recv_proc_t)
 (
     ao_recv_t * x

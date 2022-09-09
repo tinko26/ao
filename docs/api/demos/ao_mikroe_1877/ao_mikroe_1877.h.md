@@ -15,6 +15,14 @@ toc: true
 #include <stddef.h>
 ```
 
+# Identifiers
+
+## `AO_MIKROE_1877`
+
+```c
+#define AO_MIKROE_1877
+```
+
 # Typedefs
 
 ```c

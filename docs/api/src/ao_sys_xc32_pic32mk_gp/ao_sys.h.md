@@ -13,6 +13,14 @@ toc: true
 #include <ao_sys_id.h>
 ```
 
+# Identifiers
+
+## `AO_SYS_XC32_PIC32MK_GP`
+
+```c
+#define AO_SYS_XC32_PIC32MK_GP
+```
+
 # Include Next
 
 ```c

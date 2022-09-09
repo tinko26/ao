@@ -20,6 +20,14 @@ This module defines buffers, that is, places to temporarily store data.
 #include <stddef.h>
 ```
 
+# Identifiers
+
+## `AO_BUFFER`
+
+```c
+#define AO_BUFFER
+```
+
 # Configuration
 
 ## `AO_BUFFER_COUNT_MAX`

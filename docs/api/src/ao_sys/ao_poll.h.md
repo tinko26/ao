@@ -13,6 +13,14 @@ toc: true
 #include <ao_time.h>
 ```
 
+# Identifiers
+
+## `AO_POLL`
+
+```c
+#define AO_POLL
+```
+
 # Functions
 
 ## `ao_poll`

@@ -16,6 +16,14 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_QUEUE4OBJ`
+
+```c
+#define AO_QUEUE4OBJ
+```
+
 # Typedefs
 
 ```c

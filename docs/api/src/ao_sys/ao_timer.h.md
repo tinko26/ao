@@ -24,6 +24,14 @@ toc: true
 #include <ao_time.h>
 ```
 
+# Identifiers
+
+## `AO_TIMER`
+
+```c
+#define AO_TIMER
+```
+
 # Typedefs
 
 ```c

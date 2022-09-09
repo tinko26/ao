@@ -25,6 +25,14 @@ This module provides an implementation for the alarm queue based on a red-black 
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_ALARM_QUEUE_5`
+
+```c
+#define AO_ALARM_QUEUE_5
+```
+
 # Configuration
 
 ## `AO_ALARM_QUEUE_ASSERT`

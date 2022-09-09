@@ -16,6 +16,14 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_PMAIL`
+
+```c
+#define AO_PMAIL
+```
+
 # Typedefs
 
 ```c

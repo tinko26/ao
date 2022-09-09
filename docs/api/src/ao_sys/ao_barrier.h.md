@@ -18,6 +18,14 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_BARRIER`
+
+```c
+#define AO_BARRIER
+```
+
 # Typedefs
 
 ```c

@@ -14,6 +14,14 @@ toc: true
 #include <ao_recv.h>
 ```
 
+# Identifiers
+
+## `AO_RECV_FROM_CALLBACK`
+
+```c
+#define AO_RECV_FROM_CALLBACK
+```
+
 # Functions
 
 ## `ao_recv_from_callback`

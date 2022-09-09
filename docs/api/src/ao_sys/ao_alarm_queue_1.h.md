@@ -25,6 +25,14 @@ This module provides an implementation for the alarm queue based on a sorted lis
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_ALARM_QUEUE_1`
+
+```c
+#define AO_ALARM_QUEUE_1
+```
+
 # Configuration
 
 ## `AO_ALARM_QUEUE_ASSERT`

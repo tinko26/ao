@@ -16,6 +16,14 @@ toc: true
 #include <ao_recv_ptr.h>
 ```
 
+# Identifiers
+
+## `AO_RECV_PTR_FROM_QUEUE`
+
+```c
+#define AO_RECV_PTR_FROM_QUEUE
+```
+
 # Functions
 
 ## `ao_recv_ptr_from_queue`

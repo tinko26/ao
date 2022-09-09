@@ -16,14 +16,20 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_FLAG`
+
+```c
+#define AO_FLAG
+```
+
 # Typedefs
 
 ```c
 typedef struct ao_flag_t      ao_flag_t;
 typedef struct ao_flag_wait_t ao_flag_wait_t;
-```
 
-```c
 typedef bool (* ao_flag_match_t)
 (
     ao_uint_t mask,

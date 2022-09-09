@@ -20,6 +20,14 @@ This module contains functions to convert a string to a number. Although the sta
 #include <stdint.h>
 ```
 
+# Identifiers
+
+## `AO_SCAN`
+
+```c
+#define AO_SCAN
+```
+
 # Typedefs
 
 ```c

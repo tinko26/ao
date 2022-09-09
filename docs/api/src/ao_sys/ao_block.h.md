@@ -15,6 +15,14 @@ toc: true
 #include <ao_time.h>
 ```
 
+# Identifiers
+
+## `AO_BLOCK`
+
+```c
+#define AO_BLOCK
+```
+
 # Typedefs
 
 ```c

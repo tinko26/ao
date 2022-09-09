@@ -24,6 +24,14 @@ This module provides an implementation for the alarm queue based on an array-bas
 #include <stddef.h>
 ```
 
+# Identifiers
+
+## `AO_ALARM_QUEUE_2`
+
+```c
+#define AO_ALARM_QUEUE_2
+```
+
 # Configuration
 
 ## `AO_ALARM_QUEUE_ASSERT`

@@ -14,6 +14,14 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_TASK_SCHED_1`
+
+```c
+#define AO_TASK_SCHED_1
+```
+
 # Configuration
 
 ## `AO_TASK_QUANTUM`

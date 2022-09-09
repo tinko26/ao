@@ -25,22 +25,26 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_THRESHOLD`
+
+```c
+#define AO_THRESHOLD
+```
+
 # Typedefs
 
 ```c
 typedef struct ao_threshold_t      ao_threshold_t;
 typedef struct ao_threshold_wait_t ao_threshold_wait_t;
-```
 
-```c
 typedef ao_uint_t (* ao_threshold_adjust_t)
 (
     ao_uint_t value,
     void *    parameter
 );
-```
 
-```c
 typedef bool      (* ao_threshold_match_t)
 (
     ao_uint_t value,

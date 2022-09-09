@@ -25,6 +25,14 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_XCH`
+
+```c
+#define AO_XCH
+```
+
 # Typedefs
 
 ```c

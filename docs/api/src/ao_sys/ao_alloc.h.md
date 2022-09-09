@@ -33,6 +33,14 @@ This module encapsulates an allocator that supports dynamic memory management.
 #include <stddef.h>
 ```
 
+# Identifiers
+
+## `AO_ALLOC`
+
+```c
+#define AO_ALLOC
+```
+
 # Configuration
 
 ## `AO_ALLOC`

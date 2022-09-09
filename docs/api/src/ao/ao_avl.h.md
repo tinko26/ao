@@ -26,17 +26,20 @@ An AVL tree is a special kind of binary search tree, that keeps itself balanced,
 #include <stddef.h>
 ```
 
+# Identifiers
+
+## `AO_AVL`
+
+```c
+#define AO_AVL
+```
+
 # Typedefs
 
 ```c
 typedef struct ao_avl_t      ao_avl_t;
-```
-
-```c
 typedef struct ao_avl_node_t ao_avl_node_t;
-```
 
-```c
 typedef bool (* ao_avl_less_t)
 (
     ao_avl_node_t * n1,

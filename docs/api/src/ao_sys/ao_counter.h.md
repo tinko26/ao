@@ -16,22 +16,26 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_COUNTER`
+
+```c
+#define AO_COUNTER
+```
+
 # Typedefs
 
 ```c
 typedef struct ao_counter_t      ao_counter_t;
 typedef struct ao_counter_wait_t ao_counter_wait_t;
-```
 
-```c
 typedef ao_uint_t (* ao_counter_adjust_t)
 (
     ao_uint_t value,
     void *    parameter
 );
-```
 
-```c
 typedef bool      (* ao_counter_match_t)
 (
     ao_uint_t value,

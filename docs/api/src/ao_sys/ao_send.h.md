@@ -16,13 +16,19 @@ toc: true
 #include <stddef.h>
 ```
 
+# Identifiers
+
+## `AO_SEND`
+
+```c
+#define AO_SEND
+```
+
 # Typedefs
 
 ```c
 typedef struct ao_send_t ao_send_t;
-```
 
-```c
 typedef void (* ao_send_proc_t)
 (
     ao_send_t * x

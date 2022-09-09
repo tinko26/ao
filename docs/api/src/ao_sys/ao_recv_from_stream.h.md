@@ -16,6 +16,14 @@ toc: true
 #include <ao_stream.h>
 ```
 
+# Identifiers
+
+## `AO_RECV_FROM_STREAM`
+
+```c
+#define AO_RECV_FROM_STREAM
+```
+
 # Functions
 
 ## `ao_recv_from_stream`

@@ -28,6 +28,14 @@ This module provides an array-based implementation.
 #include <stddef.h>
 ```
 
+# Identifiers
+
+## `AO_HEAP4OBJ`
+
+```c
+#define AO_HEAP4OBJ
+```
+
 # Configuration
 
 ## `AO_HEAP4OBJ_COUNT_MAX`
@@ -42,9 +50,7 @@ Keep track of the maximum number of objects.
 
 ```c
 typedef struct ao_heap4obj_t ao_heap4obj_t;
-```
 
-```c
 typedef bool (* ao_heap4obj_less_t)
 (
     void * p1,

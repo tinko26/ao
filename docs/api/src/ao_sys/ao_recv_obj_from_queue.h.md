@@ -16,6 +16,14 @@ toc: true
 #include <ao_recv_obj.h>
 ```
 
+# Identifiers
+
+## `AO_RECV_OBJ_FROM_QUEUE`
+
+```c
+#define AO_RECV_OBJ_FROM_QUEUE
+```
+
 # Functions
 
 ## `ao_recv_obj_from_queue`

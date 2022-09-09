@@ -13,6 +13,14 @@ toc: true
 #include <stdint.h>
 ```
 
+# Identifiers
+
+## `AO_CAN`
+
+```c
+#define AO_CAN
+```
+
 # Typedefs
 
 ```c

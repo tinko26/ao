@@ -18,6 +18,14 @@ toc: true
 #include <xc.h>
 ```
 
+# Identifiers
+
+## `AO_UART_3`
+
+```c
+#define AO_UART_3
+```
+
 # Configuration
 
 ## `AO_UART_BAUD_3`

@@ -14,6 +14,14 @@ toc: true
 #include <stddef.h>
 ```
 
+# Identifiers
+
+## `AO_ASYNC`
+
+```c
+#define AO_ASYNC
+```
+
 # Typedefs
 
 ```c

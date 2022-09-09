@@ -15,6 +15,14 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_SIGNAL`
+
+```c
+#define AO_SIGNAL
+```
+
 # Typedefs
 
 ```c

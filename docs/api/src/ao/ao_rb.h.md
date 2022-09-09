@@ -25,14 +25,20 @@ A red-black tree is a special kind of binary search tree, that keeps itself bala
 #include <stddef.h>
 ```
 
+# Identifiers
+
+## `AO_RB`
+
+```c
+#define AO_RB
+```
+
 # Typedefs
 
 ```c
 typedef struct ao_rb_t      ao_rb_t;
 typedef struct ao_rb_node_t ao_rb_node_t;
-```
 
-```c
 typedef bool (* ao_rb_less_t)
 (
     ao_rb_node_t * n1,

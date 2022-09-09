@@ -13,6 +13,14 @@ toc: true
 #include <ao_time.h>
 ```
 
+# Identifiers
+
+## `AO_AWAIT`
+
+```c
+#define AO_AWAIT
+```
+
 # Functions
 
 ## `ao_await`

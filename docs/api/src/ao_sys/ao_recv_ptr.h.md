@@ -14,13 +14,19 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_RECV_PTR`
+
+```c
+#define AO_RECV_PTR
+```
+
 # Typedefs
 
 ```c
 typedef struct ao_recv_ptr_t ao_recv_ptr_t;
-```
 
-```c
 typedef void (* ao_recv_ptr_proc_t)
 (
     ao_recv_ptr_t * x

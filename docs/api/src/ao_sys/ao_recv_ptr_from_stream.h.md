@@ -16,6 +16,14 @@ toc: true
 #include <ao_stream4ptr.h>
 ```
 
+# Identifiers
+
+## `AO_RECV_PTR_FROM_STREAM`
+
+```c
+#define AO_RECV_PTR_FROM_STREAM
+```
+
 # Functions
 
 ## `ao_recv_ptr_from_stream`

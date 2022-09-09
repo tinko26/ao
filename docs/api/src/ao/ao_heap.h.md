@@ -29,6 +29,14 @@ Commonly, heaps are implemented based on an array that stores all the nodes. How
 #include <stddef.h>
 ```
 
+# Identifiers
+
+## `AO_HEAP`
+
+```c
+#define AO_HEAP
+```
+
 # Configuration
 
 ## `AO_HEAP_COUNT_MAX`
@@ -44,9 +52,7 @@ Keep track of the maximum number of nodes.
 ```c
 typedef struct ao_heap_t      ao_heap_t;
 typedef struct ao_heap_node_t ao_heap_node_t;
-```
 
-```c
 typedef bool (* ao_heap_less_t)
 (
     ao_heap_node_t * n1,

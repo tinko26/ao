@@ -16,6 +16,14 @@ toc: true
 #include <ao_send_ptr.h>
 ```
 
+# Identifiers
+
+## `AO_SEND_PTR_TO_QUEUE`
+
+```c
+#define AO_SEND_PTR_TO_QUEUE
+```
+
 # Functions
 
 ## `ao_send_acq_to_queue`

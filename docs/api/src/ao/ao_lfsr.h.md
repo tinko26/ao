@@ -18,6 +18,20 @@ This module defines linear-feedback shift registers in Galois configuration, tha
 #include <stdint.h>
 ```
 
+# Identifiers
+
+## `AO_LFSR8`
+## `AO_LFSR16`
+## `AO_LFSR32`
+## `AO_LFSR64`
+
+```c
+#define AO_LFSR8
+#define AO_LFSR16
+#define AO_LFSR32
+#define AO_LFSR64
+```
+
 # Typedefs
 
 ```c

@@ -12,6 +12,14 @@ toc: true
 #include <ao_sys_clock.h>
 ```
 
+# Identifiers
+
+## `AO_SYS_XC32_PIC32_CAN`
+
+```c
+#define AO_SYS_XC32_PIC32_CAN
+```
+
 # Include Next
 
 ```c

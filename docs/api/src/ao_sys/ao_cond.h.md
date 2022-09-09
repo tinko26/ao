@@ -24,6 +24,14 @@ toc: true
 #include <stdbool.h>
 ```
 
+# Identifiers
+
+## `AO_COND`
+
+```c
+#define AO_COND
+```
+
 # Typedefs
 
 ```c

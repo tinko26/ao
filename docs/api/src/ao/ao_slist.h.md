@@ -20,14 +20,20 @@ This module defines doubly linked lists, whose elements are sorted by a strict t
 #include <stddef.h>
 ```
 
+# Identifiers
+
+## `AO_SLIST`
+
+```c
+#define AO_SLIST
+```
+
 # Typedefs
 
 ```c
 typedef struct ao_slist_t      ao_slist_t;
 typedef struct ao_slist_node_t ao_slist_node_t;
-```
 
-```c
 typedef bool (* ao_slist_less_t)
 (
     ao_slist_node_t * n1,

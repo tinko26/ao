@@ -16,6 +16,14 @@ toc: true
 #include <stddef.h>
 ```
 
+# Identifiers
+
+## `AO_BUFFER4OBJ`
+
+```c
+#define AO_BUFFER4OBJ
+```
+
 # Configuration
 
 Keep track of the maximum number of objects.

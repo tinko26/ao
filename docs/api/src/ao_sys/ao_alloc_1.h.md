@@ -34,6 +34,14 @@ Due to its iterative approach, allocation is a linear-time operation. In contras
 #include <stddef.h>
 ```
 
+# Identifiers
+
+## `AO_ALLOC_1`
+
+```c
+#define AO_ALLOC_1
+```
+
 # Configuration
 
 ## `AO_ALLOC_ALLOCATED`
@@ -85,14 +93,11 @@ The size of the blocks in each pool in bytes.
 # Typedefs
 
 ```c
+typedef struct ao_acquired_t        ao_acquired_t;
 typedef struct ao_alloc_pool_t      ao_alloc_pool_t;
 typedef struct ao_alloc_pool_node_t ao_alloc_pool_node_t;
-```
-
-```c
-typedef struct ao_acquired_t ao_acquired_t;
-typedef struct ao_released_t ao_released_t;
-typedef struct ao_retained_t ao_retained_t;
+typedef struct ao_released_t        ao_released_t;
+typedef struct ao_retained_t        ao_retained_t;
 ```
 
 # Types

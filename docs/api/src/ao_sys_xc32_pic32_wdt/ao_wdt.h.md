@@ -13,6 +13,14 @@ toc: true
 #include <xc.h>
 ```
 
+# Identifiers
+
+## `AO_WDT`
+
+```c
+#define AO_WDT
+```
+
 # Functions
 
 ## `ao_wdt_enable`
