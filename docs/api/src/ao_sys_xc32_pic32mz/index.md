@@ -3,9 +3,9 @@ author: "Stefan Wagner"
 date: 2022-08-29
 draft: false
 external:
-- https://www.mips.com/products/warrior/m-class-m51xx-core-family/ : "M-Class M51xx Core Family"
-- https://www.mips.com/products/aptiv/microaptiv/ : "microAptiv Processor Core"
-- https://www.mips.com/products/architectures/ase/dsp/ : "MIPS® DSP"
+- https://www.mips.com/products/warrior/m-class-m51xx-core-family/ : "MIPS® M-Class M51xx Core Family"
+- https://www.mips.com/products/aptiv/microaptiv/ : "MIPS® microAptiv Processor Core"
+- https://www.mips.com/products/architectures/ase/dsp/ : "MIPS32® DSP"
 - https://www.google.com/search?q=MIPS+MD00374 : "MIPS32® DSP ASE"
 - https://www.google.com/search?q=MIPS+MD00566 : "MIPS32® DSP ASE Instruction Set Quick Reference"
 - https://www.google.com/search?q=MIPS+MD00977 : "MIPS32® M5150 Processor Core Family Datasheet"

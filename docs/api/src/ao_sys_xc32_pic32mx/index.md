@@ -3,10 +3,10 @@ author: "Stefan Wagner"
 date: 2022-08-29
 draft: false
 external:
-- https://www.mips.com/products/classic/ : "MIPS Classic Processor Cores"
+- https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/32-bit-mcus/pic32-32-bit-mcus/pic32mx : "Microchip PIC32MX Family of Microcontrollers"
+- https://www.mips.com/products/classic/ : "MIPS® Classic Processor Cores"
 - https://www.google.com/search?q=MIPS+MD00247 : "MIPS32® M4K™ Processor Core Datasheet"
 - https://www.google.com/search?q=MIPS+MD00980 : "MIPS32® M4K™ Processor Core Software User’s Manual"
-- https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/32-bit-mcus/pic32-32-bit-mcus/pic32mx : "PIC32MX Family of Microcontrollers"
 permalink: /api/src/ao_sys_xc32_pic32mx/
 toc: true
 wide: false
