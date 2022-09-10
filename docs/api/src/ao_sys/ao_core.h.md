@@ -8,9 +8,7 @@ toc: true
 
 # Notes
 
-This module provides information about identical processor cores and is to support symmetric multiprocessing systems.
-
-This module is abstract, that is, an implementation must be provided by a port package in order to support multitasking, even on a single-core platform.
+This module provides information about identical processor cores and is to support symmetric multiprocessing systems. This module is abstract, that is, an implementation must be provided by a port package in order to support multitasking, even on a single-core platform.
 
 # Include
 
@@ -22,21 +20,19 @@ This module is abstract, that is, an implementation must be provided by a port p
 
 ## `AO_CORE_COUNT`
 
-The number of identical processor cores.
-
 ```c
 #define AO_CORE_COUNT (1)
 ```
 
-# Typedefs
-
-```c
-typedef uint32_t ao_core_t;
-```
+The number of identical processor cores.
 
 # Types
 
 ## `ao_core_t`
+
+```c
+typedef uint32_t ao_core_t;
+```
 
 This type is an alias for an unsigned integer type that can hold the zero-based index of a processor core.
 
@@ -44,8 +40,8 @@ This type is an alias for an unsigned integer type that can hold the zero-based 
 
 ## `ao_core`
 
-Get the zero-based index of the processor core, on which the calling thread of execution is running.
-
 ```c
 ao_core_t ao_core();
 ```
+
+Gets the zero-based index of the processor core, on which the calling thread of execution is running.

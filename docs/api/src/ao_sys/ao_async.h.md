@@ -22,19 +22,13 @@ toc: true
 #define AO_ASYNC
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_async_t     ao_async_t;
-typedef struct ao_async_all_t ao_async_all_t;
-typedef struct ao_async_any_t ao_async_any_t;
-```
-
 # Types
 
 ## `ao_async_t`
 
-This type represents an asynchronous event.
+```c
+typedef struct ao_async_t ao_async_t;
+```
 
 ```c
 struct ao_async_t
@@ -45,7 +39,7 @@ struct ao_async_t
 };
 ```
 
-It consists of the following members.
+This type represents an asynchronous event. It consists of the following members.
 
 | `callback` | The callback. |
 | `callback_parameter` | The callback parameter. |
@@ -53,7 +47,9 @@ It consists of the following members.
 
 ## `ao_async_all_t`
 
-This type represents the waiting for all out of a collection of asynchronous events.
+```c
+typedef struct ao_async_all_t ao_async_all_t;
+```
 
 ```c
 struct ao_async_all_t
@@ -66,7 +62,7 @@ struct ao_async_all_t
 };
 ```
 
-It consists of the following members.
+This type represents the waiting for all out of a collection of asynchronous events. It consists of the following members.
 
 | `async` | |
 | `count` | |
@@ -76,7 +72,9 @@ It consists of the following members.
 
 ## `ao_async_any_t`
 
-This type represents the waiting for one out of a collection of asynchronous events.
+```c
+typedef struct ao_async_any_t ao_async_any_t;
+```
 
 ```c
 struct ao_async_any_t
@@ -88,7 +86,7 @@ struct ao_async_any_t
 };
 ```
 
-It consists of the following members.
+This type represents the waiting for one out of a collection of asynchronous events. It consists of the following members.
 
 | `async` | |
 | `count` | |

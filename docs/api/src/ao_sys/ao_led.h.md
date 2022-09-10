@@ -12,23 +12,19 @@ toc: true
 
 ## `AO_LED_COUNT`
 
-The number of LEDs.
-
 ```c
 #define AO_LED_COUNT (0)
 ```
 
-# Typedefs
-
-```c
-typedef enum ao_leds_t ao_leds_t;
-```
+The number of LEDs.
 
 # Types
 
 ## `ao_leds_t`
 
-This type represents LEDs.
+```c
+typedef enum ao_leds_t ao_leds_t;
+```
 
 ```c
 enum ao_leds_t
@@ -38,29 +34,29 @@ enum ao_leds_t
 };
 ```
 
-It is used as a bitmask and defines at least the following symbols.
+This type represents LEDs. It is used as a bitmask and defines at least the following symbols.
 
-| `AO_LEDS_ALL` | Represents all LEDs. |
-| `AO_LEDS_NONE` | Represents no LEDs. |
+| `AO_LEDS_ALL` | `0` | Represents all LEDs. |
+| `AO_LEDS_NONE` | `0` | Represents no LEDs. |
 
 # Functions
 
 ## `ao_leds`
 
-Gets the LEDs that are enabled.
-
 ```c
 ao_leds_t ao_leds();
 ```
 
+Gets the LEDs that are enabled.
+
 ## `ao_leds_enable`
 ## `ao_leds_disable`
 ## `ao_leds_toggle`
-
-Enable, disable, or toggle, respectively, the specified LEDs.
 
 ```c
 void ao_leds_enable( ao_leds_t x);
 void ao_leds_disable(ao_leds_t x);
 void ao_leds_toggle( ao_leds_t x);
 ```
+
+Enables, disables, or toggles, respectively, the specified LEDs.

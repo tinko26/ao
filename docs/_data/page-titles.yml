@@ -28,6 +28,7 @@
 /kernel/ : "Kernel"
 /kernel-mode/ : "Kernel Mode"
 /linear-feedback-shift-registers/ : "Linear-Feedback Shift Registers"
+/locks/ : "Locks"
 /memory/ : "Memory"
 /memory-alignment/ : "Memory Alignment"
 /memory-blocks/ : "Memory Blocks"

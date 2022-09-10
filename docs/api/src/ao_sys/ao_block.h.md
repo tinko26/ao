@@ -23,17 +23,13 @@ toc: true
 #define AO_BLOCK
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_block_t ao_block_t;
-```
-
 # Types
 
 ## `ao_block_t`
 
-This type represents the blocking of a task.
+```c
+typedef struct ao_block_t ao_block_t;
+```
 
 ```c
 struct ao_block_t
@@ -44,7 +40,7 @@ struct ao_block_t
 };
 ```
 
-It consists of the following members.
+This type represents the blocking of a task. It consists of the following members.
 
 | `alarm` | |
 | `beginning` | |

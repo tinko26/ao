@@ -32,18 +32,13 @@ toc: true
 #define AO_COND
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_cond_t      ao_cond_t;
-typedef struct ao_cond_wait_t ao_cond_wait_t;
-```
-
 # Types
 
 ## `ao_cond_t`
 
-This type represents a condition.
+```c
+typedef struct ao_cond_t ao_cond_t;
+```
 
 ```c
 struct ao_cond_t
@@ -53,14 +48,16 @@ struct ao_cond_t
 };
 ```
 
-It consists of the following members.
+This type represents a condition. It consists of the following members.
 
 | `list` | |
 | `state` | |
 
 ## `ao_cond_wait_t`
 
-This type represents the waiting for a condition.
+```c
+typedef struct ao_cond_wait_t ao_cond_wait_t;
+```
 
 ```c
 struct ao_cond_wait_t
@@ -72,7 +69,7 @@ struct ao_cond_wait_t
 };
 ```
 
-It consists of the following members.
+This type represents the waiting for a condition. It consists of the following members.
 
 | `async` | |
 | `cond` | |

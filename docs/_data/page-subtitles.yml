@@ -756,6 +756,7 @@
 /kernel/ : ""
 /kernel-mode/ : ""
 /linear-feedback-shift-registers/ : ""
+/locks/ : "Kernel-wide critical sections"
 /memory/ : ""
 /memory-alignment/ : ""
 /memory-blocks/ : ""

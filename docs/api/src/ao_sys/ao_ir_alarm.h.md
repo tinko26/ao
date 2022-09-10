@@ -10,6 +10,10 @@ toc: true
 
 This module declares functions for controlling the alarm interrupt as well as a callback function for the interrupt handler. This module is abstract, that is, an implementation must be provided by a port package in order to support alarms.
 
+## Porting
+
+The port must implement an interrupt handler, which in turn must execute the callback function. On start-up, the alarm interrupt must be disabled.
+
 # Include
 
 ```c
@@ -20,42 +24,36 @@ This module declares functions for controlling the alarm interrupt as well as a 
 
 ## `ao_alarm`
 
-Callback for the interrupt handler. Actually, this function is implemented by the [`ao_alarm.h`](ao_alarm.h.md) module.
-
 ```c
 void ao_alarm();
 ```
 
+The callback for the interrupt handler. Actually, this function is implemented by the [`ao_alarm.h`](ao_alarm.h.md) module.
+
 ## `ao_alarm_enable`
 ## `ao_alarm_disable`
-
-Enable or disable the interrupt.
 
 ```c
 void ao_alarm_enable();
 void ao_alarm_disable();
 ```
 
+Enables or disables the interrupt.
+
 ## `ao_alarm_request`
 ## `ao_alarm_reply`
-
-Request the interrupt or reply thereto.
 
 ```c
 void ao_alarm_request();
 void ao_alarm_reply();
 ```
 
-## `ao_alarm_set`
+Requests the interrupt or replies thereto.
 
-Set the time for the next interrupt.
+## `ao_alarm_set`
 
 ```c
 void ao_alarm_set(ao_time_t t);
 ```
 
-# Porting
-
-The port must implement an interrupt handler, which in turn must execute the callback function.
-
-On start-up, the alarm interrupt must be disabled.
+Sets the time for the next interrupt.

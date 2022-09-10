@@ -24,31 +24,13 @@ toc: true
 #define AO_COUNTER
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_counter_t      ao_counter_t;
-typedef struct ao_counter_wait_t ao_counter_wait_t;
-
-typedef ao_uint_t (* ao_counter_adjust_t)
-(
-    ao_uint_t value,
-    void *    parameter
-);
-
-typedef bool      (* ao_counter_match_t)
-(
-    ao_uint_t value,
-    ao_uint_t value_wait,
-    void *    parameter
-);
-```
-
 # Types
 
 ## `ao_counter_t`
 
-This type represents a counter.
+```c
+typedef struct ao_counter_t ao_counter_t;
+```
 
 ```c
 struct ao_counter_t
@@ -58,14 +40,16 @@ struct ao_counter_t
 };
 ```
 
-It consists of the following members.
+This type represents a counter. It consists of the following members.
 
 | `list` | The list of waiting tasks. |
 | `value` | The value. |
 
 ## `ao_counter_wait_t`
 
-This type represents the waiting for a counter match.
+```c
+typedef struct ao_counter_wait_t ao_counter_wait_t;
+```
 
 ```c
 struct ao_counter_wait_t
@@ -80,7 +64,7 @@ struct ao_counter_wait_t
 };
 ```
 
-It consists of the following members.
+This type represents the waiting for a counter match. It consists of the following members.
 
 | `async` | |
 | `counter` | |
@@ -92,9 +76,26 @@ It consists of the following members.
 
 ## `ao_counter_adjust_t`
 
+```c
+typedef ao_uint_t (* ao_counter_adjust_t)
+(
+    ao_uint_t value,
+    void *    parameter
+);
+```
+
 This type represents a function to adjust the value of a counter. The function takes the old value and an additional parameter and returns the new value.
 
 ## `ao_counter_match_t`
+
+```c
+typedef bool (* ao_counter_match_t)
+(
+    ao_uint_t value,
+    ao_uint_t value_wait,
+    void *    parameter
+);
+```
 
 This type represents a function to check whether a specific value is a match. The function takes the current value, the waited-for value, and an additional parameter.
 

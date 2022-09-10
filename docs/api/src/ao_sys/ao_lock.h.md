@@ -12,57 +12,7 @@ toc: true
 
 This module defines a mechanism for critical sections, that are required by the kernel in order to protect its resources from concurrent accesses. Since kernel-level critical sections utilize hardware features, this module is abstract. Therefore, an implementation must be provided by a port package.
 
-# Identifiers
-
-## `AO_LOCK`
-
-```c
-#define AO_LOCK
-```
-
-# Typedefs
-
-```c
-typedef struct ao_lock_t ao_lock_t;
-```
-
-# Types
-
-## `ao_lock_t`
-
-This type represents a container for lock-related data. The actual make-up of this type is up to the implementation provided by the port package. For the kernel modules, this type is completely opaque, that is, no assumptions are made about its inner structure.
-
-```c
-struct ao_lock_t { };
-```
-
-# Functions
-
-## `ao_lock`
-## `ao_unlock`
-
-Enter or exit a critical section, respectively.
-
-```c
-void ao_lock(  ao_lock_t * x);
-void ao_unlock(ao_lock_t * x);
-```
-
-# Usage
-
-```c
-ao_lock_t * l;
-```
-
-```c
-ao_lock(l);
-{
-    // Critical section.
-}
-ao_unlock(l);
-```
-
-# Porting
+## Porting
 
 On a single-core platform, a critical section must disable all interrupts that call kernel functions. This includes both the alarm interrupt and the task switch interrupt. Potentially, additional measures must be taken on a multi-core platform, such as spinlocks. However, the implementation must ensure, that no two threads of execution can be inside a critical section simultaneously. Additionally, the implementation must support calls from both tasks and interrupt handlers.
 
@@ -86,3 +36,37 @@ ao_lock(l1);
 }
 ao_unlock(l1);
 ```
+
+# Identifiers
+
+## `AO_LOCK`
+
+```c
+#define AO_LOCK
+```
+
+# Types
+
+## `ao_lock_t`
+
+```c
+typedef struct ao_lock_t ao_lock_t;
+```
+
+```c
+struct ao_lock_t { };
+```
+
+This type represents a container for lock-related data. The actual make-up of this type is up to the implementation provided by the port package. For the kernel modules, this type is completely opaque, that is, no assumptions are made about its inner structure.
+
+# Functions
+
+## `ao_lock`
+## `ao_unlock`
+
+```c
+void ao_lock(  ao_lock_t * x);
+void ao_unlock(ao_lock_t * x);
+```
+
+Enters or exits a critical section, respectively.

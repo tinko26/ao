@@ -182,7 +182,7 @@ Deallocates a memory block. Actually, this macro function forwards its call to `
 #define ao_new(type)
 ```
 
-Allocates a memory block large enough for the specified type. If the operation succeeds, then this function returns a pointer of type `type *`.
+Allocates a memory block large enough for the specified type. If the operation succeeds, then this function returns a pointer of type `type *`. Actually, this macro function forwards its call to `ao_acquire()`.
 
 ## `ao_release`
 

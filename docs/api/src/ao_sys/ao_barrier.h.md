@@ -26,18 +26,13 @@ toc: true
 #define AO_BARRIER
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_barrier_t      ao_barrier_t;
-typedef struct ao_barrier_wait_t ao_barrier_wait_t;
-```
-
 # Types
 
 ## `ao_barrier_t`
 
-This type represents a barrier.
+```c
+typedef struct ao_barrier_t ao_barrier_t;
+```
 
 ```c
 struct ao_barrier_t
@@ -48,7 +43,7 @@ struct ao_barrier_t
 };
 ```
 
-It consists of the following members.
+This type represents a barrier. It consists of the following members.
 
 | `count` | The current number of waiting tasks. |
 | `count_threshold` | The maximum number waiting tasks. |
@@ -56,7 +51,9 @@ It consists of the following members.
 
 ## `ao_barrier_wait_t`
 
-This type represents the waiting at a barrier.
+```c
+typedef struct ao_barrier_wait_t ao_barrier_wait_t;
+```
 
 ```c
 struct ao_barrier_wait_t
@@ -68,7 +65,7 @@ struct ao_barrier_wait_t
 };
 ```
 
-It consists of the following members.
+This type represents the waiting at a barrier. It consists of the following members.
 
 | `async` | |
 | `barrier` | |

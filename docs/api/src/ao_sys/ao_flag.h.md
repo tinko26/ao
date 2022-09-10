@@ -24,25 +24,13 @@ toc: true
 #define AO_FLAG
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_flag_t      ao_flag_t;
-typedef struct ao_flag_wait_t ao_flag_wait_t;
-
-typedef bool (* ao_flag_match_t)
-(
-    ao_uint_t mask,
-    ao_uint_t mask_wait,
-    void *    parameter
-);
-```
-
 # Types
 
 ## `ao_flag_t`
 
-This type represents a set of event flags.
+```c
+typedef struct ao_flag_t ao_flag_t;
+```
 
 ```c
 struct ao_flag_t
@@ -52,14 +40,16 @@ struct ao_flag_t
 };
 ```
 
-It consists of the following members.
+This type represents a set of event flags. It consists of the following members.
 
 | `list` | The list of waiting tasks. |
 | `mask` | The bitmask. |
 
 ## `ao_flag_wait_t`
 
-This type represents the waiting for a set of event flags.
+```c
+typedef struct ao_flag_wait_t ao_flag_wait_t;
+```
 
 ```c
 struct ao_flag_wait_t
@@ -74,7 +64,7 @@ struct ao_flag_wait_t
 };
 ```
 
-It consists of the following members.
+This type represents the waiting for a set of event flags. It consists of the following members.
 
 | `async` | |
 | `flag` | |
@@ -85,6 +75,15 @@ It consists of the following members.
 | `result` | |
 
 ## `ao_flag_match_t`
+
+```c
+typedef bool (* ao_flag_match_t)
+(
+    ao_uint_t mask,
+    ao_uint_t mask_wait,
+    void *    parameter
+);
+```
 
 This type represents a function checking for a match. It takes the current bitmask, the waited-for bitmask, and an additional parameter.
 

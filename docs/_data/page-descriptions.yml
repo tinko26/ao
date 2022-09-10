@@ -756,6 +756,7 @@
 /kernel/ : "The kernel of the ao real-time operating system."
 /kernel-mode/ : "Kernel mode in the ao real-time operating system."
 /linear-feedback-shift-registers/ : "Linear-feedback shift registers in the ao real-time operating system."
+/locks/ : "Locks in the ao real-time operating system."
 /memory/ : "Memory in the ao real-time operating system."
 /memory-alignment/ : "Memory alignment in the ao real-time operating system."
 /memory-blocks/ : "Memory blocks in the ao real-time operating system."

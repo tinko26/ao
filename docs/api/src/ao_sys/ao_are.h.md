@@ -33,18 +33,13 @@ microsoft: "Represents a thread synchronization event that, when signaled, reset
 #define AO_ARE
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_are_t      ao_are_t;
-typedef struct ao_are_wait_t ao_are_wait_t;
-```
-
 # Types
 
 ## `ao_are_t`
 
-This type represents an auto-reset event.
+```c
+typedef struct ao_are_t ao_are_t;
+```
 
 ```c
 struct ao_are_t
@@ -54,14 +49,16 @@ struct ao_are_t
 };
 ```
 
-It consists of the following members.
+This type represents an auto-reset event. It consists of the following members.
 
 | `list` | |
 | `state` | |
 
 ## `ao_are_wait_t`
 
-This type represents the waiting for an auto-reset event.
+```c
+typedef struct ao_are_wait_t ao_are_wait_t;
+```
 
 ```c
 struct ao_are_wait_t
@@ -73,7 +70,7 @@ struct ao_are_wait_t
 };
 ```
 
-It consists of the following members.
+This type represents the waiting for an auto-reset event. It consists of the following members.
 
 | `are` | |
 | `async` | |
@@ -84,52 +81,52 @@ It consists of the following members.
 
 ## `ao_are_clear`
 
-Clear an auto-reset event, i.e. set its state to `false`. This function can be called from both task and interrupt context.
-
 ```c
 void ao_are_clear(ao_are_t * x);
 ```
 
-## `ao_are_set`
+Clears an auto-reset event, i.e. set its state to `false`. This function can be called from both task and interrupt context.
 
-Set an auto-reset event, i.e. set its state to `true`. Eventually, this wakes up the first waiting task. This function can be called from both task and interrupt context.
+## `ao_are_set`
 
 ```c
 void ao_are_set(ao_are_t * x);
 ```
 
+Sets an auto-reset event, i.e. set its state to `true`. Eventually, this wakes up the first waiting task. This function can be called from both task and interrupt context.
+
 ## `ao_are_wait`
 ## `ao_are_wait_from`
-
-Wait for an auto-reset event with a timeout and optional beginning.
 
 ```c
 bool ao_are_wait(     ao_are_t * x, ao_time_t timeout);
 bool ao_are_wait_from(ao_are_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
-## `ao_are_wait_forever`
+Waits for an auto-reset event in a blocking fashion with a timeout and optional beginning.
 
-Wait for an auto-reset event indefinitely.
+## `ao_are_wait_forever`
 
 ```c
 bool ao_are_wait_forever(ao_are_t * x);
 ```
 
-## `ao_are_wait_try`
+Waits for an auto-reset event indefinitely in a blocking fashion.
 
-Wait for an auto-reset event in a non-blocking fashion.
+## `ao_are_wait_try`
 
 ```c
 bool ao_are_wait_try(ao_are_t * x);
 ```
 
+Waits for an auto-reset event in a non-blocking fashion.
+
 ## `ao_are_wait_begin`
 ## `ao_are_wait_end`
-
-Begin or end the waiting for an auto-reset event, respectively.
 
 ```c
 void ao_are_wait_begin(ao_are_wait_t * x);
 void ao_are_wait_end(  ao_are_wait_t * x);
 ```
+
+Begins or ends the waiting for an auto-reset event, respectively.

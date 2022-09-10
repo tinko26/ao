@@ -27,16 +27,13 @@ toc: true
 
 # Typedefs
 
-```c
-typedef struct ao_bsem_t      ao_bsem_t;
-typedef struct ao_bsem_take_t ao_bsem_take_t;
-```
-
 # Types
 
 ## `ao_bsem_t`
 
-This type represents a binary semaphore.
+```c
+typedef struct ao_bsem_t ao_bsem_t;
+```
 
 ```c
 struct ao_bsem_t
@@ -46,14 +43,16 @@ struct ao_bsem_t
 };
 ```
 
-It consists of the following members.
+This type represents a binary semaphore. It consists of the following members.
 
 | `list` | The list of tasks attempting to take the semaphore. |
 | `taken` | Indicates whether the semaphore is taken. |
 
 ## `ao_bsem_take_t`
 
-This type represents the taking of a binary semaphore.
+```c
+typedef struct ao_bsem_take_t ao_bsem_take_t;
+```
 
 ```c
 struct ao_bsem_take_t
@@ -65,7 +64,7 @@ struct ao_bsem_take_t
 };
 ```
 
-It consists of the following members.
+This type represents the taking of a binary semaphore. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `node` | The list node. |
@@ -76,11 +75,11 @@ It consists of the following members.
 
 ## `ao_bsem_give`
 
-Give a binary semaphore. This function can be called from both task and interrupt context.
-
 ```c
 void ao_bsem_give(ao_bsem_t * x);
 ```
+
+Gives a binary semaphore. This function can be called from both task and interrupt context.
 
 ## `ao_bsem_take`
 ## `ao_bsem_take_from`
