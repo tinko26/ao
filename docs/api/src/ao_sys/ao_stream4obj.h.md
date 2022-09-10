@@ -24,19 +24,13 @@ toc: true
 #define AO_STREAM4OBJ
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_stream4obj_t ao_stream4obj_t;
-typedef struct ao_spop_obj_t   ao_spop_obj_t;
-typedef struct ao_spush_obj_t  ao_spush_obj_t;
-```
-
 # Types
 
 ## `ao_stream4obj_t`
 
-This type represents a stream for objects.
+```c
+typedef struct ao_stream4obj_t ao_stream4obj_t;
+```
 
 ```c
 struct ao_stream4obj_t
@@ -47,7 +41,7 @@ struct ao_stream4obj_t
 };
 ```
 
-It consists of the following members.
+This type represents a stream for objects. It consists of the following members.
 
 | `buffer` | The buffer. |
 | `pop` | The list of tasks attempting to pop an object from the stream. |
@@ -55,7 +49,9 @@ It consists of the following members.
 
 ## `ao_spop_obj_t`
 
-This type represents the popping of an object from a stream.
+```c
+typedef struct ao_spop_obj_t ao_spop_obj_t;
+```
 
 ```c
 struct ao_spop_obj_t
@@ -68,7 +64,7 @@ struct ao_spop_obj_t
 };
 ```
 
-It consists of the following members.
+This type represents the popping of an object from a stream. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `node` | The node for the stream's waiting list. |
@@ -78,7 +74,9 @@ It consists of the following members.
 
 ## `ao_spush_obj_t`
 
-This type represents the pushing of an object to a stream.
+```c
+typedef struct ao_spush_obj_t ao_spush_obj_t;
+```
 
 ```c
 struct ao_spush_obj_t
@@ -93,7 +91,7 @@ struct ao_spush_obj_t
 };
 ```
 
-It consists of the following members.
+This type represents the pushing of an object to a stream. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `node` | The node for the stream's waiting list. |

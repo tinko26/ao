@@ -16,28 +16,28 @@ toc: true
 
 ## `ao_ir_ct`
 
-Enable or disable the interrupt.
-
 ```c
 void ao_ir_ct_enable();
 void ao_ir_ct_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_ct_request();
 void ao_ir_ct_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_ct_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_ct_is_pending();
 ```
+
+Checks whether the interrupt is pending.

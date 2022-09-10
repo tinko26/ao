@@ -18,45 +18,45 @@ toc: true
 
 ## `AO_IR_GPU`
 
-The interrupt handler attribute.
-
 ```c
 #define AO_IR_GPU_ATTRIBUTE __ISR(_GPU_VECTOR, IPL4SRS)
 ```
 
-The interrupt priority and subpriority.
+The interrupt handler attribute.
 
 ```c
-#define AO_IR_GPU_PRIO      (4)
-#define AO_IR_GPU_SUBPRIO   (0)
+#define AO_IR_GPU_PRIO    (4)
+#define AO_IR_GPU_SUBPRIO (0)
 ```
+
+The interrupt priority and subpriority.
 
 # Functions
 
 ## `ao_ir_gpu`
-
-Enable or disable the interrupt.
 
 ```c
 #define ao_ir_gpu_enable()
 #define ao_ir_gpu_disable()
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 #define ao_ir_gpu_request()
 #define ao_ir_gpu_reply()
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 #define ao_ir_gpu_is_enabled()
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 #define ao_ir_gpu_is_pending()
 ```
+
+Checks whether the interrupt is pending.

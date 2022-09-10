@@ -16,112 +16,112 @@ toc: true
 
 ## `ao_ir_can1`
 
-Enable or disable the interrupt.
-
 ```c
 void ao_ir_can1_enable();
 void ao_ir_can1_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_can1_request();
 void ao_ir_can1_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_can1_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_can1_is_pending();
 ```
 
-## `ao_ir_can2`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_can2`
 
 ```c
 void ao_ir_can2_enable();
 void ao_ir_can2_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_can2_request();
 void ao_ir_can2_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_can2_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_can2_is_pending();
 ```
 
-## `ao_ir_can3`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_can3`
 
 ```c
 void ao_ir_can3_enable();
 void ao_ir_can3_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_can3_request();
 void ao_ir_can3_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_can3_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_can3_is_pending();
 ```
 
-## `ao_ir_can4`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_can4`
 
 ```c
 void ao_ir_can4_enable();
 void ao_ir_can4_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_can4_request();
 void ao_ir_can4_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_can4_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_can4_is_pending();
 ```
+
+Checks whether the interrupt is pending.

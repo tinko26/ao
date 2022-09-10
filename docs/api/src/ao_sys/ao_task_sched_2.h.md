@@ -28,43 +28,41 @@ toc: true
 
 ## `AO_TASK_CEILING`
 
-Support task ceiling.
-
 ```c
 #define AO_TASK_CEILING (true)
 ```
 
-## `AO_TASK_INHERITANCE`
+Defines whether to support task ceiling.
 
-Support task inheritance.
+## `AO_TASK_INHERITANCE`
 
 ```c
 #define AO_TASK_INHERITANCE (true)
 ```
 
-## `AO_TASK_QUANTUM`
+Defines whether to support task inheritance.
 
-The quantum or time slice.
+## `AO_TASK_QUANTUM`
 
 ```c
 #define AO_TASK_QUANTUM (AO_MILLISECONDS(10))
 ```
+
+The quantum or time slice.
 
 # Constants
 
 ## `AO_TASK_PRIO_MAX`
 ## `AO_TASK_PRIO_MIN`
 
-The maximum and minimum task priority.
-
 ```c
 #define AO_TASK_PRIO_MAX (AO_UINT_BITS - 1)
 #define AO_TASK_PRIO_MIN (0)
 ```
 
-## `AO_TASK_SUBMISSION`
+The maximum and minimum task priority.
 
-Indicates whether task submission is supported.
+## `AO_TASK_SUBMISSION`
 
 ```c
 #define AO_TASK_SUBMISSION  \
@@ -74,19 +72,15 @@ Indicates whether task submission is supported.
 )
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_task_t         ao_task_t;
-typedef struct ao_task_sched_t   ao_task_sched_t;
-typedef struct ao_task_ceiling_t ao_task_ceiling_t;
-typedef struct ao_task_master_t  ao_task_master_t;
-typedef struct ao_task_slave_t   ao_task_slave_t;
-```
+Indicates whether task submission is supported.
 
 # Types
 
 ## `ao_task_sched_t`
+
+```c
+typedef struct ao_task_sched_t ao_task_sched_t;
+```
 
 ```c
 struct ao_task_sched_t
@@ -122,6 +116,10 @@ It consists of the following members.
 ## `ao_task_ceiling_t`
 
 ```c
+typedef struct ao_task_ceiling_t ao_task_ceiling_t;
+```
+
+```c
 struct ao_task_ceiling_t
 {
     ao_uint_t         prio;
@@ -137,6 +135,10 @@ It consists of the following members.
 | `slave_ceilings_node` | |
 
 ## `ao_task_master_t`
+
+```c
+typedef struct ao_task_master_t ao_task_master_t;
+```
 
 ```c
 struct ao_task_master_t
@@ -158,6 +160,10 @@ It consists of the following members.
 | `task_masters_node` | |
 
 ## `ao_task_slave_t`
+
+```c
+typedef struct ao_task_slave_t ao_task_slave_t;
+```
 
 ```c
 struct ao_task_slave_t

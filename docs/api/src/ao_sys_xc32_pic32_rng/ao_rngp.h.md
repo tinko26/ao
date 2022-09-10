@@ -18,22 +18,22 @@ toc: true
 ## `ao_rngp_enable`
 ## `ao_rngp_disable`
 
-Enable or disable the pseudo-random number generator.
-
 ```c
 #define ao_rngp_enable()
 #define ao_rngp_disable()
 ```
 
+Enables or disables the pseudo-random number generator.
+
 ## `ao_rngp_bits`
 ## `ao_rngp_bits_set`
-
-Get or set the maximum number of bits to generate.
 
 ```c
 #define ao_rngp_bits()
 #define ao_rngp_bits_set(x)
 ```
+
+Gets or sets the maximum number of bits to generate.
 
 ## `ao_rngp_continuous_enable`
 ## `ao_rngp_continuous_disable`

@@ -10,8 +10,8 @@ toc: true
 
 ## `AO_SYS_SYSCLK`
 
-The SYSCLK frequency, in Hertz.
-
 ```c
 #define AO_SYS_SYSCLK (0)
 ```
+
+The SYSCLK frequency, in Hertz.

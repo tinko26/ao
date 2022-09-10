@@ -43,20 +43,13 @@ toc: true
 #define AO_SPI_ENHBUF (true)
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_spi_reg_t      ao_spi_reg_t;
-typedef struct ao_spi_reg_brg_t  ao_spi_reg_brg_t;
-typedef struct ao_spi_reg_buf_t  ao_spi_reg_buf_t;
-typedef struct ao_spi_reg_con_t  ao_spi_reg_con_t;
-typedef struct ao_spi_reg_con2_t ao_spi_reg_con2_t;
-typedef struct ao_spi_reg_stat_t ao_spi_reg_stat_t;
-```
-
 # Types
 
 ## `ao_spi_reg_brg_t`
+
+```c
+typedef struct ao_spi_reg_brg_t ao_spi_reg_brg_t;
+```
 
 ```c
 struct ao_spi_reg_brg_t
@@ -87,6 +80,10 @@ It consists of the following members.
 ## `ao_spi_reg_buf_t`
 
 ```c
+typedef struct ao_spi_reg_buf_t ao_spi_reg_buf_t;
+```
+
+```c
 struct ao_spi_reg_buf_t
 {
     union
@@ -110,6 +107,10 @@ It consists of the following members.
 | `reg` | |
 
 ## `ao_spi_reg_con_t`
+
+```c
+typedef struct ao_spi_reg_con_t ao_spi_reg_con_t;
+```
 
 ```c
 struct ao_spi_reg_con_t
@@ -184,6 +185,10 @@ It consists of the following members.
 ## `ao_spi_reg_con2_t`
 
 ```c
+typedef struct ao_spi_reg_con2_t ao_spi_reg_con2_t;
+```
+
+```c
 struct ao_spi_reg_con2_t
 {
     union
@@ -229,6 +234,10 @@ It consists of the following members.
 | `set` | |
 
 ## `ao_spi_reg_stat_t`
+
+```c
+typedef struct ao_spi_reg_stat_t ao_spi_reg_stat_t;
+```
 
 ```c
 struct ao_spi_reg_stat_t
@@ -282,6 +291,10 @@ It consists of the following members.
 | `set` | |
 
 ## `ao_spi_reg_t`
+
+```c
+typedef struct ao_spi_reg_t ao_spi_reg_t;
+```
 
 ```c
 struct ao_spi_reg_t

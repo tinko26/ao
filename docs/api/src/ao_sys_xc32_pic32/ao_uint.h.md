@@ -22,40 +22,38 @@ This module defines the fastest unsigned integer type available on the target pl
 ## `AO_UINT_BITS`
 ## `AO_UINT_BITS_LOG`
 
-The size in bits and the base-2 logarithm thereof.
-
 ```c
 #define AO_UINT_BITS     (32)
 #define AO_UINT_BITS_LOG (5)
 ```
 
+The size, in bits, and the base-2 logarithm thereof.
+
 ## `AO_UINT_MAX`
 ## `AO_UINT_MIN`
-
-The maximum and minimum value.
 
 ```c
 #define AO_UINT_MAX (UINT32_MAX)
 #define AO_UINT_MIN (0)
 ```
 
-## `AO_UINT_SIZE`
+The maximum and minimum value.
 
-The size in bytes.
+## `AO_UINT_SIZE`
 
 ```c
 #define AO_UINT_SIZE (4)
 ```
 
-# Typedefs
-
-```c
-typedef uint32_t ao_uint_t;
-```
+The size, in bytes.
 
 # Types
 
 ## `ao_uint_t`
+
+```c
+typedef uint32_t ao_uint_t;
+```
 
 This type represents the fastest unsigned integer type of the target platform. It defined to be the `uint32_t` type defined by the standard library.
 
@@ -66,8 +64,6 @@ This type represents the fastest unsigned integer type of the target platform. I
 ## `ao_ctou`
 ## `ao_ctzu`
 
-Count the number of leading or trailing ones or zeros, respectively.
-
 ```c
 #define ao_clou(x)
 #define ao_clzu(x)
@@ -75,23 +71,25 @@ Count the number of leading or trailing ones or zeros, respectively.
 #define ao_ctzu(x)
 ```
 
+Counts the number of leading or trailing ones or zeros, respectively.
+
 ## `ao_ffsu`
 ## `ao_flsu`
-
-Find the first or last set bit, respectively.
 
 ```c
 #define ao_ffsu(x)
 #define ao_flsu(x)
 ```
 
-## `AO_LOG2U`
+Finds the first or last set bit, respectively.
 
-Calculate the base-2 logarithm.
+## `AO_LOG2U`
 
 ```c
 #define AO_LOG2U(x)
 ```
+
+Calculates the base-2 logarithm.
 
 ## `AO_LOG2U2`
 ## `AO_LOG2U4`
@@ -99,8 +97,6 @@ Calculate the base-2 logarithm.
 ## `AO_LOG2U16`
 ## `AO_LOG2U32`
 ## `AO_LOG2U64`
-
-Calculate the base-2 logarithm for a fixed-width unsigned integer.
 
 ```c
 #define AO_LOG2U2(x)
@@ -110,3 +106,5 @@ Calculate the base-2 logarithm for a fixed-width unsigned integer.
 #define AO_LOG2U32(x)
 #define AO_LOG2U64(x)
 ```
+
+Calculates the base-2 logarithm for a fixed-width unsigned integer.

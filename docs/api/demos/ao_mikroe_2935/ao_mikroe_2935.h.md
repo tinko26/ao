@@ -22,15 +22,13 @@ toc: true
 #define AO_MIKROE_2935
 ```
 
-# Typedefs
+# Types
+
+## `ao_mikroe_2935_t`
 
 ```c
 typedef struct ao_mikroe_2935_t ao_mikroe_2935_t;
 ```
-
-# Types
-
-## `ao_mikroe_2935_t`
 
 ```c
 struct ao_mikroe_2935_t

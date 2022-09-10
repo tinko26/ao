@@ -18,45 +18,45 @@ toc: true
 
 ## `AO_IR_CTMU`
 
-The interrupt handler attribute.
-
 ```c
 #define AO_IR_CTMU_ATTRIBUTE __ISR(_CTMU_VECTOR, IPL4SRS)
 ```
 
-The interrupt priority and subpriority.
+The interrupt handler attribute.
 
 ```c
-#define AO_IR_CTMU_PRIO      (4)
-#define AO_IR_CTMU_SUBPRIO   (0)
+#define AO_IR_CTMU_PRIO    (4)
+#define AO_IR_CTMU_SUBPRIO (0)
 ```
+
+The interrupt priority and subpriority.
 
 # Functions
 
 ## `ao_ir_ctmu`
-
-Enable or disable the interrupt.
 
 ```c
 #define ao_ir_ctmu_enable()
 #define ao_ir_ctmu_disable()
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 #define ao_ir_ctmu_request()
 #define ao_ir_ctmu_reply()
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 #define ao_ir_ctmu_is_enabled()
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 #define ao_ir_ctmu_is_pending()
 ```
+
+Checks whether the interrupt is pending.

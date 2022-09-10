@@ -11,7 +11,7 @@ toc: true
 ## `AO_ALLOC`
 
 ```c
-#define AO_ALLOC         (2)
+#define AO_ALLOC (2)
 ```
 
 ## `AO_ALLOC_SIZE`

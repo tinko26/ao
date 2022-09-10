@@ -16,504 +16,504 @@ toc: true
 
 ## `ao_ir_spi1e`
 
-Enable or disable the interrupt.
-
 ```c
 void ao_ir_spi1e_enable();
 void ao_ir_spi1e_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_spi1e_request();
 void ao_ir_spi1e_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_spi1e_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_spi1e_is_pending();
 ```
 
-## `ao_ir_spi1rx`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_spi1rx`
 
 ```c
 void ao_ir_spi1rx_enable();
 void ao_ir_spi1rx_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_spi1rx_request();
 void ao_ir_spi1rx_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_spi1rx_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_spi1rx_is_pending();
 ```
 
-## `ao_ir_spi1tx`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_spi1tx`
 
 ```c
 void ao_ir_spi1tx_enable();
 void ao_ir_spi1tx_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_spi1tx_request();
 void ao_ir_spi1tx_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_spi1tx_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_spi1tx_is_pending();
 ```
 
-## `ao_ir_spi2e`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_spi2e`
 
 ```c
 void ao_ir_spi2e_enable();
 void ao_ir_spi2e_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_spi2e_request();
 void ao_ir_spi2e_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_spi2e_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_spi2e_is_pending();
 ```
 
-## `ao_ir_spi2rx`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_spi2rx`
 
 ```c
 void ao_ir_spi2rx_enable();
 void ao_ir_spi2rx_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_spi2rx_request();
 void ao_ir_spi2rx_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_spi2rx_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_spi2rx_is_pending();
 ```
 
-## `ao_ir_spi2tx`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_spi2tx`
 
 ```c
 void ao_ir_spi2tx_enable();
 void ao_ir_spi2tx_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_spi2tx_request();
 void ao_ir_spi2tx_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_spi2tx_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_spi2tx_is_pending();
 ```
 
-## `ao_ir_spi3e`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_spi3e`
 
 ```c
 void ao_ir_spi3e_enable();
 void ao_ir_spi3e_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_spi3e_request();
 void ao_ir_spi3e_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_spi3e_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_spi3e_is_pending();
 ```
 
-## `ao_ir_spi3rx`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_spi3rx`
 
 ```c
 void ao_ir_spi3rx_enable();
 void ao_ir_spi3rx_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_spi3rx_request();
 void ao_ir_spi3rx_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_spi3rx_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_spi3rx_is_pending();
 ```
 
-## `ao_ir_spi3tx`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_spi3tx`
 
 ```c
 void ao_ir_spi3tx_enable();
 void ao_ir_spi3tx_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_spi3tx_request();
 void ao_ir_spi3tx_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_spi3tx_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_spi3tx_is_pending();
 ```
 
-## `ao_ir_spi4e`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_spi4e`
 
 ```c
 void ao_ir_spi4e_enable();
 void ao_ir_spi4e_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_spi4e_request();
 void ao_ir_spi4e_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_spi4e_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_spi4e_is_pending();
 ```
 
-## `ao_ir_spi4rx`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_spi4rx`
 
 ```c
 void ao_ir_spi4rx_enable();
 void ao_ir_spi4rx_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_spi4rx_request();
 void ao_ir_spi4rx_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_spi4rx_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_spi4rx_is_pending();
 ```
 
-## `ao_ir_spi4tx`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_spi4tx`
 
 ```c
 void ao_ir_spi4tx_enable();
 void ao_ir_spi4tx_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_spi4tx_request();
 void ao_ir_spi4tx_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_spi4tx_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_spi4tx_is_pending();
 ```
 
-## `ao_ir_spi5e`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_spi5e`
 
 ```c
 void ao_ir_spi5e_enable();
 void ao_ir_spi5e_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_spi5e_request();
 void ao_ir_spi5e_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_spi5e_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_spi5e_is_pending();
 ```
 
-## `ao_ir_spi5rx`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_spi5rx`
 
 ```c
 void ao_ir_spi5rx_enable();
 void ao_ir_spi5rx_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_spi5rx_request();
 void ao_ir_spi5rx_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_spi5rx_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_spi5rx_is_pending();
 ```
 
-## `ao_ir_spi5tx`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_spi5tx`
 
 ```c
 void ao_ir_spi5tx_enable();
 void ao_ir_spi5tx_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_spi5tx_request();
 void ao_ir_spi5tx_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_spi5tx_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_spi5tx_is_pending();
 ```
 
-## `ao_ir_spi6e`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_spi6e`
 
 ```c
 void ao_ir_spi6e_enable();
 void ao_ir_spi6e_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_spi6e_request();
 void ao_ir_spi6e_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_spi6e_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_spi6e_is_pending();
 ```
 
-## `ao_ir_spi6rx`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_spi6rx`
 
 ```c
 void ao_ir_spi6rx_enable();
 void ao_ir_spi6rx_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_spi6rx_request();
 void ao_ir_spi6rx_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_spi6rx_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_spi6rx_is_pending();
 ```
 
-## `ao_ir_spi6tx`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_spi6tx`
 
 ```c
 void ao_ir_spi6tx_enable();
 void ao_ir_spi6tx_disable();
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 void ao_ir_spi6tx_request();
 void ao_ir_spi6tx_reply();
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 bool ao_ir_spi6tx_is_enabled();
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 bool ao_ir_spi6tx_is_pending();
 ```
+
+Checks whether the interrupt is pending.

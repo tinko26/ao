@@ -18,13 +18,11 @@ toc: true
 
 ## `AO_TASK_SCHED`
 
-Select the task scheduler implementation.
-
 ```c
 #define AO_TASK_SCHED (2)
 ```
 
-The following options are available.
+Selects the task scheduler implementation. The following options are available.
 
 | [`ao_task_sched_0`](ao_task_sched_0.h.md) | Stub |
 | [`ao_task_sched_1`](ao_task_sched_1.h.md) | Round-robin without priorities |

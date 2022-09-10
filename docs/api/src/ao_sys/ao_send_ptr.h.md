@@ -22,22 +22,13 @@ toc: true
 #define AO_SEND_PTR
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_send_ptr_t ao_send_ptr_t;
-
-typedef void (* ao_send_ptr_proc_t)
-(
-    ao_send_ptr_t * x
-);
-```
-
 # Types
 
 ## `ao_send_ptr_t`
 
-This type represents the sending of a pointer.
+```c
+typedef struct ao_send_ptr_t ao_send_ptr_t;
+```
 
 ```c
 struct ao_send_ptr_t
@@ -51,7 +42,7 @@ struct ao_send_ptr_t
 };
 ```
 
-It consists of the following members.
+This type represents the sending of a pointer. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `begin` | The function beginning the sending. |
@@ -61,6 +52,13 @@ It consists of the following members.
 | `result` | Indicates whether the pointer has been sent. |
 
 ## `ao_send_ptr_proc_t`
+
+```c
+typedef void (* ao_send_ptr_proc_t)
+(
+    ao_send_ptr_t * x
+);
+```
 
 This type represents a function beginning or ending a sending.
 

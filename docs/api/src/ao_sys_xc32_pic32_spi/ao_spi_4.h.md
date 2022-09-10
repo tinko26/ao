@@ -27,21 +27,21 @@ toc: true
 
 ## `AO_SPI_4`
 
-Indicates whether the SPI module is available.
-
 ```c
 #define AO_SPI_4
 ```
 
+Indicates whether the SPI module is available.
+
 ## `AO_SPI_BAUD_MAX_4`
 ## `AO_SPI_BAUD_MIN_4`
-
-The maximum and minimum baud rate.
 
 ```c
 #define AO_SPI_BAUD_MAX_4
 #define AO_SPI_BAUD_MIN_4
 ```
+
+The maximum and minimum baud rate.
 
 # Functions
 

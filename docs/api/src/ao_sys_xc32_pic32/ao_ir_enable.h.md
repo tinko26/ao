@@ -11,9 +11,9 @@ toc: true
 ## `ao_ir_enable`
 ## `ao_ir_disable`
 
-Enable or disable, respectively, interrupts globally.
-
 ```c
 #define ao_ir_enable()
 #define ao_ir_disable()
 ```
+
+Enables or disables, respectively, interrupts globally.

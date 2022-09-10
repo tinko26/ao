@@ -33,30 +33,13 @@ toc: true
 #define AO_THRESHOLD
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_threshold_t      ao_threshold_t;
-typedef struct ao_threshold_wait_t ao_threshold_wait_t;
-
-typedef ao_uint_t (* ao_threshold_adjust_t)
-(
-    ao_uint_t value,
-    void *    parameter
-);
-
-typedef bool      (* ao_threshold_match_t)
-(
-    ao_uint_t value,
-    void *    parameter
-);
-```
-
 # Types
 
 ## `ao_threshold_t`
 
-This type represents a threshold.
+```c
+typedef struct ao_threshold_t ao_threshold_t;
+```
 
 ```c
 struct ao_threshold_t
@@ -70,7 +53,7 @@ struct ao_threshold_t
 };
 ```
 
-It consists of the following members.
+This type represents a threshold. It consists of the following members.
 
 | `adjust` | This function is to adjust the value after a match. |
 | `adjust_parameter` | An additional parameter for the post-match adjusting. |
@@ -81,7 +64,9 @@ It consists of the following members.
 
 ## `ao_threshold_wait_t`
 
-This type represents the waiting for a threshold match.
+```c
+typedef struct ao_threshold_wait_t ao_threshold_wait_t;
+```
 
 ```c
 struct ao_threshold_wait_t
@@ -93,7 +78,7 @@ struct ao_threshold_wait_t
 };
 ```
 
-It consists of the following members.
+This type represents the waiting for a threshold match. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `node` | The node for the threshold's waiting list. |
@@ -102,9 +87,25 @@ It consists of the following members.
 
 ## `ao_threshold_adjust_t`
 
+```c
+typedef ao_uint_t (* ao_threshold_adjust_t)
+(
+    ao_uint_t value,
+    void *    parameter
+);
+```
+
 This type represents a function to adjust the value of a threshold. The function takes the old value and an additional parameter and returns the new value.
 
 ## `ao_threshold_match_t`
+
+```c
+typedef bool (* ao_threshold_match_t)
+(
+    ao_uint_t value,
+    void *    parameter
+);
+```
 
 This type represents a function to check whether a specific value is a match. The function takes the value and an additional parameter.
 

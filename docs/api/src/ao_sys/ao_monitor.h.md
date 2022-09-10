@@ -26,19 +26,13 @@ toc: true
 #define AO_MONITOR
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_monitor_t       ao_monitor_t;
-typedef struct ao_monitor_enter_t ao_monitor_enter_t;
-typedef struct ao_monitor_wait_t  ao_monitor_wait_t;
-```
-
 # Types
 
 ## `ao_monitor_t`
 
-This type represents a monitor.
+```c
+typedef struct ao_monitor_t ao_monitor_t;
+```
 
 ```c
 struct ao_monitor_t
@@ -48,14 +42,16 @@ struct ao_monitor_t
 };
 ```
 
-It consists of the following members.
+This type represents a monitor. It consists of the following members.
 
 | `list` | |
 | `mutex` | |
 
 ## `ao_monitor_enter_t`
 
-This type represents the entering of a monitor.
+```c
+typedef struct ao_monitor_enter_t ao_monitor_enter_t;
+```
 
 ```c
 struct ao_monitor_enter_t
@@ -67,7 +63,7 @@ struct ao_monitor_enter_t
 };
 ```
 
-It consists of the following members.
+This type represents the entering of a monitor. It consists of the following members.
 
 | `async` | |
 | `monitor` | |
@@ -76,7 +72,9 @@ It consists of the following members.
 
 ## `ao_monitor_wait_t`
 
-This type represents the waiting for a monitor.
+```c
+typedef struct ao_monitor_wait_t ao_monitor_wait_t;
+```
 
 ```c
 struct ao_monitor_wait_t
@@ -93,7 +91,7 @@ struct ao_monitor_wait_t
 };
 ```
 
-It consists of the following members.
+This type represents the waiting for a monitor. It consists of the following members.
 
 | `async` | |
 | `monitor` | |

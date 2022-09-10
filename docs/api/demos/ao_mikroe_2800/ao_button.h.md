@@ -14,23 +14,19 @@ toc: true
 
 # Constants
 
-The number of buttons.
-
 ```c
 #define AO_BUTTON_COUNT (2)
 ```
 
-# Typedefs
-
-```c
-typedef enum ao_buttons_t ao_buttons_t;
-```
+The number of buttons.
 
 # Types
 
 ## `ao_buttons_t`
 
-This type represents buttons.
+```c
+typedef enum ao_buttons_t ao_buttons_t;
+```
 
 ```c
 enum ao_buttons_t
@@ -44,19 +40,19 @@ enum ao_buttons_t
 };
 ```
 
-It is used as a bitmask and defines the following symbols.
+This type represents buttons. It is used as a bitmask and defines the following symbols.
 
-| `AO_BUTTONS_NONE` | Represents no buttons. |
-| `AO_BUTTONS_0` | Represents button 0 at pin C3. |
-| `AO_BUTTONS_1` | Represents button 1 at pin B0. |
-| `AO_BUTTONS_ALL` | Represents all buttons. |
+| `AO_BUTTONS_NONE` | `00` | Represents no buttons. |
+| `AO_BUTTONS_0`    | `01` | Represents button 0 at pin C3. |
+| `AO_BUTTONS_1`    | `10` | Represents button 1 at pin B0. |
+| `AO_BUTTONS_ALL`  | `11` | Represents all buttons. |
 
 # Functions
 
 ## `ao_buttons`
 
-Gets the buttons that are pressed.
-
 ```c
 #define ao_buttons()
 ```
+
+Gets the buttons that are pressed.

@@ -18,13 +18,11 @@ toc: true
 
 ## `AO_TASK_STACK`
 
-Select the task stack implementation.
-
 ```c
 #define AO_TASK_STACK (2)
 ```
 
-The following options are available.
+Selects the task stack implementation. The following options are available.
 
 | [`ao_task_stack_0`](ao_task_stack_0.h.md) | Stub |
 | [`ao_task_stack_1`](ao_task_stack_1.h.md) | Injection |

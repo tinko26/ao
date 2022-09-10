@@ -39,18 +39,13 @@ toc: true
 #define AO_MUTEX
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_mutex_t      ao_mutex_t;
-typedef struct ao_mutex_lock_t ao_mutex_lock_t;
-```
-
 # Types
 
 ## `ao_mutex_t`
 
-This type represents a mutex.
+```c
+typedef struct ao_mutex_t ao_mutex_t;
+```
 
 ```c
 struct ao_mutex_t
@@ -76,7 +71,7 @@ struct ao_mutex_t
 };
 ```
 
-It consists of the following members.
+This type represents a mutex. It consists of the following members.
 
 | `ceiling_immediate` | The immediate task ceiling.|
 | `ceiling_original` | The original task ceiling. |
@@ -87,7 +82,9 @@ It consists of the following members.
 
 ## `ao_mutex_lock_t`
 
-This type represents the locking of a mutex.
+```c
+typedef struct ao_mutex_lock_t ao_mutex_lock_t;
+```
 
 ```c
 struct ao_mutex_lock_t
@@ -107,7 +104,7 @@ struct ao_mutex_lock_t
 };
 ```
 
-It consists of the following members.
+This type represents the locking of a mutex. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `master` | The task master. |

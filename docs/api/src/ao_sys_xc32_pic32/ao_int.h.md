@@ -21,29 +21,27 @@ This module defines the fastest signed integer type available on the target plat
 ## `AO_INT_MAX`
 ## `AO_INT_MIN`
 
-The maximum and minimum value.
-
 ```c
 #define AO_INT_MAX (INT32_MAX)
 #define AO_INT_MIN (INT32_MIN)
 ```
 
-## `AO_INT_SIZE`
+The maximum and minimum value.
 
-The size in bytes.
+## `AO_INT_SIZE`
 
 ```c
 #define AO_INT_SIZE (4)
 ```
 
-# Typedefs
-
-```c
-typedef int32_t ao_int_t;
-```
+The size, in bytes.
 
 # Types
 
 ## `ao_int_t`
+
+```c
+typedef int32_t ao_int_t;
+```
 
 This type represents the fastest signed integer type of the target platform. It is defined to be the `int32_t` type defined by the standard library.

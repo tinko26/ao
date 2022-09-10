@@ -21,57 +21,53 @@ toc: true
 
 ## `AO_IR_STACK_DEPTH_MAX`
 
-Keep track of the maximum depth.
-
 ```c
 #define AO_IR_STACK_DEPTH_MAX (false)
 ```
 
-## `AO_IR_STACK_FILL`
+Defines whether to keep track of the maximum depth.
 
-Keep track of the high water mark.
+## `AO_IR_STACK_FILL`
 
 ```c
 #define AO_IR_STACK_FILL (false)
 ```
 
-## `AO_IR_STACK_SIZE`
+Defines whether to keep track of the high water mark.
 
-The size of the interrupt stack, in bytes.
+## `AO_IR_STACK_SIZE`
 
 ```c
 #define AO_IR_STACK_SIZE (4096)
 ```
 
+The size of the interrupt stack, in bytes.
+
 # Constants
 
 ## `AO_IR_STACK_SIZE_ALIGNED`
-
-The aligned stack size, in bytes.
 
 ```c
 #define AO_IR_STACK_SIZE_ALIGNED AO_ALIGN_UP(AO_IR_STACK_SIZE, AO_STACK_ALIGN)
 ```
 
-## `AO_IR_STACK_SIZE_AS`
+The aligned stack size, in bytes.
 
-The size of the argument section, in bytes.
+## `AO_IR_STACK_SIZE_AS`
 
 ```c
 #define AO_IR_STACK_SIZE_AS (24)
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_ir_stack_t ao_ir_stack_t;
-```
+The size of the argument section, in bytes.
 
 # Types
 
 ## `ao_ir_stack_t`
 
-This type represents the interrupt stack.
+```c
+typedef struct ao_ir_stack_t ao_ir_stack_t;
+```
 
 ```c
 struct ao_ir_stack_t
@@ -96,7 +92,7 @@ struct ao_ir_stack_t
 };
 ```
 
-It consists of the following members.
+This type represents the interrupt stack. It consists of the following members.
 
 | `depth` | The current depth. |
 | `depth_max` | The maximum depth. |
@@ -112,8 +108,6 @@ It consists of the following members.
 ## `ao_ir_stack_func2`
 ## `ao_ir_stack_func3`
 
-Execute function `f` on the interrupt stack.
-
 ```c
 void * ao_ir_stack_func0(ao_func0_t f);
 void * ao_ir_stack_func1(void * p1, ao_func1_t f);
@@ -121,20 +115,22 @@ void * ao_ir_stack_func2(void * p1, void * p2, ao_func2_t f);
 void * ao_ir_stack_func3(void * p1, void * p2, void * p3, ao_func3_t f);
 ```
 
-## `ao_ir_stack_high_water_mark`
+Executes function `f` on the interrupt stack.
 
-Measure the high water mark of the interrupt stack.
+## `ao_ir_stack_high_water_mark`
 
 ```c
 void ao_ir_stack_high_water_mark();
 ```
 
+Measures the high water mark of the interrupt stack.
+
 # Variables
 
 ## `ao_ir_stack`
 
-The interrupt stack.
-
 ```c
 extern ao_ir_stack_t ao_ir_stack;
 ```
+
+The interrupt stack.

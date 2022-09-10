@@ -13,14 +13,14 @@ toc: true
 ## `AO_SYS_CLOCK_CAN3`
 ## `AO_SYS_CLOCK_CAN4`
 
-The peripheral bus clock frequency for each CAN module, in Hertz.
-
 ```c
 #define AO_SYS_CLOCK_CAN1 (0)
 #define AO_SYS_CLOCK_CAN2 (0)
 #define AO_SYS_CLOCK_CAN3 (0)
 #define AO_SYS_CLOCK_CAN4 (0)
 ```
+
+The peripheral bus clock frequency for each CAN module, in Hertz.
 
 # Include Next
 

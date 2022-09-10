@@ -12,8 +12,8 @@ toc: true
 
 ## `ao_sys_reset`
 
-Execute a software reset.
-
 ```c
 void ao_sys_reset();
 ```
+
+Executes a software reset.

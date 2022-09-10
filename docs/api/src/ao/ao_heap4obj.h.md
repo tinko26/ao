@@ -84,7 +84,7 @@ This type represents a heap for objects. It consists of the following members.
 | `heap2` | The second index buffer. |
 | `less` | The compare function. |
 | `less_parameter` | The compare function parameter. |
-| `size` | The size of an object in bytes. |
+| `size` | The size of an object, in bytes. |
 | `store` | The store. |
 
 ## `ao_heap4obj_less_t`

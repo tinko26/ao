@@ -14,8 +14,6 @@ toc: true
 ## `AO_SYS_CLOCK_I2C4`
 ## `AO_SYS_CLOCK_I2C5`
 
-The peripheral bus clock frequency for each I²C module, in Hertz.
-
 ```c
 #define AO_SYS_CLOCK_I2C1 (0)
 #define AO_SYS_CLOCK_I2C2 (0)
@@ -23,6 +21,8 @@ The peripheral bus clock frequency for each I²C module, in Hertz.
 #define AO_SYS_CLOCK_I2C4 (0)
 #define AO_SYS_CLOCK_I2C5 (0)
 ```
+
+The peripheral bus clock frequency for each I²C module, in Hertz.
 
 # Include Next
 

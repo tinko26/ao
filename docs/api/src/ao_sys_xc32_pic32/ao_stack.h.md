@@ -16,19 +16,19 @@ toc: true
 
 ## `AO_STACK_ALIGN`
 
-The stack pointer alignment, in bytes.
-
 ```c
 #define AO_STACK_ALIGN (8)
 ```
 
-## `AO_STACK_FILL`
+The stack pointer alignment, in bytes.
 
-The stack fill pattern.
+## `AO_STACK_FILL`
 
 ```c
 #define AO_STACK_FILL (0xDEADBEEF)
 ```
+
+The stack fill pattern.
 
 # Functions
 

@@ -25,8 +25,6 @@ toc: true
 #define AO_BSEM
 ```
 
-# Typedefs
-
 # Types
 
 ## `ao_bsem_t`

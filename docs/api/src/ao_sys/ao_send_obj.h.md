@@ -22,22 +22,13 @@ toc: true
 #define AO_SEND_OBJ
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_send_obj_t ao_send_obj_t;
-
-typedef void (* ao_send_obj_proc_t)
-(
-    ao_send_obj_t * x
-);
-```
-
 # Types
 
 ## `ao_send_obj_t`
 
-This type represents the sending of an object.
+```c
+typedef struct ao_send_obj_t ao_send_obj_t;
+```
 
 ```c
 struct ao_send_obj_t
@@ -51,7 +42,7 @@ struct ao_send_obj_t
 };
 ```
 
-It consists of the following members.
+This type represents the sending of an object. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `begin` | The function beginning the sending. |
@@ -61,6 +52,13 @@ It consists of the following members.
 | `result` | Indicates whether the object has been sent. |
 
 ## `ao_send_obj_proc_t`
+
+```c
+typedef void (* ao_send_obj_proc_t)
+(
+    ao_send_obj_t * x
+);
+```
 
 This type represents a function beginning or ending a sending.
 

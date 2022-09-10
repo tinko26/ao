@@ -13,11 +13,9 @@ toc: true
 #include <ao_mikroe_3063.h>
 ```
 
-# Configuration
+# Constants
 
 ## `AO_UART_3`
-
-Indicates whether the UART module is used.
 
 ```c
 #define AO_UART_3       \
@@ -26,6 +24,8 @@ Indicates whether the UART module is used.
     AO_MIKROE_3063_2    \
 )
 ```
+
+Indicates whether the UART module is used.
 
 # Include Next
 

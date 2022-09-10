@@ -18,217 +18,217 @@ toc: true
 
 ## `AO_IR_CMP1`
 
-The interrupt handler attribute.
-
 ```c
 #define AO_IR_CMP1_ATTRIBUTE __ISR(_COMPARATOR_1_VECTOR, IPL4SOFT)
 ```
 
-The interrupt priority and subpriority.
+The interrupt handler attribute.
 
 ```c
-#define AO_IR_CMP1_PRIO      (4)
-#define AO_IR_CMP1_SUBPRIO   (0)
+#define AO_IR_CMP1_PRIO    (4)
+#define AO_IR_CMP1_SUBPRIO (0)
 ```
 
-## `AO_IR_CMP2`
+The interrupt priority and subpriority.
 
-The interrupt handler attribute.
+## `AO_IR_CMP2`
 
 ```c
 #define AO_IR_CMP2_ATTRIBUTE __ISR(_COMPARATOR_2_VECTOR, IPL4SOFT)
 ```
 
-The interrupt priority and subpriority.
+The interrupt handler attribute.
 
 ```c
-#define AO_IR_CMP2_PRIO      (4)
-#define AO_IR_CMP2_SUBPRIO   (0)
+#define AO_IR_CMP2_PRIO    (4)
+#define AO_IR_CMP2_SUBPRIO (0)
 ```
 
-## `AO_IR_CMP3`
+The interrupt priority and subpriority.
 
-The interrupt handler attribute.
+## `AO_IR_CMP3`
 
 ```c
 #define AO_IR_CMP3_ATTRIBUTE __ISR(_COMPARATOR_3_VECTOR, IPL4SOFT)
 ```
 
-The interrupt priority and subpriority.
+The interrupt handler attribute.
 
 ```c
-#define AO_IR_CMP3_PRIO      (4)
-#define AO_IR_CMP3_SUBPRIO   (0)
+#define AO_IR_CMP3_PRIO    (4)
+#define AO_IR_CMP3_SUBPRIO (0)
 ```
 
-## `AO_IR_CMP4`
+The interrupt priority and subpriority.
 
-The interrupt handler attribute.
+## `AO_IR_CMP4`
 
 ```c
 #define AO_IR_CMP4_ATTRIBUTE __ISR(_COMPARATOR_4_VECTOR, IPL4SOFT)
 ```
 
-The interrupt priority and subpriority.
+The interrupt handler attribute.
 
 ```c
-#define AO_IR_CMP4_PRIO      (4)
-#define AO_IR_CMP4_SUBPRIO   (0)
+#define AO_IR_CMP4_PRIO    (4)
+#define AO_IR_CMP4_SUBPRIO (0)
 ```
 
-## `AO_IR_CMP5`
+The interrupt priority and subpriority.
 
-The interrupt handler attribute.
+## `AO_IR_CMP5`
 
 ```c
 #define AO_IR_CMP5_ATTRIBUTE __ISR(_COMPARATOR_5_VECTOR, IPL4SOFT)
 ```
 
-The interrupt priority and subpriority.
+The interrupt handler attribute.
 
 ```c
-#define AO_IR_CMP5_PRIO      (4)
-#define AO_IR_CMP5_SUBPRIO   (0)
+#define AO_IR_CMP5_PRIO    (4)
+#define AO_IR_CMP5_SUBPRIO (0)
 ```
+
+The interrupt priority and subpriority.
 
 # Functions
 
 ## `ao_ir_cmp1`
-
-Enable or disable the interrupt.
 
 ```c
 #define ao_ir_cmp1_enable()
 #define ao_ir_cmp1_disable()
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 #define ao_ir_cmp1_request()
 #define ao_ir_cmp1_reply()
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 #define ao_ir_cmp1_is_enabled()
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 #define ao_ir_cmp1_is_pending()
 ```
 
-## `ao_ir_cmp2`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_cmp2`
 
 ```c
 #define ao_ir_cmp2_enable()
 #define ao_ir_cmp2_disable()
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 #define ao_ir_cmp2_request()
 #define ao_ir_cmp2_reply()
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 #define ao_ir_cmp2_is_enabled()
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 #define ao_ir_cmp2_is_pending()
 ```
 
-## `ao_ir_cmp3`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_cmp3`
 
 ```c
 #define ao_ir_cmp3_enable()
 #define ao_ir_cmp3_disable()
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 #define ao_ir_cmp3_request()
 #define ao_ir_cmp3_reply()
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 #define ao_ir_cmp3_is_enabled()
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 #define ao_ir_cmp3_is_pending()
 ```
 
-## `ao_ir_cmp4`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_cmp4`
 
 ```c
 #define ao_ir_cmp4_enable()
 #define ao_ir_cmp4_disable()
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 #define ao_ir_cmp4_request()
 #define ao_ir_cmp4_reply()
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 #define ao_ir_cmp4_is_enabled()
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 #define ao_ir_cmp4_is_pending()
 ```
 
-## `ao_ir_cmp5`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_cmp5`
 
 ```c
 #define ao_ir_cmp5_enable()
 #define ao_ir_cmp5_disable()
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 #define ao_ir_cmp5_request()
 #define ao_ir_cmp5_reply()
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 #define ao_ir_cmp5_is_enabled()
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 #define ao_ir_cmp5_is_pending()
 ```
+
+Checks whether the interrupt is pending.

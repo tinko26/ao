@@ -22,22 +22,13 @@ toc: true
 #define AO_RECV_PTR
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_recv_ptr_t ao_recv_ptr_t;
-
-typedef void (* ao_recv_ptr_proc_t)
-(
-    ao_recv_ptr_t * x
-);
-```
-
 # Types
 
 ## `ao_recv_ptr_t`
 
-This type represents the receiving of a pointer.
+```c
+typedef struct ao_recv_ptr_t ao_recv_ptr_t;
+```
 
 ```c
 struct ao_recv_ptr_t
@@ -51,7 +42,7 @@ struct ao_recv_ptr_t
 };
 ```
 
-It consists of the following members.
+This type represents the receiving of a pointer. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `begin` | The function beginning the receiving. |
@@ -61,6 +52,13 @@ It consists of the following members.
 | `result` | Indicates whether a pointer has been received. |
 
 ## `ao_recv_ptr_proc_t`
+
+```c
+typedef void (* ao_recv_ptr_proc_t)
+(
+    ao_recv_ptr_t * x
+);
+```
 
 This type represents a function beginning or ending a receiving.
 

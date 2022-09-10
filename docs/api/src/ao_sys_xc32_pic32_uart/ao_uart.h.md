@@ -62,23 +62,13 @@ toc: true
 #define AO_UART_STOP_BITS_TWO (1)
 ```
 
-# Typedefs
-
-```c
-typedef enum   ao_uart_error_flags_t ao_uart_error_flags_t;
-
-typedef struct ao_uart_error_info_t  ao_uart_error_info_t;
-typedef struct ao_uart_reg_t         ao_uart_reg_t;
-typedef struct ao_uart_reg_brg_t     ao_uart_reg_brg_t;
-typedef struct ao_uart_reg_mode_t    ao_uart_reg_mode_t;
-typedef struct ao_uart_reg_rx_t      ao_uart_reg_rx_t;
-typedef struct ao_uart_reg_sta_t     ao_uart_reg_sta_t;
-typedef struct ao_uart_reg_tx_t      ao_uart_reg_tx_t;
-```
-
 # Types
 
 ## `ao_uart_error_flags_t`
+
+```c
+typedef enum ao_uart_error_flags_t ao_uart_error_flags_t;
+```
 
 ```c
 enum ao_uart_error_flags_t
@@ -102,6 +92,10 @@ It consists of the following members.
 ## `ao_uart_error_info_t`
 
 ```c
+typedef struct ao_uart_error_info_t ao_uart_error_info_t;
+```
+
+```c
 struct ao_uart_error_info_t
 {
     ao_uart_error_flags_t flags;
@@ -113,6 +107,10 @@ It consists of the following members.
 | `flags` | |
 
 ## `ao_uart_reg_brg_t`
+
+```c
+typedef struct ao_uart_reg_brg_t ao_uart_reg_brg_t;
+```
 
 ```c
 struct ao_uart_reg_brg_t
@@ -141,6 +139,10 @@ It consists of the following members.
 | `set` | |
 
 ## `ao_uart_reg_mode_t`
+
+```c
+typedef struct ao_uart_reg_mode_t ao_uart_reg_mode_t;
+```
 
 ```c
 struct ao_uart_reg_mode_t
@@ -204,6 +206,10 @@ It consists of the following members.
 ## `ao_uart_reg_rx_t`
 
 ```c
+typedef struct ao_uart_reg_rx_t ao_uart_reg_rx_t;
+```
+
+```c
 struct ao_uart_reg_rx_t
 {
     union
@@ -227,6 +233,10 @@ It consists of the following members.
 | `reg` | |
 
 ## `ao_uart_reg_sta_t`
+
+```c
+typedef struct ao_uart_reg_sta_t ao_uart_reg_sta_t;
+```
 
 ```c
 struct ao_uart_reg_sta_t
@@ -287,6 +297,10 @@ It consists of the following members.
 ## `ao_uart_reg_tx_t`
 
 ```c
+typedef struct ao_uart_reg_tx_t ao_uart_reg_tx_t;
+```
+
+```c
 struct ao_uart_reg_tx_t
 {
     union
@@ -310,6 +324,10 @@ It consists of the following members.
 | `reg` | |
 
 ## `ao_uart_reg_t`
+
+```c
+typedef struct ao_uart_reg_t ao_uart_reg_t;
+```
 
 ```c
 struct ao_uart_reg_t

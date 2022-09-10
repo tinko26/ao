@@ -39,22 +39,13 @@ toc: true
 #define AO_I2C_BRG_MIN (0)
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_i2c_reg_t      ao_i2c_reg_t;
-typedef struct ao_i2c_reg_add_t  ao_i2c_reg_add_t;
-typedef struct ao_i2c_reg_brg_t  ao_i2c_reg_brg_t;
-typedef struct ao_i2c_reg_con_t  ao_i2c_reg_con_t;
-typedef struct ao_i2c_reg_msk_t  ao_i2c_reg_msk_t;
-typedef struct ao_i2c_reg_rcv_t  ao_i2c_reg_rcv_t;
-typedef struct ao_i2c_reg_stat_t ao_i2c_reg_stat_t;
-typedef struct ao_i2c_reg_trn_t  ao_i2c_reg_trn_t;
-```
-
 # Types
 
 ## `ao_i2c_reg_add_t`
+
+```c
+typedef struct ao_i2c_reg_add_t ao_i2c_reg_add_t;
+```
 
 ```c
 struct ao_i2c_reg_add_t
@@ -85,6 +76,10 @@ It consists of the following members.
 ## `ao_i2c_reg_brg_t`
 
 ```c
+typedef struct ao_i2c_reg_brg_t ao_i2c_reg_brg_t;
+```
+
+```c
 struct ao_i2c_reg_brg_t
 {
     union
@@ -111,6 +106,10 @@ It consists of the following members.
 | `set` | |
 
 ## `ao_i2c_reg_con_t`
+
+```c
+typedef struct ao_i2c_reg_con_t ao_i2c_reg_con_t;
+```
 
 ```c
 struct ao_i2c_reg_con_t
@@ -184,6 +183,10 @@ It consists of the following members.
 ## `ao_i2c_reg_msk_t`
 
 ```c
+typedef struct ao_i2c_reg_msk_t ao_i2c_reg_msk_t;
+```
+
+```c
 struct ao_i2c_reg_msk_t
 {
     union
@@ -212,6 +215,10 @@ It consists of the following members.
 ## `ao_i2c_reg_rcv_t`
 
 ```c
+typedef struct ao_i2c_reg_rcv_t ao_i2c_reg_rcv_t;
+```
+
+```c
 struct ao_i2c_reg_rcv_t
 {
     union
@@ -232,6 +239,10 @@ It consists of the following members.
 | `reg` | |
 
 ## `ao_i2c_reg_stat_t`
+
+```c
+typedef struct ao_i2c_reg_stat_t ao_i2c_reg_stat_t;
+```
 
 ```c
 struct ao_i2c_reg_stat_t
@@ -289,6 +300,10 @@ It consists of the following members.
 ## `ao_i2c_reg_trn_t`
 
 ```c
+typedef struct ao_i2c_reg_trn_t ao_i2c_reg_trn_t;
+```
+
+```c
 struct ao_i2c_reg_trn_t
 {
     union
@@ -315,6 +330,10 @@ It consists of the following members.
 | `set` | |
 
 ## `ao_i2c_reg_t`
+
+```c
+typedef struct ao_i2c_reg_t ao_i2c_reg_t;
+```
 
 ```c
 struct ao_i2c_reg_t

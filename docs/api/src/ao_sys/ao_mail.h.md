@@ -23,19 +23,13 @@ toc: true
 #define AO_MAIL
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_mail_t       ao_mail_t;
-typedef struct ao_mail_fetch_t ao_mail_fetch_t;
-typedef struct ao_mailbox_t    ao_mailbox_t;
-```
-
 # Types
 
 ## `ao_mail_t`
 
-This type represents a mail.
+```c
+typedef struct ao_mail_t ao_mail_t;
+```
 
 ```c
 struct ao_mail_t
@@ -44,13 +38,15 @@ struct ao_mail_t
 };
 ```
 
-It consists of the following members.
+This type represents a mail. It consists of the following members.
 
 | `node` | The node for a mailbox's list of mails. |
 
 ## `ao_mail_fetch_t`
 
-This type represents the fetching of a mail.
+```c
+typedef struct ao_mail_fetch_t ao_mail_fetch_t;
+```
 
 ```c
 struct ao_mail_fetch_t
@@ -63,7 +59,7 @@ struct ao_mail_fetch_t
 };
 ```
 
-It consists of the following members.
+This type represents the fetching of a mail. It consists of the following members.
 
 | `async` | |
 | `mail` | |
@@ -73,7 +69,9 @@ It consists of the following members.
 
 ## `ao_mailbox_t`
 
-This type represents a mailbox.
+```c
+typedef struct ao_mailbox_t ao_mailbox_t;
+```
 
 ```c
 struct ao_mailbox_t
@@ -83,18 +81,12 @@ struct ao_mailbox_t
 };
 ```
 
-It consists of the following members.
+This type represents a mailbox. It consists of the following members.
 
 | `fetchers` | The list of fetchers. |
 | `mails` | The list of mails. |
 
 # Functions
-
-## `ao_mail_post`
-
-```c
-void ao_mail_post(ao_mailbox_t * x, ao_mail_t * m);
-```
 
 ## `ao_mail_fetch`
 ## `ao_mail_fetch_from`
@@ -122,4 +114,10 @@ bool ao_mail_fetch_try(ao_mailbox_t * x, ao_mail_t ** m);
 ```c
 void ao_mail_fetch_begin(ao_mail_fetch_t * x);
 void ao_mail_fetch_end(  ao_mail_fetch_t * x);
+```
+
+## `ao_mail_post`
+
+```c
+void ao_mail_post(ao_mailbox_t * x, ao_mail_t * m);
 ```

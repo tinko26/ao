@@ -15,8 +15,6 @@ toc: true
 ## `AO_SYS_CLOCK_SPI5`
 ## `AO_SYS_CLOCK_SPI6`
 
-The peripheral bus clock frequency for each SPI module, in Hertz.
-
 ```c
 #define AO_SYS_CLOCK_SPI1 (0)
 #define AO_SYS_CLOCK_SPI2 (0)
@@ -25,6 +23,8 @@ The peripheral bus clock frequency for each SPI module, in Hertz.
 #define AO_SYS_CLOCK_SPI5 (0)
 #define AO_SYS_CLOCK_SPI6 (0)
 ```
+
+The peripheral bus clock frequency for each SPI module, in Hertz.
 
 # Include Next
 

@@ -18,88 +18,88 @@ toc: true
 
 ## `AO_IR_USB`
 
-The interrupt handler attribute.
-
 ```c
 #define AO_IR_USB_ATTRIBUTE __ISR(_USB_VECTOR, IPL4SRS)
 ```
 
-The interrupt priority and subpriority.
+The interrupt handler attribute.
 
 ```c
-#define AO_IR_USB_PRIO      (4)
-#define AO_IR_USB_SUBPRIO   (0)
+#define AO_IR_USB_PRIO    (4)
+#define AO_IR_USB_SUBPRIO (0)
 ```
 
-## `AO_IR_USBDMA`
+The interrupt priority and subpriority.
 
-The interrupt handler attribute.
+## `AO_IR_USBDMA`
 
 ```c
 #define AO_IR_USBDMA_ATTRIBUTE __ISR(_USB_DMA_VECTOR, IPL4SRS)
 ```
 
-The interrupt priority and subpriority.
+The interrupt handler attribute.
 
 ```c
-#define AO_IR_USBDMA_PRIO      (4)
-#define AO_IR_USBDMA_SUBPRIO   (0)
+#define AO_IR_USBDMA_PRIO    (4)
+#define AO_IR_USBDMA_SUBPRIO (0)
 ```
+
+The interrupt priority and subpriority.
 
 # Functions
 
 ## `ao_ir_usb`
-
-Enable or disable the interrupt.
 
 ```c
 #define ao_ir_usb_enable()
 #define ao_ir_usb_disable()
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 #define ao_ir_usb_request()
 #define ao_ir_usb_reply()
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 #define ao_ir_usb_is_enabled()
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 #define ao_ir_usb_is_pending()
 ```
 
-## `ao_ir_usbdma`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_usbdma`
 
 ```c
 #define ao_ir_usbdma_enable()
 #define ao_ir_usbdma_disable()
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 #define ao_ir_usbdma_request()
 #define ao_ir_usbdma_reply()
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 #define ao_ir_usbdma_is_enabled()
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 #define ao_ir_usbdma_is_pending()
 ```
+
+Checks whether the interrupt is pending.

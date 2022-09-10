@@ -18,45 +18,45 @@ toc: true
 
 ## `AO_IR_CT`
 
-The interrupt handler attribute.
-
 ```c
 #define AO_IR_CT_ATTRIBUTE __ISR(_CORE_TIMER_VECTOR, IPL3SOFT)
 ```
 
-The interrupt priority and subpriority.
+The interrupt handler attribute.
 
 ```c
-#define AO_IR_CT_PRIO      (3)
-#define AO_IR_CT_SUBPRIO   (0)
+#define AO_IR_CT_PRIO    (3)
+#define AO_IR_CT_SUBPRIO (0)
 ```
+
+The interrupt priority and subpriority.
 
 # Functions
 
 ## `ao_ir_ct`
-
-Enable or disable the interrupt.
 
 ```c
 #define ao_ir_ct_enable()
 #define ao_ir_ct_disable()
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 #define ao_ir_ct_request()
 #define ao_ir_ct_reply()
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 #define ao_ir_ct_is_enabled()
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 #define ao_ir_ct_is_pending()
 ```
+
+Checks whether the interrupt is pending.

@@ -23,17 +23,13 @@ toc: true
 #define AO_SLEEP
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_sleep_t ao_sleep_t;
-```
-
 # Types
 
 ## `ao_sleep_t`
 
-This type represents the sleeping of a task.
+```c
+typedef struct ao_sleep_t ao_sleep_t;
+```
 
 ```c
 struct ao_sleep_t
@@ -46,7 +42,7 @@ struct ao_sleep_t
 };
 ```
 
-It consists of the following members.
+This type represents the sleeping of a task. It consists of the following members.
 
 | `alarm` | The alarm. |
 | `async` | The asynchronous event. |

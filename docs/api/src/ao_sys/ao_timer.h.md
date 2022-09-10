@@ -32,17 +32,13 @@ toc: true
 #define AO_TIMER
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_timer_t ao_timer_t;
-```
-
 # Types
 
 ## `ao_timer_t`
 
-This type represents a timer.
+```c
+typedef struct ao_timer_t ao_timer_t;
+```
 
 ```c
 struct ao_timer_t
@@ -55,7 +51,7 @@ struct ao_timer_t
 };
 ```
 
-It consists of the following members.
+This type represents a timer. It consists of the following members.
 
 | `alarm` | The alarm. |
 | `callback` | The callback. |

@@ -13,15 +13,13 @@ toc: true
 #include <stdint.h>
 ```
 
-# Typedefs
+# Types
+
+## `ao_sys_lock_pps_t`
 
 ```c
 typedef struct ao_sys_lock_pps_t ao_sys_lock_pps_t;
 ```
-
-# Types
-
-## `ao_sys_lock_pps_t`
 
 ```c
 struct ao_sys_lock_pps_t

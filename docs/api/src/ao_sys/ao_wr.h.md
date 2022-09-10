@@ -35,18 +35,13 @@ toc: true
 #define AO_WR
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_wr_t      ao_wr_t;
-typedef struct ao_wr_lock_t ao_wr_lock_t;
-```
-
 # Types
 
 ## `ao_wr_t`
 
-This type represents a readers-writer lock.
+```c
+typedef struct ao_wr_t ao_wr_t;
+```
 
 ```c
 struct ao_wr_t
@@ -58,7 +53,7 @@ struct ao_wr_t
 };
 ```
 
-It consists of the following members.
+This type represents a readers-writer lock. It consists of the following members.
 
 | `r_active` | The number of active readers. |
 | `r_waiting` | The list of waiting readers |
@@ -67,7 +62,9 @@ It consists of the following members.
 
 ## `ao_wr_lock_t`
 
-This type represents the locking of a readers-writer lock.
+```c
+typedef struct ao_wr_lock_t ao_wr_lock_t;
+```
 
 ```c
 struct ao_wr_lock_t
@@ -79,7 +76,7 @@ struct ao_wr_lock_t
 };
 ```
 
-It consists of the following members.
+This type represents the locking of a readers-writer lock. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `node` | The node for the lock's waiting lists. |
@@ -155,53 +152,3 @@ void ao_wr_unlock_read(ao_wr_t * x);
 ```c
 void ao_wr_unlock_write(ao_wr_t * x);
 ```
-
-# Example
-
-Let's assume, that there is a global variable ...
-
-```c
-double data[16];
-```
-
-```c
-ao_wr_t lock;
-```
-
-Locking to Read.
-
-...
-
-```c
-bool can_read = ao_wr_lock_read(&lock, AO_MILLISECONDS(500));
-
-if (can_read)
-{
-    /* ... */ = data[0];
-    /* ... */ = data[1];
-    /* ... */ = data[2];
-
-    ao_wr_unlock_read(&lock);
-}
-```
-
-...
-
-Locking to Write.
-
-...
-
-```c
-bool can_write = ao_wr_lock_write(&lock, AO_MILLISECONDS(500));
-
-if (can_write)
-{
-    data[0] = /* ... */;
-    data[1] = /* ... */;
-    data[2] = /* ... */;
-
-    ao_wr_unlock_write(&lock);
-}
-```
-
-...

@@ -74,21 +74,21 @@ toc: true
 
 ## `AO_UART_2`
 
-Indicates whether the UART module is available.
-
 ```c
 #define AO_UART_2
 ```
 
+Indicates whether the UART module is available.
+
 ## `AO_UART_BAUD_MAX_2`
 ## `AO_UART_BAUD_MIN_2`
-
-The maximum and minimum baud rate.
 
 ```c
 #define AO_UART_BAUD_MAX_2
 #define AO_UART_BAUD_MIN_2
 ```
+
+The maximum and minimum baud rate.
 
 ## `AO_UART_BAUD_HIGH_MAX_2`
 ## `AO_UART_BAUD_HIGH_MIN_2`

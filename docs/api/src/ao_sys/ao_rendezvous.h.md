@@ -24,25 +24,13 @@ toc: true
 #define AO_RENDEZVOUS
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_rendezvous_t      ao_rendezvous_t;
-typedef struct ao_rendezvous_wait_t ao_rendezvous_wait_t;
-
-typedef void (* ao_rendezvous_exchange_t)
-(
-    void * ptr_in_other,
-    void * ptr_out_self,
-    void * parameter
-);
-```
-
 # Types
 
 ## `ao_rendezvous_t`
 
-This type represents a rendezvous.
+```c
+typedef struct ao_rendezvous_t ao_rendezvous_t;
+```
 
 ```c
 struct ao_rendezvous_t
@@ -51,13 +39,15 @@ struct ao_rendezvous_t
 };
 ```
 
-It consists of the following members.
+This type represents a rendezvous. It consists of the following members.
 
 | `wait` | The waiting task. The value is `NULL`, if no task is waiting. |
 
 ## `ao_rendezvous_wait_t`
 
-This type represents the waiting for a rendezvous.
+```c
+typedef struct ao_rendezvous_wait_t ao_rendezvous_wait_t;
+```
 
 ```c
 struct ao_rendezvous_wait_t
@@ -72,7 +62,7 @@ struct ao_rendezvous_wait_t
 };
 ```
 
-It consists of the following members.
+This type represents the waiting for a rendezvous. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `exchange` | The exchange function. |
@@ -83,6 +73,15 @@ It consists of the following members.
 | `result` | Indicates whether a rendezvous has happened.  |
 
 ## `ao_rendezvous_exchange_t`
+
+```c
+typedef void (* ao_rendezvous_exchange_t)
+(
+    void * ptr_in_other,
+    void * ptr_out_self,
+    void * parameter
+);
+```
 
 This type represents the exchanging of data at a rendezvous. It takes three parameters. First, a pointer to data provided by the other task. Second, a pointer to a location to store that data (or anything else). Third, an additional parameter that can be used to tweak the exchanging.
 
@@ -115,51 +114,3 @@ void ao_rendezvous_try(ao_rendezvous_wait_t * x);
 void ao_rendezvous_begin(ao_rendezvous_wait_t * x);
 void ao_rendezvous_end(  ao_rendezvous_wait_t * x);
 ```
-
-# Example
-
-...
-
-Set up the exchange function. Assume tasks are exchanging doubles.
-
-```c
-void exchange(void * pin, void * pout, void * parameter)
-{
-    double * din = pin;
-    double * dout = pout;
-
-    *dout = *din;
-}
-```
-
-Set up the waiting.
-
-```c
-double din;
-double dout = 3.14159;
-ao_rendezvous_t * r
-ao_rendezvous_wait_t * w;
-```
-
-```c
-w->exchange = exchange;
-w->ptr_in = &din;
-w->ptr_out = &dout;
-w->rendezvous = r;
-```
-
-```c
-ao_rendezvous(w, AO_MILLISECONDS(500));
-
-if (w->result)
-{
-    // A rendezvous has happened.
-
-    if (din > dout)
-    {
-        // Other task has sent a greater value.
-    }
-}
-```
-
-...

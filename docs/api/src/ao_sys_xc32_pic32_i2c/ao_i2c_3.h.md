@@ -27,11 +27,11 @@ toc: true
 
 ## `AO_I2C_3`
 
-Indicates whether the I²C module is available.
-
 ```c
 #define AO_I2C_3
 ```
+
+Indicates whether the I²C module is available.
 
 # Functions
 

@@ -12,15 +12,15 @@ toc: true
 #include <ao_mikroe_2334.h>
 ```
 
-# Configuration
+# Constants
 
 ## `AO_CAN_1`
-
-Indicates whether the CAN module is used.
 
 ```c
 #define AO_CAN_1 (AO_MIKROE_2334_2)
 ```
+
+Indicates whether the CAN module is used.
 
 # Include Next
 

@@ -24,19 +24,13 @@ toc: true
 #define AO_QUEUE4PTR
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_queue4ptr_t   ao_queue4ptr_t;
-typedef struct ao_qinsert_ptr_t ao_qinsert_ptr_t;
-typedef struct ao_qpop_ptr_t    ao_qpop_ptr_t;
-```
-
 # Types
 
 ## `ao_queue4ptr_t`
 
-This type represents a queue for pointers.
+```c
+typedef struct ao_queue4ptr_t ao_queue4ptr_t;
+```
 
 ```c
 struct ao_queue4ptr_t
@@ -47,7 +41,7 @@ struct ao_queue4ptr_t
 };
 ```
 
-It consists of the following members.
+This type represents a queue for pointers. It consists of the following members.
 
 | `heap` | The heap storing the pointers. |
 | `insert` | The list of tasks attempting to insert a pointer into the queue. |
@@ -55,7 +49,9 @@ It consists of the following members.
 
 ## `ao_qinsert_ptr_t`
 
-This type represents the inserting into a queue for pointers.
+```c
+typedef struct ao_qinsert_ptr_t ao_qinsert_ptr_t;
+```
 
 ```c
 struct ao_qinsert_ptr_t
@@ -68,7 +64,7 @@ struct ao_qinsert_ptr_t
 };
 ```
 
-It consists of the following members.
+This type represents the inserting into a queue for pointers. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `node` | The node for the queue's list of inserting tasks. |
@@ -78,7 +74,9 @@ It consists of the following members.
 
 ## `ao_qpop_ptr_t`
 
-This type represents the popping from a queue for pointers.
+```c
+typedef struct ao_qpop_ptr_t ao_qpop_ptr_t;
+```
 
 ```c
 struct ao_qpop_ptr_t
@@ -91,7 +89,7 @@ struct ao_qpop_ptr_t
 };
 ```
 
-It consists of the following members.
+This type represents the popping from a queue for pointers. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `node` | The node for the queue's list of popping tasks. |

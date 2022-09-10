@@ -29,35 +29,35 @@ toc: true
 
 ## `AO_CAN_BAUD_2`
 
-The baud rate.
-
 ```c
 #define AO_CAN_BAUD_2 (100000)
 ```
 
-## `AO_CAN_BAUD_SAMPLE_2`
+The baud rate.
 
-The sample point, in per cent.
+## `AO_CAN_BAUD_SAMPLE_2`
 
 ```c
 #define AO_CAN_BAUD_SAMPLE_2 (85)
 ```
 
-## `AO_CAN_BAUD_SAMPLE_THRICE_2`
+The sample point, in per cent.
 
-Indicates whether to sample each bit thrice.
+## `AO_CAN_BAUD_SAMPLE_THRICE_2`
 
 ```c
 #define AO_CAN_BAUD_SAMPLE_THRICE_2 (true)
 ```
 
-## `AO_CAN_BAUD_SJW_2`
+Defines whether to sample each bit thrice.
 
-The synchronization jump width.
+## `AO_CAN_BAUD_SJW_2`
 
 ```c
 #define AO_CAN_BAUD_SJW_2 (1)
 ```
+
+The synchronization jump width.
 
 ## `AO_CAN_BAUD_WAKE_UP_FILTER_2`
 
@@ -66,8 +66,6 @@ The synchronization jump width.
 ```
 
 ## `AO_CAN_BUFFERS_2`
-
-The number of buffers in each FIFO.
 
 ```c
 #define AO_CAN_BUFFERS_2_0  (0)
@@ -104,6 +102,8 @@ The number of buffers in each FIFO.
 #define AO_CAN_BUFFERS_2_31 (0)
 ```
 
+The number of buffers in each FIFO.
+
 ## `AO_CAN_BUS_2`
 
 ```c
@@ -113,12 +113,12 @@ The number of buffers in each FIFO.
 ## `AO_CAN_FIFOS_RX_2`
 ## `AO_CAN_FIFOS_TX_2`
 
-The number of receive and transmit FIFOs.
-
 ```c
 #define AO_CAN_FIFOS_RX_2 (0)
 #define AO_CAN_FIFOS_TX_2 (0)
 ```
+
+The number of receive and transmit FIFOs.
 
 ## `AO_CAN_FILTER_EID_2`
 
@@ -421,53 +421,53 @@ The number of receive and transmit FIFOs.
 
 ## `AO_CAN_2`
 
-Indicates whether the CAN module is available.
-
 ```c
 #define AO_CAN_2
 ```
 
+Indicates whether the CAN module is available.
+
 ## `AO_CAN_BAUD_MAX_2`
 ## `AO_CAN_BAUD_MIN_2`
-
-The maximum and minimum baud rate.
 
 ```c
 #define AO_CAN_BAUD_MAX_2
 #define AO_CAN_BAUD_MIN_2
 ```
 
-## `AO_CAN_BUFFERS_2`
+The maximum and minimum baud rate.
 
-The total number of buffers.
+## `AO_CAN_BUFFERS_2`
 
 ```c
 #define AO_CAN_BUFFERS_2
 ```
 
-## `AO_CAN_FIFOS_2`
+The total number of buffers.
 
-The total number of FIFOs.
+## `AO_CAN_FIFOS_2`
 
 ```c
 #define AO_CAN_FIFOS_2
 ```
 
-## `AO_CAN_RX_2`
+The total number of FIFOs.
 
-Indicates whether the module is configured to receive.
+## `AO_CAN_RX_2`
 
 ```c
 #define AO_CAN_RX_2
 ```
 
-## `AO_CAN_TX_2`
+Indicates whether the module is configured to receive.
 
-Indicates whether the module is configured to transmit.
+## `AO_CAN_TX_2`
 
 ```c
 #define AO_CAN_TX_2
 ```
+
+Indicates whether the module is configured to transmit.
 
 # Functions
 

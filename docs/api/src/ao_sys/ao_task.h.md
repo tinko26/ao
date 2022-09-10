@@ -71,20 +71,13 @@ toc: true
 #define AO_TASK_TIME (false)
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_task_t               ao_task_t;
-
-typedef enum   ao_task_state_t         ao_task_state_t;
-typedef enum   ao_task_state_pending_t ao_task_state_pending_t;
-```
-
 # Types
 
 ## `ao_task_state_t`
 
-This type represents task states.
+```c
+typedef enum ao_task_state_t ao_task_state_t;
+```
 
 ```c
 enum ao_task_state_t
@@ -103,7 +96,7 @@ enum ao_task_state_t
 };
 ```
 
-It is used as a bitmask and defines the following symbols.
+This type represents task states. It is used as a bitmask and defines the following symbols.
 
 | `AO_TASK_STOPPED`     | `0000` | The task is stopped. |
 | `AO_TASK_READY`       | `0001` | The task is ready. |
@@ -116,7 +109,9 @@ It is used as a bitmask and defines the following symbols.
 
 ## `ao_task_state_pending_t`
 
-This type represents pending task state transitions.
+```c
+typedef enum ao_task_state_pending_t ao_task_state_pending_t;
+```
 
 ```c
 enum ao_task_state_pending_t
@@ -128,7 +123,7 @@ enum ao_task_state_pending_t
 };
 ```
 
-It is used as a bitmask and defines the following symbols.
+This type represents pending task state transitions. It is used as a bitmask and defines the following symbols.
 
 | `AO_TASK_STOPPING`   | `0001` | The task is stopping. |
 | `AO_TASK_BLOCKING`   | `0010` | The task is blocking. |
@@ -137,7 +132,9 @@ It is used as a bitmask and defines the following symbols.
 
 ## `ao_task_t`
 
-This type represents a task.
+```c
+typedef struct ao_task_t ao_task_t;
+```
 
 ```c
 struct ao_task_t
@@ -211,7 +208,7 @@ struct ao_task_t
 };
 ```
 
-It consists of the following members.
+This type represents a task. It consists of the following members.
 
 | `block` | The blocking data. |
 | `context` | The context data. |
@@ -254,13 +251,13 @@ It consists of the following members.
 
 ## `ao_task_entry`
 
-The entry point for each task. It takes the respective task as its only argument.
-
-First, this function calls the task procedure, if specified. Then, after the task procedure has returned, it locks the task in an infinite loop, in order to avoid to return accidentally.
-
 ```c
 void ao_task_entry(ao_task_t const * t);
 ```
+
+The entry point for each task. It takes the respective task as its only argument.
+
+First, this function calls the task procedure, if specified. Then, after the task procedure has returned, it locks the task in an infinite loop, in order to avoid to return accidentally.
 
 ## `ao_task_get_count`
 
@@ -421,16 +418,16 @@ void ao_task_wake(ao_task_t * t);
 
 ## `ao_task_main`
 
-The task executing the `main()` function.
-
 ```c
 extern ao_task_t ao_task_main;
 ```
 
-## `ao_task_running`
+The task executing the `main()` function.
 
-The running task for each core.
+## `ao_task_running`
 
 ```c
 extern ao_task_t * volatile ao_task_running [AO_CORE_COUNT];
 ```
+
+The running task for each core.

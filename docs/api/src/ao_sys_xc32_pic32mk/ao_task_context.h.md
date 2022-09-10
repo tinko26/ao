@@ -12,17 +12,13 @@ toc: true
 #include <stdint.h>
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_task_t              ao_task_t;
-typedef struct ao_task_context_t      ao_task_context_t;
-typedef struct ao_task_context_data_t ao_task_context_data_t;
-```
-
 # Types
 
 ## `ao_task_context_t`
+
+```c
+typedef struct ao_task_context_t ao_task_context_t;
+```
 
 ```c
 struct ao_task_context_t
@@ -36,6 +32,10 @@ It consists of the following members.
 | `ptr` | |
 
 ## `ao_task_context_data_t`
+
+```c
+typedef struct ao_task_context_data_t ao_task_context_data_t;
+```
 
 ```c
 struct ao_task_context_data_t

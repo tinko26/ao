@@ -23,29 +23,13 @@ toc: true
 #define AO_MIKROE_1877
 ```
 
-# Typedefs
-
-```c
-typedef enum   ao_mikroe_1877_connection_t         ao_mikroe_1877_connection_t;
-typedef enum   ao_mikroe_1877_event_t              ao_mikroe_1877_event_t;
-typedef enum   ao_mikroe_1877_power_t              ao_mikroe_1877_power_t;
-typedef enum   ao_mikroe_1877_reporting_t          ao_mikroe_1877_reporting_t;
-typedef enum   ao_mikroe_1877_sensor_t             ao_mikroe_1877_sensor_t;
-typedef enum   ao_mikroe_1877_state_t              ao_mikroe_1877_state_t;
-
-typedef struct ao_mikroe_1877_data_t               ao_mikroe_1877_data_t;
-typedef struct ao_mikroe_1877_data_accelerometer_t ao_mikroe_1877_data_accelerometer_t;
-typedef struct ao_mikroe_1877_data_magnetometer_t  ao_mikroe_1877_data_magnetometer_t;
-typedef struct ao_mikroe_1877_data_gyroscope_t     ao_mikroe_1877_data_gyroscope_t;
-typedef struct ao_mikroe_1877_data_inclinometer_t  ao_mikroe_1877_data_inclinometer_t;
-typedef struct ao_mikroe_1877_data_orientation_t   ao_mikroe_1877_data_orientation_t;
-
-typedef struct ao_mikroe_1877_info_t               ao_mikroe_1877_info_t;
-```
-
 # Types
 
 ## `ao_mikroe_1877_connection_t`
+
+```c
+typedef enum ao_mikroe_1877_connection_t ao_mikroe_1877_connection_t;
+```
 
 ```c
 enum ao_mikroe_1877_connection_t
@@ -63,6 +47,10 @@ It consists of the following members.
 | `AO_MIKROE_1877_CONNECTION_PC_EXTERNAL` | |
 
 ## `ao_mikroe_1877_event_t`
+
+```c
+typedef enum ao_mikroe_1877_event_t ao_mikroe_1877_event_t;
+```
 
 ```c
 enum ao_mikroe_1877_event_t
@@ -110,6 +98,10 @@ It consists of the following members.
 ## `ao_mikroe_1877_power_t`
 
 ```c
+typedef enum ao_mikroe_1877_power_t ao_mikroe_1877_power_t;
+```
+
+```c
 enum ao_mikroe_1877_power_t
 {
     AO_MIKROE_1877_POWER_UNDEFINED = 1,
@@ -133,6 +125,10 @@ It consists of the following members.
 ## `ao_mikroe_1877_reporting_t`
 
 ```c
+typedef enum ao_mikroe_1877_reporting_t ao_mikroe_1877_reporting_t;
+```
+
+```c
 enum ao_mikroe_1877_reporting_t
 {
     AO_MIKROE_1877_REPORTING_ALL            = 2,
@@ -154,6 +150,10 @@ It consists of the following members.
 | `AO_MIKROE_1877_REPORTING_THRESHOLD_WAKE` | |
 
 ## `ao_mikroe_1877_sensor_t`
+
+```c
+typedef enum ao_mikroe_1877_sensor_t ao_mikroe_1877_sensor_t;
+```
 
 ```c
 enum ao_mikroe_1877_sensor_t
@@ -183,6 +183,10 @@ It consists of the following members.
 ## `ao_mikroe_1877_state_t`
 
 ```c
+typedef enum ao_mikroe_1877_state_t ao_mikroe_1877_state_t;
+```
+
+```c
 enum ao_mikroe_1877_state_t
 {
     AO_MIKROE_1877_STATE_UNDEFINED     = 1,
@@ -208,6 +212,10 @@ It consists of the following members.
 ## `ao_mikroe_1877_data_accelerometer_t`
 
 ```c
+typedef struct ao_mikroe_1877_data_accelerometer_t ao_mikroe_1877_data_accelerometer_t;
+```
+
+```c
 struct ao_mikroe_1877_data_accelerometer_t
 {
     bool       shake_detected;
@@ -225,6 +233,10 @@ It consists of the following members.
 | `z` | |
 
 ## `ao_mikroe_1877_data_gyroscope_t`
+
+```c
+typedef struct ao_mikroe_1877_data_gyroscope_t ao_mikroe_1877_data_gyroscope_t;
+```
 
 ```c
 struct ao_mikroe_1877_data_gyroscope_t
@@ -246,6 +258,10 @@ It consists of the following members.
 ## `ao_mikroe_1877_data_inclinometer_t`
 
 ```c
+typedef struct ao_mikroe_1877_data_inclinometer_t ao_mikroe_1877_data_inclinometer_t;
+```
+
+```c
 struct ao_mikroe_1877_data_inclinometer_t
 {
     ao_float_t x;
@@ -261,6 +277,10 @@ It consists of the following members.
 | `z` | |
 
 ## `ao_mikroe_1877_data_magnetometer_t`
+
+```c
+typedef struct ao_mikroe_1877_data_magnetometer_t ao_mikroe_1877_data_magnetometer_t;
+```
 
 ```c
 struct ao_mikroe_1877_data_magnetometer_t
@@ -282,6 +302,10 @@ It consists of the following members.
 ## `ao_mikroe_1877_data_orientation_t`
 
 ```c
+typedef struct ao_mikroe_1877_data_orientation_t ao_mikroe_1877_data_orientation_t;
+```
+
+```c
 struct ao_mikroe_1877_data_orientation_t
 {
     ao_float_t w;
@@ -299,6 +323,10 @@ It consists of the following members.
 | `z` | |
 
 ## `ao_mikroe_1877_data_t`
+
+```c
+typedef struct ao_mikroe_1877_data_t ao_mikroe_1877_data_t;
+```
 
 ```c
 struct ao_mikroe_1877_data_t
@@ -330,6 +358,10 @@ It consists of the following members.
 | `state` | |
 
 ## `ao_mikroe_1877_info_t`
+
+```c
+typedef struct ao_mikroe_1877_info_t ao_mikroe_1877_info_t;
+```
 
 ```c
 struct ao_mikroe_1877_info_t

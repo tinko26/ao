@@ -17,27 +17,27 @@ toc: true
 
 ## `ao_boot_count`
 
-Boot the [`ao_count.h`](ao_count.h.md) module.
-
 ```c
 #define ao_boot_count()
 ```
 
-## `ao_boot_ir_mvec`
+Boots the [`ao_count.h`](ao_count.h.md) module.
 
-Boot the [`ao_ir_mvec.h`](ao_ir_mvec.h.md) module. This function sets up the multi-vectored interrupt mode.
+## `ao_boot_ir_mvec`
 
 ```c
 #define ao_boot_ir_mvec()
 ```
 
-## `ao_boot_ir_stack`
+Boots the [`ao_ir_mvec.h`](ao_ir_mvec.h.md) module. This function sets up the multi-vectored interrupt mode.
 
-Boot the [`ao_ir_stack.h`](ao_ir_stack.h.md) module. This function sets up the interrupts stack.
+## `ao_boot_ir_stack`
 
 ```c
 void ao_boot_ir_stack();
 ```
+
+Boots the [`ao_ir_stack.h`](ao_ir_stack.h.md) module. This function sets up the interrupts stack.
 
 # Include Next
 

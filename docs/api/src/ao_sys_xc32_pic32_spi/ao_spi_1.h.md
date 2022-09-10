@@ -27,21 +27,21 @@ toc: true
 
 ## `AO_SPI_1`
 
-Indicates whether the SPI module is available.
-
 ```c
 #define AO_SPI_1
 ```
 
+Indicates whether the SPI module is available.
+
 ## `AO_SPI_BAUD_MAX_1`
 ## `AO_SPI_BAUD_MIN_1`
-
-The maximum and minimum baud rate.
 
 ```c
 #define AO_SPI_BAUD_MAX_1
 #define AO_SPI_BAUD_MIN_1
 ```
+
+The maximum and minimum baud rate.
 
 # Functions
 

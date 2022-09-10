@@ -26,7 +26,7 @@ This module defines the fastest unsigned integer type available on the target pl
 #define AO_UINT_BITS_LOG (5)
 ```
 
-The size in bits and the base-2 logarithm thereof.
+The size, in bits, and the base-2 logarithm thereof.
 
 ## `AO_UINT_MAX`
 ## `AO_UINT_MIN`
@@ -44,7 +44,7 @@ The maximum and minimum value.
 #define AO_UINT_SIZE (4)
 ```
 
-The size in bytes.
+The size, in bytes.
 
 # Types
 

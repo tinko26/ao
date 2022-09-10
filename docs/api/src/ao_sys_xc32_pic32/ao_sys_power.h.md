@@ -12,40 +12,40 @@ toc: true
 
 ## `ao_sys_idle`
 
-Enter idle mode.
-
 ```c
 void ao_sys_idle();
 ```
 
-## `ao_sys_sleep`
+Enters idle mode.
 
-Enter sleep mode.
+## `ao_sys_sleep`
 
 ```c
 void ao_sys_sleep();
 ```
 
-## `ao_sys_wait`
+Enters sleep mode.
 
-Enter idle or sleep mode. This function executes a `WAIT` instruction.
+## `ao_sys_wait`
 
 ```c
 void ao_sys_wait();
 ```
 
-## `ao_sys_wait_idle`
+Executes a `WAIT` instruction. Eventually, this function enters idle or sleep mode. 
 
-Enter idle mode upon a `WAIT`.
+## `ao_sys_wait_idle`
 
 ```c
 void ao_sys_wait_idle();
 ```
 
-## `ao_sys_wait_sleep`
+Sets up to enter idle mode upon the execution of a `WAIT` instruction.
 
-Enter sleep mode upon a `WAIT`.
+## `ao_sys_wait_sleep`
 
 ```c
 void ao_sys_wait_sleep();
 ```
+
+Sets up to enter sleep mode upon the execution of a `WAIT` instruction.

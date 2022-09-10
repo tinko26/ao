@@ -21,16 +21,13 @@ toc: true
 #define AO_MIKROE_4186
 ```
 
-# Typedefs
-
-```c
-typedef union ao_mikroe_4186_t      ao_mikroe_4186_t;
-typedef union ao_mikroe_4186_port_t ao_mikroe_4186_port_t;
-```
-
 # Types
 
 ## `ao_mikroe_4186_port_t`
+
+```c
+typedef union ao_mikroe_4186_port_t ao_mikroe_4186_port_t;
+```
 
 ```c
 union ao_mikroe_4186_port_t
@@ -63,6 +60,10 @@ It consists of the following members.
 | `pins` | |
 
 ## `ao_mikroe_4186_t`
+
+```c
+typedef union ao_mikroe_4186_t ao_mikroe_4186_t;
+```
 
 ```c
 union ao_mikroe_4186_t

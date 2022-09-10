@@ -6,15 +6,13 @@ permalink: /api/src/ao_sys_xc32_pic32mz/ao_sys_exc.h/
 toc: true
 ---
 
-# Typedefs
+# Types
+
+## `ao_sys_exc_t`
 
 ```c
 typedef enum ao_sys_exc_t ao_sys_exc_t;
 ```
-
-# Types
-
-## `ao_sys_exc_t`
 
 ```c
 enum ao_sys_exc_t

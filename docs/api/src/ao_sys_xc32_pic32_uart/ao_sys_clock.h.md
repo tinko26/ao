@@ -15,8 +15,6 @@ toc: true
 ## `AO_SYS_CLOCK_U5`
 ## `AO_SYS_CLOCK_U6`
 
-The peripheral bus clock frequency for each UART module, in Hertz.
-
 ```c
 #define AO_SYS_CLOCK_U1 (0)
 #define AO_SYS_CLOCK_U2 (0)
@@ -25,6 +23,8 @@ The peripheral bus clock frequency for each UART module, in Hertz.
 #define AO_SYS_CLOCK_U5 (0)
 #define AO_SYS_CLOCK_U6 (0)
 ```
+
+The peripheral bus clock frequency for each UART module, in Hertz.
 
 # Include Next
 

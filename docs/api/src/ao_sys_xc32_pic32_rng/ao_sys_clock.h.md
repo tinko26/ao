@@ -10,11 +10,11 @@ toc: true
 
 ## `AO_SYS_CLOCK_RNG`
 
-The peripheral bus clock frequency for the RNG module, in Hertz.
-
 ```c
 #define AO_SYS_CLOCK_RNG (0)
 ```
+
+The peripheral bus clock frequency for the RNG module, in Hertz.
 
 # Include Next
 

@@ -18,200 +18,200 @@ toc: true
 
 ## `AO_IR_U1`
 
-The interrupt handler attribute.
-
 ```c
 #define AO_IR_U1_ATTRIBUTE __ISR(_UART_1_VECTOR, IPL4SOFT)
 ```
 
-The interrupt priority and subpriority.
+The interrupt handler attribute.
 
 ```c
-#define AO_IR_U1_PRIO      (4)
-#define AO_IR_U1_SUBPRIO   (0)
+#define AO_IR_U1_PRIO    (4)
+#define AO_IR_U1_SUBPRIO (0)
 ```
 
-## `AO_IR_U2`
+The interrupt priority and subpriority.
 
-The interrupt handler attribute.
+## `AO_IR_U2`
 
 ```c
 #define AO_IR_U2_ATTRIBUTE __ISR(_UART_2_VECTOR, IPL4SOFT)
 ```
 
-The interrupt priority and subpriority.
+The interrupt handler attribute.
 
 ```c
-#define AO_IR_U2_PRIO      (4)
-#define AO_IR_U2_SUBPRIO   (0)
+#define AO_IR_U2_PRIO    (4)
+#define AO_IR_U2_SUBPRIO (0)
 ```
+
+The interrupt priority and subpriority.
 
 # Functions
 
 ## `ao_ir_u1e`
-
-Enable or disable the interrupt.
 
 ```c
 #define ao_ir_u1e_enable()
 #define ao_ir_u1e_disable()
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 #define ao_ir_u1e_request()
 #define ao_ir_u1e_reply()
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 #define ao_ir_u1e_is_enabled()
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 #define ao_ir_u1e_is_pending()
 ```
 
-## `ao_ir_u1rx`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_u1rx`
 
 ```c
 #define ao_ir_u1rx_enable()
 #define ao_ir_u1rx_disable()
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 #define ao_ir_u1rx_request()
 #define ao_ir_u1rx_reply()
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 #define ao_ir_u1rx_is_enabled()
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 #define ao_ir_u1rx_is_pending()
 ```
 
-## `ao_ir_u1tx`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_u1tx`
 
 ```c
 #define ao_ir_u1tx_enable()
 #define ao_ir_u1tx_disable()
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 #define ao_ir_u1tx_request()
 #define ao_ir_u1tx_reply()
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 #define ao_ir_u1tx_is_enabled()
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 #define ao_ir_u1tx_is_pending()
 ```
 
-## `ao_ir_u2e`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_u2e`
 
 ```c
 #define ao_ir_u2e_enable()
 #define ao_ir_u2e_disable()
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 #define ao_ir_u2e_request()
 #define ao_ir_u2e_reply()
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 #define ao_ir_u2e_is_enabled()
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 #define ao_ir_u2e_is_pending()
 ```
 
-## `ao_ir_u2rx`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_u2rx`
 
 ```c
 #define ao_ir_u2rx_enable()
 #define ao_ir_u2rx_disable()
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 #define ao_ir_u2rx_request()
 #define ao_ir_u2rx_reply()
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 #define ao_ir_u2rx_is_enabled()
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 #define ao_ir_u2rx_is_pending()
 ```
 
-## `ao_ir_u2tx`
+Checks whether the interrupt is pending.
 
-Enable or disable the interrupt.
+## `ao_ir_u2tx`
 
 ```c
 #define ao_ir_u2tx_enable()
 #define ao_ir_u2tx_disable()
 ```
 
-Request the interrupt or reply thereto.
+Enables or disables the interrupt.
 
 ```c
 #define ao_ir_u2tx_request()
 #define ao_ir_u2tx_reply()
 ```
 
-Check whether the interrupt is enabled.
+Requests the interrupt or replies thereto.
 
 ```c
 #define ao_ir_u2tx_is_enabled()
 ```
 
-Check whether the interrupt is pending.
+Checks whether the interrupt is enabled.
 
 ```c
 #define ao_ir_u2tx_is_pending()
 ```
+
+Checks whether the interrupt is pending.

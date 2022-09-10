@@ -88,7 +88,7 @@ The number of blocks in each pool.
 #define AO_ALLOC_POOL_BLOCK_SIZE_63 (0)
 ```
 
-The size of the blocks in each pool in bytes.
+The size of the blocks in each pool, in bytes.
 
 # Types
 

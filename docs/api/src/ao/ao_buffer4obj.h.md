@@ -64,7 +64,7 @@ This type represents a buffer for objects. It consists of the following members.
 | `count` | The current number of objects stored in the buffer. |
 | `count_max` | The maximum number of objects stored in the buffer. |
 | `front` | The front object index. |
-| `size` | The size of an object in bytes. |
+| `size` | The size of an object, in bytes. |
 | `store` | The store. |
 
 # Functions

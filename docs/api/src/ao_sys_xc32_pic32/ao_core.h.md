@@ -20,21 +20,19 @@ This module provides information about identical processor cores and is to suppo
 
 ## `AO_CORE_COUNT`
 
-The number of identical processor cores.
-
 ```c
 #define AO_CORE_COUNT (1)
 ```
 
-# Typedefs
-
-```c
-typedef uint32_t ao_core_t;
-```
+The number of identical processor cores.
 
 # Types
 
 ## `ao_core_t`
+
+```c
+typedef uint32_t ao_core_t;
+```
 
 This type is an alias for the `uint32_t` unsigned integer type. It is to hold the zero-based index of a processor core.
 
@@ -42,8 +40,8 @@ This type is an alias for the `uint32_t` unsigned integer type. It is to hold th
 
 ## `ao_core`
 
-Get the zero-based index of the processor core, on which the calling thread of execution is running. This function returns 0.
-
 ```c
 #define ao_core()
 ```
+
+Gets the zero-based index of the processor core, on which the calling thread of execution is running. This function always returns `0`.

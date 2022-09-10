@@ -22,31 +22,29 @@ This module contains a couple of time-related definitions, that are based on a h
 
 ## `AO_INFINITY`
 
-Infinity.
-
 ```c
 #define AO_INFINITY (AO_COUNT_MAX)
 ```
 
+Infinity.
+
 ## `AO_TIME_MAX`
 ## `AO_TIME_MIN`
-
-The maximum and minimum time value, respectively.
 
 ```c
 #define AO_TIME_MAX (AO_COUNT_MAX)
 #define AO_TIME_MIN (AO_COUNT_MIN)
 ```
 
-# Typedefs
-
-```c
-typedef ao_count_t ao_time_t;
-```
+The maximum and minimum time value, respectively.
 
 # Types
 
 ## `ao_time_t`
+
+```c
+typedef ao_count_t ao_time_t;
+```
 
 This type is an alias for the `ao_count_t` type. It represents both time points and time spans. Because the underlying type is an unsigned integer type, negative time spans cannot be represented.
 
@@ -54,11 +52,11 @@ This type is an alias for the `ao_count_t` type. It represents both time points 
 
 ## `ao_now`
 
-Get the current time point.
-
 ```c
 #define ao_now()
 ```
+
+Gets the current time point.
 
 ## `AO_DAYS`
 ## `AO_HOURS`
@@ -67,8 +65,6 @@ Get the current time point.
 ## `AO_MILLISECONDS`
 ## `AO_MICROSECOND`
 ## `AO_NANOSECONDS`
-
-Convert a time span to an `ao_time_t` value.
 
 ```c
 #define AO_DAYS(x)
@@ -80,6 +76,8 @@ Convert a time span to an `ao_time_t` value.
 #define AO_NANOSECONDS(x)
 ```
 
+Converts a time span to an `ao_time_t` value.
+
 ## `AO_DAYS_FROM_TIME`
 ## `AO_HOURS_FROM_TIME`
 ## `AO_MINUTES_FROM_TIME`
@@ -87,8 +85,6 @@ Convert a time span to an `ao_time_t` value.
 ## `AO_MILLISECONDS_FROM_TIME`
 ## `AO_MICROSECOND_FROM_TIME`
 ## `AO_NANOSECONDS_FROM_TIME`
-
-Convert a time span from an `ao_time_t` value.
 
 ```c
 #define AO_DAYS_FROM_TIME(x)
@@ -99,3 +95,5 @@ Convert a time span from an `ao_time_t` value.
 #define AO_MICROSECONDS_FROM_TIME(x)
 #define AO_NANOSECONDS_FROM_TIME(x)
 ```
+
+Converts a time span from an `ao_time_t` value.

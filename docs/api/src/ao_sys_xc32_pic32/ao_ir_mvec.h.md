@@ -17,9 +17,9 @@ toc: true
 ## `ao_ir_mvec_enable`
 ## `ao_ir_mvec_disable`
 
-Enable or disable, respectively, the multi-vectored interrupt mode.
-
 ```c
 #define ao_ir_mvec_enable()
 #define ao_ir_mvec_disable()
 ```
+
+Enables or disables, respectively, the multi-vectored interrupt mode.

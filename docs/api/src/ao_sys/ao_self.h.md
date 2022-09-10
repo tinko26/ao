@@ -24,18 +24,18 @@ toc: true
 
 ## `ao_self`
 
-Get the running task.
-
 ```c
 ao_task_t * ao_self();
 ```
 
+Gets the running task.
+
 ## `ao_stop`
 ## `ao_suspend`
-
-Stop or suspend the running task, respectively.
 
 ```c
 void ao_stop();
 void ao_suspend();
 ```
+
+Stops or suspends the running task, respectively.

@@ -26,18 +26,13 @@ toc: true
 #define AO_SEM
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_sem_t      ao_sem_t;
-typedef struct ao_sem_take_t ao_sem_take_t;
-```
-
 # Types
 
 ## `ao_sem_t`
 
-This type represents a counting semaphore.
+```c
+typedef struct ao_sem_t ao_sem_t;
+```
 
 ```c
 struct ao_sem_t
@@ -47,14 +42,16 @@ struct ao_sem_t
 };
 ```
 
-It consists of the following members.
+This type represents a counting semaphore. It consists of the following members.
 
 | `count` | The count of the semaphore. |
 | `list` | The list of tasks attempting to take the semaphore. |
 
 ## `ao_sem_take_t`
 
-This type represents the taking of a semaphore count.
+```c
+typedef struct ao_sem_take_t ao_sem_take_t;
+```
 
 ```c
 struct ao_sem_take_t
@@ -67,7 +64,7 @@ struct ao_sem_take_t
 };
 ```
 
-It consists of the following members.
+This type represents the taking of a semaphore count. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `count` | The count to take. |

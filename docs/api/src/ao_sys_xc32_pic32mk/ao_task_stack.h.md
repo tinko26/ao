@@ -27,12 +27,6 @@ toc: true
 #define AO_TASK_STACK_THRESHOLD (70)
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_task_t ao_task_t;
-```
-
 # Functions
 
 ## `ao_task_stack_null`

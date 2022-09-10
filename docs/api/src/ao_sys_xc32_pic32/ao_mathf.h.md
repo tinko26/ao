@@ -20,17 +20,15 @@ This module provides mathematical constants and functions for floating-point num
 
 ## `ao_acos`
 
-Get the arc cosine of $$\texttt{x}$$.
-
 ```c
 #define ao_acosd(x)
 #define ao_acosf(x)
 #define ao_acosl(x)
 ```
 
-## `ao_acosh`
+Calculates the arc cosine of $$\texttt{x}$$.
 
-Get the area hyperbolic cosine of $$\texttt{x}$$.
+## `ao_acosh`
 
 ```c
 #define ao_acoshd(x)
@@ -38,9 +36,9 @@ Get the area hyperbolic cosine of $$\texttt{x}$$.
 #define ao_acoshl(x)
 ```
 
-## `ao_asin`
+Calculates the area hyperbolic cosine of $$\texttt{x}$$.
 
-Get the arc sine of $$\texttt{x}$$.
+## `ao_asin`
 
 ```c
 #define ao_asind(x)
@@ -48,9 +46,9 @@ Get the arc sine of $$\texttt{x}$$.
 #define ao_asinl(x)
 ```
 
-## `ao_asinh`
+Calculates the arc sine of $$\texttt{x}$$.
 
-Get the area hyperbolic sine of $$\texttt{x}$$.
+## `ao_asinh`
 
 ```c
 #define ao_asinhd(x)
@@ -58,9 +56,9 @@ Get the area hyperbolic sine of $$\texttt{x}$$.
 #define ao_asinhl(x)
 ```
 
-## `ao_atan`
+Calculates the area hyperbolic sine of $$\texttt{x}$$.
 
-Get the arc tangent of $$\texttt{x}$$.
+## `ao_atan`
 
 ```c
 #define ao_atand(x)
@@ -68,9 +66,9 @@ Get the arc tangent of $$\texttt{x}$$.
 #define ao_atanl(x)
 ```
 
-## `ao_atan2`
+Calculates the arc tangent of $$\texttt{x}$$.
 
-Get the arc tangent of $$\frac{\texttt{y}}{\texttt{x}}$$.
+## `ao_atan2`
 
 ```c
 #define ao_atan2d(y, x)
@@ -78,9 +76,9 @@ Get the arc tangent of $$\frac{\texttt{y}}{\texttt{x}}$$.
 #define ao_atan2l(y, x)
 ```
 
-## `ao_atanh`
+Calculates the arc tangent of $$\frac{\texttt{y}}{\texttt{x}}$$.
 
-Get the area hyperbolic tangent of $$\texttt{x}$$.
+## `ao_atanh`
 
 ```c
 #define ao_atanhd(x)
@@ -88,9 +86,9 @@ Get the area hyperbolic tangent of $$\texttt{x}$$.
 #define ao_atanhl(x)
 ```
 
-## `ao_cbrt`
+Calculates the area hyperbolic tangent of $$\texttt{x}$$.
 
-Get the cubic root of $$\texttt{x}$$.
+## `ao_cbrt`
 
 ```c
 #define ao_cbrtd(x)
@@ -98,9 +96,9 @@ Get the cubic root of $$\texttt{x}$$.
 #define ao_cbrtl(x)
 ```
 
-## `ao_ceil`
+Calculates the cubic root of $$\texttt{x}$$.
 
-Round $$\texttt{x}$$ up.
+## `ao_ceil`
 
 ```c
 #define ao_ceild(x)
@@ -108,9 +106,9 @@ Round $$\texttt{x}$$ up.
 #define ao_ceill(x)
 ```
 
-## `ao_cos`
+Rounds $$\texttt{x}$$ up.
 
-Get the cosine of $$\texttt{x}$$.
+## `ao_cos`
 
 ```c
 #define ao_cosd(x)
@@ -118,9 +116,9 @@ Get the cosine of $$\texttt{x}$$.
 #define ao_cosl(x)
 ```
 
-## `ao_cosh`
+Calculates the cosine of $$\texttt{x}$$.
 
-Get the hyperbolic cosine of $$\texttt{x}$$.
+## `ao_cosh`
 
 ```c
 #define ao_coshd(x)
@@ -128,9 +126,9 @@ Get the hyperbolic cosine of $$\texttt{x}$$.
 #define ao_coshl(x)
 ```
 
-## `ao_exp`
+Calculates the hyperbolic cosine of $$\texttt{x}$$.
 
-Get $$e^\texttt{x}$$.
+## `ao_exp`
 
 ```c
 #define ao_expd(x)
@@ -138,9 +136,9 @@ Get $$e^\texttt{x}$$.
 #define ao_expl(x)
 ```
 
-## `ao_fabs`
+Calculates $$e^\texttt{x}$$.
 
-Get the absolute value of $$\texttt{x}$$.
+## `ao_fabs`
 
 ```c
 #define ao_fabsd(x)
@@ -148,9 +146,9 @@ Get the absolute value of $$\texttt{x}$$.
 #define ao_fabsl(x)
 ```
 
-## `ao_floor`
+Calculates the absolute value of $$\texttt{x}$$.
 
-Round $$\texttt{x}$$ down.
+## `ao_floor`
 
 ```c
 #define ao_floord(x)
@@ -158,9 +156,9 @@ Round $$\texttt{x}$$ down.
 #define ao_floorl(x)
 ```
 
-## `ao_fmod`
+Rounds $$\texttt{x}$$ down.
 
-Get the remainder of $$\frac{\texttt{x}}{\texttt{y}}$$ rounded to zero.
+## `ao_fmod`
 
 ```c
 #define ao_fmodd(x, y)
@@ -168,9 +166,9 @@ Get the remainder of $$\frac{\texttt{x}}{\texttt{y}}$$ rounded to zero.
 #define ao_fmodl(x, y)
 ```
 
-## `ao_frexp`
+Calculates the remainder of $$\frac{\texttt{x}}{\texttt{y}}$$ rounded to zero.
 
-Break $$\texttt{x}$$ into its binary significant and an integral exponent for 2.
+## `ao_frexp`
 
 ```c
 #define ao_frexpd(x, exp)
@@ -178,9 +176,9 @@ Break $$\texttt{x}$$ into its binary significant and an integral exponent for 2.
 #define ao_frexpl(x, exp)
 ```
 
-## `ao_hypot`
+Breaks $$\texttt{x}$$ into its binary significant and an integral exponent for 2.
 
-Get $$\sqrt{\texttt{x}^2 + \texttt{y}^2}$$.
+## `ao_hypot`
 
 ```c
 #define ao_hypotd(x, y)
@@ -188,9 +186,9 @@ Get $$\sqrt{\texttt{x}^2 + \texttt{y}^2}$$.
 #define ao_hypotl(x, y)
 ```
 
-## `ao_isfinite`
+Calculates $$\sqrt{\texttt{x}^2 + \texttt{y}^2}$$.
 
-Check whether $$\texttt{x}$$ is finite.
+## `ao_isfinite`
 
 ```c
 #define ao_isfinited(x)
@@ -198,9 +196,9 @@ Check whether $$\texttt{x}$$ is finite.
 #define ao_isfinitel(x)
 ```
 
-## `ao_isinf`
+Checks whether $$\texttt{x}$$ is finite.
 
-Check whether $$\texttt{x}$$ is positive or negative infinity.
+## `ao_isinf`
 
 ```c
 #define ao_isinfd(x)
@@ -208,9 +206,9 @@ Check whether $$\texttt{x}$$ is positive or negative infinity.
 #define ao_isinfl(x)
 ```
 
-## `ao_isnan`
+Checks whether $$\texttt{x}$$ is positive or negative infinity.
 
-Check whether $$\texttt{x}$$ is not a number.
+## `ao_isnan`
 
 ```c
 #define ao_isnand(x)
@@ -218,9 +216,9 @@ Check whether $$\texttt{x}$$ is not a number.
 #define ao_isnanl(x)
 ```
 
-## `ao_ldexp`
+Checks whether $$\texttt{x}$$ is not a number.
 
-Get $$\texttt{x} \cdot 2^{\texttt{exp}}$$.
+## `ao_ldexp`
 
 ```c
 #define ao_ldexpd(x, exp)
@@ -228,9 +226,9 @@ Get $$\texttt{x} \cdot 2^{\texttt{exp}}$$.
 #define ao_ldexpl(x, exp)
 ```
 
-## `ao_log`
+Calculates $$\texttt{x} \cdot 2^{\texttt{exp}}$$.
 
-Get the natural logarithm of $$\texttt{x}$$.
+## `ao_log`
 
 ```c
 #define ao_logd(x)
@@ -238,9 +236,9 @@ Get the natural logarithm of $$\texttt{x}$$.
 #define ao_logl(x)
 ```
 
-## `ao_log10`
+Calculates the natural logarithm of $$\texttt{x}$$.
 
-Get the common logarithm of $$\texttt{x}$$.
+## `ao_log10`
 
 ```c
 #define ao_log10d(x)
@@ -248,9 +246,9 @@ Get the common logarithm of $$\texttt{x}$$.
 #define ao_log10l(x)
 ```
 
-## `ao_modf`
+Calculates the common logarithm of $$\texttt{x}$$.
 
-Break $$\texttt{x}$$ into an integral and a fractional part.
+## `ao_modf`
 
 ```c
 #define ao_modfd(x, intpart)
@@ -258,9 +256,9 @@ Break $$\texttt{x}$$ into an integral and a fractional part.
 #define ao_modfl(x, intpart)
 ```
 
-## `ao_pow`
+Breaks $$\texttt{x}$$ into an integral and a fractional part.
 
-Get $$\texttt{x}^\texttt{y}$$.
+## `ao_pow`
 
 ```c
 #define ao_powd(x, y)
@@ -268,9 +266,9 @@ Get $$\texttt{x}^\texttt{y}$$.
 #define ao_powl(x, y)
 ```
 
-## `ao_sin`
+Calculates $$\texttt{x}^\texttt{y}$$.
 
-Get the sine of $$\texttt{x}$$.
+## `ao_sin`
 
 ```c
 #define ao_sind(x)
@@ -278,9 +276,9 @@ Get the sine of $$\texttt{x}$$.
 #define ao_sinl(x)
 ```
 
-## `ao_sinh`
+Calculates the sine of $$\texttt{x}$$.
 
-Get the hyperbolic sine of $$\texttt{x}$$.
+## `ao_sinh`
 
 ```c
 #define ao_sinhd(x)
@@ -288,9 +286,9 @@ Get the hyperbolic sine of $$\texttt{x}$$.
 #define ao_sinhl(x)
 ```
 
-## `ao_sqrt`
+Calculates the hyperbolic sine of $$\texttt{x}$$.
 
-Get the square root of $$\texttt{x}$$.
+## `ao_sqrt`
 
 ```c
 #define ao_sqrtd(x)
@@ -298,9 +296,9 @@ Get the square root of $$\texttt{x}$$.
 #define ao_sqrtl(x)
 ```
 
-## `ao_tan`
+Calculates the square root of $$\texttt{x}$$.
 
-Get the tangent of $$\texttt{x}$$.
+## `ao_tan`
 
 ```c
 #define ao_tand(x)
@@ -308,15 +306,17 @@ Get the tangent of $$\texttt{x}$$.
 #define ao_tanl(x)
 ```
 
-## `ao_tanh`
+Calculates the tangent of $$\texttt{x}$$.
 
-Get the hyperbolic tangent of $$\texttt{x}$$.
+## `ao_tanh`
 
 ```c
 #define ao_tanhd(x)
 #define ao_tanhf(x)
 #define ao_tanhl(x)
 ```
+
+Calculates the hyperbolic tangent of $$\texttt{x}$$.
 
 # Include Next
 

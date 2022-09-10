@@ -6,16 +6,13 @@ permalink: /api/src/ao_sys/ao_task_context.h/
 toc: true
 ---
 
-# Typedefs
-
-```c
-typedef struct ao_task_t         ao_task_t;
-typedef struct ao_task_context_t ao_task_context_t;
-```
-
 # Types
 
 ## `ao_task_context_t`
+
+```c
+typedef struct ao_task_context_t ao_task_context_t;
+```
 
 ```c
 struct ao_task_context_t { };

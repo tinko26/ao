@@ -14,15 +14,13 @@ toc: true
 #include <stdint.h>
 ```
 
-# Typedefs
+# Types
+
+## `ao_sys_lock_device_t`
 
 ```c
 typedef struct ao_sys_lock_device_t ao_sys_lock_device_t;
 ```
-
-# Types
-
-## `ao_sys_lock_device_t`
 
 ```c
 struct ao_sys_lock_device_t

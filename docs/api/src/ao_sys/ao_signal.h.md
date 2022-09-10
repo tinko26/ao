@@ -23,18 +23,13 @@ toc: true
 #define AO_SIGNAL
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_signal_t      ao_signal_t;
-typedef struct ao_signal_wait_t ao_signal_wait_t;
-```
-
 # Types
 
 ## `ao_signal_t`
 
-This type represents a signal.
+```c
+typedef struct ao_signal_t ao_signal_t;
+```
 
 ```c
 struct ao_signal_t
@@ -43,13 +38,15 @@ struct ao_signal_t
 };
 ```
 
-It consists of the following members.
+This type represents a signal. It consists of the following members.
 
 | `list` | The list of waiting tasks. |
 
 ## `ao_signal_wait_t`
 
-This type represents the waiting for a signal.
+```c
+typedef struct ao_signal_wait_t ao_signal_wait_t;
+```
 
 ```c
 struct ao_signal_wait_t
@@ -61,7 +58,7 @@ struct ao_signal_wait_t
 };
 ```
 
-It consists of the following members.
+This type represents the waiting for a signal. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `node` | The node for the signal's waiting list. |

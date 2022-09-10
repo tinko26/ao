@@ -11,9 +11,9 @@ toc: true
 ## `AO_IR_PRIO_MAX`
 ## `AO_IR_PRIO_MIN`
 
-The maximum and minimum interrupt priorities.
-
 ```c
 #define AO_IR_PRIO_MAX (7)
 #define AO_IR_PRIO_MIN (0)
 ```
+
+The maximum and minimum interrupt priorities.

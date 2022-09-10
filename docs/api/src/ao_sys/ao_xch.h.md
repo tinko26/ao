@@ -33,19 +33,13 @@ toc: true
 #define AO_XCH
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_xch_t        ao_xch_t;
-typedef struct ao_xch_client_t ao_xch_client_t;
-typedef struct ao_xch_server_t ao_xch_server_t;
-```
-
 # Types
 
 ## `ao_xch_t`
 
-This type represents an exchange.
+```c
+typedef struct ao_xch_t ao_xch_t;
+```
 
 ```c
 struct ao_xch_t
@@ -55,14 +49,16 @@ struct ao_xch_t
 };
 ```
 
-It consists of the following members.
+This type represents an exchange. It consists of the following members.
 
 | `clients` | The list of waiting clients. |
 | `servers` | The list of waiting servers. |
 
 ## `ao_xch_client_t`
 
-This type represents the exchange activity of a client.
+```c
+typedef struct ao_xch_client_t ao_xch_client_t;
+```
 
 ```c
 struct ao_xch_client_t
@@ -89,7 +85,7 @@ struct ao_xch_client_t
 };
 ```
 
-It consists of the following members.
+This type represents the exchange activity of a client. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `master` | The task master. |
@@ -101,7 +97,9 @@ It consists of the following members.
 
 ## `ao_xch_server_t`
 
-This type represents the exchange activity of a server.
+```c
+typedef struct ao_xch_server_t ao_xch_server_t;
+```
 
 ```c
 struct ao_xch_server_t
@@ -122,7 +120,7 @@ struct ao_xch_server_t
 };
 ```
 
-It consists of the following members.
+This type represents the exchange activity of a server. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `client` | The client. |
