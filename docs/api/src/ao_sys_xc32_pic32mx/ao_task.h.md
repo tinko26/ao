@@ -6,6 +6,16 @@ permalink: /api/src/ao_sys_xc32_pic32mx/ao_task.h/
 toc: true
 ---
 
+# Notes
+
+## Task switch interrupt
+
+The implementation of the task switch interrupt makes the following assumptions.
+
+The priority of the task switch interrupt equals 1.
+
+Priority level 1 interrupts do not use a shadow set.
+
 # Include
 
 ```c

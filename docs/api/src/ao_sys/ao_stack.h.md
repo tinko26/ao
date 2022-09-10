@@ -34,8 +34,12 @@ This module contains two functions for measuring the high water mark of a stack,
 void ao_stack_fill(void * beginning, size_t size);
 ```
 
+Fills a stack with a pattern, which allows for measuring the high water mark of the stack, later on.
+
 ## `ao_stack_high_water_mark`
 
 ```c
 size_t ao_stack_get_high_water_mark(void const * beginning, size_t size);
 ```
+
+Measures the high water mark of a stack.

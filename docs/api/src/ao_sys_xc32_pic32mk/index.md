@@ -2,6 +2,12 @@
 author: "Stefan Wagner"
 date: 2022-08-29
 draft: false
+external:
+- https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/32-bit-mcus/pic32-32-bit-mcus/pic32mk : "PIC32MK Family of Microcontrollers"
+- https://microchip.com/DS60001192 : "PIC32 Family Reference Manual, Section 50, CPU for Devices with MIPS32® microAptiv™ 
+and M-Class Cores"
+- https://www.mips.com/products/warrior/m-class-m51xx-core-family/ : "M-Class M51xx Core Family"
+- https://www.google.com/search?q=MIPS+MD00980 : "MIPS32® M5150 Processor Core Family Software User’s Manual"
 permalink: /api/src/ao_sys_xc32_pic32mk/
 toc: false
 wide: true

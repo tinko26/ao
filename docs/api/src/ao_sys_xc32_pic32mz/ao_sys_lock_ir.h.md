@@ -6,6 +6,28 @@ permalink: /api/src/ao_sys_xc32_pic32mz/ao_sys_lock_ir.h/
 toc: true
 ---
 
+# Notes
+
+## Example
+
+Lock all interrupts of priority level 4 or less.
+
+```c
+uint32_t p = 4;
+uint32_t x;
+
+x = ao_sys_lock_ir(p);
+{
+    // ...
+
+    // Critical section.
+    // Interrupts are disabled up to and including priority level p.
+
+    // ...
+}
+ao_sys_unlock_ir(x);
+```
+
 # Include
 
 ```c

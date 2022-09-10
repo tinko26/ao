@@ -8,6 +8,25 @@ permalink: /api/src/ao_sys_xc32_pic32/ao_sys_lock_dma.h/
 toc: true
 ---
 
+# Notes
+
+## Example
+
+```c
+uint32_t x;
+
+x = ao_sys_lock_dma();
+{
+    // ...
+
+    // Critical section.
+    // DMA controller is suspended.
+
+    // ...
+}
+ao_sys_unlock_dma(x);
+```
+
 # Include
 
 ```c

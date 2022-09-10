@@ -77,12 +77,12 @@ enum ao_mikroe_1877_event_t
 
 It consists of the following members.
 
-| `AO_MIKROE_1877_EVENT_UNKNOWN` | |
-| `AO_MIKROE_1877_EVENT_STATE_CHANGED` | |
-| `AO_MIKROE_1877_EVENT_PROPERTY_CHANGED` | |
-| `AO_MIKROE_1877_EVENT_DATA_UPDATED` | |
-| `AO_MIKROE_1877_EVENT_POLL_RESPONSE` | |
-| `AO_MIKROE_1877_EVENT_CHANGE_SENSITIVITY` | |
+| `AO_MIKROE_1877_EVENT_UNKNOWN` | The sensor event type is not known. |
+| `AO_MIKROE_1877_EVENT_STATE_CHANGED` | The sensor state has changed. |
+| `AO_MIKROE_1877_EVENT_PROPERTY_CHANGED` | A property value has changed. |
+| `AO_MIKROE_1877_EVENT_DATA_UPDATED` | A data field has changed. |
+| `AO_MIKROE_1877_EVENT_POLL_RESPONSE` | The most current sensor data is being returned as the result of a poll request (Get Input). |
+| `AO_MIKROE_1877_EVENT_CHANGE_SENSITIVITY` | The change sensitivity has been exceeded for a data field. |
 | `AO_MIKROE_1877_EVENT_MAX_REACHED` | |
 | `AO_MIKROE_1877_EVENT_MIN_REACHED` | |
 | `AO_MIKROE_1877_EVENT_HIGH_THRESHOLD_CROSS_UPWARD` | |
@@ -115,12 +115,12 @@ enum ao_mikroe_1877_power_t
 
 It consists of the following members.
 
-| `AO_MIKROE_1877_POWER_UNDEFINED` | |
-| `AO_MIKROE_1877_POWER_FULL` | |
-| `AO_MIKROE_1877_POWER_LOW` | |
-| `AO_MIKROE_1877_POWER_STANDBY` | |
-| `AO_MIKROE_1877_POWER_SLEEP` | |
-| `AO_MIKROE_1877_POWER_OFF` | |
+| `AO_MIKROE_1877_POWER_UNDEFINED` | The device power state is currently unknown or undefined. |
+| `AO_MIKROE_1877_POWER_FULL` | The device is in full power operation. |
+| `AO_MIKROE_1877_POWER_LOW` | The device is in a low power operation mode. |
+| `AO_MIKROE_1877_POWER_STANDBY` | The device is at a standby power mode (e.g., halted and awaiting interrupts) and can be awakened. |
+| `AO_MIKROE_1877_POWER_SLEEP` | The device is in a sleep mode and can be awakened. |
+| `AO_MIKROE_1877_POWER_OFF` | The device is completely powered off and cannot be awakened. |
 
 ## `ao_mikroe_1877_reporting_t`
 
@@ -142,12 +142,12 @@ enum ao_mikroe_1877_reporting_t
 
 It consists of the following members.
 
-| `AO_MIKROE_1877_REPORTING_ALL` | |
-| `AO_MIKROE_1877_REPORTING_ALL_WAKE` | |
-| `AO_MIKROE_1877_REPORTING_NONE` | |
-| `AO_MIKROE_1877_REPORTING_NONE_WAKE` | |
-| `AO_MIKROE_1877_REPORTING_THRESHOLD` | |
-| `AO_MIKROE_1877_REPORTING_THRESHOLD_WAKE` | |
+| `AO_MIKROE_1877_REPORTING_ALL` | All Input reports are sent without any filtering. |
+| `AO_MIKROE_1877_REPORTING_ALL_WAKE` | All Input reports are sent without any filtering. A Wake On event is performed. |
+| `AO_MIKROE_1877_REPORTING_NONE` | No asynchronous Input reports are sent. |
+| `AO_MIKROE_1877_REPORTING_NONE_WAKE` | No asynchronous Input reports are sent. A Wake On event is never performed. |
+| `AO_MIKROE_1877_REPORTING_THRESHOLD` | Input reports are sent only when it exceeds a pre-programmed threshold. |
+| `AO_MIKROE_1877_REPORTING_THRESHOLD_WAKE` | Input reports are sent only when it exceeds a pre-programmed threshold. A Wake On event is performed. |
 
 ## `ao_mikroe_1877_sensor_t`
 
@@ -201,13 +201,13 @@ enum ao_mikroe_1877_state_t
 
 It consists of the following members.
 
-| `AO_MIKROE_1877_STATE_UNDEFINED` | |
-| `AO_MIKROE_1877_STATE_READY` | |
-| `AO_MIKROE_1877_STATE_NOT_AVAILABLE` | |
-| `AO_MIKROE_1877_STATE_NO_DATA` | |
-| `AO_MIKROE_1877_STATE_INITIALIZING` | |
-| `AO_MIKROE_1877_STATE_ACCESS_DENIED` | |
-| `AO_MIKROE_1877_STATE_ERROR` | |
+| `AO_MIKROE_1877_STATE_UNDEFINED` | The sensor state is not known. |
+| `AO_MIKROE_1877_STATE_READY` | Sensor is able to provide new complete and accurate data. |
+| `AO_MIKROE_1877_STATE_NOT_AVAILABLE` | The sensor not available. |
+| `AO_MIKROE_1877_STATE_NO_DATA` | The sensor is available, but is not yet providing data. It is not known in what timeframe data will, if ever, be provided. |
+| `AO_MIKROE_1877_STATE_INITIALIZING` | The sensor is available, but is not yet providing data due to initialization activities. It is expected the sensor will provide data, but the timeframe in which that data will be available is not known. |
+| `AO_MIKROE_1877_STATE_ACCESS_DENIED` | In the case where an ID must be provided to access sensor data, and the requester fails to match the ID, this state will be returned. |
+| `AO_MIKROE_1877_STATE_ERROR` | The sensor has encountered a major error. The sensor may recover from the state, but the time frame for recovery is unknown. |
 
 ## `ao_mikroe_1877_data_accelerometer_t`
 
@@ -384,9 +384,9 @@ struct ao_mikroe_1877_info_t
 It consists of the following members.
 
 | `accuracy` | |
-| `change_sensitivity` | |
+| `change_sensitivity` | Specifies the absolute amount that by which a data field should change before an event (such as an asynchronous Input Report) is generated. Absolute sensitivity values are expressed using the same units as the corresponding data field. |
 | `connection` | |
-| `interval` | |
+| `interval` | Specifies the elapsed time for periodic sensor Input Report generation. A value of 0 means set or use the device default value, not 0 milliseconds. |
 | `interval_min` | |
 | `max` | |
 | `min` | |

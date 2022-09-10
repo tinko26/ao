@@ -53,18 +53,29 @@ This type represents the sleeping of a task. It consists of the following member
 # Functions
 
 ## `ao_sleep`
+
+```c
+bool ao_sleep(ao_time_t timeout);
+```
+
+Puts the running task to sleep. If the `timeout` is not equal to `AO_INFINITY`, then the task will wake up at `ao_now()` + `timeout`. If the `timeout` is equal to `AO_INFINITY`, then the task will sleep forever and must be woken up explicitly by another task or an interrupt calling `ao_task_wake()`. This function returns `true`, if task has woken up after the specified `timeout`, otherwise `false`.
+
 ## `ao_sleep_from`
 
 ```c
-bool ao_sleep(     ao_time_t timeout);
 bool ao_sleep_from(ao_time_t timeout, ao_time_t beginning);
 ```
+
+Puts the running task to sleep. If the `timeout` is not equal to `AO_INFINITY`, then the task will wake up at `beginning` + `timeout`. If the `timeout` is equal to `AO_INFINITY`, then the task will sleep forever and must be woken up explicitly by another task or an interrupt calling `ao_task_wake()`. This function returns `true`, if task has woken up after the specified `timeout`, otherwise `false`.
+
 
 ## `ao_sleep_forever`
 
 ```c
 bool ao_sleep_forever();
 ```
+
+Puts the running task to sleep. The task will never be woken up by the operating system. Therefore, it must be woken up explicitly by another task or an interrupt calling `ao_task_wake()`. This function returns `false`.
 
 ## `ao_sleep_begin`
 ## `ao_sleep_end`
@@ -73,3 +84,5 @@ bool ao_sleep_forever();
 void ao_sleep_begin(ao_sleep_t * x);
 void ao_sleep_end(  ao_sleep_t * x);
 ```
+
+Begins or ends sleeping.

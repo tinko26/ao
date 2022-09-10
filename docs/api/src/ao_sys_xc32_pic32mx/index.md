@@ -2,6 +2,13 @@
 author: "Stefan Wagner"
 date: 2022-08-29
 draft: false
+external:
+- https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/32-bit-mcus/pic32-32-bit-mcus/pic32mx : "PIC32MX Family of Microcontrollers"
+- https://microchip.com/DS61113 : "PIC32 Family Reference Manual, Section 2, CPU for Devices with M4K® Core"
+- https://microchip.com/DS60001115 : "PIC32 Family Reference Manual, Section 3, Memory Organization"
+- https://microchip.com/DS61119 : "PIC32 Family Reference Manual, Section 4, Prefetch Cache"
+- https://www.mips.com/products/classic/ : "MIPS Classic Processor Cores"
+- https://www.google.com/search?q=MIPS+MD00980 : "MIPS32® M4K™ Processor Core Software User’s Manual"
 permalink: /api/src/ao_sys_xc32_pic32mx/
 toc: false
 wide: true

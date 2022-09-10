@@ -3,8 +3,14 @@ author: "Stefan Wagner"
 date: 2022-08-31
 draft: true
 permalink: /api/src/ao_sys/ao_pmail.h/
+seealso:
+- /api/src/ao/ao_rb.h/
 toc: true
 ---
+
+# Notes
+
+This module implements a priority queue based on a red-black tree. Fetching returns the minimum element of the tree.
 
 # Include
 

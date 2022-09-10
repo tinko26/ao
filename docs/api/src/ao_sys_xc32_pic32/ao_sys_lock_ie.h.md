@@ -6,6 +6,25 @@ permalink: /api/src/ao_sys_xc32_pic32/ao_sys_lock_ie.h/
 toc: true
 ---
 
+# Notes
+
+## Example
+
+```c
+uint32_t x;
+
+x = ao_sys_lock_ie();
+{
+    // ...
+
+    // Critical section.
+    // Interrupts are disabled globally.
+
+    // ...
+}
+ao_sys_unlock_ie(x);
+```
+
 # Include
 
 ```c

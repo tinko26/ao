@@ -6,6 +6,25 @@ permalink: /api/src/ao_sys_xc32_pic32mk/ao_sys_lock_pps.h/
 toc: true
 ---
 
+# Notes
+
+## Example
+
+```c
+ao_sys_lock_pps_t x;
+
+ao_sys_unlock_pps(&x);
+{
+    // ...
+
+    // Critical section.
+    // Peripheral pin select registers can be written.
+
+    // ...
+}
+ao_sys_lock_pps(&x);
+```
+
 # Include
 
 ```c

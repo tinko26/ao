@@ -8,6 +8,25 @@ permalink: /api/src/ao_sys_xc32_pic32/ao_sys_lock_device.h/
 toc: true
 ---
 
+# Notes
+
+## Example
+
+```c
+ao_sys_lock_device_t x;
+
+ao_sys_unlock_device(&x);
+{
+    // ...
+
+    // Critical section.
+    // Device is unlocked.
+
+    // ...
+}
+ao_sys_lock_device(&x);
+```
+
 # Include
 
 ```c

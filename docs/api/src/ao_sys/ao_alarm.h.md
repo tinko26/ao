@@ -33,6 +33,8 @@ toc: true
 #define AO_ALARM_DELAY (AO_MILLISECONDS(100))
 ```
 
+The alarm delay is an estimate of the maximum latency of the alarm interrupt. This latency may be caused by hardware, interrupts of higher priority being served, interrupts being disabled due to critical zones, or interrupt context save and restore operations, among others. This value must be greater than zero.
+
 # Constants
 
 ## `AO_ALARM_UPDATE`
@@ -40,6 +42,8 @@ toc: true
 ```c
 #define AO_ALARM_UPDATE (AO_TIME_MAX - AO_ALARM_DELAY + 1)
 ```
+
+The alarm update specifies the maximum time span between subsequent alarm interrupts. It takes into account the latency of the alarm interrupt in order to not miss a count overflow.
 
 # Types
 

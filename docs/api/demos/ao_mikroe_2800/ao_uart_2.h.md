@@ -6,6 +6,10 @@ permalink: /api/demos/ao_mikroe_2800/ao_uart_2.h/
 toc: true
 ---
 
+# Notes
+
+This module supports baud rates up to 921600 bps.
+
 # Include
 
 ```c

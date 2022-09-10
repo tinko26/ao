@@ -43,9 +43,9 @@ struct ao_mikroe_2935_t
 It consists of the following members.
 
 | `ready` | |
-| `x` | |
-| `y` | |
-| `z` | |
+| `x` | &my;T |
+| `y` | &my;T |
+| `z` | &my;T |
 
 # Functions
 
