@@ -79,6 +79,8 @@ enum    ao_leds_t
 
         AO_LEDS_ACD         = AO_LEDS_0 | AO_LEDS_2 | AO_LEDS_3,
 
+        AO_LEDS_AD          = AO_LEDS_0 | AO_LEDS_3,
+
         AO_LEDS_B           = AO_LEDS_1,
 
         AO_LEDS_BC          = AO_LEDS_1 | AO_LEDS_2,
