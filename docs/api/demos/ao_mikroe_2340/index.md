@@ -5,8 +5,8 @@ draft: false
 external:
 - https://www.mikroe.com/flipclick-pic32mz : "Flip&Click PIC32MZ"
 permalink: /api/demos/ao_mikroe_2340/
-toc: false
-wide: true
+toc: true
+wide: false
 ---
 
 # Files

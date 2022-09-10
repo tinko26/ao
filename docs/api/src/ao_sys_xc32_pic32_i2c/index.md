@@ -3,10 +3,11 @@ author: "Stefan Wagner"
 date: 2022-08-29
 draft: false
 external:
+- https://en.wikipedia.org/wiki/I²C : "I²C"
 - https://microchip.com/DS60001116 : "PIC32 Family Reference Manual, Section 24, Inter-Integrated Circuit (I²C)"
 permalink: /api/src/ao_sys_xc32_pic32_i2c/
-toc: false
-wide: true
+toc: true
+wide: false
 ---
 
 # Files

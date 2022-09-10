@@ -3,8 +3,8 @@ author: "Stefan Wagner"
 date: 2022-08-30
 draft: false
 permalink: /api/demos/ao_mikroe_2800_blink2/
-toc: false
-wide: true
+toc: true
+wide: false
 ---
 
 # Files

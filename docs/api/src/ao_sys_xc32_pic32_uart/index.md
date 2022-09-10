@@ -4,9 +4,10 @@ date: 2022-08-29
 draft: false
 external:
 - https://microchip.com/DS60001107 : "PIC32 Family Reference Manual, Section 21, UART"
+- https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter : "Universal asynchronous receiver-transmitter"
 permalink: /api/src/ao_sys_xc32_pic32_uart/
-toc: false
-wide: true
+toc: true
+wide: false
 ---
 
 # Files

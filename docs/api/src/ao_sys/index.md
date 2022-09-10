@@ -3,8 +3,8 @@ author: "Stefan Wagner"
 date: 2022-08-29
 draft: false
 permalink: /api/src/ao_sys/
-toc: false
-wide: true
+toc: true
+wide: false
 ---
 
 # Files

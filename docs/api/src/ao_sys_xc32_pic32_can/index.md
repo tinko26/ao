@@ -3,10 +3,11 @@ author: "Stefan Wagner"
 date: 2022-08-29
 draft: false
 external:
+- https://en.wikipedia.org/wiki/CAN_bus : "CAN bus"
 - https://microchip.com/DS61154 : "PIC32 Family Reference Manual, Section 34, Controller Area Network (CAN)"
 permalink: /api/src/ao_sys_xc32_pic32_can/
-toc: false
-wide: true
+toc: true
+wide: false
 ---
 
 # Files

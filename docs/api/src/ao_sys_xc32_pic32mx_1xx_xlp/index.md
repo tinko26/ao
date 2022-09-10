@@ -6,8 +6,8 @@ external:
 - https://microchip.com/DS60001404 : "PIC32MX1XX/2XX 28/44-Pin XLP Family Data sheet"
 - https://microchip.com/DS80000739 : "PIC32MX1XX/2XX 28/44-Pin XLP Family Errata"
 permalink: /api/src/ao_sys_xc32_pic32mx_1xx_xlp/
-toc: false
-wide: true
+toc: true
+wide: false
 ---
 
 # Files

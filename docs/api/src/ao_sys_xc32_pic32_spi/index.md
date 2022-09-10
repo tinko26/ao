@@ -4,9 +4,10 @@ date: 2022-08-29
 draft: false
 external:
 - https://microchip.com/DS61106 : "PIC32 Family Reference Manual, Section 23, Serial Peripheral Interface (SPI)"
+- https://en.wikipedia.org/wiki/Serial_Peripheral_Interface : "Serial Peripheral Interface"
 permalink: /api/src/ao_sys_xc32_pic32_spi/
-toc: false
-wide: true
+toc: true
+wide: false
 ---
 
 # Files

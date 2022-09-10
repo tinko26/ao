@@ -5,8 +5,8 @@ draft: false
 external:
 - https://microchip.com/DS60001246 : "PIC32 Family Reference Manual, Section 49, Crypto Engine and Random Number Generator (RNG)"
 permalink: /api/src/ao_sys_xc32_pic32_rng/
-toc: false
-wide: true
+toc: true
+wide: false
 ---
 
 # Files

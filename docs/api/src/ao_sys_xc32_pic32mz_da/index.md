@@ -6,8 +6,8 @@ external:
 - https://microchip.com/DS60001361 : "PIC32MZ Graphics (DA) Family Data sheet"
 - https://microchip.com/DS80000736 : "PIC32MZ Graphics (DA) Family Errata"
 permalink: /api/src/ao_sys_xc32_pic32mz_da/
-toc: false
-wide: true
+toc: true
+wide: false
 ---
 
 # Files

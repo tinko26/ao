@@ -3,11 +3,11 @@ author: "Stefan Wagner"
 date: 2022-08-30
 draft: false
 external:
-- https://www.mikroe.com/usb-uart-3-click : "USB UART 3 Click"
 - https://www.silabs.com/interface/usb-bridges/usbxpress : "CP2102N USBXpress USB Bridges"
+- https://www.mikroe.com/usb-uart-3-click : "USB UART 3 Click"
 permalink: /api/demos/ao_mikroe_3063/
-toc: false
-wide: true
+toc: true
+wide: false
 ---
 
 # Files

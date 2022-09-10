@@ -6,8 +6,8 @@ external:
 - https://microchip.com/DS60001191 : "PIC32MZ Embedded Connectivity (EC) Family Data sheet"
 - https://microchip.com/DS80000588 : "PIC32MZ Embedded Connectivity (EC) Family Errata"
 permalink: /api/src/ao_sys_xc32_pic32mz_ec/
-toc: false
-wide: true
+toc: true
+wide: false
 ---
 
 # Files

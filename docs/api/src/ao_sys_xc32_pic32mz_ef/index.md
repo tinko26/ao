@@ -6,8 +6,8 @@ external:
 - https://microchip.com/DS60001320 : "PIC32MZ Embedded Connectivity with Floating Point Unit (EF) Family Data sheet"
 - https://microchip.com/DS80000663 : "PIC32MZ Embedded Connectivity with Floating Point Unit (EF) Family Errata"
 permalink: /api/src/ao_sys_xc32_pic32mz_ef/
-toc: false
-wide: true
+toc: true
+wide: false
 ---
 
 # Files

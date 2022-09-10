@@ -6,8 +6,8 @@ external:
 - https://microchip.com/DS60001185 : "PIC32MX330/350/370/430/450/470 Family Data sheet"
 - https://microchip.com/DS80000574 : "PIC32MX330/350/370/430/450/470 Family Errata"
 permalink: /api/src/ao_sys_xc32_pic32mx_330/
-toc: false
-wide: true
+toc: true
+wide: false
 ---
 
 # Files

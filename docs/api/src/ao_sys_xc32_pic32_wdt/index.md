@@ -4,9 +4,10 @@ date: 2022-08-29
 draft: false
 external:
 - https://microchip.com/DS60001114 : "PIC32 Family Reference Manual, Section 9, Watchdog, Deadman, and Power-up Timers"
+- https://en.wikipedia.org/wiki/Watchdog_timer : "Watchdog timer"
 permalink: /api/src/ao_sys_xc32_pic32_wdt/
-toc: false
-wide: true
+toc: true
+wide: false
 ---
 
 # Files

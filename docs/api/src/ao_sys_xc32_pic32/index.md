@@ -2,9 +2,12 @@
 author: "Stefan Wagner"
 date: 2022-08-29
 draft: false
+external:
+- https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/32-bit-mcus : "32-bit PIC® and SAM Microcontrollers"
+- https://en.wikipedia.org/wiki/PIC_microcontrollers : "https://en.wikipedia.org/wiki/PIC_microcontrollers"
 permalink: /api/src/ao_sys_xc32_pic32/
-toc: false
-wide: true
+toc: true
+wide: false
 ---
 
 # Files
