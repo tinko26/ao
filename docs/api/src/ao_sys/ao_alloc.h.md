@@ -45,13 +45,11 @@ This module encapsulates an allocator that supports dynamic memory management.
 
 ## `AO_ALLOC`
 
-Select the allocator implementation.
-
 ```c
-#define AO_ALLOC    (2)
+#define AO_ALLOC (2)
 ```
 
-The following options are available.
+Selects the allocator implementation. The following options are available.
 
 | [`ao_alloc_0`](ao_alloc_0.h.md) | Stub |
 | [`ao_alloc_1`](ao_alloc_1.h.md) | Linear-time allocator based on pools of fixed-size memory blocks |
@@ -61,27 +59,21 @@ The following options are available.
 ## `AO_RELEASED`
 ## `AO_RETAINED`
 
-Execute a callback upon each call to `ao_acquire()`, `ao_release()`, or `ao_retain()`, respectively, which can aid in debugging an application or tracing and optimizing the memory usage of the allocator.
-
 ```c
 #define AO_ACQUIRED (false)
 #define AO_RELEASED (false)
 #define AO_RETAINED (false)
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_acquired_t ao_acquired_t;
-typedef struct ao_released_t ao_released_t;
-typedef struct ao_retained_t ao_retained_t;
-```
+Defines whether to execute a callback upon each call to `ao_acquire()`, `ao_release()`, or `ao_retain()`, respectively, which can aid in debugging an application or tracing and optimizing the memory usage of the allocator.
 
 # Types
 
 ## `ao_acquired_t`
 
-This type represents the information about a call to `ao_acquire()`.
+```c
+typedef struct ao_acquired_t ao_acquired_t;
+```
 
 ```c
 struct ao_acquired_t
@@ -94,7 +86,7 @@ struct ao_acquired_t
 };
 ```
 
-It consists of the following members.
+This type represents the information about a call to `ao_acquire()`. It consists of the following members.
 
 | `ptr` | The pointer returned by the function. |
 | `result` | Indicates whether the operation has succeeded (`true`) or failed (`false`). |
@@ -104,7 +96,9 @@ It consists of the following members.
 
 ## `ao_released_t`
 
-This type represents the information about a call to `ao_release()`.
+```c
+typedef struct ao_released_t ao_released_t;
+```
 
 ```c
 struct ao_released_t
@@ -117,7 +111,7 @@ struct ao_released_t
 };
 ```
 
-It consists of the following members.
+This type represents the information about a call to `ao_release()`. It consists of the following members.
 
 | `ptr` | The pointer to the memory block, that is, the parameter value that the function was called with. |
 | `ref` | The current reference count of the memory block. If the operation has succeeded, then the value `0` indicates, that the memory block has just been deallocated. |
@@ -127,7 +121,9 @@ It consists of the following members.
 
 ## `ao_retained_t`
 
-This type represents the information about a call to `ao_retain()`.
+```c
+typedef struct ao_retained_t ao_retained_t;
+```
 
 ```c
 struct ao_retained_t
@@ -140,7 +136,7 @@ struct ao_retained_t
 };
 ```
 
-It consists of the following members.
+This type represents the information about a call to `ao_retain()`. It consists of the following members.
 
 | `ptr` | The pointer to the memory block, that is, the parameter value that the function was called with. |
 | `ref` | The current reference count of the memory block. If the operation has succeeded, then this value should be greater than 1. |
@@ -152,7 +148,11 @@ It consists of the following members.
 
 ## `ao_acquire`
 
-Allocate a memory block of the specified size.
+```c
+void * ao_acquire(size_t size);
+```
+
+Allocates a memory block of the specified size.
 
 If the operation succeeds, then the function returns a pointer to the beginning of the allocated memory block. Thereby, that pointer is suitably aligned for any object type with fundamental alignment. But, the content of the memory block is not initialized, remaining with indeterminate values.
 
@@ -160,68 +160,64 @@ Additionally, the reference count of the memory block is initialized with 1. The
 
 If the operation fails, then the function returns `NULL`. This is either because the specified size is 0 or the allocator cannot find a memory block large enough.
 
-```c
-void * ao_acquire(size_t size);
-```
-
 ## `ao_acquired`
-
-The callback for each call to `ao_acquire()`. This function must be implemented by the application.
 
 ```c
 void ao_acquired(ao_acquired_t const * info);
 ```
 
-## `ao_delete`
+The callback for each call to `ao_acquire()`. This function must be implemented by the application.
 
-Deallocate a memory block.
+## `ao_delete`
 
 ```c
 #define ao_delete(ptr)
 ```
 
-## `ao_new`
+Deallocates a memory block. Actually, this macro function forwards its call to `ao_release()`.
 
-Allocate a memory block large enough for the specified type. If the operation succeeds, then this function returns a pointer of type `type *`.
+## `ao_new`
 
 ```c
 #define ao_new(type)
 ```
 
+Allocates a memory block large enough for the specified type. If the operation succeeds, then this function returns a pointer of type `type *`.
+
 ## `ao_release`
-
-Reliquinsh ownership of a memory block, which decrements its reference count. If the reference count reaches zero, then this function additionally deallocates the memory block, making it available for further allocations.
-
-The behavior of this function is undefined, if the memory block has been deallocated previously. Therefore, ownership of a memory block should be relinquished only, if it has been taken previously by the same thread of execution by calling `ao_acquire()` or `ao_retain()`, respectively.
-
-The return value indicates whether the operation has succeeded or failed. The latter happens, if the specified pointer is `NULL`. Nevertheless, the functions' behavior is well-defined in this case, that is, it simply does nothing but return.
 
 ```c
 bool ao_release(void * ptr);
 ```
 
-## `ao_released`
+Reliquinshes ownership of a memory block, which decrements its reference count. If the reference count reaches zero, then this function additionally deallocates the memory block, making it available for further allocations.
 
-The callback for each call to `ao_release()`. This function must be implemented by the application.
+The behavior of this function is undefined, if the memory block has been deallocated previously. Therefore, ownership of a memory block should be relinquished only, if it has been taken previously by the same thread of execution by calling `ao_acquire()` or `ao_retain()`, respectively.
+
+The return value indicates whether the operation has succeeded or failed. The latter happens, if the specified pointer is `NULL`. Nevertheless, the functions' behavior is well-defined in this case, that is, it simply does nothing but return.
+
+## `ao_released`
 
 ```c
 void ao_released(ao_released_t const * info);
 ```
 
+The callback for each call to `ao_release()`. This function must be implemented by the application.
+
 ## `ao_retain`
-
-Increment the reference count of a memory block, which means, that the calling thread of execution (once again) takes ownership thereof.
-
-The return value indicates whether the operation has succeeded or failed. The latter happens, if the specified pointer is `NULL`. Nevertheless, the functions' behavior is well-defined in this case, that is, it simply does nothing but return.
 
 ```c
 bool ao_retain(void * ptr);
 ```
 
-## `ao_retained`
+Increments the reference count of a memory block, which means, that the calling thread of execution (once again) takes ownership thereof.
 
-The callback for each call to `ao_retain()`. This function must be implemented by the application.
+The return value indicates whether the operation has succeeded or failed. The latter happens, if the specified pointer is `NULL`. Nevertheless, the functions' behavior is well-defined in this case, that is, it simply does nothing but return.
+
+## `ao_retained`
 
 ```c
 void ao_retained(ao_retained_t const * info);
 ```
+
+The callback for each call to `ao_retain()`. This function must be implemented by the application.

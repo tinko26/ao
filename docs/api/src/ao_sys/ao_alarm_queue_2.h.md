@@ -36,37 +36,35 @@ This module provides an implementation for the alarm queue based on an array-bas
 
 ## `AO_ALARM_QUEUE_ASSERT`
 
-Assert the correctness of the alarm queue upon each insertion and removal in linear time. If that is not the case, a runtime assertion failure is triggered. This can aid in a debugging scenario.
-
 ```c
 #define AO_ALARM_QUEUE_ASSERT (false)
 ```
 
-## `AO_ALARM_QUEUE_CAPACITY`
+Defines whether to assert the correctness of the alarm queue upon each insertion and removal in linear time. If that is not the case, a runtime assertion failure is triggered. This can aid in a debugging scenario.
 
-The capacity of the alarm queue.
+## `AO_ALARM_QUEUE_CAPACITY`
 
 ```c
 #define AO_ALARM_QUEUE_CAPACITY (128)
 ```
 
-## `AO_ALARM_QUEUE_COUNT_MAX`
+The capacity of the alarm queue.
 
-Keep track of the maximum number of nodes.
+## `AO_ALARM_QUEUE_COUNT_MAX`
 
 ```c
 #define AO_ALARM_QUEUE_COUNT_MAX (false)
 ```
 
-# Typedefs
-
-```c
-typedef size_t ao_alarm_queue_node_t;
-```
+Defines whether to keep track of the maximum number of nodes.
 
 # Types
 
 ## `ao_alarm_queue_node_t`
+
+```c
+typedef size_t ao_alarm_queue_node_t;
+```
 
 This type represents an alarm queue node.
 
@@ -75,9 +73,9 @@ This type represents an alarm queue node.
 ## `ao_alarm_queue_count`
 ## `ao_alarm_queue_count_max`
 
-The current and maximum numbers of nodes, respectively, in the alarm queue.
-
 ```c
 extern size_t volatile ao_alarm_queue_count;
 extern size_t volatile ao_alarm_queue_count_max;
 ```
+
+The current and maximum numbers of nodes, respectively, in the alarm queue.

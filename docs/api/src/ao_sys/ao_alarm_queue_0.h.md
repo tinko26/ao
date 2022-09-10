@@ -20,17 +20,15 @@ This module provides a stub implementation for the alarm queue.
 #define AO_ALARM_QUEUE_0
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_alarm_queue_node_t ao_alarm_queue_node_t;
-```
-
 # Types
 
 ## `ao_alarm_queue_node_t`
 
 This type represents an alarm queue node.
+
+```c
+typedef struct ao_alarm_queue_node_t ao_alarm_queue_node_t;
+```
 
 ```c
 struct ao_alarm_queue_node_t { };

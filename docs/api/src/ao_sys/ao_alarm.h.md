@@ -41,17 +41,13 @@ toc: true
 #define AO_ALARM_UPDATE (AO_TIME_MAX - AO_ALARM_DELAY + 1)
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_alarm_t ao_alarm_t;
-```
-
 # Types
 
 ## `ao_alarm_t`
 
-This type represents an alarm.
+```c
+typedef struct ao_alarm_t ao_alarm_t;
+```
 
 ```c
 struct ao_alarm_t
@@ -64,7 +60,7 @@ struct ao_alarm_t
 };
 ```
 
-It consists of the following members.
+This type represents an alarm. It consists of the following members.
 
 | `callback` | The callback. |
 | `callback_parameter` | The callback parameter. |
@@ -77,17 +73,17 @@ It consists of the following members.
 ## `ao_alarm_start`
 ## `ao_alarm_start_from`
 
-Start an alarm with a timeout and an optional beginning.
-
 ```c
 void ao_alarm_start(     ao_alarm_t * x, ao_time_t t);
 void ao_alarm_start_from(ao_alarm_t * x, ao_time_t t, ao_time_t b);
 ```
 
-## `ao_alarm_stop`
+Starts an alarm with a timeout and an optional beginning.
 
-Stop an alarm.
+## `ao_alarm_stop`
 
 ```c
 void ao_alarm_stop(ao_alarm_t * x);
 ```
+
+Stops an alarm.

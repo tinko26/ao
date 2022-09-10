@@ -74,7 +74,7 @@ It consists of the following members.
 
 # Functions
 
-## ``
+## `ao_bsem_give`
 
 Give a binary semaphore. This function can be called from both task and interrupt context.
 

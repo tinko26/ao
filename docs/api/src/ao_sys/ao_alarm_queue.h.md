@@ -20,13 +20,11 @@ toc: true
 
 ## `AO_ALARM_QUEUE`
 
-Select the alarm queue implementation.
-
 ```c
 #define AO_ALARM_QUEUE (5)
 ```
 
-The following options are available.
+Selects the alarm queue implementation. The following options are available.
 
 | [`ao_alarm_queue_0`](ao_alarm_queue_0.h.md) | Stub |
 | [`ao_alarm_queue_1`](ao_alarm_queue_1.h.md) | Based on a sorted list |

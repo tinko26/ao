@@ -37,33 +37,34 @@ This module provides an implementation for the alarm queue based on a red-black 
 
 ## `AO_ALARM_QUEUE_ASSERT`
 
-Assert the correctness of the alarm queue upon each insertion and removal in linear time. If that is not the case, a runtime assertion failure is triggered. This can aid in a debugging scenario.
-
 ```c
 #define AO_ALARM_QUEUE_ASSERT (false)
 ```
 
-## `AO_ALARM_QUEUE_CACHE`
+Defines whether to assert the correctness of the alarm queue upon each insertion and removal in linear time. If that is not the case, a runtime assertion failure is triggered. This can aid in a debugging scenario.
 
-Peeking the alarm queue is a quite frequent operation. However, with this implementation, it is not a constant-time operation, but takes logarithmic time. In order to speed things up a little bit, the alarm queue can be configured to cache the current front element after each insertion and removal.
+## `AO_ALARM_QUEUE_CACHE`
 
 ```c
 #define AO_ALARM_QUEUE_CACHE (false)
 ```
 
-# Typedefs
-
-```c
-typedef ao_rb_t      ao_alarm_queue_t;
-typedef ao_rb_node_t ao_alarm_queue_node_t;
-```
+Peeking the alarm queue is a quite frequent operation. However, with this implementation, it is not a constant-time operation, but takes logarithmic time. In order to speed things up a little bit, the alarm queue can be configured to cache the current front element after each insertion and removal.
 
 # Types
 
 ## `ao_alarm_queue_t`
 
+```c
+typedef ao_rb_t ao_alarm_queue_t;
+```
+
 This type represents the alarm queue.
 
 ## `ao_alarm_queue_node_t`
+
+```c
+typedef ao_rb_node_t ao_alarm_queue_node_t;
+```
 
 This type represents an alarm queue node.

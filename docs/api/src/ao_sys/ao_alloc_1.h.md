@@ -47,26 +47,24 @@ Due to its iterative approach, allocation is a linear-time operation. In contras
 ## `AO_ALLOC_ALLOCATED`
 ## `AO_ALLOC_ALLOCATED_MAX`
 
-Keep track of the current and maximum number of allocated bytes, respectively. If this configuration option is enabled, then the respective data is gathered both globally and for each pool.
-
 ```c
 #define AO_ALLOC_ALLOCATED     (false)
 #define AO_ALLOC_ALLOCATED_MAX (false)
 ```
 
+Defines whether to keep track of the current and maximum number of allocated bytes, respectively. If this configuration option is enabled, then the respective data is gathered both globally and for each pool.
+
 ## `AO_ALLOC_FREE`
 ## `AO_ALLOC_FREE_MIN`
-
-Keep track of the current and minimum number of free bytes, respectively. If this configuration option is enabled, then the respective data is gathered both globally and for each pool.
 
 ```c
 #define AO_ALLOC_FREE     (false)
 #define AO_ALLOC_FREE_MIN (false)
 ```
 
-## `AO_ALLOC_POOL_BLOCK_COUNT`
+Defines whether to keep track of the current and minimum number of free bytes, respectively. If this configuration option is enabled, then the respective data is gathered both globally and for each pool.
 
-The number of blocks in each pool.
+## `AO_ALLOC_POOL_BLOCK_COUNT`
 
 ```c
 #define AO_ALLOC_POOL_BLOCK_COUNT_0  (0)
@@ -77,9 +75,9 @@ The number of blocks in each pool.
 #define AO_ALLOC_POOL_BLOCK_COUNT_63 (0)
 ```
 
-## `AO_ALLOC_POOL_BLOCK_SIZE`
+The number of blocks in each pool.
 
-The size of the blocks in each pool in bytes.
+## `AO_ALLOC_POOL_BLOCK_SIZE`
 
 ```c
 #define AO_ALLOC_POOL_BLOCK_SIZE_0  (0)
@@ -90,21 +88,15 @@ The size of the blocks in each pool in bytes.
 #define AO_ALLOC_POOL_BLOCK_SIZE_63 (0)
 ```
 
-# Typedefs
-
-```c
-typedef struct ao_acquired_t        ao_acquired_t;
-typedef struct ao_alloc_pool_t      ao_alloc_pool_t;
-typedef struct ao_alloc_pool_node_t ao_alloc_pool_node_t;
-typedef struct ao_released_t        ao_released_t;
-typedef struct ao_retained_t        ao_retained_t;
-```
+The size of the blocks in each pool in bytes.
 
 # Types
 
 ## `ao_alloc_pool_t`
 
-This type represents a pool.
+```c
+typedef struct ao_alloc_pool_t ao_alloc_pool_t;
+```
 
 ```c
 struct ao_alloc_pool_t
@@ -142,7 +134,7 @@ struct ao_alloc_pool_t
 };
 ```
 
-It consists of the following members.
+This type represents a pool. It consists of the following members.
 
 | `allocated` | The current number of allocated bytes. |
 | `allocated_max` | The maximum number of allocated bytes. |
@@ -153,11 +145,17 @@ It consists of the following members.
 
 ## `ao_alloc_pool_node_t`
 
+```c
+typedef struct ao_alloc_pool_node_t ao_alloc_pool_node_t;
+```
+
 This type represents a block. It is not publicly exposed.
 
 ## `ao_acquired_t`
 
-This type represents the information about a call to `ao_acquire()`.
+```c
+typedef struct ao_acquired_t ao_acquired_t;
+```
 
 ```c
 struct ao_acquired_t
@@ -171,7 +169,7 @@ struct ao_acquired_t
 };
 ```
 
-It consists of the following members.
+This type represents the information about a call to `ao_acquire()`. It consists of the following members.
 
 | `pool` | The pool to which the memory block belongs. |
 | `ptr` | The pointer returned by the function. |
@@ -182,7 +180,9 @@ It consists of the following members.
 
 ## `ao_released_t`
 
-This type represents the information about a call to `ao_release()`.
+```c
+typedef struct ao_released_t ao_released_t;
+```
 
 ```c
 struct ao_released_t
@@ -196,7 +196,7 @@ struct ao_released_t
 };
 ```
 
-It consists of the following members.
+This type represents the information about a call to `ao_release()`. It consists of the following members.
 
 | `pool` | The pool to which the memory block belongs. |
 | `ptr` | The pointer to the memory block, that is, the parameter value that the function was called with. |
@@ -207,7 +207,9 @@ It consists of the following members.
 
 ## `ao_retained_t`
 
-This type represents the information about a call to `ao_retain()`.
+```c
+typedef struct ao_retained_t ao_retained_t;
+```
 
 ```c
 struct ao_retained_t
@@ -221,7 +223,7 @@ struct ao_retained_t
 };
 ```
 
-It consists of the following members.
+This type represents the information about a call to `ao_retain()`. It consists of the following members.
 
 | `pool` | The pool to which the memory block belongs. |
 | `ptr` | The pointer to the memory block, that is, the parameter value that the function was called with. |
@@ -235,26 +237,24 @@ It consists of the following members.
 ## `ao_alloc_allocated`
 ## `ao_alloc_allocated_max`
 
-The current and maximum number of allocated bytes, respectively.
-
 ```c
 extern size_t volatile ao_alloc_allocated;
 extern size_t volatile ao_alloc_allocated_max;
 ```
 
+The current and maximum number of allocated bytes, respectively.
+
 ## `ao_alloc_free`
 ## `ao_alloc_free_min`
-
-The current and minimum number of free bytes, respectively.
 
 ```c
 extern size_t volatile ao_alloc_free;
 extern size_t volatile ao_alloc_free_min;
 ```
 
-## `ao_alloc_pool`
+The current and minimum number of free bytes, respectively.
 
-The pools.
+## `ao_alloc_pool`
 
 ```c
 extern ao_alloc_pool_t ao_alloc_pool_0;
@@ -264,3 +264,5 @@ extern ao_alloc_pool_t ao_alloc_pool_1;
 
 extern ao_alloc_pool_t ao_alloc_pool_63;
 ```
+
+The pools.
