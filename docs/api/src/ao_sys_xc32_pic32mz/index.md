@@ -4,9 +4,8 @@ date: 2022-08-29
 draft: false
 external:
 - https://www.mips.com/products/warrior/m-class-m51xx-core-family/ : "M-Class M51xx Core Family"
+- https://www.google.com/search?q=MIPS+MD00977 : "MIPS32® M5150 Processor Core Family Datasheet"
 - https://www.google.com/search?q=MIPS+MD00980 : "MIPS32® M5150 Processor Core Family Software User’s Manual"
-- https://microchip.com/DS60001192 : "PIC32 Family Reference Manual, Section 50, CPU for Devices with MIPS32® microAptiv™ 
-and M-Class Cores"
 permalink: /api/src/ao_sys_xc32_pic32mz/
 toc: true
 wide: false
