@@ -23,19 +23,34 @@ Normally, the compiler takes care of the correct alignment of variables automati
 # Functions
 
 ## `AO_ALIGN_DOWN`
+
+```c
+#define AO_ALIGN_DOWN(x, b) \
+(                           \
+    ((x) / (b)) * (b)       \
+)
+```
+
+Aligns value `x` down to boundary `b`.
+
 ## `AO_ALIGN_UP`
 
 ```c
-#define AO_ALIGN_DOWN(x, b)
-#define AO_ALIGN_UP(x, b)
+#define AO_ALIGN_UP(x, b)           \
+(                                   \
+    (((x) + ((b) - 1)) / (b)) * (b) \
+)
 ```
 
-Aligns value `x` up or down, respectively, to boundary `b`.
+Aligns value `x` up to boundary `b`.
 
 ## `AO_IS_ALIGNED`
 
 ```c
-#define AO_IS_ALIGNED(x, b)
+#define AO_IS_ALIGNED(x, b)  \
+(                            \
+    (x) % (b) ? false : true \
+)
 ```
 
 Checks whether value `x` is aligned to boundary `b`.
