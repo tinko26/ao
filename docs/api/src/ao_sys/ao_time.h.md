@@ -53,7 +53,10 @@ This type is an alias for the `ao_count_t` type. It represents both time points 
 ## `ao_now`
 
 ```c
-#define ao_now()
+#define ao_now() \
+(                \
+    ao_count()   \
+)
 ```
 
 Gets the current time point.

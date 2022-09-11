@@ -18,7 +18,10 @@ toc: true
 ## `ao_boot_count`
 
 ```c
-#define ao_boot_count() ao_count_debug_stop()
+#define ao_boot_count()    \
+{                          \
+    ao_count_debug_stop(); \
+}
 ```
 
 Boots the [`ao_count.h`](ao_count.h.md) module.
@@ -26,7 +29,10 @@ Boots the [`ao_count.h`](ao_count.h.md) module.
 ## `ao_boot_ir_mvec`
 
 ```c
-#define ao_boot_ir_mvec() ao_ir_mvec_enable()
+#define ao_boot_ir_mvec() \
+{                         \
+    ao_ir_mvec_enable();  \
+}
 ```
 
 Boots the [`ao_ir_mvec.h`](ao_ir_mvec.h.md) module. This function sets up the multi-vectored interrupt mode.

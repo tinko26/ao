@@ -26,7 +26,10 @@ This module contains a single function that executes a breakpoint, if the applic
 #if     AO_DEBUG
 #ifndef ao_break
 
-#define ao_break() __builtin_software_breakpoint()
+#define ao_break()                   \
+{                                    \
+    __builtin_software_breakpoint(); \
+}
 
 #endif
 #else

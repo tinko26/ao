@@ -21,7 +21,10 @@ This module provides three functions for copying, moving, and filling memory blo
 ## `ao_memcpy`
 
 ```c
-#define ao_memcpy(d, s, n) memcpy(d, s, n)
+#define ao_memcpy(d, s, n) \
+(                          \
+    memcpy(d, s, n)        \
+)
 ```
 
 Copies the first `n` bytes from the memory block beginning at `s` to the memory block beginning at `d`. This function copies the data directly. Therefore, the memory blocks should not overlap. This function returns `d`.
@@ -29,7 +32,10 @@ Copies the first `n` bytes from the memory block beginning at `s` to the memory 
 ## `ao_memmove`
 
 ```c
-#define ao_memmove(d, s, n) memmove(d, s, n)
+#define ao_memmove(d, s, n) \
+(                           \
+    memmove(d, s, n)        \
+)
 ```
 
 Copies the first `n` bytes from the memory block beginning at `s` to the memory block beginning at `d`. This function copies the data using a temporary buffer. Therefore, the memory blocks can overlap. This function returns `d`.
@@ -37,7 +43,10 @@ Copies the first `n` bytes from the memory block beginning at `s` to the memory 
 ## `ao_memset`
 
 ```c
-#define ao_memset(p, v, n) memset(p, (int) (v), n)
+#define ao_memset(p, v, n)  \
+(                           \
+    memset(p, (int) (v), n) \
+)
 ```
 
 Writes `v` to the first `n` bytes of the memory block beginning at `p`. This function returns `p`.

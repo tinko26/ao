@@ -55,7 +55,10 @@ This type is an alias for the `uint32_t` unsigned integer type. It is to hold a 
 ## `ao_count`
 
 ```c
-#define ao_count() _CP0_GET_COUNT()
+#define ao_count()   \
+(                    \
+    _CP0_GET_COUNT() \
+)
 ```
 
 Gets the current value of the hardware counter.

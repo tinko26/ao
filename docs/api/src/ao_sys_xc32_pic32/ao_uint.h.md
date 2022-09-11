@@ -65,10 +65,10 @@ This type represents the fastest unsigned integer type of the target platform. I
 ## `ao_ctzu`
 
 ```c
-#define ao_clou(x) _clo(x)
-#define ao_clzu(x) _clz(x)
+#define ao_clou(x) _clo(  x )
+#define ao_clzu(x) _clz(  x )
 #define ao_ctou(x) _ctz(~(x))
-#define ao_ctzu(x) _ctz(x)
+#define ao_ctzu(x) _ctz(  x )
 ```
 
 Counts the number of leading or trailing ones or zeros, respectively.
@@ -77,7 +77,7 @@ Counts the number of leading or trailing ones or zeros, respectively.
 ## `ao_flsu`
 
 ```c
-#define ao_ffsu(x) _ctz(x)
+#define ao_ffsu(x) (     _ctz(x))
 #define ao_flsu(x) (31 - _clz(x))
 ```
 
@@ -86,7 +86,10 @@ Finds the first or last set bit, respectively.
 ## `AO_LOG2U`
 
 ```c
-#define AO_LOG2U(x) AO_LOG2U32(x)
+#define AO_LOG2U(x) \
+(                   \
+    AO_LOG2U32(x)   \
+)
 ```
 
 Calculates the base-2 logarithm.

@@ -36,11 +36,17 @@ ao_sys_unlock_ie(x);
 ## `ao_sys_lock_ie`
 
 ```c
-#define ao_sys_lock_ie() __builtin_disable_interrupts()
+#define ao_sys_lock_ie()           \
+(                                  \
+    __builtin_disable_interrupts() \
+)
 ```
 
 ## `ao_sys_unlock_ie`
 
 ```c
-#define ao_sys_unlock_ie(x) _CP0_SET_STATUS(x)
+#define ao_sys_unlock_ie(x) \
+{                           \
+    _CP0_SET_STATUS(x);     \
+}
 ```

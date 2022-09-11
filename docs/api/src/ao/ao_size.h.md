@@ -79,7 +79,10 @@ Finds the first or last set bit, respectively.
 ## `AO_LOG2Z`
 
 ```c
-#define AO_LOG2Z(x) AO_LOG2U32(x)
+#define AO_LOG2Z(x) \
+(                   \
+    AO_LOG2U32(x)   \
+)
 ```
 
 Calculates the base-2 logarithm.

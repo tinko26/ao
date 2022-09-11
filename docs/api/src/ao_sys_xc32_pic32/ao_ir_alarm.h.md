@@ -50,7 +50,10 @@ Requests the interrupt or replies thereto.
 ## `ao_alarm_set`
 
 ```c
-#define ao_alarm_set(t) _CP0_SET_COMPARE(t)
+#define ao_alarm_set(t)  \
+{                        \
+    _CP0_SET_COMPARE(t); \
+}
 ```
 
 Sets the time for the next interrupt.
