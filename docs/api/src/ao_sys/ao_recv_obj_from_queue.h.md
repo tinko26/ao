@@ -16,9 +16,7 @@ toc: true
 #include <ao_recv_obj.h>
 ```
 
-# Identifiers
-
-## `AO_RECV_OBJ_FROM_QUEUE`
+# Identifier
 
 ```c
 #define AO_RECV_OBJ_FROM_QUEUE

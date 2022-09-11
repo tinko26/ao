@@ -13,9 +13,7 @@ toc: true
 #include <ao_time.h>
 ```
 
-# Identifiers
-
-## `AO_AWAIT`
+# Identifier
 
 ```c
 #define AO_AWAIT

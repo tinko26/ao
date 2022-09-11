@@ -18,9 +18,7 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Identifiers
-
-## `AO_BARRIER`
+# Identifier
 
 ```c
 #define AO_BARRIER

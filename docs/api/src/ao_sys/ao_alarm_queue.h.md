@@ -8,9 +8,7 @@ seealso:
 toc: true
 ---
 
-# Identifiers
-
-## `AO_ALARM_QUEUE`
+# Identifier
 
 ```c
 #define AO_ALARM_QUEUE

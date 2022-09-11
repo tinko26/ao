@@ -24,9 +24,7 @@ This module provides an implementation for the alarm queue based on an array-bas
 #include <stddef.h>
 ```
 
-# Identifiers
-
-## `AO_ALARM_QUEUE_2`
+# Identifier
 
 ```c
 #define AO_ALARM_QUEUE_2
@@ -40,7 +38,7 @@ This module provides an implementation for the alarm queue based on an array-bas
 #define AO_ALARM_QUEUE_ASSERT (false)
 ```
 
-Defines whether to assert the correctness of the alarm queue upon each insertion and removal in linear time. If that is not the case, a runtime assertion failure is triggered. This can aid in a debugging scenario.
+Defines whether to assert the correctness of the alarm queue upon each insertion and removal, in linear time. If that is not the case, a runtime assertion failure is triggered. This can aid in a debugging scenario.
 
 ## `AO_ALARM_QUEUE_CAPACITY`
 

@@ -16,9 +16,7 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Identifiers
-
-## `AO_FLAG`
+# Identifier
 
 ```c
 #define AO_FLAG

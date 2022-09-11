@@ -34,9 +34,7 @@ Due to its iterative approach, allocation is a linear-time operation. In contras
 #include <stddef.h>
 ```
 
-# Identifiers
-
-## `AO_ALLOC_1`
+# Identifier
 
 ```c
 #define AO_ALLOC_1

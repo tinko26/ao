@@ -6,9 +6,7 @@ permalink: /api/src/ao_sys_xc32_pic32_wdt/ao_sys.h/
 toc: true
 ---
 
-# Identifiers
-
-## `AO_SYS_XC32_PIC32_WDT`
+# Identifier
 
 ```c
 #define AO_SYS_XC32_PIC32_WDT

@@ -15,9 +15,7 @@ toc: true
 #include <stdint.h>
 ```
 
-# Identifiers
-
-## `AO_I2C`
+# Identifier
 
 ```c
 #define AO_I2C

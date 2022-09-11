@@ -10,9 +10,7 @@ toc: true
 
 This module defines a single macro constant that identifies the kernel package. By adding further definitions, an override of this module can help to identify a specific target, which can support the implementation of a port package.
 
-# Identifiers
-
-## `AO_SYS`
+# Identifier
 
 ```c
 #define AO_SYS

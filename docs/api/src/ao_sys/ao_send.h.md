@@ -16,9 +16,7 @@ toc: true
 #include <stddef.h>
 ```
 
-# Identifiers
-
-## `AO_SEND`
+# Identifier
 
 ```c
 #define AO_SEND

@@ -22,9 +22,7 @@ This module implements a priority queue based on a red-black tree. Fetching retu
 #include <stdbool.h>
 ```
 
-# Identifiers
-
-## `AO_PMAIL`
+# Identifier
 
 ```c
 #define AO_PMAIL

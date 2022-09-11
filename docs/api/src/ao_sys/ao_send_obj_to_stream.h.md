@@ -16,9 +16,7 @@ toc: true
 #include <ao_stream4obj.h>
 ```
 
-# Identifiers
-
-## `AO_SEND_OBJ_TO_STREAM`
+# Identifier
 
 ```c
 #define AO_SEND_OBJ_TO_STREAM

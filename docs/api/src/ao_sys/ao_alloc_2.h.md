@@ -31,9 +31,7 @@ This module implements a constant-time dynamic storage allocator based on the tw
 #include <stddef.h>
 ```
 
-# Identifiers
-
-## `AO_ALLOC_2`
+# Identifier
 
 ```c
 #define AO_ALLOC_2

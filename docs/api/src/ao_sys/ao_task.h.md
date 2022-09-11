@@ -37,9 +37,7 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Identifiers
-
-## `AO_TASK`
+# Identifier
 
 ```c
 #define AO_TASK

@@ -25,9 +25,7 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Identifiers
-
-## `AO_THRESHOLD`
+# Identifier
 
 ```c
 #define AO_THRESHOLD

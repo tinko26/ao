@@ -16,9 +16,7 @@ toc: true
 #include <ao_stream.h>
 ```
 
-# Identifiers
-
-## `AO_RECV_FROM_STREAM`
+# Identifier
 
 ```c
 #define AO_RECV_FROM_STREAM

@@ -16,9 +16,7 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Identifiers
-
-## `AO_RENDEZVOUS`
+# Identifier
 
 ```c
 #define AO_RENDEZVOUS

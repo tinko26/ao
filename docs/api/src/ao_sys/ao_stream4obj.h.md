@@ -16,9 +16,7 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Identifiers
-
-## `AO_STREAM4OBJ`
+# Identifier
 
 ```c
 #define AO_STREAM4OBJ

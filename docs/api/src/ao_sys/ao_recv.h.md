@@ -19,9 +19,7 @@ This module provides an abstraction for tasks to receive data from an opaque sou
 #include <stddef.h>
 ```
 
-# Identifiers
-
-## `AO_RECV`
+# Identifier
 
 ```c
 #define AO_RECV

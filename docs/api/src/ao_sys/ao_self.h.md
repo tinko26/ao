@@ -12,9 +12,7 @@ toc: true
 #include <ao_task.h>
 ```
 
-# Identifiers
-
-## `AO_SELF`
+# Identifier
 
 ```c
 #define AO_SELF

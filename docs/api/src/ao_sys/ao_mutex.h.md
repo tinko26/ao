@@ -31,9 +31,7 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Identifiers
-
-## `AO_MUTEX`
+# Identifier
 
 ```c
 #define AO_MUTEX

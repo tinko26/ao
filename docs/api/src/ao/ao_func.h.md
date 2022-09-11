@@ -14,7 +14,7 @@ toc: true
 
 # Types
 
-Functions.
+## `ao_func_t`
 
 ```c
 typedef void * (* ao_func_t) (void *);
@@ -27,7 +27,9 @@ typedef void * (* ao_func2_t) (void *, void *);
 typedef void * (* ao_func3_t) (void *, void *, void *);
 ```
 
-Predicates.
+Functions.
+
+## `ao_pred_t`
 
 ```c
 typedef bool (* ao_pred_t) (void *);
@@ -40,7 +42,9 @@ typedef bool (* ao_pred2_t) (void *, void *);
 typedef bool (* ao_pred3_t) (void *, void *, void *);
 ```
 
-Procedures.
+Predicates.
+
+## `ao_proc_t`
 
 ```c
 typedef void (* ao_proc_t) (void *);
@@ -52,3 +56,5 @@ typedef void (* ao_proc1_t) (void *);
 typedef void (* ao_proc2_t) (void *, void *);
 typedef void (* ao_proc3_t) (void *, void *, void *);
 ```
+
+Procedures.

@@ -18,9 +18,7 @@ This module contains two functions for measuring the high water mark of a stack,
 #include <stddef.h>
 ```
 
-# Identifiers
-
-## `AO_STACK`
+# Identifier
 
 ```c
 #define AO_STACK

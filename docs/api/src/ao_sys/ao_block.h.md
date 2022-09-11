@@ -15,9 +15,7 @@ toc: true
 #include <ao_time.h>
 ```
 
-# Identifiers
-
-## `AO_BLOCK`
+# Identifier
 
 ```c
 #define AO_BLOCK

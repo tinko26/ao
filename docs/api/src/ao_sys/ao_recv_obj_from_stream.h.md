@@ -16,9 +16,7 @@ toc: true
 #include <ao_stream4obj.h>
 ```
 
-# Identifiers
-
-## `AO_RECV_OBJ_FROM_STREAM`
+# Identifier
 
 ```c
 #define AO_RECV_OBJ_FROM_STREAM

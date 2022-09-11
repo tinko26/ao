@@ -16,9 +16,7 @@ toc: true
 #include <stddef.h>
 ```
 
-# Identifiers
-
-## `AO_STREAM`
+# Identifier
 
 ```c
 #define AO_STREAM

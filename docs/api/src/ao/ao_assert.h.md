@@ -29,7 +29,13 @@ Especially, outputting a message is probably not a good option in an embedded sy
 ## `ao_assert`
 
 ```c
-#define ao_assert(exp)
+#define ao_assert(exp) \
+{                      \
+    if (!(exp))        \
+    {                  \
+        ao_break();    \
+    }                  \
+}
 ```
 
 Performs a runtime assertion on the given expression. If the expression compares equal to zero, then the assertion fails.

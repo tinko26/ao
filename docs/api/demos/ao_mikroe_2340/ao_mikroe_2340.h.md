@@ -6,9 +6,7 @@ permalink: /api/demos/ao_mikroe_2340/ao_mikroe_2340.h/
 toc: true
 ---
 
-# Identifiers
-
-## `AO_MIKROE_2340`
+# Identifier
 
 ```c
 #define AO_MIKROE_2340

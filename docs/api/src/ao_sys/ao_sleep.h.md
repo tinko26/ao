@@ -15,9 +15,7 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Identifiers
-
-## `AO_SLEEP`
+# Identifier
 
 ```c
 #define AO_SLEEP

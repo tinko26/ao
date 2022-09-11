@@ -6,9 +6,7 @@ permalink: /api/demos/ao_mikroe_2800/ao_mikroe_2800.h/
 toc: true
 ---
 
-# Identifiers
-
-## `AO_MIKROE_2800`
+# Identifier
 
 ```c
 #define AO_MIKROE_2800

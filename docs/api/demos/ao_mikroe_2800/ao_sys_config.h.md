@@ -8,8 +8,6 @@ toc: true
 
 # Identifiers
 
-## `AO_SYS_CONFIG`
-
 ```c
 #define AO_SYS_CONFIG
 #define AO_SYS_CONFIG_BOOTISA

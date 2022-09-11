@@ -18,9 +18,7 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Identifiers
-
-## `AO_MONITOR`
+# Identifier
 
 ```c
 #define AO_MONITOR

@@ -15,9 +15,7 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Identifiers
-
-## `AO_SIGNAL`
+# Identifier
 
 ```c
 #define AO_SIGNAL

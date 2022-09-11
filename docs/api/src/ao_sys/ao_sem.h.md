@@ -18,9 +18,7 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Identifiers
-
-## `AO_SEM`
+# Identifier
 
 ```c
 #define AO_SEM

@@ -12,9 +12,7 @@ toc: true
 #include <stdint.h>
 ```
 
-# Identifiers
-
-## `AO_UART`
+# Identifier
 
 ```c
 #define AO_UART

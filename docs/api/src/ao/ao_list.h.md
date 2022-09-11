@@ -22,9 +22,7 @@ This module defines doubly linked lists. Most commonly, lists are used as double
 #include <stddef.h>
 ```
 
-# Identifiers
-
-## `AO_LIST`
+# Identifier
 
 ```c
 #define AO_LIST
@@ -78,7 +76,7 @@ This type represents a list node. It consists of the following members.
 void ao_list_insert_after(ao_list_t * x, ao_list_node_t * n1, ao_list_node_t * n2);
 ```
 
-Inserts `n2` after `n1` into a list in constant time.
+Inserts `n2` after `n1` into a list, in constant time.
 
 ## `ao_list_insert_before`
 
@@ -86,7 +84,7 @@ Inserts `n2` after `n1` into a list in constant time.
 void ao_list_insert_before(ao_list_t * x, ao_list_node_t * n1, ao_list_node_t * n2);
 ```
 
-Inserts `n1` before `n2` into a list in constant time.
+Inserts `n1` before `n2` into a list, in constant time.
 
 ## `ao_list_is_empty`
 
@@ -94,7 +92,7 @@ Inserts `n1` before `n2` into a list in constant time.
 #define ao_list_is_empty(x)
 ```
 
-Checks whether a list is empty in constant time.
+Checks whether a list is empty, in constant time.
 
 ## `ao_list_pop_back`
 ## `ao_list_pop_front`
@@ -122,7 +120,7 @@ Pushes a node to the back or front, respectively, in constant time.
 void ao_list_remove(ao_list_t * x, ao_list_node_t * n);
 ```
 
-Removes a node from a list in constant time.
+Removes a node from a list, in constant time.
 
 ## `ao_list_remove_all`
 
@@ -130,7 +128,7 @@ Removes a node from a list in constant time.
 void ao_list_remove_all(ao_list_t * x);
 ```
 
-Removes all nodes from a list in linear time.
+Removes all nodes from a list, in linear time.
 
 ## `ao_list_remove_back`
 ## `ao_list_remove_front`
@@ -148,4 +146,4 @@ Removes the back or front node, respectively, in constant time.
 void ao_list_reverse(ao_list_t * x);
 ```
 
-Reverses a list in linear time.
+Reverses a list, in linear time.

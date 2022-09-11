@@ -37,9 +37,7 @@ ao_lock(l1);
 ao_unlock(l1);
 ```
 
-# Identifiers
-
-## `AO_LOCK`
+# Identifier
 
 ```c
 #define AO_LOCK

@@ -14,9 +14,7 @@ toc: true
 #include <ao_recv.h>
 ```
 
-# Identifiers
-
-## `AO_RECV_FROM_CALLBACK`
+# Identifier
 
 ```c
 #define AO_RECV_FROM_CALLBACK

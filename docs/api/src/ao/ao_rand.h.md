@@ -19,34 +19,50 @@ This module defines function pointer types for a variety of random value generat
 
 # Types
 
-Generate a random Boolean value.
+## `ao_randb_t`
 
 ```c
-typedef bool        (* ao_randb_t)   ();
+typedef bool (* ao_randb_t) ();
 ```
 
-Generate a random floating-point number.
+Generates a random Boolean value.
+
+## `ao_randd_t`
+## `ao_randf_t`
+## `ao_randl_t`
 
 ```c
-typedef double      (* ao_randd_t)   ();
-typedef float       (* ao_randf_t)   ();
-typedef long double (* ao_randl_t)   ();
+typedef double      (* ao_randd_t) ();
+typedef float       (* ao_randf_t) ();
+typedef long double (* ao_randl_t) ();
 ```
 
-Generate a random signed integer.
+Generates a random floating-point number.
+
+## `ao_randi8_t`
+## `ao_randi16_t`
+## `ao_randi32_t`
+## `ao_randi64_t`
 
 ```c
-typedef int8_t      (* ao_randi8_t ) ();
-typedef int16_t     (* ao_randi16_t) ();
-typedef int32_t     (* ao_randi32_t) ();
-typedef int64_t     (* ao_randi64_t) ();
+typedef int8_t  (* ao_randi8_t ) ();
+typedef int16_t (* ao_randi16_t) ();
+typedef int32_t (* ao_randi32_t) ();
+typedef int64_t (* ao_randi64_t) ();
 ```
 
-Generate a random unsigned integer.
+Generates a random signed integer.
+
+## `ao_randu8_t`
+## `ao_randu16_t`
+## `ao_randu32_t`
+## `ao_randu64_t`
 
 ```c
-typedef uint8_t     (* ao_randu8_t ) ();
-typedef uint16_t    (* ao_randu16_t) ();
-typedef uint32_t    (* ao_randu32_t) ();
-typedef uint64_t    (* ao_randu64_t) ();
+typedef uint8_t  (* ao_randu8_t ) ();
+typedef uint16_t (* ao_randu16_t) ();
+typedef uint32_t (* ao_randu32_t) ();
+typedef uint64_t (* ao_randu64_t) ();
 ```
+
+Generates a random unsigned integer.

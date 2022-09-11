@@ -13,9 +13,7 @@ toc: true
 #include <xc.h>
 ```
 
-# Identifiers
-
-## `AO_WDT`
+# Identifier
 
 ```c
 #define AO_WDT

@@ -29,9 +29,7 @@ Commonly, heaps are implemented based on an array that stores all the nodes. How
 #include <stddef.h>
 ```
 
-# Identifiers
-
-## `AO_HEAP`
+# Identifier
 
 ```c
 #define AO_HEAP
@@ -122,7 +120,7 @@ This type represents a compare function, that implements a strict total order on
 void ao_heap_assert(ao_heap_t * x);
 ```
 
-Asserts the correctness of a heap in linear time. This function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a runtime assertion failure.
+Asserts the correctness of a heap, in linear time. This function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a runtime assertion failure.
 
 It is therefore useful in debugging scenarios. However, the function is implemented recursively, which violates a common rule in embedded software engineering.
 
@@ -132,7 +130,7 @@ It is therefore useful in debugging scenarios. However, the function is implemen
 void ao_heap_insert(ao_heap_t * x, ao_heap_node_t * n);
 ```
 
-Inserts a node into a heap in logarithmic time.
+Inserts a node into a heap, in logarithmic time.
 
 ## `ao_heap_is_empty`
 
@@ -140,7 +138,7 @@ Inserts a node into a heap in logarithmic time.
 #define ao_heap_is_empty(x)
 ```
 
-Checks whether a heap is empty in constant time.
+Checks whether a heap is empty, in constant time.
 
 ## `ao_heap_peek`
 
@@ -148,7 +146,7 @@ Checks whether a heap is empty in constant time.
 #define ao_heap_peek(x)
 ```
 
-Gets the root node of a heap without removing it in constant time.
+Gets the root node of a heap without removing it, in constant time.
 
 ## `ao_heap_pop`
 
@@ -156,7 +154,7 @@ Gets the root node of a heap without removing it in constant time.
 ao_heap_node_t * ao_heap_pop(ao_heap_t * x);
 ```
 
-Removes the root node from a heap in logarithmic time.
+Removes the root node from a heap, in logarithmic time.
 
 ## `ao_heap_remove`
 
@@ -164,4 +162,4 @@ Removes the root node from a heap in logarithmic time.
 void ao_heap_remove(ao_heap_t * x, ao_heap_node_t * n);
 ```
 
-Removes an arbitrary node from a heap in logarithmic time.
+Removes an arbitrary node from a heap, in logarithmic time.

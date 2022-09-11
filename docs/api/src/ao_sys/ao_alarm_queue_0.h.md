@@ -12,9 +12,7 @@ toc: true
 
 This module provides a stub implementation for the alarm queue.
 
-# Identifiers
-
-## `AO_ALARM_QUEUE_0`
+# Identifier
 
 ```c
 #define AO_ALARM_QUEUE_0

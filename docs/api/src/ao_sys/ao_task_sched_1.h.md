@@ -14,9 +14,7 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Identifiers
-
-## `AO_TASK_SCHED_1`
+# Identifier
 
 ```c
 #define AO_TASK_SCHED_1

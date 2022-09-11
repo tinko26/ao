@@ -25,9 +25,7 @@ microsoft: "Represents a thread synchronization event that, when signaled, reset
 #include <stdbool.h>
 ```
 
-# Identifiers
-
-## `AO_ARE`
+# Identifier
 
 ```c
 #define AO_ARE

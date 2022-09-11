@@ -25,9 +25,7 @@ A red-black tree is a special kind of binary search tree, that keeps itself bala
 #include <stddef.h>
 ```
 
-# Identifiers
-
-## `AO_RB`
+# Identifier
 
 ```c
 #define AO_RB
@@ -100,7 +98,7 @@ This type represents a compare function, that implements a strict total order on
 void ao_rb_assert(ao_rb_t * x);
 ```
 
-Checks whether a tree is valid in linear time. This function traverses the tree top-down and checks, whether the relevant properties are maintained. If that is not the case, the function triggers a runtime assertion failure.
+Checks whether a tree is valid, in linear time. This function traverses the tree top-down and checks, whether the relevant properties are maintained. If that is not the case, the function triggers a runtime assertion failure.
 
 It is therefore useful in debugging scenarios. However, the function is implemented recursively, which violates a common rule in embedded software engineering.
 
@@ -110,7 +108,7 @@ It is therefore useful in debugging scenarios. However, the function is implemen
 void ao_rb_insert(ao_rb_t * x, ao_rb_node_t * n);
 ```
 
-Inserts a node into a tree in logarithmic time.
+Inserts a node into a tree, in logarithmic time.
 
 ## `ao_rb_is_empty`
 
@@ -118,7 +116,7 @@ Inserts a node into a tree in logarithmic time.
 #define ao_rb_is_empty(x)
 ```
 
-Checks whether a tree is empty in constant time.
+Checks whether a tree is empty, in constant time.
 
 ## `ao_rb_max`
 ## `ao_rb_min`
@@ -128,7 +126,7 @@ ao_rb_node_t * ao_rb_max(ao_rb_t * x);
 ao_rb_node_t * ao_rb_min(ao_rb_t * x);
 ```
 
-Gets the maximum or minimum node, respectively, of a tree in logarithmic time. Thereby, the maximum node is the rightmost node and the minimum node is the leftmost node in the tree. Both functions return `NULL`, if the tree is empty.
+Gets the maximum or minimum node, respectively, of a tree, in logarithmic time. Thereby, the maximum node is the rightmost node and the minimum node is the leftmost node in the tree. Both functions return `NULL`, if the tree is empty.
 
 ## `ao_rb_remove`
 
@@ -136,4 +134,4 @@ Gets the maximum or minimum node, respectively, of a tree in logarithmic time. T
 void ao_rb_remove(ao_rb_t * x, ao_rb_node_t * n);
 ```
 
-Removes a node from a tree in logarithmic time.
+Removes a node from a tree, in logarithmic time.

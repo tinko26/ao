@@ -12,9 +12,7 @@ toc: true
 #include <stddef.h>
 ```
 
-# Identifiers
-
-## `AO_TASK_STACK_0`
+# Identifier
 
 ```c
 #define AO_TASK_STACK_0

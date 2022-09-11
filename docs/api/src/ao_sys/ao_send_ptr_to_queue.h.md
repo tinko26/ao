@@ -16,9 +16,7 @@ toc: true
 #include <ao_send_ptr.h>
 ```
 
-# Identifiers
-
-## `AO_SEND_PTR_TO_QUEUE`
+# Identifier
 
 ```c
 #define AO_SEND_PTR_TO_QUEUE

@@ -14,9 +14,7 @@ toc: true
 #include <stddef.h>
 ```
 
-# Identifiers
-
-## `AO_ASYNC`
+# Identifier
 
 ```c
 #define AO_ASYNC

@@ -24,9 +24,7 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Identifiers
-
-## `AO_COND`
+# Identifier
 
 ```c
 #define AO_COND

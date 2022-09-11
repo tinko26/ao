@@ -13,9 +13,7 @@ toc: true
 #include <stdint.h>
 ```
 
-# Identifiers
-
-## `AO_CAN`
+# Identifier
 
 ```c
 #define AO_CAN

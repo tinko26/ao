@@ -25,9 +25,7 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Identifiers
-
-## `AO_XCH`
+# Identifier
 
 ```c
 #define AO_XCH

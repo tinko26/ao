@@ -6,9 +6,7 @@ permalink: /api/src/ao_sys/ao_task_stack.h/
 toc: true
 ---
 
-# Identifiers
-
-## `AO_TASK_STACK`
+# Identifier
 
 ```c
 #define AO_TASK_STACK

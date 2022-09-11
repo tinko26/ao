@@ -15,9 +15,7 @@ toc: true
 #include <xc.h>
 ```
 
-# Identifiers
-
-## `AO_SPI_1`
+# Identifier
 
 ```c
 #define AO_SPI_1

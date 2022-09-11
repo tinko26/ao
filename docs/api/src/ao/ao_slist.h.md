@@ -20,9 +20,7 @@ This module defines doubly linked lists, whose elements are sorted by a strict t
 #include <stddef.h>
 ```
 
-# Identifiers
-
-## `AO_SLIST`
+# Identifier
 
 ```c
 #define AO_SLIST
@@ -93,7 +91,7 @@ This type represents a compare function, that implements a strict total order on
 void ao_slist_assert(ao_slist_t * x);
 ```
 
-Checks whether a list is valid in linear time. This function traverses the list from front to back and, for each node, checks, whether it is less than its successor. If that is not the case, the function triggers a runtime assertion failure. It is therefore useful in debugging scenarios.
+Checks whether a list is valid, in linear time. This function traverses the list from front to back and, for each node, checks, whether it is less than its successor. If that is not the case, the function triggers a runtime assertion failure. It is therefore useful in debugging scenarios.
 
 ## `ao_slist_insert`
 
@@ -101,7 +99,7 @@ Checks whether a list is valid in linear time. This function traverses the list 
 void ao_slist_insert(ao_slist_t * x, ao_slist_node_t * n);
 ```
 
-Inserts a node into a list in linear time.
+Inserts a node into a list, in linear time.
 
 ## `ao_slist_is_empty`
 
@@ -109,7 +107,7 @@ Inserts a node into a list in linear time.
 #define ao_slist_is_empty(x)
 ```
 
-Checks whether a list is empty in constant time.
+Checks whether a list is empty, in constant time.
 
 ## `ao_slist_pop_back`
 ## `ao_slist_pop_front`
@@ -127,7 +125,7 @@ Pops the back or front node, respectively, in constant time.
 void ao_slist_remove(ao_slist_t * x, ao_slist_node_t * n);
 ```
 
-Removes a node from a list in constant time.
+Removes a node from a list, in constant time.
 
 ## `ao_slist_remove_all`
 
@@ -135,7 +133,7 @@ Removes a node from a list in constant time.
 void ao_slist_remove_all(ao_slist_t * x);
 ```
 
-Removes all nodes from a list in linear time.
+Removes all nodes from a list, in linear time.
 
 ## `ao_slist_remove_back`
 ## `ao_slist_remove_front`

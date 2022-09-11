@@ -16,9 +16,7 @@ toc: true
 #include <stddef.h>
 ```
 
-# Identifiers
-
-## `AO_BUFFER4PTR`
+# Identifier
 
 ```c
 #define AO_BUFFER4PTR

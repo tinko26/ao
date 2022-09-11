@@ -6,9 +6,7 @@ permalink: /api/src/ao_sys/ao_boot.h/
 toc: true
 ---
 
-# Identifiers
-
-## `AO_BOOT`
+# Identifier
 
 ```c
 #define AO_BOOT

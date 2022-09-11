@@ -12,9 +12,7 @@ toc: true
 #include <ao_sys_clock.h>
 ```
 
-# Identifiers
-
-## `AO_SYS_XC32_PIC32_RNG`
+# Identifier
 
 ```c
 #define AO_SYS_XC32_PIC32_RNG

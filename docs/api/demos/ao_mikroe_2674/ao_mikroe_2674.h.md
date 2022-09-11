@@ -13,9 +13,7 @@ toc: true
 #include <stddef.h>
 ```
 
-# Identifiers
-
-## `AO_MIKROE_2674`
+# Identifier
 
 ```c
 #define AO_MIKROE_2674

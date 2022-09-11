@@ -25,9 +25,7 @@ This module provides an implementation for the alarm queue based on a sorted lis
 #include <stdbool.h>
 ```
 
-# Identifiers
-
-## `AO_ALARM_QUEUE_1`
+# Identifier
 
 ```c
 #define AO_ALARM_QUEUE_1
@@ -41,7 +39,7 @@ This module provides an implementation for the alarm queue based on a sorted lis
 #define AO_ALARM_QUEUE_ASSERT (false)
 ```
 
-Defines whether to assert the correctness of the alarm queue upon each insertion and removal in linear time. If that is not the case, a runtime assertion failure is triggered. This can aid in a debugging scenario.
+Defines whether to assert the correctness of the alarm queue upon each insertion and removal, in linear time. If that is not the case, a runtime assertion failure is triggered. This can aid in a debugging scenario.
 
 # Types
 

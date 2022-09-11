@@ -14,9 +14,7 @@ toc: true
 #include <ao_send.h>
 ```
 
-# Identifiers
-
-## `AO_SEND_TO_CALLBACK`
+# Identifier
 
 ```c
 #define AO_SEND_TO_CALLBACK

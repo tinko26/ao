@@ -18,9 +18,7 @@ This module defines functions for spinning or busy waiting, respectively, that c
 #include <ao_time.h>
 ```
 
-# Identifiers
-
-## `AO_SPIN`
+# Identifier
 
 ```c
 #define AO_SPIN

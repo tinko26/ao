@@ -18,9 +18,7 @@ toc: true
 #include <xc.h>
 ```
 
-# Identifiers
-
-## `AO_UART_3`
+# Identifier
 
 ```c
 #define AO_UART_3

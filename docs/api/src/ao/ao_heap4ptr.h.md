@@ -28,9 +28,7 @@ This module provides an array-based implementation.
 #include <stddef.h>
 ```
 
-# Identifiers
-
-## `AO_HEAP4PTR`
+# Identifier
 
 ```c
 #define AO_HEAP4PTR
@@ -106,7 +104,7 @@ This type represents a compare function, that implements a strict total order on
 void ao_heap4ptr_assert(ao_heap4ptr_t * x);
 ```
 
-Asserts the correctness of a heap in linear time. This function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a runtime assertion failure.
+Asserts the correctness of a heap,s in linear time. This function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a runtime assertion failure.
 
 ## `ao_heap4ptr_insert`
 
@@ -114,7 +112,7 @@ Asserts the correctness of a heap in linear time. This function traverses the he
 bool ao_heap4ptr_insert(ao_heap4ptr_t * x, void * p);
 ```
 
-Inserts a pointer into a heap in logarithmic time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the heap is full.
+Inserts a pointer into a heap, in logarithmic time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the heap is full.
 
 ## `ao_heap4ptr_is_empty`
 ## `ao_heap4ptr_is_full`
@@ -132,7 +130,7 @@ Checks whether a heap is empty or full, respectively, in constant time.
 bool ao_heap4ptr_peek(ao_heap4ptr_t const * x, void ** p);
 ```
 
-Gets the root pointer of a heap without removing it in constant time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the heap is empty.
+Gets the root pointer of a heap without removing it, in constant time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the heap is empty.
 
 ## `ao_heap4ptr_pop`
 
@@ -140,4 +138,4 @@ Gets the root pointer of a heap without removing it in constant time. The return
 bool ao_heap4ptr_pop(ao_heap4ptr_t * x, void ** p);
 ```
 
-Removes the root pointer from a heap in logarithmic time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the heap is empty.
+Removes the root pointer from a heap, in logarithmic time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the heap is empty.

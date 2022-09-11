@@ -14,9 +14,7 @@ toc: true
 #include <stdbool.h>
 ```
 
-# Identifiers
-
-## `AO_RECV_OBJ`
+# Identifier
 
 ```c
 #define AO_RECV_OBJ

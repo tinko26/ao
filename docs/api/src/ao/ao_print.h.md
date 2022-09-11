@@ -20,9 +20,7 @@ This module contains functions to convert a number to a string. Although the sta
 #include <stdint.h>
 ```
 
-# Identifiers
-
-## `AO_PRINT`
+# Identifier
 
 ```c
 #define AO_PRINT

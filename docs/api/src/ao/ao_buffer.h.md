@@ -20,9 +20,7 @@ This module defines buffers, that is, places to temporarily store data.
 #include <stddef.h>
 ```
 
-# Identifiers
-
-## `AO_BUFFER`
+# Identifier
 
 ```c
 #define AO_BUFFER

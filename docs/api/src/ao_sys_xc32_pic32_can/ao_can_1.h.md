@@ -17,9 +17,7 @@ toc: true
 #include <xc.h>
 ```
 
-# Identifiers
-
-## `AO_CAN_1`
+# Identifier
 
 ```c
 #define AO_CAN_1
