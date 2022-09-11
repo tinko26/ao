@@ -21,7 +21,7 @@ This module provides a number of useful mathematical operations. They are implem
 ## `AO_ABS`
 
 ```c
-#define AO_ABS(x)
+#define AO_ABS(x) ((x) < (0) ? -(x) : (x))
 ```
 
 Calculates the absolute value of $$\texttt{x}$$.
@@ -29,7 +29,15 @@ Calculates the absolute value of $$\texttt{x}$$.
 ## `AO_CLAMP`
 
 ```c
-#define AO_CLAMP(x, x_min, x_max)
+#define AO_CLAMP(x, x_min, x_max)      \
+(                                      \
+    (x) <= (x_min)                     \
+    ? (x_min)                          \
+    :                                  \
+    (                                  \
+        (x) >= (x_max) ? (x_max) : (x) \
+    )                                  \
+)
 ```
 
 Clamps $$\texttt{x}$$ into the interval $$\left[\texttt{x_min}, \texttt{x_max}\right]$$
@@ -41,11 +49,11 @@ Clamps $$\texttt{x}$$ into the interval $$\left[\texttt{x_min}, \texttt{x_max}\r
 ## `AO_IS_LESS_EQUAL`
 
 ```c
-#define AO_IS_EQUAL(x, y)
-#define AO_IS_GREATER(x, y)
-#define AO_IS_GREATER_EQUAL(x, y)
-#define AO_IS_LESS(x, y)
-#define AO_IS_LESS_EQUAL(x, y)
+#define AO_IS_EQUAL(x, y)         ((x) == (y) ? true : false)
+#define AO_IS_GREATER(x, y)       ((x) >  (y) ? true : false)
+#define AO_IS_GREATER_EQUAL(x, y) ((x) >= (y) ? true : false)
+#define AO_IS_LESS(x, y)          ((x) <  (y) ? true : false)
+#define AO_IS_LESS_EQUAL(x, y)    ((x) <= (y) ? true : false)
 ```
 
 Compares $$\texttt{x}$$ to $$\texttt{y}$$.
@@ -55,9 +63,9 @@ Compares $$\texttt{x}$$ to $$\texttt{y}$$.
 ## `AO_IS_ZERO`
 
 ```c
-#define AO_IS_NEGATIVE(x)
-#define AO_IS_POSITIVE(x)
-#define AO_IS_ZERO(x)
+#define AO_IS_NEGATIVE(x) ((x) <  (0) ? true : false)
+#define AO_IS_POSITIVE(x) ((x) >  (0) ? true : false)
+#define AO_IS_ZERO(x)     ((x) == (0) ? true : false)
 ```
 
 Checks whether $$\texttt{x}$$ is negative, positive, or equal to zero, respectively.
@@ -66,8 +74,8 @@ Checks whether $$\texttt{x}$$ is negative, positive, or equal to zero, respectiv
 ## `AO_MIN`
 
 ```c
-#define AO_MAX(x, y)
-#define AO_MIN(x, y)
+#define AO_MAX(x, y) ((x) >= (y) ? (x) : (y))
+#define AO_MIN(x, y) ((x) <= (y) ? (x) : (y))
 ```
 
 Calculates the maximum or minimum, respectively, of $$\texttt{x}$$ and $$\texttt{y}$$.
