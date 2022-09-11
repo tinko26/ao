@@ -550,7 +550,10 @@ void ao_can_overflow_2(ao_can_overflow_info_t const * info);
 ## `ao_can_reg_2`
 
 ```c
-#define ao_can_reg_2()
+#define ao_can_reg_2()                    \
+(                                         \
+    (ao_can_reg_t *) (_CAN2_BASE_ADDRESS) \
+)
 ```
 
 ## `ao_can_sent_2`

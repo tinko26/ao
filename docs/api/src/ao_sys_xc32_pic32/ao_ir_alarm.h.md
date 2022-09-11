@@ -31,8 +31,8 @@ The callback for the interrupt handler. Actually, this function is implemented b
 ## `ao_alarm_disable`
 
 ```c
-#define ao_alarm_enable()
-#define ao_alarm_disable()
+#define ao_alarm_enable()  ao_ir_ct_enable()
+#define ao_alarm_disable() ao_ir_ct_disable()
 ```
 
 Enables or disables the interrupt.
@@ -41,8 +41,8 @@ Enables or disables the interrupt.
 ## `ao_alarm_reply`
 
 ```c
-#define ao_alarm_request()
-#define ao_alarm_reply()
+#define ao_alarm_request() ao_ir_ct_request()
+#define ao_alarm_reply()   ao_ir_ct_reply()
 ```
 
 Requests the interrupt or replies thereto.
@@ -50,7 +50,7 @@ Requests the interrupt or replies thereto.
 ## `ao_alarm_set`
 
 ```c
-#define ao_alarm_set(t)
+#define ao_alarm_set(t) _CP0_SET_COMPARE(t)
 ```
 
 Sets the time for the next interrupt.

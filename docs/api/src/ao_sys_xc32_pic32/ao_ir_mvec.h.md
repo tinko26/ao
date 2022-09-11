@@ -18,8 +18,8 @@ toc: true
 ## `ao_ir_mvec_disable`
 
 ```c
-#define ao_ir_mvec_enable()
-#define ao_ir_mvec_disable()
+#define ao_ir_mvec_enable()  { INTCONSET = _INTCON_MVEC_MASK; }
+#define ao_ir_mvec_disable() { INTCONCLR = _INTCON_MVEC_MASK; }
 ```
 
 Enables or disables, respectively, the multi-vectored interrupt mode.

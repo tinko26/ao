@@ -65,10 +65,10 @@ This type represents the fastest unsigned integer type of the target platform. I
 ## `ao_ctzu`
 
 ```c
-#define ao_clou(x)
-#define ao_clzu(x)
-#define ao_ctou(x)
-#define ao_ctzu(x)
+#define ao_clou(x) _clo(x)
+#define ao_clzu(x) _clz(x)
+#define ao_ctou(x) _ctz(~(x))
+#define ao_ctzu(x) _ctz(x)
 ```
 
 Counts the number of leading or trailing ones or zeros, respectively.
@@ -77,8 +77,8 @@ Counts the number of leading or trailing ones or zeros, respectively.
 ## `ao_flsu`
 
 ```c
-#define ao_ffsu(x)
-#define ao_flsu(x)
+#define ao_ffsu(x) _ctz(x)
+#define ao_flsu(x) (31 - _clz(x))
 ```
 
 Finds the first or last set bit, respectively.
@@ -86,7 +86,7 @@ Finds the first or last set bit, respectively.
 ## `AO_LOG2U`
 
 ```c
-#define AO_LOG2U(x)
+#define AO_LOG2U(x) AO_LOG2U32(x)
 ```
 
 Calculates the base-2 logarithm.
@@ -99,12 +99,12 @@ Calculates the base-2 logarithm.
 ## `AO_LOG2U64`
 
 ```c
-#define AO_LOG2U2(x)
-#define AO_LOG2U4(x)
-#define AO_LOG2U8(x)
-#define AO_LOG2U16(x)
-#define AO_LOG2U32(x)
-#define AO_LOG2U64(x)
+#define AO_LOG2U2(x)  ((x) & 0x0000000000000002U ?  1                         : 0            )
+#define AO_LOG2U4(x)  ((x) & 0x000000000000000CU ?  2 + AO_LOG2U2( (x) >>  2) : AO_LOG2U2(x) )
+#define AO_LOG2U8(x)  ((x) & 0x00000000000000F0U ?  4 + AO_LOG2U4( (x) >>  4) : AO_LOG2U4(x) )
+#define AO_LOG2U16(x) ((x) & 0x000000000000FF00U ?  8 + AO_LOG2U8( (x) >>  8) : AO_LOG2U8(x) )
+#define AO_LOG2U32(x) ((x) & 0x00000000FFFF0000U ? 16 + AO_LOG2U16((x) >> 16) : AO_LOG2U16(x))
+#define AO_LOG2U64(x) ((x) & 0xFFFFFFFF00000000U ? 32 + AO_LOG2U32((x) >> 32) : AO_LOG2U32(x))
 ```
 
 Calculates the base-2 logarithm for a fixed-width unsigned integer.

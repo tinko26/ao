@@ -169,7 +169,7 @@ The callback for each call to `ao_acquire()`. This function must be implemented 
 ## `ao_delete`
 
 ```c
-#define ao_delete(ptr)
+#define ao_delete(ptr) ao_release(ptr)
 ```
 
 Deallocates a memory block. Actually, this macro function forwards its call to `ao_release()`.
@@ -177,7 +177,7 @@ Deallocates a memory block. Actually, this macro function forwards its call to `
 ## `ao_new`
 
 ```c
-#define ao_new(type)
+#define ao_new(type) ao_acquire(sizeof(type))
 ```
 
 Allocates a memory block large enough for the specified type. If the operation succeeds, then this function returns a pointer of type `type *`. Actually, this macro function forwards its call to `ao_acquire()`.

@@ -67,13 +67,13 @@ Gets the current time point.
 ## `AO_NANOSECONDS`
 
 ```c
-#define AO_DAYS(x)
-#define AO_HOURS(x)
-#define AO_MINUTES(x)
-#define AO_SECONDS(x)
-#define AO_MILLISECONDS(x)
-#define AO_MICROSECONDS(x)
-#define AO_NANOSECONDS(x)
+#define AO_DAYS(x)         ((x) * (AO_COUNT_FREQUENCY) * (86400))
+#define AO_HOURS(x)        ((x) * (AO_COUNT_FREQUENCY) * (3600))
+#define AO_MINUTES(x)      ((x) * (AO_COUNT_FREQUENCY) * (60))
+#define AO_SECONDS(x)      ((x) * (AO_COUNT_FREQUENCY))
+#define AO_MILLISECONDS(x) ((x) * (AO_COUNT_FREQUENCY) / (1000))
+#define AO_MICROSECONDS(x) ((x) * (AO_COUNT_FREQUENCY) / (1000000))
+#define AO_NANOSECONDS(x)  ((x) * (AO_COUNT_FREQUENCY) / (1000000000))
 ```
 
 Converts a time span to an `ao_time_t` value.
@@ -87,13 +87,13 @@ Converts a time span to an `ao_time_t` value.
 ## `AO_NANOSECONDS_FROM_TIME`
 
 ```c
-#define AO_DAYS_FROM_TIME(x)
-#define AO_HOURS_FROM_TIME(x)
-#define AO_MINUTES_FROM_TIME(x)
-#define AO_SECONDS_FROM_TIME(x)
-#define AO_MILLISECONDS_FROM_TIME(x)
-#define AO_MICROSECONDS_FROM_TIME(x)
-#define AO_NANOSECONDS_FROM_TIME(x)
+#define AO_DAYS_FROM_TIME(x)         ((x) / (AO_COUNT_FREQUENCY) / (86400))
+#define AO_HOURS_FROM_TIME(x)        ((x) / (AO_COUNT_FREQUENCY) / (3600))
+#define AO_MINUTES_FROM_TIME(x)      ((x) / (AO_COUNT_FREQUENCY) / (60))
+#define AO_SECONDS_FROM_TIME(x)      ((x) / (AO_COUNT_FREQUENCY))
+#define AO_MILLISECONDS_FROM_TIME(x) ((x) * (1000) / (AO_COUNT_FREQUENCY))
+#define AO_MICROSECONDS_FROM_TIME(x) ((x) * (1000000) / (AO_COUNT_FREQUENCY))
+#define AO_NANOSECONDS_FROM_TIME(x)  ((x) * (1000000000) / (AO_COUNT_FREQUENCY))
 ```
 
 Converts a time span from an `ao_time_t` value.

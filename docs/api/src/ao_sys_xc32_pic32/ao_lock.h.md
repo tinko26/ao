@@ -43,11 +43,23 @@ This type represents a container for lock-related data.
 # Functions
 
 ## `ao_lock`
+
+```c
+#define ao_lock(x)                       \
+{                                        \
+    *(x) = ao_sys_lock_ir(AO_LOCK_PRIO); \
+}
+```
+
+Enters a critical section.
+
 ## `ao_unlock`
 
 ```c
-#define ao_lock(x)
-#define ao_unlock(x)
+#define ao_unlock(x)        \
+{                           \
+    ao_sys_unlock_ir(*(x)); \
+}
 ```
 
-Enters or exits a critical section, respectively.
+Exits a critical section.

@@ -54,10 +54,10 @@ The size, in bytes.
 ## `ao_ctzz`
 
 ```c
-#define ao_cloz(x)
-#define ao_clzz(x)
-#define ao_ctoz(x)
-#define ao_ctzz(x)
+#define ao_cloz(x) ao_clou(x)
+#define ao_clzz(x) ao_clzu(x)
+#define ao_ctoz(x) ao_ctou(x)
+#define ao_ctzz(x) ao_ctzu(x)
 ```
 
 Counts the number of leading or trailing ones or zeros, respectively.
@@ -66,8 +66,8 @@ Counts the number of leading or trailing ones or zeros, respectively.
 ## `ao_flsz`
 
 ```c
-#define ao_ffsz(x)
-#define ao_flsz(x)
+#define ao_ffsz(x) ao_ffsu(x)
+#define ao_flsz(x) ao_flsu(x)
 ```
 
 Finds the first or last set bit, respectively.
@@ -75,7 +75,7 @@ Finds the first or last set bit, respectively.
 ## `AO_LOG2Z`
 
 ```c
-#define AO_LOG2Z(x)
+#define AO_LOG2Z(x) AO_LOG2U(x)
 ```
 
 Calculates the base-2 logarithm.

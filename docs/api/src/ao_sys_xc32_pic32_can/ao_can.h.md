@@ -1949,11 +1949,23 @@ void ao_can_baud(ao_can_baud_t * x);
 Sets up the baud rate.
 
 ## `AO_CAN_BAUD_MAX`
+
+```c
+#define AO_CAN_BAUD_MAX(f_pbclk) \
+(                                \
+    (f_pbclk) / 16               \
+)
+```
+
+Gets the maximum baud rate for a given periphal bus clock frequency.
+
 ## `AO_CAN_BAUD_MIN`
 
 ```c
-#define AO_CAN_BAUD_MAX(f_pbclk)
-#define AO_CAN_BAUD_MIN(f_pbclk)
+#define AO_CAN_BAUD_MIN(f_pbclk) \
+(                                \
+    1 + (((f_pbclk) - 1) / 3200) \
+)
 ```
 
-Gets the maximum or minumum baud rate, respectively, for a given periphal bus clock frequency.
+Gets the minumum baud rate for a given periphal bus clock frequency.

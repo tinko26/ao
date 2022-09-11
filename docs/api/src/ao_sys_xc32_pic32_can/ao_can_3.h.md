@@ -550,7 +550,10 @@ void ao_can_overflow_3(ao_can_overflow_info_t const * info);
 ## `ao_can_reg_3`
 
 ```c
-#define ao_can_reg_3()
+#define ao_can_reg_3()                    \
+(                                         \
+    (ao_can_reg_t *) (_CAN3_BASE_ADDRESS) \
+)
 ```
 
 ## `ao_can_sent_3`

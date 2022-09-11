@@ -55,7 +55,7 @@ This type is an alias for the `uint32_t` unsigned integer type. It is to hold a 
 ## `ao_count`
 
 ```c
-#define ao_count()
+#define ao_count() _CP0_GET_COUNT()
 ```
 
 Gets the current value of the hardware counter.
@@ -64,8 +64,8 @@ Gets the current value of the hardware counter.
 ## `ao_count_debug_stop`
 
 ```c
-#define ao_count_debug_continue()
-#define ao_count_debug_stop()
+#define ao_count_debug_continue() _CP0_BIS_DEBUG(_CP0_DEBUG_COUNTDM_MASK)
+#define ao_count_debug_stop()     _CP0_BIC_DEBUG(_CP0_DEBUG_COUNTDM_MASK)
 ```
 
 Sets up the hardware counter to continue or stop, respectively, upon a breakpoint.

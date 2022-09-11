@@ -41,7 +41,7 @@ This type is an alias for the `uint32_t` unsigned integer type. It is to hold th
 ## `ao_core`
 
 ```c
-#define ao_core()
+#define ao_core() (0)
 ```
 
 Gets the zero-based index of the processor core, on which the calling thread of execution is running. This function always returns `0`.
