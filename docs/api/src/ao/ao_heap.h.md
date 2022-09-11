@@ -8,6 +8,8 @@ external:
 - https://en.wikipedia.org/wiki/Priority_queue : "Priority queue"
 - https://en.wikipedia.org/wiki/Total_order : "Total order"
 permalink: /api/src/ao/ao_heap.h/
+seealso:
+- /api/src/ao/ao_uint.h/
 toc: true
 ---
 

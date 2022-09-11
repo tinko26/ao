@@ -3,6 +3,8 @@ author: "Stefan Wagner"
 date: 2022-08-30
 draft: true
 permalink: /api/src/ao/ao_var.h/
+seealso:
+- /api/src/ao/ao_mem.h/
 toc: true
 ---
 
