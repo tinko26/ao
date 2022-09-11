@@ -72,14 +72,26 @@ This type represents a buffer. It consists of the following members.
 # Functions
 
 ## `ao_buffer_is_empty`
+
+```c
+#define ao_buffer_is_empty(x)      \
+(                                  \
+    (x)->count == 0 ? true : false \
+)
+```
+
+Checks whether a buffer is empty, in constant time.
+
 ## `ao_buffer_is_full`
 
 ```c
-#define ao_buffer_is_empty(x)
-#define ao_buffer_is_full(x)
+#define ao_buffer_is_full(x)                   \
+(                                              \
+    (x)->count == (x)->capacity ? true : false \
+)
 ```
 
-Checks whether a buffer is empty or full, respectively, in constant time.
+Checks whether a buffer is full, in constant time.
 
 ## `ao_buffer_peek_back`
 ## `ao_buffer_peek_front`
