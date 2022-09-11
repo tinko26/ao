@@ -67,8 +67,8 @@ struct ao_heap4ptr_t
     size_t *           heap1;
     size_t *           heap2;
     ao_heap4ptr_less_t less;
-    void *             less_parameter;
-    void **            store;
+    void   *           less_parameter;
+    void   **          store;
 };
 ```
 
@@ -115,14 +115,26 @@ bool ao_heap4ptr_insert(ao_heap4ptr_t * x, void * p);
 Inserts a pointer into a heap, in logarithmic time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the heap is full.
 
 ## `ao_heap4ptr_is_empty`
+
+```c
+#define ao_heap4ptr_is_empty(x)    \
+(                                  \
+    (x)->count == 0 ? true : false \
+)
+```
+
+Checks whether a heap is empty, in constant time.
+
 ## `ao_heap4ptr_is_full`
 
 ```c
-#define ao_heap4ptr_is_empty(x)
-#define ao_heap4ptr_is_full(x)
+#define ao_heap4ptr_is_full(x)                 \
+(                                              \
+    (x)->count == (x)->capacity ? true : false \
+)
 ```
 
-Checks whether a heap is empty or full, respectively, in constant time.
+Checks whether a heap is full, in constant time.
 
 ## `ao_heap4ptr_peek`
 

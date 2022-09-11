@@ -135,7 +135,10 @@ Inserts a node into a heap, in logarithmic time.
 ## `ao_heap_is_empty`
 
 ```c
-#define ao_heap_is_empty(x)
+#define ao_heap_is_empty(x)          \
+(                                    \
+    (x)->root == NULL ? true : false \
+)
 ```
 
 Checks whether a heap is empty, in constant time.
@@ -143,7 +146,10 @@ Checks whether a heap is empty, in constant time.
 ## `ao_heap_peek`
 
 ```c
-#define ao_heap_peek(x)
+#define ao_heap_peek(x) \
+(                       \
+    (x)->root           \
+)
 ```
 
 Gets the root node of a heap without removing it, in constant time.
