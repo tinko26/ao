@@ -113,7 +113,10 @@ Inserts a node into a tree, in logarithmic time.
 ## `ao_rb_is_empty`
 
 ```c
-#define ao_rb_is_empty(x)
+#define ao_rb_is_empty(x)            \
+(                                    \
+    (x)->root == NULL ? true : false \
+)
 ```
 
 Checks whether a tree is empty, in constant time.

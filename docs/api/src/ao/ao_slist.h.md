@@ -104,7 +104,10 @@ Inserts a node into a list, in linear time.
 ## `ao_slist_is_empty`
 
 ```c
-#define ao_slist_is_empty(x)
+#define ao_slist_is_empty(x)          \
+(                                     \
+    (x)->front == NULL ? true : false \
+)
 ```
 
 Checks whether a list is empty, in constant time.

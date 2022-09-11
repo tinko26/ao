@@ -22,7 +22,13 @@ This module defines a single macro function that returns a pointer to the head o
 ## `ao_containerof`
 
 ```c
-#define ao_containerof(p, t, m)
+#define ao_containerof(p, t, m)          \
+(                                        \
+    (t *)                                \
+    (                                    \
+        (uint8_t *) (p) - offsetof(t, m) \
+    )                                    \
+)
 ```
 
 Given a pointer `p` to a member `m` of a compound type `t`, this function returns a pointer of type `t *` to the head of the compound.

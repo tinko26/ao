@@ -29,14 +29,16 @@ Calculates the absolute value of $$\texttt{x}$$.
 ## `AO_CLAMP`
 
 ```c
-#define AO_CLAMP(x, x_min, x_max)      \
-(                                      \
-    (x) <= (x_min)                     \
-    ? (x_min)                          \
-    :                                  \
-    (                                  \
-        (x) >= (x_max) ? (x_max) : (x) \
-    )                                  \
+#define AO_CLAMP(x, x_min, x_max) \
+(                                 \
+    (x) <= (x_min)                \
+    ? (x_min)                     \
+    :                             \
+    (                             \
+        (x) >= (x_max)            \
+        ? (x_max)                 \
+        : (x)                     \
+    )                             \
 )
 ```
 

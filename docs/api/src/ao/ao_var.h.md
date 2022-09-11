@@ -22,7 +22,7 @@ This module defines two convenience macro functions for variables.
 ## `ao_clear`
 
 ```c
-#define ao_clear(p, t)
+#define ao_clear(p, t) ao_memset(p, 0, sizeof(t))
 ```
 
 Clears a variable of type `t` pointed to by `p`. This is especially useful when initializing objects that have been allocated on the stack.
@@ -30,7 +30,7 @@ Clears a variable of type `t` pointed to by `p`. This is especially useful when 
 ## `ao_copy`
 
 ```c
-#define ao_copy(d, s, t)
+#define ao_copy(d, s, t) ao_memcpy(d, s, sizeof(t))
 ```
 
 Copies a variable of `t` from the location pointed to by `s` to the location pointed to by `d`.

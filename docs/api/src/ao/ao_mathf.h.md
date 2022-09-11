@@ -495,9 +495,9 @@ Converts radians to degrees.
 ## `ao_round`
 
 ```c
-#define ao_roundd(x)
-#define ao_roundf(x)
-#define ao_roundl(x)
+#define ao_roundd(x) ao_roundd_half_away_from_zero(x)
+#define ao_roundf(x) ao_roundf_half_away_from_zero(x)
+#define ao_roundl(x) ao_roundl_half_away_from_zero(x)
 ```
 
 Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from zero.
@@ -505,9 +505,9 @@ Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from zero.
 ## `ao_round_away_from_infinity`
 
 ```c
-#define ao_roundd_away_from_infinity(x)
-#define ao_roundf_away_from_infinity(x)
-#define ao_roundl_away_from_infinity(x)
+#define ao_roundd_away_from_infinity(x) ao_truncd(x)
+#define ao_roundf_away_from_infinity(x) ao_truncf(x)
+#define ao_roundl_away_from_infinity(x) ao_truncl(x)
 ```
 
 Rounds $$\texttt{x}$$ away from infinity.
@@ -515,9 +515,9 @@ Rounds $$\texttt{x}$$ away from infinity.
 ## `ao_round_away_from_negative_infinity`
 
 ```c
-#define ao_roundd_away_from_negative_infinity(x)
-#define ao_roundf_away_from_negative_infinity(x)
-#define ao_roundl_away_from_negative_infinity(x)
+#define ao_roundd_away_from_negative_infinity(x) ao_ceild(x)
+#define ao_roundf_away_from_negative_infinity(x) ao_ceilf(x)
+#define ao_roundl_away_from_negative_infinity(x) ao_ceill(x)
 ```
 
 Rounds $$\texttt{x}$$ away from negative infinity.
@@ -525,9 +525,9 @@ Rounds $$\texttt{x}$$ away from negative infinity.
 ## `ao_round_away_from_positive_infinity`
 
 ```c
-#define ao_roundd_away_from_positive_infinity(x)
-#define ao_roundf_away_from_positive_infinity(x)
-#define ao_roundl_away_from_positive_infinity(x)
+#define ao_roundd_away_from_positive_infinity(x) ao_floord(x)
+#define ao_roundf_away_from_positive_infinity(x) ao_floorf(x)
+#define ao_roundl_away_from_positive_infinity(x) ao_floorl(x)
 ```
 
 Rounds $$\texttt{x}$$ away from positive infinity.
@@ -545,9 +545,9 @@ Rounds $$\texttt{x}$$ away from zero.
 ## `ao_round_down`
 
 ```c
-#define ao_roundd_down(x)
-#define ao_roundf_down(x)
-#define ao_roundl_down(x)
+#define ao_roundd_down(x) ao_floord(x)
+#define ao_roundf_down(x) ao_floorf(x)
+#define ao_roundl_down(x) ao_floorl(x)
 ```
 
 Rounds $$\texttt{x}$$ down.
@@ -555,9 +555,9 @@ Rounds $$\texttt{x}$$ down.
 ## `ao_round_half_away_from_infinity`
 
 ```c
-#define ao_roundd_half_away_from_infinity(x)
-#define ao_roundf_half_away_from_infinity(x)
-#define ao_roundl_half_away_from_infinity(x)
+#define ao_roundd_half_away_from_infinity(x) ao_roundd_half_to_zero(x)
+#define ao_roundf_half_away_from_infinity(x) ao_roundf_half_to_zero(x)
+#define ao_roundl_half_away_from_infinity(x) ao_roundl_half_to_zero(x)
 ```
 
 Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from infinity.
@@ -565,9 +565,9 @@ Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from infinity.
 ## `ao_round_half_away_from_negative_infinity`
 
 ```c
-#define ao_roundd_half_away_from_negative_infinity(x)
-#define ao_roundf_half_away_from_negative_infinity(x)
-#define ao_roundl_half_away_from_negative_infinity(x)
+#define ao_roundd_half_away_from_negative_infinity(x) ao_roundd_half_up(x)
+#define ao_roundf_half_away_from_negative_infinity(x) ao_roundf_half_up(x)
+#define ao_roundl_half_away_from_negative_infinity(x) ao_roundl_half_up(x)
 ```
 
 Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from negative infinity.
@@ -575,9 +575,9 @@ Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from negative inf
 ## `ao_round_half_away_from_positive_infinity`
 
 ```c
-#define ao_roundd_half_away_from_positive_infinity(x)
-#define ao_roundf_half_away_from_positive_infinity(x)
-#define ao_roundl_half_away_from_positive_infinity(x)
+#define ao_roundd_half_away_from_positive_infinity(x) ao_roundd_half_down(x)
+#define ao_roundf_half_away_from_positive_infinity(x) ao_roundf_half_down(x)
+#define ao_roundl_half_away_from_positive_infinity(x) ao_roundl_half_down(x)
 ```
 
 Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from positive infinity.
@@ -585,9 +585,9 @@ Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from positive inf
 ## `ao_round_half_away_from_zero`
 
 ```c
-#define ao_roundd_half_away_from_zero(x)
-#define ao_roundf_half_away_from_zero(x)
-#define ao_roundl_half_away_from_zero(x)
+#define ao_roundd_half_away_from_zero(x) ao_roundd_half_to_infinity(x)
+#define ao_roundf_half_away_from_zero(x) ao_roundf_half_to_infinity(x)
+#define ao_roundl_half_away_from_zero(x) ao_roundl_half_to_infinity(x)
 ```
 
 Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from zero.
@@ -625,9 +625,9 @@ Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to infinity.
 ## `ao_round_half_to_negative_infinity`
 
 ```c
-#define ao_roundd_half_to_negative_infinity(x)
-#define ao_roundf_half_to_negative_infinity(x)
-#define ao_roundl_half_to_negative_infinity(x)
+#define ao_roundd_half_to_negative_infinity(x) ao_roundd_half_down(x)
+#define ao_roundf_half_to_negative_infinity(x) ao_roundf_half_down(x)
+#define ao_roundl_half_to_negative_infinity(x) ao_roundl_half_down(x)
 ```
 
 Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to negative infinity.
@@ -645,9 +645,9 @@ Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to odd.
 ## `ao_round_half_to_positive_infinity`
 
 ```c
-#define ao_roundd_half_to_positive_infinity(x)
-#define ao_roundf_half_to_positive_infinity(x)
-#define ao_roundl_half_to_positive_infinity(x)
+#define ao_roundd_half_to_positive_infinity(x) ao_roundd_half_up(x)
+#define ao_roundf_half_to_positive_infinity(x) ao_roundf_half_up(x)
+#define ao_roundl_half_to_positive_infinity(x) ao_roundl_half_up(x)
 ```
 
 Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to positive infinity.
@@ -675,9 +675,9 @@ Rounds $$\texttt{x}$$ to the nearest integer. Rounds half up.
 ## `ao_round_to_infinity`
 
 ```c
-#define ao_roundd_to_infinity(x)
-#define ao_roundf_to_infinity(x)
-#define ao_roundl_to_infinity(x)
+#define ao_roundd_to_infinity(x) ao_roundd_away_from_zero(x)
+#define ao_roundf_to_infinity(x) ao_roundf_away_from_zero(x)
+#define ao_roundl_to_infinity(x) ao_roundl_away_from_zero(x)
 ```
 
 Rounds $$\texttt{x}$$ to infinity.
@@ -685,9 +685,9 @@ Rounds $$\texttt{x}$$ to infinity.
 ## `ao_round_to_negative_infinity`
 
 ```c
-#define ao_roundd_to_negative_infinity(x)
-#define ao_roundf_to_negative_infinity(x)
-#define ao_roundl_to_negative_infinity(x)
+#define ao_roundd_to_negative_infinity(x) ao_floord(x)
+#define ao_roundf_to_negative_infinity(x) ao_floorf(x)
+#define ao_roundl_to_negative_infinity(x) ao_floorl(x)
 ```
 
 Rounds $$\texttt{x}$$ to negative infinity.
@@ -695,9 +695,9 @@ Rounds $$\texttt{x}$$ to negative infinity.
 ## `ao_round_to_positive_infinity`
 
 ```c
-#define ao_roundd_to_positive_infinity(x)
-#define ao_roundf_to_positive_infinity(x)
-#define ao_roundl_to_positive_infinity(x)
+#define ao_roundd_to_positive_infinity(x) ao_ceild(x)
+#define ao_roundf_to_positive_infinity(x) ao_ceilf(x)
+#define ao_roundl_to_positive_infinity(x) ao_ceill(x)
 ```
 
 Rounds $$\texttt{x}$$ to positive infinity.
@@ -705,9 +705,9 @@ Rounds $$\texttt{x}$$ to positive infinity.
 ## `ao_round_to_zero`
 
 ```c
-#define ao_roundd_to_zero(x)
-#define ao_roundf_to_zero(x)
-#define ao_roundl_to_zero(x)
+#define ao_roundd_to_zero(x) ao_truncd(x)
+#define ao_roundf_to_zero(x) ao_truncf(x)
+#define ao_roundl_to_zero(x) ao_truncl(x)
 ```
 
 Rounds $$\texttt{x}$$ to zero.
@@ -715,9 +715,9 @@ Rounds $$\texttt{x}$$ to zero.
 ## `ao_round_up`
 
 ```c
-#define ao_roundd_up(x)
-#define ao_roundf_up(x)
-#define ao_roundl_up(x)
+#define ao_roundd_up(x) ao_ceild(x)
+#define ao_roundf_up(x) ao_ceilf(x)
+#define ao_roundl_up(x) ao_ceill(x)
 ```
 
 Rounds $$\texttt{x}$$ up.
