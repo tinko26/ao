@@ -37,7 +37,7 @@
 
 #ifndef ao_clear
 
-#define ao_clear(p, t)      ao_memset(p, 0, sizeof(t));
+#define ao_clear(p, t)      ao_memset(p, 0, sizeof(t))
 
 #endif
 
@@ -47,7 +47,7 @@
 
 #ifndef ao_copy
 
-#define ao_copy(d, s, t)    ao_memcpy(d, s, sizeof(t));
+#define ao_copy(d, s, t)    ao_memcpy(d, s, sizeof(t))
 
 #endif
 
