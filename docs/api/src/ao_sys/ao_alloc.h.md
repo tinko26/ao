@@ -175,7 +175,7 @@ The callback for each call to `ao_acquire()`. This function must be implemented 
 )
 ```
 
-Deallocates a memory block. Actually, this macro function forwards its call to `ao_release()`.
+Deallocates a memory block.
 
 ## `ao_new`
 
@@ -186,7 +186,7 @@ Deallocates a memory block. Actually, this macro function forwards its call to `
 )
 ```
 
-Allocates a memory block large enough for the specified type. If the operation succeeds, then this function returns a pointer of type `type *`. Actually, this macro function forwards its call to `ao_acquire()`.
+Allocates a memory block large enough for the specified type. If the operation succeeds, then this function returns a pointer of type `type *`.
 
 ## `ao_release`
 
