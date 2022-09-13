@@ -81,7 +81,7 @@ void ao_signal_notify_all(ao_signal_t * x);
 ## `ao_signal_wait_from`
 
 ```c
-bool ao_signal_wait(     ao_signal_t * x, ao_time_t timeout);
+bool ao_signal_wait     (ao_signal_t * x, ao_time_t timeout);
 bool ao_signal_wait_from(ao_signal_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
@@ -96,5 +96,5 @@ bool ao_signal_wait_forever(ao_signal_t * x);
 
 ```c
 void ao_signal_wait_begin(ao_signal_wait_t * x);
-void ao_signal_wait_end(  ao_signal_wait_t * x);
+void ao_signal_wait_end  (ao_signal_wait_t * x);
 ```

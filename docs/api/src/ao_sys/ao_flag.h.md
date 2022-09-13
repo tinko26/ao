@@ -87,7 +87,7 @@ typedef bool (* ao_flag_match_t)
 );
 ```
 
-This type represents a function to check whether a specific mask is a match. The function takes the current mask of a flag, the mask to be matched with that current mask, and an additional parameter.
+This type represents a function to check whether a specific flag mask is a match. The function takes the current mask of a flag, the mask to be matched with that current mask, and an additional parameter.
 
 # Functions
 

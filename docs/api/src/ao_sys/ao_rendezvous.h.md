@@ -89,7 +89,7 @@ This type represents the exchanging of data at a rendezvous. It takes three para
 ## `ao_rendezvous_from`
 
 ```c
-void ao_rendezvous(     ao_rendezvous_wait_t * x, ao_time_t timeout);
+void ao_rendezvous     (ao_rendezvous_wait_t * x, ao_time_t timeout);
 void ao_rendezvous_from(ao_rendezvous_wait_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
@@ -110,5 +110,5 @@ void ao_rendezvous_try(ao_rendezvous_wait_t * x);
 
 ```c
 void ao_rendezvous_begin(ao_rendezvous_wait_t * x);
-void ao_rendezvous_end(  ao_rendezvous_wait_t * x);
+void ao_rendezvous_end  (ao_rendezvous_wait_t * x);
 ```

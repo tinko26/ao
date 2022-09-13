@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_mail.h/
 toc: true
@@ -49,21 +49,21 @@ typedef struct ao_mail_fetch_t ao_mail_fetch_t;
 ```c
 struct ao_mail_fetch_t
 {
-    ao_async_t           async;
-    ao_mail_t * volatile mail;
-    ao_mailbox_t *       mailbox;
-    ao_list_node_t       node;
-    bool        volatile result;
+    ao_async_t              async;
+    ao_mail_t    * volatile mail;
+    ao_mailbox_t *          mailbox;
+    ao_list_node_t          node;
+    bool           volatile result;
 };
 ```
 
 This type represents the fetching of a mail. It consists of the following members.
 
-| `async` | |
-| `mail` | |
-| `mailbox` | |
-| `node` | |
-| `result` | |
+| `async` | The asynchronous event. |
+| `mail` | The mail that has been fetched. |
+| `mailbox` | The mailbox. |
+| `node` | The node for the mailbox's list of fetchings. |
+| `result` | The result. |
 
 ## `ao_mailbox_t`
 
@@ -81,7 +81,7 @@ struct ao_mailbox_t
 
 This type represents a mailbox. It consists of the following members.
 
-| `fetchers` | The list of fetchers. |
+| `fetchers` | The list of fetchings. |
 | `mails` | The list of mails. |
 
 # Functions
@@ -90,9 +90,11 @@ This type represents a mailbox. It consists of the following members.
 ## `ao_mail_fetch_from`
 
 ```c
-bool ao_mail_fetch(     ao_mailbox_t * x, ao_mail_t ** m, ao_time_t timeout);
+bool ao_mail_fetch     (ao_mailbox_t * x, ao_mail_t ** m, ao_time_t timeout);
 bool ao_mail_fetch_from(ao_mailbox_t * x, ao_mail_t ** m, ao_time_t timeout, ao_time_t beginning);
 ```
+
+Fetches a mail in a blocking fashion with a timeout and an optional beginning.
 
 ## `ao_mail_fetch_forever`
 
@@ -100,22 +102,30 @@ bool ao_mail_fetch_from(ao_mailbox_t * x, ao_mail_t ** m, ao_time_t timeout, ao_
 bool ao_mail_fetch_forever(ao_mailbox_t * x, ao_mail_t ** m);
 ```
 
+Fetches a mail indefinitely in a blocking fashion.
+
 ## `ao_mail_fetch_try`
 
 ```c
 bool ao_mail_fetch_try(ao_mailbox_t * x, ao_mail_t ** m);
 ```
 
+Fetches a mail in a non-blocking fashion.
+
 ## `ao_mail_fetch_begin`
 ## `ao_mail_fetch_end`
 
 ```c
 void ao_mail_fetch_begin(ao_mail_fetch_t * x);
-void ao_mail_fetch_end(  ao_mail_fetch_t * x);
+void ao_mail_fetch_end  (ao_mail_fetch_t * x);
 ```
+
+Begins or ends, respectively, the fetching of a mail.
 
 ## `ao_mail_post`
 
 ```c
 void ao_mail_post(ao_mailbox_t * x, ao_mail_t * m);
 ```
+
+Posts a mail.

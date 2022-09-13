@@ -82,7 +82,7 @@ void ao_sem_give(ao_sem_t * x, ao_uint_t count);
 ## `ao_sem_take_from`
 
 ```c
-bool ao_sem_take(     ao_sem_t * x, ao_uint_t count, ao_time_t timeout);
+bool ao_sem_take     (ao_sem_t * x, ao_uint_t count, ao_time_t timeout);
 bool ao_sem_take_from(ao_sem_t * x, ao_uint_t count, ao_time_t timeout, ao_time_t beginning);
 ```
 
@@ -103,5 +103,5 @@ bool ao_sem_take_try(ao_sem_t * x, ao_uint_t count);
 
 ```c
 void ao_sem_take_begin(ao_sem_take_t * x);
-void ao_sem_take_end(  ao_sem_take_t * x);
+void ao_sem_take_end  (ao_sem_take_t * x);
 ```

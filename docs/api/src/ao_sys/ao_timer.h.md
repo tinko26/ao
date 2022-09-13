@@ -63,7 +63,7 @@ This type represents a timer. It consists of the following members.
 ## `ao_timer_start_from`
 
 ```c
-void ao_timer_start(     ao_timer_t * t, ao_time_t phase, ao_time_t period);
+void ao_timer_start     (ao_timer_t * t, ao_time_t phase, ao_time_t period);
 void ao_timer_start_from(ao_timer_t * t, ao_time_t phase, ao_time_t period, ao_time_t beginning);
 ```
 

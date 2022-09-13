@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_poll.h/
 toc: true
@@ -25,9 +25,11 @@ toc: true
 ## `ao_poll_from`
 
 ```c
-void ao_poll(     ao_async_t const * x, ao_time_t timeout);
+void ao_poll     (ao_async_t const * x, ao_time_t timeout);
 void ao_poll_from(ao_async_t const * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+Polls an asynchronous event with a timeout and an optional beginning.
 
 ## `ao_poll_forever`
 
@@ -35,13 +37,17 @@ void ao_poll_from(ao_async_t const * x, ao_time_t timeout, ao_time_t beginning);
 void ao_poll_forever(ao_async_t const * x);
 ```
 
+Polls an asynchronous event indefinitely.
+
 ## `ao_poll_all`
 ## `ao_poll_all_from`
 
 ```c
-void ao_poll_all(     ao_async_all_t * x, ao_time_t timeout);
+void ao_poll_all     (ao_async_all_t * x, ao_time_t timeout);
 void ao_poll_all_from(ao_async_all_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+Polls all out of a set of asynchronous events with a timeout and an optional beginning.
 
 ## `ao_poll_all_forever`
 
@@ -49,16 +55,22 @@ void ao_poll_all_from(ao_async_all_t * x, ao_time_t timeout, ao_time_t beginning
 void ao_poll_all_forever(ao_async_all_t * x);
 ```
 
+Polls all out of a set of asynchronous events indefinitely.
+
 ## `ao_poll_any`
 ## `ao_poll_any_from`
 
 ```c
-void ao_poll_any(     ao_async_any_t * x, ao_time_t timeout);
+void ao_poll_any     (ao_async_any_t * x, ao_time_t timeout);
 void ao_poll_any_from(ao_async_any_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+Polls any one out of a set of asynchronous events with a timeout and an optional beginning.
 
 ## `ao_poll_any_forever`
 
 ```c
 void ao_poll_any_forever(ao_async_any_t * x);
 ```
+
+Polls any one out of a set of asynchronous events indefinitely.

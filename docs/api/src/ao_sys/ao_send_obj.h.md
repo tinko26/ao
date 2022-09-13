@@ -66,7 +66,7 @@ This type represents a function beginning or ending a sending.
 ## `ao_send_obj_from`
 
 ```c
-void ao_send_obj(     ao_send_obj_t * x, ao_time_t timeout);
+void ao_send_obj     (ao_send_obj_t * x, ao_time_t timeout);
 void ao_send_obj_from(ao_send_obj_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
@@ -87,5 +87,5 @@ void ao_send_obj_try(ao_send_obj_t * x);
 
 ```c
 void ao_send_obj_begin(ao_send_obj_t * x);
-void ao_send_obj_end(  ao_send_obj_t * x);
+void ao_send_obj_end  (ao_send_obj_t * x);
 ```

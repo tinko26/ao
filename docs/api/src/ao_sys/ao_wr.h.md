@@ -87,7 +87,7 @@ This type represents the locking of a readers-writer lock. It consists of the fo
 ## `ao_wr_lock_read_from`
 
 ```c
-bool ao_wr_lock_read(     ao_wr_t * x, ao_time_t timeout);
+bool ao_wr_lock_read     (ao_wr_t * x, ao_time_t timeout);
 bool ao_wr_lock_read_from(ao_wr_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
@@ -108,14 +108,14 @@ bool ao_wr_lock_read_try(ao_wr_t * x);
 
 ```c
 void ao_wr_lock_read_begin(ao_wr_lock_t * x);
-void ao_wr_lock_read_end(  ao_wr_lock_t * x);
+void ao_wr_lock_read_end  (ao_wr_lock_t * x);
 ```
 
 ## `ao_wr_lock_write`
 ## `ao_wr_lock_write_from`
 
 ```c
-bool ao_wr_lock_write(     ao_wr_t * x, ao_time_t timeout);
+bool ao_wr_lock_write     (ao_wr_t * x, ao_time_t timeout);
 bool ao_wr_lock_write_from(ao_wr_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
@@ -136,7 +136,7 @@ bool ao_wr_lock_write_try(ao_wr_t * x);
 
 ```c
 void ao_wr_lock_write_begin(ao_wr_lock_t * x);
-void ao_wr_lock_write_end(  ao_wr_lock_t * x);
+void ao_wr_lock_write_end  (ao_wr_lock_t * x);
 ```
 
 ## `ao_wr_unlock_read`

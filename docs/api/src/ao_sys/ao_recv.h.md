@@ -77,7 +77,7 @@ This type represents a function beginning or ending a receiving.
 ## `ao_recv_from`
 
 ```c
-void ao_recv(     ao_recv_t * x, ao_time_t timeout);
+void ao_recv     (ao_recv_t * x, ao_time_t timeout);
 void ao_recv_from(ao_recv_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
@@ -104,7 +104,7 @@ Receives data in a non-blocking fashion.
 
 ```c
 void ao_recv_begin(ao_recv_t * x);
-void ao_recv_end(  ao_recv_t * x);
+void ao_recv_end  (ao_recv_t * x);
 ```
 
 Begins or ends the receiving of data, respectively.

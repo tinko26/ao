@@ -144,7 +144,7 @@ struct ao_task_master_t
     ao_uint_t         prio;
     ao_task_slave_t * slave;
     ao_rb_node_t      slave_masters_node;
-    ao_task_t *       task;
+    ao_task_t       * task;
     ao_list_node_t    task_masters_node;
 };
 ```

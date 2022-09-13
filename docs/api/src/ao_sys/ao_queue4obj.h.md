@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_queue4obj.h/
 toc: true
@@ -41,9 +41,9 @@ struct ao_queue4obj_t
 
 This type represents a queue for objects. It consists of the following members.
 
-| `heap` | The heap storing the data. |
-| `insert` | The list of tasks attempting to insert data into the queue. |
-| `pop` | The list of tasks attempting to pop data from the queue. |
+| `heap` | The heap. |
+| `insert` | The list of insertings. |
+| `pop` | The list of poppings. |
 
 ## `ao_qinsert_obj_t`
 
@@ -65,10 +65,10 @@ struct ao_qinsert_obj_t
 This type represents the inserting into a queue for objects. It consists of the following members.
 
 | `async` | The asynchronous event. |
-| `node` | The node for the queue's list of inserting tasks. |
-| `ptr` | Points to the data to insert. |
+| `node` | The node for the queue's list of insertings. |
+| `ptr` | The pointer to the object to insert. |
 | `queue` | The queue. |
-| `result` | Indicates whether data has been inserted into the queue. |
+| `result` | The result. |
 
 ## `ao_qpop_obj_t`
 
@@ -90,10 +90,10 @@ struct ao_qpop_obj_t
 This type represents the popping from a queue for objects. It consists of the following members.
 
 | `async` | The asynchronous event. |
-| `node` | The node for the queue's list of popping tasks. |
-| `ptr` | Points to a location to store the data to pop. |
+| `node` | The node for the queue's list of poppings. |
+| `ptr` | The pointer to the location to store the popped object. |
 | `queue` | The queue. |
-| `result` | Indicates whether data has been popped from the queue. |
+| `result` | The result. |
 
 # Functions
 
@@ -101,9 +101,11 @@ This type represents the popping from a queue for objects. It consists of the fo
 ## `ao_qinsert_obj_from`
 
 ```c
-void ao_qinsert_obj(     ao_qinsert_obj_t * x, ao_time_t timeout);
+void ao_qinsert_obj     (ao_qinsert_obj_t * x, ao_time_t timeout);
 void ao_qinsert_obj_from(ao_qinsert_obj_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+Inserts an object into a queue in a blocking fashion with a timeout and an optional beginning.
 
 ## `ao_qinsert_obj_forever`
 
@@ -111,27 +113,35 @@ void ao_qinsert_obj_from(ao_qinsert_obj_t * x, ao_time_t timeout, ao_time_t begi
 void ao_qinsert_obj_forever(ao_qinsert_obj_t * x);
 ```
 
+Inserts an object into a queue indefinitely in a blocking fashion.
+
 ## `ao_qinsert_obj_try`
 
 ```c
 void ao_qinsert_obj_try(ao_qinsert_obj_t * x);
 ```
 
+Inserts an object into a queue in a non-blocking fashion.
+
 ## `ao_qinsert_obj_begin`
 ## `ao_qinsert_obj_end`
 
 ```c
 void ao_qinsert_obj_begin(ao_qinsert_obj_t * x);
-void ao_qinsert_obj_end(  ao_qinsert_obj_t * x);
+void ao_qinsert_obj_end  (ao_qinsert_obj_t * x);
 ```
+
+Begins or ends, respectively, the inserting of an object into a queue.
 
 ## `ao_qpop_obj`
 ## `ao_qpop_obj_from`
 
 ```c
-void ao_qpop_obj(     ao_qpop_obj_t * x, ao_time_t timeout);
+void ao_qpop_obj     (ao_qpop_obj_t * x, ao_time_t timeout);
 void ao_qpop_obj_from(ao_qpop_obj_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+Pops an object from a queue in a blocking fashion with a timeout and an optional beginning.
 
 ## `ao_qpop_obj_forever`
 
@@ -139,16 +149,22 @@ void ao_qpop_obj_from(ao_qpop_obj_t * x, ao_time_t timeout, ao_time_t beginning)
 void ao_qpop_obj_forever(ao_qpop_obj_t * x);
 ```
 
+Pops an object from a queue indefinitely in a blocking fashion.
+
 ## `ao_qpop_obj_try`
 
 ```c
 void ao_qpop_obj_try(ao_qpop_obj_t * x);
 ```
 
+Pops an object from a queue in a non-blocking fashion.
+
 ## `ao_qpop_obj_begin`
 ## `ao_qpop_obj_end`
 
 ```c
 void ao_qpop_obj_begin(ao_qpop_obj_t * x);
-void ao_qpop_obj_end(  ao_qpop_obj_t * x);
+void ao_qpop_obj_end  (ao_qpop_obj_t * x);
 ```
+
+Begins or ends, respectively, the popping of an object from a queue.

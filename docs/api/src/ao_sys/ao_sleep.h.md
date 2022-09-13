@@ -80,7 +80,7 @@ Puts the running task to sleep. The task will never be woken up by the operating
 
 ```c
 void ao_sleep_begin(ao_sleep_t * x);
-void ao_sleep_end(  ao_sleep_t * x);
+void ao_sleep_end  (ao_sleep_t * x);
 ```
 
 Begins or ends sleeping.

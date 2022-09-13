@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_queue4ptr.h/
 toc: true
@@ -41,9 +41,9 @@ struct ao_queue4ptr_t
 
 This type represents a queue for pointers. It consists of the following members.
 
-| `heap` | The heap storing the pointers. |
-| `insert` | The list of tasks attempting to insert a pointer into the queue. |
-| `pop` | The list of tasks attempting to pop a pointer from the queue. |
+| `heap` | The heap. |
+| `insert` | The list of insertings. |
+| `pop` | The list of poppings. |
 
 ## `ao_qinsert_ptr_t`
 
@@ -65,10 +65,10 @@ struct ao_qinsert_ptr_t
 This type represents the inserting into a queue for pointers. It consists of the following members.
 
 | `async` | The asynchronous event. |
-| `node` | The node for the queue's list of inserting tasks. |
+| `node` | The node for the queue's list of insertings. |
 | `ptr` | The pointer to insert. |
 | `queue` | The queue. |
-| `result` | Indicates whether the pointer has been inserted into the queue. |
+| `result` | The result. |
 
 ## `ao_qpop_ptr_t`
 
@@ -90,10 +90,10 @@ struct ao_qpop_ptr_t
 This type represents the popping from a queue for pointers. It consists of the following members.
 
 | `async` | The asynchronous event. |
-| `node` | The node for the queue's list of popping tasks. |
-| `ptr` | The pointer popped from the queue. |
+| `node` | The node for the queue's list of poppings. |
+| `ptr` | The pointer that has been popped. |
 | `queue` | The queue. |
-| `result` | Indicates whether a pointer has been popped from the queue. |
+| `result` | The result. |
 
 # Functions
 
@@ -101,9 +101,11 @@ This type represents the popping from a queue for pointers. It consists of the f
 ## `ao_qinsert_acq_from`
 
 ```c
-void ao_qinsert_acq(     ao_qinsert_ptr_t * x, ao_time_t timeout);
+void ao_qinsert_acq     (ao_qinsert_ptr_t * x, ao_time_t timeout);
 void ao_qinsert_acq_from(ao_qinsert_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+Inserts a pointer to an acquired memory block into a queue in a blocking fashion with a timeout and an optional beginning.
 
 ## `ao_qinsert_acq_forever`
 
@@ -111,27 +113,35 @@ void ao_qinsert_acq_from(ao_qinsert_ptr_t * x, ao_time_t timeout, ao_time_t begi
 void ao_qinsert_acq_forever(ao_qinsert_ptr_t * x);
 ```
 
+Inserts a pointer to an acquired memory block into a queue indefinitely in a blocking fashion.
+
 ## `ao_qinsert_acq_try`
 
 ```c
 void ao_qinsert_acq_try(ao_qinsert_ptr_t * x);
 ```
 
+Inserts a pointer to an acquired memory block into a queue in a non-blocking fashion.
+
 ## `ao_qinsert_acq_begin`
 ## `ao_qinsert_acq_end`
 
 ```c
 void ao_qinsert_acq_begin(ao_qinsert_ptr_t * x);
-void ao_qinsert_acq_end(  ao_qinsert_ptr_t * x);
+void ao_qinsert_acq_end  (ao_qinsert_ptr_t * x);
 ```
+
+Begins or ends, respectively, the inserting of a pointer to an acquired memory block into a queue.
 
 ## `ao_qinsert_ptr`
 ## `ao_qinsert_ptr_from`
 
 ```c
-void ao_qinsert_ptr(     ao_qinsert_ptr_t * x, ao_time_t timeout);
+void ao_qinsert_ptr     (ao_qinsert_ptr_t * x, ao_time_t timeout);
 void ao_qinsert_ptr_from(ao_qinsert_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+Inserts a pointer into a queue in a blocking fashion with a timeout and an optional beginning.
 
 ## `ao_qinsert_ptr_forever`
 
@@ -139,27 +149,35 @@ void ao_qinsert_ptr_from(ao_qinsert_ptr_t * x, ao_time_t timeout, ao_time_t begi
 void ao_qinsert_ptr_forever(ao_qinsert_ptr_t * x);
 ```
 
+Inserts a pointer into a queue indefinitely in a blocking fashion.
+
 ## `ao_qinsert_ptr_try`
 
 ```c
 void ao_qinsert_ptr_try(ao_qinsert_ptr_t * x);
 ```
 
+Inserts a pointer into a queue in a non-blocking fashion.
+
 ## `ao_qinsert_ptr_begin`
 ## `ao_qinsert_ptr_end`
 
 ```c
 void ao_qinsert_ptr_begin(ao_qinsert_ptr_t * x);
-void ao_qinsert_ptr_end(  ao_qinsert_ptr_t * x);
+void ao_qinsert_ptr_end  (ao_qinsert_ptr_t * x);
 ```
+
+Begins or ends, respectively, the inserting of a pointer into a queue.
 
 ## `ao_qpop_ptr`
 ## `ao_qpop_ptr_from`
 
 ```c
-void ao_qpop_ptr(     ao_qpop_ptr_t * x, ao_time_t timeout);
+void ao_qpop_ptr     (ao_qpop_ptr_t * x, ao_time_t timeout);
 void ao_qpop_ptr_from(ao_qpop_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+Pops a pointer from a queue in a blocking fashion with a timeout and an optional beginning.
 
 ## `ao_qpop_ptr_forever`
 
@@ -167,16 +185,22 @@ void ao_qpop_ptr_from(ao_qpop_ptr_t * x, ao_time_t timeout, ao_time_t beginning)
 void ao_qpop_ptr_forever(ao_qpop_ptr_t * x);
 ```
 
+Pops a pointer from a queue indefinitely in a blocking fashion.
+
 ## `ao_qpop_ptr_try`
 
 ```c
 void ao_qpop_ptr_try(ao_qpop_ptr_t * x);
 ```
 
+Pops a pointer from a queue in a non-blocking fashion.
+
 ## `ao_qpop_ptr_begin`
 ## `ao_qpop_ptr_end`
 
 ```c
 void ao_qpop_ptr_begin(ao_qpop_ptr_t * x);
-void ao_qpop_ptr_end(  ao_qpop_ptr_t * x);
+void ao_qpop_ptr_end  (ao_qpop_ptr_t * x);
 ```
+
+Begins or ends, respectively, the popping of a pointer from a queue.

@@ -105,7 +105,7 @@ This type represents the pushing of an object to a stream. It consists of the fo
 ## `ao_spop_obj_from`
 
 ```c
-void ao_spop_obj(     ao_spop_obj_t * x, ao_time_t timeout);
+void ao_spop_obj     (ao_spop_obj_t * x, ao_time_t timeout);
 void ao_spop_obj_from(ao_spop_obj_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
@@ -126,14 +126,14 @@ void ao_spop_obj_try(ao_spop_obj_t * x);
 
 ```c
 void ao_spop_obj_begin(ao_spop_obj_t * x);
-void ao_spop_obj_end(  ao_spop_obj_t * x);
+void ao_spop_obj_end  (ao_spop_obj_t * x);
 ```
 
 ## `ao_spush_obj`
 ## `ao_spush_obj_from`
 
 ```c
-void ao_spush_obj(     ao_spush_obj_t * x, ao_time_t timeout);
+void ao_spush_obj     (ao_spush_obj_t * x, ao_time_t timeout);
 void ao_spush_obj_from(ao_spush_obj_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
@@ -154,7 +154,7 @@ void ao_spush_obj_try(ao_spush_obj_t * x);
 
 ```c
 void ao_spush_obj_begin(ao_spush_obj_t * x);
-void ao_spush_obj_end(  ao_spush_obj_t * x);
+void ao_spush_obj_end  (ao_spush_obj_t * x);
 ```
 
 ## `ao_spush_obj_override`

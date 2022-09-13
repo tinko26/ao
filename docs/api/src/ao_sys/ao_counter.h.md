@@ -82,7 +82,7 @@ typedef ao_uint_t (* ao_counter_adjust_t)
 );
 ```
 
-This type represents a function to adjust the value of a counter. The function takes the old value and an additional parameter and returns the new value.
+This type represents a function to adjust a counter value. The function takes the old value and an additional parameter and returns the new value.
 
 ## `ao_counter_match_t`
 
@@ -95,7 +95,7 @@ typedef bool (* ao_counter_match_t)
 );
 ```
 
-This type represents a function to check whether a specific value is a match. The function takes the current value of a counter, the value to be matched with that current value, and an additional parameter.
+This type represents a function to check whether a specific counter value is a match. The function takes the current value of a counter, the value to be matched with that current value, and an additional parameter.
 
 # Functions
 

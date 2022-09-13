@@ -35,7 +35,7 @@ The callback for the interrupt handlers. Actually, this function is implemented 
 ## `ao_task_switch_disable`
 
 ```c
-void ao_task_switch_enable( ao_core_t c);
+void ao_task_switch_enable (ao_core_t c);
 void ao_task_switch_disable(ao_core_t c);
 ```
 
@@ -46,7 +46,7 @@ Enables or disables the interrupt on the specified processor core.
 
 ```c
 void ao_task_switch_request(ao_core_t c);
-void ao_task_switch_reply(  ao_core_t c);
+void ao_task_switch_reply  (ao_core_t c);
 ```
 
 Requests the interrupt or replies thereto on the specified processor core.

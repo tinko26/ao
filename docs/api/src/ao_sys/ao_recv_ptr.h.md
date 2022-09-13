@@ -66,7 +66,7 @@ This type represents a function beginning or ending a receiving.
 ## `ao_recv_ptr_from`
 
 ```c
-void ao_recv_ptr(     ao_recv_ptr_t * x, ao_time_t timeout);
+void ao_recv_ptr     (ao_recv_ptr_t * x, ao_time_t timeout);
 void ao_recv_ptr_from(ao_recv_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
@@ -87,5 +87,5 @@ void ao_recv_ptr_try(ao_recv_ptr_t * x);
 
 ```c
 void ao_recv_ptr_begin(ao_recv_ptr_t * x);
-void ao_recv_ptr_end(  ao_recv_ptr_t * x);
+void ao_recv_ptr_end  (ao_recv_ptr_t * x);
 ```

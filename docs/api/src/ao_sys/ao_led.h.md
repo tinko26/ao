@@ -54,9 +54,9 @@ Gets the LEDs that are enabled.
 ## `ao_leds_toggle`
 
 ```c
-void ao_leds_enable( ao_leds_t x);
+void ao_leds_enable (ao_leds_t x);
 void ao_leds_disable(ao_leds_t x);
-void ao_leds_toggle( ao_leds_t x);
+void ao_leds_toggle (ao_leds_t x);
 ```
 
 Enables, disables, or toggles, respectively, the specified LEDs.

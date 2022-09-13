@@ -173,7 +173,7 @@ void ao_threshold_subtract_from(ao_threshold_t * x, ao_uint_t value);
 ## `ao_threshold_wait_from`
 
 ```c
-bool ao_threshold_wait(     ao_threshold_t * x, ao_time_t timeout);
+bool ao_threshold_wait     (ao_threshold_t * x, ao_time_t timeout);
 bool ao_threshold_wait_from(ao_threshold_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
@@ -194,5 +194,5 @@ bool ao_threshold_wait_try(ao_threshold_t * x);
 
 ```c
 void ao_threshold_wait_begin(ao_threshold_wait_t * x);
-void ao_threshold_wait_end(  ao_threshold_wait_t * x);
+void ao_threshold_wait_end  (ao_threshold_wait_t * x);
 ```

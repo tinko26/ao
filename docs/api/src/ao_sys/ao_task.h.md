@@ -260,16 +260,16 @@ First, this function calls the task procedure, if specified. Then, after the tas
 ## `ao_task_get_count`
 
 ```c
-ao_uint_t ao_task_get_count_activate(  ao_task_t const * t);
-ao_uint_t ao_task_get_count_block(     ao_task_t const * t);
+ao_uint_t ao_task_get_count_activate  (ao_task_t const * t);
+ao_uint_t ao_task_get_count_block     (ao_task_t const * t);
 ao_uint_t ao_task_get_count_inactivate(ao_task_t const * t);
-ao_uint_t ao_task_get_count_resume(    ao_task_t const * t);
-ao_uint_t ao_task_get_count_start(     ao_task_t const * t);
-ao_uint_t ao_task_get_count_stop(      ao_task_t const * t);
-ao_uint_t ao_task_get_count_suspend(   ao_task_t const * t);
-ao_uint_t ao_task_get_count_switch_in( ao_task_t const * t);
+ao_uint_t ao_task_get_count_resume    (ao_task_t const * t);
+ao_uint_t ao_task_get_count_start     (ao_task_t const * t);
+ao_uint_t ao_task_get_count_stop      (ao_task_t const * t);
+ao_uint_t ao_task_get_count_suspend   (ao_task_t const * t);
+ao_uint_t ao_task_get_count_switch_in (ao_task_t const * t);
 ao_uint_t ao_task_get_count_switch_out(ao_task_t const * t);
-ao_uint_t ao_task_get_count_unblock(   ao_task_t const * t);
+ao_uint_t ao_task_get_count_unblock   (ao_task_t const * t);
 ```
 
 ## `ao_task_get_id`
@@ -287,7 +287,7 @@ char const * ao_task_get_name(ao_task_t const * t);
 ## `ao_task_get_proc`
 
 ```c
-ao_proc_t ao_task_get_proc(          ao_task_t const * t);
+ao_proc_t ao_task_get_proc          (ao_task_t const * t);
 void *    ao_task_get_proc_parameter(ao_task_t const * t);
 ```
 
@@ -306,38 +306,38 @@ ao_task_state_pending_t ao_task_get_state_pending(ao_task_t const * t);
 ## `ao_task_get_time_point`
 
 ```c
-ao_time_t ao_task_get_time_point_activation(  ao_task_t const * t);
+ao_time_t ao_task_get_time_point_activation  (ao_task_t const * t);
 ao_time_t ao_task_get_time_point_inactivation(ao_task_t const * t);
-ao_time_t ao_task_get_time_point_start(       ao_task_t const * t);
-ao_time_t ao_task_get_time_point_stop(        ao_task_t const * t);
-ao_time_t ao_task_get_time_point_switch_in(   ao_task_t const * t);
-ao_time_t ao_task_get_time_point_switch_out(  ao_task_t const * t);
+ao_time_t ao_task_get_time_point_start       (ao_task_t const * t);
+ao_time_t ao_task_get_time_point_stop        (ao_task_t const * t);
+ao_time_t ao_task_get_time_point_switch_in   (ao_task_t const * t);
+ao_time_t ao_task_get_time_point_switch_out  (ao_task_t const * t);
 ```
 
 ## `ao_task_get_time_span`
 
 ```c
-ao_time_t ao_task_get_time_span_active(  ao_task_t const * t);
-ao_time_t ao_task_get_time_span_down(    ao_task_t const * t);
+ao_time_t ao_task_get_time_span_active  (ao_task_t const * t);
+ao_time_t ao_task_get_time_span_down    (ao_task_t const * t);
 ao_time_t ao_task_get_time_span_inactive(ao_task_t const * t);
-ao_time_t ao_task_get_time_span_up(      ao_task_t const * t);
+ao_time_t ao_task_get_time_span_up      (ao_task_t const * t);
 ```
 
 ## `ao_task_is`
 
 ```c
-bool ao_task_is_active(     ao_task_t const * t);
-bool ao_task_is_blocked(    ao_task_t const * t);
-bool ao_task_is_blocking(   ao_task_t const * t);
-bool ao_task_is_ready(      ao_task_t const * t);
-bool ao_task_is_running(    ao_task_t const * t);
-bool ao_task_is_started(    ao_task_t const * t);
-bool ao_task_is_stopped(    ao_task_t const * t);
-bool ao_task_is_stopping(   ao_task_t const * t);
+bool ao_task_is_active     (ao_task_t const * t);
+bool ao_task_is_blocked    (ao_task_t const * t);
+bool ao_task_is_blocking   (ao_task_t const * t);
+bool ao_task_is_ready      (ao_task_t const * t);
+bool ao_task_is_running    (ao_task_t const * t);
+bool ao_task_is_started    (ao_task_t const * t);
+bool ao_task_is_stopped    (ao_task_t const * t);
+bool ao_task_is_stopping   (ao_task_t const * t);
 bool ao_task_is_suspendable(ao_task_t const * t);
-bool ao_task_is_suspended(  ao_task_t const * t);
-bool ao_task_is_suspending( ao_task_t const * t);
-bool ao_task_is_yielding(   ao_task_t const * t);
+bool ao_task_is_suspended  (ao_task_t const * t);
+bool ao_task_is_suspending (ao_task_t const * t);
+bool ao_task_is_yielding   (ao_task_t const * t);
 ```
 
 ## `ao_task_resume`
@@ -349,16 +349,16 @@ void ao_task_resume(ao_task_t * t);
 ## `ao_task_set_count`
 
 ```c
-void ao_task_set_count_activate(  ao_task_t * t, ao_uint_t x);
-void ao_task_set_count_block(     ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_activate  (ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_block     (ao_task_t * t, ao_uint_t x);
 void ao_task_set_count_inactivate(ao_task_t * t, ao_uint_t x);
-void ao_task_set_count_resume(    ao_task_t * t, ao_uint_t x);
-void ao_task_set_count_start(     ao_task_t * t, ao_uint_t x);
-void ao_task_set_count_stop(      ao_task_t * t, ao_uint_t x);
-void ao_task_set_count_suspend(   ao_task_t * t, ao_uint_t x);
-void ao_task_set_count_switch_in( ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_resume    (ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_start     (ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_stop      (ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_suspend   (ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_switch_in (ao_task_t * t, ao_uint_t x);
 void ao_task_set_count_switch_out(ao_task_t * t, ao_uint_t x);
-void ao_task_set_count_unblock(   ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_unblock   (ao_task_t * t, ao_uint_t x);
 ```
 
 ## `ao_task_set_id`
@@ -382,10 +382,10 @@ void ao_task_set_proc(ao_task_t * t, ao_proc_t proc, void * parameter);
 ## `ao_task_set_time_span`
 
 ```c
-void ao_task_set_time_span_active(  ao_task_t * t, ao_time_t x);
-void ao_task_set_time_span_down(    ao_task_t * t, ao_time_t x);
+void ao_task_set_time_span_active  (ao_task_t * t, ao_time_t x);
+void ao_task_set_time_span_down    (ao_task_t * t, ao_time_t x);
 void ao_task_set_time_span_inactive(ao_task_t * t, ao_time_t x);
-void ao_task_set_time_span_up(      ao_task_t * t, ao_time_t x);
+void ao_task_set_time_span_up      (ao_task_t * t, ao_time_t x);
 ```
 
 ## `ao_task_start`

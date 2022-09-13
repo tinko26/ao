@@ -75,11 +75,11 @@ struct ao_xch_client_t
 
 #if AO_TASK_INHERITANCE
 
-    ao_task_t *                task;
+    ao_task_t       *          task;
 
 #endif
 
-    ao_xch_t *                 xch;
+    ao_xch_t        *          xch;
 };
 ```
 
@@ -110,11 +110,11 @@ struct ao_xch_server_t
 #if AO_TASK_INHERITANCE
 
     ao_task_slave_t            slave;
-    ao_task_t *                task;
+    ao_task_t       *          task;
 
 #endif
 
-    ao_xch_t *                 xch;
+    ao_xch_t        *          xch;
 };
 ```
 
@@ -134,7 +134,7 @@ This type represents the exchange activity of a server. It consists of the follo
 ## `ao_xch_client_from`
 
 ```c
-void ao_xch_client(     ao_xch_client_t * x, ao_time_t timeout);
+void ao_xch_client     (ao_xch_client_t * x, ao_time_t timeout);
 void ao_xch_client_from(ao_xch_client_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
@@ -149,14 +149,14 @@ void ao_xch_client_forever(ao_xch_client_t * x);
 
 ```c
 void ao_xch_client_begin(ao_xch_client_t * x);
-void ao_xch_client_end(  ao_xch_client_t * x);
+void ao_xch_client_end  (ao_xch_client_t * x);
 ```
 
 ## `ao_xch_server`
 ## `ao_xch_server_from`
 
 ```c
-void ao_xch_server(     ao_xch_server_t * x, ao_time_t timeout);
+void ao_xch_server     (ao_xch_server_t * x, ao_time_t timeout);
 void ao_xch_server_from(ao_xch_server_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
@@ -177,7 +177,7 @@ void ao_xch_server_try(ao_xch_server_t * x);
 
 ```c
 void ao_xch_server_begin(ao_xch_server_t * x);
-void ao_xch_server_end(  ao_xch_server_t * x);
+void ao_xch_server_end  (ao_xch_server_t * x);
 ```
 
 ## `ao_xch_server_reply`

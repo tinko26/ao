@@ -63,7 +63,7 @@ This type represents a container for lock-related data. The actual make-up of th
 ## `ao_unlock`
 
 ```c
-void ao_lock(  ao_lock_t * x);
+void ao_lock  (ao_lock_t * x);
 void ao_unlock(ao_lock_t * x);
 ```
 
