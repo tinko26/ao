@@ -89,9 +89,11 @@ Inserts `n1` before `n2` into a list, in constant time.
 ## `ao_list_is_empty`
 
 ```c
-#define ao_list_is_empty(x)           \
-(                                     \
-    (x)->front == NULL ? true : false \
+#define ao_list_is_empty(x) \
+(                           \
+    (x)->front == NULL      \
+    ? true                  \
+    : false                 \
 )
 ```
 
@@ -101,7 +103,7 @@ Checks whether a list is empty, in constant time.
 ## `ao_list_pop_front`
 
 ```c
-ao_list_node_t * ao_list_pop_back( ao_list_t * x);
+ao_list_node_t * ao_list_pop_back (ao_list_t * x);
 ao_list_node_t * ao_list_pop_front(ao_list_t * x);
 ```
 
@@ -111,7 +113,7 @@ Pops the back or front node, respectively, in constant time.
 ## `ao_list_push_front`
 
 ```c
-void ao_list_push_back( ao_list_t * x, ao_list_node_t * n);
+void ao_list_push_back (ao_list_t * x, ao_list_node_t * n);
 void ao_list_push_front(ao_list_t * x, ao_list_node_t * n);
 ```
 
@@ -137,7 +139,7 @@ Removes all nodes from a list, in linear time.
 ## `ao_list_remove_front`
 
 ```c
-void ao_list_remove_back( ao_list_t * x);
+void ao_list_remove_back (ao_list_t * x);
 void ao_list_remove_front(ao_list_t * x);
 ```
 

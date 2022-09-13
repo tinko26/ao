@@ -21,9 +21,11 @@ This module provides a number of useful mathematical operations. They are implem
 ## `AO_ABS`
 
 ```c
-#define AO_ABS(x)          \
-(                          \
-    (x) < (0) ? -(x) : (x) \
+#define AO_ABS(x) \
+(                 \
+    (x) < (0)     \
+    ? -(x)        \
+    :  (x)        \
 )
 ```
 

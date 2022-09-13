@@ -47,9 +47,11 @@ Aligns value `x` up to boundary `b`.
 ## `AO_IS_ALIGNED`
 
 ```c
-#define AO_IS_ALIGNED(x, b)  \
-(                            \
-    (x) % (b) ? false : true \
+#define AO_IS_ALIGNED(x, b) \
+(                           \
+    (x) % (b)               \
+    ? false                 \
+    : true                  \
 )
 ```
 

@@ -116,9 +116,11 @@ Inserts a node into a tree, in logarithmic time.
 ## `ao_avl_is_empty`
 
 ```c
-#define ao_avl_is_empty(x)           \
-(                                    \
-    (x)->root == NULL ? true : false \
+#define ao_avl_is_empty(x) \
+(                          \
+    (x)->root == NULL      \
+    ? true                 \
+    : false                \
 )
 ```
 

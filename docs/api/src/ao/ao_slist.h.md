@@ -104,9 +104,11 @@ Inserts a node into a list, in linear time.
 ## `ao_slist_is_empty`
 
 ```c
-#define ao_slist_is_empty(x)          \
-(                                     \
-    (x)->front == NULL ? true : false \
+#define ao_slist_is_empty(x) \
+(                            \
+    (x)->front == NULL       \
+    ? true                   \
+    : false                  \
 )
 ```
 
@@ -116,7 +118,7 @@ Checks whether a list is empty, in constant time.
 ## `ao_slist_pop_front`
 
 ```c
-ao_slist_node_t * ao_slist_pop_back( ao_slist_t * x);
+ao_slist_node_t * ao_slist_pop_back (ao_slist_t * x);
 ao_slist_node_t * ao_slist_pop_front(ao_slist_t * x);
 ```
 
@@ -142,7 +144,7 @@ Removes all nodes from a list, in linear time.
 ## `ao_slist_remove_front`
 
 ```c
-void ao_slist_remove_back( ao_slist_t * x);
+void ao_slist_remove_back (ao_slist_t * x);
 void ao_slist_remove_front(ao_slist_t * x);
 ```
 
@@ -151,7 +153,7 @@ Removes the back or front node, respectively, in constant time.
 ## `ao_slist_update`
 
 ```c
-void ao_slist_update( ao_slist_t * x, ao_slist_node_t * n);
+void ao_slist_update(ao_slist_t * x, ao_slist_node_t * n);
 ```
 
 A change in a single element can render the internal ordering of a list invalid. One way to deal with this, is to remove the element before the change and re-insert it afterwards. Another option is to update the list, after the change has taken place. This function will move the specified node forwards or backwards, respectively, until the ordering is restored, which takes linear time.

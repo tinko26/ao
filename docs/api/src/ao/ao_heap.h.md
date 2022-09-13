@@ -137,9 +137,11 @@ Inserts a node into a heap, in logarithmic time.
 ## `ao_heap_is_empty`
 
 ```c
-#define ao_heap_is_empty(x)          \
-(                                    \
-    (x)->root == NULL ? true : false \
+#define ao_heap_is_empty(x) \
+(                           \
+    (x)->root == NULL       \
+    ? true                  \
+    : false                 \
 )
 ```
 

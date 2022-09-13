@@ -117,9 +117,11 @@ Inserts a pointer into a heap, in logarithmic time. The return value indicates, 
 ## `ao_heap4ptr_is_empty`
 
 ```c
-#define ao_heap4ptr_is_empty(x)    \
-(                                  \
-    (x)->count == 0 ? true : false \
+#define ao_heap4ptr_is_empty(x) \
+(                               \
+    (x)->count == 0             \
+    ? true                      \
+    : false                     \
 )
 ```
 
@@ -128,9 +130,11 @@ Checks whether a heap is empty, in constant time.
 ## `ao_heap4ptr_is_full`
 
 ```c
-#define ao_heap4ptr_is_full(x)                 \
-(                                              \
-    (x)->count == (x)->capacity ? true : false \
+#define ao_heap4ptr_is_full(x)  \
+(                               \
+    (x)->count == (x)->capacity \
+    ? true                      \
+    : false                     \
 )
 ```
 

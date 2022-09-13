@@ -72,9 +72,9 @@ This type represents options for the conversion. It consists of the following me
 ## `ao_printel`
 
 ```c
-size_t ao_printed( char * s, size_t n, ao_print_t const * o, double const * v);
-size_t ao_printef( char * s, size_t n, ao_print_t const * o, float const * v);
-size_t ao_printel( char * s, size_t n, ao_print_t const * o, long double const * v);
+size_t ao_printed(char * s, size_t n, ao_print_t const * o, double      const * v);
+size_t ao_printef(char * s, size_t n, ao_print_t const * o, float       const * v);
+size_t ao_printel(char * s, size_t n, ao_print_t const * o, long double const * v);
 ```
 
 Converts a floating-point number to string in scientific notation. The respective suffix indicates, which kind of number to convert, as well as the source type. The return value indicates the actual number of bytes that have been written. The value `0` indicates, that the conversion has failed. All the functions have the same parameter list.
@@ -89,9 +89,9 @@ Converts a floating-point number to string in scientific notation. The respectiv
 ## `ao_printfl`
 
 ```c
-size_t ao_printfd( char * s, size_t n, ao_print_t const * o, double const * v);
-size_t ao_printff( char * s, size_t n, ao_print_t const * o, float const * v);
-size_t ao_printfl( char * s, size_t n, ao_print_t const * o, long double const * v);
+size_t ao_printfd(char * s, size_t n, ao_print_t const * o, double      const * v);
+size_t ao_printff(char * s, size_t n, ao_print_t const * o, float       const * v);
+size_t ao_printfl(char * s, size_t n, ao_print_t const * o, long double const * v);
 ```
 
 Converts a floating-point number to string in decimal notation. The respective suffix indicates, which kind of number to convert, as well as the source type. The return value indicates the actual number of bytes that have been written. The value `0` indicates, that the conversion has failed. All the functions have the same parameter list.
@@ -107,7 +107,7 @@ Converts a floating-point number to string in decimal notation. The respective s
 ## `ao_printi64`
 
 ```c
-size_t ao_printi8( char * s, size_t n, ao_print_t const * o, int8_t const * v);
+size_t ao_printi8 (char * s, size_t n, ao_print_t const * o, int8_t  const * v);
 size_t ao_printi16(char * s, size_t n, ao_print_t const * o, int16_t const * v);
 size_t ao_printi32(char * s, size_t n, ao_print_t const * o, int32_t const * v);
 size_t ao_printi64(char * s, size_t n, ao_print_t const * o, int64_t const * v);
@@ -126,7 +126,7 @@ Converts a signed integer to string. The respective suffix indicates, which kind
 ## `ao_printu64`
 
 ```c
-size_t ao_printu8( char * s, size_t n, ao_print_t const * o, uint8_t const * v);
+size_t ao_printu8 (char * s, size_t n, ao_print_t const * o, uint8_t  const * v);
 size_t ao_printu16(char * s, size_t n, ao_print_t const * o, uint16_t const * v);
 size_t ao_printu32(char * s, size_t n, ao_print_t const * o, uint32_t const * v);
 size_t ao_printu64(char * s, size_t n, ao_print_t const * o, uint64_t const * v);

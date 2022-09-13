@@ -70,9 +70,11 @@ This type represents a buffer for objects. It consists of the following members.
 ## `ao_buffer4obj_is_empty`
 
 ```c
-#define ao_buffer4obj_is_empty(x)  \
-(                                  \
-    (x)->count == 0 ? true : false \
+#define ao_buffer4obj_is_empty(x) \
+(                                 \
+    (x)->count == 0               \
+    ? true                        \
+    : false                       \
 )
 ```
 
@@ -81,9 +83,11 @@ Checks whether a buffer is empty, in constant time.
 ## `ao_buffer4obj_is_full`
 
 ```c
-#define ao_buffer4obj_is_full(x)               \
-(                                              \
-    (x)->count == (x)->capacity ? true : false \
+#define ao_buffer4obj_is_full(x) \
+(                                \
+    (x)->count == (x)->capacity  \
+    ? true                       \
+    : false                      \
 )
 ```
 

@@ -54,9 +54,9 @@ This type represents options for the conversion. It consists of the following me
 ## `ao_scanfl`
 
 ```c
-size_t ao_scanfd( char const * s, size_t n, ao_scan_t const * o, double * v);
-size_t ao_scanff( char const * s, size_t n, ao_scan_t const * o, float * v);
-size_t ao_scanfl( char const * s, size_t n, ao_scan_t const * o, long double * v);
+size_t ao_scanfd(char const * s, size_t n, ao_scan_t const * o, double      * v);
+size_t ao_scanff(char const * s, size_t n, ao_scan_t const * o, float       * v);
+size_t ao_scanfl(char const * s, size_t n, ao_scan_t const * o, long double * v);
 ```
 
 Converts a floating-point number from string. The respective suffix indicates, which kind of number to convert to, as well as the destination type. The return value indicates the actual number of bytes that have been read. The value `0` indicates, that the conversion has failed. All the functions have the same parameter list.
@@ -72,7 +72,7 @@ Converts a floating-point number from string. The respective suffix indicates, w
 ## `ao_scani64`
 
 ```c
-size_t ao_scani8( char const * s, size_t n, ao_scan_t const * o, int8_t * v);
+size_t ao_scani8 (char const * s, size_t n, ao_scan_t const * o, int8_t  * v);
 size_t ao_scani16(char const * s, size_t n, ao_scan_t const * o, int16_t * v);
 size_t ao_scani32(char const * s, size_t n, ao_scan_t const * o, int32_t * v);
 size_t ao_scani64(char const * s, size_t n, ao_scan_t const * o, int64_t * v);
@@ -91,7 +91,7 @@ Converts a signed integer from string. The respective suffix indicates, which ki
 ## `ao_scanu64`
 
 ```c
-size_t ao_scanu8( char const * s, size_t n, ao_scan_t const * o, uint8_t * v);
+size_t ao_scanu8 (char const * s, size_t n, ao_scan_t const * o, uint8_t  * v);
 size_t ao_scanu16(char const * s, size_t n, ao_scan_t const * o, uint16_t * v);
 size_t ao_scanu32(char const * s, size_t n, ao_scan_t const * o, uint32_t * v);
 size_t ao_scanu64(char const * s, size_t n, ao_scan_t const * o, uint64_t * v);

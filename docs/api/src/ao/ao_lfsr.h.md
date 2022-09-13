@@ -113,7 +113,7 @@ This type represents a linear-feedback shift register with a maximum width of 64
 ## `ao_lfsr64`
 
 ```c
-void ao_lfsr8( ao_lfsr8_t  * r);
+void ao_lfsr8 (ao_lfsr8_t  * r);
 void ao_lfsr16(ao_lfsr16_t * r);
 void ao_lfsr32(ao_lfsr32_t * r);
 void ao_lfsr64(ao_lfsr64_t * r);
