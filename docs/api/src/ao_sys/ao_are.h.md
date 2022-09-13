@@ -49,8 +49,8 @@ struct ao_are_t
 
 This type represents an auto-reset event. It consists of the following members.
 
-| `list` | |
-| `state` | |
+| `list` | The list of waitings. |
+| `state` | The state. |
 
 ## `ao_are_wait_t`
 
@@ -70,10 +70,10 @@ struct ao_are_wait_t
 
 This type represents the waiting for an auto-reset event. It consists of the following members.
 
-| `are` | |
-| `async` | |
-| `node` | |
-| `result` | |
+| `are` | The auto-reset event. |
+| `async` | The asynchronous event. |
+| `node` | The node for the auto-reset event's list of waitings. |
+| `result` | The result. |
 
 # Functions
 
@@ -97,7 +97,7 @@ Sets an auto-reset event, i.e. set its state to `true`. Eventually, this wakes u
 ## `ao_are_wait_from`
 
 ```c
-bool ao_are_wait(     ao_are_t * x, ao_time_t timeout);
+bool ao_are_wait     (ao_are_t * x, ao_time_t timeout);
 bool ao_are_wait_from(ao_are_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 

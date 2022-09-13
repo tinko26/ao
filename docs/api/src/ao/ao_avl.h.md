@@ -75,12 +75,10 @@ struct ao_avl_node_t
 
 This type represents an AVL tree node. It consists of the following members.
 
-| `height` | The height of the node, that is, the length of the longest path from the node downwards to a leaf. |
+| `height` | The height of the node, that is, the length of the longest path from the node downwards to a leaf. Although a node's height is always positive, this member is a signed integer. This is, because the heights of a node's children are used to calculate its balance factor, which can be negative. |
 | `left` | The left child. |
 | `parent` | The parent. |
 | `right` | The right child. |
-
-Although a node's height is always positive, the `height` member is a signed integer. This is, because the heights of a node's children are used to calculate its balance factor, which can be negative.
 
 ## `ao_avl_less_t`
 

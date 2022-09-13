@@ -65,8 +65,8 @@ These constants represent the following values.
 ## `ao_acos`
 
 ```c
-double      ao_acosd(double x);
-float       ao_acosf(float x);
+double      ao_acosd(double      x);
+float       ao_acosf(float       x);
 long double ao_acosl(long double x);
 ```
 
@@ -75,8 +75,8 @@ Calculates the arc cosine of $$\texttt{x}$$.
 ## `ao_acosh`
 
 ```c
-double      ao_acoshd(double x);
-float       ao_acoshf(float x);
+double      ao_acoshd(double      x);
+float       ao_acoshf(float       x);
 long double ao_acoshl(long double x);
 ```
 
@@ -85,8 +85,8 @@ Calculates the area hyperbolic cosine of $$\texttt{x}$$.
 ## `ao_acot`
 
 ```c
-double      ao_acotd(double x);
-float       ao_acotf(float x);
+double      ao_acotd(double      x);
+float       ao_acotf(float       x);
 long double ao_acotl(long double x);
 ```
 
@@ -95,8 +95,8 @@ Calculates the arc cotangent of $$\texttt{x}$$.
 ## `ao_acoth`
 
 ```c
-double      ao_acothd(double x);
-float       ao_acothf(float x);
+double      ao_acothd(double      x);
+float       ao_acothf(float       x);
 long double ao_acothl(long double x);
 ```
 
@@ -105,8 +105,8 @@ Calculates the area hyperbolic cotangent of $$\texttt{x}$$.
 ## `ao_acsc`
 
 ```c
-double      ao_acscd(double x);
-float       ao_acscf(float x);
+double      ao_acscd(double      x);
+float       ao_acscf(float       x);
 long double ao_acscl(long double x);
 ```
 
@@ -115,8 +115,8 @@ Calculates the arc cosecant of $$\texttt{x}$$.
 ## `ao_acsch`
 
 ```c
-double      ao_acschd(double x);
-float       ao_acschf(float x);
+double      ao_acschd(double      x);
+float       ao_acschf(float       x);
 long double ao_acschl(long double x);
 ```
 
@@ -125,8 +125,8 @@ Calculates the area hyperbolic cosecant of $$\texttt{x}$$.
 ## `ao_asec`
 
 ```c
-double      ao_asecd(double x);
-float       ao_asecf(float x);
+double      ao_asecd(double      x);
+float       ao_asecf(float       x);
 long double ao_asecl(long double x);
 ```
 
@@ -135,8 +135,8 @@ Calculates the arc secant of $$\texttt{x}$$.
 ## `ao_asech`
 
 ```c
-double      ao_asechd(double x);
-float       ao_asechf(float x);
+double      ao_asechd(double      x);
+float       ao_asechf(float       x);
 long double ao_asechl(long double x);
 ```
 
@@ -145,8 +145,8 @@ Calculates the area hyperbolic secant of $$\texttt{x}$$.
 ## `ao_asin`
 
 ```c
-double      ao_asind(double x);
-float       ao_asinf(float x);
+double      ao_asind(double      x);
+float       ao_asinf(float       x);
 long double ao_asinl(long double x);
 ```
 
@@ -155,8 +155,8 @@ Calculates the arc sine of $$\texttt{x}$$.
 ## `ao_asinh`
 
 ```c
-double      ao_asinhd(double x);
-float       ao_asinhf(float x);
+double      ao_asinhd(double      x);
+float       ao_asinhf(float       x);
 long double ao_asinhl(long double x);
 ```
 
@@ -165,8 +165,8 @@ Calculates the area hyperbolic sine of $$\texttt{x}$$.
 ## `ao_atan`
 
 ```c
-double      ao_atand(double x);
-float       ao_atanf(float x);
+double      ao_atand(double      x);
+float       ao_atanf(float       x);
 long double ao_atanl(long double x);
 ```
 
@@ -175,8 +175,8 @@ Calculates the arc tangent of $$\texttt{x}$$.
 ## `ao_atan2`
 
 ```c
-double      ao_atan2d(double y,      double x);
-float       ao_atan2f(float y,       float x);
+double      ao_atan2d(double      y, double      x);
+float       ao_atan2f(float       y, float       x);
 long double ao_atan2l(long double y, long double x);
 ```
 
@@ -185,8 +185,8 @@ Calculates the arc tangent of $$\frac{\texttt{y}}{\texttt{x}}$$.
 ## `ao_atanh`
 
 ```c
-double      ao_atanhd(double x);
-float       ao_atanhf(float x);
+double      ao_atanhd(double      x);
+float       ao_atanhf(float       x);
 long double ao_atanhl(long double x);
 ```
 
@@ -195,8 +195,8 @@ Calculates the area hyperbolic tangent of $$\texttt{x}$$.
 ## `ao_cbrt`
 
 ```c
-double      ao_cbrtd(double x);
-float       ao_cbrtf(float x);
+double      ao_cbrtd(double      x);
+float       ao_cbrtf(float       x);
 long double ao_cbrtl(long double x);
 ```
 
@@ -205,8 +205,8 @@ Calculates the cubic root of $$\texttt{x}$$.
 ## `ao_ceil`
 
 ```c
-double      ao_ceild(double x);
-float       ao_ceilf(float x);
+double      ao_ceild(double      x);
+float       ao_ceilf(float       x);
 long double ao_ceill(long double x);
 ```
 
@@ -215,8 +215,8 @@ Rounds $$\texttt{x}$$ up.
 ## `ao_cos`
 
 ```c
-double      ao_cosd(double x);
-float       ao_cosf(float x);
+double      ao_cosd(double      x);
+float       ao_cosf(float       x);
 long double ao_cosl(long double x);
 ```
 
@@ -225,8 +225,8 @@ Calculates the cosine of $$\texttt{x}$$.
 ## `ao_cosh`
 
 ```c
-double      ao_coshd(double x);
-float       ao_coshf(float x);
+double      ao_coshd(double      x);
+float       ao_coshf(float       x);
 long double ao_coshl(long double x);
 ```
 
@@ -235,8 +235,8 @@ Calculates the hyperbolic cosine of $$\texttt{x}$$.
 ## `ao_cot`
 
 ```c
-double      ao_cotd(double x);
-float       ao_cotf(float x);
+double      ao_cotd(double      x);
+float       ao_cotf(float       x);
 long double ao_cotl(long double x);
 ```
 
@@ -245,8 +245,8 @@ Calculates the cotangent of $$\texttt{x}$$.
 ## `ao_coth`
 
 ```c
-double      ao_cothd(double x);
-float       ao_cothf(float x);
+double      ao_cothd(double      x);
+float       ao_cothf(float       x);
 long double ao_cothl(long double x);
 ```
 
@@ -255,8 +255,8 @@ Calculates the hyperbolic cotangent of $$\texttt{x}$$.
 ## `ao_csc`
 
 ```c
-double      ao_cscd(double x);
-float       ao_cscf(float x);
+double      ao_cscd(double      x);
+float       ao_cscf(float       x);
 long double ao_cscl(long double x);
 ```
 
@@ -265,8 +265,8 @@ Calculates the cosecant of $$\texttt{x}$$.
 ## `ao_csch`
 
 ```c
-double      ao_cschd(double x);
-float       ao_cschf(float x);
+double      ao_cschd(double      x);
+float       ao_cschf(float       x);
 long double ao_cschl(long double x);
 ```
 
@@ -275,8 +275,8 @@ Calculates the hyperbolic cosecant of $$\texttt{x}$$.
 ## `ao_deg2rad`
 
 ```c
-double      ao_deg2radd(double x);
-float       ao_deg2radf(float x);
+double      ao_deg2radd(double      x);
+float       ao_deg2radf(float       x);
 long double ao_deg2radl(long double x);
 ```
 
@@ -285,8 +285,8 @@ Converts degrees to radians.
 ## `ao_exp`
 
 ```c
-double      ao_expd(double x);
-float       ao_expf(float x);
+double      ao_expd(double      x);
+float       ao_expf(float       x);
 long double ao_expl(long double x);
 ```
 
@@ -295,8 +295,8 @@ Calculates $$e^\texttt{x}$$.
 ## `ao_exp2`
 
 ```c
-double      ao_exp2d(double x);
-float       ao_exp2f(float x);
+double      ao_exp2d(double      x);
+float       ao_exp2f(float       x);
 long double ao_exp2l(long double x);
 ```
 
@@ -305,8 +305,8 @@ Calculates $$2^\texttt{x}$$.
 ## `ao_fabs`
 
 ```c
-double      ao_fabsd(double x);
-float       ao_fabsf(float x);
+double      ao_fabsd(double      x);
+float       ao_fabsf(float       x);
 long double ao_fabsl(long double x);
 ```
 
@@ -315,8 +315,8 @@ Calculates the absolute value of $$\texttt{x}$$.
 ## `ao_floor`
 
 ```c
-double      ao_floord(double x);
-float       ao_floorf(float x);
+double      ao_floord(double      x);
+float       ao_floorf(float       x);
 long double ao_floorl(long double x);
 ```
 
@@ -325,8 +325,8 @@ Rounds $$\texttt{x}$$ down.
 ## `ao_fmod`
 
 ```c
-double      ao_fmodd(double x,      double y);
-float       ao_fmodf(float x,       float y);
+double      ao_fmodd(double      x, double      y);
+float       ao_fmodf(float       x, float       y);
 long double ao_fmodl(long double x, long double y);
 ```
 
@@ -335,8 +335,8 @@ Calculates the remainder of $$\frac{\texttt{x}}{\texttt{y}}$$ rounded to zero.
 ## `ao_frexp`
 
 ```c
-double      ao_frexpd(double x,      int * exp);
-float       ao_frexpf(float x,       int * exp);
+double      ao_frexpd(double      x, int * exp);
+float       ao_frexpf(float       x, int * exp);
 long double ao_frexpl(long double x, int * exp);
 ```
 
@@ -345,8 +345,8 @@ Breaks $$\texttt{x}$$ into its binary significant and an integral exponent for 2
 ## `ao_frexp10`
 
 ```c
-double      ao_frexp10d(double x,      int * exp);
-float       ao_frexp10f(float x,       int * exp);
+double      ao_frexp10d(double      x, int * exp);
+float       ao_frexp10f(float       x, int * exp);
 long double ao_frexp10l(long double x, int * exp);
 ```
 
@@ -355,8 +355,8 @@ Breaks $$\texttt{x}$$ into its decimal significant and an integral exponent for 
 ## `ao_hypot`
 
 ```c
-double      ao_hypotd(double x,      double y);
-float       ao_hypotf(float x,       float y);
+double      ao_hypotd(double      x, double      y);
+float       ao_hypotf(float       x, float       y);
 long double ao_hypotl(long double x, long double y);
 ```
 
@@ -375,8 +375,8 @@ Generates positive infinity.
 ## `ao_isfinite`
 
 ```c
-bool ao_isfinited(double x);
-bool ao_isfinitef(float x);
+bool ao_isfinited(double      x);
+bool ao_isfinitef(float       x);
 bool ao_isfinitel(long double x);
 ```
 
@@ -385,8 +385,8 @@ Checks whether $$\texttt{x}$$ is finite.
 ## `ao_isinf`
 
 ```c
-bool ao_isinfd(double x);
-bool ao_isinff(float x);
+bool ao_isinfd(double      x);
+bool ao_isinff(float       x);
 bool ao_isinfl(long double x);
 ```
 
@@ -395,8 +395,8 @@ Checks whether $$\texttt{x}$$ is positive or negative infinity.
 ## `ao_isnan`
 
 ```c
-bool ao_isnand(double x);
-bool ao_isnanf(float x);
+bool ao_isnand(double      x);
+bool ao_isnanf(float       x);
 bool ao_isnanl(long double x);
 ```
 
@@ -405,8 +405,8 @@ Checks whether $$\texttt{x}$$ is not a number.
 ## `ao_ldexp`
 
 ```c
-double      ao_ldexpd(double x,      int exp);
-float       ao_ldexpf(float x,       int exp);
+double      ao_ldexpd(double      x, int exp);
+float       ao_ldexpf(float       x, int exp);
 long double ao_ldexpl(long double x, int exp);
 ```
 
@@ -415,8 +415,8 @@ Calculates $$\texttt{x} \cdot 2^{\texttt{exp}}$$.
 ## `ao_ldexp10`
 
 ```c
-double      ao_ldexp10d(double x,      int exp);
-float       ao_ldexp10f(float x,       int exp);
+double      ao_ldexp10d(double      x, int exp);
+float       ao_ldexp10f(float       x, int exp);
 long double ao_ldexp10l(long double x, int exp);
 ```
 
@@ -425,8 +425,8 @@ Calculates $$\texttt{x} \cdot 10^{\texttt{exp}}$$.
 ## `ao_log`
 
 ```c
-double      ao_logd(double x);
-float       ao_logf(float x);
+double      ao_logd(double      x);
+float       ao_logf(float       x);
 long double ao_logl(long double x);
 ```
 
@@ -435,8 +435,8 @@ Calculates the natural logarithm of $$\texttt{x}$$.
 ## `ao_log10`
 
 ```c
-double      ao_log10d(double x);
-float       ao_log10f(float x);
+double      ao_log10d(double      x);
+float       ao_log10f(float       x);
 long double ao_log10l(long double x);
 ```
 
@@ -445,8 +445,8 @@ Calculates the common logarithm of $$\texttt{x}$$.
 ## `ao_log2`
 
 ```c
-double      ao_log2d(double x);
-float       ao_log2f(float x);
+double      ao_log2d(double      x);
+float       ao_log2f(float       x);
 long double ao_log2l(long double x);
 ```
 
@@ -455,8 +455,8 @@ Calculates the binary logarithm of $$\texttt{x}$$.
 ## `ao_modf`
 
 ```c
-double      ao_modfd(double x,      double * intpart);
-float       ao_modff(float x,       float * intpart);
+double      ao_modfd(double      x, double      * intpart);
+float       ao_modff(float       x, float       * intpart);
 long double ao_modfl(long double x, long double * intpart);
 ```
 
@@ -475,8 +475,8 @@ Generates not a number.
 ## `ao_pow`
 
 ```c
-double      ao_powd(double x,      double y);
-float       ao_powf(float x,       float y);
+double      ao_powd(double      x, double      y);
+float       ao_powf(float       x, float       y);
 long double ao_powl(long double x, long double y);
 ```
 
@@ -485,8 +485,8 @@ Calculates $$\texttt{x}^\texttt{y}$$.
 ## `ao_rad2deg`
 
 ```c
-double      ao_rad2degd(double x);
-float       ao_rad2degf(float x);
+double      ao_rad2degd(double      x);
+float       ao_rad2degf(float       x);
 long double ao_rad2degl(long double x);
 ```
 
@@ -535,8 +535,8 @@ Rounds $$\texttt{x}$$ away from positive infinity.
 ## `ao_round_away_from_zero`
 
 ```c
-double      ao_roundd_away_from_zero(double x);
-float       ao_roundf_away_from_zero(float x);
+double      ao_roundd_away_from_zero(double      x);
+float       ao_roundf_away_from_zero(float       x);
 long double ao_roundl_away_from_zero(long double x);
 ```
 
@@ -595,8 +595,8 @@ Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from zero.
 ## `ao_round_half_down`
 
 ```c
-double      ao_roundd_half_down(double x);
-float       ao_roundf_half_down(float x);
+double      ao_roundd_half_down(double      x);
+float       ao_roundf_half_down(float       x);
 long double ao_roundl_half_down(long double x);
 ```
 
@@ -605,8 +605,8 @@ Rounds $$\texttt{x}$$ to the nearest integer. Rounds half down.
 ## `ao_round_half_to_even`
 
 ```c
-double      ao_roundd_half_to_even(double x);
-float       ao_roundf_half_to_even(float x);
+double      ao_roundd_half_to_even(double      x);
+float       ao_roundf_half_to_even(float       x);
 long double ao_roundl_half_to_even(long double x);
 ```
 
@@ -615,8 +615,8 @@ Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to even.
 ## `ao_round_half_to_infinity`
 
 ```c
-double      ao_roundd_half_to_infinity(double x);
-float       ao_roundf_half_to_infinity(float x);
+double      ao_roundd_half_to_infinity(double      x);
+float       ao_roundf_half_to_infinity(float       x);
 long double ao_roundl_half_to_infinity(long double x);
 ```
 
@@ -635,8 +635,8 @@ Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to negative infinity.
 ## `ao_round_half_to_odd`
 
 ```c
-double      ao_roundd_half_to_odd(double x);
-float       ao_roundf_half_to_odd(float x);
+double      ao_roundd_half_to_odd(double      x);
+float       ao_roundf_half_to_odd(float       x);
 long double ao_roundl_half_to_odd(long double x);
 ```
 
@@ -655,8 +655,8 @@ Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to positive infinity.
 ## `ao_round_half_to_zero`
 
 ```c
-double      ao_roundd_half_to_zero(double x);
-float       ao_roundf_half_to_zero(float x);
+double      ao_roundd_half_to_zero(double      x);
+float       ao_roundf_half_to_zero(float       x);
 long double ao_roundl_half_to_zero(long double x);
 ```
 
@@ -665,8 +665,8 @@ Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to zero.
 ## `ao_round_half_up`
 
 ```c
-double      ao_roundd_half_up(double x);
-float       ao_roundf_half_up(float x);
+double      ao_roundd_half_up(double      x);
+float       ao_roundf_half_up(float       x);
 long double ao_roundl_half_up(long double x);
 ```
 
@@ -725,8 +725,8 @@ Rounds $$\texttt{x}$$ up.
 ## `ao_sec`
 
 ```c
-double      ao_secd(double x);
-float       ao_secf(float x);
+double      ao_secd(double      x);
+float       ao_secf(float       x);
 long double ao_secl(long double x);
 ```
 
@@ -735,8 +735,8 @@ Calculates the secant of $$\texttt{x}$$.
 ## `ao_sech`
 
 ```c
-double      ao_sechd(double x);
-float       ao_sechf(float x);
+double      ao_sechd(double      x);
+float       ao_sechf(float       x);
 long double ao_sechl(long double x);
 ```
 
@@ -745,8 +745,8 @@ Calculates the hyperbolic secant of $$\texttt{x}$$.
 ## `ao_sign`
 
 ```c
-double      ao_signd(double x);
-float       ao_signf(float x);
+double      ao_signd(double      x);
+float       ao_signf(float       x);
 long double ao_signl(long double x);
 ```
 
@@ -755,8 +755,8 @@ Calculates the sign of $$\texttt{x}$$.
 ## `ao_sin`
 
 ```c
-double      ao_sind(double x);
-float       ao_sinf(float x);
+double      ao_sind(double      x);
+float       ao_sinf(float       x);
 long double ao_sinl(long double x);
 ```
 
@@ -765,8 +765,8 @@ Calculates the sine of $$\texttt{x}$$.
 ## `ao_sinh`
 
 ```c
-double      ao_sinhd(double x);
-float       ao_sinhf(float x);
+double      ao_sinhd(double      x);
+float       ao_sinhf(float       x);
 long double ao_sinhl(long double x);
 ```
 
@@ -775,8 +775,8 @@ Calculates the hyperbolic sine of $$\texttt{x}$$.
 ## `ao_sqrt`
 
 ```c
-double      ao_sqrtd(double x);
-float       ao_sqrtf(float x);
+double      ao_sqrtd(double      x);
+float       ao_sqrtf(float       x);
 long double ao_sqrtl(long double x);
 ```
 
@@ -785,8 +785,8 @@ Calculates the square root of $$\texttt{x}$$.
 ## `ao_tan`
 
 ```c
-double      ao_tand(double x);
-float       ao_tanf(float x);
+double      ao_tand(double      x);
+float       ao_tanf(float       x);
 long double ao_tanl(long double x);
 ```
 
@@ -795,8 +795,8 @@ Calculates the tangent of $$\texttt{x}$$.
 ## `ao_tanh`
 
 ```c
-double      ao_tanhd(double x);
-float       ao_tanhf(float x);
+double      ao_tanhd(double      x);
+float       ao_tanhf(float       x);
 long double ao_tanhl(long double x);
 ```
 
@@ -805,8 +805,8 @@ Calculates the hyperbolic tangent of $$\texttt{x}$$.
 ## `ao_trunc`
 
 ```c
-double      ao_truncd(double x);
-float       ao_truncf(float x);
+double      ao_truncd(double      x);
+float       ao_truncf(float       x);
 long double ao_truncl(long double x);
 ```
 
@@ -815,8 +815,8 @@ Rounds $$\texttt{x}$$ to zero.
 ## `ao_wrap`
 
 ```c
-double      ao_wrapd(double x,      double beginning,      double length);
-float       ao_wrapf(float x,       float beginning,       float length);
+double      ao_wrapd(double      x, double      beginning, double      length);
+float       ao_wrapf(float       x, float       beginning, float       length);
 long double ao_wrapl(long double x, long double beginning, long double length);
 ```
 
