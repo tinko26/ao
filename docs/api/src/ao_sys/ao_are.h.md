@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 external:
 - https://docs.microsoft.com/en-us/dotnet/api/system.threading.autoresetevent : "AutoResetEvent"
@@ -83,7 +83,7 @@ This type represents the waiting for an auto-reset event. It consists of the fol
 void ao_are_clear(ao_are_t * x);
 ```
 
-Clears an auto-reset event, i.e. set its state to `false`. This function can be called from both task and interrupt context.
+Clears an auto-reset event, i.e. set its state to `false`.
 
 ## `ao_are_set`
 
@@ -91,7 +91,7 @@ Clears an auto-reset event, i.e. set its state to `false`. This function can be 
 void ao_are_set(ao_are_t * x);
 ```
 
-Sets an auto-reset event, i.e. set its state to `true`. Eventually, this wakes up the first waiting task. This function can be called from both task and interrupt context.
+Sets an auto-reset event, i.e. set its state to `true`. Eventually, this wakes up the first waiting task.
 
 ## `ao_are_wait`
 ## `ao_are_wait_from`
@@ -124,7 +124,7 @@ Waits for an auto-reset event in a non-blocking fashion.
 
 ```c
 void ao_are_wait_begin(ao_are_wait_t * x);
-void ao_are_wait_end(  ao_are_wait_t * x);
+void ao_are_wait_end  (ao_are_wait_t * x);
 ```
 
 Begins or ends the waiting for an auto-reset event, respectively.
