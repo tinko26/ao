@@ -97,7 +97,7 @@ Checks whether a buffer is full, in constant time.
 ## `ao_buffer_peek_front`
 
 ```c
-bool ao_buffer_peek_back( ao_buffer_t const * x, void * p);
+bool ao_buffer_peek_back (ao_buffer_t const * x, void * p);
 bool ao_buffer_peek_front(ao_buffer_t const * x, void * p);
 ```
 
@@ -107,7 +107,7 @@ Peeks the back or front byte, respectively, in constant time. The return value i
 ## `ao_buffer_peek_range_front`
 
 ```c
-size_t ao_buffer_peek_range_back( ao_buffer_t const * x, void * p, size_t n_min, size_t n_max);
+size_t ao_buffer_peek_range_back (ao_buffer_t const * x, void * p, size_t n_min, size_t n_max);
 size_t ao_buffer_peek_range_front(ao_buffer_t const * x, void * p, size_t n_min, size_t n_max);
 ```
 
@@ -117,7 +117,7 @@ Peeks a sequence of back or front bytes, respectively. The `n_min` and `n_max` p
 ## `ao_buffer_pop_front`
 
 ```c
-bool ao_buffer_pop_back( ao_buffer_t * x, void * p);
+bool ao_buffer_pop_back (ao_buffer_t * x, void * p);
 bool ao_buffer_pop_front(ao_buffer_t * x, void * p);
 ```
 
@@ -127,7 +127,7 @@ Pops the back or front byte, respectively, in constant time. The return value in
 ## `ao_buffer_pop_range_front`
 
 ```c
-size_t ao_buffer_pop_range_back( ao_buffer_t * x, void * p, size_t n_min, size_t n_max);
+size_t ao_buffer_pop_range_back (ao_buffer_t * x, void * p, size_t n_min, size_t n_max);
 size_t ao_buffer_pop_range_front(ao_buffer_t * x, void * p, size_t n_min, size_t n_max);
 ```
 
@@ -137,7 +137,7 @@ Pops a sequence of back or front bytes, respectively. The `n_min` and `n_max` pa
 ## `ao_buffer_push_front`
 
 ```c
-bool ao_buffer_push_back( ao_buffer_t * x, void const * p);
+bool ao_buffer_push_back (ao_buffer_t * x, void const * p);
 bool ao_buffer_push_front(ao_buffer_t * x, void const * p);
 ```
 
@@ -147,7 +147,7 @@ Pushes a byte to the back or front, respectively, in constant time. The return v
 ## `ao_buffer_push_front_override`
 
 ```c
-bool ao_buffer_push_back_override( ao_buffer_t * x, void const * p);
+bool ao_buffer_push_back_override (ao_buffer_t * x, void const * p);
 bool ao_buffer_push_front_override(ao_buffer_t * x, void const * p);
 ```
 
@@ -157,7 +157,7 @@ Pushes a byte to the back or front, respectively, in constant time. If the buffe
 ## `ao_buffer_push_range_front`
 
 ```c
-size_t ao_buffer_push_range_back( ao_buffer_t * x, void const * p, size_t n_min, size_t n_max);
+size_t ao_buffer_push_range_back (ao_buffer_t * x, void const * p, size_t n_min, size_t n_max);
 size_t ao_buffer_push_range_front(ao_buffer_t * x, void const * p, size_t n_min, size_t n_max);
 ```
 
@@ -167,7 +167,7 @@ Pushes a sequence of bytes to the back or front, respectively. The `n_min` and `
 ## `ao_buffer_push_range_front_override`
 
 ```c
-size_t ao_buffer_push_range_back_override( ao_buffer_t * x, void const * p, size_t n_min, size_t n_max);
+size_t ao_buffer_push_range_back_override (ao_buffer_t * x, void const * p, size_t n_min, size_t n_max);
 size_t ao_buffer_push_range_front_override(ao_buffer_t * x, void const * p, size_t n_min, size_t n_max);
 ```
 

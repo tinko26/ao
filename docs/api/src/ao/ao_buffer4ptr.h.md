@@ -89,7 +89,7 @@ Checks whether a buffer is empty, in constant time.
 ## `ao_buffer4ptr_peek_front`
 
 ```c
-bool ao_buffer4ptr_peek_back( ao_buffer4ptr_t const * x, void ** p);
+bool ao_buffer4ptr_peek_back (ao_buffer4ptr_t const * x, void ** p);
 bool ao_buffer4ptr_peek_front(ao_buffer4ptr_t const * x, void ** p);
 ```
 
@@ -99,7 +99,7 @@ Peeks the back or front pointer, respectively, in constant time. The return valu
 ## `ao_buffer4ptr_peek_range_front`
 
 ```c
-size_t ao_buffer4ptr_peek_range_back( ao_buffer4ptr_t const * x, void ** p, size_t n_min, size_t n_max);
+size_t ao_buffer4ptr_peek_range_back (ao_buffer4ptr_t const * x, void ** p, size_t n_min, size_t n_max);
 size_t ao_buffer4ptr_peek_range_front(ao_buffer4ptr_t const * x, void ** p, size_t n_min, size_t n_max);
 ```
 
@@ -109,7 +109,7 @@ Peeks a sequence of back or front pointers, respectively. The `n_min` and `n_max
 ## `ao_buffer4ptr_pop_front`
 
 ```c
-bool ao_buffer4ptr_pop_back( ao_buffer4ptr_t * x, void ** p);
+bool ao_buffer4ptr_pop_back (ao_buffer4ptr_t * x, void ** p);
 bool ao_buffer4ptr_pop_front(ao_buffer4ptr_t * x, void ** p);
 ```
 
@@ -119,7 +119,7 @@ Pops the back or front pointer, respectively, in constant time. The return value
 ## `ao_buffer4ptr_pop_range_front`
 
 ```c
-size_t ao_buffer4ptr_pop_range_back( ao_buffer4ptr_t * x, void ** p, size_t n_min, size_t n_max);
+size_t ao_buffer4ptr_pop_range_back (ao_buffer4ptr_t * x, void ** p, size_t n_min, size_t n_max);
 size_t ao_buffer4ptr_pop_range_front(ao_buffer4ptr_t * x, void ** p, size_t n_min, size_t n_max);
 ```
 
@@ -129,7 +129,7 @@ Pops a sequence of back or front pointers, respectively. The `n_min` and `n_max`
 ## `ao_buffer4ptr_push_front`
 
 ```c
-bool ao_buffer4ptr_push_back( ao_buffer4ptr_t * x, void * p);
+bool ao_buffer4ptr_push_back (ao_buffer4ptr_t * x, void * p);
 bool ao_buffer4ptr_push_front(ao_buffer4ptr_t * x, void * p);
 ```
 
@@ -139,7 +139,7 @@ Pushes a pointer to the back or front, respectively, in constant time. The retur
 ## `ao_buffer4ptr_push_front_override`
 
 ```c
-bool ao_buffer4ptr_push_back_override( ao_buffer4ptr_t * x, void * p);
+bool ao_buffer4ptr_push_back_override (ao_buffer4ptr_t * x, void * p);
 bool ao_buffer4ptr_push_front_override(ao_buffer4ptr_t * x, void * p);
 ```
 
@@ -149,7 +149,7 @@ Pushes a pointer to the back or front, respectively, in constant time. If the bu
 ## `ao_buffer4ptr_push_range_front`
 
 ```c
-size_t ao_buffer4ptr_push_range_back( ao_buffer4ptr_t * x, void * const * p, size_t n_min, size_t n_max);
+size_t ao_buffer4ptr_push_range_back (ao_buffer4ptr_t * x, void * const * p, size_t n_min, size_t n_max);
 size_t ao_buffer4ptr_push_range_front(ao_buffer4ptr_t * x, void * const * p, size_t n_min, size_t n_max);
 ```
 
@@ -159,7 +159,7 @@ Pushes a sequence of pointers to the back or front, respectively. The `n_min` an
 ## `ao_buffer4ptr_push_range_front_override`
 
 ```c
-size_t ao_buffer4ptr_push_range_back_override( ao_buffer4ptr_t * x, void * const * p, size_t n_min, size_t n_max);
+size_t ao_buffer4ptr_push_range_back_override (ao_buffer4ptr_t * x, void * const * p, size_t n_min, size_t n_max);
 size_t ao_buffer4ptr_push_range_front_override(ao_buffer4ptr_t * x, void * const * p, size_t n_min, size_t n_max);
 ```
 
