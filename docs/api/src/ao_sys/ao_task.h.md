@@ -93,12 +93,15 @@ enum ao_task_state_t
     AO_TASK_RUNNING     = (1 << 1),
     AO_TASK_BLOCKED     = (1 << 2),
     AO_TASK_SUSPENDED   = (1 << 3),
-    AO_TASK_ACTIVE      = AO_TASK_READY |
-    AO_TASK_RUNNING,
-    AO_TASK_SUSPENDABLE = AO_TASK_ACTIVE |
-    AO_TASK_BLOCKED,
-    AO_TASK_STARTED     = AO_TASK_SUSPENDABLE |
-    AO_TASK_SUSPENDED
+    AO_TASK_ACTIVE      = 
+        AO_TASK_READY |
+        AO_TASK_RUNNING,
+    AO_TASK_SUSPENDABLE = 
+        AO_TASK_ACTIVE |
+        AO_TASK_BLOCKED,
+    AO_TASK_STARTED     = 
+        AO_TASK_SUSPENDABLE |
+        AO_TASK_SUSPENDED
 };
 ```
 
@@ -352,19 +355,24 @@ Gets an accumulated time span measured for a task.
 ```c
 bool ao_task_is_active     (ao_task_t const * t);
 bool ao_task_is_blocked    (ao_task_t const * t);
-bool ao_task_is_blocking   (ao_task_t const * t);
 bool ao_task_is_ready      (ao_task_t const * t);
 bool ao_task_is_running    (ao_task_t const * t);
 bool ao_task_is_started    (ao_task_t const * t);
 bool ao_task_is_stopped    (ao_task_t const * t);
-bool ao_task_is_stopping   (ao_task_t const * t);
 bool ao_task_is_suspendable(ao_task_t const * t);
 bool ao_task_is_suspended  (ao_task_t const * t);
+```
+
+Checks whether a task is in a specific state.
+
+```c
+bool ao_task_is_blocking   (ao_task_t const * t);
+bool ao_task_is_stopping   (ao_task_t const * t);
 bool ao_task_is_suspending (ao_task_t const * t);
 bool ao_task_is_yielding   (ao_task_t const * t);
 ```
 
-Checks whether a task is in a specific state or whether a specific state transition is pending, respectively.
+Checks whether a specific state transition is pending for a task.
 
 ## `ao_task_resume`
 

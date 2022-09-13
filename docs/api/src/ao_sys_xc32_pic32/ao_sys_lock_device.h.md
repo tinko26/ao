@@ -61,5 +61,5 @@ It consists of the following members.
 
 ```c
 void ao_sys_unlock_device(ao_sys_lock_device_t * x);
-void ao_sys_lock_device(  ao_sys_lock_device_t * x);
+void ao_sys_lock_device  (ao_sys_lock_device_t * x);
 ```

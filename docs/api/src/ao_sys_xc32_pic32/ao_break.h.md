@@ -40,3 +40,5 @@ This module contains a single function that executes a breakpoint, if the applic
 #endif
 #endif
 ```
+
+Executes a breakpoint.
