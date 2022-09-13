@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_task_stack_0.h/
 toc: true
@@ -29,6 +29,8 @@ typedef struct ao_task_stack_t ao_task_stack_t;
 ```c
 struct ao_task_stack_t { };
 ```
+
+This type represents stack-related data of a task.
 
 # Functions
 

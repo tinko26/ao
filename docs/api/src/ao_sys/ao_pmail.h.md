@@ -117,17 +117,17 @@ Fetches a mail indefinitely in a blocking fashion.
 bool ao_pmail_fetch_try(ao_pmailbox_t * x, ao_pmail_t ** m);
 ```
 
+Fetches a mail in a non-blocking fashion.
+
 ## `ao_pmail_fetch_begin`
 ## `ao_pmail_fetch_end`
-
-Fetches a mail in a non-blocking fashion.
 
 ```c
 void ao_pmail_fetch_begin(ao_pmail_fetch_t * x);
 void ao_pmail_fetch_end  (ao_pmail_fetch_t * x);
 ```
 
-Begins or ends, respectively, the fetching of a mail.
+Begins or ends, respectively, a fetching of a mail.
 
 ## `ao_pmail_post`
 

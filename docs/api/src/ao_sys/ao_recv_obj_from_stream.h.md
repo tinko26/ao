@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_recv_obj_from_stream.h/
 seealso:
@@ -29,3 +29,5 @@ toc: true
 ```c
 void ao_recv_obj_from_stream(ao_recv_obj_t * x, ao_spop_obj_t * y);
 ```
+
+Sets up a receiving of an object to pop an object from a stream.

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Readers–writer_lock : "Readers-writer lock"
@@ -77,9 +77,9 @@ struct ao_rw_lock_t
 This type represents the locking of a readers-writer lock. It consists of the following members.
 
 | `async` | The asynchronous event. |
-| `node` | The node for the lock's waiting lists. |
-| `result` | Indicates whether the locking was successful. |
-| `rw` | The lock. |
+| `node` | The node for the readers-writer lock's waiting lists. |
+| `result` | The result. |
+| `rw` | The readers-writer lock. |
 
 # Functions
 
@@ -91,17 +91,23 @@ bool ao_rw_lock_read     (ao_rw_t * x, ao_time_t timeout);
 bool ao_rw_lock_read_from(ao_rw_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
+Locks a readers-writer lock for reading in a blocking fashion with a timeout and an optional beginning.
+
 ## `ao_rw_lock_read_forever`
 
 ```c
 bool ao_rw_lock_read_forever(ao_rw_t * x);
 ```
 
+Locks a readers-writer lock for reading indefinitely in a blocking fashion.
+
 ## `ao_rw_lock_read_try`
 
 ```c
 bool ao_rw_lock_read_try(ao_rw_t * x);
 ```
+
+Locks a readers-writer lock for reading in a non-blocking fashion.
 
 ## `ao_rw_lock_read_begin`
 ## `ao_rw_lock_read_end`
@@ -111,6 +117,8 @@ void ao_rw_lock_read_begin(ao_rw_lock_t * x);
 void ao_rw_lock_read_end  (ao_rw_lock_t * x);
 ```
 
+Begins or ends, respectively, a locking of a readers-writer lock for reading.
+
 ## `ao_rw_lock_write`
 ## `ao_rw_lock_write_from`
 
@@ -119,17 +127,23 @@ bool ao_rw_lock_write     (ao_rw_t * x, ao_time_t timeout);
 bool ao_rw_lock_write_from(ao_rw_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
+Locks a readers-writer lock for writing in a blocking fashion with a timeout and an optional beginning.
+
 ## `ao_rw_lock_write_forever`
 
 ```c
 bool ao_rw_lock_write_forever(ao_rw_t * x);
 ```
 
+Locks a readers-writer lock for writing indefinitely in a blocking fashion.
+
 ## `ao_rw_lock_write_try`
 
 ```c
 bool ao_rw_lock_write_try(ao_rw_t * x);
 ```
+
+Locks a readers-writer lock for writing in a non-blocking fashion.
 
 ## `ao_rw_lock_write_begin`
 ## `ao_rw_lock_write_end`
@@ -139,14 +153,20 @@ void ao_rw_lock_write_begin(ao_rw_lock_t * x);
 void ao_rw_lock_write_end  (ao_rw_lock_t * x);
 ```
 
+Begins or ends, respectively, a locking of a readers-writer lock for writing.
+
 ## `ao_rw_unlock_read`
 
 ```c
 void ao_rw_unlock_read(ao_rw_t * x);
 ```
 
+Unlocks a readers-writer lock for reading.
+
 ## `ao_rw_unlock_write`
 
 ```c
 void ao_rw_unlock_write(ao_rw_t * x);
 ```
+
+Unlocks a readers-writer lock for writing.

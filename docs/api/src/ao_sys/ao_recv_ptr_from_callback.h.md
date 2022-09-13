@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_recv_ptr_from_callback.h/
 seealso:
@@ -27,3 +27,5 @@ toc: true
 ```c
 void ao_recv_ptr_from_callback(ao_recv_ptr_t * x, ao_recv_ptr_proc_t y);
 ```
+
+Sets up a receiving of a pointer to execute a callback.

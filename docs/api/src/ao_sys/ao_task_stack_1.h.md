@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_task_stack_1.h/
 toc: true
@@ -52,11 +52,11 @@ struct ao_task_stack_t
 };
 ```
 
-It consists of the following members.
+This type represents stack-related data of a task. It consists of the following members.
 
-| `beginning` | |
-| `high_water_mark` | |
-| `size` | |
+| `beginning` | The beginning. |
+| `high_water_mark` | The high water mark, in bytes. |
+| `size` | The size, in bytes. |
 
 # Functions
 

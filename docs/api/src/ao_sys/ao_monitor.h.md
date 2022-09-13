@@ -134,7 +134,7 @@ void ao_monitor_enter_begin(ao_monitor_enter_t * x);
 void ao_monitor_enter_end  (ao_monitor_enter_t * x);
 ```
 
-Begins or ends, respectively, the entering of a monitor.
+Begins or ends, respectively, an entering of a monitor.
 
 ## `ao_monitor_exit`
 
@@ -194,4 +194,4 @@ void ao_monitor_wait_begin(ao_monitor_wait_t * x);
 void ao_monitor_wait_end  (ao_monitor_wait_t * x);
 ```
 
-Begins or ends, respectively, the waiting for a monitor.
+Begins or ends, respectively, a waiting for a monitor.

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_task_sched_0.h/
 toc: true
@@ -44,6 +44,8 @@ typedef struct ao_task_sched_t ao_task_sched_t;
 struct ao_task_sched_t { };
 ```
 
+This type represents scheduler-related data of a task.
+
 ## `ao_task_ceiling_t`
 
 ```c
@@ -53,6 +55,8 @@ typedef struct ao_task_ceiling_t ao_task_ceiling_t;
 ```c
 struct ao_task_ceiling_t { };
 ```
+
+This type represents a task ceiling.
 
 ## `ao_task_master_t`
 
@@ -64,6 +68,8 @@ typedef struct ao_task_master_t ao_task_master_t;
 struct ao_task_master_t { };
 ```
 
+This type represents a task master.
+
 ## `ao_task_slave_t`
 
 ```c
@@ -73,3 +79,5 @@ typedef struct ao_task_slave_t ao_task_slave_t;
 ```c
 struct ao_task_slave_t { };
 ```
+
+This type represents a task slave.

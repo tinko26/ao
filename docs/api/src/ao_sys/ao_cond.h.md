@@ -126,4 +126,4 @@ void ao_cond_wait_begin(ao_cond_wait_t * x);
 void ao_cond_wait_end  (ao_cond_wait_t * x);
 ```
 
-Begins or ends, respectively, the waiting for a condition.
+Begins or ends, respectively, a waiting for a condition.

@@ -76,8 +76,8 @@ This type represents an alarm. It consists of the following members.
 ## `ao_alarm_start_from`
 
 ```c
-void ao_alarm_start     (ao_alarm_t * x, ao_time_t t);
-void ao_alarm_start_from(ao_alarm_t * x, ao_time_t t, ao_time_t b);
+void ao_alarm_start     (ao_alarm_t * x, ao_time_t timeout);
+void ao_alarm_start_from(ao_alarm_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Starts an alarm with a timeout and an optional beginning.

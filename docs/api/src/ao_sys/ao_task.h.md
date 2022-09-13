@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_task.h/
 toc: true
@@ -51,11 +51,15 @@ toc: true
 #define AO_TASK_COUNT (false)
 ```
 
+Defines whether to count various state transitions.
+
 ## `AO_TASK_ID`
 
 ```c
 #define AO_TASK_ID (false)
 ```
+
+Defines whether tasks can be assigned an ID.
 
 ## `AO_TASK_NAME`
 
@@ -63,11 +67,15 @@ toc: true
 #define AO_TASK_NAME (false)
 ```
 
+Defines whether tasks can be assigned a name.
+
 ## `AO_TASK_TIME`
 
 ```c
 #define AO_TASK_TIME (false)
 ```
+
+Defines whether to measure various accumulated time spans.
 
 # Types
 
@@ -272,17 +280,23 @@ ao_uint_t ao_task_get_count_switch_out(ao_task_t const * t);
 ao_uint_t ao_task_get_count_unblock   (ao_task_t const * t);
 ```
 
+Gets the number of state transitions a task has gone through.
+
 ## `ao_task_get_id`
 
 ```c
 ao_uint_t ao_task_get_id(ao_task_t const * t);
 ```
 
+Gets the ID of a task.
+
 ## `ao_task_get_name`
 
 ```c
 char const * ao_task_get_name(ao_task_t const * t);
 ```
+
+Gets the name of a task.
 
 ## `ao_task_get_proc`
 
@@ -291,17 +305,23 @@ ao_proc_t ao_task_get_proc          (ao_task_t const * t);
 void *    ao_task_get_proc_parameter(ao_task_t const * t);
 ```
 
+Gets the procedure or procedure parameter, respectively, of a task.
+
 ## `ao_task_get_state`
 
 ```c
 ao_task_state_t ao_task_get_state(ao_task_t const * t);
 ```
 
+Gets the current state of a task.
+
 ## `ao_task_get_state_pending`
 
 ```c
 ao_task_state_pending_t ao_task_get_state_pending(ao_task_t const * t);
 ```
+
+Gets the current pending state transition of a task.
 
 ## `ao_task_get_time_point`
 
@@ -314,6 +334,8 @@ ao_time_t ao_task_get_time_point_switch_in   (ao_task_t const * t);
 ao_time_t ao_task_get_time_point_switch_out  (ao_task_t const * t);
 ```
 
+Gets a time point of a task.
+
 ## `ao_task_get_time_span`
 
 ```c
@@ -322,6 +344,8 @@ ao_time_t ao_task_get_time_span_down    (ao_task_t const * t);
 ao_time_t ao_task_get_time_span_inactive(ao_task_t const * t);
 ao_time_t ao_task_get_time_span_up      (ao_task_t const * t);
 ```
+
+Gets an accumulated time span measured for a task.
 
 ## `ao_task_is`
 
@@ -340,11 +364,15 @@ bool ao_task_is_suspending (ao_task_t const * t);
 bool ao_task_is_yielding   (ao_task_t const * t);
 ```
 
+Checks whether a task is in a specific state or whether a specific state transition is pending, respectively.
+
 ## `ao_task_resume`
 
 ```c
 void ao_task_resume(ao_task_t * t);
 ```
+
+Resumes a task.
 
 ## `ao_task_set_count`
 
@@ -361,11 +389,15 @@ void ao_task_set_count_switch_out(ao_task_t * t, ao_uint_t x);
 void ao_task_set_count_unblock   (ao_task_t * t, ao_uint_t x);
 ```
 
+Sets a specific state transition counter of a task.
+
 ## `ao_task_set_id`
 
 ```c
 void ao_task_set_id(ao_task_t * t, ao_uint_t x);
 ```
+
+Sets the ID of a task.
 
 ## `ao_task_set_name`
 
@@ -373,11 +405,15 @@ void ao_task_set_id(ao_task_t * t, ao_uint_t x);
 void ao_task_set_name(ao_task_t * t, char const * x);
 ```
 
+Sets the name of a task.
+
 ## `ao_task_set_proc`
 
 ```c
 void ao_task_set_proc(ao_task_t * t, ao_proc_t proc, void * parameter);
 ```
+
+Sets the procedure and procedure parameter of a task.
 
 ## `ao_task_set_time_span`
 
@@ -388,11 +424,15 @@ void ao_task_set_time_span_inactive(ao_task_t * t, ao_time_t x);
 void ao_task_set_time_span_up      (ao_task_t * t, ao_time_t x);
 ```
 
+Sets an accumulated time span of a task.
+
 ## `ao_task_start`
 
 ```c
 void ao_task_start(ao_task_t * t);
 ```
+
+Starts a task.
 
 ## `ao_task_stop`
 
@@ -400,17 +440,23 @@ void ao_task_start(ao_task_t * t);
 void ao_task_stop(ao_task_t * t);
 ```
 
+Stops a task.
+
 ## `ao_task_suspend`
 
 ```c
 void ao_task_suspend(ao_task_t * t);
 ```
 
+Suspends a task.
+
 ## `ao_task_wake`
 
 ```c
 void ao_task_wake(ao_task_t * t);
 ```
+
+Wakes up a task.
 
 # Variables
 

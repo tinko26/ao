@@ -1,10 +1,14 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_recv_ptr.h/
 toc: true
 ---
+
+# Notes
+
+This module provides an abstraction for receiving pointers from an opaque source.
 
 # Include
 
@@ -47,7 +51,7 @@ This type represents the receiving of a pointer. It consists of the following me
 | `end` | The function ending the receiving. |
 | `parameter` | An additional parameter. |
 | `ptr` | The received pointer. |
-| `result` | Indicates whether a pointer has been received. |
+| `result` | The result. |
 
 ## `ao_recv_ptr_proc_t`
 
@@ -58,7 +62,7 @@ typedef void (* ao_recv_ptr_proc_t)
 );
 ```
 
-This type represents a function beginning or ending a receiving.
+This type represents a function beginning or ending a receiving of a pointer.
 
 # Functions
 
@@ -70,17 +74,23 @@ void ao_recv_ptr     (ao_recv_ptr_t * x, ao_time_t timeout);
 void ao_recv_ptr_from(ao_recv_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
+Receives a pointer in a blocking fashion with a timeout and an optional beginning.
+
 ## `ao_recv_ptr_forever`
 
 ```c
 void ao_recv_ptr_forever(ao_recv_ptr_t * x);
 ```
 
+Receives a pointer indefinitely in a blocking fashion.
+
 ## `ao_recv_ptr_try`
 
 ```c
 void ao_recv_ptr_try(ao_recv_ptr_t * x);
 ```
+
+Receives a pointer in a non-blocking fashion.
 
 ## `ao_recv_ptr_begin`
 ## `ao_recv_ptr_end`
@@ -89,3 +99,5 @@ void ao_recv_ptr_try(ao_recv_ptr_t * x);
 void ao_recv_ptr_begin(ao_recv_ptr_t * x);
 void ao_recv_ptr_end  (ao_recv_ptr_t * x);
 ```
+
+Begins or ends, respectively, a receiving of a pointer.

@@ -1,12 +1,16 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Rendezvous_(Plan_9) : "Rendezvous"
 permalink: /api/src/ao_sys/ao_rendezvous.h/
 toc: true
 ---
+
+# Notes
+
+This module defines execution barriers, where two tasks can synchronize and exchange data.
 
 # Include
 
@@ -39,7 +43,7 @@ struct ao_rendezvous_t
 
 This type represents a rendezvous. It consists of the following members.
 
-| `wait` | The waiting task. The value is `NULL`, if no task is waiting. |
+| `wait` | The waiting. |
 
 ## `ao_rendezvous_wait_t`
 
@@ -68,7 +72,7 @@ This type represents the waiting for a rendezvous. It consists of the following 
 | `ptr_in` | Points to data to receive from the other task. |
 | `ptr_out` | Points to data to send to the other task. |
 | `rendezvous` | The rendezvous. |
-| `result` | Indicates whether a rendezvous has happened.  |
+| `result` | The result.  |
 
 ## `ao_rendezvous_exchange_t`
 
@@ -93,17 +97,23 @@ void ao_rendezvous     (ao_rendezvous_wait_t * x, ao_time_t timeout);
 void ao_rendezvous_from(ao_rendezvous_wait_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
+Waits for a rendezvous in a blocking fashion with a timeout and an optional beginning.
+
 ## `ao_rendezvous_forever`
 
 ```c
 void ao_rendezvous_forever(ao_rendezvous_wait_t * x);
 ```
 
+Waits for a rendezvous indefinitely in a blocking fashion.
+
 ## `ao_rendezvous_try`
 
 ```c
 void ao_rendezvous_try(ao_rendezvous_wait_t * x);
 ```
+
+Waits for a rendezvous in a non-blocking fashion.
 
 ## `ao_rendezvous_begin`
 ## `ao_rendezvous_end`
@@ -112,3 +122,5 @@ void ao_rendezvous_try(ao_rendezvous_wait_t * x);
 void ao_rendezvous_begin(ao_rendezvous_wait_t * x);
 void ao_rendezvous_end  (ao_rendezvous_wait_t * x);
 ```
+
+Begins or ends, respectively, a waiting for a rendezvous.

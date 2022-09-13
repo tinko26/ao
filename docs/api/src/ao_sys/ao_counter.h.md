@@ -213,4 +213,4 @@ void ao_counter_wait_begin(ao_counter_wait_t * x);
 void ao_counter_wait_end  (ao_counter_wait_t * x);
 ```
 
-Begins or ends, respectively, the waiting for a counter match.
+Begins or ends, respectively, a waiting for a counter match.

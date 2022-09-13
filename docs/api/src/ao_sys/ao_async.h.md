@@ -105,7 +105,7 @@ void ao_async_all_begin(ao_async_all_t * x);
 void ao_async_all_end  (ao_async_all_t * x);
 ```
 
-Begins or ends, respectively, the waiting for all out of a set of asynchronous events.
+Begins or ends, respectively, a waiting for all out of a set of asynchronous events.
 
 ## `ao_async_all_try`
 
@@ -123,7 +123,7 @@ void ao_async_any_begin(ao_async_any_t * x);
 void ao_async_any_end  (ao_async_any_t * x);
 ```
 
-Begins or ends, respectively, the waiting for any one out of a set of asynchronous events.
+Begins or ends, respectively, a waiting for any one out of a set of asynchronous events.
 
 ## `ao_async_any_try`
 

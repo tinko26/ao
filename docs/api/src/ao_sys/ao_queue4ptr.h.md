@@ -131,7 +131,7 @@ void ao_qinsert_acq_begin(ao_qinsert_ptr_t * x);
 void ao_qinsert_acq_end  (ao_qinsert_ptr_t * x);
 ```
 
-Begins or ends, respectively, the inserting of a pointer to an acquired memory block into a queue.
+Begins or ends, respectively, an inserting of a pointer to an acquired memory block into a queue.
 
 ## `ao_qinsert_ptr`
 ## `ao_qinsert_ptr_from`
@@ -167,7 +167,7 @@ void ao_qinsert_ptr_begin(ao_qinsert_ptr_t * x);
 void ao_qinsert_ptr_end  (ao_qinsert_ptr_t * x);
 ```
 
-Begins or ends, respectively, the inserting of a pointer into a queue.
+Begins or ends, respectively, an inserting of a pointer into a queue.
 
 ## `ao_qpop_ptr`
 ## `ao_qpop_ptr_from`
@@ -203,4 +203,4 @@ void ao_qpop_ptr_begin(ao_qpop_ptr_t * x);
 void ao_qpop_ptr_end  (ao_qpop_ptr_t * x);
 ```
 
-Begins or ends, respectively, the popping of a pointer from a queue.
+Begins or ends, respectively, a popping of a pointer from a queue.

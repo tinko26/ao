@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_send_ptr_to_stream.h/
 seealso:
@@ -30,11 +30,15 @@ toc: true
 void ao_send_acq_to_stream(ao_send_ptr_t * x, ao_spush_ptr_t * y);
 ```
 
+Sets up a sending of a pointer to push a pointer to an acquired memory block to a stream.
+
 ## `ao_send_acq_to_stream_override`
 
 ```c
 void ao_send_acq_to_stream_override(ao_send_ptr_t * x, ao_spush_ptr_t * y);
 ```
+
+Sets up a sending of a pointer to push a pointer to an acquired memory block to a stream, overriding old data if the stream is full.
 
 ## `ao_send_ptr_to_stream`
 
@@ -42,8 +46,12 @@ void ao_send_acq_to_stream_override(ao_send_ptr_t * x, ao_spush_ptr_t * y);
 void ao_send_ptr_to_stream(ao_send_ptr_t * x, ao_spush_ptr_t * y);
 ```
 
+Sets up a sending of a pointer to push a pointer to a stream.
+
 ## `ao_send_ptr_to_stream_override`
 
 ```c
 void ao_send_ptr_to_stream_override(ao_send_ptr_t * x, ao_spush_ptr_t * y);
 ```
+
+Sets up a sending of a pointer to push a pointer to a stream, overriding old data if the stream is full.

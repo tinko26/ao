@@ -120,7 +120,7 @@ void ao_mail_fetch_begin(ao_mail_fetch_t * x);
 void ao_mail_fetch_end  (ao_mail_fetch_t * x);
 ```
 
-Begins or ends, respectively, the fetching of a mail.
+Begins or ends, respectively, a fetching of a mail.
 
 ## `ao_mail_post`
 

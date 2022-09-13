@@ -1,10 +1,14 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_recv_obj.h/
 toc: true
 ---
+
+# Notes
+
+This module provides an abstraction for receiving objects from an opaque source.
 
 # Include
 
@@ -47,7 +51,7 @@ This type represents the receiving of an object. It consists of the following me
 | `end` | The function ending the receiving. |
 | `parameter` | An additional parameter. |
 | `ptr` | A pointer to a location to store the received object. |
-| `result` | Indicates whether an object has been received. |
+| `result` | The result. |
 
 ## `ao_recv_obj_proc_t`
 
@@ -58,7 +62,7 @@ typedef void (* ao_recv_obj_proc_t)
 );
 ```
 
-This type represents a function beginning or ending a receiving.
+This type represents a function beginning or ending a receiving of an object.
 
 # Functions
 
@@ -70,17 +74,23 @@ void ao_recv_obj     (ao_recv_obj_t * x, ao_time_t timeout);
 void ao_recv_obj_from(ao_recv_obj_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
+Receives an object in a blocking fashion with a timeout and an optional beginning.
+
 ## `ao_recv_obj_forever`
 
 ```c
 void ao_recv_obj_forever(ao_recv_obj_t * x);
 ```
 
+Receives an object indefinitely in a blocking fashion.
+
 ## `ao_recv_obj_try`
 
 ```c
 void ao_recv_obj_try(ao_recv_obj_t * x);
 ```
+
+Receives an object in a non-blocking fashion.
 
 ## `ao_recv_obj_begin`
 ## `ao_recv_obj_end`
@@ -89,3 +99,5 @@ void ao_recv_obj_try(ao_recv_obj_t * x);
 void ao_recv_obj_begin(ao_recv_obj_t * x);
 void ao_recv_obj_end  (ao_recv_obj_t * x);
 ```
+
+Begins or ends, respectively, a receiving of an object.

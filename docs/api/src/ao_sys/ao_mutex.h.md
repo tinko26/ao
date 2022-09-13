@@ -147,7 +147,7 @@ void ao_mutex_lock_begin(ao_mutex_lock_t * x);
 void ao_mutex_lock_end  (ao_mutex_lock_t * x);
 ```
 
-Begins or ends, respectively, the locking of a mutex.
+Begins or ends, respectively, a locking of a mutex.
 
 ## `ao_mutex_unlock`
 

@@ -1,10 +1,14 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_send.h/
 toc: true
 ---
+
+# Notes
+
+This module provides an abstraction for sending to an opaque destination.
 
 # Include
 
@@ -55,7 +59,7 @@ This type represents the sending of data. It consists of the following members.
 | `end` | The function ending the sending. |
 | `parameter` | An additional parameter. |
 | `ptr` | Points to the data to send. |
-| `result` | Indicates whether the data has been sent. |
+| `result` | The result. |
 
 ## `ao_send_proc_t`
 
@@ -78,17 +82,23 @@ void ao_send     (ao_send_t * x, ao_time_t timeout);
 void ao_send_from(ao_send_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
+Sends in a blocking fashion with a timeout and an optional beginning.
+
 ## `ao_send_forever`
 
 ```c
 void ao_send_forever(ao_send_t * x);
 ```
 
+Sends indefinitely in a blocking fashion.
+
 ## `ao_send_try`
 
 ```c
 void ao_send_try(ao_send_t * x);
 ```
+
+Sends in a non-blocking fashion.
 
 ## `ao_send_begin`
 ## `ao_send_end`
@@ -97,3 +107,5 @@ void ao_send_try(ao_send_t * x);
 void ao_send_begin(ao_send_t * x);
 void ao_send_end  (ao_send_t * x);
 ```
+
+Begins or ends, respectively, a sending.

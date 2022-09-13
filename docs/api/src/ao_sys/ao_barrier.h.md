@@ -110,4 +110,4 @@ void ao_barrier_wait_begin(ao_barrier_wait_t * x);
 void ao_barrier_wait_end  (ao_barrier_wait_t * x);
 ```
 
-Begins or ends, respectively, the waiting at a barrier.
+Begins or ends, respectively, a waiting at a barrier.

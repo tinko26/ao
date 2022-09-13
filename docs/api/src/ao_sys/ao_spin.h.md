@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Busy_waiting : "Busy waiting"
@@ -34,8 +34,12 @@ void ao_spin     (ao_time_t timeout);
 void ao_spin_from(ao_time_t timeout, ao_time_t beginning);
 ```
 
+Spins with a timeout and an optional beginning.
+
 ## `ao_spin_forever`
 
 ```c
 void ao_spin_forever();
 ```
+
+Spins indefinitely.

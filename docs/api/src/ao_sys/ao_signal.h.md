@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_signal.h/
 toc: true
@@ -38,7 +38,7 @@ struct ao_signal_t
 
 This type represents a signal. It consists of the following members.
 
-| `list` | The list of waiting tasks. |
+| `list` | The list of waitings. |
 
 ## `ao_signal_wait_t`
 
@@ -59,8 +59,8 @@ struct ao_signal_wait_t
 This type represents the waiting for a signal. It consists of the following members.
 
 | `async` | The asynchronous event. |
-| `node` | The node for the signal's waiting list. |
-| `result` | Indicates whether the waiting task has been notified. |
+| `node` | The node for the signal's list of waitings. |
+| `result` | The result. |
 | `signal` | The signal. |
 
 # Functions
@@ -71,11 +71,15 @@ This type represents the waiting for a signal. It consists of the following memb
 void ao_signal_notify(ao_signal_t * x);
 ```
 
+Notifies the first waiting for a signal.
+
 ## `ao_signal_notify_all`
 
 ```c
 void ao_signal_notify_all(ao_signal_t * x);
 ```
+
+Notifies all waitings for a signal.
 
 ## `ao_signal_wait`
 ## `ao_signal_wait_from`
@@ -85,11 +89,15 @@ bool ao_signal_wait     (ao_signal_t * x, ao_time_t timeout);
 bool ao_signal_wait_from(ao_signal_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
+Waits for a signal in a blocking fashion with a timeout and an optional beginning.
+
 ## `ao_signal_wait_forever`
 
 ```c
 bool ao_signal_wait_forever(ao_signal_t * x);
 ```
+
+Waits for a signal indefinitely in a blocking fashion.
 
 ## `ao_signal_wait_begin`
 ## `ao_signal_wait_end`
@@ -98,3 +106,5 @@ bool ao_signal_wait_forever(ao_signal_t * x);
 void ao_signal_wait_begin(ao_signal_wait_t * x);
 void ao_signal_wait_end  (ao_signal_wait_t * x);
 ```
+
+Begins or ends, respectively, a waiting for a signal.

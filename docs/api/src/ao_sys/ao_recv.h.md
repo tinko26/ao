@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_recv.h/
 toc: true
@@ -8,7 +8,7 @@ toc: true
 
 # Notes
 
-This module provides an abstraction for tasks to receive data from an opaque source either in a blocking or in a non-blocking fashion.
+This module provides an abstraction for receiving from an opaque source.
 
 # Include
 
@@ -58,7 +58,7 @@ This type represents the receiving of data. It consists of the following members
 | `end` | The function ending the receiving. |
 | `parameter` | An additional parameter. |
 | `ptr` | The location to store the received data. |
-| `result` | Indicates whether at least `count_min` bytes and at most `count_max` bytes have been received. |
+| `result` | The result. |
 
 ## `ao_recv_proc_t`
 
@@ -81,7 +81,7 @@ void ao_recv     (ao_recv_t * x, ao_time_t timeout);
 void ao_recv_from(ao_recv_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
-Receives data in a blocking fashion until the specified timeout has expired. An additional parameter marks the beginning of the timeout period, which is assumed to be in the past.
+Receives in a blocking fashion with a timeout and an optional beginning.
 
 ## `ao_recv_forever`
 
@@ -89,7 +89,7 @@ Receives data in a blocking fashion until the specified timeout has expired. An 
 void ao_recv_forever(ao_recv_t * x);
 ```
 
-Receives data in a blocking fashion with an infinite timeout.
+Receives indefinitely in a blocking fashion.
 
 ## `ao_recv_try`
 
@@ -97,7 +97,7 @@ Receives data in a blocking fashion with an infinite timeout.
 void ao_recv_try(ao_recv_t * x);
 ```
 
-Receives data in a non-blocking fashion.
+Receives in a non-blocking fashion.
 
 ## `ao_recv_begin`
 ## `ao_recv_end`
@@ -107,4 +107,4 @@ void ao_recv_begin(ao_recv_t * x);
 void ao_recv_end  (ao_recv_t * x);
 ```
 
-Begins or ends the receiving of data, respectively.
+Begins or ends, respectively, a receiving.

@@ -131,7 +131,7 @@ void ao_qinsert_obj_begin(ao_qinsert_obj_t * x);
 void ao_qinsert_obj_end  (ao_qinsert_obj_t * x);
 ```
 
-Begins or ends, respectively, the inserting of an object into a queue.
+Begins or ends, respectively, an inserting of an object into a queue.
 
 ## `ao_qpop_obj`
 ## `ao_qpop_obj_from`
@@ -167,4 +167,4 @@ void ao_qpop_obj_begin(ao_qpop_obj_t * x);
 void ao_qpop_obj_end  (ao_qpop_obj_t * x);
 ```
 
-Begins or ends, respectively, the popping of an object from a queue.
+Begins or ends, respectively, a popping of an object from a queue.

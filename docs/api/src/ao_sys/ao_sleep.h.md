@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_sleep.h/
 toc: true
@@ -45,7 +45,7 @@ This type represents the sleeping of a task. It consists of the following member
 | `alarm` | The alarm. |
 | `async` | The asynchronous event. |
 | `beginning` | The beginning. |
-| `result` | Indicates whether the task has been sleeping for the specified time span. |
+| `result` | The result. |
 | `timeout` | The timeout. |
 
 # Functions
@@ -83,4 +83,4 @@ void ao_sleep_begin(ao_sleep_t * x);
 void ao_sleep_end  (ao_sleep_t * x);
 ```
 
-Begins or ends sleeping.
+Begins or ends, respectively, a sleeping.

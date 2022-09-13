@@ -115,4 +115,4 @@ void ao_bsem_take_begin(ao_bsem_take_t * x);
 void ao_bsem_take_end  (ao_bsem_take_t * x);
 ```
 
-Begins or ends, respectively, the taking of a binary semaphore.
+Begins or ends, respectively, a taking of a binary semaphore.

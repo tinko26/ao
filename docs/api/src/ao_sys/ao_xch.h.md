@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_xch.h/
 toc: true
@@ -49,8 +49,8 @@ struct ao_xch_t
 
 This type represents an exchange. It consists of the following members.
 
-| `clients` | The list of waiting clients. |
-| `servers` | The list of waiting servers. |
+| `clients` | The clients. |
+| `servers` | The servers. |
 
 ## `ao_xch_client_t`
 
@@ -75,22 +75,22 @@ struct ao_xch_client_t
 
 #if AO_TASK_INHERITANCE
 
-    ao_task_t       *          task;
+    ao_task_t *                task;
 
 #endif
 
-    ao_xch_t        *          xch;
+    ao_xch_t *                 xch;
 };
 ```
 
-This type represents the exchange activity of a client. It consists of the following members.
+This type represents a client sending a request and receiving a reply. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `master` | The task master. |
-| `node` | The node for the exchange's waiting list. |
-| `result` | Indicates whether a server has replied. |
+| `node` | The node for the exchange's list of clients. |
+| `result` | The result. |
 | `server` | The server. |
-| `task` | The client task. |
+| `task` | The task. |
 | `xch` | The exchange. |
 
 ## `ao_xch_server_t`
@@ -118,14 +118,14 @@ struct ao_xch_server_t
 };
 ```
 
-This type represents the exchange activity of a server. It consists of the following members.
+This type represents a server receiving a request. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `client` | The client. |
-| `node` | The node for the exchange's waiting list. |
-| `result` | Indicates whether a client's request has arrived. |
+| `node` | The node for the exchange's list of servers. |
+| `result` | The result. |
 | `slave` | The task slave. |
-| `task` | The server task. |
+| `task` | The task. |
 | `xch` | The exchange. |
 
 # Functions
@@ -138,11 +138,15 @@ void ao_xch_client     (ao_xch_client_t * x, ao_time_t timeout);
 void ao_xch_client_from(ao_xch_client_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
+Sends a request and receives a reply in a blocking fashion with a timeout and an optional beginning.
+
 ## `ao_xch_client_forever`
 
 ```c
 void ao_xch_client_forever(ao_xch_client_t * x);
 ```
+
+Sends a request and receives a reply indefinitely in a blocking fashion.
 
 ## `ao_xch_client_begin`
 ## `ao_xch_client_end`
@@ -152,6 +156,8 @@ void ao_xch_client_begin(ao_xch_client_t * x);
 void ao_xch_client_end  (ao_xch_client_t * x);
 ```
 
+Begins or ends, respectively, a client sending a request and receiving a reply.
+
 ## `ao_xch_server`
 ## `ao_xch_server_from`
 
@@ -160,17 +166,23 @@ void ao_xch_server     (ao_xch_server_t * x, ao_time_t timeout);
 void ao_xch_server_from(ao_xch_server_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
+Receives a request in a blocking fashion with a timeout and an optional beginning.
+
 ## `ao_xch_server_forever`
 
 ```c
 void ao_xch_server_forever(ao_xch_server_t * x);
 ```
 
+Receives a request indefinitely in a blocking fashion.
+
 ## `ao_xch_server_try`
 
 ```c
 void ao_xch_server_try(ao_xch_server_t * x);
 ```
+
+Receives a request in a non-blocking fashion.
 
 ## `ao_xch_server_begin`
 ## `ao_xch_server_end`
@@ -180,8 +192,12 @@ void ao_xch_server_begin(ao_xch_server_t * x);
 void ao_xch_server_end  (ao_xch_server_t * x);
 ```
 
+Begins or ends, respectively, the receiving of a request.
+
 ## `ao_xch_server_reply`
 
 ```c
 void ao_xch_server_reply(ao_xch_server_t * x);
 ```
+
+Sends a reply.

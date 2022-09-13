@@ -1,12 +1,16 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Semaphore_(programming) : "Semaphore"
 permalink: /api/src/ao_sys/ao_sem.h/
 toc: true
 ---
+
+# Notes
+
+This module defines counting semaphores.
 
 # Include
 
@@ -42,8 +46,8 @@ struct ao_sem_t
 
 This type represents a counting semaphore. It consists of the following members.
 
-| `count` | The count of the semaphore. |
-| `list` | The list of tasks attempting to take the semaphore. |
+| `count` | The count. |
+| `list` | The list of takings. |
 
 ## `ao_sem_take_t`
 
@@ -62,13 +66,13 @@ struct ao_sem_take_t
 };
 ```
 
-This type represents the taking of a semaphore count. It consists of the following members.
+This type represents the taking of a counting semaphore. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `count` | The count to take. |
-| `node` | The list node. |
-| `result` | Indicates whether the semaphore count has been taken. |
-| `sem` | The semaphore. |
+| `node` | The node for the counting semaphore's list of takings. |
+| `result` | The result. |
+| `sem` | The counting semaphore. |
 
 # Functions
 
@@ -78,6 +82,8 @@ This type represents the taking of a semaphore count. It consists of the followi
 void ao_sem_give(ao_sem_t * x, ao_uint_t count);
 ```
 
+Gives a counting semaphore.
+
 ## `ao_sem_take`
 ## `ao_sem_take_from`
 
@@ -86,17 +92,23 @@ bool ao_sem_take     (ao_sem_t * x, ao_uint_t count, ao_time_t timeout);
 bool ao_sem_take_from(ao_sem_t * x, ao_uint_t count, ao_time_t timeout, ao_time_t beginning);
 ```
 
+Takes a counting semaphore in a blocking fashion with a timeout and an optional beginning.
+
 ## `ao_sem_take_forever`
 
 ```c
 bool ao_sem_take_forever(ao_sem_t * x, ao_uint_t count);
 ```
 
+Takes a counting semaphore indefinitely in a blocking fashion.
+
 ## `ao_sem_take_try`
 
 ```c
 bool ao_sem_take_try(ao_sem_t * x, ao_uint_t count);
 ```
+
+Takes a counting semaphore in a non-blocking fashion.
 
 ## `ao_sem_take_begin`
 ## `ao_sem_take_end`
@@ -105,3 +117,5 @@ bool ao_sem_take_try(ao_sem_t * x, ao_uint_t count);
 void ao_sem_take_begin(ao_sem_take_t * x);
 void ao_sem_take_end  (ao_sem_take_t * x);
 ```
+
+Begins or ends, respectively, a taking of a counting semaphore.

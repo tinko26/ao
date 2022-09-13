@@ -1,10 +1,14 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_send_obj.h/
 toc: true
 ---
+
+# Notes
+
+This module provides an abstraction for sending objects to an opaque destination.
 
 # Include
 
@@ -47,7 +51,7 @@ This type represents the sending of an object. It consists of the following memb
 | `end` | The function ending the sending. |
 | `parameter` | An additional parameter. |
 | `ptr` | A pointer to the object to send. |
-| `result` | Indicates whether the object has been sent. |
+| `result` | The result. |
 
 ## `ao_send_obj_proc_t`
 
@@ -58,7 +62,7 @@ typedef void (* ao_send_obj_proc_t)
 );
 ```
 
-This type represents a function beginning or ending a sending.
+This type represents a function beginning or ending a sending of an object.
 
 # Functions
 
@@ -70,17 +74,23 @@ void ao_send_obj     (ao_send_obj_t * x, ao_time_t timeout);
 void ao_send_obj_from(ao_send_obj_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
 
+Sends an object in a blocking fashion with a timeout and an optional beginning.
+
 ## `ao_send_obj_forever`
 
 ```c
 void ao_send_obj_forever(ao_send_obj_t * x);
 ```
 
+Sends an object indefinitely in a blocking fashion.
+
 ## `ao_send_obj_try`
 
 ```c
 void ao_send_obj_try(ao_send_obj_t * x);
 ```
+
+Sends an object in a non-blocking fashion.
 
 ## `ao_send_obj_begin`
 ## `ao_send_obj_end`
@@ -89,3 +99,5 @@ void ao_send_obj_try(ao_send_obj_t * x);
 void ao_send_obj_begin(ao_send_obj_t * x);
 void ao_send_obj_end  (ao_send_obj_t * x);
 ```
+
+Begins or ends, respectively, a sending of an object.

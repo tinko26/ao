@@ -149,4 +149,4 @@ void ao_flag_wait_begin(ao_flag_wait_t * x);
 void ao_flag_wait_end  (ao_flag_wait_t * x);
 ```
 
-Begins or ends, respectively, the waiting for a flag match.
+Begins or ends, respectively, a waiting for a flag match.
