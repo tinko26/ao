@@ -133,7 +133,7 @@
 /api/src/ao_sys/ao_boot.h/ : "Booting"
 /api/src/ao_sys/ao_bsem.h/ : "Binary semaphores"
 /api/src/ao_sys/ao_button.h/ : "Buttons"
-/api/src/ao_sys/ao_cond.h/ : "Condition variables"
+/api/src/ao_sys/ao_cond.h/ : "Conditions"
 /api/src/ao_sys/ao_core.h/ : "Processor cores"
 /api/src/ao_sys/ao_count.h/ : "Hardware counter"
 /api/src/ao_sys/ao_counter.h/ : "Counters"

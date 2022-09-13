@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_cond.h/
 toc: true
@@ -48,8 +48,8 @@ struct ao_cond_t
 
 This type represents a condition. It consists of the following members.
 
-| `list` | |
-| `state` | |
+| `list` | The list of waitings. |
+| `state` | The state. |
 
 ## `ao_cond_wait_t`
 
@@ -69,10 +69,10 @@ struct ao_cond_wait_t
 
 This type represents the waiting for a condition. It consists of the following members.
 
-| `async` | |
-| `cond` | |
-| `node` | |
-| `result` | |
+| `async` | The asynchronous event. |
+| `cond` | The condition. |
+| `node` | The node for the condition's list of waitings. |
+| `result` | The result. |
 
 # Functions
 
@@ -82,19 +82,25 @@ This type represents the waiting for a condition. It consists of the following m
 void ao_cond_clear(ao_cond_t * x);
 ```
 
+Clears a condition.
+
 ## `ao_cond_set`
 
 ```c
 void ao_cond_set(ao_cond_t * x);
 ```
 
+Sets a condition.
+
 ## `ao_cond_wait`
 ## `ao_cond_wait_from`
 
 ```c
-bool ao_cond_wait(     ao_cond_t * x, ao_time_t timeout);
+bool ao_cond_wait     (ao_cond_t * x, ao_time_t timeout);
 bool ao_cond_wait_from(ao_cond_t * x, ao_time_t timeout, ao_time_t beginning);
 ```
+
+Waits for a condition in a blocking fashion with a timeout and an optional beginning.
 
 ## `ao_cond_wait_forever`
 
@@ -102,16 +108,22 @@ bool ao_cond_wait_from(ao_cond_t * x, ao_time_t timeout, ao_time_t beginning);
 bool ao_cond_wait_forever(ao_cond_t * x);
 ```
 
+Waits for a condition indefinitely in a blocking fashion.
+
 ## `ao_cond_wait_try`
 
 ```c
 bool ao_cond_wait_try(ao_cond_t * x);
 ```
 
+Waits for a condition in a non-blocking fashion.
+
 ## `ao_cond_wait_begin`
 ## `ao_cond_wait_end`
 
 ```c
 void ao_cond_wait_begin(ao_cond_wait_t * x);
-void ao_cond_wait_end(  ao_cond_wait_t * x);
+void ao_cond_wait_end  (ao_cond_wait_t * x);
 ```
+
+Begins or ends, respectively, the waiting for a condition.

@@ -29,7 +29,7 @@ wide: false
 | [`ao_boot.h`](ao_boot.h.md) | Booting |
 | [`ao_bsem.h`](ao_bsem.h.md) | Binary semaphores |
 | [`ao_button.h`](ao_button.h.md) | Buttons |
-| [`ao_cond.h`](ao_cond.h.md) | Condition variables |
+| [`ao_cond.h`](ao_cond.h.md) | Conditions |
 | [`ao_core.h`](ao_core.h.md) | Processor cores |
 | [`ao_count.h`](ao_count.h.md) | Hardware counter |
 | [`ao_counter.h`](ao_counter.h.md) | Counters |

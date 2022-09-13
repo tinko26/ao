@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Blocking_(computing) : "Blocking"
@@ -40,6 +40,6 @@ struct ao_block_t
 
 This type represents the blocking of a task. It consists of the following members.
 
-| `alarm` | |
-| `beginning` | |
-| `timeout` | |
+| `alarm` | The alarm. |
+| `beginning` | The beginning. |
+| `timeout` | The timeout. |

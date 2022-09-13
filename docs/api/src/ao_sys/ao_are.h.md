@@ -127,4 +127,4 @@ void ao_are_wait_begin(ao_are_wait_t * x);
 void ao_are_wait_end  (ao_are_wait_t * x);
 ```
 
-Begins or ends the waiting for an auto-reset event, respectively.
+Begins or ends, respectively, the waiting for an auto-reset event.

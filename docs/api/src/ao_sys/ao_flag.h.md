@@ -1,10 +1,14 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_flag.h/
 toc: true
 ---
+
+# Notes
+
+This module defines (event) flags.
 
 # Include
 
@@ -38,10 +42,10 @@ struct ao_flag_t
 };
 ```
 
-This type represents a set of event flags. It consists of the following members.
+This type represents a flag. It consists of the following members.
 
-| `list` | The list of waiting tasks. |
-| `mask` | The bitmask. |
+| `list` | The list of waitings. |
+| `mask` | The mask. |
 
 ## `ao_flag_wait_t`
 
@@ -56,21 +60,21 @@ struct ao_flag_wait_t
     ao_flag_t *     flag;
     ao_uint_t       mask;
     ao_flag_match_t match;
-    void *          match_parameter;
+    void      *     match_parameter;
     ao_list_node_t  node;
     bool volatile   result;
 };
 ```
 
-This type represents the waiting for a set of event flags. It consists of the following members.
+This type represents the waiting for a flag match. It consists of the following members.
 
-| `async` | |
-| `flag` | |
-| `mask` | |
-| `match` | |
-| `match_parameter` | |
-| `node` | |
-| `result` | |
+| `async` | The asynchronous event. |
+| `flag` | The flag. |
+| `mask` | The mask to be matched with the flag's current mask. |
+| `match` | The match function. |
+| `match_parameter` | The match function parameter. |
+| `node` | The node for the flag's list of waitings. |
+| `result` | The result. |
 
 ## `ao_flag_match_t`
 
@@ -83,7 +87,7 @@ typedef bool (* ao_flag_match_t)
 );
 ```
 
-This type represents a function checking for a match. It takes the current bitmask, the waited-for bitmask, and an additional parameter.
+This type represents a function to check whether a specific mask is a match. The function takes the current mask of a flag, the mask to be matched with that current mask, and an additional parameter.
 
 # Functions
 
@@ -93,11 +97,15 @@ This type represents a function checking for a match. It takes the current bitma
 void ao_flag_mask_clear(ao_flag_t * x, ao_uint_t bits);
 ```
 
+Clears the specified bits of a flag mask.
+
 ## `ao_flag_mask_set`
 
 ```c
 void ao_flag_mask_set(ao_flag_t * x, ao_uint_t bits);
 ```
+
+Sets the specified bits of a flag mask.
 
 ## `ao_flag_mask_toggle`
 
@@ -105,13 +113,17 @@ void ao_flag_mask_set(ao_flag_t * x, ao_uint_t bits);
 void ao_flag_mask_toggle(ao_flag_t * x, ao_uint_t bits);
 ```
 
+Toggles the specified bits of a flag mask.
+
 ## `ao_flag_wait`
 ## `ao_flag_wait_from`
 
 ```c
-bool ao_flag_wait(     ao_flag_t * x, ao_uint_t mask, ao_flag_match_t match, void * match_parameter, ao_time_t timeout);
+bool ao_flag_wait     (ao_flag_t * x, ao_uint_t mask, ao_flag_match_t match, void * match_parameter, ao_time_t timeout);
 bool ao_flag_wait_from(ao_flag_t * x, ao_uint_t mask, ao_flag_match_t match, void * match_parameter, ao_time_t timeout, ao_time_t beginning);
 ```
+
+Waits for a flag match in a blocking fashion with a timeout and an optional beginning.
 
 ## `ao_flag_wait_forever`
 
@@ -119,16 +131,22 @@ bool ao_flag_wait_from(ao_flag_t * x, ao_uint_t mask, ao_flag_match_t match, voi
 bool ao_flag_wait_forever(ao_flag_t * x, ao_uint_t mask, ao_flag_match_t match, void * match_parameter);
 ```
 
+Waits for a flag match indefinitely in a blocking fashion.
+
 ## `ao_flag_wait_try`
 
 ```c
 bool ao_flag_wait_try(ao_flag_t * x, ao_uint_t mask, ao_flag_match_t match, void * match_parameter);
 ```
 
+Waits for a flag match in a non-blocking fashion.
+
 ## `ao_flag_wait_begin`
 ## `ao_flag_wait_end`
 
 ```c
 void ao_flag_wait_begin(ao_flag_wait_t * x);
-void ao_flag_wait_end(  ao_flag_wait_t * x);
+void ao_flag_wait_end  (ao_flag_wait_t * x);
 ```
+
+Begins or ends, respectively, the waiting for a flag match.
