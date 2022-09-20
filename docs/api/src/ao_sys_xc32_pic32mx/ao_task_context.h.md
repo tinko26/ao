@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-20
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mx/ao_task_context.h/
 toc: true
@@ -28,9 +28,9 @@ struct ao_task_context_t
 };
 ```
 
-It consists of the following members.
+This type represents the task context. It consists of the following members.
 
-| `ptr` | |
+| `ptr` | The pointer to the task context data, that is stored on the task stack. |
 
 ## `ao_task_context_data_t`
 
@@ -76,40 +76,40 @@ struct ao_task_context_data_t
 };
 ```
 
-It consists of the following members.
+This type represents the task context data that is stored on the task stack. It consists of the following members.
 
-| `a0` | |
-| `a1` | |
-| `a2` | |
-| `a3` | |
-| `at` | |
-| `epc` | |
-| `hi` | |
-| `lo` | |
-| `pad1` | |
-| `ra` | |
-| `s0` | |
-| `s1` | |
-| `s2` | |
-| `s3` | |
-| `s4` | |
-| `s5` | |
-| `s6` | |
-| `s7` | |
-| `s8` | |
-| `status` | |
-| `t0` | |
-| `t1` | |
-| `t2` | |
-| `t3` | |
-| `t4` | |
-| `t5` | |
-| `t6` | |
-| `t7` | |
-| `t8` | |
-| `t9` | |
-| `v0` | |
-| `v1` | |
+| `a0` | A0. |
+| `a1` | A1. |
+| `a2` | A2. |
+| `a3` | A3. |
+| `at` | AT. |
+| `epc` | EPC. |
+| `hi` | HI. |
+| `lo` | LO. |
+| `ra` | RA. |
+| `s0` | S0. |
+| `s1` | S1. |
+| `s2` | S2. |
+| `s3` | S3. |
+| `s4` | S4. |
+| `s5` | S5. |
+| `s6` | S6. |
+| `s7` | S7. |
+| `s8` | S8. |
+| `status` | Status. |
+| `t0` | T0. |
+| `t1` | T1. |
+| `t2` | T2. |
+| `t3` | T3. |
+| `t4` | T4. |
+| `t5` | T5. |
+| `t6` | T6. |
+| `t7` | T7. |
+| `t8` | T8. |
+| `t9` | T9. |
+| `v0` | V0. |
+| `v1` | V1. |
+| `pad1` | Padding. |
 
 # Functions
 
@@ -119,8 +119,12 @@ It consists of the following members.
 void ao_task_start_context(ao_task_t * t);
 ```
 
+Starts a task. This function is called by the kernel when a task is being started in order to prepare its context.
+
 ## `ao_task_stop_context`
 
 ```c
 #define ao_task_stop_context(t)
 ```
+
+Stops a task. This function is called by the kernel when a task is being stopped in order to clean up its context.

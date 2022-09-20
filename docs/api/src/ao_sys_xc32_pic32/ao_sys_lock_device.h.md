@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-05
+date: 2022-09-20
 draft: true
 external:
 - https://microchip.com/DS61112 : "PIC32 Family Reference Manual, Section 6, Oscillators"
@@ -9,6 +9,8 @@ toc: true
 ---
 
 # Notes
+
+This module defines locks to constitute critical sections by executing the system unlock sequence. This is required to write dedicated registers, such as the `OSCCON` register when performing a clock switch.
 
 ## Example
 
@@ -49,17 +51,25 @@ struct ao_sys_lock_device_t
 };
 ```
 
-It consists of the following members.
+This type represents lock-related data. It consists of the following members.
 
-| `dma` | |
-| `ie` | |
+| `dma` | The backup of the `DMACON.SUSPEND` bit. |
+| `ie` | The backup of the `Status` register. |
 
 # Functions
 
 ## `ao_sys_unlock_device`
-## `ao_sys_lock_device`
 
 ```c
 void ao_sys_unlock_device(ao_sys_lock_device_t * x);
-void ao_sys_lock_device  (ao_sys_lock_device_t * x);
 ```
+
+Enters a critical section. First, this function disables interrupts globally and suspends the DMA controller. Then, it performs the system unlock sequence.
+
+## `ao_sys_lock_device`
+
+```c
+void ao_sys_lock_device(ao_sys_lock_device_t * x);
+```
+
+Exists a critical section. First, this function performs a system lock. Then, it restores the previous state of both the DMA controller and the global interrupts enable.

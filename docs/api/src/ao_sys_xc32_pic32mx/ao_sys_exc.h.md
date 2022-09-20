@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-20
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mx/ao_sys_exc.h/
 toc: true
@@ -31,16 +31,16 @@ enum ao_sys_exc_t
 };
 ```
 
-It consists of the following members.
+This type represents exception conditions. It consists of the following members.
 
-| `AO_SYS_EXC_INT` | |
-| `AO_SYS_EXC_ADEL` | |
-| `AO_SYS_EXC_ADES` | |
-| `AO_SYS_EXC_IBE` | |
-| `AO_SYS_EXC_DBE` | |
-| `AO_SYS_EXC_SYS` | |
-| `AO_SYS_EXC_BP` | |
-| `AO_SYS_EXC_RI` | |
-| `AO_SYS_EXC_CPU` | |
-| `AO_SYS_EXC_OV` | |
-| `AO_SYS_EXC_TR` | |
+| `AO_SYS_EXC_INT` | Interrupt. |
+| `AO_SYS_EXC_ADEL` | Address error. |
+| `AO_SYS_EXC_ADES` | Address error. |
+| `AO_SYS_EXC_IBE` | Bus error. |
+| `AO_SYS_EXC_DBE` | Bus error. |
+| `AO_SYS_EXC_SYS` | System call. |
+| `AO_SYS_EXC_BP` | Breakpoint. |
+| `AO_SYS_EXC_RI` | Reserved instruction. |
+| `AO_SYS_EXC_CPU` | Coprocessor unusable. |
+| `AO_SYS_EXC_OV` | Integer overflow. |
+| `AO_SYS_EXC_TR` | Trap. |

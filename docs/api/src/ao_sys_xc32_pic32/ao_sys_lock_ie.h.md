@@ -1,12 +1,14 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-05
+date: 2022-09-20
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_sys_lock_ie.h/
 toc: true
 ---
 
 # Notes
+
+This module defines locks to constitute critical sections by disabling interrupts globally.
 
 ## Example
 
@@ -42,6 +44,8 @@ ao_sys_unlock_ie(x);
 )
 ```
 
+Enters a critical section by disabling interrupts globally. This function clears the `Status.IE` bit and returns the previous value of the `Status` register.
+
 ## `ao_sys_unlock_ie`
 
 ```c
@@ -50,3 +54,5 @@ ao_sys_unlock_ie(x);
     _CP0_SET_STATUS(x);     \
 }
 ```
+
+Exits a critical section. This function writes the specified value to the `Status` register.

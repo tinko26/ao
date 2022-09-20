@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-20
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mz/ao_task_context.h/
 toc: true
@@ -27,9 +27,9 @@ struct ao_task_context_t
 };
 ```
 
-It consists of the following members.
+This type represents the task context. It consists of the following members.
 
-| `ptr` | |
+| `ptr` | The pointer to the task context data, that is stored on the task stack. |
 
 ## `ao_task_context_data_t`
 
@@ -115,80 +115,80 @@ struct ao_task_context_data_t
 };
 ```
 
-It consists of the following members.
+This type represents the task context data that is stored on the task stack. It consists of the following members.
 
-| `a0` | |
-| `a1` | |
-| `a2` | |
-| `a3` | |
-| `at` | |
-| `dsp_control` | |
-| `epc` | |
-| `f0` | |
-| `f1` | |
-| `f10` | |
-| `f11` | |
-| `f12` | |
-| `f13` | |
-| `f14` | |
-| `f15` | |
-| `f16` | |
-| `f17` | |
-| `f18` | |
-| `f19` | |
-| `f2` | |
-| `f20` | |
-| `f21` | |
-| `f22` | |
-| `f23` | |
-| `f24` | |
-| `f25` | |
-| `f26` | |
-| `f27` | |
-| `f28` | |
-| `f29` | |
-| `f3` | |
-| `f30` | |
-| `f31` | |
-| `f4` | |
-| `f5` | |
-| `f6` | |
-| `f7` | |
-| `f8` | |
-| `f9` | |
-| `fcsr` | |
-| `hi` | |
-| `hi1` | |
-| `hi2` | |
-| `hi3` | |
-| `lo` | |
-| `lo1` | |
-| `lo2` | |
-| `lo3` | |
-| `padding` | |
-| `ra` | |
-| `s0` | |
-| `s1` | |
-| `s2` | |
-| `s3` | |
-| `s4` | |
-| `s5` | |
-| `s6` | |
-| `s7` | |
-| `s8` | |
-| `status` | |
-| `t0` | |
-| `t1` | |
-| `t2` | |
-| `t3` | |
-| `t4` | |
-| `t5` | |
-| `t6` | |
-| `t7` | |
-| `t8` | |
-| `t9` | |
-| `v0` | |
-| `v1` | |
+| `a0` | A0. |
+| `a1` | A1. |
+| `a2` | A2. |
+| `a3` | A3. |
+| `at` | AT. |
+| `ra` | RA. |
+| `s4` | S4. |
+| `s5` | S5. |
+| `s6` | S6. |
+| `s7` | S7. |
+| `t0` | T0. |
+| `t1` | T1. |
+| `t2` | T2. |
+| `t3` | T3. |
+| `t4` | T4. |
+| `t5` | T5. |
+| `t6` | T6. |
+| `t7` | T7. |
+| `t8` | T8. |
+| `t9` | T9. |
+| `v0` | V0. |
+| `v1` | V1. |
+| `hi` | HI. |
+| `lo` | LO. |
+| `hi1` | HI1. |
+| `lo1` | LO1. |
+| `hi2` | HI2. |
+| `lo2` | LO2. |
+| `hi3` | HI3. |
+| `lo3` | LO3. |
+| `dsp_control` | DSPControl. |
+| `fcsr` | FCSR. |
+| `f0` | F0. |
+| `f1` | F1. |
+| `f2` | F2. |
+| `f3` | F3. |
+| `f4` | F4. |
+| `f5` | F5. |
+| `f6` | F6. |
+| `f7` | F7. |
+| `f8` | F8. |
+| `f9` | F9. |
+| `f10` | F10. |
+| `f11` | F11. |
+| `f12` | F12. |
+| `f13` | F13. |
+| `f14` | F14. |
+| `f15` | F15. |
+| `f16` | F16. |
+| `f17` | F17. |
+| `f18` | F18. |
+| `f19` | F19. |
+| `f20` | F20. |
+| `f21` | F21. |
+| `f22` | F22. |
+| `f23` | F23. |
+| `f24` | F24. |
+| `f25` | F25. |
+| `f26` | F26. |
+| `f27` | F27. |
+| `f28` | F28. |
+| `f29` | F29. |
+| `f30` | F30. |
+| `f31` | F31. |
+| `epc` | EPC. |
+| `status` | Status. |
+| `s0` | S0. |
+| `s1` | S1. |
+| `s2` | S2. |
+| `s3` | S3. |
+| `s8` | S8. |
+| `padding` | Padding. |
 
 # Functions
 
@@ -198,8 +198,12 @@ It consists of the following members.
 void ao_task_start_context(ao_task_t * t);
 ```
 
+Starts a task. This function is called by the kernel when a task is being started in order to prepare its context.
+
 ## `ao_task_stop_context`
 
 ```c
 #define ao_task_stop_context(t)
 ```
+
+Stops a task. This function is called by the kernel when a task is being stopped in order to clean up its context.

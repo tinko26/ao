@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-20
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mz/ao_sys_exc.h/
 toc: true
@@ -40,25 +40,25 @@ enum ao_sys_exc_t
 };
 ```
 
-It consists of the following members.
+This type represents exception conditions. It consists of the following members.
 
-| `AO_SYS_EXC_INT` | |
-| `AO_SYS_EXC_MOD` | |
-| `AO_SYS_EXC_TLBL` | |
-| `AO_SYS_EXC_TLBS` | |
-| `AO_SYS_EXC_ADEL` | |
-| `AO_SYS_EXC_ADES` | |
-| `AO_SYS_EXC_IBE` | |
-| `AO_SYS_EXC_DBE` | |
-| `AO_SYS_EXC_SYS` | |
-| `AO_SYS_EXC_BP` | |
-| `AO_SYS_EXC_RI` | |
-| `AO_SYS_EXC_CPU` | |
-| `AO_SYS_EXC_OV` | |
-| `AO_SYS_EXC_TR` | |
-| `AO_SYS_EXC_FPE` | |
-| `AO_SYS_EXC_TLBRI` | |
-| `AO_SYS_EXC_TLBEI` | |
-| `AO_SYS_EXC_WATCH` | |
-| `AO_SYS_EXC_MCHECK` | |
-| `AO_SYS_EXC_DSPDIS` | |
+| `AO_SYS_EXC_INT` | Interrupt. |
+| `AO_SYS_EXC_MOD` | TLB modified. |
+| `AO_SYS_EXC_TLBL` | TLB invalid. |
+| `AO_SYS_EXC_TLBS` | TLB invalid. |
+| `AO_SYS_EXC_ADEL` | Address error. |
+| `AO_SYS_EXC_ADES` | Address error. |
+| `AO_SYS_EXC_IBE` | Bus error. |
+| `AO_SYS_EXC_DBE` | Bus error. |
+| `AO_SYS_EXC_SYS` | System call. |
+| `AO_SYS_EXC_BP` | Breakpoint. |
+| `AO_SYS_EXC_RI` | Reserved instruction. |
+| `AO_SYS_EXC_CPU` | Coprocessor unusable. |
+| `AO_SYS_EXC_OV` | Integer overflow. |
+| `AO_SYS_EXC_TR` | Trap. |
+| `AO_SYS_EXC_FPE` | FPU. |
+| `AO_SYS_EXC_TLBRI` | TLB read-inhibit. |
+| `AO_SYS_EXC_TLBEI` | TLB execute-inhibit. |
+| `AO_SYS_EXC_WATCH` | Watch. |
+| `AO_SYS_EXC_MCHECK` | Machine check. |
+| `AO_SYS_EXC_DSPDIS` | DSP module state disabled. |

@@ -1,12 +1,14 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-20
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mz/ao_sys_lock_pps.h/
 toc: true
 ---
 
 # Notes
+
+This module defines locks to constitue critical sections by unlocking the peripheral pin select registers.
 
 ## Example
 
@@ -48,17 +50,25 @@ struct ao_sys_lock_pps_t
 };
 ```
 
-It consists of the following members.
+This type represents lock-related data. It consists of the following members.
 
-| `device` | |
-| `io` | |
+| `device` | The lock-related data for device locks. |
+| `io` | The backup of the `CFGCON.IOLOCK` bit. |
 
 # Functions
 
 ## `ao_sys_unlock_pps`
-## `ao_sys_lock_pps`
 
 ```c
 void ao_sys_unlock_pps(ao_sys_lock_pps_t * x);
-void ao_sys_lock_pps(  ao_sys_lock_pps_t * x);
 ```
+
+Enters a critical section.
+
+## `ao_sys_lock_pps`
+
+```c
+void ao_sys_lock_pps(ao_sys_lock_pps_t * x);
+```
+
+Exits a critical section.
