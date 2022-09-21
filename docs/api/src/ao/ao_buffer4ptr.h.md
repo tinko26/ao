@@ -38,6 +38,12 @@ Defines whether to keep track of the maximum number of pointers.
 typedef struct ao_buffer4ptr_t ao_buffer4ptr_t;
 ```
 
+This type represents a buffer for pointers.
+
+# Structs
+
+## `ao_buffer4ptr_t`
+
 ```c
 struct ao_buffer4ptr_t
 {
@@ -54,8 +60,6 @@ struct ao_buffer4ptr_t
     void ** store;
 };
 ```
-
-This type represents a buffer for pointers. It consists of the following members.
 
 | `capacity` | The maximum number of pointers that can be stored in the buffer. |
 | `count` | The current number of pointers stored in the buffer. |

@@ -42,20 +42,7 @@ An AVL tree is a special kind of binary search tree, that keeps itself balanced,
 typedef struct ao_avl_t ao_avl_t;
 ```
 
-```c
-struct ao_avl_t
-{
-    ao_avl_less_t   less;
-    void          * less_parameter;
-    ao_avl_node_t * root;
-};
-```
-
-This type represents an AVL tree. It consists of the following members.
-
-| `less` | The compare function. |
-| `less_parameter` | The compare function parameter. |
-| `root` | The root. |
+This type represents an AVL tree.
 
 ## `ao_avl_node_t`
 
@@ -63,22 +50,7 @@ This type represents an AVL tree. It consists of the following members.
 typedef struct ao_avl_node_t ao_avl_node_t;
 ```
 
-```c
-struct ao_avl_node_t
-{
-    ao_int_t        height;
-    ao_avl_node_t * left;
-    ao_avl_node_t * parent;
-    ao_avl_node_t * right;
-};
-```
-
-This type represents an AVL tree node. It consists of the following members.
-
-| `height` | The height of the node, that is, the length of the longest path from the node downwards to a leaf. Although a node's height is always positive, this member is a signed integer. This is, because the heights of a node's children are used to calculate its balance factor, which can be negative. |
-| `left` | The left child. |
-| `parent` | The parent. |
-| `right` | The right child. |
+This type represents an AVL tree node.
 
 ## `ao_avl_less_t`
 
@@ -92,6 +64,40 @@ typedef bool (* ao_avl_less_t)
 ```
 
 This type represents a compare function, that implements a strict total order on the nodes.
+
+# Structs
+
+## `ao_avl_t`
+
+```c
+struct ao_avl_t
+{
+    ao_avl_less_t   less;
+    void          * less_parameter;
+    ao_avl_node_t * root;
+};
+```
+
+| `less` | The compare function. |
+| `less_parameter` | The compare function parameter. |
+| `root` | The root. |
+
+## `ao_avl_node_t`
+
+```c
+struct ao_avl_node_t
+{
+    ao_int_t        height;
+    ao_avl_node_t * left;
+    ao_avl_node_t * parent;
+    ao_avl_node_t * right;
+};
+```
+
+| `height` | The height of the node, that is, the length of the longest path from the node downwards to a leaf. Although a node's height is always positive, this member is a signed integer. This is, because the heights of a node's children are used to calculate its balance factor, which can be negative. |
+| `left` | The left child. |
+| `parent` | The parent. |
+| `right` | The right child. |
 
 # Functions
 

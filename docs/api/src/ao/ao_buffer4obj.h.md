@@ -38,6 +38,12 @@ Defines whether to keep track of the maximum number of objects.
 typedef struct ao_buffer4obj_t ao_buffer4obj_t;
 ```
 
+This type represents a buffer for objects.
+
+# Structs
+
+## `ao_buffer4obj_t`
+
 ```c
 struct ao_buffer4obj_t
 {
@@ -55,8 +61,6 @@ struct ao_buffer4obj_t
     void * store;
 };
 ```
-
-This type represents a buffer for objects. It consists of the following members.
 
 | `capacity` | The maximum number of objects that can be stored in the buffer. |
 | `count` | The current number of objects stored in the buffer. |

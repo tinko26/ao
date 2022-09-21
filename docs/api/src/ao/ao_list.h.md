@@ -36,6 +36,20 @@ This module defines doubly linked lists. Most commonly, lists are used as double
 typedef struct ao_list_t ao_list_t;
 ```
 
+This type represents a list.
+
+## `ao_list_node_t`
+
+```c
+typedef struct ao_list_node_t ao_list_node_t;
+```
+
+This type represents a list node.
+
+# Structs
+
+## `ao_list_t`
+
 ```c
 struct ao_list_t
 {
@@ -44,16 +58,10 @@ struct ao_list_t
 };
 ```
 
-This type represents a list. It consists of the following members.
-
 | `back` | The back node. |
 | `front` | The front node. |
 
 ## `ao_list_node_t`
-
-```c
-typedef struct ao_list_node_t ao_list_node_t;
-```
 
 ```c
 struct ao_list_node_t
@@ -62,8 +70,6 @@ struct ao_list_node_t
     ao_list_node_t * prev;
 };
 ```
-
-This type represents a list node. It consists of the following members.
 
 | `next` | The next node. |
 | `prev` | The previous node. |

@@ -52,6 +52,25 @@ Keep track of the maximum number of pointers.
 typedef struct ao_heap4ptr_t ao_heap4ptr_t;
 ```
 
+This type represents a heap for pointers.
+
+## `ao_heap4ptr_less_t`
+
+```c
+typedef bool (* ao_heap4ptr_less_t)
+(
+    void * p1,
+    void * p2,
+    void * parameter
+);
+```
+
+This type represents a compare function, that implements a strict total order on pointers.
+
+# Structs
+
+## `ao_heap4ptr_t`
+
 ```c
 struct ao_heap4ptr_t
 {
@@ -72,8 +91,6 @@ struct ao_heap4ptr_t
 };
 ```
 
-This type represents a heap for pointers. It consists of the following members.
-
 | `capacity` | The maximum number of pointers that can be stored in the heap. |
 | `count` | The current number of pointers stored in the heap. |
 | `count_max` | The maximum number of pointers stored in the heap. |
@@ -82,19 +99,6 @@ This type represents a heap for pointers. It consists of the following members.
 | `less` | The compare function. |
 | `less_parameter` | The compare function parameter. |
 | `store` | The store. |
-
-## `ao_heap4ptr_less_t`
-
-```c
-typedef bool (* ao_heap4ptr_less_t)
-(
-    void * p1,
-    void * p2,
-    void * parameter
-);
-```
-
-This type represents a compare function, that implements a strict total order on pointers.
 
 # Functions
 

@@ -34,6 +34,12 @@ This module contains functions to convert a number to a string. Although the sta
 typedef struct ao_print_t ao_print_t;
 ```
 
+This type represents options for the conversion.
+
+# Structs
+
+## `ao_print_t`
+
 ```c
 struct ao_print_t
 {
@@ -51,8 +57,6 @@ struct ao_print_t
 };
 ```
 
-This type represents options for the conversion. It consists of the following members.
-
 | `digits_exponent` | The minimum number of exponent digits to output. Eventually, leading zeros will be added. |
 | `digits_fractional` | The minimum number of fractional digits to output. Eventually, trailing zeros will be added. |
 | `digits_integral` | The minimum number of integral digits to output. Eventually, leading zeros will be added. |
@@ -67,9 +71,7 @@ This type represents options for the conversion. It consists of the following me
 
 # Functions
 
-## `ao_printed`
-## `ao_printef`
-## `ao_printel`
+## `ao_printe`
 
 ```c
 size_t ao_printed(char * s, size_t n, ao_print_t const * o, double      const * v);
@@ -84,9 +86,7 @@ Converts a floating-point number to string in scientific notation. The respectiv
 | `o` | The conversion options. |
 | `v` | The pointer to the value to convert. |
 
-## `ao_printfd`
-## `ao_printff`
-## `ao_printfl`
+## `ao_printf`
 
 ```c
 size_t ao_printfd(char * s, size_t n, ao_print_t const * o, double      const * v);
@@ -101,10 +101,7 @@ Converts a floating-point number to string in decimal notation. The respective s
 | `o` | The conversion options. |
 | `v` | The pointer to the value to convert. |
 
-## `ao_printi8`
-## `ao_printi16`
-## `ao_printi32`
-## `ao_printi64`
+## `ao_printi`
 
 ```c
 size_t ao_printi8 (char * s, size_t n, ao_print_t const * o, int8_t  const * v);
@@ -120,10 +117,7 @@ Converts a signed integer to string. The respective suffix indicates, which kind
 | `o` | The conversion options. |
 | `v` | The pointer to the value to convert. |
 
-## `ao_printu8`
-## `ao_printu16`
-## `ao_printu32`
-## `ao_printu64`
+## `ao_printu`
 
 ```c
 size_t ao_printu8 (char * s, size_t n, ao_print_t const * o, uint8_t  const * v);

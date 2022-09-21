@@ -39,20 +39,7 @@ A red-black tree is a special kind of binary search tree, that keeps itself bala
 typedef struct ao_rb_t ao_rb_t;
 ```
 
-```c
-struct ao_rb_t
-{
-    ao_rb_less_t   less;
-    void         * less_parameter;
-    ao_rb_node_t * root;
-};
-```
-
-This type represents a red-black tree. It consists of the following members.
-
-| `less` | The compare function. |
-| `less_parameter` | The compare function parameter. |
-| `root` | The root. |
+This type represents a red-black tree.
 
 ## `ao_rb_node_t`
 
@@ -60,22 +47,7 @@ This type represents a red-black tree. It consists of the following members.
 typedef struct ao_rb_node_t ao_rb_node_t;
 ```
 
-```c
-struct ao_rb_node_t
-{
-    bool           black;
-    ao_rb_node_t * left;
-    ao_rb_node_t * parent;
-    ao_rb_node_t * right;
-};
-```
-
-This type represents a red-black tree node. It consists of the following members.
-
-| `black` | Indicates whether the node is black (`true`) or red (`false`). |
-| `left` | The left child. |
-| `parent` | The parent. |
-| `right` | The right child. |
+This type represents a red-black tree node.
 
 ## `ao_rb_less_t`
 
@@ -89,6 +61,40 @@ typedef bool (* ao_rb_less_t)
 ```
 
 This type represents a compare function, that implements a strict total order on the nodes.
+
+# Structs
+
+## `ao_rb_t`
+
+```c
+struct ao_rb_t
+{
+    ao_rb_less_t   less;
+    void         * less_parameter;
+    ao_rb_node_t * root;
+};
+```
+
+| `less` | The compare function. |
+| `less_parameter` | The compare function parameter. |
+| `root` | The root. |
+
+## `ao_rb_node_t`
+
+```c
+struct ao_rb_node_t
+{
+    bool           black;
+    ao_rb_node_t * left;
+    ao_rb_node_t * parent;
+    ao_rb_node_t * right;
+};
+```
+
+| `black` | Indicates whether the node is black (`true`) or red (`false`). |
+| `left` | The left child. |
+| `parent` | The parent. |
+| `right` | The right child. |
 
 # Functions
 

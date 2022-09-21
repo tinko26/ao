@@ -52,6 +52,25 @@ Defines whether to keep track of the maximum number of objects.
 typedef struct ao_heap4obj_t ao_heap4obj_t;
 ```
 
+This type represents a heap for objects.
+
+## `ao_heap4obj_less_t`
+
+```c
+typedef bool (* ao_heap4obj_less_t)
+(
+    void * p1,
+    void * p2,
+    void * parameter
+);
+```
+
+This type represents a compare function, that implements a strict total order on objects.
+
+# Structs
+
+## `ao_heap4obj_t`
+
 ```c
 struct ao_heap4obj_t
 {
@@ -73,8 +92,6 @@ struct ao_heap4obj_t
 };
 ```
 
-This type represents a heap for objects. It consists of the following members.
-
 | `capacity` | The maximum number of objects that can be stored in the heap. |
 | `count` | The current number of objects stored in the heap. |
 | `count_max` | The maximum number of objects stored in the heap. |
@@ -84,19 +101,6 @@ This type represents a heap for objects. It consists of the following members.
 | `less_parameter` | The compare function parameter. |
 | `size` | The size of an object, in bytes. |
 | `store` | The store. |
-
-## `ao_heap4obj_less_t`
-
-```c
-typedef bool (* ao_heap4obj_less_t)
-(
-    void * p1,
-    void * p2,
-    void * parameter
-);
-```
-
-This type represents a compare function, that implements a strict total order on objects.
 
 # Functions
 

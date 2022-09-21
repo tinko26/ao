@@ -55,6 +55,33 @@ Defines whether to keep track of the maximum number of nodes.
 typedef struct ao_heap_t ao_heap_t;
 ```
 
+This type represents a heap.
+
+## `ao_heap_node_t`
+
+```c
+typedef struct ao_heap_node_t ao_heap_node_t;
+```
+
+This type represents a heap node.
+
+## `ao_heap_less_t`
+
+```c
+typedef bool (* ao_heap_less_t)
+(
+    ao_heap_node_t * n1,
+    ao_heap_node_t * n2,
+    void           * parameter
+);
+```
+
+This type represents a compare function, that implements a strict total order on the nodes.
+
+# Structs
+
+## `ao_heap_t`
+
 ```c
 struct ao_heap_t
 {
@@ -72,8 +99,6 @@ struct ao_heap_t
 };
 ```
 
-This type represents a heap. It consists of the following members.
-
 | `count` | The current number of nodes. |
 | `count_max` | The maximum number of nodes. |
 | `less` | The compare function. |
@@ -81,10 +106,6 @@ This type represents a heap. It consists of the following members.
 | `root` | The root node. |
 
 ## `ao_heap_node_t`
-
-```c
-typedef struct ao_heap_node_t ao_heap_node_t;
-```
 
 ```c
 struct ao_heap_node_t
@@ -95,24 +116,9 @@ struct ao_heap_node_t
 };
 ```
 
-This type represents a heap node. It consists of the following members.
-
 | `left` | The left child node. |
 | `parent` | The parent node. |
 | `right` | The right child node. |
-
-## `ao_heap_less_t`
-
-```c
-typedef bool (* ao_heap_less_t)
-(
-    ao_heap_node_t * n1,
-    ao_heap_node_t * n2,
-    void           * parameter
-);
-```
-
-This type represents a compare function, that implements a strict total order on the nodes.
 
 # Functions
 

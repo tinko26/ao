@@ -34,22 +34,7 @@ This module defines doubly linked lists, whose elements are sorted by a strict t
 typedef struct ao_slist_t ao_slist_t;
 ```
 
-```c
-struct ao_slist_t
-{
-    ao_slist_node_t * back;
-    ao_slist_node_t * front;
-    ao_slist_less_t   less;
-    void            * less_parameter;
-};
-```
-
-This type represents a sorted list. It consists of the following members.
-
-| `back` | The back node. |
-| `front` | The front node. |
-| `less` | The compare function. |
-| `less_parameter` | The compare function parameter. |
+This type represents a sorted list.
 
 ## `ao_slist_node_t`
 
@@ -57,18 +42,7 @@ This type represents a sorted list. It consists of the following members.
 typedef struct ao_slist_node_t ao_slist_node_t;
 ```
 
-```c
-struct ao_slist_node_t
-{
-    ao_slist_node_t * next;
-    ao_slist_node_t * prev;
-};
-```
-
-This type represents a node of a sorted list. It consists of the following members.
-
-| `next` | The next node. |
-| `prev` | The previous node. |
+This type represents a node of a sorted list.
 
 ## `ao_slist_less_t`
 
@@ -82,6 +56,38 @@ typedef bool (* ao_slist_less_t)
 ```
 
 This type represents a compare function, that implements a strict total order on the list nodes.
+
+# Structs
+
+## `ao_slist_t`
+
+```c
+struct ao_slist_t
+{
+    ao_slist_node_t * back;
+    ao_slist_node_t * front;
+    ao_slist_less_t   less;
+    void            * less_parameter;
+};
+```
+
+| `back` | The back node. |
+| `front` | The front node. |
+| `less` | The compare function. |
+| `less_parameter` | The compare function parameter. |
+
+## `ao_slist_node_t`
+
+```c
+struct ao_slist_node_t
+{
+    ao_slist_node_t * next;
+    ao_slist_node_t * prev;
+};
+```
+
+| `next` | The next node. |
+| `prev` | The previous node. |
 
 # Functions
 

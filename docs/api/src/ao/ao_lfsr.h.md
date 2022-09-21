@@ -32,8 +32,38 @@ This module defines linear-feedback shift registers in Galois configuration, tha
 ## `ao_lfsr8_t`
 
 ```c
-typedef struct ao_lfsr8_t  ao_lfsr8_t;
+typedef struct ao_lfsr8_t ao_lfsr8_t;
 ```
+
+This type represents a linear-feedback shift register with a maximum width of 8 bits.
+
+## `ao_lfsr16_t`
+
+```c
+typedef struct ao_lfsr16_t ao_lfsr16_t;
+```
+
+This type represents a linear-feedback shift register with a maximum width of 16 bits.
+
+## `ao_lfsr32_t`
+
+```c
+typedef struct ao_lfsr32_t ao_lfsr32_t;
+```
+
+This type represents a linear-feedback shift register with a maximum width of 32 bits.
+
+## `ao_lfsr64_t`
+
+```c
+typedef struct ao_lfsr64_t ao_lfsr64_t;
+```
+
+This type represents a linear-feedback shift register with a maximum width of 64 bits.
+
+# Structs
+
+## `ao_lfsr8_t`
 
 ```c
 struct ao_lfsr8_t
@@ -43,16 +73,10 @@ struct ao_lfsr8_t
 };
 ```
 
-This type represents a linear-feedback shift register with a maximum width of 8 bits. It consists of the following members.
-
 | `polynomial` | The generator polynomial. |
 | `seed` | The seed or current value of the register. |
 
 ## `ao_lfsr16_t`
-
-```c
-typedef struct ao_lfsr16_t ao_lfsr16_t;
-```
 
 ```c
 struct ao_lfsr16_t
@@ -62,16 +86,10 @@ struct ao_lfsr16_t
 };
 ```
 
-This type represents a linear-feedback shift register with a maximum width of 16 bits. It consists of the following members.
-
 | `polynomial` | The generator polynomial. |
 | `seed` | The seed or current value of the register. |
 
 ## `ao_lfsr32_t`
-
-```c
-typedef struct ao_lfsr32_t ao_lfsr32_t;
-```
 
 ```c
 struct ao_lfsr32_t
@@ -81,16 +99,10 @@ struct ao_lfsr32_t
 };
 ```
 
-This type represents a linear-feedback shift register with a maximum width of 32 bits. It consists of the following members.
-
 | `polynomial` | The generator polynomial. |
 | `seed` | The seed or current value of the register. |
 
 ## `ao_lfsr64_t`
-
-```c
-typedef struct ao_lfsr64_t ao_lfsr64_t;
-```
 
 ```c
 struct ao_lfsr64_t
@@ -99,8 +111,6 @@ struct ao_lfsr64_t
     uint64_t seed;
 };
 ```
-
-This type represents a linear-feedback shift register with a maximum width of 64 bits. It consists of the following members.
 
 | `polynomial` | The generator polynomial. |
 | `seed` | The seed or current value of the register. |

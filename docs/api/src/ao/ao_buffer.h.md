@@ -44,6 +44,12 @@ Defines whether to keep track of the maximum number of bytes.
 typedef struct ao_buffer_t ao_buffer_t;
 ```
 
+This type represents a buffer.
+
+# Structs
+
+## `ao_buffer_t`
+
 ```c
 struct ao_buffer_t
 {
@@ -60,8 +66,6 @@ struct ao_buffer_t
     void * store;
 };
 ```
-
-This type represents a buffer. It consists of the following members.
 
 | `capacity` | The maximum number of bytes that can be stored in the buffer. |
 | `count` | The current number of bytes stored in the buffer. |
