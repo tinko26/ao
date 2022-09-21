@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-05
+date: 2022-09-20
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_rng/ao_rngt.h/
 toc: true
@@ -65,8 +65,8 @@ while (1)
 ## `ao_rngt_disable`
 
 ```c
-#define ao_rngt_enable()
-#define ao_rngt_disable()
+#define ao_rngt_enable()  { RNGCONbits.TRNGEN = 1; }
+#define ao_rngt_disable() { RNGCONbits.TRNGEN = 0; }
 ```
 
 Enables or disables the true random number generator.
@@ -74,7 +74,7 @@ Enables or disables the true random number generator.
 ## `ao_rngt_bits`
 
 ```c
-#define ao_rngt_bits()
+#define ao_rngt_bits() (RNGCNT)
 ```
 
 Gets the number of bits that have been generate since the last read.
@@ -82,17 +82,21 @@ Gets the number of bits that have been generate since the last read.
 ## `ao_rngt_value`
 
 ```c
-#define ao_rngt_value()
+#define ao_rngt_value()           \
+(                                 \
+    ((uint64_t) RNGSEED2 << 32) | \
+     (uint64_t) RNGSEED1          \
+)
 ```
 
-Reads the generated value.
+Gets the generated value.
 
 ## `ao_rngt_value_hi`
 ## `ao_rngt_value_lo`
 
 ```c
-#define ao_rngt_value_hi()
-#define ao_rngt_value_lo()
+#define ao_rngt_value_hi() (RNGSEED2)
+#define ao_rngt_value_lo() (RNGSEED1)
 ```
 
-Reads the most or least significant 32 bits of the generated value.
+Gets the most or least significant 32 bits, respectively, of the generated value.
