@@ -26,16 +26,14 @@ toc: true
 ## `AO_I2C_5`
 
 ```c
-#define AO_I2C_5
+#define AO_I2C_5 (false)
 ```
 
 Indicates whether the module is available.
 
 # Functions
 
-## `ao_i2c_ack_5`
-## `ao_i2c_ack_from_5`
-## `ao_i2c_ack_forever_5`
+## `ao_i2c_ack`
 
 ```c
 #define ao_i2c_ack_5(t)         ao_i2c_ack        (ao_i2c_reg_5(), t)
@@ -48,7 +46,7 @@ Generates an acknowledge. The return value indicates, whether the operation succ
 | `t` | The timeout. |
 | `b` | The beginning. |
 
-## `ao_i2c_acked_5`
+## `ao_i2c_acked`
 
 ```c
 #define ao_i2c_acked_5()         \
@@ -59,7 +57,7 @@ Generates an acknowledge. The return value indicates, whether the operation succ
 
 Checks whether an acknowledge has been received.
 
-## `ao_i2c_baud_5`
+## `ao_i2c_baud`
 
 ```c
 #define ao_i2c_baud_5(f)   \
@@ -75,9 +73,7 @@ Checks whether an acknowledge has been received.
 
 Sets up the baud rate, in bits per second.
 
-## `ao_i2c_nack_5`
-## `ao_i2c_nack_from_5`
-## `ao_i2c_nack_forever_5`
+## `ao_i2c_nack`
 
 ```c
 #define ao_i2c_nack_5(t)         ao_i2c_nack        (ao_i2c_reg_5(), t)
@@ -90,7 +86,7 @@ Generates a not acknowledge. The return value indicates, whether the operation s
 | `t` | The timeout. |
 | `b` | The beginning. |
 
-## `ao_i2c_nacked_5`
+## `ao_i2c_nacked`
 
 ```c
 #define ao_i2c_nacked_5()         \
@@ -101,9 +97,7 @@ Generates a not acknowledge. The return value indicates, whether the operation s
 
 Checks whether a not acknowledge has been received.
 
-## `ao_i2c_recv_5`
-## `ao_i2c_recv_from_5`
-## `ao_i2c_recv_forever_5`
+## `ao_i2c_recv`
 
 ```c
 #define ao_i2c_recv_5(v, t)         ao_i2c_recv        (ao_i2c_reg_5(), v, t)
@@ -131,9 +125,7 @@ Receives data. The return value indicates, whether the operation succeeded.
 
 Gets the control registers.
 
-## `ao_i2c_restart_5`
-## `ao_i2c_restart_from_5`
-## `ao_i2c_restart_forever_5`
+## `ao_i2c_restart`
 
 ```c
 #define ao_i2c_restart_5(t)         ao_i2c_restart        (ao_i2c_reg_5(), t)
@@ -146,9 +138,7 @@ Generates a repeated start bus event. The return value indicates, whether the op
 | `t` | The timeout. |
 | `b` | The beginning. |
 
-## `ao_i2c_send_5`
-## `ao_i2c_send_from_5`
-## `ao_i2c_send_forever_5`
+## `ao_i2c_send`
 
 ```c
 #define ao_i2c_send_5(v, t)         ao_i2c_send        (ao_i2c_reg_5(), v, t)
@@ -162,9 +152,7 @@ Sends data. The return value indicates, whether the operation succeeded.
 | `t` | The timeout. |
 | `b` | The beginning. |
 
-## `ao_i2c_start_5`
-## `ao_i2c_start_from_5`
-## `ao_i2c_start_forever_5`
+## `ao_i2c_start`
 
 ```c
 #define ao_i2c_start_5(t)         ao_i2c_start        (ao_i2c_reg_5(), t)
@@ -177,9 +165,7 @@ Generates a start bus event. The return value indicates, whether the operation s
 | `t` | The timeout. |
 | `b` | The beginning. |
 
-## `ao_i2c_stop_5`
-## `ao_i2c_stop_from_5`
-## `ao_i2c_stop_forever_5`
+## `ao_i2c_stop`
 
 ```c
 #define ao_i2c_stop_5(t)         ao_i2c_stop        (ao_i2c_reg_5(), t)

@@ -251,8 +251,6 @@ struct ao_i2c_reg_trn_t
 # Functions
 
 ## `ao_i2c_ack`
-## `ao_i2c_ack_from`
-## `ao_i2c_ack_forever`
 
 ```c
 bool ao_i2c_ack        (ao_i2c_reg_t * r, ao_time_t t);
@@ -287,8 +285,6 @@ Sets up the baud rate for a module.
 | `f` | The baud rate, in bits per second. |
 
 ## `ao_i2c_nack`
-## `ao_i2c_nack_from`
-## `ao_i2c_nack_forever`
 
 ```c
 bool ao_i2c_nack        (ao_i2c_reg_t * r, ao_time_t t);
@@ -311,8 +307,6 @@ bool ao_i2c_nacked(ao_i2c_reg_t const * r);
 Checks whether a not acknowledge has been received.
 
 ## `ao_i2c_recv`
-## `ao_i2c_recv_from`
-## `ao_i2c_recv_forever`
 
 ```c
 bool ao_i2c_recv        (ao_i2c_reg_t * r, uint8_t * v, ao_time_t t);
@@ -328,8 +322,6 @@ Receives data. The return value indicates, whether the operation succeeded.
 | `b` | The beginning. |
 
 ## `ao_i2c_restart`
-## `ao_i2c_restart_from`
-## `ao_i2c_restart_forever`
 
 ```c
 bool ao_i2c_restart        (ao_i2c_reg_t * r, ao_time_t t);
@@ -344,8 +336,6 @@ Generates a repeated start bus event. The return value indicates, whether the op
 | `b` | The beginning. |
 
 ## `ao_i2c_send`
-## `ao_i2c_send_from`
-## `ao_i2c_send_forever`
 
 ```c
 bool ao_i2c_send        (ao_i2c_reg_t * r, uint8_t v, ao_time_t t);
@@ -361,8 +351,6 @@ Sends data. The return value indicates, whether the operation succeeded.
 | `b` | The beginning. |
 
 ## `ao_i2c_start`
-## `ao_i2c_start_from`
-## `ao_i2c_start_forever`
 
 ```c
 bool ao_i2c_start        (ao_i2c_reg_t * r, ao_time_t t);
@@ -377,8 +365,6 @@ Generates a start bus event. The return value indicates, whether the operation s
 | `b` | The beginning. |
 
 ## `ao_i2c_stop`
-## `ao_i2c_stop_from`
-## `ao_i2c_stop_forever`
 
 ```c
 bool ao_i2c_stop        (ao_i2c_reg_t * r, ao_time_t t);
