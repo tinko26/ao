@@ -8,10 +8,7 @@ toc: true
 
 # Constants
 
-## `AO_SYS_CLOCK_CAN1`
-## `AO_SYS_CLOCK_CAN2`
-## `AO_SYS_CLOCK_CAN3`
-## `AO_SYS_CLOCK_CAN4`
+## `AO_SYS_CLOCK_CAN`
 
 ```c
 #define AO_SYS_CLOCK_CAN1 (0)

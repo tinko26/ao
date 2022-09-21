@@ -8,12 +8,7 @@ toc: true
 
 # Constants
 
-## `AO_SYS_CLOCK_U1`
-## `AO_SYS_CLOCK_U2`
-## `AO_SYS_CLOCK_U3`
-## `AO_SYS_CLOCK_U4`
-## `AO_SYS_CLOCK_U5`
-## `AO_SYS_CLOCK_U6`
+## `AO_SYS_CLOCK_U`
 
 ```c
 #define AO_SYS_CLOCK_U1 (0)

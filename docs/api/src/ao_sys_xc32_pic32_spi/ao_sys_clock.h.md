@@ -8,12 +8,7 @@ toc: true
 
 # Constants
 
-## `AO_SYS_CLOCK_SPI1`
-## `AO_SYS_CLOCK_SPI2`
-## `AO_SYS_CLOCK_SPI3`
-## `AO_SYS_CLOCK_SPI4`
-## `AO_SYS_CLOCK_SPI5`
-## `AO_SYS_CLOCK_SPI6`
+## `AO_SYS_CLOCK_SPI`
 
 ```c
 #define AO_SYS_CLOCK_SPI1 (0)

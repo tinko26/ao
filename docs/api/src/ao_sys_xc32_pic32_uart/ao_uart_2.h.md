@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-20
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_uart/ao_uart_2.h/
 toc: true
@@ -32,11 +32,20 @@ toc: true
 #define AO_UART_BAUD_2 (9600)
 ```
 
+The baud rate, in bits per second.
+
 ## `AO_UART_DATA_BITS_PARITY_2`
 
 ```c
 #define AO_UART_DATA_BITS_PARITY_2 (AO_UART_DATA_BITS_8_PARITY_NONE)
 ```
+
+The number of data bits and the parity. The following options are available.
+
+| `AO_UART_DATA_BITS_8_PARITY_NONE` | 8-bit data, no parity. |
+| `AO_UART_DATA_BITS_8_PARITY_EVEN` | 8-bit data, even parity. |
+| `AO_UART_DATA_BITS_8_PARITY_ODD`  | 8-bit data, odd parity. |
+| `AO_UART_DATA_BITS_9_PARITY_NONE` | 9-bit data, no parity. |
 
 ## `AO_UART_ERROR_2`
 
@@ -44,11 +53,15 @@ toc: true
 #define AO_UART_ERROR_2 (false)
 ```
 
+Defines whether to notify the application of errors.
+
 ## `AO_UART_LOOPBACK_2`
 
 ```c
 #define AO_UART_LOOPBACK_2 (false)
 ```
+
+Defines whether to operate in loopback mode.
 
 ## `AO_UART_RX_2`
 
@@ -56,11 +69,19 @@ toc: true
 #define AO_UART_RX_2 (false)
 ```
 
+Defines whether to enable the reception of data.
+
 ## `AO_UART_STOP_BITS_2`
 
 ```c
 #define AO_UART_STOP_BITS_2 (AO_UART_STOP_BITS_ONE)
 ```
+
+The number of stop bits. The following options are available.
+
+| `AO_UART_STOP_BITS_ONE` | 1 stop bit. |
+| `AO_UART_STOP_BITS_TWO` | 2 stop bits. |
+
 
 ## `AO_UART_TX_2`
 
@@ -68,61 +89,97 @@ toc: true
 #define AO_UART_TX_2 (false)
 ```
 
+Defines whether to enable the transmission of data.
+
 # Constants
 
 ## `AO_UART_2`
 
 ```c
-#define AO_UART_2
+#define AO_UART_2 (false)
 ```
 
-Indicates whether the UART module is available.
+Indicates whether the module is available.
 
 ## `AO_UART_BAUD_MAX_2`
 ## `AO_UART_BAUD_MIN_2`
 
 ```c
-#define AO_UART_BAUD_MAX_2
-#define AO_UART_BAUD_MIN_2
+#define AO_UART_BAUD_MAX_2 AO_UART_BAUD_MAX(AO_SYS_CLOCK_U2)
+#define AO_UART_BAUD_MIN_2 AO_UART_BAUD_MIN(AO_SYS_CLOCK_U2)
 ```
 
-The maximum and minimum baud rate.
+The maximum and minimum baud rate, in bits per second.
 
 ## `AO_UART_BAUD_HIGH_MAX_2`
 ## `AO_UART_BAUD_HIGH_MIN_2`
 
 ```c
-#define AO_UART_BAUD_HIGH_MAX_2
-#define AO_UART_BAUD_HIGH_MIN_2
+#define AO_UART_BAUD_HIGH_MAX_2 AO_UART_BAUD_HIGH_MAX(AO_SYS_CLOCK_U2)
+#define AO_UART_BAUD_HIGH_MIN_2 AO_UART_BAUD_HIGH_MIN(AO_SYS_CLOCK_U2)
 ```
+
+The maximum and minimum baud rate in high-speed mode, in bits per second.
 
 ## `AO_UART_BAUD_LOW_MAX_2`
 ## `AO_UART_BAUD_LOW_MIN_2`
 
 ```c
-#define AO_UART_BAUD_LOW_MAX_2
-#define AO_UART_BAUD_LOW_MIN_2
+#define AO_UART_BAUD_LOW_MAX_2 AO_UART_BAUD_LOW_MAX(AO_SYS_CLOCK_U2)
+#define AO_UART_BAUD_LOW_MIN_2 AO_UART_BAUD_LOW_MIN(AO_SYS_CLOCK_U2)
 ```
+
+The maximum and minimum baud rate in standard-speed mode, in bits per second.
 
 # Functions
 
 ## `ao_uart_baud_2`
 
 ```c
-#define ao_uart_baud_2(f)
+#define ao_uart_baud_2(f) \
+{                         \
+    ao_uart_baud          \
+    (                     \
+        ao_uart_reg_2(),  \
+        AO_SYS_CLOCK_U2,  \
+        f                 \
+    );                    \
+}
 ```
+
+Sets up the baud rate, in bits per second. This function enables or disables high-speed mode, depending on the specified baud rate.
 
 ## `ao_uart_baud_high_2`
 
 ```c
-#define ao_uart_baud_high_2(f)
+#define ao_uart_baud_high_2(f) \
+{                              \
+    ao_uart_baud_high          \
+    (                          \
+        ao_uart_reg_2(),       \
+        AO_SYS_CLOCK_U2,       \
+        f                      \
+    );                         \
+}
 ```
+
+Enables high-speed mode and sets up the baud rate, in bits per second.
 
 ## `ao_uart_baud_low_2`
 
 ```c
-#define ao_uart_baud_low_2(f)
+#define ao_uart_baud_low_2(f) \
+{                             \
+    ao_uart_baud_low          \
+    (                         \
+        ao_uart_reg_2(),      \
+        AO_SYS_CLOCK_U2,      \
+        f                     \
+    );                        \
+}
 ```
+
+Disables high-speed mode and sets up the baud rate, in bits per second.
 
 ## `ao_uart_config_2`
 
@@ -130,11 +187,15 @@ The maximum and minimum baud rate.
 void ao_uart_config_2();
 ```
 
+Configurates the module. This function simply calls the following three configuration functions. This function is attributed as weak. Hence, the application can provide another implementation.
+
 ## `ao_uart_config_baud_2`
 
 ```c
 void ao_uart_config_baud_2();
 ```
+
+Configurates the baud rate. This function sets up the baud rate, that has been configured by `AO_UART_BAUD_2`, and enables or disables high-speed mode, depending on the specific value. This function is attributed as weak. Hence, the application can provide another implementation.
 
 ## `ao_uart_config_frame_2`
 
@@ -142,11 +203,15 @@ void ao_uart_config_baud_2();
 void ao_uart_config_frame_2();
 ```
 
+Configurates the frame characteristics. This function sets up the numbers of data bits and stop bits as well as the parity, that have been configured in by `AO_UART_DATA_BITS_PARITY_2` and `AO_UART_STOP_BITS_2`. This function is attributed as weak. Hence, the application can provide another implementation.
+
 ## `ao_uart_config_loopback_2`
 
 ```c
 void ao_uart_config_loopback_2();
 ```
+
+Configurates the loopback mode. This function enables or disable loopback mode, depending on the configuration by `AO_UART_LOOPBACK_2`. This function is attributed as weak. Hence, the application can provide another implementation.
 
 ## `ao_uart_error_2`
 
@@ -154,19 +219,31 @@ void ao_uart_config_loopback_2();
 void ao_uart_error_2(ao_uart_error_info_t const * info);
 ```
 
+Notifies the application of one or more detected errors.
+
 ## `ao_uart_loopback_enable_2`
 ## `ao_uart_loopback_disable_2`
 
 ```c
-#define ao_uart_loopback_enable_2()
-#define ao_uart_loopback_disable_2()
+#define ao_uart_loopback_enable_2()  ao_uart_loopback_enable (ao_uart_reg_2())
+#define ao_uart_loopback_disable_2() ao_uart_loopback_disable(ao_uart_reg_2())
 ```
+
+Enables or disables, respectively, loopback mode.
 
 ## `ao_uart_reg_2`
 
 ```c
-#define ao_uart_reg_2()
+#define ao_uart_reg_2()     \
+(                           \
+    (ao_uart_reg_t *)       \
+    (                       \
+        _UART2_BASE_ADDRESS \
+    )                       \
+)
 ```
+
+Gets the control registers.
 
 ## `ao_uart_start_2`
 
@@ -174,11 +251,15 @@ void ao_uart_error_2(ao_uart_error_info_t const * info);
 void ao_uart_start_2();
 ```
 
+Starts the driver.
+
 ## `ao_uart_stop_2`
 
 ```c
 void ao_uart_stop_2();
 ```
+
+Stops the driver.
 
 # Variables
 
@@ -188,14 +269,20 @@ void ao_uart_stop_2();
 extern ao_send_t ao_uart_in_2;
 ```
 
+The object used by the driver to send inbound data to the application.
+
 ## `ao_uart_out_2`
 
 ```c
 extern ao_recv_t ao_uart_out_2;
 ```
 
+The object used by the driver to receive outbound data from the application.
+
 ## `ao_uart_task_2`
 
 ```c
 extern ao_task_t ao_uart_task_2;
 ```
+
+The task run by the driver to send outbound data.
