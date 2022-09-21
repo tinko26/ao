@@ -72,11 +72,14 @@ The options for the `UxMODE.STSEL` field specifying the number of stop bits.
 
 # Types
 
-## `ao_uart_error_flags_t`
+## `ao_uart_error`
 
 ```c
-typedef enum ao_uart_error_flags_t ao_uart_error_flags_t;
+typedef enum   ao_uart_error_flags_t ao_uart_error_flags_t;
+typedef struct ao_uart_error_info_t  ao_uart_error_info_t;
 ```
+
+## `ao_uart_error_flags_t`
 
 ```c
 enum ao_uart_error_flags_t
@@ -100,10 +103,6 @@ This type represents various error conditions. It consists of the following memb
 ## `ao_uart_error_info_t`
 
 ```c
-typedef struct ao_uart_error_info_t ao_uart_error_info_t;
-```
-
-```c
 struct ao_uart_error_info_t
 {
     ao_uart_error_flags_t flags;
@@ -114,11 +113,33 @@ This type represents the information provided to an application callback, when a
 
 | `flags` | The flags. |
 
-## `ao_uart_reg_brg_t`
+## `ao_uart_reg`
 
 ```c
-typedef struct ao_uart_reg_brg_t ao_uart_reg_brg_t;
+typedef struct ao_uart_reg_t      ao_uart_reg_t;
+typedef struct ao_uart_reg_brg_t  ao_uart_reg_brg_t;
+typedef struct ao_uart_reg_mode_t ao_uart_reg_mode_t;
+typedef struct ao_uart_reg_rx_t   ao_uart_reg_rx_t;
+typedef struct ao_uart_reg_sta_t  ao_uart_reg_sta_t;
+typedef struct ao_uart_reg_tx_t   ao_uart_reg_tx_t;
 ```
+
+## `ao_uart_reg_t`
+
+```c
+struct ao_uart_reg_t
+{
+    ao_uart_reg_mode_t mode;
+    ao_uart_reg_sta_t  sta;
+    ao_uart_reg_tx_t   tx;
+    ao_uart_reg_rx_t   rx;
+    ao_uart_reg_brg_t  brg;
+};
+```
+
+This type represents the control registers and their companions.
+
+## `ao_uart_reg_brg_t`
 
 ```c
 struct ao_uart_reg_brg_t
@@ -137,19 +158,9 @@ struct ao_uart_reg_brg_t
 };
 ```
 
-This type represents the baud rate register `UxBRG` and its companions. It consists of the following members.
-
-| `bits.brg` | `UxBRG.BRG` |  Baud rate divisor. |
-| `clr` | `UxBRGCLR` |
-| `inv` | `UxBRGINV` |
-| `reg` | `UxBRG` |
-| `set` | `UxBRGSET` |
+This type represents the baud rate register `UxBRG` and its companions.
 
 ## `ao_uart_reg_mode_t`
-
-```c
-typedef struct ao_uart_reg_mode_t ao_uart_reg_mode_t;
-```
 
 ```c
 struct ao_uart_reg_mode_t
@@ -186,34 +197,9 @@ struct ao_uart_reg_mode_t
 };
 ```
 
-This type represents the mode register `UxMODE` and its companions. It consists of the following members.
-
-| `bits.abaud`  | `UxMODE.ABAUD`  | Auto-baud enable. |
-| `bits.active` | `UxMODE.ACTIVE` | Module is active. |
-| `bits.brgh`   | `UxMODE.BRGH`   | Baud rate high-speed mode enable. |
-| `bits.clksel` | `UxMODE.CLKSEL` | Clock selection. |
-| `bits.iren`   | `UxMODE.IREN`   | IrDA® enable. |
-| `bits.lpback` | `UxMODE.LPBACK` | Loopback mode enable. |
-| `bits.on`     | `UxMODE.ON`     | Module enable. |
-| `bits.pdsel`  | `UxMODE.PDSEL`  | Parity and data bits selection. |
-| `bits.rtsmd`  | `UxMODE.RTSMD`  | RTS pin mode selection. |
-| `bits.runovf` | `UxMODE.RUNOVF` | Run during overflow condition. |
-| `bits.rxinv`  | `UxMODE.RXINV`  | Receiver polarity inversion. |
-| `bits.sidl`   | `UxMODE.SIDL`   | Stop in idle mode. |
-| `bits.slpen`  | `UxMODE.SLPEN`  | Run during sleep mode. |
-| `bits.stsel`  | `UxMODE.STSEL`  | Stop bits selection. |
-| `bits.uen`    | `UxMODE.UEN`    | Pin enables. |
-| `bits.wake`   | `UxMODE.WAKE`   | Enable wake-up on start bit detection during sleep mode. |
-| `clr` | `UxMODECLR` |
-| `inv` | `UxMODEINV` |
-| `reg` | `UxMODE` |
-| `set` | `UxMODESET` |
+This type represents the mode register `UxMODE` and its companions.
 
 ## `ao_uart_reg_rx_t`
-
-```c
-typedef struct ao_uart_reg_rx_t ao_uart_reg_rx_t;
-```
 
 ```c
 struct ao_uart_reg_rx_t
@@ -232,16 +218,9 @@ struct ao_uart_reg_rx_t
 };
 ```
 
-This type represents the receive register `UxRXREG`. It consists of the following members.
-
-| `bits.rx` | `UxRXREG.RX` |  Data bits 8 through 0 of the received character. |
-| `reg` | `UxRXREG` |
+This type represents the receive register `UxRXREG`.
 
 ## `ao_uart_reg_sta_t`
-
-```c
-typedef struct ao_uart_reg_sta_t ao_uart_reg_sta_t;
-```
 
 ```c
 struct ao_uart_reg_sta_t
@@ -275,34 +254,9 @@ struct ao_uart_reg_sta_t
 };
 ```
 
-This type represents the status and control register `UxSTA` and its companions. It consists of the following members.
-
-| `bits.adden`   | `UxSTA.ADDEN`   | Address character detection. |
-| `bits.addr`    | `UxSTA.ADDR`    | Automatic address mask. |
-| `bits.adm_en`  | `UxSTA.ADM_EN`  | Automatic address detection mode enable. |
-| `bits.ferr`    | `UxSTA.FERR`    | Framing error. |
-| `bits.oerr`    | `UxSTA.OERR`    | Overrun error of the receive buffer. |
-| `bits.perr`    | `UxSTA.PERR`    | Parity error. |
-| `bits.ridle`   | `UxSTA.RIDLE`   | Receiver is idle. |
-| `bits.trmt`    | `UxSTA.TRMT`    | Transmit shift register is empty. |
-| `bits.urxda`   | `UxSTA.URXDA`   | Receive buffer data is available. |
-| `bits.urxen`   | `UxSTA.URXEN`   | Receiver enable. |
-| `bits.urxisel` | `UxSTA.URXISEL` | Receive interrupt mode. |
-| `bits.utxbf`   | `UxSTA.UTXBF`   | Transmit buffer is full. |
-| `bits.utxbrk`  | `UxSTA.UTXBRK`  | Transmit break. |
-| `bits.utxen`   | `UxSTA.UTXEN`   | Transmitter enable. |
-| `bits.utxinv`  | `UxSTA.UTXINV`  | Transmitter polarity inversion. |
-| `bits.utxisel` | `UxSTA.UTXISEL` | Transmit interrupt mode. |
-| `clr` | `UxSTACLR` |
-| `inv` | `UxSTAINV` |
-| `reg` | `UxSTA` |
-| `set` | `UxSTASET` |
+This type represents the status and control register `UxSTA` and its companions.
 
 ## `ao_uart_reg_tx_t`
-
-```c
-typedef struct ao_uart_reg_tx_t ao_uart_reg_tx_t;
-```
 
 ```c
 struct ao_uart_reg_tx_t
@@ -321,35 +275,7 @@ struct ao_uart_reg_tx_t
 };
 ```
 
-This type represents the transmit register `UxTXREG` and its companions. It consists of the following members.
-
-| `bits.tx` | `UxTXREG.TX` | Data bits 8 through 0 of the character to be transmitted. |
-| `reg` | `UxTXREG` |
-
-## `ao_uart_reg_t`
-
-```c
-typedef struct ao_uart_reg_t ao_uart_reg_t;
-```
-
-```c
-struct ao_uart_reg_t
-{
-    ao_uart_reg_mode_t mode;
-    ao_uart_reg_sta_t  sta;
-    ao_uart_reg_tx_t   tx;
-    ao_uart_reg_rx_t   rx;
-    ao_uart_reg_brg_t  brg;
-};
-```
-
-This type represents the control registers and their companions. It consists of the following members.
-
-| `brg`  | `UxBRG` |
-| `mode` | `UxMODE` |
-| `rx`   | `UxRXREG` |
-| `sta`  | `UxSTA` |
-| `tx`   | `UxTXREG` |
+This type represents the transmit register `UxTXREG` and its companions.
 
 # Functions
 
