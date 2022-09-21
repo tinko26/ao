@@ -139,11 +139,11 @@ struct ao_uart_reg_brg_t
 
 This type represents the baud rate register `UxBRG` and its companions. It consists of the following members.
 
-| `bits.brg` | `UxBRG.BRG`. |
-| `clr` | `UxBRGCLR`. |
-| `inv` | `UxBRGINV`. |
-| `reg` | `UxBRG`. |
-| `set` | `UxBRGSET`. |
+| `bits.brg` | `UxBRG.BRG` |  Baud rate divisor. |
+| `clr` | `UxBRGCLR` |
+| `inv` | `UxBRGINV` |
+| `reg` | `UxBRG` |
+| `set` | `UxBRGSET` |
 
 ## `ao_uart_reg_mode_t`
 
@@ -188,26 +188,26 @@ struct ao_uart_reg_mode_t
 
 This type represents the mode register `UxMODE` and its companions. It consists of the following members.
 
-| `bits.abaud`  | `UxMODE.ABAUD`. |
-| `bits.active` | `UxMODE.ACTIVE`. |
-| `bits.brgh`   | `UxMODE.BRGH`. |
-| `bits.clksel` | `UxMODE.CLKSEL`. |
-| `bits.iren`   | `UxMODE.IREN`. |
-| `bits.lpback` | `UxMODE.LPBACK`. |
-| `bits.on`     | `UxMODE.ON`. |
-| `bits.pdsel`  | `UxMODE.PDSEL`. |
-| `bits.rtsmd`  | `UxMODE.RTSMD`. |
-| `bits.runovf` | `UxMODE.RUNOVF`. |
-| `bits.rxinv`  | `UxMODE.RXINV`. |
-| `bits.sidl`   | `UxMODE.SIDL`. |
-| `bits.slpen`  | `UxMODE.SLPEN`. |
-| `bits.stsel`  | `UxMODE.STSEL`. |
-| `bits.uen`    | `UxMODE.UEN`. |
-| `bits.wake`   | `UxMODE.WAKE`. |
-| `clr` | `UxMODECLR`. |
-| `inv` | `UxMODEINV`. |
-| `reg` | `UxMODE`. |
-| `set` | `UxMODESET`. |
+| `bits.abaud`  | `UxMODE.ABAUD`  | Auto-baud enable. |
+| `bits.active` | `UxMODE.ACTIVE` | Module is active. |
+| `bits.brgh`   | `UxMODE.BRGH`   | Baud rate high-speed mode enable. |
+| `bits.clksel` | `UxMODE.CLKSEL` | Clock selection. |
+| `bits.iren`   | `UxMODE.IREN`   | IrDA® enable. |
+| `bits.lpback` | `UxMODE.LPBACK` | Loopback mode enable. |
+| `bits.on`     | `UxMODE.ON`     | Module enable. |
+| `bits.pdsel`  | `UxMODE.PDSEL`  | Parity and data bits selection. |
+| `bits.rtsmd`  | `UxMODE.RTSMD`  | RTS pin mode selection. |
+| `bits.runovf` | `UxMODE.RUNOVF` | Run during overflow condition. |
+| `bits.rxinv`  | `UxMODE.RXINV`  | Receiver polarity inversion. |
+| `bits.sidl`   | `UxMODE.SIDL`   | Stop in idle mode. |
+| `bits.slpen`  | `UxMODE.SLPEN`  | Run during sleep mode. |
+| `bits.stsel`  | `UxMODE.STSEL`  | Stop bits selection. |
+| `bits.uen`    | `UxMODE.UEN`    | Pin enables. |
+| `bits.wake`   | `UxMODE.WAKE`   | Enable wake-up on start bit detection during sleep mode. |
+| `clr` | `UxMODECLR` |
+| `inv` | `UxMODEINV` |
+| `reg` | `UxMODE` |
+| `set` | `UxMODESET` |
 
 ## `ao_uart_reg_rx_t`
 
@@ -234,8 +234,8 @@ struct ao_uart_reg_rx_t
 
 This type represents the receive register `UxRXREG`. It consists of the following members.
 
-| `bits.rx` | `UxRXREG.RX`. |
-| `reg` | `UxRXREG`. |
+| `bits.rx` | `UxRXREG.RX` |  Data bits 8 through 0 of the received character. |
+| `reg` | `UxRXREG` |
 
 ## `ao_uart_reg_sta_t`
 
@@ -277,26 +277,26 @@ struct ao_uart_reg_sta_t
 
 This type represents the status and control register `UxSTA` and its companions. It consists of the following members.
 
-| `bits.adden`   | `UxSTA.ADDEN`. |
-| `bits.addr`    | `UxSTA.ADDR`. |
-| `bits.adm_en`  | `UxSTA.ADM_EN`. |
-| `bits.ferr`    | `UxSTA.FERR`. |
-| `bits.oerr`    | `UxSTA.OERR`. |
-| `bits.perr`    | `UxSTA.PERR`. |
-| `bits.ridle`   | `UxSTA.RIDLE`. |
-| `bits.trmt`    | `UxSTA.TRMT`. |
-| `bits.urxda`   | `UxSTA.URXDA`. |
-| `bits.urxen`   | `UxSTA.URXEN`. |
-| `bits.urxisel` | `UxSTA.URXISEL`. |
-| `bits.utxbf`   | `UxSTA.UTXBF`. |
-| `bits.utxbrk`  | `UxSTA.UTXBRK`. |
-| `bits.utxen`   | `UxSTA.UTXEN`. |
-| `bits.utxinv`  | `UxSTA.UTXINV`. |
-| `bits.utxisel` | `UxSTA.UTXISEL`. |
-| `clr` | `UxSTACLR`. |
-| `inv` | `UxSTAINV`. |
-| `reg` | `UxSTA`. |
-| `set` | `UxSTASET`. |
+| `bits.adden`   | `UxSTA.ADDEN`   | Address character detection. |
+| `bits.addr`    | `UxSTA.ADDR`    | Automatic address mask. |
+| `bits.adm_en`  | `UxSTA.ADM_EN`  | Automatic address detection mode enable. |
+| `bits.ferr`    | `UxSTA.FERR`    | Framing error. |
+| `bits.oerr`    | `UxSTA.OERR`    | Overrun error of the receive buffer. |
+| `bits.perr`    | `UxSTA.PERR`    | Parity error. |
+| `bits.ridle`   | `UxSTA.RIDLE`   | Receiver is idle. |
+| `bits.trmt`    | `UxSTA.TRMT`    | Transmit shift register is empty. |
+| `bits.urxda`   | `UxSTA.URXDA`   | Receive buffer data is available. |
+| `bits.urxen`   | `UxSTA.URXEN`   | Receiver enable. |
+| `bits.urxisel` | `UxSTA.URXISEL` | Receive interrupt mode. |
+| `bits.utxbf`   | `UxSTA.UTXBF`   | Transmit buffer is full. |
+| `bits.utxbrk`  | `UxSTA.UTXBRK`  | Transmit break. |
+| `bits.utxen`   | `UxSTA.UTXEN`   | Transmitter enable. |
+| `bits.utxinv`  | `UxSTA.UTXINV`  | Transmitter polarity inversion. |
+| `bits.utxisel` | `UxSTA.UTXISEL` | Transmit interrupt mode. |
+| `clr` | `UxSTACLR` |
+| `inv` | `UxSTAINV` |
+| `reg` | `UxSTA` |
+| `set` | `UxSTASET` |
 
 ## `ao_uart_reg_tx_t`
 
@@ -323,8 +323,8 @@ struct ao_uart_reg_tx_t
 
 This type represents the transmit register `UxTXREG` and its companions. It consists of the following members.
 
-| `bits.tx` | `UxTXREG.TX`. |
-| `reg` | `UxTXREG`. |
+| `bits.tx` | `UxTXREG.TX` | Data bits 8 through 0 of the character to be transmitted. |
+| `reg` | `UxTXREG` |
 
 ## `ao_uart_reg_t`
 
@@ -345,11 +345,11 @@ struct ao_uart_reg_t
 
 This type represents the control registers and their companions. It consists of the following members.
 
-| `brg`  | `UxBRG` and companions. |
-| `mode` | `UxMODE` and companions. |
-| `rx`   | `UxRXREG`. |
-| `sta`  | `UxSTA` and companions. |
-| `tx`   | `UxTXREG`. |
+| `brg`  | `UxBRG` |
+| `mode` | `UxMODE` |
+| `rx`   | `UxRXREG` |
+| `sta`  | `UxSTA` |
+| `tx`   | `UxTXREG` |
 
 # Functions
 
@@ -359,9 +359,9 @@ This type represents the control registers and their companions. It consists of 
 void ao_uart_baud(ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f);
 ```
 
-Sets up the baud rate for a UART module. This function enables or disables high-speed mode, depending on the specified baud rate.
+Sets up the baud rate for a module. This function enables or disables high-speed mode, depending on the specified baud rate.
 
-| `r` | The control registers. |
+| `r` | The control registers of the module. |
 | `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
 | `f` | The baud rate, in bits per second. |
 
@@ -373,7 +373,9 @@ Sets up the baud rate for a UART module. This function enables or disables high-
 #define AO_UART_BAUD_MIN(f_pbclk) AO_UART_BAUD_LOW_MIN (f_pbclk)
 ```
 
-Calculates the maximum or minimum possible baud rate, respectively, in bits per second. The parameter `f_pbclk` specifies the frequency of the peripheral bus clock, in Hertz.
+Calculates the maximum or minimum possible baud rate, respectively, in bits per second.
+
+| `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
 
 ## `ao_uart_baud_high`
 
@@ -381,9 +383,9 @@ Calculates the maximum or minimum possible baud rate, respectively, in bits per 
 void ao_uart_baud_high(ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f);
 ```
 
-Enables high-speed mode and sets up the baud rate for a UART module.
+Enables high-speed mode and sets up the baud rate for a module.
 
-| `r` | The control registers. |
+| `r` | The control registers of the module. |
 | `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
 | `f` | The baud rate, in bits per second. |
 
@@ -399,7 +401,9 @@ Enables high-speed mode and sets up the baud rate for a UART module.
 )
 ```
 
-Calculates the maximum possible baud rate in high-speed mode, in bits per second. The parameter `f_pbclk` specifies the frequency of the peripheral bus clock, in Hertz.
+Calculates the maximum possible baud rate in high-speed mode, in bits per second.
+
+| `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
 
 ## `AO_UART_BAUD_HIGH_MIN`
 
@@ -416,7 +420,9 @@ Calculates the maximum possible baud rate in high-speed mode, in bits per second
 )
 ```
 
-Calculates the minimum possible baud rate in high-speed mode, in bits per second. The parameter `f_pbclk` specifies the frequency of the peripheral bus clock, in Hertz.
+Calculates the minimum possible baud rate in high-speed mode, in bits per second.
+
+| `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
 
 ## `ao_uart_baud_low`
 
@@ -424,9 +430,9 @@ Calculates the minimum possible baud rate in high-speed mode, in bits per second
 void ao_uart_baud_low(ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f);
 ```
 
-Disables high-speed mode and sets up the baud rate for a UART module.
+Disables high-speed mode and sets up the baud rate for a module.
 
-| `r` | The control registers. |
+| `r` | The control registers of the module. |
 | `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
 | `f` | The baud rate, in bits per second. |
 
@@ -442,7 +448,9 @@ Disables high-speed mode and sets up the baud rate for a UART module.
 )
 ```
 
-Calculates the maximum possible baud rate in standard-speed mode, in bits per second. The parameter `f_pbclk` specifies the frequency of the peripheral bus clock, in Hertz.
+Calculates the maximum possible baud rate in standard-speed mode, in bits per second.
+
+| `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
 
 ## `AO_UART_BAUD_LOW_MIN`
 
@@ -459,7 +467,9 @@ Calculates the maximum possible baud rate in standard-speed mode, in bits per se
 )
 ```
 
-Calculates the minimum possible baud rate in standard-speed mode, in bits per second. The parameter `f_pbclk` specifies the frequency of the peripheral bus clock, in Hertz.
+Calculates the minimum possible baud rate in standard-speed mode, in bits per second.
+
+| `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
 
 ## `ao_uart_loopback_enable`
 ## `ao_uart_loopback_disable`
@@ -469,4 +479,4 @@ void ao_uart_loopback_enable (ao_uart_reg_t * r);
 void ao_uart_loopback_disable(ao_uart_reg_t * r);
 ```
 
-Enables or disables, respectively, loopback mode for a UART module.
+Enables or disables, respectively, loopback mode for a module.
