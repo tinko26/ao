@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-20
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mz_dak/ao_sys_clock.h/
 toc: true
@@ -15,11 +15,15 @@ toc: true
 #define AO_SYS_CLOCK_CAN2 (AO_SYS_PBCLK5)
 ```
 
+The peripheral bus clock frequency for each CAN module, in Hertz.
+
 ## `AO_SYS_CLOCK_ETH`
 
 ```c
 #define AO_SYS_CLOCK_ETH (AO_SYS_PBCLK5)
 ```
+
+The peripheral bus clock frequency for the ethernet module, in Hertz.
 
 ## `AO_SYS_CLOCK_I2C`
 
@@ -31,11 +35,15 @@ toc: true
 #define AO_SYS_CLOCK_I2C5 (AO_SYS_PBCLK2)
 ```
 
+The peripheral bus clock frequency for each I²C module, in Hertz.
+
 ## `AO_SYS_CLOCK_RNG`
 
 ```c
 #define AO_SYS_CLOCK_RNG (AO_SYS_PBCLK5)
 ```
+
+The peripheral bus clock frequency for the RNG module, in Hertz.
 
 ## `AO_SYS_CLOCK_SPI`
 
@@ -48,6 +56,8 @@ toc: true
 #define AO_SYS_CLOCK_SPI6 (AO_SYS_PBCLK2)
 ```
 
+The peripheral bus clock frequency for each SPI module, in Hertz.
+
 ## `AO_SYS_CLOCK_U`
 
 ```c
@@ -58,6 +68,8 @@ toc: true
 #define AO_SYS_CLOCK_U5 (AO_SYS_PBCLK2)
 #define AO_SYS_CLOCK_U6 (AO_SYS_PBCLK2)
 ```
+
+The peripheral bus clock frequency for each UART module, in Hertz.
 
 ## `AO_SYS_PBCLK`
 
@@ -70,6 +82,8 @@ toc: true
 #define AO_SYS_PBCLK6 (0)
 #define AO_SYS_PBCLK7 (0)
 ```
+
+The peripheral bus clock frequencies, in Hertz.
 
 # Include Next
 

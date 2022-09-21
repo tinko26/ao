@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-20
 draft: false
 external:
 - https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/32-bit-mcus : "Microchip 32-bit PIC® and SAM Microcontrollers"
@@ -61,6 +61,7 @@ external:
 - https://microchip.com/DS60001329 : "Microchip PIC32 Family Reference Manual, Section 59, Oscillators with DCO"
 - https://microchip.com/DS60001336 : "Microchip PIC32 Family Reference Manual, Section 60, 32-Bit Programmable Cyclic Redundancy Check (CRC)"
 - https://microchip.com/DS60001365 : "Microchip PIC32 Family Reference Manual, Section 62, Dual Watchdog Timer"
+- https://microchip.com/DS60001145 : "Microchip PIC32 Flash Programming Specification"
 - https://www.mips.com/products/mips-isa : "MIPS®"
 - https://www.mips.com/products/architectures/mips32-2/ : "MIPS32®"
 - https://www.google.com/search?q=MIPS+MD00090 : "MIPS32® Architecture"

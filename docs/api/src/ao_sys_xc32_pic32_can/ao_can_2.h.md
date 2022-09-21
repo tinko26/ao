@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-20
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_can/ao_can_2.h/
 toc: true
@@ -31,7 +31,7 @@ toc: true
 #define AO_CAN_BAUD_2 (100000)
 ```
 
-The baud rate.
+The baud rate, in bits per second.
 
 ## `AO_CAN_BAUD_SAMPLE_2`
 
@@ -47,7 +47,7 @@ The sample point, in per cent.
 #define AO_CAN_BAUD_SAMPLE_THRICE_2 (true)
 ```
 
-Defines whether to sample each bit thrice.
+Defines whether to sample the bus line three times at the sample point.
 
 ## `AO_CAN_BAUD_SJW_2`
 
@@ -62,6 +62,8 @@ The synchronization jump width.
 ```c
 #define AO_CAN_BAUD_WAKE_UP_FILTER_2 (false)
 ```
+
+Defines whether to enable the bus line filter for wake-up.
 
 ## `AO_CAN_BUFFERS_2`
 
@@ -107,6 +109,8 @@ The number of buffers in each FIFO.
 ```c
 #define AO_CAN_BUS_2 (false)
 ```
+
+Defines whether to notify the application of bus errors.
 
 ## `AO_CAN_FIFOS_RX_2`
 ## `AO_CAN_FIFOS_TX_2`
@@ -155,6 +159,8 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_FILTER_EID_2_31 (0)
 ```
 
+The EID for each filter.
+
 ## `AO_CAN_FILTER_ENABLE_2`
 
 ```c
@@ -191,6 +197,8 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_FILTER_ENABLE_2_30 (0)
 #define AO_CAN_FILTER_ENABLE_2_31 (0)
 ```
+
+Defines the filters to enable.
 
 ## `AO_CAN_FILTER_FIFO_2`
 
@@ -229,6 +237,8 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_FILTER_FIFO_2_31 (0)
 ```
 
+The FIFO for each filter.
+
 ## `AO_CAN_FILTER_IDE_2`
 
 ```c
@@ -265,6 +275,8 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_FILTER_IDE_2_30 (0)
 #define AO_CAN_FILTER_IDE_2_31 (0)
 ```
+
+The IDE for each filter.
 
 ## `AO_CAN_FILTER_MASK_2`
 
@@ -303,6 +315,8 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_FILTER_MASK_2_31 (0)
 ```
 
+The filter mask for each filter.
+
 ## `AO_CAN_FILTER_MASK_EID_2`
 
 ```c
@@ -311,6 +325,8 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_FILTER_MASK_EID_2_2 (0)
 #define AO_CAN_FILTER_MASK_EID_2_3 (0)
 ```
+
+The EID for each filter mask.
 
 ## `AO_CAN_FILTER_MASK_IDE_2`
 
@@ -321,6 +337,8 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_FILTER_MASK_IDE_2_3 (0)
 ```
 
+The IDE for each filter mask.
+
 ## `AO_CAN_FILTER_MASK_SID_2`
 
 ```c
@@ -329,6 +347,8 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_FILTER_MASK_SID_2_2 (0)
 #define AO_CAN_FILTER_MASK_SID_2_3 (0)
 ```
+
+The SID for each filter mask.
 
 ## `AO_CAN_FILTER_SID_2`
 
@@ -367,11 +387,15 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_FILTER_SID_2_31 (0)
 ```
 
+The SID for each filter.
+
 ## `AO_CAN_INVALID_2`
 
 ```c
 #define AO_CAN_INVALID_2 (false)
 ```
+
+Defines whether to notify the application of the reception of invalid messages.
 
 ## `AO_CAN_MODE_2`
 
@@ -379,11 +403,15 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_MODE_2 (false)
 ```
 
+Defines whether to notify the application of mode changes.
+
 ## `AO_CAN_OVERFLOW_2`
 
 ```c
 #define AO_CAN_OVERFLOW_2 (false)
 ```
+
+Defines whether to notify the application of receive buffer overflows.
 
 ## `AO_CAN_SENT_2`
 
@@ -391,11 +419,15 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_SENT_2 (false)
 ```
 
+Defines whether to notify the application, when messages have been sent.
+
 ## `AO_CAN_SYSTEM_2`
 
 ```c
 #define AO_CAN_SYSTEM_2 (false)
 ```
+
+Defines whether to notify the application of system errors.
 
 ## `AO_CAN_TIMER_2`
 
@@ -403,11 +435,15 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_TIMER_2 (false)
 ```
 
+Defines whether to notify the application of timer matches.
+
 ## `AO_CAN_UNDERFLOW_2`
 
 ```c
 #define AO_CAN_UNDERFLOW_2 (false)
 ```
+
+Defines whether to notify the application of transmit buffer underflows.
 
 ## `AO_CAN_WAKE_UP_2`
 
@@ -415,12 +451,14 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_WAKE_UP_2 (false)
 ```
 
+Defines whether to notify the application of wake-up events.
+
 # Constants
 
 ## `AO_CAN_2`
 
 ```c
-#define AO_CAN_2
+#define AO_CAN_2 (false)
 ```
 
 Indicates whether the CAN module is available.
@@ -429,8 +467,8 @@ Indicates whether the CAN module is available.
 ## `AO_CAN_BAUD_MIN_2`
 
 ```c
-#define AO_CAN_BAUD_MAX_2
-#define AO_CAN_BAUD_MIN_2
+#define AO_CAN_BAUD_MAX_2 AO_CAN_BAUD_MAX(AO_SYS_CLOCK_CAN2)
+#define AO_CAN_BAUD_MIN_2 AO_CAN_BAUD_MIN(AO_SYS_CLOCK_CAN2)
 ```
 
 The maximum and minimum baud rate.
@@ -438,7 +476,41 @@ The maximum and minimum baud rate.
 ## `AO_CAN_BUFFERS_2`
 
 ```c
-#define AO_CAN_BUFFERS_2
+#define AO_CAN_BUFFERS_2  \
+(                         \
+    AO_CAN_BUFFERS_2_0  + \
+    AO_CAN_BUFFERS_2_1  + \
+    AO_CAN_BUFFERS_2_2  + \
+    AO_CAN_BUFFERS_2_3  + \
+    AO_CAN_BUFFERS_2_4  + \
+    AO_CAN_BUFFERS_2_5  + \
+    AO_CAN_BUFFERS_2_6  + \
+    AO_CAN_BUFFERS_2_7  + \
+    AO_CAN_BUFFERS_2_8  + \
+    AO_CAN_BUFFERS_2_9  + \
+    AO_CAN_BUFFERS_2_10 + \
+    AO_CAN_BUFFERS_2_11 + \
+    AO_CAN_BUFFERS_2_12 + \
+    AO_CAN_BUFFERS_2_13 + \
+    AO_CAN_BUFFERS_2_14 + \
+    AO_CAN_BUFFERS_2_15 + \
+    AO_CAN_BUFFERS_2_16 + \
+    AO_CAN_BUFFERS_2_17 + \
+    AO_CAN_BUFFERS_2_18 + \
+    AO_CAN_BUFFERS_2_19 + \
+    AO_CAN_BUFFERS_2_20 + \
+    AO_CAN_BUFFERS_2_21 + \
+    AO_CAN_BUFFERS_2_22 + \
+    AO_CAN_BUFFERS_2_23 + \
+    AO_CAN_BUFFERS_2_24 + \
+    AO_CAN_BUFFERS_2_25 + \
+    AO_CAN_BUFFERS_2_26 + \
+    AO_CAN_BUFFERS_2_27 + \
+    AO_CAN_BUFFERS_2_28 + \
+    AO_CAN_BUFFERS_2_29 + \
+    AO_CAN_BUFFERS_2_30 + \
+    AO_CAN_BUFFERS_2_31   \
+)
 ```
 
 The total number of buffers.
@@ -446,7 +518,11 @@ The total number of buffers.
 ## `AO_CAN_FIFOS_2`
 
 ```c
-#define AO_CAN_FIFOS_2
+#define AO_CAN_FIFOS_2    \
+(                         \
+    (AO_CAN_FIFOS_RX_2) + \
+    (AO_CAN_FIFOS_TX_2)   \
+)
 ```
 
 The total number of FIFOs.
@@ -454,7 +530,12 @@ The total number of FIFOs.
 ## `AO_CAN_RX_2`
 
 ```c
-#define AO_CAN_RX_2
+#define AO_CAN_RX_2         \
+(                           \
+    (AO_CAN_FIFOS_RX_2) > 0 \
+    ? true                  \
+    : false                 \
+)
 ```
 
 Indicates whether the module is configured to receive.
@@ -462,7 +543,12 @@ Indicates whether the module is configured to receive.
 ## `AO_CAN_TX_2`
 
 ```c
-#define AO_CAN_TX_2
+#define AO_CAN_TX_2         \
+(                           \
+    (AO_CAN_FIFOS_TX_2) > 0 \
+    ? true                  \
+    : false                 \
+)
 ```
 
 Indicates whether the module is configured to transmit.
@@ -475,11 +561,15 @@ Indicates whether the module is configured to transmit.
 void ao_can_bus_2(ao_can_bus_info_t const * info);
 ```
 
+Notifies the application of bus errors.
+
 ## `ao_can_config_2`
 
 ```c
 void ao_can_config_2();
 ```
+
+Configurates the module. This function is attributed as weak. Hence, the application can provide another implementation.
 
 ## `ao_can_config_baud_2`
 
@@ -487,11 +577,15 @@ void ao_can_config_2();
 void ao_can_config_baud_2();
 ```
 
+Configurates the baud rate. This function is attributed as weak. Hence, the application can provide another implementation.
+
 ## `ao_can_config_fifos_2`
 
 ```c
 void ao_can_config_fifos_2();
 ```
+
+Configurates the FIFOs. This function is attributed as weak. Hence, the application can provide another implementation.
 
 ## `ao_can_config_filter_masks_2`
 
@@ -499,11 +593,15 @@ void ao_can_config_fifos_2();
 void ao_can_config_filter_masks_2();
 ```
 
+Configurates the filter masks. This function is attributed as weak. Hence, the application can provide another implementation.
+
 ## `ao_can_config_filters_2`
 
 ```c
 void ao_can_config_filters_2();
 ```
+
+Configurates the filters. This function is attributed as weak. Hence, the application can provide another implementation.
 
 ## `ao_can_invalid_2`
 
@@ -511,11 +609,15 @@ void ao_can_config_filters_2();
 void ao_can_invalid_2(ao_can_invalid_info_t const * info);
 ```
 
+Notifies the application, that an invalid message has been received.
+
 ## `ao_can_listen_all_2`
 
 ```c
 void ao_can_listen_all_2();
 ```
+
+Sets the operation mode to listen all.
 
 ## `ao_can_listen_only_2`
 
@@ -523,11 +625,15 @@ void ao_can_listen_all_2();
 void ao_can_listen_only_2();
 ```
 
+Sets the operation mode to listen only.
+
 ## `ao_can_loopback_2`
 
 ```c
 void ao_can_loopback_2();
 ```
+
+Sets the operation mode to loopback.
 
 ## `ao_can_mode_2`
 
@@ -535,17 +641,23 @@ void ao_can_loopback_2();
 void ao_can_mode_2(ao_can_mode_info_t const * info);
 ```
 
+Notifies the application of a mode change.
+
 ## `ao_can_normal_2`
 
 ```c
 void ao_can_normal_2();
 ```
 
+Sets the operation mode to normal.
+
 ## `ao_can_overflow_2`
 
 ```c
 void ao_can_overflow_2(ao_can_overflow_info_t const * info);
 ```
+
+Notifies the application of a receive buffer overflow.
 
 ## `ao_can_reg_2`
 
@@ -556,11 +668,15 @@ void ao_can_overflow_2(ao_can_overflow_info_t const * info);
 )
 ```
 
+Gets the control registers.
+
 ## `ao_can_sent_2`
 
 ```c
 void ao_can_sent_2(ao_can_sent_info_t const * info);
 ```
+
+Notifies the application, that a message has been sent.
 
 ## `ao_can_start_2`
 
@@ -568,11 +684,15 @@ void ao_can_sent_2(ao_can_sent_info_t const * info);
 void ao_can_start_2();
 ```
 
+Starts the driver.
+
 ## `ao_can_stop_2`
 
 ```c
 void ao_can_stop_2();
 ```
+
+Stops the driver.
 
 ## `ao_can_system_2`
 
@@ -580,11 +700,15 @@ void ao_can_stop_2();
 void ao_can_system_2(ao_can_system_info_t const * info);
 ```
 
+Notifies the application of a system error.
+
 ## `ao_can_timer_2`
 
 ```c
 void ao_can_timer_2(ao_can_timer_info_t const * info);
 ```
+
+Notifies the application of a timer match.
 
 ## `ao_can_underflow_2`
 
@@ -592,11 +716,15 @@ void ao_can_timer_2(ao_can_timer_info_t const * info);
 void ao_can_underflow_2(ao_can_underflow_info_t const * info);
 ```
 
+Notifies the application of a transmit buffer underflow.
+
 ## `ao_can_wake_up_2`
 
 ```c
 void ao_can_wake_up_2(ao_can_wake_up_info_t const * info);
 ```
+
+Notifies the application of a wake-up event.
 
 # Variables
 
@@ -606,11 +734,15 @@ void ao_can_wake_up_2(ao_can_wake_up_info_t const * info);
 extern ao_can_t ao_can_buffers_2 [AO_CAN_BUFFERS_2];
 ```
 
+The buffers.
+
 ## `ao_can_in_2`
 
 ```c
 extern ao_send_obj_t ao_can_in_2 [AO_CAN_FIFOS_RX_2];
 ```
+
+The objects used by the driver to send inbound messages to the application.
 
 ## `ao_can_out_2`
 
@@ -618,8 +750,12 @@ extern ao_send_obj_t ao_can_in_2 [AO_CAN_FIFOS_RX_2];
 extern ao_recv_obj_t ao_can_out_2 [AO_CAN_FIFOS_TX_2];
 ```
 
+The objects used by the driver to receive outbound messages from the application.
+
 ## `ao_can_task_2`
 
 ```c
 extern ao_task_t ao_can_task_2;
 ```
+
+The task run by the driver.
