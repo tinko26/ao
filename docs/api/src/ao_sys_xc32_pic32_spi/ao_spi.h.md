@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-20
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_spi/ao_spi.h/
 toc: true
@@ -27,6 +27,8 @@ toc: true
 #define AO_SPI_BRG_BITS (13)
 ```
 
+The size of the `SPIxBRG.BRG` field, in bits.
+
 ## `AO_SPI_BRG_MAX`
 ## `AO_SPI_BRG_MIN`
 
@@ -35,19 +37,54 @@ toc: true
 #define AO_SPI_BRG_MIN (0)
 ```
 
+The maximum and minimum value, respectively, of the `SPIxBRG.BRG` field.
+
 ## `AO_SPI_ENHBUF`
 
 ```c
 #define AO_SPI_ENHBUF (true)
 ```
 
+Indicates whether the `SPIxCON.ENHBUF` field is available.
+
 # Types
 
-## `ao_spi_reg_brg_t`
+## `ao_spi_reg`
 
 ```c
-typedef struct ao_spi_reg_brg_t ao_spi_reg_brg_t;
+typedef struct ao_spi_reg_brg_t  ao_spi_reg_brg_t;
+typedef struct ao_spi_reg_buf_t  ao_spi_reg_buf_t;
+typedef struct ao_spi_reg_con_t  ao_spi_reg_con_t;
+typedef struct ao_spi_reg_con2_t ao_spi_reg_con2_t;
+typedef struct ao_spi_reg_stat_t ao_spi_reg_stat_t;
 ```
+
+These types represent individual control registers.
+
+## `ao_spi_reg_t`
+
+```c
+typedef struct ao_spi_reg_t ao_spi_reg_t;
+```
+
+This type represents the control register set.
+
+# Structs
+
+## `ao_spi_reg_t`
+
+```c
+struct ao_spi_reg_t
+{
+    ao_spi_reg_con_t  con;
+    ao_spi_reg_stat_t stat;
+    ao_spi_reg_buf_t  buf;
+    ao_spi_reg_brg_t  brg;
+    ao_spi_reg_con2_t con2;
+};
+```
+
+## `ao_spi_reg_brg_t`
 
 ```c
 struct ao_spi_reg_brg_t
@@ -66,20 +103,7 @@ struct ao_spi_reg_brg_t
 };
 ```
 
-It consists of the following members.
-
-| `bits` | |
-| `bits.brg` | |
-| `clr` | |
-| `inv` | |
-| `reg` | |
-| `set` | |
-
 ## `ao_spi_reg_buf_t`
-
-```c
-typedef struct ao_spi_reg_buf_t ao_spi_reg_buf_t;
-```
 
 ```c
 struct ao_spi_reg_buf_t
@@ -98,17 +122,7 @@ struct ao_spi_reg_buf_t
 };
 ```
 
-It consists of the following members.
-
-| `bits` | |
-| `bits.data` | |
-| `reg` | |
-
 ## `ao_spi_reg_con_t`
-
-```c
-typedef struct ao_spi_reg_con_t ao_spi_reg_con_t;
-```
 
 ```c
 struct ao_spi_reg_con_t
@@ -150,41 +164,7 @@ struct ao_spi_reg_con_t
 };
 ```
 
-It consists of the following members.
-
-| `bits` | |
-| `bits.cke` | |
-| `bits.ckp` | |
-| `bits.dissdi` | |
-| `bits.dissdo` | |
-| `bits.enhbuf` | |
-| `bits.frmcnt` | |
-| `bits.frmen` | |
-| `bits.frmpol` | |
-| `bits.frmsync` | |
-| `bits.frmsypw` | |
-| `bits.mclksel` | |
-| `bits.mode16` | |
-| `bits.mode32` | |
-| `bits.mssen` | |
-| `bits.msten` | |
-| `bits.on` | |
-| `bits.sidl` | |
-| `bits.smp` | |
-| `bits.spife` | |
-| `bits.srxisel` | |
-| `bits.ssen` | |
-| `bits.stxisel` | |
-| `clr` | |
-| `inv` | |
-| `reg` | |
-| `set` | |
-
 ## `ao_spi_reg_con2_t`
-
-```c
-typedef struct ao_spi_reg_con2_t ao_spi_reg_con2_t;
-```
 
 ```c
 struct ao_spi_reg_con2_t
@@ -214,28 +194,7 @@ struct ao_spi_reg_con2_t
 };
 ```
 
-It consists of the following members.
-
-| `bits` | |
-| `bits.auden` | |
-| `bits.audmod` | |
-| `bits.audmono` | |
-| `bits.frmerren` | |
-| `bits.ignrov` | |
-| `bits.igntur` | |
-| `bits.spiroven` | |
-| `bits.spisgnext` | |
-| `bits.spituren` | |
-| `clr` | |
-| `inv` | |
-| `reg` | |
-| `set` | |
-
 ## `ao_spi_reg_stat_t`
-
-```c
-typedef struct ao_spi_reg_stat_t ao_spi_reg_stat_t;
-```
 
 ```c
 struct ao_spi_reg_stat_t
@@ -269,62 +228,51 @@ struct ao_spi_reg_stat_t
 };
 ```
 
-It consists of the following members.
-
-| `bits` | |
-| `bits.frmerr` | |
-| `bits.rxbufelm` | |
-| `bits.spibusy` | |
-| `bits.spirbe` | |
-| `bits.spirbf` | |
-| `bits.spirov` | |
-| `bits.spitbe` | |
-| `bits.spitbf` | |
-| `bits.spitur` | |
-| `bits.srmt` | |
-| `bits.txbufelm` | |
-| `clr` | |
-| `inv` | |
-| `reg` | |
-| `set` | |
-
-## `ao_spi_reg_t`
-
-```c
-typedef struct ao_spi_reg_t ao_spi_reg_t;
-```
-
-```c
-struct ao_spi_reg_t
-{
-    ao_spi_reg_con_t  con;
-    ao_spi_reg_stat_t stat;
-    ao_spi_reg_buf_t  buf;
-    ao_spi_reg_brg_t  brg;
-    ao_spi_reg_con2_t con2;
-};
-```
-
-It consists of the following members.
-
-| `brg` | |
-| `buf` | |
-| `con` | |
-| `con2` | |
-| `stat` | |
-
 # Functions
 
 ## `ao_spi_baud`
 
 ```c
-void ao_spi_baud(ao_spi_reg_t * r, uint32_t f_pbclk, uint32_t f );
+void ao_spi_baud(ao_spi_reg_t * r, uint32_t f_pbclk, uint32_t f);
 ```
 
+Sets up the baud rate for a module.
+
+| `r` | The control registers of the module. |
+| `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
+| `f` | The baud rate, in bits per second. |
+
 ## `AO_SPI_BAUD_MAX`
+
+```c
+#define AO_SPI_BAUD_MAX(f_pbclk)   \
+(                                  \
+    (f_pbclk) /                    \
+    (                              \
+        2 * ((AO_SPI_BRG_MIN) + 1) \
+    )                              \
+)
+```
+
+Calculates the maximum possible baud rate, in bits per second.
+
+| `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
+
 ## `AO_SPI_BAUD_MIN`
 
 ```c
-#define AO_SPI_BAUD_MAX(f_pbclk)
-#define AO_SPI_BAUD_MIN(f_pbclk)
+#define AO_SPI_BAUD_MIN(f_pbclk)       \
+(                                      \
+    1 +                                \
+    (                                  \
+        ((f_pbclk) - 1) /              \
+        (                              \
+            2 * ((AO_SPI_BRG_MAX) + 1) \
+        )                              \
+    )                                  \
+)
 ```
+
+Calculates the minimum possible baud rate, in bits per second.
+
+| `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |

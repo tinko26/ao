@@ -19,7 +19,7 @@ toc: true
 #define AO_SYS_CLOCK_SPI6 (0)
 ```
 
-The peripheral bus clock frequency for each SPI module, in Hertz.
+The peripheral bus clock frequency for each module, in Hertz.
 
 # Include Next
 

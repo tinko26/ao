@@ -19,7 +19,7 @@ toc: true
 #define AO_SYS_CLOCK_U6 (0)
 ```
 
-The peripheral bus clock frequency for each UART module, in Hertz.
+The peripheral bus clock frequency for each module, in Hertz.
 
 # Include Next
 
