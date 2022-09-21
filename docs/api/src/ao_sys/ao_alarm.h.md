@@ -51,6 +51,12 @@ The alarm update specifies the maximum time span between subsequent alarm interr
 typedef struct ao_alarm_t ao_alarm_t;
 ```
 
+This type represents an alarm.
+
+# Structs
+
+## `ao_alarm_t`
+
 ```c
 struct ao_alarm_t
 {
@@ -61,8 +67,6 @@ struct ao_alarm_t
     bool                  running;
 };
 ```
-
-This type represents an alarm. It consists of the following members.
 
 | `callback` | The callback. |
 | `callback_parameter` | The callback parameter. |

@@ -44,31 +44,6 @@ typedef struct ao_avl_t ao_avl_t;
 
 This type represents an AVL tree.
 
-## `ao_avl_node_t`
-
-```c
-typedef struct ao_avl_node_t ao_avl_node_t;
-```
-
-This type represents an AVL tree node.
-
-## `ao_avl_less_t`
-
-```c
-typedef bool (* ao_avl_less_t)
-(
-    ao_avl_node_t * n1,
-    ao_avl_node_t * n2,
-    void          * parameter
-);
-```
-
-This type represents a compare function, that implements a strict total order on the nodes.
-
-# Structs
-
-## `ao_avl_t`
-
 ```c
 struct ao_avl_t
 {
@@ -85,6 +60,12 @@ struct ao_avl_t
 ## `ao_avl_node_t`
 
 ```c
+typedef struct ao_avl_node_t ao_avl_node_t;
+```
+
+This type represents an AVL tree node.
+
+```c
 struct ao_avl_node_t
 {
     ao_int_t        height;
@@ -98,6 +79,19 @@ struct ao_avl_node_t
 | `left` | The left child. |
 | `parent` | The parent. |
 | `right` | The right child. |
+
+## `ao_avl_less_t`
+
+```c
+typedef bool (* ao_avl_less_t)
+(
+    ao_avl_node_t * n1,
+    ao_avl_node_t * n2,
+    void          * parameter
+);
+```
+
+This type represents a compare function, that implements a strict total order on the nodes.
 
 # Functions
 
