@@ -73,6 +73,28 @@ Defines whether to execute a callback upon each call to `ao_acquire()`, `ao_rele
 typedef struct ao_acquired_t ao_acquired_t;
 ```
 
+This type represents the information about a call to `ao_acquire()`.
+
+## `ao_released_t`
+
+```c
+typedef struct ao_released_t ao_released_t;
+```
+
+This type represents the information about a call to `ao_release()`.
+
+## `ao_retained_t`
+
+```c
+typedef struct ao_retained_t ao_retained_t;
+```
+
+This type represents the information about a call to `ao_retain()`.
+
+# Structs
+
+## `ao_acquired_t`
+
 ```c
 struct ao_acquired_t
 {
@@ -84,8 +106,6 @@ struct ao_acquired_t
 };
 ```
 
-This type represents the information about a call to `ao_acquire()`. It consists of the following members.
-
 | `ptr` | The pointer returned by the function. |
 | `result` | Indicates whether the operation has succeeded (`true`) or failed (`false`). |
 | `size_body` | The actual size of the body of the memory block. |
@@ -93,10 +113,6 @@ This type represents the information about a call to `ao_acquire()`. It consists
 | `size_head` | The size of the head of the memory block. |
 
 ## `ao_released_t`
-
-```c
-typedef struct ao_released_t ao_released_t;
-```
 
 ```c
 struct ao_released_t
@@ -109,8 +125,6 @@ struct ao_released_t
 };
 ```
 
-This type represents the information about a call to `ao_release()`. It consists of the following members.
-
 | `ptr` | The pointer to the memory block, that is, the parameter value that the function was called with. |
 | `ref` | The current reference count of the memory block. If the operation has succeeded, then the value `0` indicates, that the memory block has just been deallocated. |
 | `result` | Indicates whether the operation has succeeded (`true`) or failed (`false`). |
@@ -118,10 +132,6 @@ This type represents the information about a call to `ao_release()`. It consists
 | `size_head` | The size of the head of the memory block. |
 
 ## `ao_retained_t`
-
-```c
-typedef struct ao_retained_t ao_retained_t;
-```
 
 ```c
 struct ao_retained_t
@@ -133,8 +143,6 @@ struct ao_retained_t
     size_t size_head;
 };
 ```
-
-This type represents the information about a call to `ao_retain()`. It consists of the following members.
 
 | `ptr` | The pointer to the memory block, that is, the parameter value that the function was called with. |
 | `ref` | The current reference count of the memory block. If the operation has succeeded, then this value should be greater than 1. |

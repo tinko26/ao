@@ -39,6 +39,20 @@ microsoft: "Represents a thread synchronization event that, when signaled, reset
 typedef struct ao_are_t ao_are_t;
 ```
 
+This type represents an auto-reset event.
+
+## `ao_are_wait_t`
+
+```c
+typedef struct ao_are_wait_t ao_are_wait_t;
+```
+
+This type represents the waiting for an auto-reset event.
+
+# Structs
+
+## `ao_are_t`
+
 ```c
 struct ao_are_t
 {
@@ -47,16 +61,10 @@ struct ao_are_t
 };
 ```
 
-This type represents an auto-reset event. It consists of the following members.
-
 | `list` | The list of waitings. |
 | `state` | The state. |
 
 ## `ao_are_wait_t`
-
-```c
-typedef struct ao_are_wait_t ao_are_wait_t;
-```
 
 ```c
 struct ao_are_wait_t
@@ -67,8 +75,6 @@ struct ao_are_wait_t
     bool volatile  result;
 };
 ```
-
-This type represents the waiting for an auto-reset event. It consists of the following members.
 
 | `are` | The auto-reset event. |
 | `async` | The asynchronous event. |

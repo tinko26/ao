@@ -96,6 +96,44 @@ The size of the blocks in each pool, in bytes.
 typedef struct ao_alloc_pool_t ao_alloc_pool_t;
 ```
 
+This type represents a pool.
+
+## `ao_alloc_pool_node_t`
+
+```c
+typedef struct ao_alloc_pool_node_t ao_alloc_pool_node_t;
+```
+
+This type represents a block.
+
+## `ao_acquired_t`
+
+```c
+typedef struct ao_acquired_t ao_acquired_t;
+```
+
+This type represents the information about a call to `ao_acquire()`.
+
+## `ao_released_t`
+
+```c
+typedef struct ao_released_t ao_released_t;
+```
+
+This type represents the information about a call to `ao_release()`.
+
+## `ao_retained_t`
+
+```c
+typedef struct ao_retained_t ao_retained_t;
+```
+
+This type represents the information about a call to `ao_retain()`.
+
+# Structs
+
+## `ao_alloc_pool_t`
+
 ```c
 struct ao_alloc_pool_t
 {
@@ -132,8 +170,6 @@ struct ao_alloc_pool_t
 };
 ```
 
-This type represents a pool. It consists of the following members.
-
 | `allocated` | The current number of allocated bytes. |
 | `allocated_max` | The maximum number of allocated bytes. |
 | `block_size` | The block size, in bytes. |
@@ -143,17 +179,9 @@ This type represents a pool. It consists of the following members.
 
 ## `ao_alloc_pool_node_t`
 
-```c
-typedef struct ao_alloc_pool_node_t ao_alloc_pool_node_t;
-```
-
-This type represents a block. It is not publicly exposed.
+This struct is not publicly exposed.
 
 ## `ao_acquired_t`
-
-```c
-typedef struct ao_acquired_t ao_acquired_t;
-```
 
 ```c
 struct ao_acquired_t
@@ -167,8 +195,6 @@ struct ao_acquired_t
 };
 ```
 
-This type represents the information about a call to `ao_acquire()`. It consists of the following members.
-
 | `pool` | The pool to which the memory block belongs. |
 | `ptr` | The pointer returned by the function. |
 | `result` | Indicates whether the operation has succeeded (`true`) or failed (`false`). |
@@ -177,10 +203,6 @@ This type represents the information about a call to `ao_acquire()`. It consists
 | `size_head` | The size of the head of the memory block. |
 
 ## `ao_released_t`
-
-```c
-typedef struct ao_released_t ao_released_t;
-```
 
 ```c
 struct ao_released_t
@@ -194,8 +216,6 @@ struct ao_released_t
 };
 ```
 
-This type represents the information about a call to `ao_release()`. It consists of the following members.
-
 | `pool` | The pool to which the memory block belongs. |
 | `ptr` | The pointer to the memory block, that is, the parameter value that the function was called with. |
 | `ref` | The current reference count of the memory block. If the operation has succeeded, then the value `0` indicates, that the memory block has just been deallocated. |
@@ -204,10 +224,6 @@ This type represents the information about a call to `ao_release()`. It consists
 | `size_head` | The size of the head of the memory block. |
 
 ## `ao_retained_t`
-
-```c
-typedef struct ao_retained_t ao_retained_t;
-```
 
 ```c
 struct ao_retained_t
@@ -220,8 +236,6 @@ struct ao_retained_t
     size_t size_head;
 };
 ```
-
-This type represents the information about a call to `ao_retain()`. It consists of the following members.
 
 | `pool` | The pool to which the memory block belongs. |
 | `ptr` | The pointer to the memory block, that is, the parameter value that the function was called with. |

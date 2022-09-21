@@ -32,6 +32,28 @@ This module defines asynchronous events.
 typedef struct ao_async_t ao_async_t;
 ```
 
+This type represents an asynchronous event.
+
+## `ao_async_all_t`
+
+```c
+typedef struct ao_async_all_t ao_async_all_t;
+```
+
+This type represents the waiting for all out of a set of asynchronous events.
+
+## `ao_async_any_t`
+
+```c
+typedef struct ao_async_any_t ao_async_any_t;
+```
+
+This type represents the waiting for any one out of a set of asynchronous events.
+
+# Structs
+
+## `ao_async_t`
+
 ```c
 struct ao_async_t
 {
@@ -41,17 +63,11 @@ struct ao_async_t
 };
 ```
 
-This type represents an asynchronous event. It consists of the following members.
-
 | `callback` | The callback. |
 | `callback_parameter` | The callback parameter. |
 | `checked` | Indicates whether the asynchronous event has been checked. |
 
 ## `ao_async_all_t`
-
-```c
-typedef struct ao_async_all_t ao_async_all_t;
-```
 
 ```c
 struct ao_async_all_t
@@ -64,8 +80,6 @@ struct ao_async_all_t
 };
 ```
 
-This type represents the waiting for all out of a set of asynchronous events. It consists of the following members.
-
 | `async` | The asynchronous event. |
 | `count` | The number of asynchronous events |
 | `count_checked` | The number of asynchronous evens that have been checked already. |
@@ -73,10 +87,6 @@ This type represents the waiting for all out of a set of asynchronous events. It
 | `store` | The store. |
 
 ## `ao_async_any_t`
-
-```c
-typedef struct ao_async_any_t ao_async_any_t;
-```
 
 ```c
 struct ao_async_any_t
@@ -87,8 +97,6 @@ struct ao_async_any_t
     ao_async_t ** store;
 };
 ```
-
-This type represents the waiting for any one out of a set of asynchronous events. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `count` | The number of asynchronous events. |
