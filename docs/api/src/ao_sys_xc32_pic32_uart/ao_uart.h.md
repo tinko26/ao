@@ -72,12 +72,43 @@ The options for the `UxMODE.STSEL` field specifying the number of stop bits.
 
 # Types
 
-## `ao_uart_error`
+## `ao_uart_error_flags_t`
 
 ```c
-typedef enum   ao_uart_error_flags_t ao_uart_error_flags_t;
-typedef struct ao_uart_error_info_t  ao_uart_error_info_t;
+typedef enum ao_uart_error_flags_t ao_uart_error_flags_t;
 ```
+
+This type represents the possible error conditions.
+
+## `ao_uart_error_info_t`
+
+```c
+typedef struct ao_uart_error_info_t ao_uart_error_info_t;
+```
+
+This type represents the information provided to the application, when being notified of errors.
+
+## `ao_uart_reg`
+
+```c
+typedef struct ao_uart_reg_brg_t  ao_uart_reg_brg_t;
+typedef struct ao_uart_reg_mode_t ao_uart_reg_mode_t;
+typedef struct ao_uart_reg_rx_t   ao_uart_reg_rx_t;
+typedef struct ao_uart_reg_sta_t  ao_uart_reg_sta_t;
+typedef struct ao_uart_reg_tx_t   ao_uart_reg_tx_t;
+```
+
+These types represent individual control registers.
+
+## `ao_uart_reg_t`
+
+```c
+typedef struct ao_uart_reg_t ao_uart_reg_t;
+```
+
+This type represents the control register set.
+
+# Enums
 
 ## `ao_uart_error_flags_t`
 
@@ -92,13 +123,13 @@ enum ao_uart_error_flags_t
 };
 ```
 
-This type represents various error conditions. It consists of the following members.
-
 | `AO_UART_ERROR_ALL` | All. |
 | `AO_UART_ERROR_FRAMING` | A framing error has been detected for the current byte. |
 | `AO_UART_ERROR_NONE` | None. |
 | `AO_UART_ERROR_OVERRUN` | The receive buffer has overrun. |
 | `AO_UART_ERROR_PARITY` | A parity error has been detected for the current byte. |
+
+# Structs
 
 ## `ao_uart_error_info_t`
 
@@ -109,20 +140,7 @@ struct ao_uart_error_info_t
 };
 ```
 
-This type represents the information provided to an application callback, when an error has been detected. It consists of the following members.
-
 | `flags` | The flags. |
-
-## `ao_uart_reg`
-
-```c
-typedef struct ao_uart_reg_t      ao_uart_reg_t;
-typedef struct ao_uart_reg_brg_t  ao_uart_reg_brg_t;
-typedef struct ao_uart_reg_mode_t ao_uart_reg_mode_t;
-typedef struct ao_uart_reg_rx_t   ao_uart_reg_rx_t;
-typedef struct ao_uart_reg_sta_t  ao_uart_reg_sta_t;
-typedef struct ao_uart_reg_tx_t   ao_uart_reg_tx_t;
-```
 
 ## `ao_uart_reg_t`
 
@@ -136,8 +154,6 @@ struct ao_uart_reg_t
     ao_uart_reg_brg_t  brg;
 };
 ```
-
-This type represents the control registers and their companions.
 
 ## `ao_uart_reg_brg_t`
 
@@ -157,8 +173,6 @@ struct ao_uart_reg_brg_t
     uint32_t         volatile inv;
 };
 ```
-
-This type represents the baud rate register `UxBRG` and its companions.
 
 ## `ao_uart_reg_mode_t`
 
@@ -197,8 +211,6 @@ struct ao_uart_reg_mode_t
 };
 ```
 
-This type represents the mode register `UxMODE` and its companions.
-
 ## `ao_uart_reg_rx_t`
 
 ```c
@@ -217,8 +229,6 @@ struct ao_uart_reg_rx_t
     uint32_t         volatile    : 32;
 };
 ```
-
-This type represents the receive register `UxRXREG`.
 
 ## `ao_uart_reg_sta_t`
 
@@ -254,8 +264,6 @@ struct ao_uart_reg_sta_t
 };
 ```
 
-This type represents the status and control register `UxSTA` and its companions.
-
 ## `ao_uart_reg_tx_t`
 
 ```c
@@ -274,8 +282,6 @@ struct ao_uart_reg_tx_t
     uint32_t         volatile    : 32;
 };
 ```
-
-This type represents the transmit register `UxTXREG` and its companions.
 
 # Functions
 
