@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-20
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mk_gpg/ao_uart.h/
 toc: true
@@ -14,11 +14,15 @@ toc: true
 #define AO_UART_BRG_BITS (20)
 ```
 
+The size of the `UxBRG.BRG` field, in bits.
+
 ## `AO_UART_FIFO_CAPACITY`
 
 ```c
 #define AO_UART_FIFO_CAPACITY (8)
 ```
+
+The capacity of the receive FIFO, in bytes.
 
 # Include Next
 

@@ -20,23 +20,23 @@ New bit &rarr; `RNGNUMGEN2` &rarr; `RNGNUMGEN1` &rarr; Old bit.
 
 Consequently, the generator polynomial coefficients appear in the `RNGPOLY` register in reverse order.
 
-`RNGPOLY1` bit 0 is the coefficient of the term $$x^(\textt{PLEN})$$.
+`RNGPOLY1` bit 0 is the coefficient of the term $$x^(\texttt{PLEN})$$.
 
-`RNGPOLY1` bit 1 is the coefficient of the term $$x^(\textt{PLEN} - 1)$$.
+`RNGPOLY1` bit 1 is the coefficient of the term $$x^(\texttt{PLEN} - 1)$$.
 
-`RNGPOLY1` bit 2 is the coefficient of the term $$x^(\textt{PLEN} - 2)$$.
-
-...
-
-`RNGPOLY1` bit 31 is the coefficient of the term $$x^(\textt{PLEN} - 31)$$.
-
-`RNGPOLY2` bit 0 is the coefficient of the term $$x^(\textt{PLEN} - 32)$$.
-
-`RNGPOLY2` bit 1 is the coefficient of the term $$x^(\textt{PLEN} - 33)$$.
+`RNGPOLY1` bit 2 is the coefficient of the term $$x^(\texttt{PLEN} - 2)$$.
 
 ...
 
-`RNGPOLY2` bit 31 is the coefficient of the term $$x^(\textt{PLEN} - 63)$$.
+`RNGPOLY1` bit 31 is the coefficient of the term $$x^(\texttt{PLEN} - 31)$$.
+
+`RNGPOLY2` bit 0 is the coefficient of the term $$x^(\texttt{PLEN} - 32)$$.
+
+`RNGPOLY2` bit 1 is the coefficient of the term $$x^(\texttt{PLEN} - 33)$$.
+
+...
+
+`RNGPOLY2` bit 31 is the coefficient of the term $$x^(\texttt{PLEN} - 63)$$.
 
 ## Example
 
