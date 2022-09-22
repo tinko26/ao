@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-05
+date: 2022-09-22
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mx_3xx/ao_ir_cs.h/
 toc: true
@@ -51,27 +51,37 @@ The interrupt priority and subpriority.
 ## `ao_ir_cs0`
 
 ```c
-#define ao_ir_cs0_enable()
-#define ao_ir_cs0_disable()
+#define ao_ir_cs0_enable()  { IEC0SET = _IEC0_CS0IE_MASK; }
+#define ao_ir_cs0_disable() { IEC0CLR = _IEC0_CS0IE_MASK; }
 ```
 
 Enables or disables the interrupt.
 
 ```c
-#define ao_ir_cs0_request()
-#define ao_ir_cs0_reply()
+#define ao_ir_cs0_request() { IFS0SET = _IFS0_CS0IF_MASK; }
+#define ao_ir_cs0_reply()   { IFS0CLR = _IFS0_CS0IF_MASK; }
 ```
 
 Requests the interrupt or replies thereto.
 
 ```c
-#define ao_ir_cs0_is_enabled()
+#define ao_ir_cs0_is_enabled() \
+(                              \
+    (IEC0 & _IEC0_CS0IE_MASK)  \
+    ? true                     \
+    : false                    \
+)
 ```
 
 Checks whether the interrupt is enabled.
 
 ```c
-#define ao_ir_cs0_is_pending()
+#define ao_ir_cs0_is_pending() \
+(                              \
+    (IFS0 & _IFS0_CS0IF_MASK)  \
+    ? true                     \
+    : false                    \
+)
 ```
 
 Checks whether the interrupt is pending.
@@ -79,27 +89,38 @@ Checks whether the interrupt is pending.
 ## `ao_ir_cs1`
 
 ```c
-#define ao_ir_cs1_enable()
-#define ao_ir_cs1_disable()
+#define ao_ir_cs1_enable()  { IEC0SET = _IEC0_CS1IE_MASK; }
+#define ao_ir_cs1_disable() { IEC0CLR = _IEC0_CS1IE_MASK; }
 ```
 
 Enables or disables the interrupt.
 
 ```c
-#define ao_ir_cs1_request()
-#define ao_ir_cs1_reply()
+#define ao_ir_cs1_request() { IFS0SET = _IFS0_CS1IF_MASK; }
+#define ao_ir_cs1_reply()   { IFS0CLR = _IFS0_CS1IF_MASK; }
 ```
 
 Requests the interrupt or replies thereto.
 
 ```c
-#define ao_ir_cs1_is_enabled()
+#define ao_ir_cs1_is_enabled() \
+(                              \
+    (IEC0 & _IEC0_CS1IE_MASK)  \
+    ? true                     \
+    : false                    \
+)
 ```
 
 Checks whether the interrupt is enabled.
 
 ```c
-#define ao_ir_cs1_is_pending()
+#define ao_ir_cs1_is_pending() \
+(                              \
+    (IFS0 & _IFS0_CS1IF_MASK)  \
+    ? true                     \
+    : false                    \
+)
 ```
 
 Checks whether the interrupt is pending.
+

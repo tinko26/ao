@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-05
+date: 2022-09-22
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mx_330/ao_ir_int.h/
 toc: true
@@ -96,139 +96,260 @@ The interrupt priority and subpriority.
 ## `ao_ir_int0`
 
 ```c
-#define ao_ir_int0_enable()
-#define ao_ir_int0_disable()
+#define ao_ir_int0_enable()  { IEC0SET = _IEC0_INT0IE_MASK; }
+#define ao_ir_int0_disable() { IEC0CLR = _IEC0_INT0IE_MASK; }
 ```
 
 Enables or disables the interrupt.
 
 ```c
-#define ao_ir_int0_request()
-#define ao_ir_int0_reply()
+#define ao_ir_int0_request() { IFS0SET = _IFS0_INT0IF_MASK; }
+#define ao_ir_int0_reply()   { IFS0CLR = _IFS0_INT0IF_MASK; }
 ```
 
 Requests the interrupt or replies thereto.
 
 ```c
-#define ao_ir_int0_is_enabled()
+#define ao_ir_int0_falling() { INTCONCLR = _INTCON_INT0EP_MASK; }
+#define ao_ir_int0_rising()  { INTCONSET = _INTCON_INT0EP_MASK; }
+```
+
+Sets up the interrupt to detect falling or rising edges, respectively.
+
+```c
+#define ao_ir_int0_is_enabled() \
+(                               \
+    (IEC0 & _IEC0_INT0IE_MASK)  \
+    ? true                      \
+    : false                     \
+)
 ```
 
 Checks whether the interrupt is enabled.
 
 ```c
-#define ao_ir_int0_is_pending()
+#define ao_ir_int0_is_pending() \
+(                               \
+    (IFS0 & _IFS0_INT0IF_MASK)  \
+    ? true                      \
+    : false                     \
+)
 ```
 
 Checks whether the interrupt is pending.
+
+```c
+#define ao_ir_int0_is_falling() ((INTCON & _INTCON_INT0EP_MASK) ? false : true )
+#define ao_ir_int0_is_rising()  ((INTCON & _INTCON_INT0EP_MASK) ? true  : false)
+```
+
+Checks whether the interrupt detects falling or rising edges, respectively.
 
 ## `ao_ir_int1`
 
 ```c
-#define ao_ir_int1_enable()
-#define ao_ir_int1_disable()
+#define ao_ir_int1_enable()  { IEC0SET = _IEC0_INT1IE_MASK; }
+#define ao_ir_int1_disable() { IEC0CLR = _IEC0_INT1IE_MASK; }
 ```
 
 Enables or disables the interrupt.
 
 ```c
-#define ao_ir_int1_request()
-#define ao_ir_int1_reply()
+#define ao_ir_int1_request() { IFS0SET = _IFS0_INT1IF_MASK; }
+#define ao_ir_int1_reply()   { IFS0CLR = _IFS0_INT1IF_MASK; }
 ```
 
 Requests the interrupt or replies thereto.
 
 ```c
-#define ao_ir_int1_is_enabled()
+#define ao_ir_int1_falling() { INTCONCLR = _INTCON_INT1EP_MASK; }
+#define ao_ir_int1_rising()  { INTCONSET = _INTCON_INT1EP_MASK; }
+```
+
+Sets up the interrupt to detect falling or rising edges, respectively.
+
+```c
+#define ao_ir_int1_is_enabled() \
+(                               \
+    (IEC0 & _IEC0_INT1IE_MASK)  \
+    ? true                      \
+    : false                     \
+)
 ```
 
 Checks whether the interrupt is enabled.
 
 ```c
-#define ao_ir_int1_is_pending()
+#define ao_ir_int1_is_pending() \
+(                               \
+    (IFS0 & _IFS0_INT1IF_MASK)  \
+    ? true                      \
+    : false                     \
+)
 ```
 
 Checks whether the interrupt is pending.
+
+```c
+#define ao_ir_int1_is_falling() ((INTCON & _INTCON_INT1EP_MASK) ? false : true )
+#define ao_ir_int1_is_rising()  ((INTCON & _INTCON_INT1EP_MASK) ? true  : false)
+```
+
+Checks whether the interrupt detects falling or rising edges, respectively.
 
 ## `ao_ir_int2`
 
 ```c
-#define ao_ir_int2_enable()
-#define ao_ir_int2_disable()
+#define ao_ir_int2_enable()  { IEC0SET = _IEC0_INT2IE_MASK; }
+#define ao_ir_int2_disable() { IEC0CLR = _IEC0_INT2IE_MASK; }
 ```
 
 Enables or disables the interrupt.
 
 ```c
-#define ao_ir_int2_request()
-#define ao_ir_int2_reply()
+#define ao_ir_int2_request() { IFS0SET = _IFS0_INT2IF_MASK; }
+#define ao_ir_int2_reply()   { IFS0CLR = _IFS0_INT2IF_MASK; }
 ```
 
 Requests the interrupt or replies thereto.
 
 ```c
-#define ao_ir_int2_is_enabled()
+#define ao_ir_int2_falling() { INTCONCLR = _INTCON_INT2EP_MASK; }
+#define ao_ir_int2_rising()  { INTCONSET = _INTCON_INT2EP_MASK; }
+```
+
+Sets up the interrupt to detect falling or rising edges, respectively.
+
+```c
+#define ao_ir_int2_is_enabled() \
+(                               \
+    (IEC0 & _IEC0_INT2IE_MASK)  \
+    ? true                      \
+    : false                     \
+)
 ```
 
 Checks whether the interrupt is enabled.
 
 ```c
-#define ao_ir_int2_is_pending()
+#define ao_ir_int2_is_pending() \
+(                               \
+    (IFS0 & _IFS0_INT2IF_MASK)  \
+    ? true                      \
+    : false                     \
+)
 ```
 
 Checks whether the interrupt is pending.
+
+```c
+#define ao_ir_int2_is_falling() ((INTCON & _INTCON_INT2EP_MASK) ? false : true )
+#define ao_ir_int2_is_rising()  ((INTCON & _INTCON_INT2EP_MASK) ? true  : false)
+```
+
+Checks whether the interrupt detects falling or rising edges, respectively.
 
 ## `ao_ir_int3`
 
 ```c
-#define ao_ir_int3_enable()
-#define ao_ir_int3_disable()
+#define ao_ir_int3_enable()  { IEC0SET = _IEC0_INT3IE_MASK; }
+#define ao_ir_int3_disable() { IEC0CLR = _IEC0_INT3IE_MASK; }
 ```
 
 Enables or disables the interrupt.
 
 ```c
-#define ao_ir_int3_request()
-#define ao_ir_int3_reply()
+#define ao_ir_int3_request() { IFS0SET = _IFS0_INT3IF_MASK; }
+#define ao_ir_int3_reply()   { IFS0CLR = _IFS0_INT3IF_MASK; }
 ```
 
 Requests the interrupt or replies thereto.
 
 ```c
-#define ao_ir_int3_is_enabled()
+#define ao_ir_int3_falling() { INTCONCLR = _INTCON_INT3EP_MASK; }
+#define ao_ir_int3_rising()  { INTCONSET = _INTCON_INT3EP_MASK; }
+```
+
+Sets up the interrupt to detect falling or rising edges, respectively.
+
+```c
+#define ao_ir_int3_is_enabled() \
+(                               \
+    (IEC0 & _IEC0_INT3IE_MASK)  \
+    ? true                      \
+    : false                     \
+)
 ```
 
 Checks whether the interrupt is enabled.
 
 ```c
-#define ao_ir_int3_is_pending()
+#define ao_ir_int3_is_pending() \
+(                               \
+    (IFS0 & _IFS0_INT3IF_MASK)  \
+    ? true                      \
+    : false                     \
+)
 ```
 
 Checks whether the interrupt is pending.
+
+```c
+#define ao_ir_int3_is_falling() ((INTCON & _INTCON_INT3EP_MASK) ? false : true )
+#define ao_ir_int3_is_rising()  ((INTCON & _INTCON_INT3EP_MASK) ? true  : false)
+```
+
+Checks whether the interrupt detects falling or rising edges, respectively.
 
 ## `ao_ir_int4`
 
 ```c
-#define ao_ir_int4_enable()
-#define ao_ir_int4_disable()
+#define ao_ir_int4_enable()  { IEC0SET = _IEC0_INT4IE_MASK; }
+#define ao_ir_int4_disable() { IEC0CLR = _IEC0_INT4IE_MASK; }
 ```
 
 Enables or disables the interrupt.
 
 ```c
-#define ao_ir_int4_request()
-#define ao_ir_int4_reply()
+#define ao_ir_int4_request() { IFS0SET = _IFS0_INT4IF_MASK; }
+#define ao_ir_int4_reply()   { IFS0CLR = _IFS0_INT4IF_MASK; }
 ```
 
 Requests the interrupt or replies thereto.
 
 ```c
-#define ao_ir_int4_is_enabled()
+#define ao_ir_int4_falling() { INTCONCLR = _INTCON_INT4EP_MASK; }
+#define ao_ir_int4_rising()  { INTCONSET = _INTCON_INT4EP_MASK; }
+```
+
+Sets up the interrupt to detect falling or rising edges, respectively.
+
+```c
+#define ao_ir_int4_is_enabled() \
+(                               \
+    (IEC0 & _IEC0_INT4IE_MASK)  \
+    ? true                      \
+    : false                     \
+)
 ```
 
 Checks whether the interrupt is enabled.
 
 ```c
-#define ao_ir_int4_is_pending()
+#define ao_ir_int4_is_pending() \
+(                               \
+    (IFS0 & _IFS0_INT4IF_MASK)  \
+    ? true                      \
+    : false                     \
+)
 ```
 
 Checks whether the interrupt is pending.
+
+```c
+#define ao_ir_int4_is_falling() ((INTCON & _INTCON_INT4EP_MASK) ? false : true )
+#define ao_ir_int4_is_rising()  ((INTCON & _INTCON_INT4EP_MASK) ? true  : false)
+```
+
+Checks whether the interrupt detects falling or rising edges, respectively.
+

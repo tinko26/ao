@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-22
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mk_gpk/ao_boot.h/
 toc: true
@@ -16,375 +16,342 @@ toc: true
 
 # Functions
 
-## `ao_boot_ir_ad1`
+## `ao_boot_ir_cs0`
 
 ```c
-#define ao_boot_ir_ad1()
-#define ao_boot_ir_ad1ar()
-#define ao_boot_ir_ad1d0()
-#define ao_boot_ir_ad1d1()
-#define ao_boot_ir_ad1d2()
-#define ao_boot_ir_ad1d3()
-#define ao_boot_ir_ad1d4()
-#define ao_boot_ir_ad1d5()
-#define ao_boot_ir_ad1d6()
-#define ao_boot_ir_ad1d7()
-#define ao_boot_ir_ad1d8()
-#define ao_boot_ir_ad1d9()
-#define ao_boot_ir_ad1d10()
-#define ao_boot_ir_ad1d11()
-#define ao_boot_ir_ad1d12()
-#define ao_boot_ir_ad1d13()
-#define ao_boot_ir_ad1d14()
-#define ao_boot_ir_ad1d15()
-#define ao_boot_ir_ad1d16()
-#define ao_boot_ir_ad1d17()
-#define ao_boot_ir_ad1d18()
-#define ao_boot_ir_ad1d19()
-#define ao_boot_ir_ad1d20()
-#define ao_boot_ir_ad1d21()
-#define ao_boot_ir_ad1d22()
-#define ao_boot_ir_ad1d23()
-#define ao_boot_ir_ad1d24()
-#define ao_boot_ir_ad1d25()
-#define ao_boot_ir_ad1d26()
-#define ao_boot_ir_ad1d27()
-#define ao_boot_ir_ad1d33()
-#define ao_boot_ir_ad1d34()
-#define ao_boot_ir_ad1d35()
-#define ao_boot_ir_ad1d36()
-#define ao_boot_ir_ad1d37()
-#define ao_boot_ir_ad1d38()
-#define ao_boot_ir_ad1d39()
-#define ao_boot_ir_ad1d40()
-#define ao_boot_ir_ad1d41()
-#define ao_boot_ir_ad1d45()
-#define ao_boot_ir_ad1d46()
-#define ao_boot_ir_ad1d47()
-#define ao_boot_ir_ad1d48()
-#define ao_boot_ir_ad1d49()
-#define ao_boot_ir_ad1d50()
-#define ao_boot_ir_ad1d53()
-#define ao_boot_ir_ad1dc1()
-#define ao_boot_ir_ad1dc2()
-#define ao_boot_ir_ad1dc3()
-#define ao_boot_ir_ad1dc4()
-#define ao_boot_ir_ad1df1()
-#define ao_boot_ir_ad1df2()
-#define ao_boot_ir_ad1df3()
-#define ao_boot_ir_ad1df4()
-#define ao_boot_ir_ad1eos()
-#define ao_boot_ir_ad1fcbt()
-#define ao_boot_ir_ad1fi()
-#define ao_boot_ir_ad1g()
-#define ao_boot_ir_ad1rs()
+#define ao_boot_ir_cs0()                \
+{                                       \
+    IPC0bits.CS0IP = AO_IR_CS0_PRIO;    \
+    IPC0bits.CS0IS = AO_IR_CS0_SUBPRIO; \
+}
 ```
 
-## `ao_boot_ir_can`
+Sets up both priority and subpriority of the core software interrupt 0.
+
+## `ao_boot_ir_cs1`
 
 ```c
-#define ao_boot_ir_can1()
-#define ao_boot_ir_can2()
-#define ao_boot_ir_can3()
-#define ao_boot_ir_can4()
+#define ao_boot_ir_cs1()                \
+{                                       \
+    IPC0bits.CS1IP = AO_IR_CS1_PRIO;    \
+    IPC0bits.CS1IS = AO_IR_CS1_SUBPRIO; \
+}
 ```
 
-## `ao_boot_ir_cfdc`
-
-```c
-#define ao_boot_ir_cfdc()
-```
-
-## `ao_boot_ir_cmp`
-
-```c
-#define ao_boot_ir_cmp1()
-#define ao_boot_ir_cmp2()
-#define ao_boot_ir_cmp3()
-#define ao_boot_ir_cmp4()
-#define ao_boot_ir_cmp5()
-```
-
-## `ao_boot_ir_cn`
-
-```c
-#define ao_boot_ir_cna()
-#define ao_boot_ir_cnb()
-#define ao_boot_ir_cnc()
-#define ao_boot_ir_cnd()
-#define ao_boot_ir_cne()
-#define ao_boot_ir_cnf()
-#define ao_boot_ir_cng()
-```
-
-## `ao_boot_ir_cpc`
-
-```c
-#define ao_boot_ir_cpc()
-```
-
-## `ao_boot_ir_cs`
-
-```c
-#define ao_boot_ir_cs0()
-#define ao_boot_ir_cs1()
-```
+Sets up both priority and subpriority of the core software interrupt 1.
 
 ## `ao_boot_ir_ct`
 
 ```c
-#define ao_boot_ir_ct()
+#define ao_boot_ir_ct()               \
+{                                     \
+    IPC0bits.CTIP = AO_IR_CT_PRIO;    \
+    IPC0bits.CTIS = AO_IR_CT_SUBPRIO; \
+}
 ```
 
-## `ao_boot_ir_ctmu`
+Sets up both priority and subpriority of the core timer interrupt.
+
+## `ao_boot_ir_int0`
 
 ```c
-#define ao_boot_ir_ctmu()
+#define ao_boot_ir_int0()                 \
+{                                         \
+    IPC0bits.INT0IP = AO_IR_INT0_PRIO;    \
+    IPC0bits.INT0IS = AO_IR_INT0_SUBPRIO; \
+}
 ```
 
-## `ao_boot_ir_dataee`
+Sets up both priority and subpriority of the external interrupt 0.
+
+## `ao_boot_ir_int1`
 
 ```c
-#define ao_boot_ir_dataee()
+#define ao_boot_ir_int1()                 \
+{                                         \
+    IPC2bits.INT1IP = AO_IR_INT1_PRIO;    \
+    IPC2bits.INT1IS = AO_IR_INT1_SUBPRIO; \
+}
 ```
 
-## `ao_boot_ir_dma`
+Sets up both priority and subpriority of the external interrupt 1.
+
+## `ao_boot_ir_int2`
 
 ```c
-#define ao_boot_ir_dma0()
-#define ao_boot_ir_dma1()
-#define ao_boot_ir_dma2()
-#define ao_boot_ir_dma3()
-#define ao_boot_ir_dma4()
-#define ao_boot_ir_dma5()
-#define ao_boot_ir_dma6()
-#define ao_boot_ir_dma7()
+#define ao_boot_ir_int2()                 \
+{                                         \
+    IPC3bits.INT2IP = AO_IR_INT2_PRIO;    \
+    IPC3bits.INT2IS = AO_IR_INT2_SUBPRIO; \
+}
 ```
 
-## `ao_boot_ir_fce`
+Sets up both priority and subpriority of the external interrupt 2.
+
+## `ao_boot_ir_int3`
 
 ```c
-#define ao_boot_ir_fce()
+#define ao_boot_ir_int3()                 \
+{                                         \
+    IPC4bits.INT3IP = AO_IR_INT3_PRIO;    \
+    IPC4bits.INT3IS = AO_IR_INT3_SUBPRIO; \
+}
 ```
 
-## `ao_boot_ir_i2c`
+Sets up both priority and subpriority of the external interrupt 3.
+
+## `ao_boot_ir_int4`
 
 ```c
-#define ao_boot_ir_i2c1b()
-#define ao_boot_ir_i2c1m()
-#define ao_boot_ir_i2c1s()
-#define ao_boot_ir_i2c2b()
-#define ao_boot_ir_i2c2m()
-#define ao_boot_ir_i2c2s()
-#define ao_boot_ir_i2c3b()
-#define ao_boot_ir_i2c3m()
-#define ao_boot_ir_i2c3s()
-#define ao_boot_ir_i2c4b()
-#define ao_boot_ir_i2c4m()
-#define ao_boot_ir_i2c4s()
+#define ao_boot_ir_int4()                 \
+{                                         \
+    IPC5bits.INT4IP = AO_IR_INT4_PRIO;    \
+    IPC5bits.INT4IS = AO_IR_INT4_SUBPRIO; \
+}
 ```
 
-## `ao_boot_ir_ic`
-
-```c
-#define ao_boot_ir_ic1()
-#define ao_boot_ir_ic1e()
-#define ao_boot_ir_ic2()
-#define ao_boot_ir_ic2e()
-#define ao_boot_ir_ic3()
-#define ao_boot_ir_ic3e()
-#define ao_boot_ir_ic4()
-#define ao_boot_ir_ic4e()
-#define ao_boot_ir_ic5()
-#define ao_boot_ir_ic5e()
-#define ao_boot_ir_ic6()
-#define ao_boot_ir_ic6e()
-#define ao_boot_ir_ic7()
-#define ao_boot_ir_ic7e()
-#define ao_boot_ir_ic8()
-#define ao_boot_ir_ic8e()
-#define ao_boot_ir_ic9()
-#define ao_boot_ir_ic9e()
-#define ao_boot_ir_ic10()
-#define ao_boot_ir_ic10e()
-#define ao_boot_ir_ic11()
-#define ao_boot_ir_ic11e()
-#define ao_boot_ir_ic12()
-#define ao_boot_ir_ic12e()
-#define ao_boot_ir_ic13()
-#define ao_boot_ir_ic13e()
-#define ao_boot_ir_ic14()
-#define ao_boot_ir_ic14e()
-#define ao_boot_ir_ic15()
-#define ao_boot_ir_ic15e()
-#define ao_boot_ir_ic16()
-#define ao_boot_ir_ic16e()
-```
-
-## `ao_boot_ir_int`
-
-```c
-#define ao_boot_ir_int0()
-#define ao_boot_ir_int1()
-#define ao_boot_ir_int2()
-#define ao_boot_ir_int3()
-#define ao_boot_ir_int4()
-```
-
-## `ao_boot_ir_oc`
-
-```c
-#define ao_boot_ir_oc1()
-#define ao_boot_ir_oc2()
-#define ao_boot_ir_oc3()
-#define ao_boot_ir_oc4()
-#define ao_boot_ir_oc5()
-#define ao_boot_ir_oc6()
-#define ao_boot_ir_oc7()
-#define ao_boot_ir_oc8()
-#define ao_boot_ir_oc9()
-#define ao_boot_ir_oc10()
-#define ao_boot_ir_oc11()
-#define ao_boot_ir_oc12()
-#define ao_boot_ir_oc13()
-#define ao_boot_ir_oc14()
-#define ao_boot_ir_oc15()
-#define ao_boot_ir_oc16()
-```
-
-## `ao_boot_ir_pcache`
-
-```c
-#define ao_boot_ir_pcache()
-```
-
-## `ao_boot_ir_pmp`
-
-```c
-#define ao_boot_ir_pmp()
-#define ao_boot_ir_pmpe()
-```
-
-## `ao_boot_ir_pwm`
-
-```c
-#define ao_boot_ir_pwm1()
-#define ao_boot_ir_pwm2()
-#define ao_boot_ir_pwm3()
-#define ao_boot_ir_pwm4()
-#define ao_boot_ir_pwm5()
-#define ao_boot_ir_pwm6()
-#define ao_boot_ir_pwm7()
-#define ao_boot_ir_pwm8()
-#define ao_boot_ir_pwm9()
-#define ao_boot_ir_pwm10()
-#define ao_boot_ir_pwm11()
-#define ao_boot_ir_pwm12()
-#define ao_boot_ir_pwmpevt()
-#define ao_boot_ir_pwmsevt()
-```
-
-## `ao_boot_ir_qei`
-
-```c
-#define ao_boot_ir_qei1()
-#define ao_boot_ir_qei2()
-#define ao_boot_ir_qei3()
-#define ao_boot_ir_qei4()
-#define ao_boot_ir_qei5()
-#define ao_boot_ir_qei6()
-```
-
-## `ao_boot_ir_rtcc`
-
-```c
-#define ao_boot_ir_rtcc()
-```
-
-## `ao_boot_ir_sb`
-
-```c
-#define ao_boot_ir_sb()
-```
-
-## `ao_boot_ir_spi`
-
-```c
-#define ao_boot_ir_spi1e()
-#define ao_boot_ir_spi1rx()
-#define ao_boot_ir_spi1tx()
-#define ao_boot_ir_spi2e()
-#define ao_boot_ir_spi2rx()
-#define ao_boot_ir_spi2tx()
-#define ao_boot_ir_spi3e()
-#define ao_boot_ir_spi3rx()
-#define ao_boot_ir_spi3tx()
-#define ao_boot_ir_spi4e()
-#define ao_boot_ir_spi4rx()
-#define ao_boot_ir_spi4tx()
-#define ao_boot_ir_spi5e()
-#define ao_boot_ir_spi5rx()
-#define ao_boot_ir_spi5tx()
-#define ao_boot_ir_spi6e()
-#define ao_boot_ir_spi6rx()
-#define ao_boot_ir_spi6tx()
-```
+Sets up both priority and subpriority of the external interrupt 4.
 
 ## `ao_boot_ir_srs`
 
 ```c
-#define ao_boot_ir_srs()
+#define ao_boot_ir_srs()  \
+{                         \
+    PRISSbits.PRI1SS = 0; \
+    PRISSbits.PRI2SS = 2; \
+    PRISSbits.PRI3SS = 3; \
+    PRISSbits.PRI4SS = 4; \
+    PRISSbits.PRI5SS = 5; \
+    PRISSbits.PRI6SS = 6; \
+    PRISSbits.PRI7SS = 7; \
+}
 ```
 
-## `ao_boot_ir_t`
+Sets up the usage of a shadow register set for all priorities. Especially, this function prevents priority 1 interrupts, hence the task switch interrupt, from using a shadow register set.
+
+## `ao_boot_ir_u1e`
 
 ```c
-#define ao_boot_ir_t1()
-#define ao_boot_ir_t2()
-#define ao_boot_ir_t3()
-#define ao_boot_ir_t4()
-#define ao_boot_ir_t5()
-#define ao_boot_ir_t6()
-#define ao_boot_ir_t7()
-#define ao_boot_ir_t8()
-#define ao_boot_ir_t9()
+#define ao_boot_ir_u1e()                \
+{                                       \
+    IPC9bits.U1EIP = AO_IR_U1E_PRIO;    \
+    IPC9bits.U1EIS = AO_IR_U1E_SUBPRIO; \
+}
 ```
 
-## `ao_boot_ir_u`
+Sets up both priority and subpriority of the UART 1 error interrupt.
+
+## `ao_boot_ir_u1rx`
 
 ```c
-#define ao_boot_ir_u1e()
-#define ao_boot_ir_u1rx()
-#define ao_boot_ir_u1tx()
-#define ao_boot_ir_u2e()
-#define ao_boot_ir_u2rx()
-#define ao_boot_ir_u2tx()
-#define ao_boot_ir_u3e()
-#define ao_boot_ir_u3rx()
-#define ao_boot_ir_u3tx()
-#define ao_boot_ir_u4e()
-#define ao_boot_ir_u4rx()
-#define ao_boot_ir_u4tx()
-#define ao_boot_ir_u5e()
-#define ao_boot_ir_u5rx()
-#define ao_boot_ir_u5tx()
-#define ao_boot_ir_u6e()
-#define ao_boot_ir_u6rx()
-#define ao_boot_ir_u6tx()
+#define ao_boot_ir_u1rx()                 \
+{                                         \
+    IPC9bits.U1RXIP = AO_IR_U1RX_PRIO;    \
+    IPC9bits.U1RXIS = AO_IR_U1RX_SUBPRIO; \
+}
 ```
 
-## `ao_boot_ir_usb`
+Sets up both priority and subpriority of the UART 1 receive interrupt.
+
+## `ao_boot_ir_u1tx`
 
 ```c
-#define ao_boot_ir_usb1()
-#define ao_boot_ir_usb2()
+#define ao_boot_ir_u1tx()                  \
+{                                          \
+    IPC10bits.U1TXIP = AO_IR_U1TX_PRIO;    \
+    IPC10bits.U1TXIS = AO_IR_U1TX_SUBPRIO; \
+}
 ```
+
+Sets up both priority and subpriority of the UART 1 transmit interrupt.
+
+## `ao_boot_ir_u2e`
+
+```c
+#define ao_boot_ir_u2e()                 \
+{                                        \
+    IPC14bits.U2EIP = AO_IR_U2E_PRIO;    \
+    IPC14bits.U2EIS = AO_IR_U2E_SUBPRIO; \
+}
+```
+
+Sets up both priority and subpriority of the UART 2 error interrupt.
+
+## `ao_boot_ir_u2rx`
+
+```c
+#define ao_boot_ir_u2rx()                  \
+{                                          \
+    IPC14bits.U2RXIP = AO_IR_U2RX_PRIO;    \
+    IPC14bits.U2RXIS = AO_IR_U2RX_SUBPRIO; \
+}
+```
+
+Sets up both priority and subpriority of the UART 2 receive interrupt.
+
+## `ao_boot_ir_u2tx`
+
+```c
+#define ao_boot_ir_u2tx()                  \
+{                                          \
+    IPC14bits.U2TXIP = AO_IR_U2TX_PRIO;    \
+    IPC14bits.U2TXIS = AO_IR_U2TX_SUBPRIO; \
+}
+```
+
+Sets up both priority and subpriority of the UART 2 transmit interrupt.
+
+## `ao_boot_ir_u3e`
+
+```c
+#define ao_boot_ir_u3e()                 \
+{                                        \
+    IPC15bits.U3EIP = AO_IR_U3E_PRIO;    \
+    IPC15bits.U3EIS = AO_IR_U3E_SUBPRIO; \
+}
+```
+
+Sets up both priority and subpriority of the UART 3 error interrupt.
+
+## `ao_boot_ir_u3rx`
+
+```c
+#define ao_boot_ir_u3rx()                  \
+{                                          \
+    IPC15bits.U3RXIP = AO_IR_U3RX_PRIO;    \
+    IPC15bits.U3RXIS = AO_IR_U3RX_SUBPRIO; \
+}
+```
+
+Sets up both priority and subpriority of the UART 3 receive interrupt.
+
+## `ao_boot_ir_u3tx`
+
+```c
+#define ao_boot_ir_u3tx()                  \
+{                                          \
+    IPC16bits.U3TXIP = AO_IR_U3TX_PRIO;    \
+    IPC16bits.U3TXIS = AO_IR_U3TX_SUBPRIO; \
+}
+```
+
+Sets up both priority and subpriority of the UART 3 transmit interrupt.
+
+## `ao_boot_ir_u4e`
+
+```c
+#define ao_boot_ir_u4e()                 \
+{                                        \
+    IPC16bits.U4EIP = AO_IR_U4E_PRIO;    \
+    IPC16bits.U4EIS = AO_IR_U4E_SUBPRIO; \
+}
+```
+
+Sets up both priority and subpriority of the UART 4 error interrupt.
+
+## `ao_boot_ir_u4rx`
+
+```c
+#define ao_boot_ir_u4rx()                  \
+{                                          \
+    IPC16bits.U4RXIP = AO_IR_U4RX_PRIO;    \
+    IPC16bits.U4RXIS = AO_IR_U4RX_SUBPRIO; \
+}
+```
+
+Sets up both priority and subpriority of the UART 4 receive interrupt.
+
+## `ao_boot_ir_u4tx`
+
+```c
+#define ao_boot_ir_u4tx()                  \
+{                                          \
+    IPC16bits.U4TXIP = AO_IR_U4TX_PRIO;    \
+    IPC16bits.U4TXIS = AO_IR_U4TX_SUBPRIO; \
+}
+```
+
+Sets up both priority and subpriority of the UART 4 transmit interrupt.
+
+## `ao_boot_ir_u5e`
+
+```c
+#define ao_boot_ir_u5e()                 \
+{                                        \
+    IPC17bits.U5EIP = AO_IR_U5E_PRIO;    \
+    IPC17bits.U5EIS = AO_IR_U5E_SUBPRIO; \
+}
+```
+
+Sets up both priority and subpriority of the UART 5 error interrupt.
+
+## `ao_boot_ir_u5rx`
+
+```c
+#define ao_boot_ir_u5rx()                  \
+{                                          \
+    IPC17bits.U5RXIP = AO_IR_U5RX_PRIO;    \
+    IPC17bits.U5RXIS = AO_IR_U5RX_SUBPRIO; \
+}
+```
+
+Sets up both priority and subpriority of the UART 5 receive interrupt.
+
+## `ao_boot_ir_u5tx`
+
+```c
+#define ao_boot_ir_u5tx()                  \
+{                                          \
+    IPC17bits.U5TXIP = AO_IR_U5TX_PRIO;    \
+    IPC17bits.U5TXIS = AO_IR_U5TX_SUBPRIO; \
+}
+```
+
+Sets up both priority and subpriority of the UART 5 transmit interrupt.
+
+## `ao_boot_ir_u6e`
+
+```c
+#define ao_boot_ir_u6e()                 \
+{                                        \
+    IPC41bits.U6EIP = AO_IR_U6E_PRIO;    \
+    IPC41bits.U6EIS = AO_IR_U6E_SUBPRIO; \
+}
+```
+
+Sets up both priority and subpriority of the UART 6 error interrupt.
+
+## `ao_boot_ir_u6rx`
+
+```c
+#define ao_boot_ir_u6rx()                  \
+{                                          \
+    IPC41bits.U6RXIP = AO_IR_U6RX_PRIO;    \
+    IPC41bits.U6RXIS = AO_IR_U6RX_SUBPRIO; \
+}
+```
+
+Sets up both priority and subpriority of the UART 6 receive interrupt.
+
+## `ao_boot_ir_u6tx`
+
+```c
+#define ao_boot_ir_u6tx()                  \
+{                                          \
+    IPC41bits.U6TXIP = AO_IR_U6TX_PRIO;    \
+    IPC41bits.U6TXIS = AO_IR_U6TX_SUBPRIO; \
+}
+```
+
+Sets up both priority and subpriority of the UART 6 transmit interrupt.
 
 ## `ao_boot_sys_pcache`
 
 ```c
 void ao_boot_sys_pcache();
 ```
+
+Sets up the prefetch cache.
 
 # Include Next
 

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-05
+date: 2022-09-22
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_ir.h/
 toc: true
@@ -17,6 +17,7 @@ This module gathers interrupt-related functions.
 #include <ao_ir_cs.h>
 #include <ao_ir_ct.h>
 #include <ao_ir_enable.h>
+#include <ao_ir_int.h>
 #include <ao_ir_mvec.h>
 #include <ao_ir_prio.h>
 #include <ao_ir_stack.h>

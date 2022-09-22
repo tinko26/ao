@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-22
 draft: false
 external:
 - https://microchip.com/DS61106 : "PIC32 Family Reference Manual, Section 23, Serial Peripheral Interface (SPI)"
@@ -12,8 +12,6 @@ wide: false
 
 # Files
 
-| [`ao_ir.h`](ao_ir.h.md) | Interrupts |
-| [`ao_ir_spi.h`](ao_ir_spi.h.md) | SPI interrupts |
 | [`ao_spi.h`](ao_spi.h.md) | SPI |
 | [`ao_spi_1.h`](ao_spi_1.h.md) | SPI 1 |
 | [`ao_spi_2.h`](ao_spi_2.h.md) | SPI 2 |

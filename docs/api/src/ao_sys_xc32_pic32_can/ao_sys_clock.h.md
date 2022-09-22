@@ -17,7 +17,7 @@ toc: true
 #define AO_SYS_CLOCK_CAN4 (0)
 ```
 
-The peripheral bus clock frequency for each module, in Hertz.
+The peripheral bus clock frequency for each CAN module, in Hertz.
 
 # Include Next
 

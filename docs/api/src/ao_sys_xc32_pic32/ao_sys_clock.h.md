@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-05
+date: 2022-09-22
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_sys_clock.h/
 toc: true
@@ -14,4 +14,4 @@ toc: true
 #define AO_SYS_SYSCLK (0)
 ```
 
-The SYSCLK frequency, in Hertz.
+The system clock frequency, in Hertz.

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-22
 draft: false
 external:
 - https://en.wikipedia.org/wiki/I²C : "I²C"
@@ -18,7 +18,5 @@ wide: false
 | [`ao_i2c_3.h`](ao_i2c_3.h.md) | I²C 3 |
 | [`ao_i2c_4.h`](ao_i2c_4.h.md) | I²C 4 |
 | [`ao_i2c_5.h`](ao_i2c_5.h.md) | I²C 5 |
-| [`ao_ir.h`](ao_ir.h.md) | Interrupts |
-| [`ao_ir_i2c.h`](ao_ir_i2c.h.md) | I²C interrupts |
 | [`ao_sys.h`](ao_sys.h.md) | System |
 | [`ao_sys_clock.h`](ao_sys_clock.h.md) | System clocks |

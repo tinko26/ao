@@ -1,18 +1,14 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-20
+date: 2022-09-22
 draft: true
 external:
 - https://microchip.com/DS60001145 : "PIC32 Flash Programming Specification"
+- https://microchip.com/DS60001565 : "PIC32MZ Graphics (DAK/DAL/DAR/DAS) Family Data sheet"
+- https://microchip.com/DS80000823 : "PIC32MZ Graphics (DAK/DAL/DAR/DAS) Family Errata"
 permalink: /api/src/ao_sys_xc32_pic32mz_dak/ao_sys_id.h/
 toc: true
 ---
-
-# Include
-
-```c
-#include <xc.h>
-```
 
 # Constants
 
@@ -22,39 +18,10 @@ toc: true
 #define AO_SYS_ID_REVISION_B1 (3)
 ```
 
-The possible revision IDs.
+Revision IDs.
 
-# Functions
-
-## `ao_sys_id_device`
+# Include Next
 
 ```c
-#define ao_sys_id_device() \
-(                          \
-    DEVIDbits.DEVID        \
-)
+#include_next <ao_sys_id.h>
 ```
-
-Gets the 28-bit device ID.
-
-## `ao_sys_id_revision`
-
-```c
-#define ao_sys_id_revision() \
-(                            \
-    DEVIDbits.VER            \
-)
-```
-
-Gets the 4-bit revision ID.
-
-## `ao_sys_id_user`
-
-```c
-#define ao_sys_id_user() \
-(                        \
-    DEVCFG3bits.USERID   \
-)
-```
-
-Gets the configured 16-bit user ID.

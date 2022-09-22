@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-05
+date: 2022-09-22
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mk_gp/ao_ir_can.h/
 toc: true
@@ -81,27 +81,37 @@ The interrupt priority and subpriority.
 ## `ao_ir_can1`
 
 ```c
-#define ao_ir_can1_enable()
-#define ao_ir_can1_disable()
+#define ao_ir_can1_enable()  { IEC5SET = _IEC5_CAN1IE_MASK; }
+#define ao_ir_can1_disable() { IEC5CLR = _IEC5_CAN1IE_MASK; }
 ```
 
 Enables or disables the interrupt.
 
 ```c
-#define ao_ir_can1_request()
-#define ao_ir_can1_reply()
+#define ao_ir_can1_request() { IFS5SET = _IFS5_CAN1IF_MASK; }
+#define ao_ir_can1_reply()   { IFS5CLR = _IFS5_CAN1IF_MASK; }
 ```
 
 Requests the interrupt or replies thereto.
 
 ```c
-#define ao_ir_can1_is_enabled()
+#define ao_ir_can1_is_enabled() \
+(                               \
+    (IEC5 & _IEC5_CAN1IE_MASK)  \
+    ? true                      \
+    : false                     \
+)
 ```
 
 Checks whether the interrupt is enabled.
 
 ```c
-#define ao_ir_can1_is_pending()
+#define ao_ir_can1_is_pending() \
+(                               \
+    (IFS5 & _IFS5_CAN1IF_MASK)  \
+    ? true                      \
+    : false                     \
+)
 ```
 
 Checks whether the interrupt is pending.
@@ -109,27 +119,37 @@ Checks whether the interrupt is pending.
 ## `ao_ir_can2`
 
 ```c
-#define ao_ir_can2_enable()
-#define ao_ir_can2_disable()
+#define ao_ir_can2_enable()  { IEC5SET = _IEC5_CAN2IE_MASK; }
+#define ao_ir_can2_disable() { IEC5CLR = _IEC5_CAN2IE_MASK; }
 ```
 
 Enables or disables the interrupt.
 
 ```c
-#define ao_ir_can2_request()
-#define ao_ir_can2_reply()
+#define ao_ir_can2_request() { IFS5SET = _IFS5_CAN2IF_MASK; }
+#define ao_ir_can2_reply()   { IFS5CLR = _IFS5_CAN2IF_MASK; }
 ```
 
 Requests the interrupt or replies thereto.
 
 ```c
-#define ao_ir_can2_is_enabled()
+#define ao_ir_can2_is_enabled() \
+(                               \
+    (IEC5 & _IEC5_CAN2IE_MASK)  \
+    ? true                      \
+    : false                     \
+)
 ```
 
 Checks whether the interrupt is enabled.
 
 ```c
-#define ao_ir_can2_is_pending()
+#define ao_ir_can2_is_pending() \
+(                               \
+    (IFS5 & _IFS5_CAN2IF_MASK)  \
+    ? true                      \
+    : false                     \
+)
 ```
 
 Checks whether the interrupt is pending.
@@ -137,27 +157,37 @@ Checks whether the interrupt is pending.
 ## `ao_ir_can3`
 
 ```c
-#define ao_ir_can3_enable()
-#define ao_ir_can3_disable()
+#define ao_ir_can3_enable()  { IEC5SET = _IEC5_CAN3IE_MASK; }
+#define ao_ir_can3_disable() { IEC5CLR = _IEC5_CAN3IE_MASK; }
 ```
 
 Enables or disables the interrupt.
 
 ```c
-#define ao_ir_can3_request()
-#define ao_ir_can3_reply()
+#define ao_ir_can3_request() { IFS5SET = _IFS5_CAN3IF_MASK; }
+#define ao_ir_can3_reply()   { IFS5CLR = _IFS5_CAN3IF_MASK; }
 ```
 
 Requests the interrupt or replies thereto.
 
 ```c
-#define ao_ir_can3_is_enabled()
+#define ao_ir_can3_is_enabled() \
+(                               \
+    (IEC5 & _IEC5_CAN3IE_MASK)  \
+    ? true                      \
+    : false                     \
+)
 ```
 
 Checks whether the interrupt is enabled.
 
 ```c
-#define ao_ir_can3_is_pending()
+#define ao_ir_can3_is_pending() \
+(                               \
+    (IFS5 & _IFS5_CAN3IF_MASK)  \
+    ? true                      \
+    : false                     \
+)
 ```
 
 Checks whether the interrupt is pending.
@@ -165,27 +195,38 @@ Checks whether the interrupt is pending.
 ## `ao_ir_can4`
 
 ```c
-#define ao_ir_can4_enable()
-#define ao_ir_can4_disable()
+#define ao_ir_can4_enable()  { IEC5SET = _IEC5_CAN4IE_MASK; }
+#define ao_ir_can4_disable() { IEC5CLR = _IEC5_CAN4IE_MASK; }
 ```
 
 Enables or disables the interrupt.
 
 ```c
-#define ao_ir_can4_request()
-#define ao_ir_can4_reply()
+#define ao_ir_can4_request() { IFS5SET = _IFS5_CAN4IF_MASK; }
+#define ao_ir_can4_reply()   { IFS5CLR = _IFS5_CAN4IF_MASK; }
 ```
 
 Requests the interrupt or replies thereto.
 
 ```c
-#define ao_ir_can4_is_enabled()
+#define ao_ir_can4_is_enabled() \
+(                               \
+    (IEC5 & _IEC5_CAN4IE_MASK)  \
+    ? true                      \
+    : false                     \
+)
 ```
 
 Checks whether the interrupt is enabled.
 
 ```c
-#define ao_ir_can4_is_pending()
+#define ao_ir_can4_is_pending() \
+(                               \
+    (IFS5 & _IFS5_CAN4IF_MASK)  \
+    ? true                      \
+    : false                     \
+)
 ```
 
 Checks whether the interrupt is pending.
+

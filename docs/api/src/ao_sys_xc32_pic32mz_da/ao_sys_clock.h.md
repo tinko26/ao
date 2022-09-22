@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-20
+date: 2022-09-22
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mz_da/ao_sys_clock.h/
 toc: true
@@ -16,14 +16,6 @@ toc: true
 ```
 
 The peripheral bus clock frequency for each CAN module, in Hertz.
-
-## `AO_SYS_CLOCK_ETH`
-
-```c
-#define AO_SYS_CLOCK_ETH (AO_SYS_PBCLK5)
-```
-
-The peripheral bus clock frequency for the ethernet module, in Hertz.
 
 ## `AO_SYS_CLOCK_I2C`
 
