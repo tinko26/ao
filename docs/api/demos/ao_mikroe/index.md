@@ -2,7 +2,7 @@
 author: "Stefan Wagner"
 date: 2022-09-22
 draft: false
-permalink: /api/demos/ao_mikroe_1877/
+permalink: /api/demos/ao_mikroe/
 toc: true
 wide: false
 ---
