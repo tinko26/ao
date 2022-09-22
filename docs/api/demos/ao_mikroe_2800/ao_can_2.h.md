@@ -17,10 +17,13 @@ toc: true
 ## `AO_CAN_2`
 
 ```c
-#define AO_CAN_2 (AO_MIKROE_2334_1)
+#define AO_CAN_2     \
+(                    \
+    AO_MIKROE_2334_1 \
+)
 ```
 
-Indicates whether the CAN module is used.
+Indicates whether the module is used.
 
 # Include Next
 

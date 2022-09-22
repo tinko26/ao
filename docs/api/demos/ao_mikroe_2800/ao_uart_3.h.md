@@ -29,7 +29,7 @@ This module supports baud rates up to 921600 bps.
 )
 ```
 
-Indicates whether the UART module is used.
+Indicates whether the module is used.
 
 # Include Next
 

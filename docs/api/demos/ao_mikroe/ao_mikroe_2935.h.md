@@ -1,8 +1,13 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-22
 draft: true
-permalink: /api/demos/ao_mikroe_2935/ao_mikroe_2935.h/
+external:
+- https://www.bosch-sensortec.com/products/motion-sensors/magnetometers-bmm150/ : "Bosch Sensortec BMM150"
+- https://www.bosch-sensortec.com/software-tools/software/sensor-fusion-software/ : "Bosch Sensortec Sensor fusion software"
+- https://www.mikroe.com/geomagnetic-click : "GeoMagnetic Click"
+- https://en.wikipedia.org/wiki/Magnetometer : "Magnetometer"
+permalink: /api/demos/ao_mikroe/ao_mikroe_2935.h/
 toc: true
 ---
 
@@ -19,6 +24,14 @@ toc: true
 ```c
 #define AO_MIKROE_2935
 ```
+
+# Configuration
+
+```c
+#define AO_MIKROE_2935 (false)
+```
+
+Defines whether the clickboard is used.
 
 # Types
 

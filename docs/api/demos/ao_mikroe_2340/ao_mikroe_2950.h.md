@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-22
 draft: true
 permalink: /api/demos/ao_mikroe_2340/ao_mikroe_2950.h/
 toc: true
@@ -31,6 +31,20 @@ toc: true
 #define AO_MIKROE_2950_BAUD_C (400000UL)
 #define AO_MIKROE_2950_BAUD_D (400000UL)
 ```
+
+# Constants
+
+```c
+#define AO_MIKROE_2950  \
+(                       \
+    AO_MIKROE_2950_A || \
+    AO_MIKROE_2950_B || \
+    AO_MIKROE_2950_C || \
+    AO_MIKROE_2950_D    \
+)
+```
+
+Indicates whether the clickboard is used.
 
 # Include Next
 

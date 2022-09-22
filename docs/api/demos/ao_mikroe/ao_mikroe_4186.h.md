@@ -1,14 +1,18 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-22
 draft: true
-permalink: /api/demos/ao_mikroe_4186/ao_mikroe_4186.h/
+external:
+- https://www.mikroe.com/expand-5-click : "EXPAND 5 Click"
+- https://www.ti.com/product/TCA6424A : "TCA6426A 24-bit I/O expander"
+permalink: /api/demos/ao_mikroe/ao_mikroe_4186.h/
 toc: true
 ---
 
 # Include
 
 ```c
+#include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
 ```
@@ -18,6 +22,14 @@ toc: true
 ```c
 #define AO_MIKROE_4186
 ```
+
+# Configuration
+
+```c
+#define AO_MIKROE_4186 (false)
+```
+
+Defines whether the clickboard is used.
 
 # Types
 

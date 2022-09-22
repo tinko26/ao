@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-22
 draft: true
 permalink: /api/demos/ao_mikroe_2340/ao_uart_1.h/
 toc: true
@@ -29,7 +29,7 @@ This module supports baud rates up to 921600 bps.
 )
 ```
 
-Indicates whether the UART module is used.
+Indicates whether the module is used.
 
 # Include Next
 

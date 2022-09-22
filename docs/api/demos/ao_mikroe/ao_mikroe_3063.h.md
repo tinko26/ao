@@ -1,8 +1,11 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-22
 draft: true
-permalink: /api/demos/ao_mikroe_3063/ao_mikroe_3063.h/
+external:
+- https://www.silabs.com/interface/usb-bridges/usbxpress : "CP2102N USBXpress USB Bridges"
+- https://www.mikroe.com/usb-uart-3-click : "USB UART 3 Click"
+permalink: /api/demos/ao_mikroe/ao_mikroe_3063.h/
 toc: true
 ---
 
@@ -18,6 +21,14 @@ toc: true
 ```c
 #define AO_MIKROE_3063
 ```
+
+# Configuration
+
+```c
+#define AO_MIKROE_3063 (false)
+```
+
+Defines whether the clickboard is used.
 
 # Functions
 

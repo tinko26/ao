@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-22
 draft: true
 permalink: /api/demos/ao_mikroe_2340/ao_mikroe_2935.h/
 toc: true
@@ -60,6 +60,20 @@ toc: true
 #define AO_MIKROE_2935_REPETITIONS_Z_C (15)
 #define AO_MIKROE_2935_REPETITIONS_Z_D (15)
 ```
+
+# Constants
+
+```c
+#define AO_MIKROE_2935  \
+(                       \
+    AO_MIKROE_2935_A || \
+    AO_MIKROE_2935_B || \
+    AO_MIKROE_2935_C || \
+    AO_MIKROE_2935_D    \
+)
+```
+
+Indicates whether the clickboard is used.
 
 # Variables
 

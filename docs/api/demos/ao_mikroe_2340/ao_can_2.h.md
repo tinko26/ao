@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-22
 draft: true
 permalink: /api/demos/ao_mikroe_2340/ao_can_2.h/
 toc: true
@@ -17,10 +17,13 @@ toc: true
 ## `AO_CAN_2`
 
 ```c
-#define AO_CAN_2 (AO_MIKROE_2334_D)
+#define AO_CAN_2     \
+(                    \
+    AO_MIKROE_2334_D \
+)
 ```
 
-Indicates whether the CAN module is used.
+Indicates whether the module is used.
 
 # Include Next
 

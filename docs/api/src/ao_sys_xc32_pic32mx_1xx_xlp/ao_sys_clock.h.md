@@ -26,11 +26,11 @@ The peripheral bus clock frequency for each I²C module, in Hertz.
 
 The peripheral bus clock frequency for each SPI module, in Hertz.
 
-## `AO_SYS_CLOCK_U`
+## `AO_SYS_CLOCK_UART`
 
 ```c
-#define AO_SYS_CLOCK_U1 (AO_SYS_PBCLK)
-#define AO_SYS_CLOCK_U2 (AO_SYS_PBCLK)
+#define AO_SYS_CLOCK_UART1 (AO_SYS_PBCLK)
+#define AO_SYS_CLOCK_UART2 (AO_SYS_PBCLK)
 ```
 
 The peripheral bus clock frequency for each UART module, in Hertz.

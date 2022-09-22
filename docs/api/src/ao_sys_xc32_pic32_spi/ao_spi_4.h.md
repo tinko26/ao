@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-20
+date: 2022-09-22
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_spi/ao_spi_4.h/
 toc: true
@@ -21,7 +21,7 @@ toc: true
 #define AO_SPI_4
 ```
 
-# Constants
+# Configuration
 
 ## `AO_SPI_4`
 
@@ -29,7 +29,9 @@ toc: true
 #define AO_SPI_4 (false)
 ```
 
-Indicates whether the module is available.
+Defines whether to use the module.
+
+# Constants
 
 ## `AO_SPI_BAUD_MAX_4`
 ## `AO_SPI_BAUD_MIN_4`

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-22
 draft: true
 permalink: /api/demos/ao_mikroe_2340/ao_mikroe_2334.h/
 toc: true
@@ -20,6 +20,18 @@ toc: true
 #define AO_MIKROE_2334_B (false)
 #define AO_MIKROE_2334_D (false)
 ```
+
+# Constants
+
+```c
+#define AO_MIKROE_2334  \
+(                       \
+    AO_MIKROE_2334_B || \
+    AO_MIKROE_2334_D    \
+)
+```
+
+Indicates whether the clickboard is used.
 
 # Include Next
 

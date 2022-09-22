@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-22
 draft: true
 permalink: /api/demos/ao_mikroe_2340/ao_mikroe_4186.h/
 toc: true
@@ -41,6 +41,20 @@ toc: true
 #define AO_MIKROE_4186_TIMEOUT_C (AO_MILLISECONDS(100))
 #define AO_MIKROE_4186_TIMEOUT_D (AO_MILLISECONDS(100))
 ```
+
+# Constants
+
+```c
+#define AO_MIKROE_4186  \
+(                       \
+    AO_MIKROE_4186_A || \
+    AO_MIKROE_4186_B || \
+    AO_MIKROE_4186_C || \
+    AO_MIKROE_4186_D    \
+)
+```
+
+Indicates whether the clickboard is used.
 
 # Include Next
 

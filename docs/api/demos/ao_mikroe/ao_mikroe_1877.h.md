@@ -1,8 +1,18 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-22
 draft: true
-permalink: /api/demos/ao_mikroe_1877/ao_mikroe_1877.h/
+external:
+- https://www.mikroe.com/3d-motion-click : "3D Motion Click"
+- https://en.wikipedia.org/wiki/Accelerometer : "Accelerometer"
+- https://en.wikipedia.org/wiki/Gyroscope : "Gyroscope"
+- https://en.wikipedia.org/wiki/Inclinometer : "Inclinometer"
+- https://en.wikipedia.org/wiki/Magnetometer : "Magnetometer"
+- https://microchip.com/DS00001888 : "MM7150 Motion Module"
+- https://microchip.com/DS00001873 : "MM7150 Motion Module Host API Design"
+- https://microchip.com/DS50002322 : "MM7150 Motion Module User's Guide"
+- https://microchip.com/DS00001885 : "SSC7150 Motion Coprocessor"
+permalink: /api/demos/ao_mikroe/ao_mikroe_1877.h/
 toc: true
 ---
 
@@ -20,6 +30,14 @@ toc: true
 ```c
 #define AO_MIKROE_1877
 ```
+
+# Configuration
+
+```c
+#define AO_MIKROE_1877 (false)
+```
+
+Defines whether the clickboard is used.
 
 # Types
 

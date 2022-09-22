@@ -86,6 +86,7 @@ wide: false
 | [`ao_ir_cs.h`](ao_ir_cs.h.md) | Core software interrupts |
 | [`ao_ir_ct.h`](ao_ir_ct.h.md) | Core timer interrupt |
 | [`ao_ir_enable.h`](ao_ir_enable.h.md) | Enabling and disabling interrupts globally |
+| [`ao_ir_int.h`](ao_ir_int.h.md) | External interrupts |
 | [`ao_ir_mvec.h`](ao_ir_mvec.h.md) | Multi-vectored interrupt mode |
 | [`ao_ir_prio.h`](ao_ir_prio.h.md) | Interrupt priorities |
 | [`ao_ir_stack.h`](ao_ir_stack.h.md) | Interrupt stack |

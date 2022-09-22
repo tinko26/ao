@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-20
+date: 2022-09-22
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_uart/ao_uart_5.h/
 toc: true
@@ -105,8 +105,8 @@ Indicates whether the module is available.
 ## `AO_UART_BAUD_MIN_5`
 
 ```c
-#define AO_UART_BAUD_MAX_5 AO_UART_BAUD_MAX(AO_SYS_CLOCK_U5)
-#define AO_UART_BAUD_MIN_5 AO_UART_BAUD_MIN(AO_SYS_CLOCK_U5)
+#define AO_UART_BAUD_MAX_5 AO_UART_BAUD_MAX(AO_SYS_CLOCK_UART5)
+#define AO_UART_BAUD_MIN_5 AO_UART_BAUD_MIN(AO_SYS_CLOCK_UART5)
 ```
 
 The maximum and minimum baud rate, in bits per second.
@@ -115,8 +115,8 @@ The maximum and minimum baud rate, in bits per second.
 ## `AO_UART_BAUD_HIGH_MIN_5`
 
 ```c
-#define AO_UART_BAUD_HIGH_MAX_5 AO_UART_BAUD_HIGH_MAX(AO_SYS_CLOCK_U5)
-#define AO_UART_BAUD_HIGH_MIN_5 AO_UART_BAUD_HIGH_MIN(AO_SYS_CLOCK_U5)
+#define AO_UART_BAUD_HIGH_MAX_5 AO_UART_BAUD_HIGH_MAX(AO_SYS_CLOCK_UART5)
+#define AO_UART_BAUD_HIGH_MIN_5 AO_UART_BAUD_HIGH_MIN(AO_SYS_CLOCK_UART5)
 ```
 
 The maximum and minimum baud rate in high-speed mode, in bits per second.
@@ -125,8 +125,8 @@ The maximum and minimum baud rate in high-speed mode, in bits per second.
 ## `AO_UART_BAUD_LOW_MIN_5`
 
 ```c
-#define AO_UART_BAUD_LOW_MAX_5 AO_UART_BAUD_LOW_MAX(AO_SYS_CLOCK_U5)
-#define AO_UART_BAUD_LOW_MIN_5 AO_UART_BAUD_LOW_MIN(AO_SYS_CLOCK_U5)
+#define AO_UART_BAUD_LOW_MAX_5 AO_UART_BAUD_LOW_MAX(AO_SYS_CLOCK_UART5)
+#define AO_UART_BAUD_LOW_MIN_5 AO_UART_BAUD_LOW_MIN(AO_SYS_CLOCK_UART5)
 ```
 
 The maximum and minimum baud rate in standard-speed mode, in bits per second.
@@ -136,14 +136,14 @@ The maximum and minimum baud rate in standard-speed mode, in bits per second.
 ## `ao_uart_baud_5`
 
 ```c
-#define ao_uart_baud_5(f) \
-{                         \
-    ao_uart_baud          \
-    (                     \
-        ao_uart_reg_5(),  \
-        AO_SYS_CLOCK_U5,  \
-        f                 \
-    );                    \
+#define ao_uart_baud_5(f)   \
+{                           \
+    ao_uart_baud            \
+    (                       \
+        ao_uart_reg_5(),    \
+        AO_SYS_CLOCK_UART5, \
+        f                   \
+    );                      \
 }
 ```
 
@@ -157,7 +157,7 @@ Sets up the baud rate, in bits per second. This function enables or disables hig
     ao_uart_baud_high          \
     (                          \
         ao_uart_reg_5(),       \
-        AO_SYS_CLOCK_U5,       \
+        AO_SYS_CLOCK_UART5,    \
         f                      \
     );                         \
 }
@@ -173,7 +173,7 @@ Enables high-speed mode and sets up the baud rate, in bits per second.
     ao_uart_baud_low          \
     (                         \
         ao_uart_reg_5(),      \
-        AO_SYS_CLOCK_U5,      \
+        AO_SYS_CLOCK_UART5,   \
         f                     \
     );                        \
 }

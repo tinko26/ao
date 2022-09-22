@@ -1,8 +1,11 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-22
 draft: true
-permalink: /api/demos/ao_mikroe_2950/ao_mikroe_2950.h/
+external:
+- https://www.mikroe.com/led-driver-3-click : "LED Driver 3 Click"
+- https://www.onsemi.com/products/power-management/led-drivers/dc-dc-led-drivers/ncp5623b : "NCP5623B LED Driver"
+permalink: /api/demos/ao_mikroe/ao_mikroe_2950.h/
 toc: true
 ---
 
@@ -10,6 +13,7 @@ toc: true
 
 ```c
 #include <ao_time.h>
+#include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
 ```
@@ -19,6 +23,14 @@ toc: true
 ```c
 #define AO_MIKROE_2950
 ```
+
+# Configuration
+
+```c
+#define AO_MIKROE_2950 (false)
+```
+
+Defines whether the clickboard is used.
 
 # Functions
 
