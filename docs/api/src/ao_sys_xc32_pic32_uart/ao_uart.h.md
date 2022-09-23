@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-20
+date: 2022-09-23
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_uart/ao_uart.h/
 toc: true
@@ -72,21 +72,13 @@ The options for the `UxMODE.STSEL` field specifying the number of stop bits.
 
 # Types
 
-## `ao_uart_error_flags_t`
+## `ao_uart_error_t`
 
 ```c
-typedef enum ao_uart_error_flags_t ao_uart_error_flags_t;
+typedef enum ao_uart_error_t ao_uart_error_t;
 ```
 
 This type represents the possible error conditions.
-
-## `ao_uart_error_info_t`
-
-```c
-typedef struct ao_uart_error_info_t ao_uart_error_info_t;
-```
-
-This type represents the information provided to the application, when being notified of errors.
 
 ## `ao_uart_reg`
 
@@ -110,10 +102,10 @@ This type represents the control register set.
 
 # Enums
 
-## `ao_uart_error_flags_t`
+## `ao_uart_error_t`
 
 ```c
-enum ao_uart_error_flags_t
+enum ao_uart_error_t
 {
     AO_UART_ERROR_NONE    = 0,
     AO_UART_ERROR_OVERRUN = 0x02,
@@ -130,17 +122,6 @@ enum ao_uart_error_flags_t
 | `AO_UART_ERROR_PARITY` | A parity error has been detected for the current byte. |
 
 # Structs
-
-## `ao_uart_error_info_t`
-
-```c
-struct ao_uart_error_info_t
-{
-    ao_uart_error_flags_t flags;
-};
-```
-
-| `flags` | The flags. |
 
 ## `ao_uart_reg_t`
 
@@ -285,62 +266,68 @@ struct ao_uart_reg_tx_t
 
 # Functions
 
-## `ao_uart_baud`
-
-```c
-void ao_uart_baud(ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f);
-```
-
-Sets up the baud rate for a module. This function enables or disables high-speed mode, depending on the specified baud rate.
-
-| `r` | The control registers of the module. |
-| `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
-| `f` | The baud rate, in bits per second. |
-
 ## `AO_UART_BAUD_MAX`
-## `AO_UART_BAUD_MIN`
 
 ```c
-#define AO_UART_BAUD_MAX(f_pbclk) AO_UART_BAUD_HIGH_MAX(f_pbclk)
-#define AO_UART_BAUD_MIN(f_pbclk) AO_UART_BAUD_LOW_MIN (f_pbclk)
-```
-
-Calculates the maximum or minimum possible baud rate, respectively, in bits per second.
-
-| `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
-
-## `ao_uart_baud_high`
-
-```c
-void ao_uart_baud_high(ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f);
-```
-
-Enables high-speed mode and sets up the baud rate for a module.
-
-| `r` | The control registers of the module. |
-| `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
-| `f` | The baud rate, in bits per second. |
-
-## `AO_UART_BAUD_HIGH_MAX`
-
-```c
-#define AO_UART_BAUD_HIGH_MAX(f_pbclk) \
-(                                      \
-    (f_pbclk) /                        \
-    (                                  \
-        4 * ((AO_UART_BRG_MIN) + 1)    \
-    )                                  \
+#define AO_UART_BAUD_MAX(f_pbclk) \
+(                                 \
+    AO_UART_BAUD_MAX_HI(f_pbclk)  \
 )
 ```
 
-Calculates the maximum possible baud rate in high-speed mode, in bits per second.
+| `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
+
+Calculates the maximum possible baud rate, in bits per second.
+
+## `AO_UART_BAUD_MAX_HI`
+
+```c
+#define AO_UART_BAUD_MAX_HI(f_pbclk) \
+(                                    \
+    (f_pbclk) /                      \
+    (                                \
+        4 * ((AO_UART_BRG_MIN) + 1)  \
+    )                                \
+)
+```
 
 | `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
 
-## `AO_UART_BAUD_HIGH_MIN`
+Calculates the maximum possible baud rate in high-speed mode, in bits per second.
+
+## `AO_UART_BAUD_MAX_LO`
 
 ```c
-#define AO_UART_BAUD_HIGH_MIN(f_pbclk)  \
+#define AO_UART_BAUD_MAX_LO(f_pbclk) \
+(                                    \
+    (f_pbclk) /                      \
+    (                                \
+        16 * ((AO_UART_BRG_MIN) + 1) \
+    )                                \
+)
+```
+
+| `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
+
+Calculates the maximum possible baud rate in standard-speed mode, in bits per second.
+
+## `AO_UART_BAUD_MIN`
+
+```c
+#define AO_UART_BAUD_MIN(f_pbclk) \
+(                                 \
+    AO_UART_BAUD_MIN_LO(f_pbclk)  \
+)
+```
+
+| `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
+
+Calculates the minimum possible baud rate, in bits per second.
+
+## `AO_UART_BAUD_MIN_HI`
+
+```c
+#define AO_UART_BAUD_MIN_HI(f_pbclk)    \
 (                                       \
     1 +                                 \
     (                                   \
@@ -352,42 +339,14 @@ Calculates the maximum possible baud rate in high-speed mode, in bits per second
 )
 ```
 
+| `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
+
 Calculates the minimum possible baud rate in high-speed mode, in bits per second.
 
-| `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
-
-## `ao_uart_baud_low`
+## `AO_UART_BAUD_MIN_LO`
 
 ```c
-void ao_uart_baud_low(ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f);
-```
-
-Disables high-speed mode and sets up the baud rate for a module.
-
-| `r` | The control registers of the module. |
-| `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
-| `f` | The baud rate, in bits per second. |
-
-## `AO_UART_BAUD_LOW_MAX`
-
-```c
-#define AO_UART_BAUD_LOW_MAX(f_pbclk) \
-(                                     \
-    (f_pbclk) /                       \
-    (                                 \
-        16 * ((AO_UART_BRG_MIN) + 1)  \
-    )                                 \
-)
-```
-
-Calculates the maximum possible baud rate in standard-speed mode, in bits per second.
-
-| `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
-
-## `AO_UART_BAUD_LOW_MIN`
-
-```c
-#define AO_UART_BAUD_LOW_MIN(f_pbclk)    \
+#define AO_UART_BAUD_MIN_LO(f_pbclk)     \
 (                                        \
     1 +                                  \
     (                                    \
@@ -399,16 +358,6 @@ Calculates the maximum possible baud rate in standard-speed mode, in bits per se
 )
 ```
 
-Calculates the minimum possible baud rate in standard-speed mode, in bits per second.
-
 | `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
 
-## `ao_uart_loopback_enable`
-## `ao_uart_loopback_disable`
-
-```c
-void ao_uart_loopback_enable (ao_uart_reg_t * r);
-void ao_uart_loopback_disable(ao_uart_reg_t * r);
-```
-
-Enables or disables, respectively, loopback mode for a module.
+Calculates the minimum possible baud rate in standard-speed mode, in bits per second.
