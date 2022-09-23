@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-23
 draft: false
 permalink: /api/src/ao_sys/
 toc: true
@@ -29,6 +29,7 @@ wide: false
 | [`ao_boot.h`](ao_boot.h.md) | Booting |
 | [`ao_bsem.h`](ao_bsem.h.md) | Binary semaphores |
 | [`ao_button.h`](ao_button.h.md) | Buttons |
+| [`ao_can.h`](ao_can.h.md) | CAN |
 | [`ao_cond.h`](ao_cond.h.md) | Conditions |
 | [`ao_core.h`](ao_core.h.md) | Processor cores |
 | [`ao_count.h`](ao_count.h.md) | Hardware counter |

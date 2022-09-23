@@ -43,7 +43,15 @@ The maximum and minimum value, respectively, of the `I2CxBRG.BRG` field.
 
 # Types
 
-## `ao_i2c_reg`
+## `ao_i2c_reg_t`
+
+```c
+typedef struct ao_i2c_reg_t ao_i2c_reg_t;
+```
+
+This type represents the control register set.
+
+## `ao_i2c_reg_*_t`
 
 ```c
 typedef struct ao_i2c_reg_add_t  ao_i2c_reg_add_t;
@@ -56,14 +64,6 @@ typedef struct ao_i2c_reg_trn_t  ao_i2c_reg_trn_t;
 ```
 
 These types represent individual control registers.
-
-## `ao_i2c_reg_t`
-
-```c
-typedef struct ao_i2c_reg_t ao_i2c_reg_t;
-```
-
-This type represents the control register set.
 
 # Structs
 

@@ -135,6 +135,7 @@
 /api/src/ao_sys/ao_boot.h/ : "The /src/ao_sys/ao_boot.h file of the ao real-time operating system."
 /api/src/ao_sys/ao_bsem.h/ : "The /src/ao_sys/ao_bsem.h file of the ao real-time operating system."
 /api/src/ao_sys/ao_button.h/ : "The /src/ao_sys/ao_button.h file of the ao real-time operating system."
+/api/src/ao_sys/ao_can.h/ : "The /src/ao_sys/ao_can.h file of the ao real-time operating system."
 /api/src/ao_sys/ao_cond.h/ : "The /src/ao_sys/ao_cond.h file of the ao real-time operating system."
 /api/src/ao_sys/ao_core.h/ : "The /src/ao_sys/ao_core.h file of the ao real-time operating system."
 /api/src/ao_sys/ao_count.h/ : "The /src/ao_sys/ao_count.h file of the ao real-time operating system."

@@ -128,6 +128,7 @@
 /api/src/ao_sys/ao_boot.h/ : true
 /api/src/ao_sys/ao_bsem.h/ : true
 /api/src/ao_sys/ao_button.h/ : true
+/api/src/ao_sys/ao_can.h/ : true
 /api/src/ao_sys/ao_cond.h/ : true
 /api/src/ao_sys/ao_core.h/ : true
 /api/src/ao_sys/ao_count.h/ : true

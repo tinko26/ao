@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-23
 draft: true
 permalink: /api/demos/ao_mikroe_2340/ao_can_1.h/
 toc: true

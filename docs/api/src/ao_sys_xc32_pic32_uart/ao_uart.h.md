@@ -80,6 +80,14 @@ typedef enum ao_uart_error_t ao_uart_error_t;
 
 This type represents the possible error conditions.
 
+## `ao_uart_reg_t`
+
+```c
+typedef struct ao_uart_reg_t ao_uart_reg_t;
+```
+
+This type represents the control register set.
+
 ## `ao_uart_reg_*_t`
 
 ```c
@@ -91,14 +99,6 @@ typedef struct ao_uart_reg_tx_t   ao_uart_reg_tx_t;
 ```
 
 These types represent individual control registers.
-
-## `ao_uart_reg_t`
-
-```c
-typedef struct ao_uart_reg_t ao_uart_reg_t;
-```
-
-This type represents the control register set.
 
 # Enums
 

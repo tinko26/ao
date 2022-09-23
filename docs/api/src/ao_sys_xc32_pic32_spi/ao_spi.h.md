@@ -49,7 +49,15 @@ Indicates whether the `SPIxCON.ENHBUF` field is available.
 
 # Types
 
-## `ao_spi_reg`
+## `ao_spi_reg_t`
+
+```c
+typedef struct ao_spi_reg_t ao_spi_reg_t;
+```
+
+This type represents the control register set.
+
+## `ao_spi_reg_*_t`
 
 ```c
 typedef struct ao_spi_reg_brg_t  ao_spi_reg_brg_t;
@@ -60,14 +68,6 @@ typedef struct ao_spi_reg_stat_t ao_spi_reg_stat_t;
 ```
 
 These types represent individual control registers.
-
-## `ao_spi_reg_t`
-
-```c
-typedef struct ao_spi_reg_t ao_spi_reg_t;
-```
-
-This type represents the control register set.
 
 # Structs
 

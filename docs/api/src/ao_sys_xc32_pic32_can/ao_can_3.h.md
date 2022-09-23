@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-20
+date: 2022-09-23
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_can/ao_can_3.h/
 toc: true
@@ -12,8 +12,10 @@ toc: true
 #include <ao_can.h>
 #include <ao_recv_obj.h>
 #include <ao_send_obj.h>
+#include <ao_sys.h>
 #include <ao_task.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include <xc.h>
 ```
 
@@ -25,13 +27,21 @@ toc: true
 
 # Configuration
 
+## `AO_CAN_3`
+
+```c
+#define AO_CAN_3 (false)
+```
+
+Defines whether to use the module.
+
 ## `AO_CAN_BAUD_3`
 
 ```c
 #define AO_CAN_BAUD_3 (100000)
 ```
 
-The baud rate, in bits per second.
+Defines the baud rate, in bits per second.
 
 ## `AO_CAN_BAUD_SAMPLE_3`
 
@@ -39,7 +49,7 @@ The baud rate, in bits per second.
 #define AO_CAN_BAUD_SAMPLE_3 (85)
 ```
 
-The sample point, in per cent.
+Defines the sample point, in per cent.
 
 ## `AO_CAN_BAUD_SAMPLE_THRICE_3`
 
@@ -55,7 +65,7 @@ Defines whether to sample the bus line three times at the sample point.
 #define AO_CAN_BAUD_SJW_3 (1)
 ```
 
-The synchronization jump width.
+Defines the synchronization jump width.
 
 ## `AO_CAN_BAUD_WAKE_UP_FILTER_3`
 
@@ -65,7 +75,7 @@ The synchronization jump width.
 
 Defines whether to enable the bus line filter for wake-up.
 
-## `AO_CAN_BUFFERS_3`
+## `AO_CAN_BUFFERS_3_*`
 
 ```c
 #define AO_CAN_BUFFERS_3_0  (0)
@@ -102,7 +112,7 @@ Defines whether to enable the bus line filter for wake-up.
 #define AO_CAN_BUFFERS_3_31 (0)
 ```
 
-The number of buffers in each FIFO.
+Defines the number of buffers in each FIFO.
 
 ## `AO_CAN_BUS_3`
 
@@ -120,9 +130,9 @@ Defines whether to notify the application of bus errors.
 #define AO_CAN_FIFOS_TX_3 (0)
 ```
 
-The number of receive and transmit FIFOs.
+Defines the number of receive and transmit FIFOs.
 
-## `AO_CAN_FILTER_EID_3`
+## `AO_CAN_FILTER_EID_3_*`
 
 ```c
 #define AO_CAN_FILTER_EID_3_0  (0)
@@ -159,9 +169,9 @@ The number of receive and transmit FIFOs.
 #define AO_CAN_FILTER_EID_3_31 (0)
 ```
 
-The EID for each filter.
+Defines the EID for each filter.
 
-## `AO_CAN_FILTER_ENABLE_3`
+## `AO_CAN_FILTER_ENABLE_3_*`
 
 ```c
 #define AO_CAN_FILTER_ENABLE_3_0  (0)
@@ -200,7 +210,7 @@ The EID for each filter.
 
 Defines the filters to enable.
 
-## `AO_CAN_FILTER_FIFO_3`
+## `AO_CAN_FILTER_FIFO_3_*`
 
 ```c
 #define AO_CAN_FILTER_FIFO_3_0  (0)
@@ -237,9 +247,9 @@ Defines the filters to enable.
 #define AO_CAN_FILTER_FIFO_3_31 (0)
 ```
 
-The FIFO for each filter.
+Defines the FIFO for each filter.
 
-## `AO_CAN_FILTER_IDE_3`
+## `AO_CAN_FILTER_IDE_3_*`
 
 ```c
 #define AO_CAN_FILTER_IDE_3_0  (0)
@@ -276,9 +286,9 @@ The FIFO for each filter.
 #define AO_CAN_FILTER_IDE_3_31 (0)
 ```
 
-The IDE for each filter.
+Defines the IDE for each filter.
 
-## `AO_CAN_FILTER_MASK_3`
+## `AO_CAN_FILTER_MASK_3_*`
 
 ```c
 #define AO_CAN_FILTER_MASK_3_0  (0)
@@ -315,9 +325,9 @@ The IDE for each filter.
 #define AO_CAN_FILTER_MASK_3_31 (0)
 ```
 
-The filter mask for each filter.
+Defines the filter mask for each filter.
 
-## `AO_CAN_FILTER_MASK_EID_3`
+## `AO_CAN_FILTER_MASK_EID_3_*`
 
 ```c
 #define AO_CAN_FILTER_MASK_EID_3_0 (0)
@@ -326,9 +336,9 @@ The filter mask for each filter.
 #define AO_CAN_FILTER_MASK_EID_3_3 (0)
 ```
 
-The EID for each filter mask.
+Defines the EID for each filter mask.
 
-## `AO_CAN_FILTER_MASK_IDE_3`
+## `AO_CAN_FILTER_MASK_IDE_3_*`
 
 ```c
 #define AO_CAN_FILTER_MASK_IDE_3_0 (0)
@@ -337,9 +347,9 @@ The EID for each filter mask.
 #define AO_CAN_FILTER_MASK_IDE_3_3 (0)
 ```
 
-The IDE for each filter mask.
+Defines the IDE for each filter mask.
 
-## `AO_CAN_FILTER_MASK_SID_3`
+## `AO_CAN_FILTER_MASK_SID_3_*`
 
 ```c
 #define AO_CAN_FILTER_MASK_SID_3_0 (0)
@@ -348,9 +358,9 @@ The IDE for each filter mask.
 #define AO_CAN_FILTER_MASK_SID_3_3 (0)
 ```
 
-The SID for each filter mask.
+Defines the SID for each filter mask.
 
-## `AO_CAN_FILTER_SID_3`
+## `AO_CAN_FILTER_SID_3_*`
 
 ```c
 #define AO_CAN_FILTER_SID_3_0  (0)
@@ -387,7 +397,7 @@ The SID for each filter mask.
 #define AO_CAN_FILTER_SID_3_31 (0)
 ```
 
-The SID for each filter.
+Defines the SID for each filter.
 
 ## `AO_CAN_INVALID_3`
 
@@ -395,7 +405,7 @@ The SID for each filter.
 #define AO_CAN_INVALID_3 (false)
 ```
 
-Defines whether to notify the application of the reception of invalid messages.
+Defines whether to notify the application of the reception or transmission of invalid messages.
 
 ## `AO_CAN_MODE_3`
 
@@ -435,7 +445,7 @@ Defines whether to notify the application of system errors.
 #define AO_CAN_TIMER_3 (false)
 ```
 
-Defines whether to notify the application of timer matches.
+Defines whether to notify the application of timestamp timer overflows.
 
 ## `AO_CAN_UNDERFLOW_3`
 
@@ -454,14 +464,6 @@ Defines whether to notify the application of transmit buffer underflows.
 Defines whether to notify the application of wake-up events.
 
 # Constants
-
-## `AO_CAN_3`
-
-```c
-#define AO_CAN_3 (false)
-```
-
-Indicates whether the CAN module is available.
 
 ## `AO_CAN_BAUD_MAX_3`
 ## `AO_CAN_BAUD_MIN_3`
@@ -558,58 +560,18 @@ Indicates whether the module is configured to transmit.
 ## `ao_can_bus_3`
 
 ```c
-void ao_can_bus_3(ao_can_bus_info_t const * info);
+void ao_can_bus_3(ao_can_bus_t const * x);
 ```
 
-Notifies the application of bus errors.
-
-## `ao_can_config_3`
-
-```c
-void ao_can_config_3();
-```
-
-Configurates the module. This function is attributed as weak. Hence, the application can provide another implementation.
-
-## `ao_can_config_baud_3`
-
-```c
-void ao_can_config_baud_3();
-```
-
-Configurates the baud rate. This function is attributed as weak. Hence, the application can provide another implementation.
-
-## `ao_can_config_fifos_3`
-
-```c
-void ao_can_config_fifos_3();
-```
-
-Configurates the FIFOs. This function is attributed as weak. Hence, the application can provide another implementation.
-
-## `ao_can_config_filter_masks_3`
-
-```c
-void ao_can_config_filter_masks_3();
-```
-
-Configurates the filter masks. This function is attributed as weak. Hence, the application can provide another implementation.
-
-## `ao_can_config_filters_3`
-
-```c
-void ao_can_config_filters_3();
-```
-
-Configurates the filters. This function is attributed as weak. Hence, the application can provide another implementation.
+Notifies the application of bus errors. This function is called every time there is a change in the current error state of the CAN module with respect to the CAN network. The error states are tracked by the C3TREC register.
 
 ## `ao_can_invalid_3`
 
 ```c
-void ao_can_invalid_3(ao_can_invalid_info_t const * info);
+void ao_can_invalid_3();
 ```
 
-Notifies the application, that an invalid message has been received.
+Notifies the application, that an invalid message has been received or transmitted. However, the specific error is not available to the user application.
 
 ## `ao_can_listen_all_3`
 
@@ -638,7 +600,7 @@ Sets the operation mode to loopback.
 ## `ao_can_mode_3`
 
 ```c
-void ao_can_mode_3(ao_can_mode_info_t const * info);
+void ao_can_mode_3();
 ```
 
 Notifies the application of a mode change.
@@ -654,17 +616,22 @@ Sets the operation mode to normal.
 ## `ao_can_overflow_3`
 
 ```c
-void ao_can_overflow_3(ao_can_overflow_info_t const * info);
+void ao_can_overflow_3(uint32_t fifos);
 ```
 
-Notifies the application of a receive buffer overflow.
+| 'fifos' | The bitmask indicating the affected FIFOs. |
+
+Notifies the application of a receive buffer overflow. This function is called, when a message has been received, but the designated fifo is full.
 
 ## `ao_can_reg_3`
 
 ```c
-#define ao_can_reg_3()                    \
-(                                         \
-    (ao_can_reg_t *) (_CAN3_BASE_ADDRESS) \
+#define ao_can_reg_3()     \
+(                          \
+    (ao_can_reg_t *)       \
+    (                      \
+        _CAN3_BASE_ADDRESS \
+    )                      \
 )
 ```
 
@@ -673,68 +640,63 @@ Gets the control registers.
 ## `ao_can_sent_3`
 
 ```c
-void ao_can_sent_3(ao_can_sent_info_t const * info);
+void ao_can_sent_3(uint32_t fifos);
 ```
 
-Notifies the application, that a message has been sent.
+| 'fifos' | The bitmask indicating the affected FIFOs. |
+
+Notifies the application, that messages have been sent. This function is called, when all messages in a FIFO have been sent.
 
 ## `ao_can_start_3`
-
-```c
-void ao_can_start_3();
-```
-
-Starts the driver.
-
 ## `ao_can_stop_3`
 
 ```c
+void ao_can_start_3();
 void ao_can_stop_3();
 ```
 
-Stops the driver.
+Starts or stops the driver, respectively.
 
 ## `ao_can_system_3`
 
 ```c
-void ao_can_system_3(ao_can_system_info_t const * info);
+void ao_can_system_3(ao_can_system_t x);
 ```
 
-Notifies the application of a system error.
+Notifies the application of a system error. This function is called due to two types of errors, addressing errors and bandwidth errors. Both of these errors are fatal. After the event was raised, the CAN module will be stopped and started over again.
+
+An addressing error will occur, if the CAN module attempts to access a restricted memory location. Most likely, this results from
+
+- an invalid FIFO base address, or
+- an invalid configuration of the FIFO sizes in the C3FIFOCONi registers.
+
+A bandwidth error will occur, when the CAN module is unable to write a received message to memory before the next message arrives. Most likely, this results from the CAN interrupt being delayed for a too long period of time.
 
 ## `ao_can_timer_3`
 
 ```c
-void ao_can_timer_3(ao_can_timer_info_t const * info);
+void ao_can_timer_3();
 ```
 
-Notifies the application of a timer match.
+Notifies the application of a timestamp timer overflow.
 
 ## `ao_can_underflow_3`
 
 ```c
-void ao_can_underflow_3(ao_can_underflow_info_t const * info);
+void ao_can_underflow_3(uint32_t fifos);
 ```
 
-Notifies the application of a transmit buffer underflow.
+Notifies the application of a transmit buffer underflow. This function is called, when a remote transmission request (RTR) has been received, but the designated FIFO to respond automatically is empty.
 
 ## `ao_can_wake_up_3`
 
 ```c
-void ao_can_wake_up_3(ao_can_wake_up_info_t const * info);
+void ao_can_wake_up_3();
 ```
 
-Notifies the application of a wake-up event.
+Notifies the application of a wake-up event. This function is called, when activity is detected on the CAN bus while the CAN module is in sleep mode.
 
 # Variables
-
-## `ao_can_buffers_3`
-
-```c
-extern ao_can_t ao_can_buffers_3 [AO_CAN_BUFFERS_3];
-```
-
-The buffers.
 
 ## `ao_can_in_3`
 
@@ -742,7 +704,7 @@ The buffers.
 extern ao_send_obj_t ao_can_in_3 [AO_CAN_FIFOS_RX_3];
 ```
 
-The objects used by the driver to send inbound messages to the application.
+The objects used to send inbound messages to the application.
 
 ## `ao_can_out_3`
 
@@ -750,7 +712,7 @@ The objects used by the driver to send inbound messages to the application.
 extern ao_recv_obj_t ao_can_out_3 [AO_CAN_FIFOS_TX_3];
 ```
 
-The objects used by the driver to receive outbound messages from the application.
+The objects used to receive outbound messages from the application.
 
 ## `ao_can_task_3`
 
@@ -758,4 +720,4 @@ The objects used by the driver to receive outbound messages from the application
 extern ao_task_t ao_can_task_3;
 ```
 
-The task run by the driver.
+The task.

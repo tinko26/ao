@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-20
+date: 2022-09-23
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_can/ao_can.h/
 toc: true
@@ -9,33 +9,18 @@ toc: true
 # Include
 
 ```c
-#include <stdbool.h>
 #include <stdint.h>
-```
-
-# Identifier
-
-```c
-#define AO_CAN
 ```
 
 # Types
 
-## `ao_can_t`
+## `ao_can_bus_t`
 
 ```c
-typedef struct ao_can_t ao_can_t;
+typedef struct ao_can_bus_t ao_can_bus_t;
 ```
 
-This type represents a message.
-
-## `ao_can_baud_t`
-
-```c
-typedef struct ao_can_baud_t ao_can_baud_t;
-```
-
-This type represents the parameters for setting up the baud rate.
+This type represents the data provided to the application, when being notified of bus errors.
 
 ## `ao_can_bus_state_t`
 
@@ -45,57 +30,33 @@ typedef enum ao_can_bus_state_t ao_can_bus_state_t;
 
 This type specifies the possible bus states.
 
-## `ao_can_bus_info_t`
+## `ao_can_msg_t`
 
 ```c
-typedef struct ao_can_bus_info_t ao_can_bus_info_t;
+typedef struct ao_can_msg_t ao_can_msg_t;
 ```
 
-This type represents the information provided to the application, when being notified of bus errors.
+This type represents a message.
 
-## `ao_can_fifo_flags_t`
+## `ao_can_reg_t`
 
 ```c
-typedef enum ao_can_fifo_flags_t ao_can_fifo_flags_t;
+typedef struct ao_can_reg_t ao_can_reg_t;
 ```
 
-This type enumerates the all the FIFOs in terms of a bitmask.
+This type represents the control register set.
 
-## `ao_can_invalid_info_t`
-
-```c
-typedef struct ao_can_invalid_info_t ao_can_invalid_info_t;
-```
-
-This type represents the information provided to the application, when being notified of the reception of an invalid message.
-
-## `ao_can_mode_info_t`
-
-```c
-typedef struct ao_can_mode_info_t ao_can_mode_info_t;
-```
-
-This type represents the information provided to the application, when being notified of a mode change.
-
-## `ao_can_overflow_info_t`
-
-```c
-typedef struct ao_can_overflow_info_t ao_can_overflow_info_t;
-```
-
-This type represents the information provided to the application, when being notified of a receive buffer overflow.
-
-## `ao_can_reg`
+## `ao_can_reg_*_t`
 
 ```c
 typedef struct ao_can_reg_cfg_t     ao_can_reg_cfg_t;
 typedef struct ao_can_reg_con_t     ao_can_reg_con_t;
+typedef struct ao_can_reg_fifo_t    ao_can_reg_fifo_t;
 typedef struct ao_can_reg_fifoba_t  ao_can_reg_fifoba_t;
 typedef struct ao_can_reg_fifoci_t  ao_can_reg_fifoci_t;
 typedef struct ao_can_reg_fifocon_t ao_can_reg_fifocon_t;
 typedef struct ao_can_reg_fifoint_t ao_can_reg_fifoint_t;
 typedef struct ao_can_reg_fifoua_t  ao_can_reg_fifoua_t;
-typedef struct ao_can_reg_fifo_t    ao_can_reg_fifo_t;
 typedef struct ao_can_reg_fltcon_t  ao_can_reg_fltcon_t;
 typedef struct ao_can_reg_fltcon0_t ao_can_reg_fltcon0_t;
 typedef struct ao_can_reg_fltcon1_t ao_can_reg_fltcon1_t;
@@ -117,61 +78,13 @@ typedef struct ao_can_reg_vec_t     ao_can_reg_vec_t;
 
 These types represent individual control registers.
 
-## `ao_can_reg_t`
+## `ao_can_system_t`
 
 ```c
-typedef struct ao_can_reg_t ao_can_reg_t;
+typedef enum ao_can_system_t ao_can_system_t;
 ```
 
-This type represents the control register set.
-
-## `ao_can_sent_info_t`
-
-```c
-typedef struct ao_can_sent_info_t ao_can_sent_info_t;
-```
-
-This type represents the information provided to the application, when being notified, that a message has been sent.
-
-## `ao_can_system_flags_t`
-
-```c
-typedef enum ao_can_system_flags_t ao_can_system_flags_t;
-```
-
-This type represents possible system error conditions.
-
-## `ao_can_system_info_t`
-
-```c
-typedef struct ao_can_system_info_t ao_can_system_info_t;
-```
-
-This type represents the information provided to the application, when being notified of a system error.
-
-## `ao_can_timer_info_t`
-
-```c
-typedef struct ao_can_timer_info_t ao_can_timer_info_t;
-```
-
-This type represents the information provided to the application, when being notified of a timer match.
-
-## `ao_can_underflow_info_t`
-
-```c
-typedef struct ao_can_underflow_info_t ao_can_underflow_info_t;
-```
-
-This type represents the information provided to the application, when being notified of a transmit buffer underflow.
-
-## `ao_can_wake_up_info_t`
-
-```c
-typedef struct ao_can_wake_up_info_t ao_can_wake_up_info_t;
-```
-
-This type represents the information provided to the application, when being notified of a wake-up event.
+This type represents possible system errors.
 
 # Enums
 
@@ -187,68 +100,39 @@ enum ao_can_bus_state_t
 };
 ```
 
-## `ao_can_fifo_flags_t`
+## `ao_can_system_t`
 
 ```c
-enum ao_can_fifo_flags_t
+enum ao_can_system_t
 {
-    AO_CAN_FIFO_FLAGS_NONE = (0      ),
-    AO_CAN_FIFO_FLAGS_0    = (1 <<  0),
-    AO_CAN_FIFO_FLAGS_1    = (1 <<  1),
-    AO_CAN_FIFO_FLAGS_2    = (1 <<  2),
-    AO_CAN_FIFO_FLAGS_3    = (1 <<  3),
-    AO_CAN_FIFO_FLAGS_4    = (1 <<  4),
-    AO_CAN_FIFO_FLAGS_5    = (1 <<  5),
-    AO_CAN_FIFO_FLAGS_6    = (1 <<  6),
-    AO_CAN_FIFO_FLAGS_7    = (1 <<  7),
-    AO_CAN_FIFO_FLAGS_8    = (1 <<  8),
-    AO_CAN_FIFO_FLAGS_9    = (1 <<  9),
-    AO_CAN_FIFO_FLAGS_10   = (1 << 10),
-    AO_CAN_FIFO_FLAGS_11   = (1 << 11),
-    AO_CAN_FIFO_FLAGS_12   = (1 << 12),
-    AO_CAN_FIFO_FLAGS_13   = (1 << 13),
-    AO_CAN_FIFO_FLAGS_14   = (1 << 14),
-    AO_CAN_FIFO_FLAGS_15   = (1 << 15),
-    AO_CAN_FIFO_FLAGS_16   = (1 << 16),
-    AO_CAN_FIFO_FLAGS_17   = (1 << 17),
-    AO_CAN_FIFO_FLAGS_18   = (1 << 18),
-    AO_CAN_FIFO_FLAGS_19   = (1 << 19),
-    AO_CAN_FIFO_FLAGS_20   = (1 << 20),
-    AO_CAN_FIFO_FLAGS_21   = (1 << 21),
-    AO_CAN_FIFO_FLAGS_22   = (1 << 22),
-    AO_CAN_FIFO_FLAGS_23   = (1 << 23),
-    AO_CAN_FIFO_FLAGS_24   = (1 << 24),
-    AO_CAN_FIFO_FLAGS_25   = (1 << 25),
-    AO_CAN_FIFO_FLAGS_26   = (1 << 26),
-    AO_CAN_FIFO_FLAGS_27   = (1 << 27),
-    AO_CAN_FIFO_FLAGS_28   = (1 << 28),
-    AO_CAN_FIFO_FLAGS_29   = (1 << 29),
-    AO_CAN_FIFO_FLAGS_30   = (1 << 30),
-    AO_CAN_FIFO_FLAGS_31   = (1 << 31),
-    AO_CAN_FIFO_FLAGS_ALL  = (1 << 32) - 1
-};
-```
-
-## `ao_can_system_flags_t`
-
-```c
-enum ao_can_system_flags_t
-{
-    AO_CAN_SYSTEM_NONE       = 0,
     AO_CAN_SYSTEM_ADDRESSING = 0b1000100,
-    AO_CAN_SYSTEM_BANDWIDTH  = 0b1000101,
-    AC_CAN_SYSTEM_ALL        =
-        AO_CAN_SYSTEM_ADDRESSING |
-        AO_CAN_SYSTEM_BANDWIDTH
+    AO_CAN_SYSTEM_BANDWIDTH  = 0b1000101
 };
 ```
 
 # Structs
 
-## `ao_can_t`
+## `ao_can_bus_t`
 
 ```c
-struct ao_can_t
+struct ao_can_bus_t
+{
+    uint32_t           receive_error_counter;
+    ao_can_bus_state_t receive_error_state;
+    uint32_t           transmit_error_counter;
+    ao_can_bus_state_t transmit_error_state;
+};
+```
+
+| `receive_error_counter` | The receive error counter. |
+| `receive_error_state` | The receive error state. |
+| `transmit_error_counter` | The transmit error counter. |
+| `transmit_error_state` | The transmit error state. |
+
+## `ao_can_msg_t`
+
+```c
+struct ao_can_msg_t
 {
     union
     {
@@ -319,94 +203,126 @@ struct ao_can_t
 };
 ```
 
-## `ao_can_baud_t`
+## `ao_can_reg_t`
 
 ```c
-struct ao_can_baud_t
+struct ao_can_reg_t
 {
-    uint32_t brp;
-    uint32_t cfg;
-    uint32_t f;
-    uint32_t f_error;
-    uint32_t f_pbclk;
-    uint32_t f_real;
-    uint32_t n;
-    uint32_t n1;
-    uint32_t n2;
-    uint32_t np;
-    bool     result;
-    double   sample;
-    double   sample_error;
-    double   sample_real;
-    bool     sample_thrice;
-    bool     sample_thrice_real;
-    uint32_t sjw;
-    bool     wake_up_filter;
+    ao_can_reg_con_t             con;
+    ao_can_reg_cfg_t             cfg;
+    ao_can_reg_int_t             intx;
+    ao_can_reg_vec_t             vec;
+    ao_can_reg_trec_t            trec;
+    ao_can_reg_fstat_t           fstat;
+    ao_can_reg_rxovf_t           rxovf;
+    ao_can_reg_tmr_t             tmr;
+    union
+    {
+        struct
+        {
+            ao_can_reg_rxm_t     rxm0;
+            ao_can_reg_rxm_t     rxm1;
+            ao_can_reg_rxm_t     rxm2;
+            ao_can_reg_rxm_t     rxm3;
+        };
+        ao_can_reg_rxm_t         rxm[4];
+    };
+    union
+    {
+        struct
+        {
+            ao_can_reg_fltcon0_t fltcon0;
+            ao_can_reg_fltcon1_t fltcon1;
+            ao_can_reg_fltcon2_t fltcon2;
+            ao_can_reg_fltcon3_t fltcon3;
+            ao_can_reg_fltcon4_t fltcon4;
+            ao_can_reg_fltcon5_t fltcon5;
+            ao_can_reg_fltcon6_t fltcon6;
+            ao_can_reg_fltcon7_t fltcon7;
+        };
+        ao_can_reg_fltcon_t      fltcon[8];
+    };
+    union
+    {
+        struct
+        {
+            ao_can_reg_rxf_t     rxf0;
+            ao_can_reg_rxf_t     rxf1;
+            ao_can_reg_rxf_t     rxf2;
+            ao_can_reg_rxf_t     rxf3;
+            ao_can_reg_rxf_t     rxf4;
+            ao_can_reg_rxf_t     rxf5;
+            ao_can_reg_rxf_t     rxf6;
+            ao_can_reg_rxf_t     rxf7;
+            ao_can_reg_rxf_t     rxf8;
+            ao_can_reg_rxf_t     rxf9;
+            ao_can_reg_rxf_t     rxf10;
+            ao_can_reg_rxf_t     rxf11;
+            ao_can_reg_rxf_t     rxf12;
+            ao_can_reg_rxf_t     rxf13;
+            ao_can_reg_rxf_t     rxf14;
+            ao_can_reg_rxf_t     rxf15;
+            ao_can_reg_rxf_t     rxf16;
+            ao_can_reg_rxf_t     rxf17;
+            ao_can_reg_rxf_t     rxf18;
+            ao_can_reg_rxf_t     rxf19;
+            ao_can_reg_rxf_t     rxf20;
+            ao_can_reg_rxf_t     rxf21;
+            ao_can_reg_rxf_t     rxf22;
+            ao_can_reg_rxf_t     rxf23;
+            ao_can_reg_rxf_t     rxf24;
+            ao_can_reg_rxf_t     rxf25;
+            ao_can_reg_rxf_t     rxf26;
+            ao_can_reg_rxf_t     rxf27;
+            ao_can_reg_rxf_t     rxf28;
+            ao_can_reg_rxf_t     rxf29;
+            ao_can_reg_rxf_t     rxf30;
+            ao_can_reg_rxf_t     rxf31;
+        };
+        ao_can_reg_rxf_t         rxf[32];
+    };
+    ao_can_reg_fifoba_t          fifoba;
+    union
+    {
+        struct
+        {
+            ao_can_reg_fifo_t    fifo0;
+            ao_can_reg_fifo_t    fifo1;
+            ao_can_reg_fifo_t    fifo2;
+            ao_can_reg_fifo_t    fifo3;
+            ao_can_reg_fifo_t    fifo4;
+            ao_can_reg_fifo_t    fifo5;
+            ao_can_reg_fifo_t    fifo6;
+            ao_can_reg_fifo_t    fifo7;
+            ao_can_reg_fifo_t    fifo8;
+            ao_can_reg_fifo_t    fifo9;
+            ao_can_reg_fifo_t    fifo10;
+            ao_can_reg_fifo_t    fifo11;
+            ao_can_reg_fifo_t    fifo12;
+            ao_can_reg_fifo_t    fifo13;
+            ao_can_reg_fifo_t    fifo14;
+            ao_can_reg_fifo_t    fifo15;
+            ao_can_reg_fifo_t    fifo16;
+            ao_can_reg_fifo_t    fifo17;
+            ao_can_reg_fifo_t    fifo18;
+            ao_can_reg_fifo_t    fifo19;
+            ao_can_reg_fifo_t    fifo20;
+            ao_can_reg_fifo_t    fifo21;
+            ao_can_reg_fifo_t    fifo22;
+            ao_can_reg_fifo_t    fifo23;
+            ao_can_reg_fifo_t    fifo24;
+            ao_can_reg_fifo_t    fifo25;
+            ao_can_reg_fifo_t    fifo26;
+            ao_can_reg_fifo_t    fifo27;
+            ao_can_reg_fifo_t    fifo28;
+            ao_can_reg_fifo_t    fifo29;
+            ao_can_reg_fifo_t    fifo30;
+            ao_can_reg_fifo_t    fifo31;
+        };
+        ao_can_reg_fifo_t        fifo[32];
+    };
 };
 ```
-
-| `brp` | |
-| `cfg` | |
-| `f` | |
-| `f_error` | |
-| `f_pbclk` | |
-| `f_real` | |
-| `n` | |
-| `n1` | |
-| `n2` | |
-| `np` | |
-| `result` | |
-| `sample` | |
-| `sample_error` | |
-| `sample_real` | |
-| `sample_thrice` | |
-| `sample_thrice_real` | |
-| `sjw` | |
-| `wake_up_filter` | |
-
-## `ao_can_bus_info_t`
-
-```c
-struct ao_can_bus_info_t
-{
-    uint32_t           receive_error_counter;
-    ao_can_bus_state_t receive_error_state;
-    uint32_t           transmit_error_counter;
-    ao_can_bus_state_t transmit_error_state;
-};
-```
-
-| `receive_error_counter` | The receive error counter. |
-| `receive_error_state` | The receive error state. |
-| `transmit_error_counter` | The transmit error counter. |
-| `transmit_error_state` | The transmit error state. |
-
-## `ao_can_invalid_info_t`
-
-```c
-struct ao_can_invalid_info_t { };
-```
-
-## `ao_can_mode_info_t`
-
-```c
-struct ao_can_mode_info_t { };
-```
-
-## `ao_can_overflow_info_t`
-
-```c
-struct ao_can_overflow_info_t
-{
-    ao_can_fifo_flags_t fifos;
-    ao_can_fifo_flags_t fifos_rx;
-};
-```
-
-It consists of the following members.
-
-| `fifos` | The FIFOs that have overflown. |
-| `fifos_rx` | The receive FIFOs that have overflown. |
 
 ## `ao_can_reg_cfg_t`
 
@@ -1107,191 +1023,7 @@ struct ao_can_reg_vec_t
 };
 ```
 
-## `ao_can_reg_t`
-
-```c
-struct ao_can_reg_t
-{
-    ao_can_reg_con_t             con;
-    ao_can_reg_cfg_t             cfg;
-    ao_can_reg_int_t             intx;
-    ao_can_reg_vec_t             vec;
-    ao_can_reg_trec_t            trec;
-    ao_can_reg_fstat_t           fstat;
-    ao_can_reg_rxovf_t           rxovf;
-    ao_can_reg_tmr_t             tmr;
-    union
-    {
-        struct
-        {
-            ao_can_reg_rxm_t     rxm0;
-            ao_can_reg_rxm_t     rxm1;
-            ao_can_reg_rxm_t     rxm2;
-            ao_can_reg_rxm_t     rxm3;
-        };
-        ao_can_reg_rxm_t         rxm[4];
-    };
-    union
-    {
-        struct
-        {
-            ao_can_reg_fltcon0_t fltcon0;
-            ao_can_reg_fltcon1_t fltcon1;
-            ao_can_reg_fltcon2_t fltcon2;
-            ao_can_reg_fltcon3_t fltcon3;
-            ao_can_reg_fltcon4_t fltcon4;
-            ao_can_reg_fltcon5_t fltcon5;
-            ao_can_reg_fltcon6_t fltcon6;
-            ao_can_reg_fltcon7_t fltcon7;
-        };
-        ao_can_reg_fltcon_t      fltcon[8];
-    };
-    union
-    {
-        struct
-        {
-            ao_can_reg_rxf_t     rxf0;
-            ao_can_reg_rxf_t     rxf1;
-            ao_can_reg_rxf_t     rxf2;
-            ao_can_reg_rxf_t     rxf3;
-            ao_can_reg_rxf_t     rxf4;
-            ao_can_reg_rxf_t     rxf5;
-            ao_can_reg_rxf_t     rxf6;
-            ao_can_reg_rxf_t     rxf7;
-            ao_can_reg_rxf_t     rxf8;
-            ao_can_reg_rxf_t     rxf9;
-            ao_can_reg_rxf_t     rxf10;
-            ao_can_reg_rxf_t     rxf11;
-            ao_can_reg_rxf_t     rxf12;
-            ao_can_reg_rxf_t     rxf13;
-            ao_can_reg_rxf_t     rxf14;
-            ao_can_reg_rxf_t     rxf15;
-            ao_can_reg_rxf_t     rxf16;
-            ao_can_reg_rxf_t     rxf17;
-            ao_can_reg_rxf_t     rxf18;
-            ao_can_reg_rxf_t     rxf19;
-            ao_can_reg_rxf_t     rxf20;
-            ao_can_reg_rxf_t     rxf21;
-            ao_can_reg_rxf_t     rxf22;
-            ao_can_reg_rxf_t     rxf23;
-            ao_can_reg_rxf_t     rxf24;
-            ao_can_reg_rxf_t     rxf25;
-            ao_can_reg_rxf_t     rxf26;
-            ao_can_reg_rxf_t     rxf27;
-            ao_can_reg_rxf_t     rxf28;
-            ao_can_reg_rxf_t     rxf29;
-            ao_can_reg_rxf_t     rxf30;
-            ao_can_reg_rxf_t     rxf31;
-        };
-        ao_can_reg_rxf_t         rxf[32];
-    };
-    ao_can_reg_fifoba_t          fifoba;
-    union
-    {
-        struct
-        {
-            ao_can_reg_fifo_t    fifo0;
-            ao_can_reg_fifo_t    fifo1;
-            ao_can_reg_fifo_t    fifo2;
-            ao_can_reg_fifo_t    fifo3;
-            ao_can_reg_fifo_t    fifo4;
-            ao_can_reg_fifo_t    fifo5;
-            ao_can_reg_fifo_t    fifo6;
-            ao_can_reg_fifo_t    fifo7;
-            ao_can_reg_fifo_t    fifo8;
-            ao_can_reg_fifo_t    fifo9;
-            ao_can_reg_fifo_t    fifo10;
-            ao_can_reg_fifo_t    fifo11;
-            ao_can_reg_fifo_t    fifo12;
-            ao_can_reg_fifo_t    fifo13;
-            ao_can_reg_fifo_t    fifo14;
-            ao_can_reg_fifo_t    fifo15;
-            ao_can_reg_fifo_t    fifo16;
-            ao_can_reg_fifo_t    fifo17;
-            ao_can_reg_fifo_t    fifo18;
-            ao_can_reg_fifo_t    fifo19;
-            ao_can_reg_fifo_t    fifo20;
-            ao_can_reg_fifo_t    fifo21;
-            ao_can_reg_fifo_t    fifo22;
-            ao_can_reg_fifo_t    fifo23;
-            ao_can_reg_fifo_t    fifo24;
-            ao_can_reg_fifo_t    fifo25;
-            ao_can_reg_fifo_t    fifo26;
-            ao_can_reg_fifo_t    fifo27;
-            ao_can_reg_fifo_t    fifo28;
-            ao_can_reg_fifo_t    fifo29;
-            ao_can_reg_fifo_t    fifo30;
-            ao_can_reg_fifo_t    fifo31;
-        };
-        ao_can_reg_fifo_t        fifo[32];
-    };
-};
-```
-
-## `ao_can_sent_info_t`
-
-```c
-struct ao_can_sent_info_t
-{
-    uint32_t fifo;
-    uint32_t fifo_tx;
-};
-```
-
-It consists of the following members.
-
-| `fifo` | The FIFO from which a message has been sent. |
-| `fifo_tx` | The transmit FIFO from which a message has been sent. |
-
-## `ao_can_system_info_t`
-
-```c
-struct ao_can_system_info_t
-{
-    ao_can_system_flags_t flags;
-};
-```
-
-It consists of the following members.
-
-| `flags` | The flags. |
-
-## `ao_can_timer_info_t`
-
-```c
-struct ao_can_timer_info_t { };
-```
-
-## `ao_can_underflow_info_t`
-
-```c
-struct ao_can_underflow_info_t
-{
-    ao_can_fifo_flags_t fifos;
-    ao_can_fifo_flags_t fifos_tx;
-};
-```
-
-It consists of the following members.
-
-| `fifos` | The FIFOs that have underflown. |
-| `fifos_tx` | The transmit FIFOs that have underflown. |
-
-## `ao_can_wake_up_info_t`
-
-```c
-struct ao_can_wake_up_info_t { };
-```
-
 # Functions
-
-## `ao_can_baud`
-
-```c
-void ao_can_baud(ao_can_baud_t * x);
-```
-
-Sets up the baud rate.
 
 ## `AO_CAN_BAUD_MAX`
 
@@ -1302,9 +1034,9 @@ Sets up the baud rate.
 )
 ```
 
-Calculates the maximum possible baud rate, in bits per second.
-
 | `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
+
+Calculates the maximum possible baud rate, in bits per second.
 
 ## `AO_CAN_BAUD_MIN`
 
@@ -1315,6 +1047,12 @@ Calculates the maximum possible baud rate, in bits per second.
 )
 ```
 
+| `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
+
 Calculates the minimum possible baud rate, in bits per second.
 
-| `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
+# Include Next
+
+```c
+#include_next <ao_can.h>
+```
