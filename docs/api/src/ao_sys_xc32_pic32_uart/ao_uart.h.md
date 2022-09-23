@@ -80,7 +80,7 @@ typedef enum ao_uart_error_t ao_uart_error_t;
 
 This type represents the possible error conditions.
 
-## `ao_uart_reg`
+## `ao_uart_reg_*_t`
 
 ```c
 typedef struct ao_uart_reg_brg_t  ao_uart_reg_brg_t;

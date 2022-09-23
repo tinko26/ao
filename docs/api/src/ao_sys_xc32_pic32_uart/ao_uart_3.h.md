@@ -48,8 +48,6 @@ Defines the baud rate, in bits per second.
 #define AO_UART_DATA_BITS_PARITY_3 (AO_UART_DATA_BITS_8_PARITY_NONE)
 ```
 
-| Options                           |                          |
-|-----------------------------------|--------------------------|
 | `AO_UART_DATA_BITS_8_PARITY_NONE` | 8-bit data, no parity.   |
 | `AO_UART_DATA_BITS_8_PARITY_EVEN` | 8-bit data, even parity. |
 | `AO_UART_DATA_BITS_8_PARITY_ODD`  | 8-bit data, odd parity.  |
@@ -87,8 +85,6 @@ Defines whether to receive data.
 #define AO_UART_STOP_BITS_3 (AO_UART_STOP_BITS_ONE)
 ```
 
-| Options                 |              |
-|-------------------------|--------------|
 | `AO_UART_STOP_BITS_ONE` | 1 stop bit.  |
 | `AO_UART_STOP_BITS_TWO` | 2 stop bits. |
 
