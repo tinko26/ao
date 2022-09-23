@@ -619,7 +619,7 @@ Sets the operation mode to normal.
 void ao_can_overflow_2(uint32_t fifos);
 ```
 
-| 'fifos' | The bitmask indicating the affected FIFOs. |
+| `fifos` | The bitmask indicating the affected FIFOs. |
 
 Notifies the application of a receive buffer overflow. This function is called, when a message has been received, but the designated fifo is full.
 
@@ -643,7 +643,7 @@ Gets the control registers.
 void ao_can_sent_2(uint32_t fifos);
 ```
 
-| 'fifos' | The bitmask indicating the affected FIFOs. |
+| `fifos` | The bitmask indicating the affected FIFOs. |
 
 Notifies the application, that messages have been sent. This function is called, when all messages in a FIFO have been sent.
 
@@ -685,6 +685,8 @@ Notifies the application of a timestamp timer overflow.
 ```c
 void ao_can_underflow_2(uint32_t fifos);
 ```
+
+| `fifos` | The bitmask indicating the affected FIFOs. |
 
 Notifies the application of a transmit buffer underflow. This function is called, when a remote transmission request (RTR) has been received, but the designated FIFO to respond automatically is empty.
 
