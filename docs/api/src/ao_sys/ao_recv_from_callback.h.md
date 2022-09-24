@@ -3,8 +3,6 @@ author: "Stefan Wagner"
 date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_recv_from_callback.h/
-seealso:
-- /api/src/ao_sys/ao_recv.h/
 toc: true
 ---
 

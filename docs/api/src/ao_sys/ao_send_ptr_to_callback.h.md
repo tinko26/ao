@@ -3,8 +3,6 @@ author: "Stefan Wagner"
 date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_send_ptr_to_callback.h/
-seealso:
-- /api/src/ao_sys/ao_send_ptr.h/
 toc: true
 ---
 

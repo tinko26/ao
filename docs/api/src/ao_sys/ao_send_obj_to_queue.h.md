@@ -3,9 +3,6 @@ author: "Stefan Wagner"
 date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_send_obj_to_queue.h/
-seealso:
-- /api/src/ao_sys/ao_queue4obj.h/
-- /api/src/ao_sys/ao_send_obj.h/
 toc: true
 ---
 

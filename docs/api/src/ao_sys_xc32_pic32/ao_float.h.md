@@ -3,9 +3,6 @@ author: "Stefan Wagner"
 date: 2022-09-11
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_float.h/
-seealso:
-- /api/src/ao/ao_floatf.h/
-- /api/src/ao/ao_floatl.h/
 toc: true
 ---
 

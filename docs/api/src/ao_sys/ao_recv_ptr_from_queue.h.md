@@ -3,9 +3,6 @@ author: "Stefan Wagner"
 date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_recv_ptr_from_queue.h/
-seealso:
-- /api/src/ao_sys/ao_queue4ptr.h/
-- /api/src/ao_sys/ao_recv_ptr.h/
 toc: true
 ---
 

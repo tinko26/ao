@@ -3,9 +3,6 @@ author: "Stefan Wagner"
 date: 2022-09-13
 draft: true
 permalink: /api/src/ao_sys/ao_send_ptr_to_stream.h/
-seealso:
-- /api/src/ao_sys/ao_send_ptr.h/
-- /api/src/ao_sys/ao_stream4ptr.h/
 toc: true
 ---
 

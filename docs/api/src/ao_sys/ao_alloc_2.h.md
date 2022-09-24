@@ -6,8 +6,6 @@ external:
 - https://dx.doi.org/10.1007/s11241-008-9052-7 : "A constant-time dynamic storage allocator for real-time systems. Masmano et al. 2008."
 - https://dx.doi.org/10.1002/spe.858 : "Implementation of a constant-time dynamic storage allocator. Masmano et al. 2007."
 permalink: /api/src/ao_sys/ao_alloc_2.h/
-seealso:
-- /api/src/ao_sys/ao_alloc.h/
 toc: true
 ---
 
