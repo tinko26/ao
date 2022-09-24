@@ -490,7 +490,7 @@ long double ao_rad2degl(long double x);
 
 Converts radians to degrees.
 
-## `ao_round**`
+## `ao_round*`
 
 ```c
 #define ao_roundd(x) ao_roundd_half_away_from_zero(x)
@@ -500,7 +500,7 @@ Converts radians to degrees.
 
 Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from zero.
 
-## `ao_round*_away_from_infinity*`
+## `ao_round*_away_from_infinity`
 
 ```c
 #define ao_roundd_away_from_infinity(x) ao_truncd(x)
@@ -510,7 +510,7 @@ Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from zero.
 
 Rounds $$\texttt{x}$$ away from infinity.
 
-## `ao_round*_away_from_negative_infinity*`
+## `ao_round*_away_from_negative_infinity`
 
 ```c
 #define ao_roundd_away_from_negative_infinity(x) ao_ceild(x)
@@ -520,7 +520,7 @@ Rounds $$\texttt{x}$$ away from infinity.
 
 Rounds $$\texttt{x}$$ away from negative infinity.
 
-## `ao_round*_away_from_positive_infinity*`
+## `ao_round*_away_from_positive_infinity`
 
 ```c
 #define ao_roundd_away_from_positive_infinity(x) ao_floord(x)
@@ -530,7 +530,7 @@ Rounds $$\texttt{x}$$ away from negative infinity.
 
 Rounds $$\texttt{x}$$ away from positive infinity.
 
-## `ao_round*_away_from_zero*`
+## `ao_round*_away_from_zero`
 
 ```c
 double      ao_roundd_away_from_zero(double      x);
@@ -540,7 +540,7 @@ long double ao_roundl_away_from_zero(long double x);
 
 Rounds $$\texttt{x}$$ away from zero.
 
-## `ao_round*_down*`
+## `ao_round*_down`
 
 ```c
 #define ao_roundd_down(x) ao_floord(x)
@@ -550,7 +550,7 @@ Rounds $$\texttt{x}$$ away from zero.
 
 Rounds $$\texttt{x}$$ down.
 
-## `ao_round*_half_away_from_infinity*`
+## `ao_round*_half_away_from_infinity`
 
 ```c
 #define ao_roundd_half_away_from_infinity(x) ao_roundd_half_to_zero(x)
@@ -560,7 +560,7 @@ Rounds $$\texttt{x}$$ down.
 
 Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from infinity.
 
-## `ao_round*_half_away_from_negative_infinity*`
+## `ao_round*_half_away_from_negative_infinity`
 
 ```c
 #define ao_roundd_half_away_from_negative_infinity(x) ao_roundd_half_up(x)
@@ -570,7 +570,7 @@ Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from infinity.
 
 Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from negative infinity.
 
-## `ao_round*_half_away_from_positive_infinity*`
+## `ao_round*_half_away_from_positive_infinity`
 
 ```c
 #define ao_roundd_half_away_from_positive_infinity(x) ao_roundd_half_down(x)
@@ -580,7 +580,7 @@ Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from negative inf
 
 Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from positive infinity.
 
-## `ao_round*_half_away_from_zero*`
+## `ao_round*_half_away_from_zero`
 
 ```c
 #define ao_roundd_half_away_from_zero(x) ao_roundd_half_to_infinity(x)
@@ -590,7 +590,7 @@ Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from positive inf
 
 Rounds $$\texttt{x}$$ to the nearest integer. Rounds half away from zero.
 
-## `ao_round*_half_down*`
+## `ao_round*_half_down`
 
 ```c
 double      ao_roundd_half_down(double      x);
@@ -600,7 +600,7 @@ long double ao_roundl_half_down(long double x);
 
 Rounds $$\texttt{x}$$ to the nearest integer. Rounds half down.
 
-## `ao_round*_half_to_even*`
+## `ao_round*_half_to_even`
 
 ```c
 double      ao_roundd_half_to_even(double      x);
@@ -610,7 +610,7 @@ long double ao_roundl_half_to_even(long double x);
 
 Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to even.
 
-## `ao_round*_half_to_infinity*`
+## `ao_round*_half_to_infinity`
 
 ```c
 double      ao_roundd_half_to_infinity(double      x);
@@ -620,7 +620,7 @@ long double ao_roundl_half_to_infinity(long double x);
 
 Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to infinity.
 
-## `ao_round*_half_to_negative_infinity*`
+## `ao_round*_half_to_negative_infinity`
 
 ```c
 #define ao_roundd_half_to_negative_infinity(x) ao_roundd_half_down(x)
@@ -630,7 +630,7 @@ Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to infinity.
 
 Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to negative infinity.
 
-## `ao_round*_half_to_odd*`
+## `ao_round*_half_to_odd`
 
 ```c
 double      ao_roundd_half_to_odd(double      x);
@@ -640,7 +640,7 @@ long double ao_roundl_half_to_odd(long double x);
 
 Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to odd.
 
-## `ao_round*_half_to_positive_infinity*`
+## `ao_round*_half_to_positive_infinity`
 
 ```c
 #define ao_roundd_half_to_positive_infinity(x) ao_roundd_half_up(x)
@@ -650,7 +650,7 @@ Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to odd.
 
 Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to positive infinity.
 
-## `ao_round*_half_to_zero*`
+## `ao_round*_half_to_zero`
 
 ```c
 double      ao_roundd_half_to_zero(double      x);
@@ -660,7 +660,7 @@ long double ao_roundl_half_to_zero(long double x);
 
 Rounds $$\texttt{x}$$ to the nearest integer. Rounds half to zero.
 
-## `ao_round*_half_up*`
+## `ao_round*_half_up`
 
 ```c
 double      ao_roundd_half_up(double      x);
@@ -670,7 +670,7 @@ long double ao_roundl_half_up(long double x);
 
 Rounds $$\texttt{x}$$ to the nearest integer. Rounds half up.
 
-## `ao_round*_to_infinity*`
+## `ao_round*_to_infinity`
 
 ```c
 #define ao_roundd_to_infinity(x) ao_roundd_away_from_zero(x)
@@ -680,7 +680,7 @@ Rounds $$\texttt{x}$$ to the nearest integer. Rounds half up.
 
 Rounds $$\texttt{x}$$ to infinity.
 
-## `ao_round*_to_negative_infinity*`
+## `ao_round*_to_negative_infinity`
 
 ```c
 #define ao_roundd_to_negative_infinity(x) ao_floord(x)
@@ -690,7 +690,7 @@ Rounds $$\texttt{x}$$ to infinity.
 
 Rounds $$\texttt{x}$$ to negative infinity.
 
-## `ao_round*_to_positive_infinity*`
+## `ao_round*_to_positive_infinity`
 
 ```c
 #define ao_roundd_to_positive_infinity(x) ao_ceild(x)
@@ -700,7 +700,7 @@ Rounds $$\texttt{x}$$ to negative infinity.
 
 Rounds $$\texttt{x}$$ to positive infinity.
 
-## `ao_round*_to_zero*`
+## `ao_round*_to_zero`
 
 ```c
 #define ao_roundd_to_zero(x) ao_truncd(x)
@@ -710,7 +710,7 @@ Rounds $$\texttt{x}$$ to positive infinity.
 
 Rounds $$\texttt{x}$$ to zero.
 
-## `ao_round*_up*`
+## `ao_round*_up`
 
 ```c
 #define ao_roundd_up(x) ao_ceild(x)
