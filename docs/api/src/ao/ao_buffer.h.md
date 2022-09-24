@@ -15,10 +15,8 @@ This module defines buffers, that is, places to temporarily store data.
 
 # Include
 
-```c
-#include <stdbool.h>
-#include <stddef.h>
-```
+`stdbool.h` <br/>
+`stddef.h`
 
 # Identifier
 

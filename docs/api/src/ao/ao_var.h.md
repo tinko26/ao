@@ -3,8 +3,6 @@ author: "Stefan Wagner"
 date: 2022-09-24
 draft: true
 permalink: /api/src/ao/ao_var.h/
-seealso:
-- /api/src/ao/ao_mem.h/
 toc: true
 ---
 
@@ -14,10 +12,8 @@ This module defines two convenience macro functions for variables.
 
 # Include
 
-```c
-#include <ao_mem.h>
-#include <stddef.h>
-```
+[`ao_mem.h`](ao_mem.h.md) <br/>
+`stddef.h`
 
 # Identifier
 

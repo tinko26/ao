@@ -12,9 +12,7 @@ This module provides mathematical constants and functions for floating-point num
 
 # Include
 
-```c
-#include <stdbool.h>
-```
+`stdbool.h`
 
 # Identifier
 

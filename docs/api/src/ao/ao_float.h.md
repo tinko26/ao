@@ -3,10 +3,6 @@ author: "Stefan Wagner"
 date: 2022-09-24
 draft: true
 permalink: /api/src/ao/ao_float.h/
-seealso:
-- /api/src/ao/ao_floatd.h/
-- /api/src/ao/ao_floatf.h/
-- /api/src/ao/ao_floatl.h/
 toc: true
 ---
 
@@ -16,6 +12,4 @@ This module defines the fastest floating-point type available on the target plat
 
 # Include
 
-```c
-#include <ao_floatf.h>
-```
+[`ao_floatf.h`](ao_floatf.h.md)

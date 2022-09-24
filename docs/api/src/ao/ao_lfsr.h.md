@@ -14,9 +14,7 @@ This module defines linear-feedback shift registers in Galois configuration, tha
 
 # Include
 
-```c
-#include <stdint.h>
-```
+`stdint.h`
 
 # Identifiers
 

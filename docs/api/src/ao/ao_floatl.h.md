@@ -3,8 +3,6 @@ author: "Stefan Wagner"
 date: 2022-09-24
 draft: true
 permalink: /api/src/ao/ao_floatl.h/
-seealso:
-- /api/src/ao/ao_mathf.h/
 toc: true
 ---
 
@@ -14,10 +12,8 @@ This module defines the fastest floating-point type available on the target plat
 
 # Include
 
-```c
-#include <ao_mathf.h>
-#include <float.h>
-```
+[`ao_mathf.h`](ao_mathf.h.md) <br/>
+`float.h`
 
 # Identifier
 

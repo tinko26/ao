@@ -12,10 +12,8 @@ This module defines function pointer types for a variety of random value generat
 
 # Include
 
-```c
-#include <stdbool.h>
-#include <stdint.h>
-```
+`stdbool.h` <br/>
+`stdint.h`
 
 # Identifier
 

@@ -9,8 +9,6 @@ external:
 - https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree : "Self-balancing binary search tree"
 - https://en.wikipedia.org/wiki/Total_order : "Total order"
 permalink: /api/src/ao/ao_avl.h/
-seealso:
-- /api/src/ao/ao_int.h/
 toc: true
 ---
 
@@ -22,9 +20,9 @@ An AVL tree is a special kind of binary search tree, that keeps itself balanced,
 
 # Include
 
-[`ao_int.h`](ao_int.h.md)  
-`stdbool.h`  
-`stddef.h`  
+[`ao_int.h`](ao_int.h.md) <br/>
+`stdbool.h` <br/>
+`stddef.h`
 
 # Identifier
 

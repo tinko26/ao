@@ -8,8 +8,6 @@ external:
 - https://en.wikipedia.org/wiki/Priority_queue : "Priority queue"
 - https://en.wikipedia.org/wiki/Total_order : "Total order"
 permalink: /api/src/ao/ao_heap.h/
-seealso:
-- /api/src/ao/ao_uint.h/
 toc: true
 ---
 
@@ -25,11 +23,9 @@ Commonly, heaps are implemented based on an array that stores all the nodes. How
 
 # Include
 
-```c
-#include <ao_uint.h>
-#include <stdbool.h>
-#include <stddef.h>
-```
+[`ao_uint.h`](ao_uint.h.md) <br/>
+`stdbool.h` <br/>
+`stddef.h`
 
 # Identifier
 

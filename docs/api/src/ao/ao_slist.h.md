@@ -15,10 +15,8 @@ This module defines doubly linked lists, whose elements are sorted by a strict t
 
 # Include
 
-```c
-#include <stdbool.h>
-#include <stddef.h>
-```
+`stdbool.h` <br/>
+`stddef.h`
 
 # Identifier
 

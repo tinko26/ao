@@ -14,11 +14,9 @@ This module contains functions to convert a string to a number. Although the sta
 
 # Include
 
-```c
-#include <stdbool.h>
-#include <stddef.h>
-#include <stdint.h>
-```
+`stdbool.h` <br/>
+`stddef.h` <br/>
+`stdint.h`
 
 # Identifier
 
