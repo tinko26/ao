@@ -32,6 +32,23 @@ This module provides an abstraction for sending to an opaque destination.
 typedef struct ao_send_t ao_send_t;
 ```
 
+This type represents the sending of data.
+
+## `ao_send_proc_t`
+
+```c
+typedef void (* ao_send_proc_t)
+(
+    ao_send_t * x
+);
+```
+
+This type represents a function beginning or ending a sending.
+
+# Struct
+
+## `ao_send_t`
+
 ```c
 struct ao_send_t
 {
@@ -47,8 +64,6 @@ struct ao_send_t
 };
 ```
 
-This type represents the sending of data. It consists of the following members.
-
 | `async` | The asynchronous event. |
 | `begin` | The function beginning the sending. |
 | `count` | The number of sent bytes. |
@@ -58,17 +73,6 @@ This type represents the sending of data. It consists of the following members.
 | `parameter` | An additional parameter. |
 | `ptr` | Points to the data to send. |
 | `result` | The result. |
-
-## `ao_send_proc_t`
-
-```c
-typedef void (* ao_send_proc_t)
-(
-    ao_send_t * x
-);
-```
-
-This type represents a function beginning or ending a sending.
 
 # Functions
 

@@ -14,6 +14,12 @@ This module provides information about identical processor cores and is to suppo
 
 | `stdint.h` |
 
+# Identifier
+
+```c
+#define AO_CORE
+```
+
 # Constants
 
 ## `AO_CORE_COUNT`

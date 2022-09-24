@@ -14,6 +14,12 @@ This module contains a couple of time-related definitions, that are based on a h
 
 | [`ao_count.h`](ao_count.h.md) |
 
+# Identifier
+
+```c
+#define AO_TIME
+```
+
 # Constants
 
 ## `AO_INFINITY`

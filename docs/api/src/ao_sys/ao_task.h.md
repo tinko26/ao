@@ -83,6 +83,28 @@ Defines whether to measure various accumulated time spans.
 typedef enum ao_task_state_t ao_task_state_t;
 ```
 
+This type represents task states.
+
+## `ao_task_state_pending_t`
+
+```c
+typedef enum ao_task_state_pending_t ao_task_state_pending_t;
+```
+
+This type represents pending task state transitions.
+
+## `ao_task_t`
+
+```c
+typedef struct ao_task_t ao_task_t;
+```
+
+This type represents a task.
+
+# Enums
+
+## `ao_task_state_t`
+
 ```c
 enum ao_task_state_t
 {
@@ -103,8 +125,6 @@ enum ao_task_state_t
 };
 ```
 
-This type represents task states. It is used as a bitmask and defines the following symbols.
-
 | `AO_TASK_STOPPED`     | `0000` | The task is stopped. |
 | `AO_TASK_READY`       | `0001` | The task is ready. |
 | `AO_TASK_RUNNING`     | `0010` | The task is running. |
@@ -117,10 +137,6 @@ This type represents task states. It is used as a bitmask and defines the follow
 ## `ao_task_state_pending_t`
 
 ```c
-typedef enum ao_task_state_pending_t ao_task_state_pending_t;
-```
-
-```c
 enum ao_task_state_pending_t
 {
     AO_TASK_STOPPING   = (1 << 0),
@@ -130,18 +146,14 @@ enum ao_task_state_pending_t
 };
 ```
 
-This type represents pending task state transitions. It is used as a bitmask and defines the following symbols.
-
 | `AO_TASK_STOPPING`   | `0001` | The task is stopping. |
 | `AO_TASK_BLOCKING`   | `0010` | The task is blocking. |
 | `AO_TASK_SUSPENDING` | `0100` | The task is supending. |
 | `AO_TASK_YIELDING`   | `1000` | The task is yielding. |
 
-## `ao_task_t`
+# Structs
 
-```c
-typedef struct ao_task_t ao_task_t;
-```
+## `ao_task_t`
 
 ```c
 struct ao_task_t
@@ -215,8 +227,6 @@ struct ao_task_t
 };
 ```
 
-This type represents a task. It consists of the following members.
-
 | `block` | The blocking data. |
 | `context` | The context data. |
 | `count` | Contains counters for various state transitions. |
@@ -266,7 +276,7 @@ The entry point for each task. It takes the respective task as its only argument
 
 First, this function calls the task procedure, if specified. Then, after the task procedure has returned, it locks the task in an infinite loop, in order to avoid to return accidentally.
 
-## `ao_task_get_count`
+## `ao_task_get_count_*`
 
 ```c
 ao_uint_t ao_task_get_count_activate  (ao_task_t const * t);
@@ -300,6 +310,7 @@ char const * ao_task_get_name(ao_task_t const * t);
 Gets the name of a task.
 
 ## `ao_task_get_proc`
+## `ao_task_get_proc_parameter`
 
 ```c
 ao_proc_t ao_task_get_proc          (ao_task_t const * t);
@@ -324,7 +335,7 @@ ao_task_state_pending_t ao_task_get_state_pending(ao_task_t const * t);
 
 Gets the current pending state transition of a task.
 
-## `ao_task_get_time_point`
+## `ao_task_get_time_point_*`
 
 ```c
 ao_time_t ao_task_get_time_point_activation  (ao_task_t const * t);
@@ -337,7 +348,7 @@ ao_time_t ao_task_get_time_point_switch_out  (ao_task_t const * t);
 
 Gets a time point of a task.
 
-## `ao_task_get_time_span`
+## `ao_task_get_time_span_*`
 
 ```c
 ao_time_t ao_task_get_time_span_active  (ao_task_t const * t);
@@ -348,7 +359,7 @@ ao_time_t ao_task_get_time_span_up      (ao_task_t const * t);
 
 Gets an accumulated time span measured for a task.
 
-## `ao_task_is`
+## `ao_task_is_*`
 
 ```c
 bool ao_task_is_active     (ao_task_t const * t);
@@ -380,7 +391,7 @@ void ao_task_resume(ao_task_t * t);
 
 Resumes a task.
 
-## `ao_task_set_count`
+## `ao_task_set_count_*`
 
 ```c
 void ao_task_set_count_activate  (ao_task_t * t, ao_uint_t x);
@@ -421,7 +432,7 @@ void ao_task_set_proc(ao_task_t * t, ao_proc_t proc, void * parameter);
 
 Sets the procedure and procedure parameter of a task.
 
-## `ao_task_set_time_span`
+## `ao_task_set_time_span_*`
 
 ```c
 void ao_task_set_time_span_active  (ao_task_t * t, ao_time_t x);

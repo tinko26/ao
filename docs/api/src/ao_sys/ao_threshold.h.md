@@ -37,26 +37,7 @@ toc: true
 typedef struct ao_threshold_t ao_threshold_t;
 ```
 
-```c
-struct ao_threshold_t
-{
-    ao_threshold_adjust_t adjust;
-    void *                adjust_parameter;
-    ao_list_t             list;
-    ao_threshold_match_t  match;
-    void *                match_parameter;
-    ao_uint_t             value;
-};
-```
-
-This type represents a threshold. It consists of the following members.
-
-| `adjust` | The adjust function. |
-| `adjust_parameter` | The adjust function parameter. |
-| `list` | The list of waitings. |
-| `match` | The match function. |
-| `match_parameter` | The match function parameter. |
-| `value` | The value. |
+This type represents a threshold.
 
 ## `ao_threshold_wait_t`
 
@@ -64,22 +45,7 @@ This type represents a threshold. It consists of the following members.
 typedef struct ao_threshold_wait_t ao_threshold_wait_t;
 ```
 
-```c
-struct ao_threshold_wait_t
-{
-    ao_async_t       async;
-    ao_list_node_t   node;
-    bool volatile    result;
-    ao_threshold_t * threshold;
-};
-```
-
-This type represents the waiting for a threshold match. It consists of the following members.
-
-| `async` | The asynchronous event. |
-| `node` | The node for the threshold's list of waitings. |
-| `result` | The result. |
-| `threshold` | The threshold. |
+This type represents the waiting for a threshold match.
 
 ## `ao_threshold_adjust_t`
 
@@ -104,6 +70,46 @@ typedef bool (* ao_threshold_match_t)
 ```
 
 This type represents a function to check whether a specific threshold value is a match. The function takes the current value of a threshold and an additional parameter.
+
+# Structs
+
+## `ao_threshold_t`
+
+```c
+struct ao_threshold_t
+{
+    ao_threshold_adjust_t adjust;
+    void *                adjust_parameter;
+    ao_list_t             list;
+    ao_threshold_match_t  match;
+    void *                match_parameter;
+    ao_uint_t             value;
+};
+```
+
+| `adjust` | The adjust function. |
+| `adjust_parameter` | The adjust function parameter. |
+| `list` | The list of waitings. |
+| `match` | The match function. |
+| `match_parameter` | The match function parameter. |
+| `value` | The value. |
+
+## `ao_threshold_wait_t`
+
+```c
+struct ao_threshold_wait_t
+{
+    ao_async_t       async;
+    ao_list_node_t   node;
+    bool volatile    result;
+    ao_threshold_t * threshold;
+};
+```
+
+| `async` | The asynchronous event. |
+| `node` | The node for the threshold's list of waitings. |
+| `result` | The result. |
+| `threshold` | The threshold. |
 
 # Functions
 

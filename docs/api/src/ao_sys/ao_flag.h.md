@@ -32,6 +32,33 @@ This module defines (event) flags.
 typedef struct ao_flag_t ao_flag_t;
 ```
 
+This type represents a flag.
+
+## `ao_flag_wait_t`
+
+```c
+typedef struct ao_flag_wait_t ao_flag_wait_t;
+```
+
+This type represents the waiting for a flag match.
+
+## `ao_flag_match_t`
+
+```c
+typedef bool (* ao_flag_match_t)
+(
+    ao_uint_t mask,
+    ao_uint_t mask_wait,
+    void *    parameter
+);
+```
+
+This type represents a function to check whether a specific flag mask is a match. The function takes the current mask of a flag, the mask to be matched with that current mask, and an additional parameter.
+
+# Structs
+
+## `ao_flag_t`
+
 ```c
 struct ao_flag_t
 {
@@ -40,16 +67,10 @@ struct ao_flag_t
 };
 ```
 
-This type represents a flag. It consists of the following members.
-
 | `list` | The list of waitings. |
 | `mask` | The mask. |
 
 ## `ao_flag_wait_t`
-
-```c
-typedef struct ao_flag_wait_t ao_flag_wait_t;
-```
 
 ```c
 struct ao_flag_wait_t
@@ -64,8 +85,6 @@ struct ao_flag_wait_t
 };
 ```
 
-This type represents the waiting for a flag match. It consists of the following members.
-
 | `async` | The asynchronous event. |
 | `flag` | The flag. |
 | `mask` | The mask to be matched with the flag's current mask. |
@@ -73,19 +92,6 @@ This type represents the waiting for a flag match. It consists of the following 
 | `match_parameter` | The match function parameter. |
 | `node` | The node for the flag's list of waitings. |
 | `result` | The result. |
-
-## `ao_flag_match_t`
-
-```c
-typedef bool (* ao_flag_match_t)
-(
-    ao_uint_t mask,
-    ao_uint_t mask_wait,
-    void *    parameter
-);
-```
-
-This type represents a function to check whether a specific flag mask is a match. The function takes the current mask of a flag, the mask to be matched with that current mask, and an additional parameter.
 
 # Functions
 

@@ -28,18 +28,7 @@ toc: true
 typedef struct ao_counter_t ao_counter_t;
 ```
 
-```c
-struct ao_counter_t
-{
-    ao_list_t list;
-    ao_uint_t value;
-};
-```
-
-This type represents a counter. It consists of the following members.
-
-| `list` | The list of waitings. |
-| `value` | The value. |
+This type represents a counter.
 
 ## `ao_counter_wait_t`
 
@@ -47,28 +36,7 @@ This type represents a counter. It consists of the following members.
 typedef struct ao_counter_wait_t ao_counter_wait_t;
 ```
 
-```c
-struct ao_counter_wait_t
-{
-    ao_async_t         async;
-    ao_counter_t *     counter;
-    ao_counter_match_t match;
-    void *             match_parameter;
-    ao_list_node_t     node;
-    bool volatile      result;
-    ao_uint_t          value;
-};
-```
-
-This type represents the waiting for a counter match. It consists of the following members.
-
-| `async` | The asynchronous event. |
-| `counter` | The counter. |
-| `match` | The match function. |
-| `match_parameter` | The match function parameter. |
-| `node` | The node for the counter's list of waitings. |
-| `result` | The result. |
-| `value` | The value to match with the counter's value. |
+This type represents the waiting for a counter match.
 
 ## `ao_counter_adjust_t`
 
@@ -94,6 +62,44 @@ typedef bool (* ao_counter_match_t)
 ```
 
 This type represents a function to check whether a specific counter value is a match. The function takes the current value of a counter, the value to be matched with that current value, and an additional parameter.
+
+# Structs
+
+## `ao_counter_t`
+
+```c
+struct ao_counter_t
+{
+    ao_list_t list;
+    ao_uint_t value;
+};
+```
+
+| `list` | The list of waitings. |
+| `value` | The value. |
+
+## `ao_counter_wait_t`
+
+```c
+struct ao_counter_wait_t
+{
+    ao_async_t         async;
+    ao_counter_t *     counter;
+    ao_counter_match_t match;
+    void *             match_parameter;
+    ao_list_node_t     node;
+    bool volatile      result;
+    ao_uint_t          value;
+};
+```
+
+| `async` | The asynchronous event. |
+| `counter` | The counter. |
+| `match` | The match function. |
+| `match_parameter` | The match function parameter. |
+| `node` | The node for the counter's list of waitings. |
+| `result` | The result. |
+| `value` | The value to match with the counter's value. |
 
 # Functions
 

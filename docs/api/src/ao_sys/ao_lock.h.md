@@ -51,11 +51,15 @@ ao_unlock(l1);
 typedef struct ao_lock_t ao_lock_t;
 ```
 
+This type represents a container for lock-related data. The actual make-up of this type is up to the implementation provided by the port package. For the kernel modules, this type is completely opaque, that is, no assumptions are made about its inner structure.
+
+# Structs
+
+## `ao_lock_t`
+
 ```c
 struct ao_lock_t { };
 ```
-
-This type represents a container for lock-related data. The actual make-up of this type is up to the implementation provided by the port package. For the kernel modules, this type is completely opaque, that is, no assumptions are made about its inner structure.
 
 # Functions
 

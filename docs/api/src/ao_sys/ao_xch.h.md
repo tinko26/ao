@@ -37,6 +37,28 @@ toc: true
 typedef struct ao_xch_t ao_xch_t;
 ```
 
+This type represents an exchange.
+
+## `ao_xch_client_t`
+
+```c
+typedef struct ao_xch_client_t ao_xch_client_t;
+```
+
+This type represents a client sending a request and receiving a reply.
+
+## `ao_xch_server_t`
+
+```c
+typedef struct ao_xch_server_t ao_xch_server_t;
+```
+
+This type represents a server receiving a request.
+
+# Structs
+
+## `ao_xch_t`
+
 ```c
 struct ao_xch_t
 {
@@ -45,16 +67,10 @@ struct ao_xch_t
 };
 ```
 
-This type represents an exchange. It consists of the following members.
-
 | `clients` | The clients. |
 | `servers` | The servers. |
 
 ## `ao_xch_client_t`
-
-```c
-typedef struct ao_xch_client_t ao_xch_client_t;
-```
 
 ```c
 struct ao_xch_client_t
@@ -81,8 +97,6 @@ struct ao_xch_client_t
 };
 ```
 
-This type represents a client sending a request and receiving a reply. It consists of the following members.
-
 | `async` | The asynchronous event. |
 | `master` | The task master. |
 | `node` | The node for the exchange's list of clients. |
@@ -92,10 +106,6 @@ This type represents a client sending a request and receiving a reply. It consis
 | `xch` | The exchange. |
 
 ## `ao_xch_server_t`
-
-```c
-typedef struct ao_xch_server_t ao_xch_server_t;
-```
 
 ```c
 struct ao_xch_server_t
@@ -115,8 +125,6 @@ struct ao_xch_server_t
     ao_xch_t        *          xch;
 };
 ```
-
-This type represents a server receiving a request. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `client` | The client. |

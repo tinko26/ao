@@ -32,6 +32,33 @@ This module defines execution barriers, where two tasks can synchronize and exch
 typedef struct ao_rendezvous_t ao_rendezvous_t;
 ```
 
+This type represents a rendezvous.
+
+## `ao_rendezvous_wait_t`
+
+```c
+typedef struct ao_rendezvous_wait_t ao_rendezvous_wait_t;
+```
+
+This type represents the waiting for a rendezvous.
+
+## `ao_rendezvous_exchange_t`
+
+```c
+typedef void (* ao_rendezvous_exchange_t)
+(
+    void * ptr_in_other,
+    void * ptr_out_self,
+    void * parameter
+);
+```
+
+This type represents the exchanging of data at a rendezvous. It takes three parameters. First, a pointer to data provided by the other task. Second, a pointer to a location to store that data (or anything else). Third, an additional parameter that can be used to tweak the exchanging.
+
+# Structs
+
+## `ao_rendezvous_t`
+
 ```c
 struct ao_rendezvous_t
 {
@@ -39,15 +66,9 @@ struct ao_rendezvous_t
 };
 ```
 
-This type represents a rendezvous. It consists of the following members.
-
 | `wait` | The waiting. |
 
 ## `ao_rendezvous_wait_t`
-
-```c
-typedef struct ao_rendezvous_wait_t ao_rendezvous_wait_t;
-```
 
 ```c
 struct ao_rendezvous_wait_t
@@ -62,8 +83,6 @@ struct ao_rendezvous_wait_t
 };
 ```
 
-This type represents the waiting for a rendezvous. It consists of the following members.
-
 | `async` | The asynchronous event. |
 | `exchange` | The exchange function. |
 | `exchange_parameter` | The exchange function parameter. |
@@ -71,19 +90,6 @@ This type represents the waiting for a rendezvous. It consists of the following 
 | `ptr_out` | Points to data to send to the other task. |
 | `rendezvous` | The rendezvous. |
 | `result` | The result.  |
-
-## `ao_rendezvous_exchange_t`
-
-```c
-typedef void (* ao_rendezvous_exchange_t)
-(
-    void * ptr_in_other,
-    void * ptr_out_self,
-    void * parameter
-);
-```
-
-This type represents the exchanging of data at a rendezvous. It takes three parameters. First, a pointer to data provided by the other task. Second, a pointer to a location to store that data (or anything else). Third, an additional parameter that can be used to tweak the exchanging.
 
 # Functions
 

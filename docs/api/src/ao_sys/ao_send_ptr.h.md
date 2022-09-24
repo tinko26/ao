@@ -30,6 +30,23 @@ This module provides an abstraction for sending pointers to an opaque destinatio
 typedef struct ao_send_ptr_t ao_send_ptr_t;
 ```
 
+This type represents the sending of a pointer.
+
+## `ao_send_ptr_proc_t`
+
+```c
+typedef void (* ao_send_ptr_proc_t)
+(
+    ao_send_ptr_t * x
+);
+```
+
+This type represents a function beginning or ending a sending of a pointer.
+
+# Structs
+
+## `ao_send_ptr_t`
+
 ```c
 struct ao_send_ptr_t
 {
@@ -42,25 +59,12 @@ struct ao_send_ptr_t
 };
 ```
 
-This type represents the sending of a pointer. It consists of the following members.
-
 | `async` | The asynchronous event. |
 | `begin` | The function beginning the sending. |
 | `end` | The function ending the sending. |
 | `parameter` | An additional parameter. |
 | `ptr` | The pointer to send. |
 | `result` | The result. |
-
-## `ao_send_ptr_proc_t`
-
-```c
-typedef void (* ao_send_ptr_proc_t)
-(
-    ao_send_ptr_t * x
-);
-```
-
-This type represents a function beginning or ending a sending of a pointer.
 
 # Functions
 

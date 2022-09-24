@@ -15,6 +15,12 @@ This module declares functions for controlling the alarm interrupt as well as a 
 | [`ao_ir_ct.h`](ao_ir_ct.h.md) |
 | `xc.h` |
 
+# Identifier
+
+```c
+#define AO_IR_ALARM
+```
+
 # Functions
 
 ## `ao_alarm`

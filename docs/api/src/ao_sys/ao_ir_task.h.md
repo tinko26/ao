@@ -19,6 +19,12 @@ The port must implement the necessary interrupt handlers, which in turn must exe
 | [`ao_core.h`](ao_core.h.md) |
 | `stdbool.h` |
 
+# Identifier
+
+```c
+#define AO_IR_TASK
+```
+
 # Functions
 
 ## `ao_task_switch`

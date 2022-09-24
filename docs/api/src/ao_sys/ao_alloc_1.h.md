@@ -58,7 +58,7 @@ Defines whether to keep track of the current and maximum number of allocated byt
 
 Defines whether to keep track of the current and minimum number of free bytes, respectively. If this configuration option is enabled, then the respective data is gathered both globally and for each pool.
 
-## `AO_ALLOC_POOL_BLOCK_COUNT`
+## `AO_ALLOC_POOL_BLOCK_COUNT_*`
 
 ```c
 #define AO_ALLOC_POOL_BLOCK_COUNT_0  (0)
@@ -71,7 +71,7 @@ Defines whether to keep track of the current and minimum number of free bytes, r
 
 The number of blocks in each pool.
 
-## `AO_ALLOC_POOL_BLOCK_SIZE`
+## `AO_ALLOC_POOL_BLOCK_SIZE_*`
 
 ```c
 #define AO_ALLOC_POOL_BLOCK_SIZE_0  (0)
@@ -262,7 +262,7 @@ extern size_t volatile ao_alloc_free_min;
 
 The current and minimum number of free bytes, respectively.
 
-## `ao_alloc_pool`
+## `ao_alloc_pool_*`
 
 ```c
 extern ao_alloc_pool_t ao_alloc_pool_0;

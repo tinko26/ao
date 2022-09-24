@@ -34,6 +34,18 @@ This module defines execution barriers, where tasks can synchronize.
 typedef struct ao_barrier_t ao_barrier_t;
 ```
 
+This type represents a barrier.
+
+## `ao_barrier_wait_t`
+
+```c
+typedef struct ao_barrier_wait_t ao_barrier_wait_t;
+```
+
+This type represents the waiting at a barrier.
+
+# Structs
+
 ```c
 struct ao_barrier_t
 {
@@ -43,17 +55,11 @@ struct ao_barrier_t
 };
 ```
 
-This type represents a barrier. It consists of the following members.
-
 | `count` | The current number of waitings. |
 | `count_threshold` | The maximum number waitings. |
 | `list` | The list of waitings. |
 
 ## `ao_barrier_wait_t`
-
-```c
-typedef struct ao_barrier_wait_t ao_barrier_wait_t;
-```
 
 ```c
 struct ao_barrier_wait_t
@@ -64,8 +70,6 @@ struct ao_barrier_wait_t
     bool volatile  result;
 };
 ```
-
-This type represents the waiting at a barrier. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `barrier` | The barrier. |

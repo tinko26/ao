@@ -15,6 +15,12 @@ toc: true
 | `stddef.h` |
 | `stdint.h` |
 
+# Identifier
+
+```c
+#define AO_IR_STACK
+```
+
 # Configuration
 
 ## `AO_IR_STACK_DEPTH_MAX`
@@ -67,6 +73,12 @@ The size of the argument section, in bytes.
 typedef struct ao_ir_stack_t ao_ir_stack_t;
 ```
 
+This type represents the interrupt stack.
+
+# Structs
+
+## `ao_ir_stack_t`
+
 ```c
 struct ao_ir_stack_t
 {
@@ -90,8 +102,6 @@ struct ao_ir_stack_t
 };
 ```
 
-This type represents the interrupt stack. It consists of the following members.
-
 | `depth` | The current depth. |
 | `depth_max` | The maximum depth. |
 | `fp_backup` | The frame pointer backup. |
@@ -101,10 +111,7 @@ This type represents the interrupt stack. It consists of the following members.
 
 # Functions
 
-## `ao_ir_stack_func0`
-## `ao_ir_stack_func1`
-## `ao_ir_stack_func2`
-## `ao_ir_stack_func3`
+## `ao_ir_stack_func*`
 
 ```c
 void * ao_ir_stack_func0(ao_func0_t f);

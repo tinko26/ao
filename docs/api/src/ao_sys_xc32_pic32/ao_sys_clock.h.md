@@ -6,6 +6,12 @@ permalink: /api/src/ao_sys_xc32_pic32/ao_sys_clock.h/
 toc: true
 ---
 
+# Identifier
+
+```c
+#define AO_SYS_CLOCK
+```
+
 # Constants
 
 ## `AO_SYS_SYSCLK`

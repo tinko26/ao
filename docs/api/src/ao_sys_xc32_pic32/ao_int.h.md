@@ -14,6 +14,12 @@ This module defines the fastest signed integer type available on the target plat
 
 | `stdint.h` |
 
+# Identifier
+
+```c
+#define AO_IR_INT
+```
+
 # Constants
 
 ## `AO_INT_MAX`

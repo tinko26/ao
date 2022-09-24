@@ -38,20 +38,12 @@ This scheduler supports neither task ceiling nor task inheritance.
 typedef struct ao_task_sched_t ao_task_sched_t;
 ```
 
-```c
-struct ao_task_sched_t { };
-```
-
 This type represents scheduler-related data of a task.
 
 ## `ao_task_ceiling_t`
 
 ```c
 typedef struct ao_task_ceiling_t ao_task_ceiling_t;
-```
-
-```c
-struct ao_task_ceiling_t { };
 ```
 
 This type represents a task ceiling.
@@ -62,10 +54,6 @@ This type represents a task ceiling.
 typedef struct ao_task_master_t ao_task_master_t;
 ```
 
-```c
-struct ao_task_master_t { };
-```
-
 This type represents a task master.
 
 ## `ao_task_slave_t`
@@ -74,8 +62,30 @@ This type represents a task master.
 typedef struct ao_task_slave_t ao_task_slave_t;
 ```
 
+This type represents a task slave.
+
+# Structs
+
+## `ao_task_sched_t`
+
+```c
+struct ao_task_sched_t { };
+```
+
+## `ao_task_ceiling_t`
+
+```c
+struct ao_task_ceiling_t { };
+```
+
+## `ao_task_master_t`
+
+```c
+struct ao_task_master_t { };
+```
+
+## `ao_task_slave_t`
+
 ```c
 struct ao_task_slave_t { };
 ```
-
-This type represents a task slave.

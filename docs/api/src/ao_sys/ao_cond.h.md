@@ -36,6 +36,20 @@ toc: true
 typedef struct ao_cond_t ao_cond_t;
 ```
 
+This type represents a condition.
+
+## `ao_cond_wait_t`
+
+```c
+typedef struct ao_cond_wait_t ao_cond_wait_t;
+```
+
+This type represents the waiting for a condition.
+
+# Structs
+
+## `ao_cond_t`
+
 ```c
 struct ao_cond_t
 {
@@ -44,16 +58,10 @@ struct ao_cond_t
 };
 ```
 
-This type represents a condition. It consists of the following members.
-
 | `list` | The list of waitings. |
 | `state` | The state. |
 
 ## `ao_cond_wait_t`
-
-```c
-typedef struct ao_cond_wait_t ao_cond_wait_t;
-```
 
 ```c
 struct ao_cond_wait_t
@@ -64,8 +72,6 @@ struct ao_cond_wait_t
     bool volatile  result;
 };
 ```
-
-This type represents the waiting for a condition. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `cond` | The condition. |

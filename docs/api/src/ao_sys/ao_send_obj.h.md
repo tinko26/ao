@@ -30,6 +30,23 @@ This module provides an abstraction for sending objects to an opaque destination
 typedef struct ao_send_obj_t ao_send_obj_t;
 ```
 
+This type represents the sending of an object.
+
+## `ao_send_obj_proc_t`
+
+```c
+typedef void (* ao_send_obj_proc_t)
+(
+    ao_send_obj_t * x
+);
+```
+
+This type represents a function beginning or ending a sending of an object.
+
+# Structs
+
+## `ao_send_obj_t`
+
 ```c
 struct ao_send_obj_t
 {
@@ -42,25 +59,12 @@ struct ao_send_obj_t
 };
 ```
 
-This type represents the sending of an object. It consists of the following members.
-
 | `async` | The asynchronous event. |
 | `begin` | The function beginning the sending. |
 | `end` | The function ending the sending. |
 | `parameter` | An additional parameter. |
 | `ptr` | A pointer to the object to send. |
 | `result` | The result. |
-
-## `ao_send_obj_proc_t`
-
-```c
-typedef void (* ao_send_obj_proc_t)
-(
-    ao_send_obj_t * x
-);
-```
-
-This type represents a function beginning or ending a sending of an object.
 
 # Functions
 

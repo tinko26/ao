@@ -16,6 +16,12 @@ This module declares functions for controlling the task switch interrupts as wel
 | [`ao_ir_cs.h`](ao_ir_cs.h.md) |
 | `stdbool.h` |
 
+# Identifier
+
+```c
+#define AO_IR_TASK
+```
+
 # Functions
 
 ## `ao_task_switch`

@@ -31,6 +31,12 @@ ao_sys_unlock_ie(x);
 
 | `xc.h` |
 
+# Identifier
+
+```c
+#define AO_SYS_LOCK_IE
+```
+
 # Functions
 
 ## `ao_sys_lock_ie`

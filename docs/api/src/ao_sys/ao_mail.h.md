@@ -27,6 +27,28 @@ toc: true
 typedef struct ao_mail_t ao_mail_t;
 ```
 
+This type represents a mail.
+
+## `ao_mail_fetch_t`
+
+```c
+typedef struct ao_mail_fetch_t ao_mail_fetch_t;
+```
+
+This type represents the fetching of a mail.
+
+## `ao_mailbox_t`
+
+```c
+typedef struct ao_mailbox_t ao_mailbox_t;
+```
+
+This type represents a mailbox.
+
+# Structs
+
+## `ao_mail_t`
+
 ```c
 struct ao_mail_t
 {
@@ -34,15 +56,9 @@ struct ao_mail_t
 };
 ```
 
-This type represents a mail. It consists of the following members.
-
 | `node` | The node for a mailbox's list of mails. |
 
 ## `ao_mail_fetch_t`
-
-```c
-typedef struct ao_mail_fetch_t ao_mail_fetch_t;
-```
 
 ```c
 struct ao_mail_fetch_t
@@ -55,8 +71,6 @@ struct ao_mail_fetch_t
 };
 ```
 
-This type represents the fetching of a mail. It consists of the following members.
-
 | `async` | The asynchronous event. |
 | `mail` | The mail that has been fetched. |
 | `mailbox` | The mailbox. |
@@ -66,18 +80,12 @@ This type represents the fetching of a mail. It consists of the following member
 ## `ao_mailbox_t`
 
 ```c
-typedef struct ao_mailbox_t ao_mailbox_t;
-```
-
-```c
 struct ao_mailbox_t
 {
     ao_list_t fetchers;
     ao_list_t mails;
 };
 ```
-
-This type represents a mailbox. It consists of the following members.
 
 | `fetchers` | The list of fetchings. |
 | `mails` | The list of mails. |

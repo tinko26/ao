@@ -24,11 +24,15 @@ toc: true
 typedef struct ao_task_stack_t ao_task_stack_t;
 ```
 
+This type represents stack-related data of a task.
+
+# Types
+
+## `ao_task_stack_t`
+
 ```c
 struct ao_task_stack_t { };
 ```
-
-This type represents stack-related data of a task.
 
 # Functions
 

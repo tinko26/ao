@@ -1,10 +1,16 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-24
 draft: true
 permalink: /api/src/ao_sys/ao_button.h/
 toc: true
 ---
+
+# Identifier
+
+```c
+#define AO_BUTTON
+```
 
 # Constants
 
@@ -24,6 +30,12 @@ The number of buttons.
 typedef enum ao_buttons_t ao_buttons_t;
 ```
 
+This type represents buttons.
+
+# Enums
+
+## `ao_buttons_t`
+
 ```c
 enum ao_buttons_t
 {
@@ -32,10 +44,8 @@ enum ao_buttons_t
 };
 ```
 
-This type represents buttons. It is used as a bitmask and defines at least the following symbols.
-
-| `AO_BUTTONS_ALL` | `0` | Represents all buttons. |
-| `AO_BUTTONS_NONE` | `0` | Represents no buttons. |
+| `AO_BUTTONS_ALL` | Represents all buttons. |
+| `AO_BUTTONS_NONE` | Represents no buttons. |
 
 # Functions
 

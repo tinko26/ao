@@ -32,6 +32,28 @@ This module implements a priority queue based on a red-black tree. Fetching retu
 typedef struct ao_pmail_t ao_pmail_t;
 ```
 
+This type represents a mail.
+
+## `ao_pmail_fetch_t`
+
+```c
+typedef struct ao_pmail_fetch_t ao_pmail_fetch_t;
+```
+
+This type represents the fetching of a mail.
+
+## `ao_pmailbox_t`
+
+```c
+typedef struct ao_pmailbox_t ao_pmailbox_t;
+```
+
+This type represents a mailbox.
+
+# Structs
+
+## `ao_pmail_t`
+
 ```c
 struct ao_pmail_t
 {
@@ -39,15 +61,9 @@ struct ao_pmail_t
 };
 ```
 
-This type represents a mail. It consists of the following members.
-
 | `node` | The node for the mailbox's priority queue of mails. |
 
 ## `ao_pmail_fetch_t`
-
-```c
-typedef struct ao_pmail_fetch_t ao_pmail_fetch_t;
-```
 
 ```c
 struct ao_pmail_fetch_t
@@ -60,8 +76,6 @@ struct ao_pmail_fetch_t
 };
 ```
 
-This type represents the fetching of a mail. It consists of the following members.
-
 | `async` | The asynchronous event. |
 | `mail` | The mail that has been fetched. |
 | `mailbox` | The mailbox. |
@@ -71,18 +85,12 @@ This type represents the fetching of a mail. It consists of the following member
 ## `ao_pmailbox_t`
 
 ```c
-typedef struct ao_pmailbox_t ao_pmailbox_t;
-```
-
-```c
 struct ao_pmailbox_t
 {
     ao_list_t fetchers;
     ao_rb_t   mails;
 };
 ```
-
-This type represents a mailbox. It consists of the following members.
 
 | `fetchers` | The list of fetchings. |
 | `mails` | The priority queue of mails. |

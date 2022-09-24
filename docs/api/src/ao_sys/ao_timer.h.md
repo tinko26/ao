@@ -36,6 +36,12 @@ toc: true
 typedef struct ao_timer_t ao_timer_t;
 ```
 
+This type represents a timer.
+
+# Structs
+
+## `ao_timer_t`
+
 ```c
 struct ao_timer_t
 {
@@ -46,8 +52,6 @@ struct ao_timer_t
     ao_time_t  period;
 };
 ```
-
-This type represents a timer. It consists of the following members.
 
 | `alarm` | The alarm. |
 | `callback` | The callback. |

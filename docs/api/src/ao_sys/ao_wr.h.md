@@ -39,6 +39,20 @@ toc: true
 typedef struct ao_wr_t ao_wr_t;
 ```
 
+This type represents a readers-writer lock.
+
+## `ao_wr_lock_t`
+
+```c
+typedef struct ao_wr_lock_t ao_wr_lock_t;
+```
+
+This type represents the locking of a readers-writer lock.
+
+# Structs
+
+## `ao_wr_t`
+
 ```c
 struct ao_wr_t
 {
@@ -49,18 +63,12 @@ struct ao_wr_t
 };
 ```
 
-This type represents a readers-writer lock. It consists of the following members.
-
 | `r_active` | The number of active readers. |
 | `r_waiting` | The list of waiting readers |
 | `w_active` | Indicates whether a writer is active. |
 | `w_waiting` | The list of waiting writers. |
 
 ## `ao_wr_lock_t`
-
-```c
-typedef struct ao_wr_lock_t ao_wr_lock_t;
-```
 
 ```c
 struct ao_wr_lock_t
@@ -71,8 +79,6 @@ struct ao_wr_lock_t
     ao_wr_t *      wr;
 };
 ```
-
-This type represents the locking of a readers-writer lock. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `node` | The node for the readers-writer lock's waiting lists. |

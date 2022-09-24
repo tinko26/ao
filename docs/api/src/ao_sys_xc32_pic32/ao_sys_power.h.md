@@ -8,6 +8,12 @@ permalink: /api/src/ao_sys_xc32_pic32/ao_sys_power.h/
 toc: true
 ---
 
+# Identifier
+
+```c
+#define AO_SYS_POWER
+```
+
 # Functions
 
 ## `ao_sys_idle`

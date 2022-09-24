@@ -28,6 +28,28 @@ toc: true
 typedef struct ao_queue4obj_t ao_queue4obj_t;
 ```
 
+This type represents a queue for objects.
+
+## `ao_qinsert_obj_t`
+
+```c
+typedef struct ao_qinsert_obj_t ao_qinsert_obj_t;
+```
+
+This type represents the inserting into a queue for objects.
+
+## `ao_qpop_obj_t`
+
+```c
+typedef struct ao_qpop_obj_t ao_qpop_obj_t;
+```
+
+This type represents the popping from a queue for objects.
+
+# Structs
+
+## `ao_queue4obj_t`
+
 ```c
 struct ao_queue4obj_t
 {
@@ -37,17 +59,11 @@ struct ao_queue4obj_t
 };
 ```
 
-This type represents a queue for objects. It consists of the following members.
-
 | `heap` | The heap. |
 | `insert` | The list of insertings. |
 | `pop` | The list of poppings. |
 
 ## `ao_qinsert_obj_t`
-
-```c
-typedef struct ao_qinsert_obj_t ao_qinsert_obj_t;
-```
 
 ```c
 struct ao_qinsert_obj_t
@@ -60,8 +76,6 @@ struct ao_qinsert_obj_t
 };
 ```
 
-This type represents the inserting into a queue for objects. It consists of the following members.
-
 | `async` | The asynchronous event. |
 | `node` | The node for the queue's list of insertings. |
 | `ptr` | The pointer to the object to insert. |
@@ -69,10 +83,6 @@ This type represents the inserting into a queue for objects. It consists of the 
 | `result` | The result. |
 
 ## `ao_qpop_obj_t`
-
-```c
-typedef struct ao_qpop_obj_t ao_qpop_obj_t;
-```
 
 ```c
 struct ao_qpop_obj_t
@@ -84,8 +94,6 @@ struct ao_qpop_obj_t
     bool volatile    result;
 };
 ```
-
-This type represents the popping from a queue for objects. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `node` | The node for the queue's list of poppings. |

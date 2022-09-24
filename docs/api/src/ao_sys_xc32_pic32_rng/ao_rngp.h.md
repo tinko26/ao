@@ -108,6 +108,12 @@ while (1)
 | `stdint.h` |
 | `xc.h` |
 
+# Identifier
+
+```c
+#define AO_RNGP
+```
+
 # Functions
 
 ## `ao_rngp_enable`

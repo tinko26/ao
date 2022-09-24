@@ -27,6 +27,12 @@ toc: true
 typedef struct ao_sleep_t ao_sleep_t;
 ```
 
+This type represents the sleeping of a task.
+
+# Structs
+
+## `ao_sleep_t`
+
 ```c
 struct ao_sleep_t
 {
@@ -37,8 +43,6 @@ struct ao_sleep_t
     ao_time_t     timeout;
 };
 ```
-
-This type represents the sleeping of a task. It consists of the following members.
 
 | `alarm` | The alarm. |
 | `async` | The asynchronous event. |

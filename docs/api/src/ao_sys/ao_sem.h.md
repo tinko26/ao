@@ -34,6 +34,20 @@ This module defines counting semaphores.
 typedef struct ao_sem_t ao_sem_t;
 ```
 
+This type represents a counting semaphore.
+
+## `ao_sem_take_t`
+
+```c
+typedef struct ao_sem_take_t ao_sem_take_t;
+```
+
+This type represents the taking of a counting semaphore.
+
+# Structs
+
+## `ao_sem_t`
+
 ```c
 struct ao_sem_t
 {
@@ -42,16 +56,10 @@ struct ao_sem_t
 };
 ```
 
-This type represents a counting semaphore. It consists of the following members.
-
 | `count` | The count. |
 | `list` | The list of takings. |
 
 ## `ao_sem_take_t`
-
-```c
-typedef struct ao_sem_take_t ao_sem_take_t;
-```
 
 ```c
 struct ao_sem_take_t
@@ -63,8 +71,6 @@ struct ao_sem_take_t
     ao_sem_t *     sem;
 };
 ```
-
-This type represents the taking of a counting semaphore. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `count` | The count to take. |

@@ -33,6 +33,12 @@ ao_sys_lock_device(&x);
 
 | `stdint.h` |
 
+# Identifier
+
+```c
+#define AO_SYS_LOCK_DEVICE
+```
+
 # Types
 
 ## `ao_sys_lock_device_t`
@@ -41,6 +47,12 @@ ao_sys_lock_device(&x);
 typedef struct ao_sys_lock_device_t ao_sys_lock_device_t;
 ```
 
+This type represents lock-related data.
+
+# Structs
+
+## `ao_sys_lock_device_t`
+
 ```c
 struct ao_sys_lock_device_t
 {
@@ -48,8 +60,6 @@ struct ao_sys_lock_device_t
     uint32_t ie;
 };
 ```
-
-This type represents lock-related data. It consists of the following members.
 
 | `dma` | The backup of the `DMACON.SUSPEND` bit. |
 | `ie` | The backup of the `Status` register. |

@@ -1,12 +1,18 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-24
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Light-emitting_diode : "Light-emitting diode"
 permalink: /api/src/ao_sys/ao_led.h/
 toc: true
 ---
+
+# Identifier
+
+```c
+#define AO_LED
+```
 
 # Constants
 
@@ -26,6 +32,12 @@ The number of LEDs.
 typedef enum ao_leds_t ao_leds_t;
 ```
 
+This type represents LEDs.
+
+# Types
+
+## `ao_leds_t`
+
 ```c
 enum ao_leds_t
 {
@@ -34,10 +46,8 @@ enum ao_leds_t
 };
 ```
 
-This type represents LEDs. It is used as a bitmask and defines at least the following symbols.
-
-| `AO_LEDS_ALL` | `0` | Represents all LEDs. |
-| `AO_LEDS_NONE` | `0` | Represents no LEDs. |
+| `AO_LEDS_ALL` | Represents all LEDs. |
+| `AO_LEDS_NONE` | Represents no LEDs. |
 
 # Functions
 

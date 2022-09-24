@@ -14,6 +14,12 @@ The standard library's `size_t` type is an unsigned integer type, at least 16 bi
 
 | [`ao_uint.h`](ao_uint.h.md) |
 
+# Identifier
+
+```c
+#define AO_SIZE
+```
+
 # Constants
 
 ## `AO_SIZE_BITS`

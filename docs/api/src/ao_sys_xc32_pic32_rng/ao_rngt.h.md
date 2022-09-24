@@ -57,6 +57,12 @@ while (1)
 | `stdint.h` |
 | `xc.h` |
 
+# Identifier
+
+```c
+#define AO_RNGT
+```
+
 # Functions
 
 ## `ao_rngt_enable`

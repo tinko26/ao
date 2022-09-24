@@ -28,6 +28,28 @@ toc: true
 typedef struct ao_stream_t ao_stream_t;
 ```
 
+This type represents a stream.
+
+## `ao_spop_t`
+
+```c
+typedef struct ao_spop_t ao_spop_t;
+```
+
+This type represents the popping from a stream.
+
+## `ao_spush_t`
+
+```c
+typedef struct ao_spush_t ao_spush_t;
+```
+
+This type represents the pushing to a stream.
+
+# Struct
+
+## `ao_stream_t`
+
 ```c
 struct ao_stream_t
 {
@@ -37,17 +59,11 @@ struct ao_stream_t
 };
 ```
 
-This type represents a stream. It consists of the following members.
-
 | `buffer` | The buffer. |
 | `pop` | The popping. |
 | `push` | The pushing. |
 
 ## `ao_spop_t`
-
-```c
-typedef struct ao_spop_t ao_spop_t;
-```
 
 ```c
 struct ao_spop_t
@@ -62,8 +78,6 @@ struct ao_spop_t
 };
 ```
 
-This type represents the popping from a stream. It consists of the following members.
-
 | `async` | The asynchronous event. |
 | `count` | The number of bytes that have been popped from the stream. |
 | `count_max` | The maximum number of bytes to pop from the stream. |
@@ -73,10 +87,6 @@ This type represents the popping from a stream. It consists of the following mem
 | `stream` | The stream. |
 
 ## `ao_spush_t`
-
-```c
-typedef struct ao_spush_t ao_spush_t;
-```
 
 ```c
 struct ao_spush_t
@@ -90,8 +100,6 @@ struct ao_spush_t
     ao_stream_t *   stream;
 };
 ```
-
-This type represents the pushing to a stream. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `count` | The number of bytes that have been pushed to the stream. |

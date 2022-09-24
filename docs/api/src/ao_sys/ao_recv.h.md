@@ -31,6 +31,23 @@ This module provides an abstraction for receiving from an opaque source.
 typedef struct ao_recv_t ao_recv_t;
 ```
 
+This type represents the receiving of data.
+
+## `ao_recv_proc_t`
+
+```c
+typedef void (* ao_recv_proc_t)
+(
+    ao_recv_t * x
+);
+```
+
+This type represents a function beginning or ending a receiving.
+
+# Structs
+
+## `ao_recv_t`
+
 ```c
 struct ao_recv_t
 {
@@ -46,8 +63,6 @@ struct ao_recv_t
 };
 ```
 
-This type represents the receiving of data. It consists of the following members.
-
 | `async` | The asynchronous event. |
 | `begin` | The function beginning the receiving. |
 | `count` | The number of received bytes. |
@@ -57,17 +72,6 @@ This type represents the receiving of data. It consists of the following members
 | `parameter` | An additional parameter. |
 | `ptr` | The location to store the received data. |
 | `result` | The result. |
-
-## `ao_recv_proc_t`
-
-```c
-typedef void (* ao_recv_proc_t)
-(
-    ao_recv_t * x
-);
-```
-
-This type represents a function beginning or ending a receiving.
 
 # Functions
 

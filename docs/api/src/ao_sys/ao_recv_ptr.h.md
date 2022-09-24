@@ -30,6 +30,23 @@ This module provides an abstraction for receiving pointers from an opaque source
 typedef struct ao_recv_ptr_t ao_recv_ptr_t;
 ```
 
+This type represents the receiving of a pointer.
+
+## `ao_recv_ptr_proc_t`
+
+```c
+typedef void (* ao_recv_ptr_proc_t)
+(
+    ao_recv_ptr_t * x
+);
+```
+
+This type represents a function beginning or ending a receiving of a pointer.
+
+# Structs
+
+## `ao_recv_ptr_t`
+
 ```c
 struct ao_recv_ptr_t
 {
@@ -42,25 +59,12 @@ struct ao_recv_ptr_t
 };
 ```
 
-This type represents the receiving of a pointer. It consists of the following members.
-
 | `async` | The asynchronous event. |
 | `begin` | The function beginning the receiving. |
 | `end` | The function ending the receiving. |
 | `parameter` | An additional parameter. |
 | `ptr` | The received pointer. |
 | `result` | The result. |
-
-## `ao_recv_ptr_proc_t`
-
-```c
-typedef void (* ao_recv_ptr_proc_t)
-(
-    ao_recv_ptr_t * x
-);
-```
-
-This type represents a function beginning or ending a receiving of a pointer.
 
 # Functions
 

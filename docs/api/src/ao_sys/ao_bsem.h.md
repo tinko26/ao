@@ -33,6 +33,20 @@ This module defines binary semaphore.
 typedef struct ao_bsem_t ao_bsem_t;
 ```
 
+This type represents a binary semaphore.
+
+## `ao_bsem_take_t`
+
+```c
+typedef struct ao_bsem_take_t ao_bsem_take_t;
+```
+
+This type represents the taking of a binary semaphore.
+
+# Structs
+
+## `ao_bsem_t`
+
 ```c
 struct ao_bsem_t
 {
@@ -41,16 +55,10 @@ struct ao_bsem_t
 };
 ```
 
-This type represents a binary semaphore. It consists of the following members.
-
 | `list` | The list of takings. |
 | `taken` | Indicates whether the semaphore is taken. |
 
 ## `ao_bsem_take_t`
-
-```c
-typedef struct ao_bsem_take_t ao_bsem_take_t;
-```
 
 ```c
 struct ao_bsem_take_t
@@ -61,8 +69,6 @@ struct ao_bsem_take_t
     ao_bsem_t *    sem;
 };
 ```
-
-This type represents the taking of a binary semaphore. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `node` | The node for the binary semaphore's list of takings. |

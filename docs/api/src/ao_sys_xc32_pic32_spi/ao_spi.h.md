@@ -234,11 +234,11 @@ struct ao_spi_reg_stat_t
 void ao_spi_baud(ao_spi_reg_t * r, uint32_t f_pbclk, uint32_t f);
 ```
 
-Sets up the baud rate for a module.
-
 | `r` | The control registers of the module. |
 | `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
 | `f` | The baud rate, in bits per second. |
+
+Sets up the baud rate for a module.
 
 ## `AO_SPI_BAUD_MAX`
 
@@ -252,9 +252,9 @@ Sets up the baud rate for a module.
 )
 ```
 
-Calculates the maximum possible baud rate, in bits per second.
-
 | `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
+
+Calculates the maximum possible baud rate, in bits per second.
 
 ## `AO_SPI_BAUD_MIN`
 
@@ -271,6 +271,6 @@ Calculates the maximum possible baud rate, in bits per second.
 )
 ```
 
-Calculates the minimum possible baud rate, in bits per second.
-
 | `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
+
+Calculates the minimum possible baud rate, in bits per second.

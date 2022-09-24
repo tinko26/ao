@@ -10,6 +10,12 @@ toc: true
 
 This module defines the context of a task. This module is abstract.
 
+# Identifier
+
+```c
+#define AO_TASK_CONTEXT
+```
+
 # Types
 
 ## `ao_task_context_t`
@@ -18,11 +24,15 @@ This module defines the context of a task. This module is abstract.
 typedef struct ao_task_context_t ao_task_context_t;
 ```
 
+This type represents context-related data of a task.
+
+# Structs
+
+## `ao_task_context_t`
+
 ```c
 struct ao_task_context_t { };
 ```
-
-This type represents context-related data of a task.
 
 # Functions
 

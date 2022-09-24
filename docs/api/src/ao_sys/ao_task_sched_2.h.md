@@ -78,6 +78,36 @@ Indicates whether task submission is supported.
 typedef struct ao_task_sched_t ao_task_sched_t;
 ```
 
+This type represents scheduler-related data of a task.
+
+## `ao_task_ceiling_t`
+
+```c
+typedef struct ao_task_ceiling_t ao_task_ceiling_t;
+```
+
+This type represents a task ceiling.
+
+## `ao_task_master_t`
+
+```c
+typedef struct ao_task_master_t ao_task_master_t;
+```
+
+This type represents a task master.
+
+## `ao_task_slave_t`
+
+```c
+typedef struct ao_task_slave_t ao_task_slave_t;
+```
+
+This type represents a task slave.
+
+# Structs
+
+## `ao_task_sched_t`
+
 ```c
 struct ao_task_sched_t
 {
@@ -101,8 +131,6 @@ struct ao_task_sched_t
 };
 ```
 
-This type represents scheduler-related data of a task. It consists of the following members.
-
 | `masters` | The list of masters that the task currently embodies. |
 | `node` | The node for the scheduler's lists of ready tasks. |
 | `prio` | The priority. |
@@ -110,10 +138,6 @@ This type represents scheduler-related data of a task. It consists of the follow
 | `slaves` | The priority queue of slaves that the task currently embodies. |
 
 ## `ao_task_ceiling_t`
-
-```c
-typedef struct ao_task_ceiling_t ao_task_ceiling_t;
-```
 
 ```c
 struct ao_task_ceiling_t
@@ -124,17 +148,11 @@ struct ao_task_ceiling_t
 };
 ```
 
-This type represents a task ceiling. It consists of the following members.
-
 | `prio` | The priority. |
 | `slave` | The slave that is currently submissive to this ceiling. |
 | `slave_ceilings_node` | The node for the slave's priority queue of ceilings. |
 
 ## `ao_task_master_t`
-
-```c
-typedef struct ao_task_master_t ao_task_master_t;
-```
 
 ```c
 struct ao_task_master_t
@@ -147,8 +165,6 @@ struct ao_task_master_t
 };
 ```
 
-This type represents a task master. It consists of the following members.
-
 | `prio` | The priority. |
 | `slave` | The slave that is currently submissive to this master. |
 | `slave_masters_node` | The node for the slave's priority queue of masters. |
@@ -156,10 +172,6 @@ This type represents a task master. It consists of the following members.
 | `task_masters_node` | The node for the task's list of masters. |
 
 ## `ao_task_slave_t`
-
-```c
-typedef struct ao_task_slave_t ao_task_slave_t;
-```
 
 ```c
 struct ao_task_slave_t
@@ -182,8 +194,6 @@ struct ao_task_slave_t
     ao_rb_node_t task_slaves_node;
 };
 ```
-
-This type represents a task slave. It consists of the following members.
 
 | `ceilings` | The priority queue of ceilings that this slave is currently submissive to. |
 | `masters` | The priority queue of masters that this slave is currently submissive to. |

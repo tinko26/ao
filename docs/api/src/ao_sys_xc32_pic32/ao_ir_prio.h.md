@@ -6,6 +6,12 @@ permalink: /api/src/ao_sys_xc32_pic32/ao_ir_prio.h/
 toc: true
 ---
 
+# Identifier
+
+```c
+#define AO_IR_PRIO
+```
+
 # Constants
 
 ## `AO_IR_PRIO_MAX`

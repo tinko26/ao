@@ -27,6 +27,12 @@ toc: true
 typedef struct ao_block_t ao_block_t;
 ```
 
+This type represents the blocking of a task.
+
+# Structs
+
+## `ao_block_t`
+
 ```c
 struct ao_block_t
 {
@@ -35,8 +41,6 @@ struct ao_block_t
     ao_time_t  timeout;
 };
 ```
-
-This type represents the blocking of a task. It consists of the following members.
 
 | `alarm` | The alarm. |
 | `beginning` | The beginning. |

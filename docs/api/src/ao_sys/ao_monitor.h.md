@@ -30,6 +30,28 @@ toc: true
 typedef struct ao_monitor_t ao_monitor_t;
 ```
 
+This type represents a monitor.
+
+## `ao_monitor_enter_t`
+
+```c
+typedef struct ao_monitor_enter_t ao_monitor_enter_t;
+```
+
+This type represents the entering of a monitor.
+
+## `ao_monitor_wait_t`
+
+```c
+typedef struct ao_monitor_wait_t ao_monitor_wait_t;
+```
+
+This type represents the waiting for a monitor.
+
+# Structs
+
+## `ao_monitor_t`
+
 ```c
 struct ao_monitor_t
 {
@@ -38,16 +60,10 @@ struct ao_monitor_t
 };
 ```
 
-This type represents a monitor. It consists of the following members.
-
 | `list` | The list of waitings. |
 | `mutex` | The mutex. |
 
 ## `ao_monitor_enter_t`
-
-```c
-typedef struct ao_monitor_enter_t ao_monitor_enter_t;
-```
 
 ```c
 struct ao_monitor_enter_t
@@ -59,18 +75,12 @@ struct ao_monitor_enter_t
 };
 ```
 
-This type represents the entering of a monitor. It consists of the following members.
-
 | `async` | The asynchronous event. |
 | `monitor` | The monitor. |
 | `mutex_lock` | The mutex locking. |
 | `result` | The result. |
 
 ## `ao_monitor_wait_t`
-
-```c
-typedef struct ao_monitor_wait_t ao_monitor_wait_t;
-```
 
 ```c
 struct ao_monitor_wait_t
@@ -86,8 +96,6 @@ struct ao_monitor_wait_t
     bool volatile       waiting;
 };
 ```
-
-This type represents the waiting for a monitor. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `monitor` | The monitor. |

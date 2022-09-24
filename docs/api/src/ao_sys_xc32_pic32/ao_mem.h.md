@@ -14,6 +14,12 @@ This module provides three functions for copying, moving, and filling memory blo
 
 | `string.h` |
 
+# Identifier
+
+```c
+#define AO_MEM
+```
+
 # Functions
 
 ## `ao_memcpy`

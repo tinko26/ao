@@ -14,6 +14,12 @@ This module encapsulates a hardware counter that increments continuously at a co
 
 | `stdint.h` |
 
+# Identifier
+
+```c
+#define AO_COUNT
+```
+
 # Constants
 
 ## `AO_COUNT_FREQUENCY`

@@ -248,7 +248,7 @@ struct ao_i2c_reg_trn_t
 
 # Functions
 
-## `ao_i2c_ack`
+## `ao_i2c_ack*`
 
 ```c
 bool ao_i2c_ack        (ao_i2c_reg_t * r, ao_time_t t);
@@ -256,11 +256,11 @@ bool ao_i2c_ack_from   (ao_i2c_reg_t * r, ao_time_t t, ao_time_t b);
 bool ao_i2c_ack_forever(ao_i2c_reg_t * r);
 ```
 
-Generates an acknowledge. The return value indicates, whether the operation succeeded.
-
 | `r` | The control registers. |
 | `t` | The timeout. |
 | `b` | The beginning. |
+
+Generates an acknowledge. The return value indicates, whether the operation succeeded.
 
 ## `ao_i2c_acked`
 
@@ -276,13 +276,13 @@ Checks whether an acknowledge has been received.
 void ao_i2c_baud(ao_i2c_reg_t * r, uint32_t f_pbclk, uint32_t f);
 ```
 
-Sets up the baud rate for a module.
-
 | `r` | The control registers of the module. |
 | `f_pbclk` | The frequency of the peripheral bus clock, in Hertz. |
 | `f` | The baud rate, in bits per second. |
 
-## `ao_i2c_nack`
+Sets up the baud rate for a module.
+
+## `ao_i2c_nack*`
 
 ```c
 bool ao_i2c_nack        (ao_i2c_reg_t * r, ao_time_t t);
@@ -290,11 +290,11 @@ bool ao_i2c_nack_from   (ao_i2c_reg_t * r, ao_time_t t, ao_time_t b);
 bool ao_i2c_nack_forever(ao_i2c_reg_t * r);
 ```
 
-Generates a not acknowledge. The return value indicates, whether the operation succeeded.
-
 | `r` | The control registers. |
 | `t` | The timeout. |
 | `b` | The beginning. |
+
+Generates a not acknowledge. The return value indicates, whether the operation succeeded.
 
 ## `ao_i2c_nacked`
 
@@ -304,7 +304,7 @@ bool ao_i2c_nacked(ao_i2c_reg_t const * r);
 
 Checks whether a not acknowledge has been received.
 
-## `ao_i2c_recv`
+## `ao_i2c_recv*`
 
 ```c
 bool ao_i2c_recv        (ao_i2c_reg_t * r, uint8_t * v, ao_time_t t);
@@ -312,14 +312,14 @@ bool ao_i2c_recv_from   (ao_i2c_reg_t * r, uint8_t * v, ao_time_t t, ao_time_t b
 bool ao_i2c_recv_forever(ao_i2c_reg_t * r, uint8_t * v);
 ```
 
-Receives data. The return value indicates, whether the operation succeeded.
-
 | `r` | The control registers. |
 | `v` | The pointer to the location to store the received data. |
 | `t` | The timeout. |
 | `b` | The beginning. |
 
-## `ao_i2c_restart`
+Receives data. The return value indicates, whether the operation succeeded.
+
+## `ao_i2c_restart*`
 
 ```c
 bool ao_i2c_restart        (ao_i2c_reg_t * r, ao_time_t t);
@@ -327,13 +327,13 @@ bool ao_i2c_restart_from   (ao_i2c_reg_t * r, ao_time_t t, ao_time_t b);
 bool ao_i2c_restart_forever(ao_i2c_reg_t * r);
 ```
 
-Generates a repeated start bus event. The return value indicates, whether the operation succeeded.
-
 | `r` | The control registers. |
 | `t` | The timeout. |
 | `b` | The beginning. |
 
-## `ao_i2c_send`
+Generates a repeated start bus event. The return value indicates, whether the operation succeeded.
+
+## `ao_i2c_send*`
 
 ```c
 bool ao_i2c_send        (ao_i2c_reg_t * r, uint8_t v, ao_time_t t);
@@ -341,14 +341,14 @@ bool ao_i2c_send_from   (ao_i2c_reg_t * r, uint8_t v, ao_time_t t, ao_time_t b);
 bool ao_i2c_send_forever(ao_i2c_reg_t * r, uint8_t v);
 ```
 
-Sends data. The return value indicates, whether the operation succeeded.
-
 | `r` | The control registers. |
 | `v` | The data. |
 | `t` | The timeout. |
 | `b` | The beginning. |
 
-## `ao_i2c_start`
+Sends data. The return value indicates, whether the operation succeeded.
+
+## `ao_i2c_start*`
 
 ```c
 bool ao_i2c_start        (ao_i2c_reg_t * r, ao_time_t t);
@@ -356,13 +356,13 @@ bool ao_i2c_start_from   (ao_i2c_reg_t * r, ao_time_t t, ao_time_t b);
 bool ao_i2c_start_forever(ao_i2c_reg_t * r);
 ```
 
-Generates a start bus event. The return value indicates, whether the operation succeeded.
-
 | `r` | The control registers. |
 | `t` | The timeout. |
 | `b` | The beginning. |
 
-## `ao_i2c_stop`
+Generates a start bus event. The return value indicates, whether the operation succeeded.
+
+## `ao_i2c_stop*`
 
 ```c
 bool ao_i2c_stop        (ao_i2c_reg_t * r, ao_time_t t);
@@ -370,8 +370,8 @@ bool ao_i2c_stop_from   (ao_i2c_reg_t * r, ao_time_t t, ao_time_t b);
 bool ao_i2c_stop_forever(ao_i2c_reg_t * r);
 ```
 
-Generates a stop bus event. The return value indicates, whether the operation succeeded.
-
 | `r` | The control registers. |
 | `t` | The timeout. |
 | `b` | The beginning. |
+
+Generates a stop bus event. The return value indicates, whether the operation succeeded.

@@ -28,6 +28,28 @@ toc: true
 typedef struct ao_stream4ptr_t ao_stream4ptr_t;
 ```
 
+This type represents a stream for pointers.
+
+## `ao_spop_ptr_t`
+
+```c
+typedef struct ao_spop_ptr_t ao_spop_ptr_t;
+```
+
+This type represents the popping of a pointer from a stream.
+
+## `ao_spush_ptr_t`
+
+```c
+typedef struct ao_spush_ptr_t ao_spush_ptr_t;
+```
+
+This type represents the pushing of a pointer to a stream.
+
+# Structs
+
+## `ao_stream4ptr_t`
+
 ```c
 struct ao_stream4ptr_t
 {
@@ -37,17 +59,11 @@ struct ao_stream4ptr_t
 };
 ```
 
-This type represents a stream for pointers. It consists of the following members.
-
 | `buffer` | The buffer. |
 | `pop` | The list of poppings. |
 | `push` | The list of pushings. |
 
 ## `ao_spop_ptr_t`
-
-```c
-typedef struct ao_spop_ptr_t ao_spop_ptr_t;
-```
 
 ```c
 struct ao_spop_ptr_t
@@ -60,8 +76,6 @@ struct ao_spop_ptr_t
 };
 ```
 
-This type represents the popping of a pointer from a stream. It consists of the following members.
-
 | `async` | The asynchronous event. |
 | `node` | The node for the stream's list of poppings. |
 | `ptr` | The pointer that has been popped from the stream. |
@@ -69,10 +83,6 @@ This type represents the popping of a pointer from a stream. It consists of the 
 | `stream` | The stream. |
 
 ## `ao_spush_ptr_t`
-
-```c
-typedef struct ao_spush_ptr_t ao_spush_ptr_t;
-```
 
 ```c
 struct ao_spush_ptr_t
@@ -86,8 +96,6 @@ struct ao_spush_ptr_t
     ao_stream4ptr_t * stream;
 };
 ```
-
-This type represents the pushing of a pointer to a stream. It consists of the following members.
 
 | `async` | The asynchronous event. |
 | `node` | The node for the stream's list of pushings. |
