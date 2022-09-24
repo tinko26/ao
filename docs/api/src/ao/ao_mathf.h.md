@@ -42,21 +42,21 @@ This module provides mathematical constants and functions for floating-point num
 
 These constants represent the following values.
 
-| *`AO_1_PI*` | $$\frac{1}{\pi}$$ |
-| *`AO_2_PI*` | $$\frac{2}{\pi}$$ |
-| *`AO_2_SQRTPI*` | $$\frac{2}{\sqrt{\pi}}$$ |
-| *`AO_DEGREES_PER_RADIAN*` | The number of degrees per radian |
-| *`AO_E*` | $$e$$ |
-| *`AO_LN10*` | $$\ln{10}$$ |
-| *`AO_LN2*` | $$\ln{2}$$ |
-| *`AO_LOG10E*` | $$\lg{e}$$ |
-| *`AO_LOG2E*` | $$\log_2{e}$$ |
-| *`AO_PI*` | $$\pi$$ |
-| *`AO_PI_2*` | $$\frac{\pi}{2}$$ |
-| *`AO_PI_4*` | $$\frac{\pi}{4}$$ |
-| *`AO_RADIANS_PER_DEGREE*` | The number of radians per degree |
-| *`AO_SQRT1_2*` | $$\sqrt{\frac{1}{2}}$$ |
-| *`AO_SQRT2*` | $$\sqrt{2}$$ |
+| `AO_1_PI` | $$\frac{1}{\pi}$$ |
+| `AO_2_PI` | $$\frac{2}{\pi}$$ |
+| `AO_2_SQRTPI` | $$\frac{2}{\sqrt{\pi}}$$ |
+| `AO_DEGREES_PER_RADIAN` | The number of degrees per radian |
+| `AO_E` | $$e$$ |
+| `AO_LN10` | $$\ln{10}$$ |
+| `AO_LN2` | $$\ln{2}$$ |
+| `AO_LOG10E` | $$\lg{e}$$ |
+| `AO_LOG2E` | $$\log_2{e}$$ |
+| `AO_PI` | $$\pi$$ |
+| `AO_PI_2` | $$\frac{\pi}{2}$$ |
+| `AO_PI_4` | $$\frac{\pi}{4}$$ |
+| `AO_RADIANS_PER_DEGREE` | The number of radians per degree |
+| `AO_SQRT1_2` | $$\sqrt{\frac{1}{2}}$$ |
+| `AO_SQRT2` | $$\sqrt{2}$$ |
 
 # Functions
 
