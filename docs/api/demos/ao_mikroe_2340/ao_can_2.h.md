@@ -8,9 +8,7 @@ toc: true
 
 # Include
 
-```c
-#include <ao_mikroe_2334.h>
-```
+[`ao_mikroe_2334.h`](ao_mikroe_2334.h.md)
 
 # Constants
 
@@ -27,6 +25,4 @@ Indicates whether the module is used.
 
 # Include Next
 
-```c
-#include_next <ao_can_2.h>
-```
+[`ao_can_2.h`](../../src/ao_sys_xc32_pic32_can/ao_can_2.h.md)

@@ -8,10 +8,8 @@ toc: true
 
 # Include
 
-```c
-#include <stdbool.h>
-#include <stddef.h>
-```
+`stdbool.h` <br/>
+`stddef.h`
 
 # Configuration
 
@@ -67,6 +65,4 @@ This function is called, when a task stack underflow has occured. It must be imp
 
 # Include Next
 
-```c
-#include_next <ao_task_stack.h>
-```
+[`ao_task_stack.h`](../ao_sys/ao_task_stack.h.md)

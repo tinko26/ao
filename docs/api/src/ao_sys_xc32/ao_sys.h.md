@@ -14,6 +14,4 @@ toc: true
 
 # Include Next
 
-```c
-#include_next <ao_sys.h>
-```
+[`ao_sys.h`](../ao_sys/ao_sys.h.md)

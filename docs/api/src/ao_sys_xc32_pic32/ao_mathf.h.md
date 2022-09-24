@@ -12,9 +12,7 @@ This module provides mathematical constants and functions for floating-point num
 
 # Include
 
-```c
-#include <math.h>
-```
+`math.h`
 
 # Functions
 
@@ -320,6 +318,4 @@ Calculates the hyperbolic tangent of $$\texttt{x}$$.
 
 # Include Next
 
-```c
-#include_next <ao_mathf.h>
-```
+[`ao_mathf.h`](../ao/ao_mathf.h.md)

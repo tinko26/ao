@@ -8,9 +8,7 @@ toc: true
 
 # Include
 
-```c
-#include <stddef.h>
-```
+`stddef.h`
 
 # Identifier
 

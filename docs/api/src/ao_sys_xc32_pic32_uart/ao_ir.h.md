@@ -12,12 +12,8 @@ This module gathers interrupt-related functions.
 
 # Include
 
-```c
-#include <ao_ir_u.h>
-```
+[`ao_ir_u.h`](ao_ir_u.h.md)
 
 # Include Next
 
-```c
-#include_next <ao_ir.h>
-```
+[`ao_ir.h`](../ao_sys_xc32_pic32/ao_ir.h.md)

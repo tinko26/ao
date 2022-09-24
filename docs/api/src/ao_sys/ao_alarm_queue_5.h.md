@@ -17,10 +17,8 @@ This module provides an implementation for the alarm queue based on a red-black 
 
 # Include
 
-```c
-#include <ao_rb.h>
-#include <stdbool.h>
-```
+[`ao_rb.h`](../ao/ao_rb.h.md) <br/>
+`stdbool.h`
 
 # Identifier
 

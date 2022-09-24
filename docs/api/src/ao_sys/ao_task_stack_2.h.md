@@ -8,10 +8,8 @@ toc: true
 
 # Include
 
-```c
-#include <stdbool.h>
-#include <stddef.h>
-```
+`stdbool.h` <br/>
+`stddef.h`
 
 # Identifier
 

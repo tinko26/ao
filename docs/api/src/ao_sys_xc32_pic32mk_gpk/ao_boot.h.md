@@ -8,11 +8,8 @@ toc: true
 
 # Include
 
-```c
-#include <ao_ir.h>
-#include <ao_sys.h>
-#include <xc.h>
-```
+[`ao_ir.h`](ao_ir.h.md) <br/>
+`xc.h`
 
 # Functions
 
@@ -355,6 +352,4 @@ Sets up the prefetch cache.
 
 # Include Next
 
-```c
-#include_next <ao_boot.h>
-```
+[`ao_boot.h`](../ao_sys_xc32_pic32/ao_boot.h.md)

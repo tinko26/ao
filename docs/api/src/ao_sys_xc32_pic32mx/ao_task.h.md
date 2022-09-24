@@ -18,13 +18,9 @@ Priority level 1 interrupts do not use a shadow set.
 
 # Include
 
-```c
-#include <ao_task_context.h>
-#include <ao_task_stack.h>
-```
+[`ao_task_context.h`](ao_task_context.h.md) <br/>
+[`ao_task_stack.h`](ao_task_stack.h.md)
 
 # Include Next
 
-```c
-#include_next <ao_task.h>
-```
+[`ao_task.h`](../ao_sys/ao_task.h.md)

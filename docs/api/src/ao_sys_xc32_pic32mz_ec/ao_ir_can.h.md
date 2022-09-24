@@ -8,11 +8,9 @@ toc: true
 
 # Include
 
-```c
-#include <stdbool.h>
-#include <sys/attribs.h>
-#include <xc.h>
-```
+`stdbool.h` <br/>
+`sys/attribs.h` <br/>
+`xc.h`
 
 # Configuration
 

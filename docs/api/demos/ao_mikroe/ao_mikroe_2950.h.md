@@ -11,12 +11,10 @@ toc: true
 
 # Include
 
-```c
-#include <ao_time.h>
-#include <stdbool.h>
-#include <stddef.h>
-#include <stdint.h>
-```
+[`ao_time.h`](../../src/ao_sys/ao_time.h.md) <br/>
+`stdbool.h` <br/>
+`stddef.h` <br/>
+`stdint.h`
 
 # Identifier
 

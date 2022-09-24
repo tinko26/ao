@@ -8,9 +8,7 @@ toc: true
 
 # Include
 
-```c
-#include <xc.h>
-```
+`xc.h`
 
 # Functions
 
@@ -76,6 +74,4 @@ void ao_boot_mikroe_4186();
 
 # Include Next
 
-```c
-#include_next <ao_boot.h>
-```
+[`ao_boot.h`](../../src/ao_sys_xc32_pic32mz_ef/ao_boot.h.md)

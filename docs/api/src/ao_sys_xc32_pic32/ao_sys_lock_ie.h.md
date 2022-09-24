@@ -29,9 +29,7 @@ ao_sys_unlock_ie(x);
 
 # Include
 
-```c
-#include <xc.h>
-```
+`xc.h`
 
 # Functions
 

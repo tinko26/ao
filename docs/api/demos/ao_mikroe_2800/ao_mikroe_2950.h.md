@@ -8,9 +8,7 @@ toc: true
 
 # Include
 
-```c
-#include <stdbool.h>
-```
+`stdbool.h`
 
 # Configuration
 
@@ -42,6 +40,4 @@ Indicates whether the clickboard is used.
 
 # Include Next
 
-```c
-#include_next <ao_mikroe_2950.h>
-```
+[`ao_mikroe_2950.h`](../ao_mikroe/ao_mikroe_2950.h.md)

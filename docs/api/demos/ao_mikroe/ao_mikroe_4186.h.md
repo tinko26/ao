@@ -11,11 +11,9 @@ toc: true
 
 # Include
 
-```c
-#include <stdbool.h>
-#include <stddef.h>
-#include <stdint.h>
-```
+`stdbool.h` <br/>
+`stddef.h` <br/>
+`stdint.h`
 
 # Identifier
 

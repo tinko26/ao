@@ -32,9 +32,7 @@ ao_sys_unlock_ir(x);
 
 # Include
 
-```c
-#include <stdint.h>
-```
+`stdint.h`
 
 # Functions
 

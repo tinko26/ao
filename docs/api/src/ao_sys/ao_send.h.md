@@ -12,13 +12,11 @@ This module provides an abstraction for sending to an opaque destination.
 
 # Include
 
-```c
-#include <ao_async.h>
-#include <ao_func.h>
-#include <ao_time.h>
-#include <stdbool.h>
-#include <stddef.h>
-```
+[`ao_async.h`](ao_async.h.md) <br/>
+[`ao_func.h`](../ao/ao_func.h.md) <br/>
+[`ao_time.h`](ao_time.h.md) <br/>
+`stdbool.h` <br/>
+`stddef.h`
 
 # Identifier
 

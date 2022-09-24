@@ -8,9 +8,7 @@ toc: true
 
 # Include
 
-```c
-#include <ao_recv_ptr.h>
-```
+[`ao_recv_ptr.h`](ao_recv_ptr.h.md)
 
 # Identifier
 

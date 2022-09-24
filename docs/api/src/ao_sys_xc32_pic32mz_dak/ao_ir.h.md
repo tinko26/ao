@@ -12,16 +12,12 @@ This module gathers interrupt-related functions.
 
 # Include
 
-```c
-#include <ao_ir_can.h>
-#include <ao_ir_cs.h>
-#include <ao_ir_ct.h>
-#include <ao_ir_int.h>
-#include <ao_ir_u.h>
-```
+[`ao_ir_can.h`](ao_ir_can.h.md) <br/>
+[`ao_ir_cs.h`](ao_ir_cs.h.md) <br/>
+[`ao_ir_ct.h`](ao_ir_ct.h.md) <br/>
+[`ao_ir_int.h`](ao_ir_int.h.md) <br/>
+[`ao_ir_u.h`](ao_ir_u.h.md)
 
 # Include Next
 
-```c
-#include_next <ao_ir.h>
-```
+[`ao_ir.h`](../ao_sys_xc32_pic32/ao_ir.h.md)

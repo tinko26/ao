@@ -18,6 +18,4 @@ The size of the `I2CxBRG.BRG` field, in bits.
 
 # Include Next
 
-```c
-#include_next <ao_i2c.h>
-```
+[`ao_i2c.h`](../ao_sys_xc32_pic32_i2c/ao_i2c.h.md)

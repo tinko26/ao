@@ -8,9 +8,7 @@ toc: true
 
 # Include
 
-```c
-#include <ao_sys.h>
-```
+[`ao_sys.h`](ao_sys.h.md)
 
 # Functions
 
@@ -22,6 +20,4 @@ toc: true
 
 # Include Next
 
-```c
-#include_next <ao_boot.h>
-```
+[`ao_boot.h`](../ao_sys_xc32_pic32/ao_boot.h.md)

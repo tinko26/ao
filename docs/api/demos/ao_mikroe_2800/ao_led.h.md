@@ -8,10 +8,8 @@ toc: true
 
 # Include
 
-```c
-#include <stdint.h>
-#include <xc.h>
-```
+`stdint.h` <br/>
+`xc.h`
 
 # Constants
 

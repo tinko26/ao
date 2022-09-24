@@ -14,11 +14,9 @@ This module defines execution barriers, where two tasks can synchronize and exch
 
 # Include
 
-```c
-#include <ao_async.h>
-#include <ao_time.h>
-#include <stdbool.h>
-```
+[`ao_async.h`](ao_async.h.md) <br/>
+[`ao_time.h`](ao_time.h.md) <br/>
+`stdbool.h`
 
 # Identifier
 

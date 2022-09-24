@@ -8,10 +8,8 @@ toc: true
 
 # Include
 
-```c
-#include <ao_send_ptr.h>
-#include <ao_stream4ptr.h>
-```
+[`ao_send_ptr.h`](ao_send_ptr.h.md) <br/>
+[`ao_stream4ptr.h`](ao_stream4ptr.h.md)
 
 # Identifier
 

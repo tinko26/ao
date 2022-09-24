@@ -8,12 +8,10 @@ toc: true
 
 # Include
 
-```c
-#include <ao_i2c.h>
-#include <ao_sys.h>
-#include <stdbool.h>
-#include <xc.h>
-```
+[`ao_i2c.h`](ao_i2c.h.md) <br/>
+[`ao_sys.h`](ao_sys.h.md) <br/>
+`stdbool.h` <br/>
+`xc.h`
 
 # Identifier
 

@@ -23,11 +23,9 @@ This module implements a constant-time dynamic storage allocator based on the tw
 
 # Include
 
-```c
-#include <ao_size.h>
-#include <stdbool.h>
-#include <stddef.h>
-```
+[`ao_size.h`](../ao/ao_size.h.md) <br/>
+`stdbool.h` <br/>
+`stddef.h`
 
 # Identifier
 

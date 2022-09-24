@@ -17,10 +17,8 @@ This module provides an implementation for the alarm queue based on an array-bas
 
 # Include
 
-```c
-#include <stdbool.h>
-#include <stddef.h>
-```
+`stdbool.h` <br/>
+`stddef.h`
 
 # Identifier
 

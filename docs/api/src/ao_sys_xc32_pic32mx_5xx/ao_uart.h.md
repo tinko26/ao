@@ -26,6 +26,4 @@ The capacity of the receive FIFO, in bytes.
 
 # Include Next
 
-```c
-#include_next <ao_uart.h>
-```
+[`ao_uart.h`](../ao_sys_xc32_pic32_uart/ao_uart.h.md)

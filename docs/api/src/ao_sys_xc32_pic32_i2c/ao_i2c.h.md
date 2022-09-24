@@ -8,12 +8,10 @@ toc: true
 
 # Include
 
-```c
-#include <ao_sys.h>
-#include <ao_time.h>
-#include <stdbool.h>
-#include <stdint.h>
-```
+[`ao_sys.h`](ao_sys.h.md) <br/>
+[`ao_time.h`](../../../time.md) <br/>
+`stdbool.h` <br/>
+`stdint.h`
 
 # Identifier
 

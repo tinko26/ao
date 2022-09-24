@@ -17,10 +17,8 @@ This module provides an implementation for the alarm queue based on an AVL tree.
 
 # Include
 
-```c
-#include <ao_avl.h>
-#include <stdbool.h>
-```
+[`ao_avl.h`](../ao/ao_avl.h.md) <br/>
+`stdbool.h`
 
 # Identifier
 

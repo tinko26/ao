@@ -12,10 +12,8 @@ This module supports baud rates up to 921600 bps.
 
 # Include
 
-```c
-#include <ao_mikroe_2674.h>
-#include <ao_mikroe_3063.h>
-```
+[`ao_mikroe_2674.h`](ao_mikroe_2674.h.md) <br/>
+[`ao_mikroe_3063.h`](ao_mikroe_3063.h.md)
 
 # Constants
 
@@ -33,6 +31,4 @@ Indicates whether the module is used.
 
 # Include Next
 
-```c
-#include_next <ao_uart_2.h>
-```
+[`ao_uart_2.h`](../../src/ao_sys_xc32_pic32_uart/ao_uart_2.h.md)

@@ -24,18 +24,16 @@ toc: true
 
 # Include
 
-```c
-#include <ao_block.h>
-#include <ao_core.h>
-#include <ao_func.h>
-#include <ao_int.h>
-#include <ao_task_context.h>
-#include <ao_task_sched.h>
-#include <ao_task_stack.h>
-#include <ao_time.h>
-#include <ao_uint.h>
-#include <stdbool.h>
-```
+[`ao_block.h`](ao_block.h.md) <br/>
+[`ao_core.h`](ao_core.h.md) <br/>
+[`ao_func.h`](../ao/ao_func.h.md) <br/>
+[`ao_int.h`](../ao/ao_int.h.md) <br/>
+[`ao_task_context.h`](ao_task_context.h.md) <br/>
+[`ao_task_sched.h`](ao_task_sched.h.md) <br/>
+[`ao_task_stack.h`](ao_task_stack.h.md) <br/>
+[`ao_time.h`](ao_time.h.md) <br/>
+[`ao_uint.h`](../ao/ao_uint.h.md) <br/>
+`stdbool.h`
 
 # Identifier
 

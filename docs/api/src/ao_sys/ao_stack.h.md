@@ -14,9 +14,7 @@ This module contains two functions for measuring the high water mark of a stack,
 
 # Include
 
-```c
-#include <stddef.h>
-```
+`stddef.h`
 
 # Functions
 

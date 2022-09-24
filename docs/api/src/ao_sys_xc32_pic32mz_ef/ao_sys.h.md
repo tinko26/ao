@@ -8,10 +8,8 @@ toc: true
 
 # Include
 
-```c
-#include <ao_sys_clock.h>
-#include <ao_sys_id.h>
-```
+[`ao_sys_clock.h`](ao_sys_clock.h.md) <br/>
+[`ao_sys_id.h`](ao_sys_id.h.md)
 
 # Identifier
 
@@ -21,6 +19,4 @@ toc: true
 
 # Include Next
 
-```c
-#include_next <ao_sys.h>
-```
+[`ao_sys.h`](../ao_sys_xc32_pic32mz/ao_sys.h.md)

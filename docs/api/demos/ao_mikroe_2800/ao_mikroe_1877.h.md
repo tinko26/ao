@@ -8,11 +8,9 @@ toc: true
 
 # Include
 
-```c
-#include <ao_task.h>
-#include <ao_time.h>
-#include <stdbool.h>
-```
+[`ao_task.h`](../../src/ao_sys_xc32_pic32mz/ao_task.h.md) <br/>
+[`ao_time.h`](../../src/ao_sys/ao_time.h.md) <br/>
+`stdbool.h`
 
 # Configuration
 
@@ -60,6 +58,4 @@ extern ao_task_t ao_mikroe_1877_task_2;
 
 # Include Next
 
-```c
-#include_next <ao_mikroe_1877.h>
-```
+[`ao_mikroe_1877.h`](../ao_mikroe/ao_mikroe_1877.h.md)

@@ -12,20 +12,16 @@ This module gathers interrupt-related functions.
 
 # Include
 
-```c
-#include <ao_ir_alarm.h>
-#include <ao_ir_cs.h>
-#include <ao_ir_ct.h>
-#include <ao_ir_enable.h>
-#include <ao_ir_int.h>
-#include <ao_ir_mvec.h>
-#include <ao_ir_prio.h>
-#include <ao_ir_stack.h>
-#include <ao_ir_task.h>
-```
+[`ao_ir_alarm.h`](ao_ir_alarm.h.md) <br/>
+[`ao_ir_cs.h`](ao_ir_cs.h.md) <br/>
+[`ao_ir_ct.h`](ao_ir_ct.h.md) <br/>
+[`ao_ir_enable.h`](ao_ir_enable.h.md) <br/>
+[`ao_ir_int.h`](ao_ir_int.h.md) <br/>
+[`ao_ir_mvec.h`](ao_ir_mvec.h.md) <br/>
+[`ao_ir_prio.h`](ao_ir_prio.h.md) <br/>
+[`ao_ir_stack.h`](ao_ir_stack.h.md) <br/>
+[`ao_ir_task.h`](ao_ir_task.h.md)
 
 # Include Next
 
-```c
-#include_next <ao_ir.h>
-```
+[`ao_ir.h`](../ao_sys/ao_ir.h.md)

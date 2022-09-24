@@ -12,10 +12,8 @@ This module defines functions for awaiting asynchronous events.
 
 # Include
 
-```c
-#include <ao_async.h>
-#include <ao_time.h>
-```
+[`ao_async.h`](ao_async.h.md) <br/>
+[`ao_time.h`](ao_time.h.md)
 
 # Identifier
 

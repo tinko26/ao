@@ -17,10 +17,8 @@ This module provides an implementation for the alarm queue based on a pointer-ba
 
 # Include
 
-```c
-#include <ao_heap.h>
-#include <stdbool.h>
-```
+[`ao_heap.h`](../ao/ao_heap.h.md) <br/>
+`stdbool.h`
 
 # Identifier
 

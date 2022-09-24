@@ -23,6 +23,4 @@ toc: true
 
 # Include Next
 
-```c
-#include_next <ao_alloc.h>
-```
+[`ao_alloc.h`](../../src/ao_sys/ao_alloc.h.md)

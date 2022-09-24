@@ -8,9 +8,7 @@ toc: true
 
 # Include
 
-```c
-#include <stdint.h>
-```
+`stdint.h`
 
 # Types
 
@@ -1053,6 +1051,4 @@ Calculates the minimum possible baud rate, in bits per second.
 
 # Include Next
 
-```c
-#include_next <ao_can.h>
-```
+[`ao_can.h`](../ao_sys/ao_can.h.md)

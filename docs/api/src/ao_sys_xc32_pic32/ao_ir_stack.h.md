@@ -8,14 +8,12 @@ toc: true
 
 # Include
 
-```c
-#include <ao_align.h>
-#include <ao_func.h>
-#include <ao_stack.h>
-#include <stdbool.h>
-#include <stddef.h>
-#include <stdint.h>
-```
+[`ao_align.h`](../ao/ao_align.h.md) <br/>
+[`ao_func.h`](../ao/ao_func.h.md) <br/>
+[`ao_stack.h`](ao_stack.h.md) <br/>
+`stdbool.h` <br/>
+`stddef.h` <br/>
+`stdint.h`
 
 # Configuration
 

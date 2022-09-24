@@ -8,11 +8,9 @@ toc: true
 
 # Include
 
-```c
-#include <ao_mikroe_1877.h>
-#include <ao_mikroe_2950.h>
-#include <ao_mikroe_4186.h>
-```
+[`ao_mikroe_1877.h`](ao_mikroe_1877.h.md) <br/>
+[`ao_mikroe_2950.h`](ao_mikroe_2950.h.md) <br/>
+[`ao_mikroe_4186.h`](ao_mikroe_4186.h.md)
 
 # Constants
 
@@ -31,6 +29,4 @@ Indicates whether the module is used.
 
 # Include Next
 
-```c
-#include_next <ao_i2c_4.h>
-```
+[`ao_i2c_4.h`](../../src/ao_sys_xc32_pic32_i2c/ao_i2c_4.h.md)

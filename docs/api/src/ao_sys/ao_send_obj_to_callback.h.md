@@ -8,9 +8,7 @@ toc: true
 
 # Include
 
-```c
-#include <ao_send_obj.h>
-```
+[`ao_send_obj.h`](ao_send_obj.h.md)
 
 # Identifier
 

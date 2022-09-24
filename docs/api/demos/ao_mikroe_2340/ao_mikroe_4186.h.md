@@ -8,10 +8,8 @@ toc: true
 
 # Include
 
-```c
-#include <ao_time.h>
-#include <stdbool.h>
-```
+[`ao_time.h`](../../src/ao_sys/ao_time.h.md) <br/>
+`stdbool.h`
 
 # Configuration
 
@@ -58,6 +56,4 @@ Indicates whether the clickboard is used.
 
 # Include Next
 
-```c
-#include_next <ao_mikroe_4186.h>
-```
+[`ao_mikroe_4186.h`](../ao_mikroe/ao_mikroe_4186.h.md)

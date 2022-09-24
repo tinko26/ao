@@ -8,9 +8,7 @@ toc: true
 
 # Include
 
-```c
-#include <stdint.h>
-```
+`stdint.h`
 
 # Types
 

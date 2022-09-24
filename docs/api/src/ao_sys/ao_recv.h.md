@@ -12,12 +12,10 @@ This module provides an abstraction for receiving from an opaque source.
 
 # Include
 
-```c
-#include <ao_async.h>
-#include <ao_time.h>
-#include <stdbool.h>
-#include <stddef.h>
-```
+[`ao_async.h`](ao_async.h.md) <br/>
+[`ao_time.h`](ao_time.h.md) <br/>
+`stdbool.h` <br/>
+`stddef.h`
 
 # Identifier
 

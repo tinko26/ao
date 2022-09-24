@@ -8,12 +8,10 @@ toc: true
 
 # Include
 
-```c
-#include <ao_alarm_queue.h>
-#include <ao_func.h>
-#include <ao_time.h>
-#include <stdbool.h>
-```
+[`ao_alarm_queue.h`](ao_alarm_queue.h.md) <br/>
+[`ao_func.h`](../ao/ao_func.h.md) <br/>
+[`ao_time.h`](ao_time.h.md) <br/>
+`stdbool.h`
 
 # Identifier
 

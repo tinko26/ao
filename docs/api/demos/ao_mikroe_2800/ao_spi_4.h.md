@@ -8,9 +8,7 @@ toc: true
 
 # Include
 
-```c
-#include <ao_mikroe_2935.h>
-```
+[`ao_mikroe_2935.h`](ao_mikroe_2935.h.md)
 
 # Constants
 
@@ -27,6 +25,4 @@ Indicates whether the module is used.
 
 # Include Next
 
-```c
-#include_next <ao_spi_4.h>
-```
+[`ao_spi_4.h`](../../src/ao_sys_xc32_pic32_spi/ao_spi_4.h.md)

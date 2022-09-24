@@ -10,10 +10,8 @@ toc: true
 
 # Include
 
-```c
-#include <ao_alarm.h>
-#include <ao_time.h>
-```
+[`ao_alarm.h`](ao_alarm.h.md) <br/>
+[`ao_time.h`](ao_time.h.md)
 
 # Identifier
 

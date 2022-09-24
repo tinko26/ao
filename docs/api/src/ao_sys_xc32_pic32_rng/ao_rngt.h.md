@@ -54,10 +54,8 @@ while (1)
 
 # Include
 
-```c
-#include <stdint.h>
-#include <xc.h>
-```
+`stdint.h` <br/>
+`xc.h`
 
 # Functions
 

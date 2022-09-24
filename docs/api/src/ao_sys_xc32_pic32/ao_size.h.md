@@ -12,9 +12,7 @@ The standard library's `size_t` type is an unsigned integer type, at least 16 bi
 
 # Include
 
-```c
-#include <ao_uint.h>
-```
+[`ao_uint.h`](ao_uint.h.md)
 
 # Constants
 

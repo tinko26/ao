@@ -8,9 +8,7 @@ toc: true
 
 # Include
 
-```c
-#include <xc.h>
-```
+`xc.h`
 
 # Constants
 

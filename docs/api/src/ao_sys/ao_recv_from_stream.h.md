@@ -8,10 +8,8 @@ toc: true
 
 # Include
 
-```c
-#include <ao_recv.h>
-#include <ao_stream.h>
-```
+[`ao_recv.h`](ao_recv.h.md) <br/>
+[`ao_stream.h`](ao_stream.h.md)
 
 # Identifier
 

@@ -12,9 +12,7 @@ This module contains a couple of time-related definitions, that are based on a h
 
 # Include
 
-```c
-#include <ao_count.h>
-```
+[`ao_count.h`](ao_count.h.md)
 
 # Constants
 

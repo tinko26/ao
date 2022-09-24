@@ -8,13 +8,9 @@ toc: true
 
 # Include
 
-```c
-#include <ao_sys_clock.h>
-#include <ao_sys_config.h>
-```
+[`ao_sys_clock.h`](ao_sys_clock.h.md) <br/>
+[`ao_sys_config.h`](ao_sys_config.h.md)
 
 # Include Next
 
-```c
-#include_next <ao_sys.h>
-```
+[`ao_sys.h`](../../src/ao_sys_xc32_pic32mz_ef/ao_sys.h.md)

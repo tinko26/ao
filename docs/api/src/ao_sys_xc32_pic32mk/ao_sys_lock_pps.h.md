@@ -29,10 +29,8 @@ ao_sys_lock_pps(&x);
 
 # Include
 
-```c
-#include <ao_sys_lock_device.h>
-#include <stdint.h>
-```
+[`ao_sys_lock_device.h`](../ao_sys_xc32_pic32/ao_sys_lock_device.h.md) <br/>
+`stdint.h`
 
 # Types
 
