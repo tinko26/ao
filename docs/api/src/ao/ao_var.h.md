@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-24
 draft: true
 permalink: /api/src/ao/ao_var.h/
 seealso:
@@ -17,6 +17,12 @@ This module defines two convenience macro functions for variables.
 ```c
 #include <ao_mem.h>
 #include <stddef.h>
+```
+
+# Identifier
+
+```c
+#define AO_VAR
 ```
 
 # Functions

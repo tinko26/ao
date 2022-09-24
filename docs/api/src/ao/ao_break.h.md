@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-24
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Breakpoint : "Breakpoint"
@@ -11,6 +11,12 @@ toc: true
 # Notes
 
 This module contains a single function that executes a breakpoint. Since breakpoints are hardware-specific, this module is abstract. Therefore, an implementation must be provided by a port package.
+
+# Identifier
+
+```c
+#define AO_BREAK
+```
 
 # Functions
 

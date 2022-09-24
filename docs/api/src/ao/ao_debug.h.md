@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-24
 draft: true
 permalink: /api/src/ao/ao_debug.h/
 toc: true
@@ -14,6 +14,12 @@ This module defines a single macro constant indicating whether an application is
 
 ```c
 #include <stdbool.h>
+```
+
+# Identifier
+
+```c
+#define AO_DEBUG
 ```
 
 # Constants

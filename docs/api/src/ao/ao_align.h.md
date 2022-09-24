@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-24
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Memory_alignment : "Memory alignment"
@@ -16,8 +16,12 @@ Normally, the compiler takes care of the correct alignment of variables automati
 
 # Include
 
+`stdbool.h`
+
+# Identifier
+
 ```c
-#include <stdbool.h>
+#define AO_ALIGN
 ```
 
 # Functions

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-24
 draft: true
 permalink: /api/src/ao/ao_mem.h/
 toc: true
@@ -15,6 +15,12 @@ This module provides three functions for copying, moving, and filling memory blo
 ```c
 #include <stddef.h>
 #include <stdint.h>
+```
+
+# Identifier
+
+```c
+#define AO_MEM
 ```
 
 # Functions

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-24
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Circular_buffer : "Circular buffer"
@@ -101,8 +101,7 @@ Checks whether a buffer is empty, in constant time.
 
 Checks whether a buffer is full, in constant time.
 
-## `ao_buffer_peek_back`
-## `ao_buffer_peek_front`
+## `ao_buffer_peek_*`
 
 ```c
 bool ao_buffer_peek_back (ao_buffer_t const * x, void * p);
@@ -111,8 +110,7 @@ bool ao_buffer_peek_front(ao_buffer_t const * x, void * p);
 
 Peeks the back or front byte, respectively, in constant time. The return value indicates whether the operation was successful. Therefore, it is safe to call this function, if the buffer is empty.
 
-## `ao_buffer_peek_range_back`
-## `ao_buffer_peek_range_front`
+## `ao_buffer_peek_range_*`
 
 ```c
 size_t ao_buffer_peek_range_back (ao_buffer_t const * x, void * p, size_t n_min, size_t n_max);
@@ -121,8 +119,7 @@ size_t ao_buffer_peek_range_front(ao_buffer_t const * x, void * p, size_t n_min,
 
 Peeks a sequence of back or front bytes, respectively. The `n_min` and `n_max` parameters specify the minimum and maximum number of bytes, respectively. The return value indicates the actual number of bytes and, hence, whether the operation was successful. Therefore, it is safe to call this function, if the buffer is empty.
 
-## `ao_buffer_pop_back`
-## `ao_buffer_pop_front`
+## `ao_buffer_pop_*`
 
 ```c
 bool ao_buffer_pop_back (ao_buffer_t * x, void * p);
@@ -131,8 +128,7 @@ bool ao_buffer_pop_front(ao_buffer_t * x, void * p);
 
 Pops the back or front byte, respectively, in constant time. The return value indicates whether the operation was successful. Therefore, it is safe to call this function, if the buffer is empty.
 
-## `ao_buffer_pop_range_back`
-## `ao_buffer_pop_range_front`
+## `ao_buffer_pop_range_*`
 
 ```c
 size_t ao_buffer_pop_range_back (ao_buffer_t * x, void * p, size_t n_min, size_t n_max);
@@ -141,8 +137,7 @@ size_t ao_buffer_pop_range_front(ao_buffer_t * x, void * p, size_t n_min, size_t
 
 Pops a sequence of back or front bytes, respectively. The `n_min` and `n_max` parameters specify the minimum and maximum number of bytes, respectively. The return value indicates the actual number of bytes and, hence, whether the operation was successful. Therefore, it is safe to call this function, if the buffer is empty.
 
-## `ao_buffer_push_back`
-## `ao_buffer_push_front`
+## `ao_buffer_push_*`
 
 ```c
 bool ao_buffer_push_back (ao_buffer_t * x, void const * p);
@@ -151,8 +146,7 @@ bool ao_buffer_push_front(ao_buffer_t * x, void const * p);
 
 Pushes a byte to the back or front, respectively, in constant time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the buffer is full.
 
-## `ao_buffer_push_back_override`
-## `ao_buffer_push_front_override`
+## `ao_buffer_push_*_override`
 
 ```c
 bool ao_buffer_push_back_override (ao_buffer_t * x, void const * p);
@@ -161,8 +155,7 @@ bool ao_buffer_push_front_override(ao_buffer_t * x, void const * p);
 
 Pushes a byte to the back or front, respectively, in constant time. If the buffer is full, then this function overrides the oldest byte in the buffer. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the buffer's capacity is zero.
 
-## `ao_buffer_push_range_back`
-## `ao_buffer_push_range_front`
+## `ao_buffer_push_range_*`
 
 ```c
 size_t ao_buffer_push_range_back (ao_buffer_t * x, void const * p, size_t n_min, size_t n_max);
@@ -171,8 +164,7 @@ size_t ao_buffer_push_range_front(ao_buffer_t * x, void const * p, size_t n_min,
 
 Pushes a sequence of bytes to the back or front, respectively. The `n_min` and `n_max` parameters specify the minimum and maximum number of bytes, respectively. The return value indicates the actual number of bytes and, hence, whether the operation was successful. Therefore, it is safe to call this function, if the buffer is too full.
 
-## `ao_buffer_push_range_back_override`
-## `ao_buffer_push_range_front_override`
+## `ao_buffer_push_range_*_override`
 
 ```c
 size_t ao_buffer_push_range_back_override (ao_buffer_t * x, void const * p, size_t n_min, size_t n_max);

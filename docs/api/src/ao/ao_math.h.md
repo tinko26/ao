@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-24
 draft: true
 permalink: /api/src/ao/ao_math.h/
 toc: true
@@ -14,6 +14,12 @@ This module provides a number of useful mathematical operations. They are implem
 
 ```c
 #include <stdbool.h>
+```
+
+# Identifier
+
+```c
+#define AO_MATH
 ```
 
 # Functions

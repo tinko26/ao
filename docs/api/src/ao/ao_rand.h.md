@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-24
 draft: true
 permalink: /api/src/ao/ao_rand.h/
 toc: true
@@ -15,6 +15,12 @@ This module defines function pointer types for a variety of random value generat
 ```c
 #include <stdbool.h>
 #include <stdint.h>
+```
+
+# Identifier
+
+```c
+#define AO_RAND
 ```
 
 # Types

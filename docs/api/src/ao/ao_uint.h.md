@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-24
 draft: true
 permalink: /api/src/ao/ao_uint.h/
 toc: true
@@ -14,6 +14,12 @@ This module defines the fastest unsigned integer type available on the target pl
 
 ```c
 #include <stdint.h>
+```
+
+# Identifier
+
+```c
+#define AO_UINT
 ```
 
 # Constants
@@ -93,12 +99,7 @@ Finds the first or last set bit, respectively.
 
 Calculates the base-2 logarithm.
 
-## `AO_LOG2U2`
-## `AO_LOG2U4`
-## `AO_LOG2U8`
-## `AO_LOG2U16`
-## `AO_LOG2U32`
-## `AO_LOG2U64`
+## `AO_LOG2U*`
 
 ```c
 #define AO_LOG2U2( x) ((x) & 0x0000000000000002U ?  1                         : 0            )

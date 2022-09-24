@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-24
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Double-ended_queue : "Double-ended queue"
@@ -105,8 +105,7 @@ Inserts `n1` before `n2` into a list, in constant time.
 
 Checks whether a list is empty, in constant time.
 
-## `ao_list_pop_back`
-## `ao_list_pop_front`
+## `ao_list_pop_*`
 
 ```c
 ao_list_node_t * ao_list_pop_back (ao_list_t * x);
@@ -115,8 +114,7 @@ ao_list_node_t * ao_list_pop_front(ao_list_t * x);
 
 Pops the back or front node, respectively, in constant time.
 
-## `ao_list_push_back`
-## `ao_list_push_front`
+## `ao_list_push_*`
 
 ```c
 void ao_list_push_back (ao_list_t * x, ao_list_node_t * n);

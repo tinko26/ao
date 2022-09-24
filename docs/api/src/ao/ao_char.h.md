@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-24
 draft: true
 permalink: /api/src/ao/ao_char.h/
 toc: true
@@ -24,7 +24,7 @@ This module provides a couple of functions that classify characters. Although th
 
 # Functions
 
-## `ao_char_is`
+## `ao_char_is_*`
 
 ```c
 bool ao_char_is_alphanumeric(char x);

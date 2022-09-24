@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-24
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Linear-feedback_shift_register : "Linear-feedback shift register"
@@ -117,10 +117,7 @@ struct ao_lfsr64_t
 
 # Functions
 
-## `ao_lfsr8`
-## `ao_lfsr16`
-## `ao_lfsr32`
-## `ao_lfsr64`
+## `ao_lfsr*`
 
 ```c
 void ao_lfsr8 (ao_lfsr8_t  * r);

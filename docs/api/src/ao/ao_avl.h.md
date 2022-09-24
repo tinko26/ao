@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-24
 draft: true
 external:
 - https://en.wikipedia.org/wiki/AVL_tree : "AVL tree"
@@ -22,11 +22,9 @@ An AVL tree is a special kind of binary search tree, that keeps itself balanced,
 
 # Include
 
-```c
-#include <ao_int.h>
-#include <stdbool.h>
-#include <stddef.h>
-```
+[`ao_int.h`](ao_int.h.md)  
+`stdbool.h`  
+`stddef.h`  
 
 # Identifier
 

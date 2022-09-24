@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-24
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Assertion_(software_development) : "Assertion"
@@ -20,8 +20,12 @@ Especially, outputting a message is probably not a good option in an embedded sy
 
 # Include
 
+[`ao_break.h`](ao_break.h.md)
+
+# Identifier
+
 ```c
-#include <ao_break.h>
+#define AO_ASSERT
 ```
 
 # Functions

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-24
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Radix : "Radix"
@@ -53,7 +53,7 @@ struct ao_scan_t
 
 # Functions
 
-## `ao_scanf`
+## `ao_scanf*`
 
 ```c
 size_t ao_scanfd(char const * s, size_t n, ao_scan_t const * o, double      * v);
@@ -61,14 +61,14 @@ size_t ao_scanff(char const * s, size_t n, ao_scan_t const * o, float       * v)
 size_t ao_scanfl(char const * s, size_t n, ao_scan_t const * o, long double * v);
 ```
 
-Converts a floating-point number from string. The respective suffix indicates, which kind of number to convert to, as well as the destination type. The return value indicates the actual number of bytes that have been read. The value `0` indicates, that the conversion has failed. All the functions have the same parameter list.
-
 | `s` | The string to convert. |
 | `n` | The maximum number of characters to read from the string. |
 | `o` | The conversion options. |
 | `v` | The pointer to a location where to store the result. |
 
-## `ao_scani`
+Converts a floating-point number from string. The respective suffix indicates, which kind of number to convert to, as well as the destination type. The return value indicates the actual number of bytes that have been read. The value `0` indicates, that the conversion has failed. All the functions have the same parameter list.
+
+## `ao_scani*`
 
 ```c
 size_t ao_scani8 (char const * s, size_t n, ao_scan_t const * o, int8_t  * v);
@@ -77,14 +77,14 @@ size_t ao_scani32(char const * s, size_t n, ao_scan_t const * o, int32_t * v);
 size_t ao_scani64(char const * s, size_t n, ao_scan_t const * o, int64_t * v);
 ```
 
-Converts a signed integer from string. The respective suffix indicates, which kind of number to convert to, as well as the destination type. The return value indicates the actual number of bytes that have been read. The value `0` indicates, that the conversion has failed. All the functions have the same parameter list.
-
 | `s` | The string to convert. |
 | `n` | The maximum number of characters to read from the string. |
 | `o` | The conversion options. |
 | `v` | The pointer to a location where to store the result. |
 
-## `ao_scanu`
+Converts a signed integer from string. The respective suffix indicates, which kind of number to convert to, as well as the destination type. The return value indicates the actual number of bytes that have been read. The value `0` indicates, that the conversion has failed. All the functions have the same parameter list.
+
+## `ao_scanu*`
 
 ```c
 size_t ao_scanu8 (char const * s, size_t n, ao_scan_t const * o, uint8_t  * v);
@@ -93,9 +93,9 @@ size_t ao_scanu32(char const * s, size_t n, ao_scan_t const * o, uint32_t * v);
 size_t ao_scanu64(char const * s, size_t n, ao_scan_t const * o, uint64_t * v);
 ```
 
-Converts an unsigned integer from string. The respective suffix indicates, which kind of number to convert to, as well as the destination type. The return value indicates the actual number of bytes that have been read. The value `0` indicates, that the conversion has failed. All the functions have the same parameter list.
-
 | `s` | The string to convert. |
 | `n` | The maximum number of characters to read from the string. |
 | `o` | The conversion options. |
 | `v` | The pointer to a location where to store the result. |
+
+Converts an unsigned integer from string. The respective suffix indicates, which kind of number to convert to, as well as the destination type. The return value indicates the actual number of bytes that have been read. The value `0` indicates, that the conversion has failed. All the functions have the same parameter list.

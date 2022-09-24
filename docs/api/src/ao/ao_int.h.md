@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-24
 draft: true
 permalink: /api/src/ao/ao_int.h/
 toc: true
@@ -14,6 +14,12 @@ This module defines the fastest signed integer type available on the target plat
 
 ```c
 #include <stdint.h>
+```
+
+# Identifier
+
+```c
+#define AO_INT
 ```
 
 # Constants

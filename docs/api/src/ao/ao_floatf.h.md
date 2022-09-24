@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-24
 draft: true
 permalink: /api/src/ao/ao_floatf.h/
 seealso:
@@ -17,6 +17,12 @@ This module defines the fastest floating-point type available on the target plat
 ```c
 #include <ao_mathf.h>
 #include <float.h>
+```
+
+# Identifier
+
+```c
+#define AO_FLOAT
 ```
 
 # Constants

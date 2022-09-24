@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-24
 draft: true
 permalink: /api/src/ao/ao_size.h/
 seealso:
@@ -18,6 +18,12 @@ The standard library's `size_t` type is an unsigned integer type, at least 16 bi
 #include <ao_uint.h>
 #include <stddef.h>
 #include <stdint.h>
+```
+
+# Identifier
+
+```c
+#define AO_SIZE
 ```
 
 # Constants

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-24
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Doubly_linked_list : "Doubly-linked list"
@@ -120,8 +120,7 @@ Inserts a node into a list, in linear time.
 
 Checks whether a list is empty, in constant time.
 
-## `ao_slist_pop_back`
-## `ao_slist_pop_front`
+## `ao_slist_pop_*`
 
 ```c
 ao_slist_node_t * ao_slist_pop_back (ao_slist_t * x);

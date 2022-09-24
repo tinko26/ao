@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-09
+date: 2022-09-24
 draft: true
 permalink: /api/src/ao/ao_struct.h/
 toc: true
@@ -15,6 +15,12 @@ This module defines a single macro function that returns a pointer to the head o
 ```c
 #include <stddef.h>
 #include <stdint.h>
+```
+
+# Identifier
+
+```c
+#define AO_STRUCT
 ```
 
 # Functions
