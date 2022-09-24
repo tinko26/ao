@@ -12,7 +12,7 @@ This module provides a number of useful mathematical operations. They are implem
 
 # Include
 
-`stdbool.h`
+| `stdbool.h` |
 
 # Identifier
 

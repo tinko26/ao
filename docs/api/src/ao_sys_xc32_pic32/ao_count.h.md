@@ -12,9 +12,9 @@ This module encapsulates a hardware counter that increments continuously at a co
 
 # Include
 
-[`ao_sys.h`](ao_sys.h.md) <br/>
-`stdint.h` <br/>
-`xc.h`
+| [`ao_sys.h`](ao_sys.h.md) |
+| `stdint.h` |
+| `xc.h` |
 
 # Constants
 

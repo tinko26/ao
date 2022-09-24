@@ -12,9 +12,9 @@ This module defines asynchronous events.
 
 # Include
 
-[`ao_func.h`](../ao/ao_func.h.md) <br/>
-`stdbool.h` <br/>
-`stddef.h`
+| [`ao_func.h`](../ao/ao_func.h.md) |
+| `stdbool.h` |
+| `stddef.h` |
 
 # Identifier
 

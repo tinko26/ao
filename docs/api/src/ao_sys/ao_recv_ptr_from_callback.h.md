@@ -8,7 +8,7 @@ toc: true
 
 # Include
 
-[`ao_recv_ptr.h`](ao_recv_ptr.h.md)
+| [`ao_recv_ptr.h`](ao_recv_ptr.h.md) |
 
 # Identifier
 

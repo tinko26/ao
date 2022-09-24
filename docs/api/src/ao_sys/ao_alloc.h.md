@@ -28,8 +28,8 @@ This module encapsulates an allocator that supports dynamic memory management.
 
 # Include
 
-`stdbool.h` <br/>
-`stddef.h`
+| `stdbool.h` |
+| `stddef.h` |
 
 # Identifier
 

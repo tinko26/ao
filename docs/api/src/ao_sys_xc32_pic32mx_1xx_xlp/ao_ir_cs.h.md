@@ -8,9 +8,9 @@ toc: true
 
 # Include
 
-`stdbool.h` <br/>
-`sys/attribs.h` <br/>
-`xc.h`
+| `stdbool.h` |
+| `sys/attribs.h` |
+| `xc.h` |
 
 # Configuration
 

@@ -27,8 +27,8 @@ Due to its iterative approach, allocation is a linear-time operation. In contras
 
 # Include
 
-`stdbool.h` <br/>
-`stddef.h`
+| `stdbool.h` |
+| `stddef.h` |
 
 # Identifier
 

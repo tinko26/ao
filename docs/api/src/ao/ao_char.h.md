@@ -12,7 +12,7 @@ This module provides a couple of functions that classify characters. Although th
 
 # Include
 
-`stdbool.h`
+| `stdbool.h` |
 
 # Identifier
 

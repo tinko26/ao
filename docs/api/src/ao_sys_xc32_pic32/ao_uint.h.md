@@ -12,8 +12,8 @@ This module defines the fastest unsigned integer type available on the target pl
 
 # Include
 
-`stdint.h` <br/>
-`xc.h`
+| `stdint.h` |
+| `xc.h` |
 
 # Constants
 

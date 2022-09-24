@@ -16,7 +16,7 @@ Normally, the compiler takes care of the correct alignment of variables automati
 
 # Include
 
-`stdbool.h`
+| `stdbool.h` |
 
 # Identifier
 

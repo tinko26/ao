@@ -32,4 +32,4 @@ The system clock frequency, in Hertz.
 
 # Include Next
 
-[`ao_sys_clock.h`](../../src/ao_sys_xc32_pic32mz_ef/ao_sys_clock.h.md)
+| [`ao_sys_clock.h`](../../src/ao_sys_xc32_pic32mz_ef/ao_sys_clock.h.md) |

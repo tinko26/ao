@@ -31,7 +31,7 @@ ao_sys_unlock_dma(x);
 
 # Include
 
-`stdint.h`
+| `stdint.h` |
 
 # Functions
 

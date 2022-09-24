@@ -8,7 +8,7 @@ toc: true
 
 # Include
 
-`xc.h`
+| `xc.h` |
 
 # Functions
 
@@ -80,4 +80,4 @@ void ao_boot_uart_5();
 
 # Include Next
 
-[`ao_boot.h`](../../src/ao_sys_xc32_pic32mz_ef/ao_boot.h.md)
+| [`ao_boot.h`](../../src/ao_sys_xc32_pic32mz_ef/ao_boot.h.md) |

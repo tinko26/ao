@@ -12,4 +12,4 @@ This module supports baud rates up to 921600 bps.
 
 # Include Next
 
-[`ao_uart_5.h`](../../src/ao_sys_xc32_pic32_uart/ao_uart_5.h.md)
+| [`ao_uart_5.h`](../../src/ao_sys_xc32_pic32_uart/ao_uart_5.h.md) |

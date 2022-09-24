@@ -10,7 +10,7 @@ toc: true
 
 # Include
 
-`xc.h`
+| `xc.h` |
 
 # Functions
 

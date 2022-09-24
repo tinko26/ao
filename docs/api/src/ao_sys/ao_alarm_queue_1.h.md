@@ -17,8 +17,8 @@ This module provides an implementation for the alarm queue based on a sorted lis
 
 # Include
 
-[`ao_slist.h`](../ao/ao_slist.h.md) <br/>
-`stdbool.h`
+| [`ao_slist.h`](../ao/ao_slist.h.md) |
+| `stdbool.h` |
 
 # Identifier
 

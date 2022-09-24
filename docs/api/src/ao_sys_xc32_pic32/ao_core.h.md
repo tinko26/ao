@@ -12,7 +12,7 @@ This module provides information about identical processor cores and is to suppo
 
 # Include
 
-`stdint.h`
+| `stdint.h` |
 
 # Constants
 

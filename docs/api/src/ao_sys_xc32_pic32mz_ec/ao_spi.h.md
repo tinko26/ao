@@ -8,7 +8,7 @@ toc: true
 
 # Include
 
-`stdbool.h`
+| `stdbool.h` |
 
 # Constants
 
@@ -30,4 +30,4 @@ Indicates whether the `SPIxCON.ENHBUF` field is available.
 
 # Include Next
 
-[`ao_spi.h`](../ao_sys_xc32_pic32_spi/ao_spi.h.md)
+| [`ao_spi.h`](../ao_sys_xc32_pic32_spi/ao_spi.h.md) |

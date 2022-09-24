@@ -14,7 +14,7 @@ This module defines functions for spinning or busy waiting, respectively, that c
 
 # Include
 
-[`ao_time.h`](ao_time.h.md)
+| [`ao_time.h`](ao_time.h.md) |
 
 # Identifier
 

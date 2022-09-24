@@ -12,8 +12,8 @@ This module provides three functions for copying, moving, and filling memory blo
 
 # Include
 
-`stddef.h` <br/>
-`stdint.h`
+| `stddef.h` |
+| `stdint.h` |
 
 # Identifier
 

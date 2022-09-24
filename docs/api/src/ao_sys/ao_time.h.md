@@ -12,7 +12,7 @@ This module contains a couple of time-related definitions, that are based on a h
 
 # Include
 
-[`ao_count.h`](ao_count.h.md)
+| [`ao_count.h`](ao_count.h.md) |
 
 # Constants
 

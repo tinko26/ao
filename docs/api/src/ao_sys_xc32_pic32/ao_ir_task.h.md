@@ -12,9 +12,9 @@ This module declares functions for controlling the task switch interrupts as wel
 
 # Include
 
-[`ao_core.h`](ao_core.h.md) <br/>
-[`ao_ir_cs.h`](ao_ir_cs.h.md) <br/>
-`stdbool.h`
+| [`ao_core.h`](ao_core.h.md) |
+| [`ao_ir_cs.h`](ao_ir_cs.h.md) |
+| `stdbool.h` |
 
 # Functions
 

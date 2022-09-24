@@ -12,7 +12,7 @@ This module encapsulates a hardware counter that increments continuously at a co
 
 # Include
 
-`stdint.h`
+| `stdint.h` |
 
 # Constants
 

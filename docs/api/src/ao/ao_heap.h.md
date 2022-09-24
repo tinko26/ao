@@ -23,9 +23,9 @@ Commonly, heaps are implemented based on an array that stores all the nodes. How
 
 # Include
 
-[`ao_uint.h`](ao_uint.h.md) <br/>
-`stdbool.h` <br/>
-`stddef.h`
+| [`ao_uint.h`](ao_uint.h.md) |
+| `stdbool.h` |
+| `stddef.h` |
 
 # Identifier
 

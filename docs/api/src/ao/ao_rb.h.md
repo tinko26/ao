@@ -20,8 +20,8 @@ A red-black tree is a special kind of binary search tree, that keeps itself bala
 
 # Include
 
-`stdbool.h` <br/>
-`stddef.h`
+| `stdbool.h` |
+| `stddef.h` |
 
 # Identifier
 

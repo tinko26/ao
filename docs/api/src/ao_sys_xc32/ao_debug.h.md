@@ -12,7 +12,7 @@ This module defines a single macro constant indicating whether an application is
 
 # Include
 
-`stdbool.h`
+| `stdbool.h` |
 
 # Constants
 

@@ -12,8 +12,8 @@ This module defines two convenience macro functions for variables.
 
 # Include
 
-[`ao_mem.h`](ao_mem.h.md) <br/>
-`stddef.h`
+| [`ao_mem.h`](ao_mem.h.md) |
+| `stddef.h` |
 
 # Identifier
 

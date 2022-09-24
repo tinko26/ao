@@ -32,8 +32,8 @@ ao_sys_unlock_ir(x);
 
 # Include
 
-`stdint.h` <br/>
-`xc.h`
+| `stdint.h` |
+| `xc.h` |
 
 # Functions
 

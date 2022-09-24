@@ -14,9 +14,9 @@ This module defines a mechanism for critical sections, that are required by the 
 
 # Include
 
-[`ao_ir.h`](ao_ir.h.md) <br/>
-[`ao_sys.h`](ao_sys.h.md) <br/>
-`stdint.h`
+| [`ao_ir.h`](ao_ir.h.md) |
+| [`ao_sys.h`](ao_sys.h.md) |
+| `stdint.h` |
 
 # Configuration
 

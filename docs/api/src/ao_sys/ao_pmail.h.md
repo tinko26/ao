@@ -12,11 +12,11 @@ This module implements a priority queue based on a red-black tree. Fetching retu
 
 # Include
 
-[`ao_async.h`](ao_async.h.md) <br/>
-[`ao_list.h`](../ao/ao_list.h.md) <br/>
-[`ao_rb.h`](../ao/ao_rb.h.md) <br/>
-[`ao_time.h`](ao_time.h.md) <br/>
-`stdbool.h`
+| [`ao_async.h`](ao_async.h.md) |
+| [`ao_list.h`](../ao/ao_list.h.md) |
+| [`ao_rb.h`](../ao/ao_rb.h.md) |
+| [`ao_time.h`](ao_time.h.md) |
+| `stdbool.h` |
 
 # Identifier
 

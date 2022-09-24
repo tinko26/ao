@@ -105,8 +105,8 @@ while (1)
 
 # Include
 
-`stdint.h` <br/>
-`xc.h`
+| `stdint.h` |
+| `xc.h` |
 
 # Functions
 

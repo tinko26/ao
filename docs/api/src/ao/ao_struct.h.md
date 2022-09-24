@@ -12,8 +12,8 @@ This module defines a single macro function that returns a pointer to the head o
 
 # Include
 
-`stddef.h` <br/>
-`stdint.h`
+| `stddef.h` |
+| `stdint.h` |
 
 # Identifier
 

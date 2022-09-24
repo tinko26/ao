@@ -8,12 +8,12 @@ toc: true
 
 # Include
 
-[`ao_align.h`](../ao/ao_align.h.md) <br/>
-[`ao_func.h`](../ao/ao_func.h.md) <br/>
-[`ao_stack.h`](ao_stack.h.md) <br/>
-`stdbool.h` <br/>
-`stddef.h` <br/>
-`stdint.h`
+| [`ao_align.h`](../ao/ao_align.h.md) |
+| [`ao_func.h`](../ao/ao_func.h.md) |
+| [`ao_stack.h`](ao_stack.h.md) |
+| `stdbool.h` |
+| `stddef.h` |
+| `stdint.h` |
 
 # Configuration
 

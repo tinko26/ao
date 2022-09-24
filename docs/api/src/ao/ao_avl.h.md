@@ -20,9 +20,9 @@ An AVL tree is a special kind of binary search tree, that keeps itself balanced,
 
 # Include
 
-[`ao_int.h`](ao_int.h.md) <br/>
-`stdbool.h` <br/>
-`stddef.h`
+| [`ao_int.h`](ao_int.h.md) |
+| `stdbool.h` |
+| `stddef.h` |
 
 # Identifier
 

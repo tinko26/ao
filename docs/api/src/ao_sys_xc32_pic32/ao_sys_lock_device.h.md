@@ -31,7 +31,7 @@ ao_sys_lock_device(&x);
 
 # Include
 
-`stdint.h`
+| `stdint.h` |
 
 # Types
 

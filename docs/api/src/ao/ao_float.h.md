@@ -12,4 +12,4 @@ This module defines the fastest floating-point type available on the target plat
 
 # Include
 
-[`ao_floatf.h`](ao_floatf.h.md)
+| [`ao_floatf.h`](ao_floatf.h.md) |

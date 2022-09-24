@@ -79,4 +79,4 @@ The peripheral bus clock frequencies, in Hertz.
 
 # Include Next
 
-[`ao_sys_clock.h`](../ao_sys_xc32_pic32/ao_sys_clock.h.md)
+| [`ao_sys_clock.h`](../ao_sys_xc32_pic32/ao_sys_clock.h.md) |

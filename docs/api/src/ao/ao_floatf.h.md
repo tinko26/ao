@@ -12,8 +12,8 @@ This module defines the fastest floating-point type available on the target plat
 
 # Include
 
-[`ao_mathf.h`](ao_mathf.h.md) <br/>
-`float.h`
+| [`ao_mathf.h`](ao_mathf.h.md) |
+| `float.h` |
 
 # Identifier
 

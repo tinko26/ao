@@ -17,8 +17,8 @@ This module defines doubly linked lists. Most commonly, lists are used as double
 
 # Include
 
-`stdbool.h` <br/>
-`stddef.h`
+| `stdbool.h` |
+| `stddef.h` |
 
 # Identifier
 

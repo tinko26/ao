@@ -11,9 +11,9 @@ toc: true
 
 # Include
 
-`stdbool.h` <br/>
-`stddef.h` <br/>
-`stdint.h`
+| `stdbool.h` |
+| `stddef.h` |
+| `stdint.h` |
 
 # Identifier
 

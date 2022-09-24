@@ -16,8 +16,8 @@ The port must implement the necessary interrupt handlers, which in turn must exe
 
 # Include
 
-[`ao_core.h`](ao_core.h.md) <br/>
-`stdbool.h`
+| [`ao_core.h`](ao_core.h.md) |
+| `stdbool.h` |
 
 # Functions
 

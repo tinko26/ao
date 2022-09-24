@@ -12,7 +12,7 @@ This module provides three functions for copying, moving, and filling memory blo
 
 # Include
 
-`string.h`
+| `string.h` |
 
 # Functions
 

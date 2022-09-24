@@ -14,11 +14,11 @@ This module defines execution barriers, where tasks can synchronize.
 
 # Include
 
-[`ao_async.h`](ao_async.h.md) <br/>
-[`ao_list.h`](../ao/ao_list.h.md) <br/>
-[`ao_time.h`](ao_time.h.md) <br/>
-[`ao_uint.h`](../ao/ao_uint.h.md) <br/>
-`stdbool.h`
+| [`ao_async.h`](ao_async.h.md) |
+| [`ao_list.h`](../ao/ao_list.h.md) |
+| [`ao_time.h`](ao_time.h.md) |
+| [`ao_uint.h`](../ao/ao_uint.h.md) |
+| `stdbool.h` |
 
 # Identifier
 

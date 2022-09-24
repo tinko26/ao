@@ -12,9 +12,9 @@ This module provides an abstraction for sending objects to an opaque destination
 
 # Include
 
-[`ao_async.h`](ao_async.h.md) <br/>
-[`ao_time.h`](ao_time.h.md) <br/>
-`stdbool.h`
+| [`ao_async.h`](ao_async.h.md) |
+| [`ao_time.h`](ao_time.h.md) |
+| `stdbool.h` |
 
 # Identifier
 

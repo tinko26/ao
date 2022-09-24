@@ -8,8 +8,8 @@ toc: true
 
 # Include
 
-[`ao_count.h`](ao_count.h.md) <br/>
-[`ao_ir.h`](ao_ir.h.md)
+| [`ao_count.h`](ao_count.h.md) |
+| [`ao_ir.h`](ao_ir.h.md) |
 
 # Functions
 
@@ -45,4 +45,4 @@ Boots the [`ao_ir_stack.h`](ao_ir_stack.h.md) module. This function sets up the 
 
 # Include Next
 
-[`ao_boot.h`](../ao_sys/ao_boot.h.md)
+| [`ao_boot.h`](../ao_sys/ao_boot.h.md) |

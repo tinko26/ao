@@ -11,7 +11,7 @@ toc: true
 
 # Include
 
-`stdbool.h`
+| `stdbool.h` |
 
 # Identifier
 

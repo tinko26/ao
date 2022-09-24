@@ -8,7 +8,7 @@ toc: true
 
 # Include
 
-`stdbool.h`
+| `stdbool.h` |
 
 # Configuration
 
@@ -20,4 +20,4 @@ toc: true
 
 # Include Next
 
-[`ao_mikroe_2935.h`](../ao_mikroe_2340/ao_mikroe_2935.h.md)
+| [`ao_mikroe_2935.h`](../ao_mikroe_2340/ao_mikroe_2935.h.md) |

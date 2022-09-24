@@ -8,10 +8,10 @@ toc: true
 
 # Include
 
-[`ao_i2c.h`](ao_i2c.h.md) <br/>
-[`ao_sys.h`](ao_sys.h.md) <br/>
-`stdbool.h` <br/>
-`xc.h`
+| [`ao_i2c.h`](ao_i2c.h.md) |
+| [`ao_sys.h`](ao_sys.h.md) |
+| `stdbool.h` |
+| `xc.h` |
 
 # Identifier
 

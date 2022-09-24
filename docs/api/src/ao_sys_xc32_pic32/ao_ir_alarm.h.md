@@ -12,8 +12,8 @@ This module declares functions for controlling the alarm interrupt as well as a 
 
 # Include
 
-[`ao_ir_ct.h`](ao_ir_ct.h.md) <br/>
-`xc.h`
+| [`ao_ir_ct.h`](ao_ir_ct.h.md) |
+| `xc.h` |
 
 # Functions
 

@@ -8,8 +8,8 @@ toc: true
 
 # Include
 
-`stdint.h` <br/>
-`xc.h`
+| `stdint.h` |
+| `xc.h` |
 
 # Constants
 

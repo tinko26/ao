@@ -8,8 +8,8 @@ toc: true
 
 # Include
 
-`stdbool.h` <br/>
-`stdint.h`
+| `stdbool.h` |
+| `stdint.h` |
 
 # Identifier
 

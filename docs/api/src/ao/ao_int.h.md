@@ -12,7 +12,7 @@ This module defines the fastest signed integer type available on the target plat
 
 # Include
 
-`stdint.h`
+| `stdint.h` |
 
 # Identifier
 

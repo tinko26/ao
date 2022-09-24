@@ -16,7 +16,7 @@ The port must implement an interrupt handler, which in turn must execute the cal
 
 # Include
 
-[`ao_time.h`](ao_time.h.md)
+| [`ao_time.h`](ao_time.h.md) |
 
 # Functions
 
