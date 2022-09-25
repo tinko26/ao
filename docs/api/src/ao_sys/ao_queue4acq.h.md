@@ -8,7 +8,7 @@ toc: true
 
 # Include
 
-| [`ao_queue4acq.h`](ao_queue4acq.h.md) |
+| [`ao_queue4ptr.h`](ao_queue4ptr.h.md) |
 | [`ao_time.h`](ao_time.h.md) |
 
 # Identifier
@@ -22,7 +22,7 @@ toc: true
 ## `ao_queue4acq_t`
 
 ```c
-typedef struct ao_queue4acq_t ao_queue4acq_t;
+typedef ao_queue4ptr_t ao_queue4acq_t;
 ```
 
 This type represents a queue for acquired memory blocks.
@@ -30,7 +30,7 @@ This type represents a queue for acquired memory blocks.
 ## `ao_qinsert_acq_t`
 
 ```c
-typedef struct ao_qinsert_acq_t ao_qinsert_acq_t;
+typedef ao_qinsert_ptr_t ao_qinsert_acq_t;
 ```
 
 This type represents the inserting into a queue for acquired memory blocks.
@@ -38,7 +38,7 @@ This type represents the inserting into a queue for acquired memory blocks.
 ## `ao_qpop_acq_t`
 
 ```c
-typedef struct ao_qpop_acq_t ao_qpop_acq_t;
+typedef ao_qpop_ptr_t ao_qpop_acq_t;
 ```
 
 This type represents the popping from a queue for acquired memory blocks.
