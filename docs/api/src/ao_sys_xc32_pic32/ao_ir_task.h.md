@@ -12,9 +12,7 @@ This module declares functions for controlling the task interrupts as well as a 
 
 # Include
 
-| [`ao_core.h`](ao_core.h.md) |
 | [`ao_ir_cs.h`](ao_ir_cs.h.md) |
-| `stdbool.h` |
 
 # Identifier
 

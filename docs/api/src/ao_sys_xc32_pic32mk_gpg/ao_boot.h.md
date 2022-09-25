@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mk_gpg/ao_boot.h/
 toc: true
@@ -124,7 +124,7 @@ Sets up both priority and subpriority of the external interrupt 4.
 }
 ```
 
-Sets up the usage of a shadow register set for all priorities. Especially, this function prevents priority 1 interrupts, hence the task switch interrupt, from using a shadow register set.
+Sets up the usage of a shadow register set for all priorities. Especially, this function prevents priority 1 interrupts, hence the task interrupt, from using a shadow register set.
 
 ## `ao_boot_ir_u1e`
 

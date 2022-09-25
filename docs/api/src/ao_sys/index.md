@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-23
+date: 2022-09-25
 draft: false
 permalink: /api/src/ao_sys/
 toc: true
@@ -37,7 +37,7 @@ wide: false
 | [`ao_flag.h`](ao_flag.h.md) | Flags |
 | [`ao_ir.h`](ao_ir.h.md) | Interrupts |
 | [`ao_ir_alarm.h`](ao_ir_alarm.h.md) | Alarm interrupt |
-| [`ao_ir_task.h`](ao_ir_task.h.md) | Task switch interrupts |
+| [`ao_ir_task.h`](ao_ir_task.h.md) | Task interrupts |
 | [`ao_led.h`](ao_led.h.md) | LEDs |
 | [`ao_lock.h`](ao_lock.h.md) | Locks |
 | [`ao_mail.h`](ao_mail.h.md) | Mail for asynchronous messaging |

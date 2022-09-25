@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys/ao_task.h/
 toc: true
@@ -11,7 +11,7 @@ toc: true
 ...
 
 - pending state:
-- when a task is running, a state transition might not be possible immediately. First, the task must be switched out, which is a scheduler function, which can be executed in the context of a task switch interrupt, only.
+- when a task is running, a state transition might not be possible immediately. First, the task must be switched out, which is a scheduler function, which can be executed in the context of a task interrupt, only.
 - task blocks
 - task yields
 - task suspends itself

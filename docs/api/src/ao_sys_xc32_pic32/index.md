@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-25
 draft: false
 external:
 - https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/32-bit-mcus : "Microchip 32-bit PIC® and SAM Microcontrollers"
@@ -90,7 +90,7 @@ wide: false
 | [`ao_ir_mvec.h`](ao_ir_mvec.h.md) | Multi-vectored interrupt mode |
 | [`ao_ir_prio.h`](ao_ir_prio.h.md) | Interrupt priorities |
 | [`ao_ir_stack.h`](ao_ir_stack.h.md) | Interrupt stack |
-| [`ao_ir_task.h`](ao_ir_task.h.md) | Task switch interrupt |
+| [`ao_ir_task.h`](ao_ir_task.h.md) | Task interrupt |
 | [`ao_lock.h`](ao_lock.h.md) | Locks |
 | [`ao_mathf.h`](ao_mathf.h.md) | Mathematics for floating-point numbers |
 | [`ao_mem.h`](ao_mem.h.md) | Memory blocks |
