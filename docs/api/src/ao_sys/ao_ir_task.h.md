@@ -18,7 +18,7 @@ The port must implement the necessary interrupt handlers, which in turn must exe
 
 | [`ao_core.h`](ao_core.h.md) |
 | `stdbool.h` |
-uint32_t 
+
 # Identifier
 
 ```c

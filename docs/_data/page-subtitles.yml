@@ -222,7 +222,7 @@
 /api/src/ao_sys_xc32_pic32/ao_ir_mvec.h/ : "Multi-vectored interrupt mode"
 /api/src/ao_sys_xc32_pic32/ao_ir_prio.h/ : "Interrupt priorities"
 /api/src/ao_sys_xc32_pic32/ao_ir_stack.h/ : "Interrupt stack"
-/api/src/ao_sys_xc32_pic32/ao_ir_task.h/ : "Task interrupts"
+/api/src/ao_sys_xc32_pic32/ao_ir_task.h/ : "Task interrupt"
 /api/src/ao_sys_xc32_pic32/ao_lock.h/ : "Locks"
 /api/src/ao_sys_xc32_pic32/ao_mathf.h/ : "Mathematics for floating-point numbers"
 /api/src/ao_sys_xc32_pic32/ao_mem.h/ : "Memory blocks"
