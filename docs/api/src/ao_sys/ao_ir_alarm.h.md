@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys/ao_ir_alarm.h/
 toc: true
@@ -26,38 +26,38 @@ The port must implement an interrupt handler, which in turn must execute the cal
 
 # Functions
 
-## `ao_alarm`
+## `ao_ir_alarm`
 
 ```c
-void ao_alarm();
+void ao_ir_alarm();
 ```
 
 The callback for the interrupt handler. Actually, this function is implemented by the [`ao_alarm.h`](ao_alarm.h.md) module.
 
-## `ao_alarm_enable`
-## `ao_alarm_disable`
+## `ao_ir_alarm_enable`
+## `ao_ir_alarm_disable`
 
 ```c
-void ao_alarm_enable();
-void ao_alarm_disable();
+void ao_ir_alarm_enable();
+void ao_ir_alarm_disable();
 ```
 
 Enables or disables the interrupt.
 
-## `ao_alarm_request`
-## `ao_alarm_reply`
+## `ao_ir_alarm_request`
+## `ao_ir_alarm_reply`
 
 ```c
-void ao_alarm_request();
-void ao_alarm_reply();
+void ao_ir_alarm_request();
+void ao_ir_alarm_reply();
 ```
 
 Requests the interrupt or replies thereto.
 
-## `ao_alarm_set`
+## `ao_ir_alarm_set`
 
 ```c
-void ao_alarm_set(ao_time_t t);
+void ao_ir_alarm_set(ao_time_t t);
 ```
 
 Sets the time for the next interrupt.
