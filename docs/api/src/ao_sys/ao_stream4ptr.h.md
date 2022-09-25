@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys/ao_stream4ptr.h/
 toc: true
@@ -142,50 +142,6 @@ void ao_spop_ptr_end  (ao_spop_ptr_t * x);
 ```
 
 Begins or ends, respectively, a popping of a pointer from a stream.
-
-## `ao_spush_acq`
-## `ao_spush_acq_from`
-
-```c
-void ao_spush_acq     (ao_spush_ptr_t * x, ao_time_t timeout);
-void ao_spush_acq_from(ao_spush_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
-```
-
-Pushes a pointer to an acquired memory block to a stream in a blocking fashion with a timeout and an optional beginning.
-
-## `ao_spush_acq_forever`
-
-```c
-void ao_spush_acq_forever(ao_spush_ptr_t * x);
-```
-
-Pushes a pointer to an acquired memory block to a stream indefinitely in a blocking fashion.
-
-## `ao_spush_acq_try`
-
-```c
-void ao_spush_acq_try(ao_spush_ptr_t * x);
-```
-
-Pushes a pointer to an acquired memory block to a stream in a non-blocking fashion.
-
-## `ao_spush_acq_begin`
-## `ao_spush_acq_end`
-
-```c
-void ao_spush_acq_begin(ao_spush_ptr_t * x);
-void ao_spush_acq_end  (ao_spush_ptr_t * x);
-```
-
-Begins or ends, respectively, a pushing of a pointer to an acquired memory block to a stream.
-
-## `ao_spush_acq_override`
-
-```c
-void ao_spush_acq_override(ao_spush_ptr_t * x);
-```
-
-Pushes a pointer to an acquired memory block to a stream in a non-blocking fashion. If the stream is full, then this function overrides the oldest pointer in the stream.
 
 ## `ao_spush_ptr`
 ## `ao_spush_ptr_from`

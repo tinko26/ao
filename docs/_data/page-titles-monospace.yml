@@ -144,9 +144,14 @@
 /api/src/ao_sys/ao_mutex.h/ : true
 /api/src/ao_sys/ao_pmail.h/ : true
 /api/src/ao_sys/ao_poll.h/ : true
+/api/src/ao_sys/ao_queue4acq.h/ : true
 /api/src/ao_sys/ao_queue4obj.h/ : true
 /api/src/ao_sys/ao_queue4ptr.h/ : true
 /api/src/ao_sys/ao_recv.h/ : true
+/api/src/ao_sys/ao_recv_acq.h/ : true
+/api/src/ao_sys/ao_recv_acq_from_callback.h/ : true
+/api/src/ao_sys/ao_recv_acq_from_queue.h/ : true
+/api/src/ao_sys/ao_recv_acq_from_stream.h/ : true
 /api/src/ao_sys/ao_recv_from_callback.h/ : true
 /api/src/ao_sys/ao_recv_from_stream.h/ : true
 /api/src/ao_sys/ao_recv_obj.h/ : true
@@ -162,6 +167,10 @@
 /api/src/ao_sys/ao_self.h/ : true
 /api/src/ao_sys/ao_sem.h/ : true
 /api/src/ao_sys/ao_send.h/ : true
+/api/src/ao_sys/ao_send_acq.h/ : true
+/api/src/ao_sys/ao_send_acq_to_callback.h/ : true
+/api/src/ao_sys/ao_send_acq_to_queue.h/ : true
+/api/src/ao_sys/ao_send_acq_to_stream.h/ : true
 /api/src/ao_sys/ao_send_obj.h/ : true
 /api/src/ao_sys/ao_send_obj_to_callback.h/ : true
 /api/src/ao_sys/ao_send_obj_to_queue.h/ : true
@@ -177,6 +186,7 @@
 /api/src/ao_sys/ao_spin.h/ : true
 /api/src/ao_sys/ao_stack.h/ : true
 /api/src/ao_sys/ao_stream.h/ : true
+/api/src/ao_sys/ao_stream4acq.h/ : true
 /api/src/ao_sys/ao_stream4obj.h/ : true
 /api/src/ao_sys/ao_stream4ptr.h/ : true
 /api/src/ao_sys/ao_sys.h/ : true

@@ -45,9 +45,14 @@ wide: false
 | [`ao_mutex.h`](ao_mutex.h.md) | Mutexes |
 | [`ao_pmail.h`](ao_pmail.h.md) | Priority mail for asynchronous messaging |
 | [`ao_poll.h`](ao_poll.h.md) | Polling |
+| [`ao_queue4acq.h`](ao_queue4acq.h.md) | Queues for acquired memory blocks |
 | [`ao_queue4obj.h`](ao_queue4obj.h.md) | Queues for objects |
 | [`ao_queue4ptr.h`](ao_queue4ptr.h.md) | Queues for pointers |
 | [`ao_recv.h`](ao_recv.h.md) | Receiving |
+| [`ao_recv_acq.h`](ao_recv_acq.h.md) | Receiving acquired memory blocks |
+| [`ao_recv_acq_from_callback.h`](ao_recv_acq_from_callback.h.md) | Receiving acquired memory blocks from callbacks |
+| [`ao_recv_acq_from_queue.h`](ao_recv_acq_from_queue.h.md) | Receiving acquired memory blocks from queues |
+| [`ao_recv_acq_from_stream.h`](ao_recv_acq_from_stream.h.md) | Receiving acquired memory blocks from streams |
 | [`ao_recv_from_callback.h`](ao_recv_from_callback.h.md) | Receiving from callbacks |
 | [`ao_recv_from_stream.h`](ao_recv_from_stream.h.md) | Receiving from streams |
 | [`ao_recv_obj.h`](ao_recv_obj.h.md) | Receiving objects |
@@ -63,6 +68,10 @@ wide: false
 | [`ao_self.h`](ao_self.h.md) | Running task |
 | [`ao_sem.h`](ao_sem.h.md) | Counting semaphores |
 | [`ao_send.h`](ao_send.h.md) | Sending |
+| [`ao_send_acq.h`](ao_send_acq.h.md) | Sending acquired memory blocks |
+| [`ao_send_acq_to_callback.h`](ao_send_acq_to_callback.h.md) | Sending acquired memory blocks to callbacks |
+| [`ao_send_acq_to_queue.h`](ao_send_acq_to_queue.h.md) | Sending acquired memory blocks to queues |
+| [`ao_send_acq_to_stream.h`](ao_send_acq_to_stream.h.md) | Sending acquired memory blocks to streams |
 | [`ao_send_obj.h`](ao_send_obj.h.md) | Sending objects |
 | [`ao_send_obj_to_callback.h`](ao_send_obj_to_callback.h.md) | Sending objects to callbacks |
 | [`ao_send_obj_to_queue.h`](ao_send_obj_to_queue.h.md) | Sending objects to queues |
@@ -78,6 +87,7 @@ wide: false
 | [`ao_spin.h`](ao_spin.h.md) | Spinning |
 | [`ao_stack.h`](ao_stack.h.md) | Stacks |
 | [`ao_stream.h`](ao_stream.h.md) | Streams |
+| [`ao_stream4acq.h`](ao_stream4acq.h.md) | Streams for acquired memory blocks |
 | [`ao_stream4obj.h`](ao_stream4obj.h.md) | Streams for objects |
 | [`ao_stream4ptr.h`](ao_stream4ptr.h.md) | Streams for pointers |
 | [`ao_sys.h`](ao_sys.h.md) | System |

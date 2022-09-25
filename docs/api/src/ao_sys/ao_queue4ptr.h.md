@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys/ao_queue4ptr.h/
 toc: true
@@ -102,42 +102,6 @@ struct ao_qpop_ptr_t
 | `result` | The result. |
 
 # Functions
-
-## `ao_qinsert_acq`
-## `ao_qinsert_acq_from`
-
-```c
-void ao_qinsert_acq     (ao_qinsert_ptr_t * x, ao_time_t timeout);
-void ao_qinsert_acq_from(ao_qinsert_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
-```
-
-Inserts a pointer to an acquired memory block into a queue in a blocking fashion with a timeout and an optional beginning.
-
-## `ao_qinsert_acq_forever`
-
-```c
-void ao_qinsert_acq_forever(ao_qinsert_ptr_t * x);
-```
-
-Inserts a pointer to an acquired memory block into a queue indefinitely in a blocking fashion.
-
-## `ao_qinsert_acq_try`
-
-```c
-void ao_qinsert_acq_try(ao_qinsert_ptr_t * x);
-```
-
-Inserts a pointer to an acquired memory block into a queue in a non-blocking fashion.
-
-## `ao_qinsert_acq_begin`
-## `ao_qinsert_acq_end`
-
-```c
-void ao_qinsert_acq_begin(ao_qinsert_ptr_t * x);
-void ao_qinsert_acq_end  (ao_qinsert_ptr_t * x);
-```
-
-Begins or ends, respectively, an inserting of a pointer to an acquired memory block into a queue.
 
 ## `ao_qinsert_ptr`
 ## `ao_qinsert_ptr_from`
