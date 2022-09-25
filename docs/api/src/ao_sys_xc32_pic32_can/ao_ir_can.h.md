@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-24
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_can/ao_ir_can.h/
 toc: true
@@ -18,7 +18,7 @@ toc: true
 
 # Functions
 
-## `ao_ir_can1`
+## `ao_ir_can1_*`
 
 ```c
 void ao_ir_can1_enable();
@@ -46,7 +46,7 @@ bool ao_ir_can1_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_can2`
+## `ao_ir_can2_*`
 
 ```c
 void ao_ir_can2_enable();
@@ -74,7 +74,7 @@ bool ao_ir_can2_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_can3`
+## `ao_ir_can3_*`
 
 ```c
 void ao_ir_can3_enable();
@@ -102,7 +102,7 @@ bool ao_ir_can3_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_can4`
+## `ao_ir_can4_*`
 
 ```c
 void ao_ir_can4_enable();

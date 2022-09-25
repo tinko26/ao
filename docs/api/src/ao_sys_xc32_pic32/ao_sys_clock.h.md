@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_sys_clock.h/
 toc: true
@@ -12,7 +12,7 @@ toc: true
 #define AO_SYS_CLOCK
 ```
 
-# Constants
+# Configuration
 
 ## `AO_SYS_SYSCLK`
 

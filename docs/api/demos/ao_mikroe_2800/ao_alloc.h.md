@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-25
 draft: true
 permalink: /api/demos/ao_mikroe_2800/ao_alloc.h/
 toc: true
@@ -17,7 +17,12 @@ toc: true
 ## `AO_ALLOC_SIZE`
 
 ```c
-#define AO_ALLOC_SIZE    (AO_ALLOC_SIZE_KB * 1024)
+#define AO_ALLOC_SIZE (AO_ALLOC_SIZE_KB * 1024)
+```
+
+## `AO_ALLOC_SIZE_KB`
+
+```c
 #define AO_ALLOC_SIZE_KB (256)
 ```
 

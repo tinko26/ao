@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-20
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mk/ao_task_context.h/
 toc: true
@@ -10,6 +10,12 @@ toc: true
 
 | `stdint.h` |
 
+# Identifier
+
+```c
+#define AO_TASK_CONTEXT
+```
+
 # Types
 
 ## `ao_task_context_t`
@@ -18,6 +24,20 @@ toc: true
 typedef struct ao_task_context_t ao_task_context_t;
 ```
 
+This type represents the task context.
+
+## `ao_task_context_data_t`
+
+```c
+typedef struct ao_task_context_data_t ao_task_context_data_t;
+```
+
+This type represents the task context data that is stored on the task stack.
+
+# Structs
+
+## `ao_task_context_t`
+
 ```c
 struct ao_task_context_t
 {
@@ -25,15 +45,9 @@ struct ao_task_context_t
 };
 ```
 
-This type represents the task context. It consists of the following members.
-
 | `ptr` | The pointer to the task context data, that is stored on the task stack. |
 
 ## `ao_task_context_data_t`
-
-```c
-typedef struct ao_task_context_data_t ao_task_context_data_t;
-```
 
 ```c
 struct ao_task_context_data_t
@@ -112,8 +126,6 @@ struct ao_task_context_data_t
     uint32_t padding;
 };
 ```
-
-This type represents the task context data that is stored on the task stack. It consists of the following members.
 
 | `a0` | A0. |
 | `a1` | A1. |

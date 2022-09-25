@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-24
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_uart/ao_ir_u.h/
 toc: true
@@ -18,7 +18,7 @@ toc: true
 
 # Functions
 
-## `ao_ir_u1e`
+## `ao_ir_u1e_*`
 
 ```c
 void ao_ir_u1e_enable();
@@ -46,7 +46,7 @@ bool ao_ir_u1e_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u1rx`
+## `ao_ir_u1rx_*`
 
 ```c
 void ao_ir_u1rx_enable();
@@ -74,7 +74,7 @@ bool ao_ir_u1rx_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u1tx`
+## `ao_ir_u1tx_*`
 
 ```c
 void ao_ir_u1tx_enable();
@@ -102,7 +102,7 @@ bool ao_ir_u1tx_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u2e`
+## `ao_ir_u2e_*`
 
 ```c
 void ao_ir_u2e_enable();
@@ -130,7 +130,7 @@ bool ao_ir_u2e_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u2rx`
+## `ao_ir_u2rx_*`
 
 ```c
 void ao_ir_u2rx_enable();
@@ -158,7 +158,7 @@ bool ao_ir_u2rx_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u2tx`
+## `ao_ir_u2tx_*`
 
 ```c
 void ao_ir_u2tx_enable();
@@ -186,7 +186,7 @@ bool ao_ir_u2tx_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u3e`
+## `ao_ir_u3e_*`
 
 ```c
 void ao_ir_u3e_enable();
@@ -214,7 +214,7 @@ bool ao_ir_u3e_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u3rx`
+## `ao_ir_u3rx_*`
 
 ```c
 void ao_ir_u3rx_enable();
@@ -242,7 +242,7 @@ bool ao_ir_u3rx_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u3tx`
+## `ao_ir_u3tx_*`
 
 ```c
 void ao_ir_u3tx_enable();
@@ -270,7 +270,7 @@ bool ao_ir_u3tx_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u4e`
+## `ao_ir_u4e_*`
 
 ```c
 void ao_ir_u4e_enable();
@@ -298,7 +298,7 @@ bool ao_ir_u4e_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u4rx`
+## `ao_ir_u4rx_*`
 
 ```c
 void ao_ir_u4rx_enable();
@@ -326,7 +326,7 @@ bool ao_ir_u4rx_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u4tx`
+## `ao_ir_u4tx_*`
 
 ```c
 void ao_ir_u4tx_enable();
@@ -354,7 +354,7 @@ bool ao_ir_u4tx_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u5e`
+## `ao_ir_u5e_*`
 
 ```c
 void ao_ir_u5e_enable();
@@ -382,7 +382,7 @@ bool ao_ir_u5e_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u5rx`
+## `ao_ir_u5rx_*`
 
 ```c
 void ao_ir_u5rx_enable();
@@ -410,7 +410,7 @@ bool ao_ir_u5rx_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u5tx`
+## `ao_ir_u5tx_*`
 
 ```c
 void ao_ir_u5tx_enable();
@@ -438,7 +438,7 @@ bool ao_ir_u5tx_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u6e`
+## `ao_ir_u6e_*`
 
 ```c
 void ao_ir_u6e_enable();
@@ -466,7 +466,7 @@ bool ao_ir_u6e_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u6rx`
+## `ao_ir_u6rx_*`
 
 ```c
 void ao_ir_u6rx_enable();
@@ -494,7 +494,7 @@ bool ao_ir_u6rx_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u6tx`
+## `ao_ir_u6tx_*`
 
 ```c
 void ao_ir_u6tx_enable();

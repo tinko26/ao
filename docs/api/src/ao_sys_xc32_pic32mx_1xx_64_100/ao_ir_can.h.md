@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mx_1xx_64_100/ao_ir_can.h/
 toc: true
@@ -12,9 +12,15 @@ toc: true
 | `sys/attribs.h` |
 | `xc.h` |
 
+# Identifier
+
+```c
+#define AO_IR_CAN
+```
+
 # Configuration
 
-## `AO_IR_CAN1`
+## `AO_IR_CAN1_*`
 
 ```c
 #define AO_IR_CAN1_ATTRIBUTE __ISR(_CAN_1_VECTOR, IPL4SOFT)
@@ -31,7 +37,7 @@ The interrupt priority and subpriority.
 
 # Functions
 
-## `ao_ir_can1`
+## `ao_ir_can1_*`
 
 ```c
 #define ao_ir_can1_enable()  { IEC2SET = _IEC2_CAN1IE_MASK; }

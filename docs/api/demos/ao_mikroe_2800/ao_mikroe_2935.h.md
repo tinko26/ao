@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-25
 draft: true
 permalink: /api/demos/ao_mikroe_2800/ao_mikroe_2935.h/
 toc: true
@@ -14,35 +14,35 @@ toc: true
 
 # Configuration
 
-## `AO_MIKROE_2935`
+## `AO_MIKROE_2935_*`
 
 ```c
 #define AO_MIKROE_2935_1 (false)
 #define AO_MIKROE_2935_2 (false)
 ```
 
-## `AO_MIKROE_2935_BAUD`
+## `AO_MIKROE_2935_BAUD_*`
 
 ```c
 #define AO_MIKROE_2935_BAUD_1 (10000000UL)
 #define AO_MIKROE_2935_BAUD_2 (10000000UL)
 ```
 
-## `AO_MIKROE_2935_PERIOD`
+## `AO_MIKROE_2935_PERIOD_*`
 
 ```c
 #define AO_MIKROE_2935_PERIOD_1 (AO_MILLISECONDS(100))
 #define AO_MIKROE_2935_PERIOD_2 (AO_MILLISECONDS(100))
 ```
 
-## `AO_MIKROE_2935_REPETITIONS_XY`
+## `AO_MIKROE_2935_REPETITIONS_XY_*`
 
 ```c
 #define AO_MIKROE_2935_REPETITIONS_XY_1 (9)
 #define AO_MIKROE_2935_REPETITIONS_XY_2 (9)
 ```
 
-## `AO_MIKROE_2935_REPETITIONS_Z`
+## `AO_MIKROE_2935_REPETITIONS_Z_*`
 
 ```c
 #define AO_MIKROE_2935_REPETITIONS_Z_1 (15)
@@ -50,6 +50,8 @@ toc: true
 ```
 
 # Constants
+
+## `AO_MIKROE_2935`
 
 ```c
 #define AO_MIKROE_2935  \
@@ -63,7 +65,7 @@ Indicates whether the clickboard is used.
 
 # Variables
 
-## `ao_mikroe_2935_task`
+## `ao_mikroe_2935_task_*`
 
 ```c
 extern ao_task_t ao_mikroe_2935_task_1;

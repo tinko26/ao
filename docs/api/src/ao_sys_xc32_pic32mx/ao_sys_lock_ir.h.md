@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-20
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mx/ao_sys_lock_ir.h/
 toc: true
@@ -34,6 +34,12 @@ ao_sys_unlock_ir(x);
 
 | `stdint.h` |
 | `xc.h` |
+
+# Identifier
+
+```c
+#define AO_SYS_LOCK_IR
+```
 
 # Functions
 

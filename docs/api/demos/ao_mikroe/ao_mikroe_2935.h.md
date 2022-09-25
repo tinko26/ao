@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-25
 draft: true
 external:
 - https://www.bosch-sensortec.com/products/motion-sensors/magnetometers-bmm150/ : "Bosch Sensortec BMM150"
@@ -39,6 +39,10 @@ Defines whether the clickboard is used.
 typedef struct ao_mikroe_2935_t ao_mikroe_2935_t;
 ```
 
+# Structs
+
+## `ao_mikroe_2935_t`
+
 ```c
 struct ao_mikroe_2935_t
 {
@@ -48,8 +52,6 @@ struct ao_mikroe_2935_t
     ao_float_t z;
 };
 ```
-
-It consists of the following members.
 
 | `ready` | |
 | `x` | &my;T |

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-25
 draft: true
 permalink: /api/demos/ao_mikroe_2340_compass/ao_mikroe_2935.h/
 toc: true
@@ -10,7 +10,7 @@ toc: true
 
 | `stdbool.h` |
 
-# Configuration
+# Constants
 
 ## `AO_MIKROE_2935_A`
 

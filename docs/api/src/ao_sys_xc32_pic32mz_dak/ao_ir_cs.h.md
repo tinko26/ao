@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mz_dak/ao_ir_cs.h/
 toc: true
@@ -12,9 +12,15 @@ toc: true
 | `sys/attribs.h` |
 | `xc.h` |
 
+# Identifier
+
+```c
+#define AO_IR_CS
+```
+
 # Configuration
 
-## `AO_IR_CS0`
+## `AO_IR_CS0_*`
 
 ```c
 #define AO_IR_CS0_ATTRIBUTE __ISR(_CORE_SOFTWARE_0_VECTOR, IPL2SRS)
@@ -29,7 +35,7 @@ The interrupt handler attribute.
 
 The interrupt priority and subpriority.
 
-## `AO_IR_CS1`
+## `AO_IR_CS1_*`
 
 ```c
 #define AO_IR_CS1_ATTRIBUTE __attribute__ ((naked, vector(_CORE_SOFTWARE_1_VECTOR)))
@@ -46,7 +52,7 @@ The interrupt priority and subpriority.
 
 # Functions
 
-## `ao_ir_cs0`
+## `ao_ir_cs0_*`
 
 ```c
 #define ao_ir_cs0_enable()  { IEC0SET = _IEC0_CS0IE_MASK; }
@@ -84,7 +90,7 @@ Checks whether the interrupt is enabled.
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_cs1`
+## `ao_ir_cs1_*`
 
 ```c
 #define ao_ir_cs1_enable()  { IEC0SET = _IEC0_CS1IE_MASK; }

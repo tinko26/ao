@@ -1,14 +1,14 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-05
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_can/ao_sys_clock.h/
 toc: true
 ---
 
-# Constants
+# Configuration
 
-## `AO_SYS_CLOCK_CAN`
+## `AO_SYS_CLOCK_CAN*`
 
 ```c
 #define AO_SYS_CLOCK_CAN1 (0)

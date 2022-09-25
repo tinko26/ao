@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-25
 draft: true
 permalink: /api/demos/ao_mikroe_2800/ao_sys_config.h/
 toc: true
@@ -8,8 +8,15 @@ toc: true
 
 # Identifiers
 
+## `AO_SYS_CONFIG`
+
 ```c
 #define AO_SYS_CONFIG
+```
+
+## `AO_SYS_CONFIG_*`
+
+```c
 #define AO_SYS_CONFIG_BOOTISA
 #define AO_SYS_CONFIG_CP
 #define AO_SYS_CONFIG_CSEQ

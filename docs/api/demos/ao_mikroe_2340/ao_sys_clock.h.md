@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-25
 draft: true
 permalink: /api/demos/ao_mikroe_2340/ao_sys_clock.h/
 toc: true
@@ -8,7 +8,7 @@ toc: true
 
 # Constants
 
-## `AO_SYS_PBCLK`
+## `AO_SYS_PBCLK*`
 
 ```c
 #define AO_SYS_PBCLK1 (100000000ULL)

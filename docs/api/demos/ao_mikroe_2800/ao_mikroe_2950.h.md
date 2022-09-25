@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-25
 draft: true
 permalink: /api/demos/ao_mikroe_2800/ao_mikroe_2950.h/
 toc: true
@@ -12,14 +12,14 @@ toc: true
 
 # Configuration
 
-## `AO_MIKROE_2950`
+## `AO_MIKROE_2950_*`
 
 ```c
 #define AO_MIKROE_2950_1 (false)
 #define AO_MIKROE_2950_2 (false)
 ```
 
-## `AO_MIKROE_2950_BAUD`
+## `AO_MIKROE_2950_BAUD_*`
 
 ```c
 #define AO_MIKROE_2950_BAUD_1 (400000UL)
@@ -27,6 +27,8 @@ toc: true
 ```
 
 # Constants
+
+## `AO_MIKROE_2950`
 
 ```c
 #define AO_MIKROE_2950  \

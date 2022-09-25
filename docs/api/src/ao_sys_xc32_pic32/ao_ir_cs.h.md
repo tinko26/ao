@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-05
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_ir_cs.h/
 toc: true
@@ -18,7 +18,7 @@ toc: true
 
 # Functions
 
-## `ao_ir_cs0`
+## `ao_ir_cs0_*`
 
 ```c
 void ao_ir_cs0_enable();
@@ -46,7 +46,7 @@ bool ao_ir_cs0_is_pending();
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_cs1`
+## `ao_ir_cs1_*`
 
 ```c
 void ao_ir_cs1_enable();

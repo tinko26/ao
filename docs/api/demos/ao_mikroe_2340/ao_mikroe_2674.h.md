@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-25
 draft: true
 permalink: /api/demos/ao_mikroe_2340/ao_mikroe_2674.h/
 toc: true
@@ -12,7 +12,7 @@ toc: true
 
 # Configuration
 
-## `AO_MIKROE_2674`
+## `AO_MIKROE_2674_*`
 
 ```c
 #define AO_MIKROE_2674_A (false)
@@ -22,6 +22,8 @@ toc: true
 ```
 
 # Constants
+
+## `AO_MIKROE_2674`
 
 ```c
 #define AO_MIKROE_2674  \

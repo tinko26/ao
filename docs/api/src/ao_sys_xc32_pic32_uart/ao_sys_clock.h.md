@@ -1,14 +1,14 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32_uart/ao_sys_clock.h/
 toc: true
 ---
 
-# Constants
+# Configuration
 
-## `AO_SYS_CLOCK_UART`
+## `AO_SYS_CLOCK_UART*`
 
 ```c
 #define AO_SYS_CLOCK_UART1 (0)

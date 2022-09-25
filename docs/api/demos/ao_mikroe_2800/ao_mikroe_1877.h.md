@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-25
 draft: true
 permalink: /api/demos/ao_mikroe_2800/ao_mikroe_1877.h/
 toc: true
@@ -14,21 +14,21 @@ toc: true
 
 # Configuration
 
-## `AO_MIKROE_1877`
+## `AO_MIKROE_1877_*`
 
 ```c
 #define AO_MIKROE_1877_1 (false)
 #define AO_MIKROE_1877_2 (false)
 ```
 
-## `AO_MIKROE_1877_BAUD`
+## `AO_MIKROE_1877_BAUD_*`
 
 ```c
 #define AO_MIKROE_1877_BAUD_1 (400000UL)
 #define AO_MIKROE_1877_BAUD_2 (400000UL)
 ```
 
-## `AO_MIKROE_1877_TIMEOUT`
+## `AO_MIKROE_1877_TIMEOUT_*`
 
 ```c
 #define AO_MIKROE_1877_TIMEOUT_1 (AO_MILLISECONDS(100))
@@ -36,6 +36,8 @@ toc: true
 ```
 
 # Constants
+
+## `AO_MIKROE_1877`
 
 ```c
 #define AO_MIKROE_1877  \
@@ -49,7 +51,7 @@ Indicates whether the clickboard is used.
 
 # Variables
 
-## `ao_mikroe_1877_task`
+## `ao_mikroe_1877_task_*`
 
 ```c
 extern ao_task_t ao_mikroe_1877_task_1;

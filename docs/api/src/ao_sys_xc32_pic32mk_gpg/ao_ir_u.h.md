@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mk_gpg/ao_ir_u.h/
 toc: true
@@ -12,9 +12,15 @@ toc: true
 | `sys/attribs.h` |
 | `xc.h` |
 
+# Identifier
+
+```c
+#define AO_IR_U
+```
+
 # Configuration
 
-## `AO_IR_U1E`
+## `AO_IR_U1E_*`
 
 ```c
 #define AO_IR_U1E_ATTRIBUTE __ISR(_UART1_FAULT_VECTOR, IPL4SRS)
@@ -29,7 +35,7 @@ The interrupt handler attribute.
 
 The interrupt priority and subpriority.
 
-## `AO_IR_U1RX`
+## `AO_IR_U1RX_*`
 
 ```c
 #define AO_IR_U1RX_ATTRIBUTE __ISR(_UART1_RX_VECTOR, IPL4SRS)
@@ -44,7 +50,7 @@ The interrupt handler attribute.
 
 The interrupt priority and subpriority.
 
-## `AO_IR_U1TX`
+## `AO_IR_U1TX_*`
 
 ```c
 #define AO_IR_U1TX_ATTRIBUTE __ISR(_UART1_TX_VECTOR, IPL4SRS)
@@ -59,7 +65,7 @@ The interrupt handler attribute.
 
 The interrupt priority and subpriority.
 
-## `AO_IR_U2E`
+## `AO_IR_U2E_*`
 
 ```c
 #define AO_IR_U2E_ATTRIBUTE __ISR(_UART2_FAULT_VECTOR, IPL4SRS)
@@ -74,7 +80,7 @@ The interrupt handler attribute.
 
 The interrupt priority and subpriority.
 
-## `AO_IR_U2RX`
+## `AO_IR_U2RX_*`
 
 ```c
 #define AO_IR_U2RX_ATTRIBUTE __ISR(_UART2_RX_VECTOR, IPL4SRS)
@@ -89,7 +95,7 @@ The interrupt handler attribute.
 
 The interrupt priority and subpriority.
 
-## `AO_IR_U2TX`
+## `AO_IR_U2TX_*`
 
 ```c
 #define AO_IR_U2TX_ATTRIBUTE __ISR(_UART2_TX_VECTOR, IPL4SRS)
@@ -106,7 +112,7 @@ The interrupt priority and subpriority.
 
 # Functions
 
-## `ao_ir_u1e`
+## `ao_ir_u1e_*`
 
 ```c
 #define ao_ir_u1e_enable()  { IEC1SET = _IEC1_U1EIE_MASK; }
@@ -144,7 +150,7 @@ Checks whether the interrupt is enabled.
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u1rx`
+## `ao_ir_u1rx_*`
 
 ```c
 #define ao_ir_u1rx_enable()  { IEC1SET = _IEC1_U1RXIE_MASK; }
@@ -182,7 +188,7 @@ Checks whether the interrupt is enabled.
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u1tx`
+## `ao_ir_u1tx_*`
 
 ```c
 #define ao_ir_u1tx_enable()  { IEC1SET = _IEC1_U1TXIE_MASK; }
@@ -220,7 +226,7 @@ Checks whether the interrupt is enabled.
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u2e`
+## `ao_ir_u2e_*`
 
 ```c
 #define ao_ir_u2e_enable()  { IEC1SET = _IEC1_U2EIE_MASK; }
@@ -258,7 +264,7 @@ Checks whether the interrupt is enabled.
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u2rx`
+## `ao_ir_u2rx_*`
 
 ```c
 #define ao_ir_u2rx_enable()  { IEC1SET = _IEC1_U2RXIE_MASK; }
@@ -296,7 +302,7 @@ Checks whether the interrupt is enabled.
 
 Checks whether the interrupt is pending.
 
-## `ao_ir_u2tx`
+## `ao_ir_u2tx_*`
 
 ```c
 #define ao_ir_u2tx_enable()  { IEC1SET = _IEC1_U2TXIE_MASK; }

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mz_ec/ao_ir_ct.h/
 toc: true
@@ -12,9 +12,15 @@ toc: true
 | `sys/attribs.h` |
 | `xc.h` |
 
+# Identifier
+
+```c
+#define AO_IR_CT
+```
+
 # Configuration
 
-## `AO_IR_CT`
+## `AO_IR_CT_*`
 
 ```c
 #define AO_IR_CT_ATTRIBUTE __ISR(_CORE_TIMER_VECTOR, IPL3SRS)
@@ -31,7 +37,7 @@ The interrupt priority and subpriority.
 
 # Functions
 
-## `ao_ir_ct`
+## `ao_ir_ct_*`
 
 ```c
 #define ao_ir_ct_enable()  { IEC0SET = _IEC0_CTIE_MASK; }

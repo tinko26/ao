@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-25
 draft: true
 permalink: /api/demos/ao_mikroe_2340/ao_led.h/
 toc: true
@@ -10,6 +10,12 @@ toc: true
 
 | `stdint.h` |
 | `xc.h` |
+
+# Identifier
+
+```c
+#define AO_LED
+```
 
 # Constants
 
@@ -28,6 +34,12 @@ The number of LEDs.
 ```c
 typedef enum ao_leds_t ao_leds_t;
 ```
+
+This type represents LEDs.
+
+# Enums
+
+## `ao_leds_t`
 
 ```c
 enum ao_leds_t
@@ -54,8 +66,6 @@ enum ao_leds_t
     AO_LEDS_D    = AO_LEDS_3
 };
 ```
-
-This type represents LEDs. It is used as a bitmask and defines the following symbols.
 
 | `AO_LEDS_NONE` | `0000` | Represents no LEDs. |
 | `AO_LEDS_0`    | `0001` | Represents LED A at pin A6. |

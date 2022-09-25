@@ -1,10 +1,16 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-20
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mk/ao_sys_exc.h/
 toc: true
 ---
+
+# Identifier
+
+```c
+#define AO_SYS_EXC
+```
 
 # Types
 
@@ -13,6 +19,12 @@ toc: true
 ```c
 typedef enum ao_sys_exc_t ao_sys_exc_t;
 ```
+
+This type represents exception conditions.
+
+# Enums
+
+## `ao_sys_exc_t`
 
 ```c
 enum ao_sys_exc_t
@@ -39,8 +51,6 @@ enum ao_sys_exc_t
     AO_SYS_EXC_DSPDIS = 0x1A
 };
 ```
-
-This type represents exception conditions. It consists of the following members.
 
 | `AO_SYS_EXC_INT` | Interrupt. |
 | `AO_SYS_EXC_MOD` | TLB modified. |

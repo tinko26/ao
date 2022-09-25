@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-25
 draft: true
 permalink: /api/demos/ao_mikroe_2800/ao_mikroe_4186.h/
 toc: true
@@ -13,21 +13,21 @@ toc: true
 
 # Configuration
 
-## `AO_MIKROE_4186`
+## `AO_MIKROE_4186_*`
 
 ```c
 #define AO_MIKROE_4186_1 (false)
 #define AO_MIKROE_4186_2 (false)
 ```
 
-## `AO_MIKROE_4186_BAUD`
+## `AO_MIKROE_4186_BAUD_*`
 
 ```c
 #define AO_MIKROE_4186_BAUD_1 (400000UL)
 #define AO_MIKROE_4186_BAUD_2 (400000UL)
 ```
 
-## `AO_MIKROE_4186_TIMEOUT`
+## `AO_MIKROE_4186_TIMEOUT_*`
 
 ```c
 #define AO_MIKROE_4186_TIMEOUT_1 (AO_MILLISECONDS(100))
@@ -35,6 +35,8 @@ toc: true
 ```
 
 # Constants
+
+## `AO_MIKROE_4186`
 
 ```c
 #define AO_MIKROE_4186  \

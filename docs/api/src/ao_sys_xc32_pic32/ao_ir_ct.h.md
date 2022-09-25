@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-05
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_ir_ct.h/
 toc: true
@@ -18,7 +18,7 @@ toc: true
 
 # Functions
 
-## `ao_ir_ct`
+## `ao_ir_ct_*`
 
 ```c
 void ao_ir_ct_enable();

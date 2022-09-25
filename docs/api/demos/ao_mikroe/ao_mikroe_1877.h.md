@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-25
 draft: true
 external:
 - https://www.mikroe.com/3d-motion-click : "3D Motion Click"
@@ -45,6 +45,66 @@ Defines whether the clickboard is used.
 typedef enum ao_mikroe_1877_connection_t ao_mikroe_1877_connection_t;
 ```
 
+## `ao_mikroe_1877_data_t`
+
+```c
+typedef struct ao_mikroe_1877_data_t ao_mikroe_1877_data_t;
+```
+
+Represents the entire sensor data.
+
+## `ao_mikroe_1877_data_*_t`
+
+```c
+typedef struct ao_mikroe_1877_data_accelerometer_t ao_mikroe_1877_data_accelerometer_t;
+typedef struct ao_mikroe_1877_data_gyroscope_t     ao_mikroe_1877_data_gyroscope_t;
+typedef struct ao_mikroe_1877_data_inclinometer_t  ao_mikroe_1877_data_inclinometer_t;
+typedef struct ao_mikroe_1877_data_magnetometer_t  ao_mikroe_1877_data_magnetometer_t;
+typedef struct ao_mikroe_1877_data_orientation_t   ao_mikroe_1877_data_orientation_t;
+```
+
+Represent the data of individual sensors.
+
+## `ao_mikroe_1877_event_t`
+
+```c
+typedef enum ao_mikroe_1877_event_t ao_mikroe_1877_event_t;
+```
+
+## `ao_mikroe_1877_info_t`
+
+```c
+typedef struct ao_mikroe_1877_info_t ao_mikroe_1877_info_t;
+```
+
+## `ao_mikroe_1877_power_t`
+
+```c
+typedef enum ao_mikroe_1877_power_t ao_mikroe_1877_power_t;
+```
+
+## `ao_mikroe_1877_reporting_t`
+
+```c
+typedef enum ao_mikroe_1877_reporting_t ao_mikroe_1877_reporting_t;
+```
+
+## `ao_mikroe_1877_sensor_t`
+
+```c
+typedef enum ao_mikroe_1877_sensor_t ao_mikroe_1877_sensor_t;
+```
+
+## `ao_mikroe_1877_state_t`
+
+```c
+typedef enum ao_mikroe_1877_state_t ao_mikroe_1877_state_t;
+```
+
+# Enums
+
+## `ao_mikroe_1877_connection_t`
+
 ```c
 enum ao_mikroe_1877_connection_t
 {
@@ -54,17 +114,11 @@ enum ao_mikroe_1877_connection_t
 };
 ```
 
-It consists of the following members.
-
 | `AO_MIKROE_1877_CONNECTION_PC_INTEGRATED` | |
 | `AO_MIKROE_1877_CONNECTION_PC_ATTACHED` | |
 | `AO_MIKROE_1877_CONNECTION_PC_EXTERNAL` | |
 
 ## `ao_mikroe_1877_event_t`
-
-```c
-typedef enum ao_mikroe_1877_event_t ao_mikroe_1877_event_t;
-```
 
 ```c
 enum ao_mikroe_1877_event_t
@@ -89,8 +143,6 @@ enum ao_mikroe_1877_event_t
 };
 ```
 
-It consists of the following members.
-
 | `AO_MIKROE_1877_EVENT_UNKNOWN` | The sensor event type is not known. |
 | `AO_MIKROE_1877_EVENT_STATE_CHANGED` | The sensor state has changed. |
 | `AO_MIKROE_1877_EVENT_PROPERTY_CHANGED` | A property value has changed. |
@@ -112,10 +164,6 @@ It consists of the following members.
 ## `ao_mikroe_1877_power_t`
 
 ```c
-typedef enum ao_mikroe_1877_power_t ao_mikroe_1877_power_t;
-```
-
-```c
 enum ao_mikroe_1877_power_t
 {
     AO_MIKROE_1877_POWER_UNDEFINED = 1,
@@ -127,8 +175,6 @@ enum ao_mikroe_1877_power_t
 };
 ```
 
-It consists of the following members.
-
 | `AO_MIKROE_1877_POWER_UNDEFINED` | The device power state is currently unknown or undefined. |
 | `AO_MIKROE_1877_POWER_FULL` | The device is in full power operation. |
 | `AO_MIKROE_1877_POWER_LOW` | The device is in a low power operation mode. |
@@ -137,10 +183,6 @@ It consists of the following members.
 | `AO_MIKROE_1877_POWER_OFF` | The device is completely powered off and cannot be awakened. |
 
 ## `ao_mikroe_1877_reporting_t`
-
-```c
-typedef enum ao_mikroe_1877_reporting_t ao_mikroe_1877_reporting_t;
-```
 
 ```c
 enum ao_mikroe_1877_reporting_t
@@ -154,8 +196,6 @@ enum ao_mikroe_1877_reporting_t
 };
 ```
 
-It consists of the following members.
-
 | `AO_MIKROE_1877_REPORTING_ALL` | All Input reports are sent without any filtering. |
 | `AO_MIKROE_1877_REPORTING_ALL_WAKE` | All Input reports are sent without any filtering. A Wake On event is performed. |
 | `AO_MIKROE_1877_REPORTING_NONE` | No asynchronous Input reports are sent. |
@@ -164,10 +204,6 @@ It consists of the following members.
 | `AO_MIKROE_1877_REPORTING_THRESHOLD_WAKE` | Input reports are sent only when it exceeds a pre-programmed threshold. A Wake On event is performed. |
 
 ## `ao_mikroe_1877_sensor_t`
-
-```c
-typedef enum ao_mikroe_1877_sensor_t ao_mikroe_1877_sensor_t;
-```
 
 ```c
 enum ao_mikroe_1877_sensor_t
@@ -183,8 +219,6 @@ enum ao_mikroe_1877_sensor_t
 };
 ```
 
-It consists of the following members.
-
 | `AO_MIKROE_1877_SENSOR_ACCELEROMETER` | |
 | `AO_MIKROE_1877_SENSOR_ACCELEROMETER_RAW` | |
 | `AO_MIKROE_1877_SENSOR_GYROSCOPE` | |
@@ -195,10 +229,6 @@ It consists of the following members.
 | `AO_MIKROE_1877_SENSOR_ORIENTATION` | |
 
 ## `ao_mikroe_1877_state_t`
-
-```c
-typedef enum ao_mikroe_1877_state_t ao_mikroe_1877_state_t;
-```
 
 ```c
 enum ao_mikroe_1877_state_t
@@ -213,8 +243,6 @@ enum ao_mikroe_1877_state_t
 };
 ```
 
-It consists of the following members.
-
 | `AO_MIKROE_1877_STATE_UNDEFINED` | The sensor state is not known. |
 | `AO_MIKROE_1877_STATE_READY` | Sensor is able to provide new complete and accurate data. |
 | `AO_MIKROE_1877_STATE_NOT_AVAILABLE` | The sensor not available. |
@@ -223,124 +251,9 @@ It consists of the following members.
 | `AO_MIKROE_1877_STATE_ACCESS_DENIED` | In the case where an ID must be provided to access sensor data, and the requester fails to match the ID, this state will be returned. |
 | `AO_MIKROE_1877_STATE_ERROR` | The sensor has encountered a major error. The sensor may recover from the state, but the time frame for recovery is unknown. |
 
-## `ao_mikroe_1877_data_accelerometer_t`
-
-```c
-typedef struct ao_mikroe_1877_data_accelerometer_t ao_mikroe_1877_data_accelerometer_t;
-```
-
-```c
-struct ao_mikroe_1877_data_accelerometer_t
-{
-    bool       shake_detected;
-    ao_float_t x;
-    ao_float_t y;
-    ao_float_t z;
-};
-```
-
-It consists of the following members.
-
-| `shake_detected` | |
-| `x` | |
-| `y` | |
-| `z` | |
-
-## `ao_mikroe_1877_data_gyroscope_t`
-
-```c
-typedef struct ao_mikroe_1877_data_gyroscope_t ao_mikroe_1877_data_gyroscope_t;
-```
-
-```c
-struct ao_mikroe_1877_data_gyroscope_t
-{
-    bool       shake_detected;
-    ao_float_t x;
-    ao_float_t y;
-    ao_float_t z;
-};
-```
-
-It consists of the following members.
-
-| `shake_detected` | |
-| `x` | |
-| `y` | |
-| `z` | |
-
-## `ao_mikroe_1877_data_inclinometer_t`
-
-```c
-typedef struct ao_mikroe_1877_data_inclinometer_t ao_mikroe_1877_data_inclinometer_t;
-```
-
-```c
-struct ao_mikroe_1877_data_inclinometer_t
-{
-    ao_float_t x;
-    ao_float_t y;
-    ao_float_t z;
-};
-```
-
-It consists of the following members.
-
-| `x` | |
-| `y` | |
-| `z` | |
-
-## `ao_mikroe_1877_data_magnetometer_t`
-
-```c
-typedef struct ao_mikroe_1877_data_magnetometer_t ao_mikroe_1877_data_magnetometer_t;
-```
-
-```c
-struct ao_mikroe_1877_data_magnetometer_t
-{
-    ao_float_t heading;
-    ao_float_t x;
-    ao_float_t y;
-    ao_float_t z;
-};
-```
-
-It consists of the following members.
-
-| `heading` | |
-| `x` | |
-| `y` | |
-| `z` | |
-
-## `ao_mikroe_1877_data_orientation_t`
-
-```c
-typedef struct ao_mikroe_1877_data_orientation_t ao_mikroe_1877_data_orientation_t;
-```
-
-```c
-struct ao_mikroe_1877_data_orientation_t
-{
-    ao_float_t w;
-    ao_float_t x;
-    ao_float_t y;
-    ao_float_t z;
-};
-```
-
-It consists of the following members.
-
-| `w` | |
-| `x` | |
-| `y` | |
-| `z` | |
+# Structs
 
 ## `ao_mikroe_1877_data_t`
-
-```c
-typedef struct ao_mikroe_1877_data_t ao_mikroe_1877_data_t;
-```
 
 ```c
 struct ao_mikroe_1877_data_t
@@ -359,8 +272,6 @@ struct ao_mikroe_1877_data_t
 };
 ```
 
-It consists of the following members.
-
 | `data` | |
 | `data.accelerometer` | |
 | `data.gyroscope` | |
@@ -371,11 +282,90 @@ It consists of the following members.
 | `sensor` | |
 | `state` | |
 
-## `ao_mikroe_1877_info_t`
+## `ao_mikroe_1877_data_accelerometer_t`
 
 ```c
-typedef struct ao_mikroe_1877_info_t ao_mikroe_1877_info_t;
+struct ao_mikroe_1877_data_accelerometer_t
+{
+    bool       shake_detected;
+    ao_float_t x;
+    ao_float_t y;
+    ao_float_t z;
+};
 ```
+
+| `shake_detected` | |
+| `x` | |
+| `y` | |
+| `z` | |
+
+## `ao_mikroe_1877_data_gyroscope_t`
+
+```c
+struct ao_mikroe_1877_data_gyroscope_t
+{
+    bool       shake_detected;
+    ao_float_t x;
+    ao_float_t y;
+    ao_float_t z;
+};
+```
+
+| `shake_detected` | |
+| `x` | |
+| `y` | |
+| `z` | |
+
+## `ao_mikroe_1877_data_inclinometer_t`
+
+```c
+struct ao_mikroe_1877_data_inclinometer_t
+{
+    ao_float_t x;
+    ao_float_t y;
+    ao_float_t z;
+};
+```
+
+| `x` | |
+| `y` | |
+| `z` | |
+
+## `ao_mikroe_1877_data_magnetometer_t`
+
+```c
+struct ao_mikroe_1877_data_magnetometer_t
+{
+    ao_float_t heading;
+    ao_float_t x;
+    ao_float_t y;
+    ao_float_t z;
+};
+```
+
+| `heading` | |
+| `x` | |
+| `y` | |
+| `z` | |
+
+## `ao_mikroe_1877_data_orientation_t`
+
+```c
+struct ao_mikroe_1877_data_orientation_t
+{
+    ao_float_t w;
+    ao_float_t x;
+    ao_float_t y;
+    ao_float_t z;
+};
+```
+
+| `w` | |
+| `x` | |
+| `y` | |
+| `z` | |
+
+## `ao_mikroe_1877_info_t`
 
 ```c
 struct ao_mikroe_1877_info_t
@@ -394,8 +384,6 @@ struct ao_mikroe_1877_info_t
     ao_mikroe_1877_state_t      state;
 };
 ```
-
-It consists of the following members.
 
 | `accuracy` | |
 | `change_sensitivity` | Specifies the absolute amount that by which a data field should change before an event (such as an asynchronous Input Report) is generated. Absolute sensitivity values are expressed using the same units as the corresponding data field. |

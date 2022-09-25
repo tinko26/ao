@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-25
 draft: true
 external:
 - https://microchip.com/DS60001145 : "PIC32 Flash Programming Specification"
@@ -12,7 +12,7 @@ toc: true
 
 # Constants
 
-## `AO_SYS_ID_REVISION`
+## `AO_SYS_ID_REVISION_*`
 
 ```c
 #define AO_SYS_ID_REVISION_A3 (3)

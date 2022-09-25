@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-25
 draft: true
 permalink: /api/demos/ao_mikroe_2340/ao_mikroe.h/
 toc: true
@@ -8,10 +8,7 @@ toc: true
 
 # Constants
 
-## `AO_MIKROE_A`
-## `AO_MIKROE_B`
-## `AO_MIKROE_C`
-## `AO_MIKROE_D`
+## `AO_MIKROE_*`
 
 ```c
 #define AO_MIKROE_A (1)

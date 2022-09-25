@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_ir_int.h/
 toc: true
@@ -18,7 +18,7 @@ toc: true
 
 # Functions
 
-## `ao_ir_int0`
+## `ao_ir_int0_*`
 
 ```c
 void ao_ir_int0_enable();
@@ -60,7 +60,7 @@ bool ao_ir_int0_is_rising();
 
 Checks whether the interrupt detects falling or rising edges, respectively.
 
-## `ao_ir_int1`
+## `ao_ir_int1_*`
 
 ```c
 void ao_ir_int1_enable();
@@ -102,7 +102,7 @@ bool ao_ir_int1_is_rising();
 
 Checks whether the interrupt detects falling or rising edges, respectively.
 
-## `ao_ir_int2`
+## `ao_ir_int2_*`
 
 ```c
 void ao_ir_int2_enable();
@@ -144,7 +144,7 @@ bool ao_ir_int2_is_rising();
 
 Checks whether the interrupt detects falling or rising edges, respectively.
 
-## `ao_ir_int3`
+## `ao_ir_int3_*`
 
 ```c
 void ao_ir_int3_enable();
@@ -186,7 +186,7 @@ bool ao_ir_int3_is_rising();
 
 Checks whether the interrupt detects falling or rising edges, respectively.
 
-## `ao_ir_int4`
+## `ao_ir_int4_*`
 
 ```c
 void ao_ir_int4_enable();

@@ -46,6 +46,8 @@ This type represents the waiting at a barrier.
 
 # Structs
 
+## `ao_barrier_t`
+
 ```c
 struct ao_barrier_t
 {

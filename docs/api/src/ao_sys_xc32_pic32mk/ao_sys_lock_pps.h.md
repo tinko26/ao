@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-20
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mk/ao_sys_lock_pps.h/
 toc: true
@@ -32,6 +32,12 @@ ao_sys_lock_pps(&x);
 | [`ao_sys_lock_device.h`](../ao_sys_xc32_pic32/ao_sys_lock_device.h.md) |
 | `stdint.h` |
 
+# Identifier
+
+```c
+#define AO_SYS_LOCK_PPS
+```
+
 # Types
 
 ## `ao_sys_lock_pps_t`
@@ -40,6 +46,12 @@ ao_sys_lock_pps(&x);
 typedef struct ao_sys_lock_pps_t ao_sys_lock_pps_t;
 ```
 
+This type represents lock-related data.
+
+# Structs
+
+## `ao_sys_lock_pps_t`
+
 ```c
 struct ao_sys_lock_pps_t
 {
@@ -47,8 +59,6 @@ struct ao_sys_lock_pps_t
     uint32_t             io;
 };
 ```
-
-This type represents lock-related data. It consists of the following members.
 
 | `device` | The lock-related data for device locks. |
 | `io` | The backup of the `CFGCON.IOLOCK` bit. |

@@ -6,7 +6,7 @@ permalink: /api/src/ao_sys_xc32_pic32_rng/ao_sys_clock.h/
 toc: true
 ---
 
-# Constants
+# Configuration
 
 ## `AO_SYS_CLOCK_RNG`
 

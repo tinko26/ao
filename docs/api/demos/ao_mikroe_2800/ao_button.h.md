@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-30
+date: 2022-09-25
 draft: true
 permalink: /api/demos/ao_mikroe_2800/ao_button.h/
 toc: true
@@ -9,6 +9,12 @@ toc: true
 # Include
 
 | `xc.h` |
+
+# Identifier
+
+```c
+#define AO_BUTTON
+```
 
 # Constants
 
@@ -26,6 +32,12 @@ The number of buttons.
 typedef enum ao_buttons_t ao_buttons_t;
 ```
 
+This type represents buttons.
+
+# Enums
+
+## `ao_buttons_t`
+
 ```c
 enum ao_buttons_t
 {
@@ -37,8 +49,6 @@ enum ao_buttons_t
         AO_BUTTONS_1
 };
 ```
-
-This type represents buttons. It is used as a bitmask and defines the following symbols.
 
 | `AO_BUTTONS_NONE` | `00` | Represents no buttons. |
 | `AO_BUTTONS_0`    | `01` | Represents button 0 at pin C3. |

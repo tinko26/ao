@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-25
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mx_5xx/ao_ir_int.h/
 toc: true
@@ -12,9 +12,15 @@ toc: true
 | `sys/attribs.h` |
 | `xc.h` |
 
+# Identifier
+
+```c
+#define AO_IR_INT
+```
+
 # Configuration
 
-## `AO_IR_INT0`
+## `AO_IR_INT0_*`
 
 ```c
 #define AO_IR_INT0_ATTRIBUTE __ISR(_EXTERNAL_0_VECTOR, IPL4SOFT)
@@ -29,7 +35,7 @@ The interrupt handler attribute.
 
 The interrupt priority and subpriority.
 
-## `AO_IR_INT1`
+## `AO_IR_INT1_*`
 
 ```c
 #define AO_IR_INT1_ATTRIBUTE __ISR(_EXTERNAL_1_VECTOR, IPL4SOFT)
@@ -44,7 +50,7 @@ The interrupt handler attribute.
 
 The interrupt priority and subpriority.
 
-## `AO_IR_INT2`
+## `AO_IR_INT2_*`
 
 ```c
 #define AO_IR_INT2_ATTRIBUTE __ISR(_EXTERNAL_2_VECTOR, IPL4SOFT)
@@ -59,7 +65,7 @@ The interrupt handler attribute.
 
 The interrupt priority and subpriority.
 
-## `AO_IR_INT3`
+## `AO_IR_INT3_*`
 
 ```c
 #define AO_IR_INT3_ATTRIBUTE __ISR(_EXTERNAL_3_VECTOR, IPL4SOFT)
@@ -74,7 +80,7 @@ The interrupt handler attribute.
 
 The interrupt priority and subpriority.
 
-## `AO_IR_INT4`
+## `AO_IR_INT4_*`
 
 ```c
 #define AO_IR_INT4_ATTRIBUTE __ISR(_EXTERNAL_4_VECTOR, IPL4SOFT)
@@ -91,7 +97,7 @@ The interrupt priority and subpriority.
 
 # Functions
 
-## `ao_ir_int0`
+## `ao_ir_int0_*`
 
 ```c
 #define ao_ir_int0_enable()  { IEC0SET = _IEC0_INT0IE_MASK; }
@@ -143,7 +149,7 @@ Checks whether the interrupt is pending.
 
 Checks whether the interrupt detects falling or rising edges, respectively.
 
-## `ao_ir_int1`
+## `ao_ir_int1_*`
 
 ```c
 #define ao_ir_int1_enable()  { IEC0SET = _IEC0_INT1IE_MASK; }
@@ -195,7 +201,7 @@ Checks whether the interrupt is pending.
 
 Checks whether the interrupt detects falling or rising edges, respectively.
 
-## `ao_ir_int2`
+## `ao_ir_int2_*`
 
 ```c
 #define ao_ir_int2_enable()  { IEC0SET = _IEC0_INT2IE_MASK; }
@@ -247,7 +253,7 @@ Checks whether the interrupt is pending.
 
 Checks whether the interrupt detects falling or rising edges, respectively.
 
-## `ao_ir_int3`
+## `ao_ir_int3_*`
 
 ```c
 #define ao_ir_int3_enable()  { IEC0SET = _IEC0_INT3IE_MASK; }
@@ -299,7 +305,7 @@ Checks whether the interrupt is pending.
 
 Checks whether the interrupt detects falling or rising edges, respectively.
 
-## `ao_ir_int4`
+## `ao_ir_int4_*`
 
 ```c
 #define ao_ir_int4_enable()  { IEC0SET = _IEC0_INT4IE_MASK; }
