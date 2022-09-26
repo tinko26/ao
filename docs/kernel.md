@@ -63,14 +63,14 @@ toc: true
 - barriers
 - binary semaphores
 - condition variables
-- counters
 - counting semaphores
 - exchanges
-- flags
 - mail
 - monitors
 - mutexes
+- numbers
 - priority mail
+- queues for acquired memory block
 - queues for objects
 - queues for pointers
 - readers-writer locks preferring readers
@@ -103,7 +103,6 @@ toc: true
 - streams
 - streams for objects
 - streams for pointers
-- threshold
 
 # Drivers
 

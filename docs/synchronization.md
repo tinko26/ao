@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-16
+date: 2022-09-26
 draft: true
 permalink: /synchronization/
 ---
@@ -46,28 +46,34 @@ The following modules provide synchronization primitives.
 | [`ao_barrier.h`](api/src/ao_sys/ao_barrier.h.md) | Execution barriers where tasks can meet. |
 | [`ao_bsem.h`](api/src/ao_sys/ao_bsem.h.md) | Binary semaphores. |
 | [`ao_cond.h`](api/src/ao_sys/ao_cond.h.md) | Condition variables. |
-| [`ao_counter.h`](api/src/ao_sys/ao_counter.h.md) | Counters. |
-| [`ao_flag.h`](api/src/ao_sys/ao_flag.h.md) | Flags. |
 | [`ao_mail.h`](api/src/ao_sys/ao_mail.h.md) | Mail for asynchronous messaging. |
 | [`ao_monitor.h`](api/src/ao_sys/ao_monitor.h.md) | Monitors. |
 | [`ao_mutex.h`](api/src/ao_sys/ao_mutex.h.md) | Mutexes. |
+| [`ao_num.h`](api/src/ao_sys/ao_num.h.md) | Numbers based on the fastest unsigned integer type. |
+| [`ao_num8.h`](api/src/ao_sys/ao_num8.h.md) | Numbers based on the 8-bit unsigned integer type. |
+| [`ao_num16.h`](api/src/ao_sys/ao_num16.h.md) | Numbers based on the 16-bit unsigned integer type. |
+| [`ao_num32.h`](api/src/ao_sys/ao_num32.h.md) | Numbers based on the 32-bit unsigned integer type. |
+| [`ao_num64.h`](api/src/ao_sys/ao_num64.h.md) | Numbers based on the 64-bit unsigned integer type. |
 | [`ao_pmail.h`](api/src/ao_sys/ao_pmail.h.md) | Priority mail for asynchronous messaging. |
+| [`ao_queue4acq.h`](api/src/ao_sys/ao_queue4acq.h.md) | Priority queues for acquired memory blocks. |
 | [`ao_queue4obj.h`](api/src/ao_sys/ao_queue4obj.h.md) | Priority queues for objects. |
 | [`ao_queue4ptr.h`](api/src/ao_sys/ao_queue4ptr.h.md) | Priority queues for pointers. |
 | [`ao_recv.h`](api/src/ao_sys/ao_recv.h.md) | Receiving bytes. |
+| [`ao_recv_acq.h`](api/src/ao_sys/ao_recv_acq.h.md) | Receiving acquired memory blocks. |
 | [`ao_recv_obj.h`](api/src/ao_sys/ao_recv_obj.h.md) | Receiving objects. |
 | [`ao_recv_ptr.h`](api/src/ao_sys/ao_recv_ptr.h.md) | Receiving pointers. |
 | [`ao_rendezvous.h`](api/src/ao_sys/ao_rendezvous.h.md) | Rendezvous. |
 | [`ao_rw.h`](api/src/ao_sys/ao_rw.h.md) | Readers-writer locks preferring readers. |
 | [`ao_sem.h`](api/src/ao_sys/ao_sem.h.md) | Counting semaphores. |
 | [`ao_send.h`](api/src/ao_sys/ao_send.h.md) | Sending bytes. |
+| [`ao_send_acq.h`](api/src/ao_sys/ao_send_acq.h.md) | Sending acquired memory blocks. |
 | [`ao_send_obj.h`](api/src/ao_sys/ao_send_obj.h.md) | Sending objects. |
 | [`ao_send_ptr.h`](api/src/ao_sys/ao_send_ptr.h.md) | Sending pointers. |
 | [`ao_signal.h`](api/src/ao_sys/ao_signal.h.md) | Signals. |
 | [`ao_sleep.h`](api/src/ao_sys/ao_sleep.h.md) | Sleeping. |
 | [`ao_stream.h`](api/src/ao_sys/ao_stream.h.md) | Streams for bytes. |
+| [`ao_stream4acq.h`](api/src/ao_sys/ao_stream4acq.h.md) | Streams for acquired memory blocks. |
 | [`ao_stream4obj.h`](api/src/ao_sys/ao_stream4obj.h.md) | Streams for objects. |
 | [`ao_stream4ptr.h`](api/src/ao_sys/ao_stream4ptr.h.md) | Streams for pointers. |
-| [`ao_threshold.h`](api/src/ao_sys/ao_threshold.h.md) | Thresholds. |
 | [`ao_wr.h`](api/src/ao_sys/ao_wr.h.md) | Readers-writer locks preferring writers. |
 | [`ao_xch.h`](api/src/ao_sys/ao_xch.h.md) | Exchanges for client-server messaging. |
