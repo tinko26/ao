@@ -132,8 +132,6 @@
 /api/src/ao_sys/ao_cond.h/ : true
 /api/src/ao_sys/ao_core.h/ : true
 /api/src/ao_sys/ao_count.h/ : true
-/api/src/ao_sys/ao_counter.h/ : true
-/api/src/ao_sys/ao_flag.h/ : true
 /api/src/ao_sys/ao_ir.h/ : true
 /api/src/ao_sys/ao_ir_alarm.h/ : true
 /api/src/ao_sys/ao_ir_task.h/ : true
@@ -205,7 +203,6 @@
 /api/src/ao_sys/ao_task_stack_0.h/ : true
 /api/src/ao_sys/ao_task_stack_1.h/ : true
 /api/src/ao_sys/ao_task_stack_2.h/ : true
-/api/src/ao_sys/ao_threshold.h/ : true
 /api/src/ao_sys/ao_time.h/ : true
 /api/src/ao_sys/ao_timer.h/ : true
 /api/src/ao_sys/ao_wr.h/ : true

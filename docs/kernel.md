@@ -25,7 +25,7 @@ toc: true
 
 - [alarm queue](alarm-queue.md)
 - [alarms](alarms.md)
-- [hardware counter](hardware-counter.md)
+- [counter](counter.md)
 - [time](time.md)
 - [timers](timers.md)
 - [timing](timing.md)
@@ -75,37 +75,25 @@ toc: true
 - queues for pointers
 - readers-writer locks preferring readers
 - readers-writer locks preferring writers
-- receiving data
-- receiving data from callbacks
-- receiving data from streams
+- receiving
+- receiving acquired memory blocks
 - receiving objects
-- receiving objects from callbacks
-- receiving objects from queues
-- receiving objects from streams
 - receiving pointers
-- receiving pointers from callbacks
-- receiving pointers from queues
-- receiving pointers from streams
 - rendezvous
-- sending data
-- sending data to callbacks
-- sending data to streams
+- sending
+- sending acquired memory blocks
 - sending objects
-- sending objects to callbacks
-- sending objects to queues
-- sending objects to streams
 - sending pointers
-- sending pointers to callbacks
-- sending pointers to queues
-- sending pointers to streams
 - signals
 - sleeping
 - streams
+- streams for acquired memory blocks
 - streams for objects
 - streams for pointers
 
 # Drivers
 
+- CAN
 - buttons
 - [drivers](drivers.md)
 - LEDs

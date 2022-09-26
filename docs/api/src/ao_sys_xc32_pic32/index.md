@@ -78,7 +78,7 @@ wide: false
 | [`ao_boot.h`](ao_boot.h.md) | Booting |
 | [`ao_break.h`](ao_break.h.md) | Breakpoints |
 | [`ao_core.h`](ao_core.h.md) | Processor cores |
-| [`ao_count.h`](ao_count.h.md) | Hardware counter |
+| [`ao_count.h`](ao_count.h.md) | Counter |
 | [`ao_float.h`](ao_float.h.md) | Floating-point numbers |
 | [`ao_int.h`](ao_int.h.md) | Signed integers |
 | [`ao_ir.h`](ao_ir.h.md) | Interrupts |

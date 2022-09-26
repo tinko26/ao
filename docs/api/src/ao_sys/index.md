@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-25
+date: 2022-09-26
 draft: false
 permalink: /api/src/ao_sys/
 toc: true
@@ -32,9 +32,7 @@ wide: false
 | [`ao_can.h`](ao_can.h.md) | CAN |
 | [`ao_cond.h`](ao_cond.h.md) | Conditions |
 | [`ao_core.h`](ao_core.h.md) | Processor cores |
-| [`ao_count.h`](ao_count.h.md) | Hardware counter |
-| [`ao_counter.h`](ao_counter.h.md) | Counters |
-| [`ao_flag.h`](ao_flag.h.md) | Flags |
+| [`ao_count.h`](ao_count.h.md) | Counter |
 | [`ao_ir.h`](ao_ir.h.md) | Interrupts |
 | [`ao_ir_alarm.h`](ao_ir_alarm.h.md) | Alarm interrupt |
 | [`ao_ir_task.h`](ao_ir_task.h.md) | Task interrupts |
@@ -106,7 +104,6 @@ wide: false
 | [`ao_task_stack_0.h`](ao_task_stack_0.h.md) | Task stack stub |
 | [`ao_task_stack_1.h`](ao_task_stack_1.h.md) | Task stack from injection |
 | [`ao_task_stack_2.h`](ao_task_stack_2.h.md) | Task stack from allocation |
-| [`ao_threshold.h`](ao_threshold.h.md) | Thresholds |
 | [`ao_time.h`](ao_time.h.md) | Time |
 | [`ao_timer.h`](ao_timer.h.md) | Timers |
 | [`ao_wr.h`](ao_wr.h.md) | Readers-writer locks preferring writers |

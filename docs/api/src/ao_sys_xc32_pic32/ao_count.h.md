@@ -8,7 +8,7 @@ toc: true
 
 # Notes
 
-This module encapsulates a hardware counter that increments continuously at a constant rate. The hardware counter makes up the basis for measuring time. Additionally, this hardware counter and a corresponding interrupt make up the basis for alarms.
+This module encapsulates a hardware counter that increments continuously at a constant rate. The counter makes up the basis for measuring time. Additionally, this counter and a corresponding interrupt make up the basis for alarms.
 
 # Include
 
@@ -30,7 +30,7 @@ This module encapsulates a hardware counter that increments continuously at a co
 #define AO_COUNT_FREQUENCY ((AO_SYS_SYSCLK) / 2)
 ```
 
-The frequency, in Hertz, at which the hardware counter is incremented.
+The frequency, in Hertz, at which the counter is incremented.
 
 ## `AO_COUNT_MAX`
 ## `AO_COUNT_MIN`
@@ -40,7 +40,7 @@ The frequency, in Hertz, at which the hardware counter is incremented.
 #define AO_COUNT_MIN (0)
 ```
 
-The maximum and minimum hardware counter value, respectively.
+The maximum and minimum counter value, respectively.
 
 # Types
 
@@ -50,7 +50,7 @@ The maximum and minimum hardware counter value, respectively.
 typedef uint32_t ao_count_t;
 ```
 
-This type is an alias for the `uint32_t` unsigned integer type. It is to hold a value of the hardware counter.
+This type is an alias for the `uint32_t` unsigned integer type. It is to hold a value of the counter.
 
 # Functions
 
@@ -63,7 +63,7 @@ This type is an alias for the `uint32_t` unsigned integer type. It is to hold a 
 )
 ```
 
-Gets the current value of the hardware counter.
+Gets the current value of the counter.
 
 ## `ao_count_debug_continue`
 ## `ao_count_debug_stop`
@@ -73,4 +73,4 @@ Gets the current value of the hardware counter.
 #define ao_count_debug_stop()     _CP0_BIC_DEBUG(_CP0_DEBUG_COUNTDM_MASK)
 ```
 
-Sets up the hardware counter to continue or stop, respectively, upon a breakpoint.
+Sets up the counter to continue or stop, respectively, upon a breakpoint.
