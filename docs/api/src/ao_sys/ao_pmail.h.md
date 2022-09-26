@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_pmail.h/
 toc: true
@@ -32,7 +32,7 @@ This module implements a priority queue based on a red-black tree. Fetching retu
 typedef struct ao_pmail_t ao_pmail_t;
 ```
 
-This type represents a mail.
+This type represents a priority mail.
 
 ## `ao_pmail_fetch_t`
 
@@ -40,7 +40,7 @@ This type represents a mail.
 typedef struct ao_pmail_fetch_t ao_pmail_fetch_t;
 ```
 
-This type represents the fetching of a mail.
+This type represents the fetching of a priority mail.
 
 ## `ao_pmailbox_t`
 
@@ -48,7 +48,7 @@ This type represents the fetching of a mail.
 typedef struct ao_pmailbox_t ao_pmailbox_t;
 ```
 
-This type represents a mailbox.
+This type represents a priority mailbox.
 
 # Structs
 
@@ -57,11 +57,11 @@ This type represents a mailbox.
 ```c
 struct ao_pmail_t
 {
-    ao_rb_node_t node;
+    ao_rb_node_t pmailbox_pmail_node;
 };
 ```
 
-| `node` | The node for the mailbox's priority queue of mails. |
+| `pmailbox_pmail_node` | The node for the mailbox's priority queue of mails. |
 
 ## `ao_pmail_fetch_t`
 
@@ -69,17 +69,17 @@ struct ao_pmail_t
 struct ao_pmail_fetch_t
 {
     ao_async_t            async;
-    ao_pmail_t * volatile mail;
-    ao_pmailbox_t *       mailbox;
-    ao_list_node_t        node;
+    ao_pmail_t * volatile pmail;
+    ao_pmailbox_t *       pmailbox;
+    ao_list_node_t        pmailbox_fetch_node;
     bool         volatile result;
 };
 ```
 
 | `async` | The asynchronous event. |
-| `mail` | The mail that has been fetched. |
-| `mailbox` | The mailbox. |
-| `node` | The node for the mailbox's list of fetchings. |
+| `pmail` | The priority mail that has been fetched. |
+| `pmailbox` | The priority mailbox. |
+| `pmailbox_fetch_node` | The node for the mailbox's list of fetchings. |
 | `result` | The result. |
 
 ## `ao_pmailbox_t`
@@ -87,13 +87,13 @@ struct ao_pmail_fetch_t
 ```c
 struct ao_pmailbox_t
 {
-    ao_list_t fetchers;
-    ao_rb_t   mails;
+    ao_list_t fetch;
+    ao_rb_t   pmail;
 };
 ```
 
-| `fetchers` | The list of fetchings. |
-| `mails` | The priority queue of mails. |
+| `fetch` | The list of fetchings. |
+| `pmail` | The priority queue of mails. |
 
 # Functions
 
@@ -101,27 +101,27 @@ struct ao_pmailbox_t
 ## `ao_pmail_fetch_from`
 
 ```c
-bool ao_pmail_fetch     (ao_pmailbox_t * x, ao_pmail_t ** m, ao_time_t timeout);
-bool ao_pmail_fetch_from(ao_pmailbox_t * x, ao_pmail_t ** m, ao_time_t timeout, ao_time_t beginning);
+bool ao_pmail_fetch     (ao_pmailbox_t * pmailbox, ao_pmail_t ** pmail, ao_time_t timeout);
+bool ao_pmail_fetch_from(ao_pmailbox_t * pmailbox, ao_pmail_t ** pmail, ao_time_t timeout, ao_time_t beginning);
 ```
 
-Fetches a mail in a blocking fashion with a timeout and an optional beginning.
+Fetches a priority mail in a blocking fashion with a timeout and an optional beginning.
 
 ## `ao_pmail_fetch_forever`
 
 ```c
-bool ao_pmail_fetch_forever(ao_pmailbox_t * x, ao_pmail_t ** m);
+bool ao_pmail_fetch_forever(ao_pmailbox_t * pmailbox, ao_pmail_t ** pmail);
 ```
 
-Fetches a mail indefinitely in a blocking fashion.
+Fetches a priority mail indefinitely in a blocking fashion.
 
 ## `ao_pmail_fetch_try`
 
 ```c
-bool ao_pmail_fetch_try(ao_pmailbox_t * x, ao_pmail_t ** m);
+bool ao_pmail_fetch_try(ao_pmailbox_t * pmailbox, ao_pmail_t ** pmail);
 ```
 
-Fetches a mail in a non-blocking fashion.
+Fetches a priority mail in a non-blocking fashion.
 
 ## `ao_pmail_fetch_begin`
 ## `ao_pmail_fetch_end`
@@ -131,12 +131,12 @@ void ao_pmail_fetch_begin(ao_pmail_fetch_t * x);
 void ao_pmail_fetch_end  (ao_pmail_fetch_t * x);
 ```
 
-Begins or ends, respectively, a fetching of a mail.
+Begins or ends, respectively, a fetching of a priority mail.
 
 ## `ao_pmail_post`
 
 ```c
-void ao_pmail_post(ao_pmailbox_t * x, ao_pmail_t * m);
+void ao_pmail_post(ao_pmailbox_t * pmailbox, ao_pmail_t * m);
 ```
 
-Posts a mail.
+Posts a priority mail.

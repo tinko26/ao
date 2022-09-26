@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_send_to_callback.h/
 toc: true
@@ -21,7 +21,7 @@ toc: true
 ## `ao_send_to_callback`
 
 ```c
-void ao_send_to_callback(ao_send_t * x, ao_send_proc_t y);
+void ao_send_to_callback(ao_send_t * send, ao_send_proc_t callback);
 ```
 
 Sets up a sending to execute a callback.

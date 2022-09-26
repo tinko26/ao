@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Coroutine : "Coroutine"
@@ -32,7 +32,7 @@ Yields execution to another task.
 ## `ao_yield_to`
 
 ```c
-void ao_yield_to(ao_task_t * t);
+void ao_yield_to(ao_task_t * task);
 ```
 
 Yields execution to the specified task. Thereby, this function blocks the calling task indefinitely and unblocks the specified task.

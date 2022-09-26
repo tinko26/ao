@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-25
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_ir_task.h/
 toc: true
@@ -39,8 +39,8 @@ The callback for the interrupt handlers. Actually, this function is implemented 
 ## `ao_ir_task_disable`
 
 ```c
-void ao_ir_task_enable (ao_core_t c);
-void ao_ir_task_disable(ao_core_t c);
+void ao_ir_task_enable (ao_core_t core);
+void ao_ir_task_disable(ao_core_t core);
 ```
 
 Enables or disables the interrupt on the specified processor core.
@@ -49,8 +49,8 @@ Enables or disables the interrupt on the specified processor core.
 ## `ao_ir_task_reply`
 
 ```c
-void ao_ir_task_request(ao_core_t c);
-void ao_ir_task_reply  (ao_core_t c);
+void ao_ir_task_request(ao_core_t core);
+void ao_ir_task_reply  (ao_core_t core);
 ```
 
 Requests the interrupt or replies thereto on the specified processor core.
@@ -58,7 +58,7 @@ Requests the interrupt or replies thereto on the specified processor core.
 ## `ao_ir_task_is_pending`
 
 ```c
-bool ao_ir_task_is_pending(ao_core_t c);
+bool ao_ir_task_is_pending(ao_core_t core);
 ```
 
 Determines whether the interrupt is pending on the specified processor core.

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_send_obj_to_queue.h/
 toc: true
@@ -22,7 +22,7 @@ toc: true
 ## `ao_send_obj_to_queue`
 
 ```c
-void ao_send_obj_to_queue(ao_send_obj_t * x, ao_qinsert_obj_t * y);
+void ao_send_obj_to_queue(ao_send_obj_t * send, ao_qinsert_obj_t * insert);
 ```
 
 Sets up a sending of an object to insert an object into a queue.

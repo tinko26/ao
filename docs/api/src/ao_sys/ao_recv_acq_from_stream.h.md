@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-25
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_recv_acq_from_stream.h/
 toc: true
@@ -22,7 +22,7 @@ toc: true
 ## `ao_recv_acq_from_stream`
 
 ```c
-void ao_recv_acq_from_stream(ao_recv_acq_t * x, ao_spop_acq_t * y);
+void ao_recv_acq_from_stream(ao_recv_acq_t * recv, ao_spop_acq_t * pop);
 ```
 
 Sets up a receiving of an acquired memory block to pop an acquired memory block from a stream.

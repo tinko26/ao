@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_signal.h/
 toc: true
@@ -44,11 +44,11 @@ This type represents the waiting for a signal.
 ```c
 struct ao_signal_t
 {
-    ao_list_t list;
+    ao_list_t wait;
 };
 ```
 
-| `list` | The list of waitings. |
+| `wait` | The list of waitings. |
 
 ## `ao_signal_wait_t`
 
@@ -56,23 +56,23 @@ struct ao_signal_t
 struct ao_signal_wait_t
 {
     ao_async_t     async;
-    ao_list_node_t node;
     bool volatile  result;
     ao_signal_t *  signal;
+    ao_list_node_t signal_wait_node;
 };
 ```
 
 | `async` | The asynchronous event. |
-| `node` | The node for the signal's list of waitings. |
 | `result` | The result. |
 | `signal` | The signal. |
+| `signal_wait_node` | The node for the signal's list of waitings. |
 
 # Functions
 
 ## `ao_signal_notify`
 
 ```c
-void ao_signal_notify(ao_signal_t * x);
+void ao_signal_notify(ao_signal_t * signal);
 ```
 
 Notifies the first waiting for a signal.
@@ -80,7 +80,7 @@ Notifies the first waiting for a signal.
 ## `ao_signal_notify_all`
 
 ```c
-void ao_signal_notify_all(ao_signal_t * x);
+void ao_signal_notify_all(ao_signal_t * signal);
 ```
 
 Notifies all waitings for a signal.
@@ -89,8 +89,8 @@ Notifies all waitings for a signal.
 ## `ao_signal_wait_from`
 
 ```c
-bool ao_signal_wait     (ao_signal_t * x, ao_time_t timeout);
-bool ao_signal_wait_from(ao_signal_t * x, ao_time_t timeout, ao_time_t beginning);
+bool ao_signal_wait     (ao_signal_t * signal, ao_time_t timeout);
+bool ao_signal_wait_from(ao_signal_t * signal, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Waits for a signal in a blocking fashion with a timeout and an optional beginning.
@@ -98,7 +98,7 @@ Waits for a signal in a blocking fashion with a timeout and an optional beginnin
 ## `ao_signal_wait_forever`
 
 ```c
-bool ao_signal_wait_forever(ao_signal_t * x);
+bool ao_signal_wait_forever(ao_signal_t * signal);
 ```
 
 Waits for a signal indefinitely in a blocking fashion.
@@ -107,8 +107,8 @@ Waits for a signal indefinitely in a blocking fashion.
 ## `ao_signal_wait_end`
 
 ```c
-void ao_signal_wait_begin(ao_signal_wait_t * x);
-void ao_signal_wait_end  (ao_signal_wait_t * x);
+void ao_signal_wait_begin(ao_signal_wait_t * wait);
+void ao_signal_wait_end  (ao_signal_wait_t * wait);
 ```
 
 Begins or ends, respectively, a waiting for a signal.

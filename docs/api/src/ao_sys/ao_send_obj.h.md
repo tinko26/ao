@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_send_obj.h/
 toc: true
@@ -37,7 +37,7 @@ This type represents the sending of an object.
 ```c
 typedef void (* ao_send_obj_proc_t)
 (
-    ao_send_obj_t * x
+    ao_send_obj_t * send
 );
 ```
 
@@ -72,8 +72,8 @@ struct ao_send_obj_t
 ## `ao_send_obj_from`
 
 ```c
-void ao_send_obj     (ao_send_obj_t * x, ao_time_t timeout);
-void ao_send_obj_from(ao_send_obj_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_send_obj     (ao_send_obj_t * send, ao_time_t timeout);
+void ao_send_obj_from(ao_send_obj_t * send, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Sends an object in a blocking fashion with a timeout and an optional beginning.
@@ -81,7 +81,7 @@ Sends an object in a blocking fashion with a timeout and an optional beginning.
 ## `ao_send_obj_forever`
 
 ```c
-void ao_send_obj_forever(ao_send_obj_t * x);
+void ao_send_obj_forever(ao_send_obj_t * send);
 ```
 
 Sends an object indefinitely in a blocking fashion.
@@ -89,7 +89,7 @@ Sends an object indefinitely in a blocking fashion.
 ## `ao_send_obj_try`
 
 ```c
-void ao_send_obj_try(ao_send_obj_t * x);
+void ao_send_obj_try(ao_send_obj_t * send);
 ```
 
 Sends an object in a non-blocking fashion.
@@ -98,8 +98,8 @@ Sends an object in a non-blocking fashion.
 ## `ao_send_obj_end`
 
 ```c
-void ao_send_obj_begin(ao_send_obj_t * x);
-void ao_send_obj_end  (ao_send_obj_t * x);
+void ao_send_obj_begin(ao_send_obj_t * send);
+void ao_send_obj_end  (ao_send_obj_t * send);
 ```
 
 Begins or ends, respectively, a sending of an object.

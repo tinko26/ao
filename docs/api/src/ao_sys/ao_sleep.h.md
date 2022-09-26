@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_sleep.h/
 toc: true
@@ -81,8 +81,8 @@ Puts the running task to sleep. The task will never be woken up by the operating
 ## `ao_sleep_end`
 
 ```c
-void ao_sleep_begin(ao_sleep_t * x);
-void ao_sleep_end  (ao_sleep_t * x);
+void ao_sleep_begin(ao_sleep_t * sleep);
+void ao_sleep_end  (ao_sleep_t * sleep);
 ```
 
 Begins or ends, respectively, a sleeping.

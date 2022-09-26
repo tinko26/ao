@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Lock_(computer_science) : "Lock"
@@ -68,7 +68,7 @@ struct ao_mutex_t
 
 #endif
 
-    ao_list_t         list;
+    ao_list_t         lock;
     ao_task_t *       owner;
     ao_uint_t         owner_count;
 
@@ -83,7 +83,7 @@ struct ao_mutex_t
 
 | `ceiling_immediate` | The immediate task ceiling.|
 | `ceiling_original` | The original task ceiling. |
-| `list` | The list of lockings. |
+| `lock` | The list of lockings. |
 | `owner` | The owner. |
 | `owner_count` | The owner count. |
 | `slave` | The task slave. |
@@ -102,7 +102,7 @@ struct ao_mutex_lock_t
 #endif
 
     ao_mutex_t *     mutex;
-    ao_list_node_t   node;
+    ao_list_node_t   mutex_lock_node;
     bool volatile    result;
     ao_task_t *      task;
 };
@@ -111,7 +111,7 @@ struct ao_mutex_lock_t
 | `async` | The asynchronous event. |
 | `master` | The task master. |
 | `mutex` | The mutex. |
-| `node` | The node for the mutex's list of lockings. |
+| `mutex_lock_node` | The node for the mutex's list of lockings. |
 | `result` | The result. |
 | `task` | The task. |
 
@@ -121,8 +121,8 @@ struct ao_mutex_lock_t
 ## `ao_mutex_lock_from`
 
 ```c
-bool ao_mutex_lock     (ao_mutex_t * x, ao_time_t timeout);
-bool ao_mutex_lock_from(ao_mutex_t * x, ao_time_t timeout, ao_time_t beginning);
+bool ao_mutex_lock     (ao_mutex_t * mutex, ao_time_t timeout);
+bool ao_mutex_lock_from(ao_mutex_t * mutex, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Locks a mutex in a blocking fashion with a timeout and an optional beginning.
@@ -130,7 +130,7 @@ Locks a mutex in a blocking fashion with a timeout and an optional beginning.
 ## `ao_mutex_lock_forever`
 
 ```c
-bool ao_mutex_lock_forever(ao_mutex_t * x);
+bool ao_mutex_lock_forever(ao_mutex_t * mutex);
 ```
 
 Locks a mutex indefinitely in a blocking fashion.
@@ -138,7 +138,7 @@ Locks a mutex indefinitely in a blocking fashion.
 ## `ao_mutex_lock_try`
 
 ```c
-bool ao_mutex_lock_try(ao_mutex_t * x);
+bool ao_mutex_lock_try(ao_mutex_t * mutex);
 ```
 
 Locks a mutex in a non-blocking fashion.
@@ -147,8 +147,8 @@ Locks a mutex in a non-blocking fashion.
 ## `ao_mutex_lock_end`
 
 ```c
-void ao_mutex_lock_begin(ao_mutex_lock_t * x);
-void ao_mutex_lock_end  (ao_mutex_lock_t * x);
+void ao_mutex_lock_begin(ao_mutex_lock_t * lock);
+void ao_mutex_lock_end  (ao_mutex_lock_t * lock);
 ```
 
 Begins or ends, respectively, a locking of a mutex.
@@ -156,7 +156,7 @@ Begins or ends, respectively, a locking of a mutex.
 ## `ao_mutex_unlock`
 
 ```c
-void ao_mutex_unlock(ao_mutex_t * x);
+void ao_mutex_unlock(ao_mutex_t * mutex);
 ```
 
 Unlocks a mutex.

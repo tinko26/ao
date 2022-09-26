@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-25
+date: 2022-09-26
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Critical_section : "Critical section"
@@ -67,8 +67,8 @@ struct ao_lock_t { };
 ## `ao_unlock`
 
 ```c
-void ao_lock  (ao_lock_t * x);
-void ao_unlock(ao_lock_t * x);
+void ao_lock  (ao_lock_t * lock);
+void ao_unlock(ao_lock_t * lock);
 ```
 
 Enters or exits a critical section, respectively.

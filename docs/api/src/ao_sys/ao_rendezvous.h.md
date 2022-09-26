@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Rendezvous_(Plan_9) : "Rendezvous"
@@ -97,8 +97,8 @@ struct ao_rendezvous_wait_t
 ## `ao_rendezvous_from`
 
 ```c
-void ao_rendezvous     (ao_rendezvous_wait_t * x, ao_time_t timeout);
-void ao_rendezvous_from(ao_rendezvous_wait_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_rendezvous     (ao_rendezvous_wait_t * wait, ao_time_t timeout);
+void ao_rendezvous_from(ao_rendezvous_wait_t * wait, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Waits for a rendezvous in a blocking fashion with a timeout and an optional beginning.
@@ -106,7 +106,7 @@ Waits for a rendezvous in a blocking fashion with a timeout and an optional begi
 ## `ao_rendezvous_forever`
 
 ```c
-void ao_rendezvous_forever(ao_rendezvous_wait_t * x);
+void ao_rendezvous_forever(ao_rendezvous_wait_t * wait);
 ```
 
 Waits for a rendezvous indefinitely in a blocking fashion.
@@ -114,7 +114,7 @@ Waits for a rendezvous indefinitely in a blocking fashion.
 ## `ao_rendezvous_try`
 
 ```c
-void ao_rendezvous_try(ao_rendezvous_wait_t * x);
+void ao_rendezvous_try(ao_rendezvous_wait_t * wait);
 ```
 
 Waits for a rendezvous in a non-blocking fashion.
@@ -123,8 +123,8 @@ Waits for a rendezvous in a non-blocking fashion.
 ## `ao_rendezvous_end`
 
 ```c
-void ao_rendezvous_begin(ao_rendezvous_wait_t * x);
-void ao_rendezvous_end  (ao_rendezvous_wait_t * x);
+void ao_rendezvous_begin(ao_rendezvous_wait_t * wait);
+void ao_rendezvous_end  (ao_rendezvous_wait_t * wait);
 ```
 
 Begins or ends, respectively, a waiting for a rendezvous.

@@ -71,12 +71,12 @@ This type represents a function to check whether a specific number value is a ma
 struct ao_num32_t
 {
     uint32_t  value;
-    ao_list_t waits;
+    ao_list_t wait;
 };
 ```
 
 | `value` | The value. |
-| `waits` | The list of waitings. |
+| `wait` | The list of waitings. |
 
 ## `ao_num32_wait_t`
 
@@ -87,7 +87,7 @@ struct ao_num32_wait_t
     ao_num32_match_t  match;
     void *            match_parameter;
     ao_num32_t *      num;
-    ao_list_node_t    num_waits_node;
+    ao_list_node_t    num_wait_node;
     bool     volatile result;
     uint32_t volatile value_new;
     uint32_t volatile value_old;
@@ -98,7 +98,7 @@ struct ao_num32_wait_t
 | `match` | The match function. |
 | `match_parameter` | The match function parameter. |
 | `num` | The number. |
-| `num_waits_node` | The node for the number's list of waitings. |
+| `num_wait_node` | The node for the number's list of waitings. |
 | `result` | The result. |
 | `value_new` | The new value. |
 | `value_old` | The old value. |

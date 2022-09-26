@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_send_ptr.h/
 toc: true
@@ -37,7 +37,7 @@ This type represents the sending of a pointer.
 ```c
 typedef void (* ao_send_ptr_proc_t)
 (
-    ao_send_ptr_t * x
+    ao_send_ptr_t * send
 );
 ```
 
@@ -72,8 +72,8 @@ struct ao_send_ptr_t
 ## `ao_send_ptr_from`
 
 ```c
-void ao_send_ptr     (ao_send_ptr_t * x, ao_time_t timeout);
-void ao_send_ptr_from(ao_send_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_send_ptr     (ao_send_ptr_t * send, ao_time_t timeout);
+void ao_send_ptr_from(ao_send_ptr_t * send, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Sends a pointer in a blocking fashion with a timeout and an optional beginning.
@@ -81,7 +81,7 @@ Sends a pointer in a blocking fashion with a timeout and an optional beginning.
 ## `ao_send_ptr_forever`
 
 ```c
-void ao_send_ptr_forever(ao_send_ptr_t * x);
+void ao_send_ptr_forever(ao_send_ptr_t * send);
 ```
 
 Sends a pointer indefinitely in a blocking fashion.
@@ -89,7 +89,7 @@ Sends a pointer indefinitely in a blocking fashion.
 ## `ao_send_ptr_try`
 
 ```c
-void ao_send_ptr_try(ao_send_ptr_t * x);
+void ao_send_ptr_try(ao_send_ptr_t * send);
 ```
 
 Sends a pointer in a non-blocking fashion.
@@ -98,8 +98,8 @@ Sends a pointer in a non-blocking fashion.
 ## `ao_send_ptr_end`
 
 ```c
-void ao_send_ptr_begin(ao_send_ptr_t * x);
-void ao_send_ptr_end  (ao_send_ptr_t * x);
+void ao_send_ptr_begin(ao_send_ptr_t * send);
+void ao_send_ptr_end  (ao_send_ptr_t * send);
 ```
 
 Begins or ends, respectively, a sending of a pointer.

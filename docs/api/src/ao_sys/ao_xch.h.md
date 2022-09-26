@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_xch.h/
 toc: true
@@ -62,13 +62,13 @@ This type represents a server receiving a request.
 ```c
 struct ao_xch_t
 {
-    ao_list_t clients;
-    ao_list_t servers;
+    ao_list_t client;
+    ao_list_t server;
 };
 ```
 
-| `clients` | The clients. |
-| `servers` | The servers. |
+| `client` | The list of clients. |
+| `server` | The list of servers. |
 
 ## `ao_xch_client_t`
 
@@ -83,7 +83,6 @@ struct ao_xch_client_t
 
 #endif
 
-    ao_list_node_t             node;
     bool              volatile result;
     ao_xch_server_t * volatile server;
 
@@ -94,16 +93,17 @@ struct ao_xch_client_t
 #endif
 
     ao_xch_t *                 xch;
+    ao_list_node_t             xch_client_node;
 };
 ```
 
 | `async` | The asynchronous event. |
 | `master` | The task master. |
-| `node` | The node for the exchange's list of clients. |
 | `result` | The result. |
 | `server` | The server. |
 | `task` | The task. |
 | `xch` | The exchange. |
+| `xch_client_node` | The node for the exchange's list of clients. |
 
 ## `ao_xch_server_t`
 
@@ -112,7 +112,6 @@ struct ao_xch_server_t
 {
     ao_async_t                 async;
     ao_xch_client_t * volatile client;
-    ao_list_node_t             node;
     bool              volatile result;
 
 #if AO_TASK_INHERITANCE
@@ -123,16 +122,17 @@ struct ao_xch_server_t
 #endif
 
     ao_xch_t        *          xch;
+    ao_list_node_t             xch_server_node;
 };
 ```
 
 | `async` | The asynchronous event. |
 | `client` | The client. |
-| `node` | The node for the exchange's list of servers. |
 | `result` | The result. |
 | `slave` | The task slave. |
 | `task` | The task. |
 | `xch` | The exchange. |
+| `xch_server_node` | The node for the exchange's list of servers. |
 
 # Functions
 
@@ -140,8 +140,8 @@ struct ao_xch_server_t
 ## `ao_xch_client_from`
 
 ```c
-void ao_xch_client     (ao_xch_client_t * x, ao_time_t timeout);
-void ao_xch_client_from(ao_xch_client_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_xch_client     (ao_xch_client_t * client, ao_time_t timeout);
+void ao_xch_client_from(ao_xch_client_t * client, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Sends a request and receives a reply in a blocking fashion with a timeout and an optional beginning.
@@ -149,7 +149,7 @@ Sends a request and receives a reply in a blocking fashion with a timeout and an
 ## `ao_xch_client_forever`
 
 ```c
-void ao_xch_client_forever(ao_xch_client_t * x);
+void ao_xch_client_forever(ao_xch_client_t * client);
 ```
 
 Sends a request and receives a reply indefinitely in a blocking fashion.
@@ -158,8 +158,8 @@ Sends a request and receives a reply indefinitely in a blocking fashion.
 ## `ao_xch_client_end`
 
 ```c
-void ao_xch_client_begin(ao_xch_client_t * x);
-void ao_xch_client_end  (ao_xch_client_t * x);
+void ao_xch_client_begin(ao_xch_client_t * client);
+void ao_xch_client_end  (ao_xch_client_t * client);
 ```
 
 Begins or ends, respectively, a client sending a request and receiving a reply.
@@ -168,8 +168,8 @@ Begins or ends, respectively, a client sending a request and receiving a reply.
 ## `ao_xch_server_from`
 
 ```c
-void ao_xch_server     (ao_xch_server_t * x, ao_time_t timeout);
-void ao_xch_server_from(ao_xch_server_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_xch_server     (ao_xch_server_t * server, ao_time_t timeout);
+void ao_xch_server_from(ao_xch_server_t * server, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Receives a request in a blocking fashion with a timeout and an optional beginning.
@@ -177,7 +177,7 @@ Receives a request in a blocking fashion with a timeout and an optional beginnin
 ## `ao_xch_server_forever`
 
 ```c
-void ao_xch_server_forever(ao_xch_server_t * x);
+void ao_xch_server_forever(ao_xch_server_t * server);
 ```
 
 Receives a request indefinitely in a blocking fashion.
@@ -185,7 +185,7 @@ Receives a request indefinitely in a blocking fashion.
 ## `ao_xch_server_try`
 
 ```c
-void ao_xch_server_try(ao_xch_server_t * x);
+void ao_xch_server_try(ao_xch_server_t * server);
 ```
 
 Receives a request in a non-blocking fashion.
@@ -194,8 +194,8 @@ Receives a request in a non-blocking fashion.
 ## `ao_xch_server_end`
 
 ```c
-void ao_xch_server_begin(ao_xch_server_t * x);
-void ao_xch_server_end  (ao_xch_server_t * x);
+void ao_xch_server_begin(ao_xch_server_t * server);
+void ao_xch_server_end  (ao_xch_server_t * server);
 ```
 
 Begins or ends, respectively, the receiving of a request.
@@ -203,7 +203,7 @@ Begins or ends, respectively, the receiving of a request.
 ## `ao_xch_server_reply`
 
 ```c
-void ao_xch_server_reply(ao_xch_server_t * x);
+void ao_xch_server_reply(ao_xch_server_t * server);
 ```
 
 Sends a reply.

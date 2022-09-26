@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-24
+date: 2022-09-26
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Light-emitting_diode : "Light-emitting diode"
@@ -64,9 +64,9 @@ Gets the LEDs that are enabled.
 ## `ao_leds_toggle`
 
 ```c
-void ao_leds_enable (ao_leds_t x);
-void ao_leds_disable(ao_leds_t x);
-void ao_leds_toggle (ao_leds_t x);
+void ao_leds_enable (ao_leds_t leds);
+void ao_leds_disable(ao_leds_t leds);
+void ao_leds_toggle (ao_leds_t leds);
 ```
 
 Enables, disables, or toggles, respectively, the specified LEDs.

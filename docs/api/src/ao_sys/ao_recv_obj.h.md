@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_recv_obj.h/
 toc: true
@@ -37,7 +37,7 @@ This type represents the receiving of an object.
 ```c
 typedef void (* ao_recv_obj_proc_t)
 (
-    ao_recv_obj_t * x
+    ao_recv_obj_t * recv
 );
 ```
 
@@ -72,8 +72,8 @@ struct ao_recv_obj_t
 ## `ao_recv_obj_from`
 
 ```c
-void ao_recv_obj     (ao_recv_obj_t * x, ao_time_t timeout);
-void ao_recv_obj_from(ao_recv_obj_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_recv_obj     (ao_recv_obj_t * recv, ao_time_t timeout);
+void ao_recv_obj_from(ao_recv_obj_t * recv, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Receives an object in a blocking fashion with a timeout and an optional beginning.
@@ -81,7 +81,7 @@ Receives an object in a blocking fashion with a timeout and an optional beginnin
 ## `ao_recv_obj_forever`
 
 ```c
-void ao_recv_obj_forever(ao_recv_obj_t * x);
+void ao_recv_obj_forever(ao_recv_obj_t * recv);
 ```
 
 Receives an object indefinitely in a blocking fashion.
@@ -89,7 +89,7 @@ Receives an object indefinitely in a blocking fashion.
 ## `ao_recv_obj_try`
 
 ```c
-void ao_recv_obj_try(ao_recv_obj_t * x);
+void ao_recv_obj_try(ao_recv_obj_t * recv);
 ```
 
 Receives an object in a non-blocking fashion.
@@ -98,8 +98,8 @@ Receives an object in a non-blocking fashion.
 ## `ao_recv_obj_end`
 
 ```c
-void ao_recv_obj_begin(ao_recv_obj_t * x);
-void ao_recv_obj_end  (ao_recv_obj_t * x);
+void ao_recv_obj_begin(ao_recv_obj_t * recv);
+void ao_recv_obj_end  (ao_recv_obj_t * recv);
 ```
 
 Begins or ends, respectively, a receiving of an object.

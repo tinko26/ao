@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_cond.h/
 toc: true
@@ -53,13 +53,13 @@ This type represents the waiting for a condition.
 ```c
 struct ao_cond_t
 {
-    ao_list_t list;
     bool      state;
+    ao_list_t wait;
 };
 ```
 
-| `list` | The list of waitings. |
 | `state` | The state. |
+| `wait` | The list of waitings. |
 
 ## `ao_cond_wait_t`
 
@@ -68,14 +68,14 @@ struct ao_cond_wait_t
 {
     ao_async_t     async;
     ao_cond_t *    cond;
-    ao_list_node_t node;
+    ao_list_node_t cond_wait_node;
     bool volatile  result;
 };
 ```
 
 | `async` | The asynchronous event. |
 | `cond` | The condition. |
-| `node` | The node for the condition's list of waitings. |
+| `cond_wait_node` | The node for the condition's list of waitings. |
 | `result` | The result. |
 
 # Functions
@@ -83,7 +83,7 @@ struct ao_cond_wait_t
 ## `ao_cond_clear`
 
 ```c
-void ao_cond_clear(ao_cond_t * x);
+void ao_cond_clear(ao_cond_t * cond);
 ```
 
 Clears a condition.
@@ -91,7 +91,7 @@ Clears a condition.
 ## `ao_cond_set`
 
 ```c
-void ao_cond_set(ao_cond_t * x);
+void ao_cond_set(ao_cond_t * cond);
 ```
 
 Sets a condition.
@@ -100,8 +100,8 @@ Sets a condition.
 ## `ao_cond_wait_from`
 
 ```c
-bool ao_cond_wait     (ao_cond_t * x, ao_time_t timeout);
-bool ao_cond_wait_from(ao_cond_t * x, ao_time_t timeout, ao_time_t beginning);
+bool ao_cond_wait     (ao_cond_t * cond, ao_time_t timeout);
+bool ao_cond_wait_from(ao_cond_t * cond, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Waits for a condition in a blocking fashion with a timeout and an optional beginning.
@@ -109,7 +109,7 @@ Waits for a condition in a blocking fashion with a timeout and an optional begin
 ## `ao_cond_wait_forever`
 
 ```c
-bool ao_cond_wait_forever(ao_cond_t * x);
+bool ao_cond_wait_forever(ao_cond_t * cond);
 ```
 
 Waits for a condition indefinitely in a blocking fashion.
@@ -117,7 +117,7 @@ Waits for a condition indefinitely in a blocking fashion.
 ## `ao_cond_wait_try`
 
 ```c
-bool ao_cond_wait_try(ao_cond_t * x);
+bool ao_cond_wait_try(ao_cond_t * cond);
 ```
 
 Waits for a condition in a non-blocking fashion.
@@ -126,8 +126,8 @@ Waits for a condition in a non-blocking fashion.
 ## `ao_cond_wait_end`
 
 ```c
-void ao_cond_wait_begin(ao_cond_wait_t * x);
-void ao_cond_wait_end  (ao_cond_wait_t * x);
+void ao_cond_wait_begin(ao_cond_wait_t * wait);
+void ao_cond_wait_end  (ao_cond_wait_t * wait);
 ```
 
 Begins or ends, respectively, a waiting for a condition.

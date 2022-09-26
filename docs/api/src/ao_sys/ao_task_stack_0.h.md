@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_task_stack_0.h/
 toc: true
@@ -40,8 +40,8 @@ struct ao_task_stack_t { };
 ## `ao_task_get_stack_beginning_locked`
 
 ```c
-void * ao_task_get_stack_beginning       (ao_task_t const * t);
-void * ao_task_get_stack_beginning_locked(ao_task_t const * t);
+void * ao_task_get_stack_beginning       (ao_task_t const * task);
+void * ao_task_get_stack_beginning_locked(ao_task_t const * task);
 ```
 
 Gets the stack beginning of the specified task. The latter function assumes, that the kernel is locked.
@@ -50,8 +50,8 @@ Gets the stack beginning of the specified task. The latter function assumes, tha
 ## `ao_task_get_stack_size_locked`
 
 ```c
-size_t ao_task_get_stack_size       (ao_task_t const * t);
-size_t ao_task_get_stack_size_locked(ao_task_t const * t);
+size_t ao_task_get_stack_size       (ao_task_t const * task);
+size_t ao_task_get_stack_size_locked(ao_task_t const * task);
 ```
 
 Gets the stack size of the specified task. The latter function assumes, that the kernel is locked.

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-05
+date: 2022-09-26
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Critical_section : "Critical section"
@@ -49,9 +49,9 @@ This type represents a container for lock-related data.
 ## `ao_lock`
 
 ```c
-#define ao_lock(x)                       \
-{                                        \
-    *(x) = ao_sys_lock_ir(AO_LOCK_PRIO); \
+#define ao_lock(lock)                       \
+{                                           \
+    *(lock) = ao_sys_lock_ir(AO_LOCK_PRIO); \
 }
 ```
 
@@ -60,9 +60,9 @@ Enters a critical section.
 ## `ao_unlock`
 
 ```c
-#define ao_unlock(x)        \
-{                           \
-    ao_sys_unlock_ir(*(x)); \
+#define ao_unlock(lock)        \
+{                              \
+    ao_sys_unlock_ir(*(lock)); \
 }
 ```
 

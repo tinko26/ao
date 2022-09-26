@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Barrier_(computer_science) : "Barrier"
@@ -53,13 +53,13 @@ struct ao_barrier_t
 {
     ao_uint_t count;
     ao_uint_t count_threshold;
-    ao_list_t list;
+    ao_list_t wait;
 };
 ```
 
 | `count` | The current number of waitings. |
 | `count_threshold` | The maximum number waitings. |
-| `list` | The list of waitings. |
+| `wait` | The list of waitings. |
 
 ## `ao_barrier_wait_t`
 
@@ -68,14 +68,14 @@ struct ao_barrier_wait_t
 {
     ao_async_t     async;
     ao_barrier_t * barrier;
-    ao_list_node_t node;
+    ao_list_node_t barrier_wait_node;
     bool volatile  result;
 };
 ```
 
 | `async` | The asynchronous event. |
 | `barrier` | The barrier. |
-| `node` | The node for the barrier's list of waitings. |
+| `barrier_wait_node` | The node for the barrier's list of waitings. |
 | `result` | The result. |
 
 # Functions
@@ -84,8 +84,8 @@ struct ao_barrier_wait_t
 ## `ao_barrier_wait_from`
 
 ```c
-bool ao_barrier_wait     (ao_barrier_t * x, ao_time_t timeout);
-bool ao_barrier_wait_from(ao_barrier_t * x, ao_time_t timeout, ao_time_t beginning);
+bool ao_barrier_wait     (ao_barrier_t * barrier, ao_time_t timeout);
+bool ao_barrier_wait_from(ao_barrier_t * barrier, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Waits at a barrier in a blocking fashion with a timeout and an optional beginning.
@@ -93,7 +93,7 @@ Waits at a barrier in a blocking fashion with a timeout and an optional beginnin
 ## `ao_barrier_wait_forever`
 
 ```c
-bool ao_barrier_wait_forever(ao_barrier_t * x);
+bool ao_barrier_wait_forever(ao_barrier_t * barrier);
 ```
 
 Waits at a barrier indefinitely in a blocking fashion.
@@ -101,7 +101,7 @@ Waits at a barrier indefinitely in a blocking fashion.
 ## `ao_barrier_wait_try`
 
 ```c
-bool ao_barrier_wait_try(ao_barrier_t * x);
+bool ao_barrier_wait_try(ao_barrier_t * barrier);
 ```
 
 Waits at a barrier in a non-blocking fashion.
@@ -110,8 +110,8 @@ Waits at a barrier in a non-blocking fashion.
 ## `ao_barrier_wait_end`
 
 ```c
-void ao_barrier_wait_begin(ao_barrier_wait_t * x);
-void ao_barrier_wait_end  (ao_barrier_wait_t * x);
+void ao_barrier_wait_begin(ao_barrier_wait_t * wait);
+void ao_barrier_wait_end  (ao_barrier_wait_t * wait);
 ```
 
 Begins or ends, respectively, a waiting at a barrier.

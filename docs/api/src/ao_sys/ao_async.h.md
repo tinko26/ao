@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_async.h/
 toc: true
@@ -107,8 +107,8 @@ struct ao_async_any_t
 ## `ao_async_all_end`
 
 ```c
-void ao_async_all_begin(ao_async_all_t * x);
-void ao_async_all_end  (ao_async_all_t * x);
+void ao_async_all_begin(ao_async_all_t * async_all);
+void ao_async_all_end  (ao_async_all_t * async_all);
 ```
 
 Begins or ends, respectively, a waiting for all out of a set of asynchronous events.
@@ -116,7 +116,7 @@ Begins or ends, respectively, a waiting for all out of a set of asynchronous eve
 ## `ao_async_all_try`
 
 ```c
-void ao_async_all_try(ao_async_all_t * x);
+void ao_async_all_try(ao_async_all_t * async_all);
 ```
 
 Waits for all out of a set of asynchronous events in a non-blocking fashion.
@@ -125,8 +125,8 @@ Waits for all out of a set of asynchronous events in a non-blocking fashion.
 ## `ao_async_any_end`
 
 ```c
-void ao_async_any_begin(ao_async_any_t * x);
-void ao_async_any_end  (ao_async_any_t * x);
+void ao_async_any_begin(ao_async_any_t * async_any);
+void ao_async_any_end  (ao_async_any_t * async_any);
 ```
 
 Begins or ends, respectively, a waiting for any one out of a set of asynchronous events.
@@ -134,7 +134,7 @@ Begins or ends, respectively, a waiting for any one out of a set of asynchronous
 ## `ao_async_any_try`
 
 ```c
-void ao_async_any_try(ao_async_any_t * x);
+void ao_async_any_try(ao_async_any_t * async_any);
 ```
 
 Waits for any one out of a set of asynchronous events in a non-blocking fashion.

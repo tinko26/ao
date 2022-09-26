@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-25
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_recv_acq_from_callback.h/
 toc: true
@@ -21,7 +21,7 @@ toc: true
 ## `ao_recv_acq_from_callback`
 
 ```c
-void ao_recv_acq_from_callback(ao_recv_acq_t * x, ao_recv_acq_proc_t y);
+void ao_recv_acq_from_callback(ao_recv_acq_t * recv, ao_recv_acq_proc_t callback);
 ```
 
 Sets up a receiving of an acquired memory block to execute a callback.

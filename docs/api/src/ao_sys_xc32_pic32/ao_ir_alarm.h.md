@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-25
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_ir_alarm.h/
 toc: true
@@ -54,9 +54,9 @@ Requests the interrupt or replies thereto.
 ## `ao_ir_alarm_set`
 
 ```c
-#define ao_ir_alarm_set(t) \
-{                          \
-    _CP0_SET_COMPARE(t);   \
+#define ao_ir_alarm_set(time) \
+{                             \
+    _CP0_SET_COMPARE(time);   \
 }
 ```
 

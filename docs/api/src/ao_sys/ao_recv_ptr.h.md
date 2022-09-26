@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_recv_ptr.h/
 toc: true
@@ -37,7 +37,7 @@ This type represents the receiving of a pointer.
 ```c
 typedef void (* ao_recv_ptr_proc_t)
 (
-    ao_recv_ptr_t * x
+    ao_recv_ptr_t * recv
 );
 ```
 
@@ -72,8 +72,8 @@ struct ao_recv_ptr_t
 ## `ao_recv_ptr_from`
 
 ```c
-void ao_recv_ptr     (ao_recv_ptr_t * x, ao_time_t timeout);
-void ao_recv_ptr_from(ao_recv_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_recv_ptr     (ao_recv_ptr_t * recv, ao_time_t timeout);
+void ao_recv_ptr_from(ao_recv_ptr_t * recv, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Receives a pointer in a blocking fashion with a timeout and an optional beginning.
@@ -81,7 +81,7 @@ Receives a pointer in a blocking fashion with a timeout and an optional beginnin
 ## `ao_recv_ptr_forever`
 
 ```c
-void ao_recv_ptr_forever(ao_recv_ptr_t * x);
+void ao_recv_ptr_forever(ao_recv_ptr_t * recv);
 ```
 
 Receives a pointer indefinitely in a blocking fashion.
@@ -89,7 +89,7 @@ Receives a pointer indefinitely in a blocking fashion.
 ## `ao_recv_ptr_try`
 
 ```c
-void ao_recv_ptr_try(ao_recv_ptr_t * x);
+void ao_recv_ptr_try(ao_recv_ptr_t * recv);
 ```
 
 Receives a pointer in a non-blocking fashion.
@@ -98,8 +98,8 @@ Receives a pointer in a non-blocking fashion.
 ## `ao_recv_ptr_end`
 
 ```c
-void ao_recv_ptr_begin(ao_recv_ptr_t * x);
-void ao_recv_ptr_end  (ao_recv_ptr_t * x);
+void ao_recv_ptr_begin(ao_recv_ptr_t * recv);
+void ao_recv_ptr_end  (ao_recv_ptr_t * recv);
 ```
 
 Begins or ends, respectively, a receiving of a pointer.

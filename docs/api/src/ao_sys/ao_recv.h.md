@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_recv.h/
 toc: true
@@ -38,7 +38,7 @@ This type represents the receiving of data.
 ```c
 typedef void (* ao_recv_proc_t)
 (
-    ao_recv_t * x
+    ao_recv_t * recv
 );
 ```
 
@@ -79,8 +79,8 @@ struct ao_recv_t
 ## `ao_recv_from`
 
 ```c
-void ao_recv     (ao_recv_t * x, ao_time_t timeout);
-void ao_recv_from(ao_recv_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_recv     (ao_recv_t * recv, ao_time_t timeout);
+void ao_recv_from(ao_recv_t * recv, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Receives in a blocking fashion with a timeout and an optional beginning.
@@ -88,7 +88,7 @@ Receives in a blocking fashion with a timeout and an optional beginning.
 ## `ao_recv_forever`
 
 ```c
-void ao_recv_forever(ao_recv_t * x);
+void ao_recv_forever(ao_recv_t * recv);
 ```
 
 Receives indefinitely in a blocking fashion.
@@ -96,7 +96,7 @@ Receives indefinitely in a blocking fashion.
 ## `ao_recv_try`
 
 ```c
-void ao_recv_try(ao_recv_t * x);
+void ao_recv_try(ao_recv_t * recv);
 ```
 
 Receives in a non-blocking fashion.
@@ -105,8 +105,8 @@ Receives in a non-blocking fashion.
 ## `ao_recv_end`
 
 ```c
-void ao_recv_begin(ao_recv_t * x);
-void ao_recv_end  (ao_recv_t * x);
+void ao_recv_begin(ao_recv_t * recv);
+void ao_recv_end  (ao_recv_t * recv);
 ```
 
 Begins or ends, respectively, a receiving.

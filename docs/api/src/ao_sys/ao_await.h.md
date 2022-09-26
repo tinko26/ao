@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_await.h/
 toc: true
@@ -27,8 +27,8 @@ This module defines functions for awaiting asynchronous events.
 ## `ao_await_from`
 
 ```c
-void ao_await     (ao_async_t * x, ao_time_t timeout);
-void ao_await_from(ao_async_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_await     (ao_async_t * async, ao_time_t timeout);
+void ao_await_from(ao_async_t * async, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Awaits an asynchronous event in a blocking fashion with a timeout and optional beginning.
@@ -36,7 +36,7 @@ Awaits an asynchronous event in a blocking fashion with a timeout and optional b
 ## `ao_await_forever`
 
 ```c
-void ao_await_forever(ao_async_t * x);
+void ao_await_forever(ao_async_t * async);
 ```
 
 Awaits an asynchronous event indefinitely in a blocking fashion.
@@ -45,8 +45,8 @@ Awaits an asynchronous event indefinitely in a blocking fashion.
 ## `ao_await_all_from`
 
 ```c
-void ao_await_all     (ao_async_all_t * x, ao_time_t timeout);
-void ao_await_all_from(ao_async_all_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_await_all     (ao_async_all_t * async_all, ao_time_t timeout);
+void ao_await_all_from(ao_async_all_t * async_all, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Awaits all out of a set of asynchronous events in a blocking fashion with a timeout and optional beginning.
@@ -54,7 +54,7 @@ Awaits all out of a set of asynchronous events in a blocking fashion with a time
 ## `ao_await_all_forever`
 
 ```c
-void ao_await_all_forever(ao_async_all_t * x);
+void ao_await_all_forever(ao_async_all_t * async_all);
 ```
 
 Awaits all out of a set of asynchronous events indefinitely in a blocking fashion.
@@ -63,8 +63,8 @@ Awaits all out of a set of asynchronous events indefinitely in a blocking fashio
 ## `ao_await_any_from`
 
 ```c
-void ao_await_any     (ao_async_any_t * x, ao_time_t timeout);
-void ao_await_any_from(ao_async_any_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_await_any     (ao_async_any_t * async_any, ao_time_t timeout);
+void ao_await_any_from(ao_async_any_t * async_any, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Awaits any one out of a set of asynchronous events in a blocking fashion with a timeout and optional beginning.
@@ -72,7 +72,7 @@ Awaits any one out of a set of asynchronous events in a blocking fashion with a 
 ## `ao_await_any_forever`
 
 ```c
-void ao_await_any_forever(ao_async_any_t * x);
+void ao_await_any_forever(ao_async_any_t * async_any);
 ```
 
 Awaits any one out of a set of asynchronous events indefinitely in a blocking fashion.

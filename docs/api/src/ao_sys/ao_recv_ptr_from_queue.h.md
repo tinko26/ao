@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_recv_ptr_from_queue.h/
 toc: true
@@ -22,7 +22,7 @@ toc: true
 ## `ao_recv_ptr_from_queue`
 
 ```c
-void ao_recv_ptr_from_queue(ao_recv_ptr_t * x, ao_qpop_ptr_t * y);
+void ao_recv_ptr_from_queue(ao_recv_ptr_t * recv, ao_qpop_ptr_t * pop);
 ```
 
 Sets up a receiving of a pointer to pop a pointer from a queue.

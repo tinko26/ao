@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Semaphore_(programming) : "Semaphore"
@@ -50,12 +50,12 @@ This type represents the taking of a binary semaphore.
 ```c
 struct ao_bsem_t
 {
-    ao_list_t list;
+    ao_list_t take;
     bool      taken;
 };
 ```
 
-| `list` | The list of takings. |
+| `take` | The list of takings. |
 | `taken` | Indicates whether the semaphore is taken. |
 
 ## `ao_bsem_take_t`
@@ -64,23 +64,23 @@ struct ao_bsem_t
 struct ao_bsem_take_t
 {
     ao_async_t     async;
-    ao_list_node_t node;
+    ao_bsem_t *    bsem;
+    ao_list_node_t bsem_take_node;
     bool volatile  result;
-    ao_bsem_t *    sem;
 };
 ```
 
 | `async` | The asynchronous event. |
-| `node` | The node for the binary semaphore's list of takings. |
+| `bsem` | The binary semaphore. |
+| `bsem_take_node` | The node for the binary semaphore's list of takings. |
 | `result` | The result. |
-| `sem` | The binary semaphore. |
 
 # Functions
 
 ## `ao_bsem_give`
 
 ```c
-void ao_bsem_give(ao_bsem_t * x);
+void ao_bsem_give(ao_bsem_t * bsem);
 ```
 
 Gives a binary semaphore.
@@ -89,8 +89,8 @@ Gives a binary semaphore.
 ## `ao_bsem_take_from`
 
 ```c
-bool ao_bsem_take     (ao_bsem_t * x, ao_time_t timeout);
-bool ao_bsem_take_from(ao_bsem_t * x, ao_time_t timeout, ao_time_t beginning);
+bool ao_bsem_take     (ao_bsem_t * bsem, ao_time_t timeout);
+bool ao_bsem_take_from(ao_bsem_t * bsem, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Takes a binary semaphore in a blocking fashion with a timeout and an optional beginning.
@@ -98,7 +98,7 @@ Takes a binary semaphore in a blocking fashion with a timeout and an optional be
 ## `ao_bsem_take_forever`
 
 ```c
-bool ao_bsem_take_forever(ao_bsem_t * x);
+bool ao_bsem_take_forever(ao_bsem_t * bsem);
 ```
 
 Takes a binary semaphore indefinitely in a blocking fashion.
@@ -106,7 +106,7 @@ Takes a binary semaphore indefinitely in a blocking fashion.
 ## `ao_bsem_take_try`
 
 ```c
-bool ao_bsem_take_try(ao_bsem_t * x);
+bool ao_bsem_take_try(ao_bsem_t * bsem);
 ```
 
 Takes a binary semaphore in a non-blocking fashion.
@@ -115,8 +115,8 @@ Takes a binary semaphore in a non-blocking fashion.
 ## `ao_bsem_take_end`
 
 ```c
-void ao_bsem_take_begin(ao_bsem_take_t * x);
-void ao_bsem_take_end  (ao_bsem_take_t * x);
+void ao_bsem_take_begin(ao_bsem_take_t * take);
+void ao_bsem_take_end  (ao_bsem_take_t * take);
 ```
 
 Begins or ends, respectively, a taking of a binary semaphore.

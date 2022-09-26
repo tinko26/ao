@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_stream.h/
 toc: true
@@ -115,8 +115,8 @@ struct ao_spush_t
 ## `ao_spop_from`
 
 ```c
-void ao_spop     (ao_spop_t * x, ao_time_t timeout);
-void ao_spop_from(ao_spop_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_spop     (ao_spop_t * pop, ao_time_t timeout);
+void ao_spop_from(ao_spop_t * pop, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Pops from a stream in a blocking fashion with a timeout and an optional beginning.
@@ -124,7 +124,7 @@ Pops from a stream in a blocking fashion with a timeout and an optional beginnin
 ## `ao_spop_forever`
 
 ```c
-void ao_spop_forever(ao_spop_t * x);
+void ao_spop_forever(ao_spop_t * pop);
 ```
 
 Pops from a stream indefinitely in a blocking fashion.
@@ -132,7 +132,7 @@ Pops from a stream indefinitely in a blocking fashion.
 ## `ao_spop_try`
 
 ```c
-void ao_spop_try(ao_spop_t * x);
+void ao_spop_try(ao_spop_t * pop);
 ```
 
 Pops from a stream in a non-blocking fashion.
@@ -141,8 +141,8 @@ Pops from a stream in a non-blocking fashion.
 ## `ao_spop_end`
 
 ```c
-void ao_spop_begin(ao_spop_t * x);
-void ao_spop_end  (ao_spop_t * x);
+void ao_spop_begin(ao_spop_t * pop);
+void ao_spop_end  (ao_spop_t * pop);
 ```
 
 Begins or ends, respectively, a popping from a stream.
@@ -151,8 +151,8 @@ Begins or ends, respectively, a popping from a stream.
 ## `ao_spush_from`
 
 ```c
-void ao_spush     (ao_spush_t * x, ao_time_t timeout);
-void ao_spush_from(ao_spush_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_spush     (ao_spush_t * push, ao_time_t timeout);
+void ao_spush_from(ao_spush_t * push, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Pushes to a stream in a blocking fashion with a timeout and an optional beginning.
@@ -160,7 +160,7 @@ Pushes to a stream in a blocking fashion with a timeout and an optional beginnin
 ## `ao_spush_forever`
 
 ```c
-void ao_spush_forever(ao_spush_t * x);
+void ao_spush_forever(ao_spush_t * push);
 ```
 
 Pushes to a stream indefinitely in a blocking fashion.
@@ -168,7 +168,7 @@ Pushes to a stream indefinitely in a blocking fashion.
 ## `ao_spush_try`
 
 ```c
-void ao_spush_try(ao_spush_t * x);
+void ao_spush_try(ao_spush_t * push);
 ```
 
 Pushes to a stream in a non-blocking fashion.
@@ -177,8 +177,8 @@ Pushes to a stream in a non-blocking fashion.
 ## `ao_spush_end`
 
 ```c
-void ao_spush_begin(ao_spush_t * x);
-void ao_spush_end  (ao_spush_t * x);
+void ao_spush_begin(ao_spush_t * push);
+void ao_spush_end  (ao_spush_t * push);
 ```
 
 Begins or ends, respectively, a pushing to a stream.
@@ -186,7 +186,7 @@ Begins or ends, respectively, a pushing to a stream.
 ## `ao_spush_override`
 
 ```c
-void ao_spush_override(ao_spush_t * x);
+void ao_spush_override(ao_spush_t * push);
 ```
 
 Pushes to a stream in a non-blocking fashion. If the stream is full, then this function overrides the oldest data in the stream.

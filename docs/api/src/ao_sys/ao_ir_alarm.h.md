@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-25
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_ir_alarm.h/
 toc: true
@@ -57,7 +57,7 @@ Requests the interrupt or replies thereto.
 ## `ao_ir_alarm_set`
 
 ```c
-void ao_ir_alarm_set(ao_time_t t);
+void ao_ir_alarm_set(ao_time_t time);
 ```
 
 Sets the time for the next interrupt.

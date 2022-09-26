@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-13
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_stream4obj.h/
 toc: true
@@ -69,18 +69,18 @@ struct ao_stream4obj_t
 struct ao_spop_obj_t
 {
     ao_async_t        async;
-    ao_list_node_t    node;
     void *            ptr;
     bool volatile     result;
     ao_stream4obj_t * stream;
+    ao_list_node_t    stream_pop_node;
 };
 ```
 
 | `async` | The asynchronous event. |
-| `node` | The node for the stream's list of poppings. |
 | `ptr` | Points to a location to store the popped object. |
 | `result` | The result. |
 | `stream` | The stream. |
+| `stream_pop_node` | The node for the stream's list of poppings. |
 
 ## `ao_spush_obj_t`
 
@@ -88,22 +88,22 @@ struct ao_spop_obj_t
 struct ao_spush_obj_t
 {
     ao_async_t        async;
-    ao_list_node_t    node;
     void *            ptr;
     void *            ptr_override;
     bool volatile     result;
     bool volatile     result_override;
     ao_stream4obj_t * stream;
+    ao_list_node_t    stream_push_node;
 };
 ```
 
 | `async` | The asynchronous event. |
-| `node` | The node for the stream's list of pushings. |
 | `ptr` | Points to the object to push to the stream. |
 | `ptr_override` | Points to a location to store the overridden object. |
 | `result` | The result. |
 | `result_override` | Indicates whether an object has been overridden. |
 | `stream` | The stream. |
+| `stream_push_node` | The node for the stream's list of pushings. |
 
 # Functions
 
@@ -111,8 +111,8 @@ struct ao_spush_obj_t
 ## `ao_spop_obj_from`
 
 ```c
-void ao_spop_obj     (ao_spop_obj_t * x, ao_time_t timeout);
-void ao_spop_obj_from(ao_spop_obj_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_spop_obj     (ao_spop_obj_t * pop, ao_time_t timeout);
+void ao_spop_obj_from(ao_spop_obj_t * pop, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Pops an object from a stream in a blocking fashion with a timeout and an optional beginning.
@@ -120,7 +120,7 @@ Pops an object from a stream in a blocking fashion with a timeout and an optiona
 ## `ao_spop_obj_forever`
 
 ```c
-void ao_spop_obj_forever(ao_spop_obj_t * x);
+void ao_spop_obj_forever(ao_spop_obj_t * pop);
 ```
 
 Pops an object from a stream indefinitely in a blocking fashion.
@@ -128,7 +128,7 @@ Pops an object from a stream indefinitely in a blocking fashion.
 ## `ao_spop_obj_try`
 
 ```c
-void ao_spop_obj_try(ao_spop_obj_t * x);
+void ao_spop_obj_try(ao_spop_obj_t * pop);
 ```
 
 Pops an object from a stream in a non-blocking fashion.
@@ -137,8 +137,8 @@ Pops an object from a stream in a non-blocking fashion.
 ## `ao_spop_obj_end`
 
 ```c
-void ao_spop_obj_begin(ao_spop_obj_t * x);
-void ao_spop_obj_end  (ao_spop_obj_t * x);
+void ao_spop_obj_begin(ao_spop_obj_t * pop);
+void ao_spop_obj_end  (ao_spop_obj_t * pop);
 ```
 
 Begins or ends, respectively, a popping of an object from a stream.
@@ -147,8 +147,8 @@ Begins or ends, respectively, a popping of an object from a stream.
 ## `ao_spush_obj_from`
 
 ```c
-void ao_spush_obj     (ao_spush_obj_t * x, ao_time_t timeout);
-void ao_spush_obj_from(ao_spush_obj_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_spush_obj     (ao_spush_obj_t * push, ao_time_t timeout);
+void ao_spush_obj_from(ao_spush_obj_t * push, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Pushes an object to a stream in a blocking fashion with a timeout and an optional beginning.
@@ -156,7 +156,7 @@ Pushes an object to a stream in a blocking fashion with a timeout and an optiona
 ## `ao_spush_obj_forever`
 
 ```c
-void ao_spush_obj_forever(ao_spush_obj_t * x);
+void ao_spush_obj_forever(ao_spush_obj_t * push);
 ```
 
 Pushes an object to a stream indefinitely in a blocking fashion.
@@ -164,7 +164,7 @@ Pushes an object to a stream indefinitely in a blocking fashion.
 ## `ao_spush_obj_try`
 
 ```c
-void ao_spush_obj_try(ao_spush_obj_t * x);
+void ao_spush_obj_try(ao_spush_obj_t * push);
 ```
 
 Pushes an object to a stream in a non-blocking fashion.
@@ -173,8 +173,8 @@ Pushes an object to a stream in a non-blocking fashion.
 ## `ao_spush_obj_end`
 
 ```c
-void ao_spush_obj_begin(ao_spush_obj_t * x);
-void ao_spush_obj_end  (ao_spush_obj_t * x);
+void ao_spush_obj_begin(ao_spush_obj_t * push);
+void ao_spush_obj_end  (ao_spush_obj_t * push);
 ```
 
 Begins or ends, respectively, a pushing of an object to a stream.
@@ -182,7 +182,7 @@ Begins or ends, respectively, a pushing of an object to a stream.
 ## `ao_spush_obj_override`
 
 ```c
-void ao_spush_obj_override(ao_spush_obj_t * x);
+void ao_spush_obj_override(ao_spush_obj_t * push);
 ```
 
 Pushes an object to a stream in a non-blocking fashion. If the stream is full, then this function overrides the oldest object in the stream.

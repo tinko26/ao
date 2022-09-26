@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-25
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_queue4acq.h/
 toc: true
@@ -49,8 +49,8 @@ This type represents the popping from a queue for acquired memory blocks.
 ## `ao_qinsert_acq_from`
 
 ```c
-void ao_qinsert_acq     (ao_qinsert_acq_t * x, ao_time_t timeout);
-void ao_qinsert_acq_from(ao_qinsert_acq_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_qinsert_acq     (ao_qinsert_acq_t * insert, ao_time_t timeout);
+void ao_qinsert_acq_from(ao_qinsert_acq_t * insert, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Inserts an acquired memory block into a queue in a blocking fashion with a timeout and an optional beginning.
@@ -58,7 +58,7 @@ Inserts an acquired memory block into a queue in a blocking fashion with a timeo
 ## `ao_qinsert_acq_forever`
 
 ```c
-void ao_qinsert_acq_forever(ao_qinsert_acq_t * x);
+void ao_qinsert_acq_forever(ao_qinsert_acq_t * insert);
 ```
 
 Inserts an acquired memory block into a queue indefinitely in a blocking fashion.
@@ -66,7 +66,7 @@ Inserts an acquired memory block into a queue indefinitely in a blocking fashion
 ## `ao_qinsert_acq_try`
 
 ```c
-void ao_qinsert_acq_try(ao_qinsert_acq_t * x);
+void ao_qinsert_acq_try(ao_qinsert_acq_t * insert);
 ```
 
 Inserts an acquired memory block into a queue in a non-blocking fashion.
@@ -75,8 +75,8 @@ Inserts an acquired memory block into a queue in a non-blocking fashion.
 ## `ao_qinsert_acq_end`
 
 ```c
-void ao_qinsert_acq_begin(ao_qinsert_acq_t * x);
-void ao_qinsert_acq_end  (ao_qinsert_acq_t * x);
+void ao_qinsert_acq_begin(ao_qinsert_acq_t * insert);
+void ao_qinsert_acq_end  (ao_qinsert_acq_t * insert);
 ```
 
 Begins or ends, respectively, an inserting of an acquired memory block into a queue.
@@ -85,8 +85,8 @@ Begins or ends, respectively, an inserting of an acquired memory block into a qu
 ## `ao_qpop_acq_from`
 
 ```c
-void ao_qpop_acq     (ao_qpop_acq_t * x, ao_time_t timeout);
-void ao_qpop_acq_from(ao_qpop_acq_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_qpop_acq     (ao_qpop_acq_t * pop, ao_time_t timeout);
+void ao_qpop_acq_from(ao_qpop_acq_t * pop, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Pops an acquired memory block from a queue in a blocking fashion with a timeout and an optional beginning.
@@ -94,7 +94,7 @@ Pops an acquired memory block from a queue in a blocking fashion with a timeout 
 ## `ao_qpop_acq_forever`
 
 ```c
-void ao_qpop_acq_forever(ao_qpop_acq_t * x);
+void ao_qpop_acq_forever(ao_qpop_acq_t * pop);
 ```
 
 Pops an acquired memory block from a queue indefinitely in a blocking fashion.
@@ -102,7 +102,7 @@ Pops an acquired memory block from a queue indefinitely in a blocking fashion.
 ## `ao_qpop_acq_try`
 
 ```c
-void ao_qpop_acq_try(ao_qpop_acq_t * x);
+void ao_qpop_acq_try(ao_qpop_acq_t * pop);
 ```
 
 Pops an acquired memory block from a queue in a non-blocking fashion.
@@ -111,8 +111,8 @@ Pops an acquired memory block from a queue in a non-blocking fashion.
 ## `ao_qpop_acq_end`
 
 ```c
-void ao_qpop_acq_begin(ao_qpop_acq_t * x);
-void ao_qpop_acq_end  (ao_qpop_acq_t * x);
+void ao_qpop_acq_begin(ao_qpop_acq_t * pop);
+void ao_qpop_acq_end  (ao_qpop_acq_t * pop);
 ```
 
 Begins or ends, respectively, a popping of an acquired memory block from a queue.

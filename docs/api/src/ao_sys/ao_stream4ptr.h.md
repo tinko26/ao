@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-25
+date: 2022-09-26
 draft: true
 permalink: /api/src/ao_sys/ao_stream4ptr.h/
 toc: true
@@ -69,18 +69,18 @@ struct ao_stream4ptr_t
 struct ao_spop_ptr_t
 {
     ao_async_t        async;
-    ao_list_node_t    node;
     void * volatile   ptr;
     bool   volatile   result;
     ao_stream4ptr_t * stream;
+    ao_list_node_t    stream_pop_node;
 };
 ```
 
 | `async` | The asynchronous event. |
-| `node` | The node for the stream's list of poppings. |
 | `ptr` | The pointer that has been popped from the stream. |
 | `result` | The result. |
 | `stream` | The stream. |
+| `stream_pop_node` | The node for the stream's list of poppings. |
 
 ## `ao_spush_ptr_t`
 
@@ -88,22 +88,22 @@ struct ao_spop_ptr_t
 struct ao_spush_ptr_t
 {
     ao_async_t        async;
-    ao_list_node_t    node;
     void *            ptr;
     void * volatile   ptr_override;
     bool   volatile   result;
     bool   volatile   result_override;
     ao_stream4ptr_t * stream;
+    ao_list_node_t    stream_push_node;
 };
 ```
 
 | `async` | The asynchronous event. |
-| `node` | The node for the stream's list of pushings. |
 | `ptr` | The pointer to push. |
 | `ptr_override` | The pointer that has been overridden. |
 | `result` | The result. |
 | `result_override` | Indicates whether a pointer has been overridden. |
 | `stream` | The stream. |
+| `stream_push_node` | The node for the stream's list of pushings. |
 
 # Functions
 
@@ -111,8 +111,8 @@ struct ao_spush_ptr_t
 ## `ao_spop_ptr_from`
 
 ```c
-void ao_spop_ptr     (ao_spop_ptr_t * x, ao_time_t timeout);
-void ao_spop_ptr_from(ao_spop_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_spop_ptr     (ao_spop_ptr_t * pop, ao_time_t timeout);
+void ao_spop_ptr_from(ao_spop_ptr_t * pop, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Pops a pointer from a stream in a blocking fashion with a timeout and an optional beginning.
@@ -120,7 +120,7 @@ Pops a pointer from a stream in a blocking fashion with a timeout and an optiona
 ## `ao_spop_ptr_forever`
 
 ```c
-void ao_spop_ptr_forever(ao_spop_ptr_t * x);
+void ao_spop_ptr_forever(ao_spop_ptr_t * pop);
 ```
 
 Pops a pointer from a stream indefinitely in a blocking fashion.
@@ -128,7 +128,7 @@ Pops a pointer from a stream indefinitely in a blocking fashion.
 ## `ao_spop_ptr_try`
 
 ```c
-void ao_spop_ptr_try(ao_spop_ptr_t * x);
+void ao_spop_ptr_try(ao_spop_ptr_t * pop);
 ```
 
 Pops a pointer from a stream in a non-blocking fashion.
@@ -137,8 +137,8 @@ Pops a pointer from a stream in a non-blocking fashion.
 ## `ao_spop_ptr_end`
 
 ```c
-void ao_spop_ptr_begin(ao_spop_ptr_t * x);
-void ao_spop_ptr_end  (ao_spop_ptr_t * x);
+void ao_spop_ptr_begin(ao_spop_ptr_t * pop);
+void ao_spop_ptr_end  (ao_spop_ptr_t * pop);
 ```
 
 Begins or ends, respectively, a popping of a pointer from a stream.
@@ -147,8 +147,8 @@ Begins or ends, respectively, a popping of a pointer from a stream.
 ## `ao_spush_ptr_from`
 
 ```c
-void ao_spush_ptr     (ao_spush_ptr_t * x, ao_time_t timeout);
-void ao_spush_ptr_from(ao_spush_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
+void ao_spush_ptr     (ao_spush_ptr_t * push, ao_time_t timeout);
+void ao_spush_ptr_from(ao_spush_ptr_t * push, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Pushes a pointer to a stream in a blocking fashion with a timeout and an optional beginning.
@@ -156,7 +156,7 @@ Pushes a pointer to a stream in a blocking fashion with a timeout and an optiona
 ## `ao_spush_ptr_forever`
 
 ```c
-void ao_spush_ptr_forever(ao_spush_ptr_t * x);
+void ao_spush_ptr_forever(ao_spush_ptr_t * push);
 ```
 
 Pushes a pointer to a stream indefinitely in a blocking fashion.
@@ -164,7 +164,7 @@ Pushes a pointer to a stream indefinitely in a blocking fashion.
 ## `ao_spush_ptr_try`
 
 ```c
-void ao_spush_ptr_try(ao_spush_ptr_t * x);
+void ao_spush_ptr_try(ao_spush_ptr_t * push);
 ```
 
 Pushes a pointer to a stream in a non-blocking fashion.
@@ -173,8 +173,8 @@ Pushes a pointer to a stream in a non-blocking fashion.
 ## `ao_spush_ptr_end`
 
 ```c
-void ao_spush_ptr_begin(ao_spush_ptr_t * x);
-void ao_spush_ptr_end  (ao_spush_ptr_t * x);
+void ao_spush_ptr_begin(ao_spush_ptr_t * push);
+void ao_spush_ptr_end  (ao_spush_ptr_t * push);
 ```
 
 Begins or ends, respectively, a pushing of a pointer to a stream.
@@ -182,7 +182,7 @@ Begins or ends, respectively, a pushing of a pointer to a stream.
 ## `ao_spush_ptr_override`
 
 ```c
-void ao_spush_ptr_override(ao_spush_ptr_t * x);
+void ao_spush_ptr_override(ao_spush_ptr_t * push);
 ```
 
 Pushes a pointer to a stream in a non-blocking fashion. If the stream is full, then this function overrides the oldest pointer in the stream.
