@@ -142,6 +142,11 @@
 /api/src/ao_sys/ao_mail.h/ : true
 /api/src/ao_sys/ao_monitor.h/ : true
 /api/src/ao_sys/ao_mutex.h/ : true
+/api/src/ao_sys/ao_num.h/ : true
+/api/src/ao_sys/ao_num8.h/ : true
+/api/src/ao_sys/ao_num16.h/ : true
+/api/src/ao_sys/ao_num32.h/ : true
+/api/src/ao_sys/ao_num64.h/ : true
 /api/src/ao_sys/ao_pmail.h/ : true
 /api/src/ao_sys/ao_poll.h/ : true
 /api/src/ao_sys/ao_queue4acq.h/ : true

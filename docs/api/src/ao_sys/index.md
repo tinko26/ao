@@ -43,6 +43,11 @@ wide: false
 | [`ao_mail.h`](ao_mail.h.md) | Mail for asynchronous messaging |
 | [`ao_monitor.h`](ao_monitor.h.md) | Monitors |
 | [`ao_mutex.h`](ao_mutex.h.md) | Mutexes |
+| [`ao_num.h`](ao_num.h.md) | Numbers based on the fastest unsigned integer type |
+| [`ao_num8.h`](ao_num8.h.md) | Numbers based on the 8-bit unsigned integer type |
+| [`ao_num16.h`](ao_num16.h.md) | Numbers based on the 16-bit unsigned integer type |
+| [`ao_num32.h`](ao_num32.h.md) | Numbers based on the 32-bit unsigned integer type |
+| [`ao_num64.h`](ao_num64.h.md) | Numbers based on the 64-bit unsigned integer type |
 | [`ao_pmail.h`](ao_pmail.h.md) | Priority mail for asynchronous messaging |
 | [`ao_poll.h`](ao_poll.h.md) | Polling |
 | [`ao_queue4acq.h`](ao_queue4acq.h.md) | Queues for acquired memory blocks |
