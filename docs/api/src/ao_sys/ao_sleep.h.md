@@ -27,7 +27,7 @@ toc: true
 typedef struct ao_sleep_t ao_sleep_t;
 ```
 
-This type represents the sleeping of a task.
+Represents the sleeping of a task.
 
 # Structs
 

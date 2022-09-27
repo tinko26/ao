@@ -20,7 +20,7 @@ toc: true
 typedef enum ao_sys_exc_t ao_sys_exc_t;
 ```
 
-This type represents exception conditions.
+Represents exception conditions.
 
 # Enums
 

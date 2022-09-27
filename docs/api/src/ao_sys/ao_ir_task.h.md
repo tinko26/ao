@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-26
+date: 2022-09-27
 draft: true
 permalink: /api/src/ao_sys/ao_ir_task.h/
 toc: true
@@ -8,7 +8,7 @@ toc: true
 
 # Notes
 
-This module declares functions for controlling the task interrupts as well as a callback function for the interrupt handlers. This module is abstract, that is, an implementation must be provided by a port package in order to support multitasking.
+This module declares functions for controlling the task interrupts as well as a callback function for the interrupt handlers. This module is abstract, that is, an implementation must be provided by a port in order to support multitasking.
 
 ## Porting
 

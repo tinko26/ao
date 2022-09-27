@@ -55,7 +55,7 @@ typedef bool (* ao_avl_less_t)
 | `node2` | The second node. |
 | `parameter` | An additional parameter. |
 
-Represents a compare function for AVL tree nodes, that implements a strict total order. The function returns `true`, if the first node is strictly less than the seconds node, otherwise `false`.
+Represents a compare function for AVL tree nodes, that implements a strict total order. The function returns `true`, if the first node is strictly less than the second node, otherwise `false`.
 
 # Structs
 

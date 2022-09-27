@@ -54,7 +54,7 @@ Defines whether to keep track of the maximum number of nodes.
 typedef size_t ao_alarm_queue_node_t;
 ```
 
-This type represents an alarm queue node.
+Represents an alarm queue node.
 
 # Variables
 

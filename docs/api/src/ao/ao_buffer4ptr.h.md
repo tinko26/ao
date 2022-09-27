@@ -30,7 +30,7 @@ Defines whether to keep track of the maximum number of pointers.
 typedef struct ao_buffer4ptr_t ao_buffer4ptr_t;
 ```
 
-This type represents a buffer for pointers.
+Represents a buffer for pointers.
 
 # Structs
 

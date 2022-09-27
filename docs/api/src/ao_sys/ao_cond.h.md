@@ -36,7 +36,7 @@ toc: true
 typedef struct ao_cond_t ao_cond_t;
 ```
 
-This type represents a condition.
+Represents a condition.
 
 ## `ao_cond_wait_t`
 
@@ -44,7 +44,7 @@ This type represents a condition.
 typedef struct ao_cond_wait_t ao_cond_wait_t;
 ```
 
-This type represents the waiting for a condition.
+Represents the waiting for a condition.
 
 # Structs
 

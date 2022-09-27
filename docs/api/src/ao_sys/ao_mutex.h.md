@@ -43,7 +43,7 @@ toc: true
 typedef struct ao_mutex_t ao_mutex_t;
 ```
 
-This type represents a mutex.
+Represents a mutex.
 
 ## `ao_mutex_lock_t`
 
@@ -51,7 +51,7 @@ This type represents a mutex.
 typedef struct ao_mutex_lock_t ao_mutex_lock_t;
 ```
 
-This type represents the locking of a mutex.
+Represents the locking of a mutex.
 
 # Structs
 

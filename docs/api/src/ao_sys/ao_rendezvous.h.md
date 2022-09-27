@@ -32,7 +32,7 @@ This module defines execution barriers, where two tasks can synchronize and exch
 typedef struct ao_rendezvous_t ao_rendezvous_t;
 ```
 
-This type represents a rendezvous.
+Represents a rendezvous.
 
 ## `ao_rendezvous_wait_t`
 
@@ -40,7 +40,7 @@ This type represents a rendezvous.
 typedef struct ao_rendezvous_wait_t ao_rendezvous_wait_t;
 ```
 
-This type represents the waiting for a rendezvous.
+Represents the waiting for a rendezvous.
 
 ## `ao_rendezvous_exchange_t`
 
@@ -53,7 +53,7 @@ typedef void (* ao_rendezvous_exchange_t)
 );
 ```
 
-This type represents the exchanging of data at a rendezvous. It takes three parameters. First, a pointer to data provided by the other task. Second, a pointer to a location to store that data (or anything else). Third, an additional parameter that can be used to tweak the exchanging.
+Represents the exchanging of data at a rendezvous. It takes three parameters. First, a pointer to data provided by the other task. Second, a pointer to a location to store that data (or anything else). Third, an additional parameter that can be used to tweak the exchanging.
 
 # Structs
 

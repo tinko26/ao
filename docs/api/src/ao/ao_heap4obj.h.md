@@ -44,7 +44,7 @@ Defines whether to keep track of the maximum number of objects.
 typedef struct ao_heap4obj_t ao_heap4obj_t;
 ```
 
-This type represents a heap for objects.
+Represents a heap for objects.
 
 ## `ao_heap4obj_less_t`
 
@@ -57,7 +57,7 @@ typedef bool (* ao_heap4obj_less_t)
 );
 ```
 
-This type represents a compare function, that implements a strict total order on objects.
+Represents a compare function, that implements a strict total order on objects.
 
 # Structs
 

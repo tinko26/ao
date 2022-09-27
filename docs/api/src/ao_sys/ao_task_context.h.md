@@ -24,7 +24,7 @@ This module defines the context of a task. This module is abstract.
 typedef struct ao_task_context_t ao_task_context_t;
 ```
 
-This type represents context-related data of a task.
+Represents context-related data of a task.
 
 # Structs
 

@@ -24,7 +24,7 @@ This module defines linear-feedback shift registers with a maximum width of 8 bi
 typedef struct ao_lfsr8_t ao_lfsr8_t;
 ```
 
-This type represents a linear-feedback shift register with a maximum width of 8 bits.
+Represents a linear-feedback shift register with a maximum width of 8 bits.
 
 # Structs
 
@@ -34,19 +34,19 @@ This type represents a linear-feedback shift register with a maximum width of 8 
 struct ao_lfsr8_t
 {
     uint8_t polynomial;
-    uint8_t seed;
+    uint8_t value;
 };
 ```
 
 | `polynomial` | The generator polynomial. |
-| `seed` | The seed or current value of the register. |
+| `value` | The value. |
 
 # Functions
 
 ## `ao_lfsr8`
 
 ```c
-void ao_lfsr8(ao_lfsr8_t * r);
+void ao_lfsr8(ao_lfsr8_t * lfsr);
 ```
 
 Generates a new bit.

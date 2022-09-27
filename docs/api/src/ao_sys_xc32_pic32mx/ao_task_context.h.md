@@ -25,7 +25,7 @@ toc: true
 typedef struct ao_task_context_t ao_task_context_t;
 ```
 
-This type represents the task context.
+Represents the task context.
 
 ## `ao_task_context_data_t`
 
@@ -33,7 +33,7 @@ This type represents the task context.
 typedef struct ao_task_context_data_t ao_task_context_data_t;
 ```
 
-This type represents the task context data that is stored on the task stack.
+Represents the task context data that is stored on the task stack.
 
 # Structs
 

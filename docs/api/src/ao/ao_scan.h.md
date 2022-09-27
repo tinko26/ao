@@ -26,7 +26,7 @@ This module contains functions to convert a string to a number. Although the sta
 typedef struct ao_scan_t ao_scan_t;
 ```
 
-This type represents options for the conversion.
+Represents options for the conversion.
 
 # Types
 

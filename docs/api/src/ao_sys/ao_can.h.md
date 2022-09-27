@@ -26,7 +26,7 @@ toc: true
 typedef struct ao_can_t ao_can_t;
 ```
 
-This type represents a CAN message.
+Represents a CAN message.
 
 # Structs
 

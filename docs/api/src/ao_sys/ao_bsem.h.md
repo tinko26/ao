@@ -33,7 +33,7 @@ This module defines binary semaphore.
 typedef struct ao_bsem_t ao_bsem_t;
 ```
 
-This type represents a binary semaphore.
+Represents a binary semaphore.
 
 ## `ao_bsem_take_t`
 
@@ -41,7 +41,7 @@ This type represents a binary semaphore.
 typedef struct ao_bsem_take_t ao_bsem_take_t;
 ```
 
-This type represents the taking of a binary semaphore.
+Represents the taking of a binary semaphore.
 
 # Structs
 

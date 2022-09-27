@@ -28,7 +28,7 @@ toc: true
 typedef struct ao_stream_t ao_stream_t;
 ```
 
-This type represents a stream.
+Represents a stream.
 
 ## `ao_spop_t`
 
@@ -36,7 +36,7 @@ This type represents a stream.
 typedef struct ao_spop_t ao_spop_t;
 ```
 
-This type represents the popping from a stream.
+Represents the popping from a stream.
 
 ## `ao_spush_t`
 
@@ -44,7 +44,7 @@ This type represents the popping from a stream.
 typedef struct ao_spush_t ao_spush_t;
 ```
 
-This type represents the pushing to a stream.
+Represents the pushing to a stream.
 
 # Struct
 

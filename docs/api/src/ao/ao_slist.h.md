@@ -26,7 +26,7 @@ This module defines doubly linked lists, whose elements are sorted by a strict t
 typedef struct ao_slist_t ao_slist_t;
 ```
 
-This type represents a sorted list.
+Represents a sorted list.
 
 ## `ao_slist_node_t`
 
@@ -34,7 +34,7 @@ This type represents a sorted list.
 typedef struct ao_slist_node_t ao_slist_node_t;
 ```
 
-This type represents a node of a sorted list.
+Represents a node of a sorted list.
 
 ## `ao_slist_less_t`
 
@@ -47,7 +47,7 @@ typedef bool (* ao_slist_less_t)
 );
 ```
 
-This type represents a compare function, that implements a strict total order on the list nodes.
+Represents a compare function, that implements a strict total order on the list nodes.
 
 # Structs
 

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-25
+date: 2022-09-27
 draft: true
 permalink: /api/demos/ao_mikroe_2340/ao_led.h/
 toc: true
@@ -10,12 +10,6 @@ toc: true
 
 | `stdint.h` |
 | `xc.h` |
-
-# Identifier
-
-```c
-#define AO_LED
-```
 
 # Constants
 
@@ -35,7 +29,7 @@ The number of LEDs.
 typedef enum ao_leds_t ao_leds_t;
 ```
 
-This type represents LEDs.
+Represents LEDs.
 
 # Enums
 

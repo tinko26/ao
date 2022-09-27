@@ -83,7 +83,7 @@ Defines whether to measure various accumulated time spans.
 typedef enum ao_task_state_t ao_task_state_t;
 ```
 
-This type represents task states.
+Represents task states.
 
 ## `ao_task_state_pending_t`
 
@@ -91,7 +91,7 @@ This type represents task states.
 typedef enum ao_task_state_pending_t ao_task_state_pending_t;
 ```
 
-This type represents pending task state transitions.
+Represents pending task state transitions.
 
 ## `ao_task_t`
 
@@ -99,7 +99,7 @@ This type represents pending task state transitions.
 typedef struct ao_task_t ao_task_t;
 ```
 
-This type represents a task.
+Represents a task.
 
 # Enums
 

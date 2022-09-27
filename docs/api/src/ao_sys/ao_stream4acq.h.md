@@ -25,7 +25,7 @@ toc: true
 typedef ao_stream4ptr_t ao_stream4acq_t;
 ```
 
-This type represents a stream for acquired memory blocks.
+Represents a stream for acquired memory blocks.
 
 ## `ao_spop_acq_t`
 
@@ -33,7 +33,7 @@ This type represents a stream for acquired memory blocks.
 typedef ao_spop_ptr_t ao_spop_acq_t;
 ```
 
-This type represents the popping of an acquired memory block from a stream.
+Represents the popping of an acquired memory block from a stream.
 
 ## `ao_spush_acq_t`
 
@@ -41,7 +41,7 @@ This type represents the popping of an acquired memory block from a stream.
 typedef ao_spush_ptr_t ao_spush_acq_t;
 ```
 
-This type represents the pushing of an acquired memory block to a stream.
+Represents the pushing of an acquired memory block to a stream.
 
 # Functions
 

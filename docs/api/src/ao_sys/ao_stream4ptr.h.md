@@ -28,7 +28,7 @@ toc: true
 typedef struct ao_stream4ptr_t ao_stream4ptr_t;
 ```
 
-This type represents a stream for pointers.
+Represents a stream for pointers.
 
 ## `ao_spop_ptr_t`
 
@@ -36,7 +36,7 @@ This type represents a stream for pointers.
 typedef struct ao_spop_ptr_t ao_spop_ptr_t;
 ```
 
-This type represents the popping of a pointer from a stream.
+Represents the popping of a pointer from a stream.
 
 ## `ao_spush_ptr_t`
 
@@ -44,7 +44,7 @@ This type represents the popping of a pointer from a stream.
 typedef struct ao_spush_ptr_t ao_spush_ptr_t;
 ```
 
-This type represents the pushing of a pointer to a stream.
+Represents the pushing of a pointer to a stream.
 
 # Structs
 

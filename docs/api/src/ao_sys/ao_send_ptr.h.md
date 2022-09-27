@@ -30,7 +30,7 @@ This module provides an abstraction for sending pointers to an opaque destinatio
 typedef struct ao_send_ptr_t ao_send_ptr_t;
 ```
 
-This type represents the sending of a pointer.
+Represents the sending of a pointer.
 
 ## `ao_send_ptr_proc_t`
 
@@ -41,7 +41,7 @@ typedef void (* ao_send_ptr_proc_t)
 );
 ```
 
-This type represents a function beginning or ending a sending of a pointer.
+Represents a function beginning or ending a sending of a pointer.
 
 # Structs
 

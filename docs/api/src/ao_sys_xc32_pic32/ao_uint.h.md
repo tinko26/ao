@@ -53,7 +53,7 @@ The size, in bytes.
 typedef uint32_t ao_uint_t;
 ```
 
-This type represents the fastest unsigned integer type of the target platform.
+Represents the fastest unsigned integer type of the target platform.
 
 # Functions
 

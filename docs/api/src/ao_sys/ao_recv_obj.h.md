@@ -30,7 +30,7 @@ This module provides an abstraction for receiving objects from an opaque source.
 typedef struct ao_recv_obj_t ao_recv_obj_t;
 ```
 
-This type represents the receiving of an object.
+Represents the receiving of an object.
 
 ## `ao_recv_obj_proc_t`
 
@@ -41,7 +41,7 @@ typedef void (* ao_recv_obj_proc_t)
 );
 ```
 
-This type represents a function beginning or ending a receiving of an object.
+Represents a function beginning or ending a receiving of an object.
 
 # Structs
 

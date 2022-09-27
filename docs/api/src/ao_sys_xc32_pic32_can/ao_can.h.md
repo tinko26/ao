@@ -18,7 +18,7 @@ toc: true
 typedef struct ao_can_bus_t ao_can_bus_t;
 ```
 
-This type represents the data provided to the application, when being notified of bus errors.
+Represents the data provided to the application, when being notified of bus errors.
 
 ## `ao_can_bus_state_t`
 
@@ -34,7 +34,7 @@ This type specifies the possible bus states.
 typedef struct ao_can_msg_t ao_can_msg_t;
 ```
 
-This type represents a message.
+Represents a message.
 
 ## `ao_can_reg_t`
 
@@ -42,7 +42,7 @@ This type represents a message.
 typedef struct ao_can_reg_t ao_can_reg_t;
 ```
 
-This type represents the control register set.
+Represents the control register set.
 
 ## `ao_can_reg_*_t`
 
@@ -82,7 +82,7 @@ These types represent individual control registers.
 typedef enum ao_can_system_t ao_can_system_t;
 ```
 
-This type represents possible system errors.
+Represents possible system errors.
 
 # Enums
 

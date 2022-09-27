@@ -35,7 +35,7 @@ Defines whether to measure the high water mark for each task stack.
 typedef struct ao_task_stack_t ao_task_stack_t;
 ```
 
-This type represents stack-related data of a task.
+Represents stack-related data of a task.
 
 # Structs
 

@@ -30,7 +30,7 @@ This module provides an abstraction for receiving pointers from an opaque source
 typedef struct ao_recv_ptr_t ao_recv_ptr_t;
 ```
 
-This type represents the receiving of a pointer.
+Represents the receiving of a pointer.
 
 ## `ao_recv_ptr_proc_t`
 
@@ -41,7 +41,7 @@ typedef void (* ao_recv_ptr_proc_t)
 );
 ```
 
-This type represents a function beginning or ending a receiving of a pointer.
+Represents a function beginning or ending a receiving of a pointer.
 
 # Structs
 

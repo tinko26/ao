@@ -51,7 +51,7 @@ The maximum and minimum value, respectively.
 typedef double ao_float_t;
 ```
 
-This type represents the fastest floating-point type available on the target platform.
+Represents the fastest floating-point type available on the target platform.
 
 # Functions
 

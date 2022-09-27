@@ -46,7 +46,7 @@ Peeking the alarm queue is a quite frequent operation. However, with this implem
 typedef ao_avl_t ao_alarm_queue_t;
 ```
 
-This type represents the alarm queue.
+Represents the alarm queue.
 
 ## `ao_alarm_queue_node_t`
 
@@ -54,4 +54,4 @@ This type represents the alarm queue.
 typedef ao_avl_node_t ao_alarm_queue_node_t;
 ```
 
-This type represents an alarm queue node.
+Represents an alarm queue node.

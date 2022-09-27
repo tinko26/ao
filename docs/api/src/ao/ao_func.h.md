@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-24
+date: 2022-09-27
 draft: true
 permalink: /api/src/ao/ao_func.h/
 toc: true
@@ -18,7 +18,7 @@ toc: true
 typedef void * (* ao_func_t) (void *);
 ```
 
-Function.
+A function taking one parameter and returning a value.
 
 ## `ao_func*_t`
 
@@ -29,7 +29,7 @@ typedef void * (* ao_func2_t) (void *, void *);
 typedef void * (* ao_func3_t) (void *, void *, void *);
 ```
 
-Functions.
+Functions taking up to three parameters and returning a value.
 
 ## `ao_pred_t`
 
@@ -37,7 +37,7 @@ Functions.
 typedef bool (* ao_pred_t) (void *);
 ```
 
-Predicate.
+A predicate taking one parameter and returning a Boolean value.
 
 ## `ao_pred*_t`
 
@@ -48,7 +48,7 @@ typedef bool (* ao_pred2_t) (void *, void *);
 typedef bool (* ao_pred3_t) (void *, void *, void *);
 ```
 
-Predicates.
+Predicates taking up to three parameters and returning a Boolean value.
 
 ## `ao_proc_t`
 
@@ -56,7 +56,7 @@ Predicates.
 typedef void (* ao_proc_t) (void *);
 ```
 
-Procedure.
+A procedure taking one paramater and returning no value.
 
 ## `ao_proc*_t`
 
@@ -67,4 +67,4 @@ typedef void (* ao_proc2_t) (void *, void *);
 typedef void (* ao_proc3_t) (void *, void *, void *);
 ```
 
-Procedures.
+Procedures taking up to three paramaters and returning no value.

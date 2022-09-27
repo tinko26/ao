@@ -44,7 +44,7 @@ Keep track of the maximum number of pointers.
 typedef struct ao_heap4ptr_t ao_heap4ptr_t;
 ```
 
-This type represents a heap for pointers.
+Represents a heap for pointers.
 
 ## `ao_heap4ptr_less_t`
 
@@ -57,7 +57,7 @@ typedef bool (* ao_heap4ptr_less_t)
 );
 ```
 
-This type represents a compare function, that implements a strict total order on pointers.
+Represents a compare function, that implements a strict total order on pointers.
 
 # Structs
 

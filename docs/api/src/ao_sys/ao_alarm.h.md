@@ -46,7 +46,7 @@ The alarm update specifies the maximum time span between subsequent alarm interr
 typedef struct ao_alarm_t ao_alarm_t;
 ```
 
-This type represents an alarm.
+Represents an alarm.
 
 # Structs
 

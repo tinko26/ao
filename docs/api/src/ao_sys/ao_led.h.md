@@ -32,7 +32,7 @@ The number of LEDs.
 typedef enum ao_leds_t ao_leds_t;
 ```
 
-This type represents LEDs.
+Represents LEDs.
 
 # Types
 

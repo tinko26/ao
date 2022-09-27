@@ -22,7 +22,7 @@ toc: true
 typedef struct ao_num64_t ao_num64_t;
 ```
 
-This type represents a number.
+Represents a number.
 
 ## `ao_num64_wait_t`
 
@@ -30,7 +30,7 @@ This type represents a number.
 typedef struct ao_num64_wait_t ao_num64_wait_t;
 ```
 
-This type represents the waiting for a number match.
+Represents the waiting for a number match.
 
 ## `ao_num64_adjust_t`
 
@@ -42,7 +42,7 @@ typedef uint64_t (* ao_num64_adjust_t)
 );
 ```
 
-This type represents a function to adjust a number value. The function takes the old value and an additional parameter and returns the new value.
+Represents a function to adjust a number value. The function takes the old value and an additional parameter and returns the new value.
 
 ## `ao_num64_match_t`
 
@@ -55,7 +55,7 @@ typedef bool (* ao_num64_match_t)
 );
 ```
 
-This type represents a function to check whether a specific number value is a match. The function takes both the old and the new value of a number as well as an additional parameter.
+Represents a function to check whether a specific number value is a match. The function takes both the old and the new value of a number as well as an additional parameter.
 
 # Structs
 

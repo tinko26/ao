@@ -30,7 +30,7 @@ This module provides an abstraction for sending objects to an opaque destination
 typedef struct ao_send_obj_t ao_send_obj_t;
 ```
 
-This type represents the sending of an object.
+Represents the sending of an object.
 
 ## `ao_send_obj_proc_t`
 
@@ -41,7 +41,7 @@ typedef void (* ao_send_obj_proc_t)
 );
 ```
 
-This type represents a function beginning or ending a sending of an object.
+Represents a function beginning or ending a sending of an object.
 
 # Structs
 

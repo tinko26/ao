@@ -27,7 +27,7 @@ toc: true
 typedef struct ao_signal_t ao_signal_t;
 ```
 
-This type represents a signal.
+Represents a signal.
 
 ## `ao_signal_wait_t`
 
@@ -35,7 +35,7 @@ This type represents a signal.
 typedef struct ao_signal_wait_t ao_signal_wait_t;
 ```
 
-This type represents the waiting for a signal.
+Represents the waiting for a signal.
 
 # Structs
 

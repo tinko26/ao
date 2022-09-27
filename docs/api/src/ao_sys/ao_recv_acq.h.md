@@ -29,7 +29,7 @@ This module provides an abstraction for receiving acquired memory blocks from an
 typedef ao_recv_ptr_t ao_recv_acq_t;
 ```
 
-This type represents the receiving of an acquired memory block.
+Represents the receiving of an acquired memory block.
 
 ## `ao_recv_acq_proc_t`
 
@@ -37,7 +37,7 @@ This type represents the receiving of an acquired memory block.
 typedef ao_recv_ptr_proc_t ao_recv_acq_proc_t;
 ```
 
-This type represents a function beginning or ending a receiving of an acquired memory block.
+Represents a function beginning or ending a receiving of an acquired memory block.
 
 # Functions
 

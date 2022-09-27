@@ -31,7 +31,7 @@ This module provides an abstraction for receiving from an opaque source.
 typedef struct ao_recv_t ao_recv_t;
 ```
 
-This type represents the receiving of data.
+Represents the receiving of data.
 
 ## `ao_recv_proc_t`
 
@@ -42,7 +42,7 @@ typedef void (* ao_recv_proc_t)
 );
 ```
 
-This type represents a function beginning or ending a receiving.
+Represents a function beginning or ending a receiving.
 
 # Structs
 

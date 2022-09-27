@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-27
 draft: true
 permalink: /api/src/ao_sys/ao_core.h/
 toc: true
@@ -8,17 +8,11 @@ toc: true
 
 # Notes
 
-This module provides information about identical processor cores and is to support symmetric multiprocessing systems. This module is abstract, that is, an implementation must be provided by a port package in order to support multitasking, even on a single-core platform.
+This module provides information about identical processor cores and is to support symmetric multiprocessing systems. This module is abstract, that is, an implementation must be provided by a port in order to support multitasking, even on a single-core platform.
 
 # Include
 
 | `stdint.h` |
-
-# Identifier
-
-```c
-#define AO_CORE
-```
 
 # Constants
 

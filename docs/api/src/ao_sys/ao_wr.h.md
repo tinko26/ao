@@ -39,7 +39,7 @@ toc: true
 typedef struct ao_wr_t ao_wr_t;
 ```
 
-This type represents a readers-writer lock.
+Represents a readers-writer lock.
 
 ## `ao_wr_lock_t`
 
@@ -47,7 +47,7 @@ This type represents a readers-writer lock.
 typedef struct ao_wr_lock_t ao_wr_lock_t;
 ```
 
-This type represents the locking of a readers-writer lock.
+Represents the locking of a readers-writer lock.
 
 # Structs
 

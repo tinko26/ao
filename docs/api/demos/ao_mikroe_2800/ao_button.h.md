@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-25
+date: 2022-09-27
 draft: true
 permalink: /api/demos/ao_mikroe_2800/ao_button.h/
 toc: true
@@ -9,12 +9,6 @@ toc: true
 # Include
 
 | `xc.h` |
-
-# Identifier
-
-```c
-#define AO_BUTTON
-```
 
 # Constants
 
@@ -32,7 +26,7 @@ The number of buttons.
 typedef enum ao_buttons_t ao_buttons_t;
 ```
 
-This type represents buttons.
+Represents buttons.
 
 # Enums
 

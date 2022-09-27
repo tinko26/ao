@@ -25,7 +25,7 @@ toc: true
 typedef ao_queue4ptr_t ao_queue4acq_t;
 ```
 
-This type represents a queue for acquired memory blocks.
+Represents a queue for acquired memory blocks.
 
 ## `ao_qinsert_acq_t`
 
@@ -33,7 +33,7 @@ This type represents a queue for acquired memory blocks.
 typedef ao_qinsert_ptr_t ao_qinsert_acq_t;
 ```
 
-This type represents the inserting into a queue for acquired memory blocks.
+Represents the inserting into a queue for acquired memory blocks.
 
 ## `ao_qpop_acq_t`
 
@@ -41,7 +41,7 @@ This type represents the inserting into a queue for acquired memory blocks.
 typedef ao_qpop_ptr_t ao_qpop_acq_t;
 ```
 
-This type represents the popping from a queue for acquired memory blocks.
+Represents the popping from a queue for acquired memory blocks.
 
 # Functions
 

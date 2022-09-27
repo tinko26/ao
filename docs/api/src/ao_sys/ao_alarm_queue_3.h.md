@@ -38,7 +38,7 @@ Defines whether to assert the correctness of the alarm queue upon each insertion
 typedef ao_heap_t ao_alarm_queue_t;
 ```
 
-This type represents the alarm queue.
+Represents the alarm queue.
 
 ## `ao_alarm_queue_node_t`
 
@@ -46,4 +46,4 @@ This type represents the alarm queue.
 typedef ao_heap_node_t ao_alarm_queue_node_t;
 ```
 
-This type represents an alarm queue node.
+Represents an alarm queue node.

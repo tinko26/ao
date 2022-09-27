@@ -24,7 +24,7 @@ This module defines linear-feedback shift registers with a maximum width of 64 b
 typedef struct ao_lfsr64_t ao_lfsr64_t;
 ```
 
-This type represents a linear-feedback shift register with a maximum width of 64 bits.
+Represents a linear-feedback shift register with a maximum width of 64 bits.
 
 # Structs
 
@@ -34,19 +34,19 @@ This type represents a linear-feedback shift register with a maximum width of 64
 struct ao_lfsr64_t
 {
     uint64_t polynomial;
-    uint64_t seed;
+    uint64_t value;
 };
 ```
 
 | `polynomial` | The generator polynomial. |
-| `seed` | The seed or current value of the register. |
+| `value` | The value. |
 
 # Functions
 
 ## `ao_lfsr64`
 
 ```c
-void ao_lfsr64(ao_lfsr64_t * r);
+void ao_lfsr64(ao_lfsr64_t * lfsr);
 ```
 
 Generates a new bit.

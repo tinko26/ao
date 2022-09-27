@@ -31,7 +31,7 @@ A red-black tree is a special kind of binary search tree, that keeps itself bala
 typedef struct ao_rb_t ao_rb_t;
 ```
 
-This type represents a red-black tree.
+Represents a red-black tree.
 
 ## `ao_rb_node_t`
 
@@ -39,7 +39,7 @@ This type represents a red-black tree.
 typedef struct ao_rb_node_t ao_rb_node_t;
 ```
 
-This type represents a red-black tree node.
+Represents a red-black tree node.
 
 ## `ao_rb_less_t`
 
@@ -52,7 +52,7 @@ typedef bool (* ao_rb_less_t)
 );
 ```
 
-This type represents a compare function, that implements a strict total order on the nodes.
+Represents a compare function, that implements a strict total order on the nodes.
 
 # Structs
 

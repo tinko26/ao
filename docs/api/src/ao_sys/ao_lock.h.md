@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-26
+date: 2022-09-27
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Critical_section : "Critical section"
@@ -10,7 +10,7 @@ toc: true
 
 # Notes
 
-This module defines a mechanism for critical sections, that are required by the kernel in order to protect its resources from concurrent accesses. Since kernel-level critical sections utilize hardware features, this module is abstract. Therefore, an implementation must be provided by a port package.
+This module defines a mechanism for critical sections, that are required by the kernel in order to protect its resources from concurrent accesses. Since kernel-level critical sections utilize hardware features, this module is abstract. Therefore, an implementation must be provided by a port.
 
 ## Porting
 
@@ -37,12 +37,6 @@ ao_lock(l1);
 ao_unlock(l1);
 ```
 
-# Identifier
-
-```c
-#define AO_LOCK
-```
-
 # Types
 
 ## `ao_lock_t`
@@ -51,7 +45,7 @@ ao_unlock(l1);
 typedef struct ao_lock_t ao_lock_t;
 ```
 
-This type represents a container for lock-related data. The actual make-up of this type is up to the implementation provided by the port package. For the kernel modules, this type is completely opaque, that is, no assumptions are made about its inner structure.
+Represents a container for lock-related data. The actual make-up of this type is up to the implementation provided by the port. For the kernel modules, this type is completely opaque, that is, no assumptions are made about its inner structure.
 
 # Structs
 

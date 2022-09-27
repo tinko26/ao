@@ -32,7 +32,7 @@ This module implements a priority queue based on a red-black tree. Fetching retu
 typedef struct ao_pmail_t ao_pmail_t;
 ```
 
-This type represents a priority mail.
+Represents a priority mail.
 
 ## `ao_pmail_fetch_t`
 
@@ -40,7 +40,7 @@ This type represents a priority mail.
 typedef struct ao_pmail_fetch_t ao_pmail_fetch_t;
 ```
 
-This type represents the fetching of a priority mail.
+Represents the fetching of a priority mail.
 
 ## `ao_pmailbox_t`
 
@@ -48,7 +48,7 @@ This type represents the fetching of a priority mail.
 typedef struct ao_pmailbox_t ao_pmailbox_t;
 ```
 
-This type represents a priority mailbox.
+Represents a priority mailbox.
 
 # Structs
 

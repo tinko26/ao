@@ -28,7 +28,7 @@ This module defines doubly linked lists. Most commonly, lists are used as double
 typedef struct ao_list_t ao_list_t;
 ```
 
-This type represents a list.
+Represents a list.
 
 ## `ao_list_node_t`
 
@@ -36,7 +36,7 @@ This type represents a list.
 typedef struct ao_list_node_t ao_list_node_t;
 ```
 
-This type represents a list node.
+Represents a list node.
 
 # Structs
 

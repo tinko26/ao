@@ -27,7 +27,7 @@ toc: true
 typedef struct ao_mail_t ao_mail_t;
 ```
 
-This type represents a mail.
+Represents a mail.
 
 ## `ao_mail_fetch_t`
 
@@ -35,7 +35,7 @@ This type represents a mail.
 typedef struct ao_mail_fetch_t ao_mail_fetch_t;
 ```
 
-This type represents the fetching of a mail.
+Represents the fetching of a mail.
 
 ## `ao_mailbox_t`
 
@@ -43,7 +43,7 @@ This type represents the fetching of a mail.
 typedef struct ao_mailbox_t ao_mailbox_t;
 ```
 
-This type represents a mailbox.
+Represents a mailbox.
 
 # Structs
 

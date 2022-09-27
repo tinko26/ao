@@ -28,7 +28,7 @@ toc: true
 typedef struct ao_queue4ptr_t ao_queue4ptr_t;
 ```
 
-This type represents a queue for pointers.
+Represents a queue for pointers.
 
 ## `ao_qinsert_ptr_t`
 
@@ -36,7 +36,7 @@ This type represents a queue for pointers.
 typedef struct ao_qinsert_ptr_t ao_qinsert_ptr_t;
 ```
 
-This type represents the inserting into a queue for pointers.
+Represents the inserting into a queue for pointers.
 
 ## `ao_qpop_ptr_t`
 
@@ -44,7 +44,7 @@ This type represents the inserting into a queue for pointers.
 typedef struct ao_qpop_ptr_t ao_qpop_ptr_t;
 ```
 
-This type represents the popping from a queue for pointers.
+Represents the popping from a queue for pointers.
 
 # Structs
 

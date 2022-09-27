@@ -76,7 +76,7 @@ The options for the `UxMODE.STSEL` field specifying the number of stop bits.
 typedef enum ao_uart_error_t ao_uart_error_t;
 ```
 
-This type represents the possible error conditions.
+Represents the possible error conditions.
 
 ## `ao_uart_reg_t`
 
@@ -84,7 +84,7 @@ This type represents the possible error conditions.
 typedef struct ao_uart_reg_t ao_uart_reg_t;
 ```
 
-This type represents the control register set.
+Represents the control register set.
 
 ## `ao_uart_reg_*_t`
 

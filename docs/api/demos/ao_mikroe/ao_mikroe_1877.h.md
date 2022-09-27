@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-25
+date: 2022-09-27
 draft: true
 external:
 - https://www.mikroe.com/3d-motion-click : "3D Motion Click"
@@ -22,12 +22,6 @@ toc: true
 | [`ao_time.h`](../../src/ao_sys/ao_time.h.md) |
 | `stdbool.h` |
 | `stddef.h` |
-
-# Identifier
-
-```c
-#define AO_MIKROE_1877
-```
 
 # Configuration
 
@@ -51,7 +45,7 @@ typedef enum ao_mikroe_1877_connection_t ao_mikroe_1877_connection_t;
 typedef struct ao_mikroe_1877_data_t ao_mikroe_1877_data_t;
 ```
 
-Represents the entire sensor data.
+The entire sensor data.
 
 ## `ao_mikroe_1877_data_*_t`
 

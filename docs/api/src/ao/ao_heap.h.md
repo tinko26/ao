@@ -45,7 +45,7 @@ Defines whether to keep track of the maximum number of nodes.
 typedef struct ao_heap_t ao_heap_t;
 ```
 
-This type represents a heap.
+Represents a heap.
 
 ## `ao_heap_node_t`
 
@@ -53,7 +53,7 @@ This type represents a heap.
 typedef struct ao_heap_node_t ao_heap_node_t;
 ```
 
-This type represents a heap node.
+Represents a heap node.
 
 ## `ao_heap_less_t`
 
@@ -66,7 +66,7 @@ typedef bool (* ao_heap_less_t)
 );
 ```
 
-This type represents a compare function, that implements a strict total order on the nodes.
+Represents a compare function, that implements a strict total order on the nodes.
 
 # Structs
 

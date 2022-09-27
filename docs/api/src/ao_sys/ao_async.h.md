@@ -24,7 +24,7 @@ This module defines asynchronous events.
 typedef struct ao_async_t ao_async_t;
 ```
 
-This type represents an asynchronous event.
+Represents an asynchronous event.
 
 ## `ao_async_all_t`
 
@@ -32,7 +32,7 @@ This type represents an asynchronous event.
 typedef struct ao_async_all_t ao_async_all_t;
 ```
 
-This type represents the waiting for all out of a set of asynchronous events.
+Represents the waiting for all out of a set of asynchronous events.
 
 ## `ao_async_any_t`
 
@@ -40,7 +40,7 @@ This type represents the waiting for all out of a set of asynchronous events.
 typedef struct ao_async_any_t ao_async_any_t;
 ```
 
-This type represents the waiting for any one out of a set of asynchronous events.
+Represents the waiting for any one out of a set of asynchronous events.
 
 # Structs
 

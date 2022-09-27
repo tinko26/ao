@@ -31,7 +31,7 @@ microsoft: "Represents a thread synchronization event that, when signaled, reset
 typedef struct ao_are_t ao_are_t;
 ```
 
-This type represents an auto-reset event.
+Represents an auto-reset event.
 
 ## `ao_are_wait_t`
 
@@ -39,7 +39,7 @@ This type represents an auto-reset event.
 typedef struct ao_are_wait_t ao_are_wait_t;
 ```
 
-This type represents the waiting for an auto-reset event.
+Represents the waiting for an auto-reset event.
 
 # Structs
 

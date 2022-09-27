@@ -37,7 +37,7 @@ toc: true
 typedef struct ao_xch_t ao_xch_t;
 ```
 
-This type represents an exchange.
+Represents an exchange.
 
 ## `ao_xch_client_t`
 
@@ -45,7 +45,7 @@ This type represents an exchange.
 typedef struct ao_xch_client_t ao_xch_client_t;
 ```
 
-This type represents a client sending a request and receiving a reply.
+Represents a client sending a request and receiving a reply.
 
 ## `ao_xch_server_t`
 
@@ -53,7 +53,7 @@ This type represents a client sending a request and receiving a reply.
 typedef struct ao_xch_server_t ao_xch_server_t;
 ```
 
-This type represents a server receiving a request.
+Represents a server receiving a request.
 
 # Structs
 

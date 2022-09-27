@@ -46,7 +46,7 @@ ao_sys_lock_pps(&x);
 typedef struct ao_sys_lock_pps_t ao_sys_lock_pps_t;
 ```
 
-This type represents lock-related data.
+Represents lock-related data.
 
 # Structs
 

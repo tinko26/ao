@@ -30,7 +30,7 @@ The number of buttons.
 typedef enum ao_buttons_t ao_buttons_t;
 ```
 
-This type represents buttons.
+Represents buttons.
 
 # Enums
 

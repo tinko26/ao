@@ -86,7 +86,7 @@ The size of the blocks in each pool, in bytes.
 typedef struct ao_alloc_pool_t ao_alloc_pool_t;
 ```
 
-This type represents a pool.
+Represents a pool.
 
 ## `ao_alloc_pool_node_t`
 
@@ -94,7 +94,7 @@ This type represents a pool.
 typedef struct ao_alloc_pool_node_t ao_alloc_pool_node_t;
 ```
 
-This type represents a block.
+Represents a block.
 
 ## `ao_acquired_t`
 
@@ -102,7 +102,7 @@ This type represents a block.
 typedef struct ao_acquired_t ao_acquired_t;
 ```
 
-This type represents the information about a call to `ao_acquire()`.
+Represents the information about a call to `ao_acquire()`.
 
 ## `ao_released_t`
 
@@ -110,7 +110,7 @@ This type represents the information about a call to `ao_acquire()`.
 typedef struct ao_released_t ao_released_t;
 ```
 
-This type represents the information about a call to `ao_release()`.
+Represents the information about a call to `ao_release()`.
 
 ## `ao_retained_t`
 
@@ -118,7 +118,7 @@ This type represents the information about a call to `ao_release()`.
 typedef struct ao_retained_t ao_retained_t;
 ```
 
-This type represents the information about a call to `ao_retain()`.
+Represents the information about a call to `ao_retain()`.
 
 # Structs
 

@@ -30,7 +30,7 @@ Defines whether to keep track of the maximum number of objects.
 typedef struct ao_buffer4obj_t ao_buffer4obj_t;
 ```
 
-This type represents a buffer for objects.
+Represents a buffer for objects.
 
 # Structs
 

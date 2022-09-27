@@ -36,7 +36,7 @@ toc: true
 typedef struct ao_timer_t ao_timer_t;
 ```
 
-This type represents a timer.
+Represents a timer.
 
 # Structs
 

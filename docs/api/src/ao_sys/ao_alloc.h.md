@@ -65,7 +65,7 @@ Defines whether to execute a callback upon each call to `ao_acquire()`, `ao_rele
 typedef struct ao_acquired_t ao_acquired_t;
 ```
 
-This type represents the information about a call to `ao_acquire()`.
+Represents the information about a call to `ao_acquire()`.
 
 ## `ao_released_t`
 
@@ -73,7 +73,7 @@ This type represents the information about a call to `ao_acquire()`.
 typedef struct ao_released_t ao_released_t;
 ```
 
-This type represents the information about a call to `ao_release()`.
+Represents the information about a call to `ao_release()`.
 
 ## `ao_retained_t`
 
@@ -81,7 +81,7 @@ This type represents the information about a call to `ao_release()`.
 typedef struct ao_retained_t ao_retained_t;
 ```
 
-This type represents the information about a call to `ao_retain()`.
+Represents the information about a call to `ao_retain()`.
 
 # Structs
 

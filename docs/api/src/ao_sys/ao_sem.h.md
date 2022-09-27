@@ -34,7 +34,7 @@ This module defines counting semaphores.
 typedef struct ao_sem_t ao_sem_t;
 ```
 
-This type represents a counting semaphore.
+Represents a counting semaphore.
 
 ## `ao_sem_take_t`
 
@@ -42,7 +42,7 @@ This type represents a counting semaphore.
 typedef struct ao_sem_take_t ao_sem_take_t;
 ```
 
-This type represents the taking of a counting semaphore.
+Represents the taking of a counting semaphore.
 
 # Structs
 

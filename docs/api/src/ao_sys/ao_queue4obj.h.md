@@ -28,7 +28,7 @@ toc: true
 typedef struct ao_queue4obj_t ao_queue4obj_t;
 ```
 
-This type represents a queue for objects.
+Represents a queue for objects.
 
 ## `ao_qinsert_obj_t`
 
@@ -36,7 +36,7 @@ This type represents a queue for objects.
 typedef struct ao_qinsert_obj_t ao_qinsert_obj_t;
 ```
 
-This type represents the inserting into a queue for objects.
+Represents the inserting into a queue for objects.
 
 ## `ao_qpop_obj_t`
 
@@ -44,7 +44,7 @@ This type represents the inserting into a queue for objects.
 typedef struct ao_qpop_obj_t ao_qpop_obj_t;
 ```
 
-This type represents the popping from a queue for objects.
+Represents the popping from a queue for objects.
 
 # Structs
 

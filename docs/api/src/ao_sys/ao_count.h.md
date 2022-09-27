@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-27
 draft: true
 permalink: /api/src/ao_sys/ao_count.h/
 toc: true
@@ -8,17 +8,11 @@ toc: true
 
 # Notes
 
-This module encapsulates a hardware counter that increments continuously at a constant rate. The counter makes up the basis for measuring time. Additionally, this counter and a corresponding interrupt make up the basis for alarms. This module is abstract, that is, an implementation must be provided by a port package in order to support timing.
+This module encapsulates a hardware counter that increments continuously at a constant rate. The counter makes up the basis for measuring time. Additionally, this counter and a corresponding interrupt make up the basis for alarms. This module is abstract, that is, an implementation must be provided by a port in order to support timing.
 
 # Include
 
 | `stdint.h` |
-
-# Identifier
-
-```c
-#define AO_COUNT
-```
 
 # Constants
 

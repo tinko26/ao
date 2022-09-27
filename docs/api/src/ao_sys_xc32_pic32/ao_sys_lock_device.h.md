@@ -47,7 +47,7 @@ ao_sys_lock_device(&x);
 typedef struct ao_sys_lock_device_t ao_sys_lock_device_t;
 ```
 
-This type represents lock-related data.
+Represents lock-related data.
 
 # Structs
 

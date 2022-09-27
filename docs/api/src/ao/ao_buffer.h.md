@@ -36,7 +36,7 @@ Defines whether to keep track of the maximum number of bytes.
 typedef struct ao_buffer_t ao_buffer_t;
 ```
 
-This type represents a buffer.
+Represents a buffer.
 
 # Structs
 

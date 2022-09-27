@@ -18,7 +18,7 @@ This module provides a stub implementation for the alarm queue.
 typedef struct ao_alarm_queue_node_t ao_alarm_queue_node_t;
 ```
 
-This type represents an alarm queue node.
+Represents an alarm queue node.
 
 # Structs
 

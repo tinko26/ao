@@ -25,7 +25,7 @@ The most significant set bit determines the register's actual width. In the abov
 In addition to the generator polynomial, the register must be provided an initial value, or seed. This is a random value from the range $$[1, 2^N - 1]$$, where $$N$$ is the width of the register.
 
 ```c
-l->seed = 69081;
+l->value = 69081;
 ```
 
 The corresponding function generates a new bit, which is shifted into the register from the left.
@@ -37,5 +37,5 @@ ao_lfsr32(l);
 The new bit is located at the same position as the polynomial's most significant set bit, or bit 17 in the example.
 
 ```c
-uint32_t newbit = (l->seed >> 17) & (uint32_t) 1;
+uint32_t newbit = (l->value >> 17) & (uint32_t) 1;
 ```

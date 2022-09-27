@@ -43,7 +43,7 @@ The default task stack size, in bytes.
 typedef struct ao_task_stack_t ao_task_stack_t;
 ```
 
-This type represents stack-related data of a task.
+Represents stack-related data of a task.
 
 # Structs
 

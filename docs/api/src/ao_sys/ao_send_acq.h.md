@@ -29,7 +29,7 @@ This module provides an abstraction for sending acquired memory blocks to an opa
 typedef ao_send_ptr_t ao_send_acq_t;
 ```
 
-This type represents the sending of an acquired memory block.
+Represents the sending of an acquired memory block.
 
 ## `ao_send_acq_proc_t`
 
@@ -37,7 +37,7 @@ This type represents the sending of an acquired memory block.
 typedef ao_send_ptr_proc_t ao_send_acq_proc_t;
 ```
 
-This type represents a function beginning or ending a sending of an acquired memory block.
+Represents a function beginning or ending a sending of an acquired memory block.
 
 # Functions
 

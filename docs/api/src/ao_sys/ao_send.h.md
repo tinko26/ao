@@ -32,7 +32,7 @@ This module provides an abstraction for sending to an opaque destination.
 typedef struct ao_send_t ao_send_t;
 ```
 
-This type represents the sending of data.
+Represents the sending of data.
 
 ## `ao_send_proc_t`
 
@@ -43,7 +43,7 @@ typedef void (* ao_send_proc_t)
 );
 ```
 
-This type represents a function beginning or ending a sending.
+Represents a function beginning or ending a sending.
 
 # Struct
 

@@ -24,7 +24,7 @@ This module defines linear-feedback shift registers with a maximum width of 16 b
 typedef struct ao_lfsr16_t ao_lfsr16_t;
 ```
 
-This type represents a linear-feedback shift register with a maximum width of 16 bits.
+Represents a linear-feedback shift register with a maximum width of 16 bits.
 
 # Structs
 
@@ -34,19 +34,19 @@ This type represents a linear-feedback shift register with a maximum width of 16
 struct ao_lfsr16_t
 {
     uint16_t polynomial;
-    uint16_t seed;
+    uint16_t value;
 };
 ```
 
 | `polynomial` | The generator polynomial. |
-| `seed` | The seed or current value of the register. |
+| `value` | The value. |
 
 # Functions
 
 ## `ao_lfsr16`
 
 ```c
-void ao_lfsr16(ao_lfsr16_t * r);
+void ao_lfsr16(ao_lfsr16_t * lfsr);
 ```
 
 Generates a new bit.

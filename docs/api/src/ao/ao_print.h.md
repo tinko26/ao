@@ -26,7 +26,7 @@ This module contains functions to convert a number to a string. Although the sta
 typedef struct ao_print_t ao_print_t;
 ```
 
-This type represents options for the conversion.
+Represents options for the conversion.
 
 # Structs
 

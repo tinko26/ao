@@ -73,7 +73,7 @@ The size of the argument section, in bytes.
 typedef struct ao_ir_stack_t ao_ir_stack_t;
 ```
 
-This type represents the interrupt stack.
+Represents the interrupt stack.
 
 # Structs
 

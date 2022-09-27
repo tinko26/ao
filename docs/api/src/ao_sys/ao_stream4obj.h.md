@@ -28,7 +28,7 @@ toc: true
 typedef struct ao_stream4obj_t ao_stream4obj_t;
 ```
 
-This type represents a stream for objects.
+Represents a stream for objects.
 
 ## `ao_spop_obj_t`
 
@@ -36,7 +36,7 @@ This type represents a stream for objects.
 typedef struct ao_spop_obj_t ao_spop_obj_t;
 ```
 
-This type represents the popping of an object from a stream.
+Represents the popping of an object from a stream.
 
 ## `ao_spush_obj_t`
 
@@ -44,7 +44,7 @@ This type represents the popping of an object from a stream.
 typedef struct ao_spush_obj_t ao_spush_obj_t;
 ```
 
-This type represents the pushing of an object to a stream.
+Represents the pushing of an object to a stream.
 
 # Structs
 

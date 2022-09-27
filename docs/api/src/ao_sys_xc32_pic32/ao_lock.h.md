@@ -42,7 +42,7 @@ Defines the maximum priority of interrupts to disable.
 typedef uint32_t ao_lock_t;
 ```
 
-This type represents a container for lock-related data.
+Represents a container for lock-related data.
 
 # Functions
 

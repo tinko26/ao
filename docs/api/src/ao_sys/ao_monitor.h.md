@@ -30,7 +30,7 @@ toc: true
 typedef struct ao_monitor_t ao_monitor_t;
 ```
 
-This type represents a monitor.
+Represents a monitor.
 
 ## `ao_monitor_enter_t`
 
@@ -38,7 +38,7 @@ This type represents a monitor.
 typedef struct ao_monitor_enter_t ao_monitor_enter_t;
 ```
 
-This type represents the entering of a monitor.
+Represents the entering of a monitor.
 
 ## `ao_monitor_wait_t`
 
@@ -46,7 +46,7 @@ This type represents the entering of a monitor.
 typedef struct ao_monitor_wait_t ao_monitor_wait_t;
 ```
 
-This type represents the waiting for a monitor.
+Represents the waiting for a monitor.
 
 # Structs
 

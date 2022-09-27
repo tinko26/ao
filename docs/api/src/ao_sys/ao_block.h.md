@@ -27,7 +27,7 @@ toc: true
 typedef struct ao_block_t ao_block_t;
 ```
 
-This type represents the blocking of a task.
+Represents the blocking of a task.
 
 # Structs
 

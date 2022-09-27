@@ -53,7 +53,7 @@ Indicates whether the `SPIxCON.ENHBUF` field is available.
 typedef struct ao_spi_reg_t ao_spi_reg_t;
 ```
 
-This type represents the control register set.
+Represents the control register set.
 
 ## `ao_spi_reg_*_t`
 

@@ -34,7 +34,7 @@ This module defines execution barriers, where tasks can synchronize.
 typedef struct ao_barrier_t ao_barrier_t;
 ```
 
-This type represents a barrier.
+Represents a barrier.
 
 ## `ao_barrier_wait_t`
 
@@ -42,7 +42,7 @@ This type represents a barrier.
 typedef struct ao_barrier_wait_t ao_barrier_wait_t;
 ```
 
-This type represents the waiting at a barrier.
+Represents the waiting at a barrier.
 
 # Structs
 
