@@ -27,12 +27,6 @@ Commonly, heaps are implemented based on an array that stores all the nodes. How
 | `stdbool.h` |
 | `stddef.h` |
 
-# Identifier
-
-```c
-#define AO_HEAP
-```
-
 # Configuration
 
 ## `AO_HEAP_COUNT_MAX`

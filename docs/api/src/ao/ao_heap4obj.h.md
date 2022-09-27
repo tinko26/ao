@@ -26,12 +26,6 @@ This module provides an array-based implementation.
 | `stdbool.h` |
 | `stddef.h` |
 
-# Identifier
-
-```c
-#define AO_HEAP4OBJ
-```
-
 # Configuration
 
 ## `AO_HEAP4OBJ_COUNT_MAX`

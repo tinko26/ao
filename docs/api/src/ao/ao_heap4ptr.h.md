@@ -26,12 +26,6 @@ This module provides an array-based implementation.
 | `stdbool.h` |
 | `stddef.h` |
 
-# Identifier
-
-```c
-#define AO_HEAP4PTR
-```
-
 # Configuration
 
 ## `AO_HEAP4PTR_COUNT_MAX`

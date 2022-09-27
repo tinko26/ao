@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-25
+date: 2022-09-27
 draft: false
 external:
 - https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/32-bit-mcus : "Microchip 32-bit PIC® and SAM Microcontrollers"
@@ -77,6 +77,7 @@ wide: false
 
 | [`ao_boot.h`](ao_boot.h.md) | Booting |
 | [`ao_break.h`](ao_break.h.md) | Breakpoints |
+| [`ao_char.h`](ao_char.h.md) | Characters |
 | [`ao_core.h`](ao_core.h.md) | Processor cores |
 | [`ao_count.h`](ao_count.h.md) | Counter |
 | [`ao_float.h`](ao_float.h.md) | Floating-point numbers |

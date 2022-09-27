@@ -14,12 +14,6 @@ This module defines a single macro constant indicating whether an application is
 
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_DEBUG
-```
-
 # Constants
 
 ## `AO_DEBUG`

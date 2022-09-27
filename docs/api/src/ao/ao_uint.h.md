@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-24
+date: 2022-09-27
 draft: true
 permalink: /api/src/ao/ao_uint.h/
 toc: true
@@ -8,17 +8,11 @@ toc: true
 
 # Notes
 
-This module defines the fastest unsigned integer type available on the target platform. Additionally, it provides a couple of useful functions. This module is considered abstract and should be overridden by a port package.
+This module defines the fastest unsigned integer type available on the target platform. Additionally, it provides a couple of useful functions.
 
 # Include
 
 | `stdint.h` |
-
-# Identifier
-
-```c
-#define AO_UINT
-```
 
 # Constants
 
@@ -58,7 +52,7 @@ The size, in bytes.
 typedef uint32_t ao_uint_t;
 ```
 
-This type represents the fastest unsigned integer type of the target platform. It is an alias for one of the fixed-width unsigned integer types defined by the standard library.
+Represents the fastest unsigned integer type of the target platform.
 
 # Functions
 
@@ -108,4 +102,4 @@ Calculates the base-2 logarithm.
 #define AO_LOG2U64(x) ((x) & 0xFFFFFFFF00000000U ? 32 + AO_LOG2U32((x) >> 32) : AO_LOG2U32(x))
 ```
 
-Calculates the base-2 logarithm for a fixed-width unsigned integer.
+Calculates the base-2 logarithm of a fixed-width unsigned integer value.

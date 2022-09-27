@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-13
+date: 2022-09-27
 draft: true
 permalink: /kernel/
 toc: true
@@ -90,6 +90,7 @@ toc: true
 - streams for acquired memory blocks
 - streams for objects
 - streams for pointers
+- thresholds
 
 # Drivers
 

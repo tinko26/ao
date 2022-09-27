@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-09-27
 draft: false
 permalink: /api/src/ao/
 toc: true
@@ -27,7 +27,10 @@ wide: false
 | [`ao_heap4obj.h`](ao_heap4obj.h.md) | Array-based binary heaps for objects |
 | [`ao_heap4ptr.h`](ao_heap4ptr.h.md) | Array-based binary heaps for pointers |
 | [`ao_int.h`](ao_int.h.md) | Signed integers |
-| [`ao_lfsr.h`](ao_lfsr.h.md) | Linear-feedback shift registers |
+| [`ao_lfsr8.h`](ao_lfsr8.h.md) | Linear-feedback shift registers |
+| [`ao_lfsr16.h`](ao_lfsr16.h.md) | Linear-feedback shift registers |
+| [`ao_lfsr32.h`](ao_lfsr32.h.md) | Linear-feedback shift registers |
+| [`ao_lfsr64.h`](ao_lfsr64.h.md) | Linear-feedback shift registers |
 | [`ao_list.h`](ao_list.h.md) | Doubly linked lists |
 | [`ao_math.h`](ao_math.h.md) | Mathematics |
 | [`ao_mathf.h`](ao_mathf.h.md) | Mathematics for floating-point numbers |

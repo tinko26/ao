@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-05
+date: 2022-09-27
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_size.h/
 toc: true
@@ -13,12 +13,6 @@ The standard library's `size_t` type is an unsigned integer type, at least 16 bi
 # Include
 
 | [`ao_uint.h`](ao_uint.h.md) |
-
-# Identifier
-
-```c
-#define AO_SIZE
-```
 
 # Constants
 
@@ -79,10 +73,7 @@ Finds the first or last set bit, respectively.
 ## `AO_LOG2Z`
 
 ```c
-#define AO_LOG2Z(x) \
-(                   \
-    AO_LOG2U(x)     \
-)
+#define AO_LOG2Z(x) AO_LOG2U(x)
 ```
 
 Calculates the base-2 logarithm.

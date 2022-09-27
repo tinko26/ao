@@ -14,12 +14,6 @@ This module provides mathematical constants and functions for floating-point num
 
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_MATHF
-```
-
 # Constants
 
 ```c

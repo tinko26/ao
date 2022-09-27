@@ -15,12 +15,6 @@ This module defines a single macro function that returns a pointer to the head o
 | `stddef.h` |
 | `stdint.h` |
 
-# Identifier
-
-```c
-#define AO_STRUCT
-```
-
 # Functions
 
 ## `ao_containerof`

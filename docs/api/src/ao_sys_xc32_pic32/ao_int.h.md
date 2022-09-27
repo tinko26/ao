@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-05
+date: 2022-09-27
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_int.h/
 toc: true
@@ -13,12 +13,6 @@ This module defines the fastest signed integer type available on the target plat
 # Include
 
 | `stdint.h` |
-
-# Identifier
-
-```c
-#define AO_IR_INT
-```
 
 # Constants
 
@@ -48,4 +42,4 @@ The size, in bytes.
 typedef int32_t ao_int_t;
 ```
 
-This type represents the fastest signed integer type of the target platform. It is defined to be the `int32_t` type defined by the standard library.
+Represents the fastest signed integer type of the target platform.

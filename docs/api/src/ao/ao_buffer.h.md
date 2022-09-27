@@ -18,12 +18,6 @@ This module defines buffers, that is, places to temporarily store data.
 | `stdbool.h` |
 | `stddef.h` |
 
-# Identifier
-
-```c
-#define AO_BUFFER
-```
-
 # Configuration
 
 ## `AO_BUFFER_COUNT_MAX`

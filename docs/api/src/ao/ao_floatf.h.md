@@ -15,12 +15,6 @@ This module defines the fastest floating-point type available on the target plat
 | [`ao_mathf.h`](ao_mathf.h.md) |
 | `float.h` |
 
-# Identifier
-
-```c
-#define AO_FLOAT
-```
-
 # Constants
 
 ## `AO_FLOAT_DIG`

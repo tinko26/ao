@@ -18,12 +18,6 @@ This module defines doubly linked lists, whose elements are sorted by a strict t
 | `stdbool.h` |
 | `stddef.h` |
 
-# Identifier
-
-```c
-#define AO_SLIST
-```
-
 # Types
 
 ## `ao_slist_t`

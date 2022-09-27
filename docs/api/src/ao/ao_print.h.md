@@ -18,12 +18,6 @@ This module contains functions to convert a number to a string. Although the sta
 | `stddef.h` |
 | `stdint.h` |
 
-# Identifier
-
-```c
-#define AO_PRINT
-```
-
 # Types
 
 ## `ao_print_t`

@@ -23,12 +23,6 @@ A red-black tree is a special kind of binary search tree, that keeps itself bala
 | `stdbool.h` |
 | `stddef.h` |
 
-# Identifier
-
-```c
-#define AO_RB
-```
-
 # Types
 
 ## `ao_rb_t`

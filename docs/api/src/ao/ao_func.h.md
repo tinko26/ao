@@ -10,12 +10,6 @@ toc: true
 
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_FUNC
-```
-
 # Types
 
 ## `ao_func_t`

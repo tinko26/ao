@@ -15,12 +15,6 @@ This module defines function pointer types for a variety of random value generat
 | `stdbool.h` |
 | `stdint.h` |
 
-# Identifier
-
-```c
-#define AO_RAND
-```
-
 # Types
 
 ## `ao_randb_t`

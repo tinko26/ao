@@ -14,21 +14,13 @@ toc: true
 
 # Notes
 
-This module defines AVL trees.
-
-An AVL tree is a special kind of binary search tree, that keeps itself balanced, which guarantees that insertion, removal, and search always take logarithmic time. It is therefore a perfect choice when implementing a priority queue.
+This module defines AVL trees. An AVL tree is a special kind of binary search tree, that keeps itself balanced, which guarantees that insertion, removal, and search always take logarithmic time. It is therefore a perfect choice when implementing a priority queue.
 
 # Include
 
 | [`ao_int.h`](ao_int.h.md) |
 | `stdbool.h` |
 | `stddef.h` |
-
-# Identifier
-
-```c
-#define AO_AVL
-```
 
 # Types
 

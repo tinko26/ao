@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-05
+date: 2022-09-27
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_mem.h/
 toc: true
@@ -14,42 +14,36 @@ This module provides three functions for copying, moving, and filling memory blo
 
 | `string.h` |
 
-# Identifier
-
-```c
-#define AO_MEM
-```
-
 # Functions
 
-## `ao_memcpy`
+## `ao_mem_copy`
 
 ```c
-#define ao_memcpy(d, s, n) \
-(                          \
-    memcpy(d, s, n)        \
+#define ao_mem_copy(d, s, n) \
+(                            \
+    memcpy(d, s, n)          \
 )
 ```
 
 Copies the first `n` bytes from the memory block beginning at `s` to the memory block beginning at `d`. This function copies the data directly. Therefore, the memory blocks should not overlap. This function returns `d`.
 
-## `ao_memmove`
+## `ao_mem_move`
 
 ```c
-#define ao_memmove(d, s, n) \
-(                           \
-    memmove(d, s, n)        \
+#define ao_mem_move(d, s, n) \
+(                            \
+    memmove(d, s, n)         \
 )
 ```
 
 Copies the first `n` bytes from the memory block beginning at `s` to the memory block beginning at `d`. This function copies the data using a temporary buffer. Therefore, the memory blocks can overlap. This function returns `d`.
 
-## `ao_memset`
+## `ao_mem_set`
 
 ```c
-#define ao_memset(p, v, n)  \
-(                           \
-    memset(p, (int) (v), n) \
+#define ao_mem_set(p, v, n)  \
+(                            \
+    memset(p, (int) (v), n)  \
 )
 ```
 

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-24
+date: 2022-09-27
 draft: true
 permalink: /api/src/ao/ao_var.h/
 toc: true
@@ -15,20 +15,14 @@ This module defines two convenience macro functions for variables.
 | [`ao_mem.h`](ao_mem.h.md) |
 | `stddef.h` |
 
-# Identifier
-
-```c
-#define AO_VAR
-```
-
 # Functions
 
 ## `ao_clear`
 
 ```c
-#define ao_clear(p, t)         \
-(                              \
-    ao_memset(p, 0, sizeof(t)) \
+#define ao_clear(p, t)          \
+(                               \
+    ao_mem_set(p, 0, sizeof(t)) \
 )
 ```
 
@@ -37,10 +31,10 @@ Clears a variable of type `t` pointed to by `p`. This is especially useful when 
 ## `ao_copy`
 
 ```c
-#define ao_copy(d, s, t)       \
-(                              \
-    ao_memcpy(d, s, sizeof(t)) \
+#define ao_copy(d, s, t)         \
+(                                \
+    ao_mem_copy(d, s, sizeof(t)) \
 )
 ```
 
-Copies a variable of `t` from the location pointed to by `s` to the location pointed to by `d`.
+Copies a variable of type `t` from the location pointed to by `s` to the location pointed to by `d`.

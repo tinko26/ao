@@ -93,7 +93,10 @@
 /api/src/ao/ao_heap4obj.h/ : true
 /api/src/ao/ao_heap4ptr.h/ : true
 /api/src/ao/ao_int.h/ : true
-/api/src/ao/ao_lfsr.h/ : true
+/api/src/ao/ao_lfsr8.h/ : true
+/api/src/ao/ao_lfsr16.h/ : true
+/api/src/ao/ao_lfsr32.h/ : true
+/api/src/ao/ao_lfsr64.h/ : true
 /api/src/ao/ao_list.h/ : true
 /api/src/ao/ao_math.h/ : true
 /api/src/ao/ao_mathf.h/ : true
@@ -203,6 +206,11 @@
 /api/src/ao_sys/ao_task_stack_0.h/ : true
 /api/src/ao_sys/ao_task_stack_1.h/ : true
 /api/src/ao_sys/ao_task_stack_2.h/ : true
+/api/src/ao_sys/ao_threshold.h/ : true
+/api/src/ao_sys/ao_threshold8.h/ : true
+/api/src/ao_sys/ao_threshold16.h/ : true
+/api/src/ao_sys/ao_threshold32.h/ : true
+/api/src/ao_sys/ao_threshold64.h/ : true
 /api/src/ao_sys/ao_time.h/ : true
 /api/src/ao_sys/ao_timer.h/ : true
 /api/src/ao_sys/ao_wr.h/ : true
@@ -214,6 +222,7 @@
 /api/src/ao_sys_xc32_pic32/ : true
 /api/src/ao_sys_xc32_pic32/ao_boot.h/ : true
 /api/src/ao_sys_xc32_pic32/ao_break.h/ : true
+/api/src/ao_sys_xc32_pic32/ao_char.h/ : true
 /api/src/ao_sys_xc32_pic32/ao_core.h/ : true
 /api/src/ao_sys_xc32_pic32/ao_count.h/ : true
 /api/src/ao_sys_xc32_pic32/ao_float.h/ : true

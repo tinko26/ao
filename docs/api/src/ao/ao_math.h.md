@@ -14,12 +14,6 @@ This module provides a number of useful mathematical operations. They are implem
 
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_MATH
-```
-
 # Functions
 
 ## `AO_ABS`

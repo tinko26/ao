@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-26
+date: 2022-09-27
 draft: true
 permalink: /api/src/ao_sys/ao_num8.h/
 toc: true
@@ -13,12 +13,6 @@ toc: true
 | [`ao_time.h`](ao_time.h.md) |
 | `stdbool.h` |
 | `stdint.h` |
-
-# Identifier
-
-```c
-#define AO_NUM8
-```
 
 # Types
 

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-26
+date: 2022-09-27
 draft: true
 permalink: /synchronization/
 ---
@@ -75,5 +75,10 @@ The following modules provide synchronization primitives.
 | [`ao_stream4acq.h`](api/src/ao_sys/ao_stream4acq.h.md) | Streams for acquired memory blocks. |
 | [`ao_stream4obj.h`](api/src/ao_sys/ao_stream4obj.h.md) | Streams for objects. |
 | [`ao_stream4ptr.h`](api/src/ao_sys/ao_stream4ptr.h.md) | Streams for pointers. |
+| [`ao_threshold.h`](api/src/ao_sys/ao_threshold.h.md) | Thresholds based on the fastest unsigned integer type. |
+| [`ao_threshold8.h`](api/src/ao_sys/ao_threshold8.h.md) | Thresholds based on the 8-bit unsigned integer type. |
+| [`ao_threshold16.h`](api/src/ao_sys/ao_threshold16.h.md) | Thresholds based on the 16-bit unsigned integer type. |
+| [`ao_threshold32.h`](api/src/ao_sys/ao_threshold32.h.md) | Thresholds based on the 32-bit unsigned integer type. |
+| [`ao_threshold64.h`](api/src/ao_sys/ao_threshold64.h.md) | Thresholds based on the 64-bit unsigned integer type. |
 | [`ao_wr.h`](api/src/ao_sys/ao_wr.h.md) | Readers-writer locks preferring writers. |
 | [`ao_xch.h`](api/src/ao_sys/ao_xch.h.md) | Exchanges for client-server messaging. |

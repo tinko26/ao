@@ -20,12 +20,6 @@ Especially, outputting a message is probably not a good option in an embedded sy
 
 | [`ao_break.h`](ao_break.h.md) |
 
-# Identifier
-
-```c
-#define AO_ASSERT
-```
-
 # Functions
 
 ## `ao_assert`

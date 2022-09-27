@@ -18,12 +18,6 @@ This module contains functions to convert a string to a number. Although the sta
 | `stddef.h` |
 | `stdint.h` |
 
-# Identifier
-
-```c
-#define AO_SCAN
-```
-
 # Types
 
 ## `ao_scan_t`

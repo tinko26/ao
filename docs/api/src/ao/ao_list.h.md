@@ -20,12 +20,6 @@ This module defines doubly linked lists. Most commonly, lists are used as double
 | `stdbool.h` |
 | `stddef.h` |
 
-# Identifier
-
-```c
-#define AO_LIST
-```
-
 # Types
 
 ## `ao_list_t`

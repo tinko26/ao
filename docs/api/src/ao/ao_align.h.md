@@ -18,12 +18,6 @@ Normally, the compiler takes care of the correct alignment of variables automati
 
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_ALIGN
-```
-
 # Functions
 
 ## `AO_ALIGN_DOWN`
