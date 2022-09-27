@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-26
+date: 2022-09-27
 draft: true
 external:
 - https://docs.microsoft.com/en-us/dotnet/api/system.threading.autoresetevent : "AutoResetEvent"
@@ -22,12 +22,6 @@ microsoft: "Represents a thread synchronization event that, when signaled, reset
 | [`ao_list.h`](../ao/ao_list.h.md) |
 | [`ao_time.h`](ao_time.h.md) |
 | `stdbool.h` |
-
-# Identifier
-
-```c
-#define AO_ARE
-```
 
 # Types
 

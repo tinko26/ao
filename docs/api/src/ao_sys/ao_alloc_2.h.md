@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-27
 draft: true
 external:
 - https://dx.doi.org/10.1007/s11241-008-9052-7 : "A constant-time dynamic storage allocator for real-time systems. Masmano et al. 2008."
@@ -26,12 +26,6 @@ This module implements a constant-time dynamic storage allocator based on the tw
 | [`ao_size.h`](../ao/ao_size.h.md) |
 | `stdbool.h` |
 | `stddef.h` |
-
-# Identifier
-
-```c
-#define AO_ALLOC_2
-```
 
 # Configuration
 

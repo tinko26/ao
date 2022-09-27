@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-27
 draft: true
 permalink: /api/src/ao_sys/ao_alarm_queue_3.h/
 toc: true
@@ -19,12 +19,6 @@ This module provides an implementation for the alarm queue based on a pointer-ba
 
 | [`ao_heap.h`](../ao/ao_heap.h.md) |
 | `stdbool.h` |
-
-# Identifier
-
-```c
-#define AO_ALARM_QUEUE_3
-```
 
 # Configuration
 

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-26
+date: 2022-09-27
 draft: true
 permalink: /api/src/ao_sys/ao_alarm.h/
 toc: true
@@ -12,12 +12,6 @@ toc: true
 | [`ao_func.h`](../ao/ao_func.h.md) |
 | [`ao_time.h`](ao_time.h.md) |
 | `stdbool.h` |
-
-# Identifier
-
-```c
-#define AO_ALARM
-```
 
 # Configuration
 
@@ -34,7 +28,12 @@ The alarm delay is an estimate of the maximum latency of the alarm interrupt. Th
 ## `AO_ALARM_UPDATE`
 
 ```c
-#define AO_ALARM_UPDATE (AO_TIME_MAX - AO_ALARM_DELAY + 1)
+#define AO_ALARM_UPDATE \
+(                       \
+    (AO_TIME_MAX)    -  \
+    (AO_ALARM_DELAY) +  \
+    1                   \
+)
 ```
 
 The alarm update specifies the maximum time span between subsequent alarm interrupts. It takes into account the latency of the alarm interrupt in order to not miss a count overflow.

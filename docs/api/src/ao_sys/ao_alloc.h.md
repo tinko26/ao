@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-27
 draft: true
 permalink: /api/src/ao_sys/ao_alloc.h/
 toc: true
@@ -30,12 +30,6 @@ This module encapsulates an allocator that supports dynamic memory management.
 
 | `stdbool.h` |
 | `stddef.h` |
-
-# Identifier
-
-```c
-#define AO_ALLOC
-```
 
 # Configuration
 

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-27
 draft: true
 permalink: /api/src/ao_sys/ao_alloc_1.h/
 toc: true
@@ -29,12 +29,6 @@ Due to its iterative approach, allocation is a linear-time operation. In contras
 
 | `stdbool.h` |
 | `stddef.h` |
-
-# Identifier
-
-```c
-#define AO_ALLOC_1
-```
 
 # Configuration
 

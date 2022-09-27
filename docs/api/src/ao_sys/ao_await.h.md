@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-26
+date: 2022-09-27
 draft: true
 permalink: /api/src/ao_sys/ao_await.h/
 toc: true
@@ -14,12 +14,6 @@ This module defines functions for awaiting asynchronous events.
 
 | [`ao_async.h`](ao_async.h.md) |
 | [`ao_time.h`](ao_time.h.md) |
-
-# Identifier
-
-```c
-#define AO_AWAIT
-```
 
 # Functions
 

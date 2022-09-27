@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-31
+date: 2022-09-27
 draft: true
 permalink: /api/src/ao_sys/ao_alarm_queue_2.h/
 toc: true
@@ -19,12 +19,6 @@ This module provides an implementation for the alarm queue based on an array-bas
 
 | `stdbool.h` |
 | `stddef.h` |
-
-# Identifier
-
-```c
-#define AO_ALARM_QUEUE_2
-```
 
 # Configuration
 
