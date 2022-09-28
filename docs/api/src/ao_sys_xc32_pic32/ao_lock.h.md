@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-26
+date: 2022-09-28
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Critical_section : "Critical section"
@@ -11,6 +11,8 @@ toc: true
 # Notes
 
 This module defines a mechanism for critical sections, that are required by the kernel in order to protect its resources from concurrent accesses.
+
+Locking sets the interrupt priority level to the lock priority. That is, locking disables only those interrupts, whose priority is less than or equal to the lock priority. Higher-priority interrupts will remain enabled. However, these interrupts must not make system calls.
 
 # Include
 
