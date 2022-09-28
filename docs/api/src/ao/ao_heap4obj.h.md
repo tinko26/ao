@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-24
+date: 2022-09-28
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Binary_heap : "Binary heap"
@@ -13,11 +13,7 @@ toc: true
 
 # Notes
 
-This module defines binary heaps for objects.
-
-A binary heap is a special kind of binary tree that maintains both the shape of a complete binary tree and the heap property. The latter implies, that a node is always less than its children, with respect to a strict total order.
-
-Both insertion into and removal from heaps take logarithmic time. This makes them a perfect choice for implementing priority queues.
+This module defines binary heaps for objects. A binary heap is a special kind of binary tree that maintains both the shape of a complete binary tree and the heap property. The latter implies, that a node is always less than its children, with respect to a strict total order. Both insertion into and removal from heaps take logarithmic time. This makes them a perfect choice for implementing priority queues.
 
 This module provides an array-based implementation.
 
@@ -51,13 +47,17 @@ Represents a heap for objects.
 ```c
 typedef bool (* ao_heap4obj_less_t)
 (
-    void * p1,
-    void * p2,
-    void * parameter
+    void const * object1,
+    void const * object2,
+    void *       parameter
 );
 ```
 
-Represents a compare function, that implements a strict total order on objects.
+| `object1` | The pointer to the first object. |
+| `object2` | The pointer to the second object. |
+| `parameter` | An additional parameter. |
+
+Represents a compare function for objects, that implements a strict total order. The function returns `true`, if the first object is strictly less than the second object, otherwise `false`.
 
 # Structs
 
@@ -78,9 +78,9 @@ struct ao_heap4obj_t
     size_t *           heap1;
     size_t *           heap2;
     ao_heap4obj_less_t less;
-    void   *           less_parameter;
+    void *             less_parameter;
     size_t             size;
-    void   *           store;
+    void *             store;
 };
 ```
 
@@ -99,7 +99,7 @@ struct ao_heap4obj_t
 ## `ao_heap4obj_assert`
 
 ```c
-void ao_heap4obj_assert(ao_heap4obj_t * x);
+void ao_heap4obj_assert(ao_heap4obj_t const * heap);
 ```
 
 Asserts the correctness of a heap, in linear time. This function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a runtime assertion failure.
@@ -107,41 +107,25 @@ Asserts the correctness of a heap, in linear time. This function traverses the h
 ## `ao_heap4obj_insert`
 
 ```c
-bool ao_heap4obj_insert(ao_heap4obj_t * x, void const * p);
+bool ao_heap4obj_insert(ao_heap4obj_t * heap, void const * p);
 ```
 
 Inserts an object into a heap, in logarithmic time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the heap is full.
 
 ## `ao_heap4obj_is_empty`
-
-```c
-#define ao_heap4obj_is_empty(x) \
-(                               \
-    (x)->count == 0             \
-    ? true                      \
-    : false                     \
-)
-```
-
-Checks whether a heap is empty, in constant time.
-
 ## `ao_heap4obj_is_full`
 
 ```c
-#define ao_heap4obj_is_full(x)  \
-(                               \
-    (x)->count == (x)->capacity \
-    ? true                      \
-    : false                     \
-)
+bool ao_heap4obj_is_empty(ao_heap4obj_t const * heap);
+bool ao_heap4obj_is_full (ao_heap4obj_t const * heap);
 ```
 
-Checks whether a heap is full, in constant time.
+Checks whether a heap is empty or full, respectively, in constant time.
 
 ## `ao_heap4obj_peek`
 
 ```c
-bool ao_heap4obj_peek(ao_heap4obj_t const * x, void * p);
+bool ao_heap4obj_peek(ao_heap4obj_t const * heap, void * p);
 ```
 
 Gets the root object of a heap without removing it, in constant time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the heap is empty.
@@ -149,7 +133,7 @@ Gets the root object of a heap without removing it, in constant time. The return
 ## `ao_heap4obj_pop`
 
 ```c
-bool ao_heap4obj_pop(ao_heap4obj_t * x, void * p);
+bool ao_heap4obj_pop(ao_heap4obj_t * heap, void * p);
 ```
 
 Removes the root object from a heap, in logarithmic time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the heap is empty.

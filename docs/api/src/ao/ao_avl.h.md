@@ -47,7 +47,7 @@ typedef bool (* ao_avl_less_t)
 (
     ao_avl_node_t const * node1,
     ao_avl_node_t const * node2,
-    void                * parameter
+    void *                parameter
 );
 ```
 
@@ -65,7 +65,7 @@ Represents a compare function for AVL tree nodes, that implements a strict total
 struct ao_avl_t
 {
     ao_avl_less_t   less;
-    void          * less_parameter;
+    void *          less_parameter;
     ao_avl_node_t * root;
 };
 ```

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-24
+date: 2022-09-28
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Double-ended_queue : "Double-ended queue"
@@ -71,28 +71,33 @@ struct ao_list_node_t
 ## `ao_list_insert_after`
 
 ```c
-void ao_list_insert_after(ao_list_t * x, ao_list_node_t * n1, ao_list_node_t * n2);
+void ao_list_insert_after
+(
+    ao_list_t * list, 
+    ao_list_node_t * node1, 
+    ao_list_node_t * node2
+);
 ```
 
-Inserts `n2` after `n1` into a list, in constant time.
+Inserts `node2` after `node1` into a list, in constant time.
 
 ## `ao_list_insert_before`
 
 ```c
-void ao_list_insert_before(ao_list_t * x, ao_list_node_t * n1, ao_list_node_t * n2);
+void ao_list_insert_before
+(
+    ao_list_t * list,
+    ao_list_node_t * node1,
+    ao_list_node_t * node2
+);
 ```
 
-Inserts `n1` before `n2` into a list, in constant time.
+Inserts `node1` before `node2` into a list, in constant time.
 
 ## `ao_list_is_empty`
 
 ```c
-#define ao_list_is_empty(x) \
-(                           \
-    (x)->front == NULL      \
-    ? true                  \
-    : false                 \
-)
+bool ao_list_is_empty(ao_list_t const * x);
 ```
 
 Checks whether a list is empty, in constant time.
@@ -100,8 +105,8 @@ Checks whether a list is empty, in constant time.
 ## `ao_list_pop_*`
 
 ```c
-ao_list_node_t * ao_list_pop_back (ao_list_t * x);
-ao_list_node_t * ao_list_pop_front(ao_list_t * x);
+ao_list_node_t * ao_list_pop_back (ao_list_t * list);
+ao_list_node_t * ao_list_pop_front(ao_list_t * list);
 ```
 
 Pops the back or front node, respectively, in constant time.
@@ -109,8 +114,8 @@ Pops the back or front node, respectively, in constant time.
 ## `ao_list_push_*`
 
 ```c
-void ao_list_push_back (ao_list_t * x, ao_list_node_t * n);
-void ao_list_push_front(ao_list_t * x, ao_list_node_t * n);
+void ao_list_push_back (ao_list_t * list, ao_list_node_t * node);
+void ao_list_push_front(ao_list_t * list, ao_list_node_t * node);
 ```
 
 Pushes a node to the back or front, respectively, in constant time.
@@ -118,7 +123,7 @@ Pushes a node to the back or front, respectively, in constant time.
 ## `ao_list_remove`
 
 ```c
-void ao_list_remove(ao_list_t * x, ao_list_node_t * n);
+void ao_list_remove(ao_list_t * list, ao_list_node_t * node);
 ```
 
 Removes a node from a list, in constant time.
@@ -126,7 +131,7 @@ Removes a node from a list, in constant time.
 ## `ao_list_remove_all`
 
 ```c
-void ao_list_remove_all(ao_list_t * x);
+void ao_list_remove_all(ao_list_t * list);
 ```
 
 Removes all nodes from a list, in linear time.
@@ -135,8 +140,8 @@ Removes all nodes from a list, in linear time.
 ## `ao_list_remove_front`
 
 ```c
-void ao_list_remove_back (ao_list_t * x);
-void ao_list_remove_front(ao_list_t * x);
+void ao_list_remove_back (ao_list_t * list);
+void ao_list_remove_front(ao_list_t * list);
 ```
 
 Removes the back or front node, respectively, in constant time.
@@ -144,7 +149,7 @@ Removes the back or front node, respectively, in constant time.
 ## `ao_list_reverse`
 
 ```c
-void ao_list_reverse(ao_list_t * x);
+void ao_list_reverse(ao_list_t * list);
 ```
 
 Reverses a list, in linear time.

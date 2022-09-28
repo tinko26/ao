@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-24
+date: 2022-09-28
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Binary_heap : "Binary heap"
@@ -13,11 +13,7 @@ toc: true
 
 # Notes
 
-This module defines binary heaps.
-
-A binary heap is a special kind of binary tree that maintains both the shape of a complete binary tree and the heap property. The latter implies, that a node is always less than its children, with respect to a strict total order.
-
-Both insertion into and removal from heaps take logarithmic time. This makes them a perfect choice for implementing priority queues.
+This module defines binary heaps. A binary heap is a special kind of binary tree that maintains both the shape of a complete binary tree and the heap property. The latter implies, that a node is always less than its children, with respect to a strict total order. Both insertion into and removal from heaps take logarithmic time. This makes them a perfect choice for implementing priority queues.
 
 Commonly, heaps are implemented based on an array that stores all the nodes. However, this module provides a pointer-based implementation, that is, each node holds pointers to its parent and children. Therefore, the capacity of a heap is virtually unbounded. This is useful, for example, if the maximum number of nodes cannot be estimated well.
 
@@ -60,13 +56,17 @@ Represents a heap node.
 ```c
 typedef bool (* ao_heap_less_t)
 (
-    ao_heap_node_t * n1,
-    ao_heap_node_t * n2,
-    void           * parameter
+    ao_heap_node_t const * node1,
+    ao_heap_node_t const * node2,
+    void *                 parameter
 );
 ```
 
-Represents a compare function, that implements a strict total order on the nodes.
+| `node1` | The first node. |
+| `node2` | The second node. |
+| `parameter` | An additional parameter. |
+
+Represents a compare function for heap nodes, that implements a strict total order. The function returns `true`, if the first node is strictly less than the second node, otherwise `false`.
 
 # Structs
 
@@ -84,7 +84,7 @@ struct ao_heap_t
 #endif
 
     ao_heap_less_t   less;
-    void           * less_parameter;
+    void *           less_parameter;
     ao_heap_node_t * root;
 };
 ```
@@ -115,17 +115,15 @@ struct ao_heap_node_t
 ## `ao_heap_assert`
 
 ```c
-void ao_heap_assert(ao_heap_t * x);
+void ao_heap_assert(ao_heap_t const * heap);
 ```
 
-Asserts the correctness of a heap, in linear time. This function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a runtime assertion failure.
-
-It is therefore useful in debugging scenarios. However, the function is implemented recursively, which violates a common rule in embedded software engineering.
+Asserts the correctness of a heap, in linear time. This function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a runtime assertion failure. It is therefore useful in debugging scenarios. However, the function is implemented recursively, which violates a common rule in embedded software engineering.
 
 ## `ao_heap_insert`
 
 ```c
-void ao_heap_insert(ao_heap_t * x, ao_heap_node_t * n);
+void ao_heap_insert(ao_heap_t * heap, ao_heap_node_t * node);
 ```
 
 Inserts a node into a heap, in logarithmic time.
@@ -133,12 +131,7 @@ Inserts a node into a heap, in logarithmic time.
 ## `ao_heap_is_empty`
 
 ```c
-#define ao_heap_is_empty(x) \
-(                           \
-    (x)->root == NULL       \
-    ? true                  \
-    : false                 \
-)
+bool ao_heap_is_empty(ao_heap_t const * heap);
 ```
 
 Checks whether a heap is empty, in constant time.
@@ -146,10 +139,7 @@ Checks whether a heap is empty, in constant time.
 ## `ao_heap_peek`
 
 ```c
-#define ao_heap_peek(x) \
-(                       \
-    (x)->root           \
-)
+ao_heap_node_t * ao_heap_peek(ao_heap_t const * heap);
 ```
 
 Gets the root node of a heap without removing it, in constant time.
@@ -157,7 +147,7 @@ Gets the root node of a heap without removing it, in constant time.
 ## `ao_heap_pop`
 
 ```c
-ao_heap_node_t * ao_heap_pop(ao_heap_t * x);
+ao_heap_node_t * ao_heap_pop(ao_heap_t * heap);
 ```
 
 Removes the root node from a heap, in logarithmic time.
@@ -165,7 +155,7 @@ Removes the root node from a heap, in logarithmic time.
 ## `ao_heap_remove`
 
 ```c
-void ao_heap_remove(ao_heap_t * x, ao_heap_node_t * n);
+void ao_heap_remove(ao_heap_t * heap, ao_heap_node_t * node);
 ```
 
 Removes an arbitrary node from a heap, in logarithmic time.
