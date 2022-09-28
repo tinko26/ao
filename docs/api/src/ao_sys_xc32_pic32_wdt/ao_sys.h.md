@@ -6,12 +6,6 @@ permalink: /api/src/ao_sys_xc32_pic32_wdt/ao_sys.h/
 toc: true
 ---
 
-# Identifier
-
-```c
-#define AO_SYS_XC32_PIC32_WDT
-```
-
 # Include Next
 
 | [`ao_sys.h`](../ao_sys_xc32_pic32/ao_sys.h.md) |

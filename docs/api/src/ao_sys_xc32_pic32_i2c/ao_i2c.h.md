@@ -13,12 +13,6 @@ toc: true
 | `stdbool.h` |
 | `stdint.h` |
 
-# Identifier
-
-```c
-#define AO_I2C
-```
-
 # Constants
 
 ## `AO_I2C_BRG_BITS`

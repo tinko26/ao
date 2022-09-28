@@ -10,12 +10,6 @@ toc: true
 
 | `stdint.h` |
 
-# Identifier
-
-```c
-#define AO_TASK_CONTEXT
-```
-
 # Types
 
 ## `ao_task_context_t`

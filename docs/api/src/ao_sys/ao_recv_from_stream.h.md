@@ -11,12 +11,6 @@ toc: true
 | [`ao_recv.h`](ao_recv.h.md) |
 | [`ao_stream.h`](ao_stream.h.md) |
 
-# Identifier
-
-```c
-#define AO_RECV_FROM_STREAM
-```
-
 # Functions
 
 ## `ao_recv_from_stream`

@@ -10,12 +10,6 @@ toc: true
 
 | `stddef.h` |
 
-# Identifier
-
-```c
-#define AO_STACK
-```
-
 # Constants
 
 ## `AO_STACK_ALIGN`

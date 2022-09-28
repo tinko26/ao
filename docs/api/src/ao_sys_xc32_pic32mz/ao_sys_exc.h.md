@@ -6,12 +6,6 @@ permalink: /api/src/ao_sys_xc32_pic32mz/ao_sys_exc.h/
 toc: true
 ---
 
-# Identifier
-
-```c
-#define AO_SYS_EXC
-```
-
 # Types
 
 ## `ao_sys_exc_t`

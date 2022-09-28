@@ -112,7 +112,7 @@ Inserts a node into a tree, in logarithmic time.
 ## `ao_avl_is_empty`
 
 ```c
-bool ao_avl_is_empty(ao_avl_t const * x);
+bool ao_avl_is_empty(ao_avl_t const * avl);
 ```
 
 Checks whether a tree is empty, in constant time.

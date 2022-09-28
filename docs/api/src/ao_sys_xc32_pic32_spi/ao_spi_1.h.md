@@ -13,12 +13,6 @@ toc: true
 | `stdbool.h` |
 | `xc.h` |
 
-# Identifier
-
-```c
-#define AO_SPI_1
-```
-
 # Configuration
 
 ## `AO_SPI_1`

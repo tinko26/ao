@@ -33,12 +33,6 @@ ao_sys_lock_device(&x);
 
 | `stdint.h` |
 
-# Identifier
-
-```c
-#define AO_SYS_LOCK_DEVICE
-```
-
 # Types
 
 ## `ao_sys_lock_device_t`

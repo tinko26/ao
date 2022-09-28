@@ -10,12 +10,6 @@ toc: true
 
 | `stdint.h` |
 
-# Identifier
-
-```c
-#define AO_UART
-```
-
 # Constants
 
 ## `AO_UART_BRG_BITS`

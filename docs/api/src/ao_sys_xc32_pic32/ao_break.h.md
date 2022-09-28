@@ -14,12 +14,6 @@ This module contains a single function that executes a breakpoint, if the applic
 
 | [`ao_debug.h`](../ao_sys_xc32/ao_debug.h.md) |
 
-# Identifier
-
-```c
-#define AO_BREAK
-```
-
 # Functions
 
 ## `ao_break`

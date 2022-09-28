@@ -18,12 +18,6 @@ This module provides an abstraction for sending to an opaque destination.
 | `stdbool.h` |
 | `stddef.h` |
 
-# Identifier
-
-```c
-#define AO_SEND
-```
-
 # Types
 
 ## `ao_send_t`

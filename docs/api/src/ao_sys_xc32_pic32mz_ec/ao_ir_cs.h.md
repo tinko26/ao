@@ -14,12 +14,6 @@ toc: true
 
 # Configuration
 
-# Identifier
-
-```c
-#define AO_IR_CS
-```
-
 ## `AO_IR_CS0_*`
 
 ```c

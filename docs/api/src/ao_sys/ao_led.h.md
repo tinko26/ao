@@ -8,12 +8,6 @@ permalink: /api/src/ao_sys/ao_led.h/
 toc: true
 ---
 
-# Identifier
-
-```c
-#define AO_LED
-```
-
 # Constants
 
 ## `AO_LED_COUNT`

@@ -15,12 +15,6 @@ This module provides an abstraction for sending acquired memory blocks to an opa
 | [`ao_send_ptr.h`](ao_send_ptr.h.md) |
 | [`ao_time.h`](ao_time.h.md) |
 
-# Identifier
-
-```c
-#define AO_SEND_ACQ
-```
-
 # Types
 
 ## `ao_send_acq_t`

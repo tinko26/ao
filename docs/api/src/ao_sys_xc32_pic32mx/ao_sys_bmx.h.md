@@ -10,12 +10,6 @@ toc: true
 
 | `xc.h` |
 
-# Identifier
-
-```c
-#define AO_SYS_BMX
-```
-
 # Functions
 
 ## `ao_sys_bmx_wsdram_disable`

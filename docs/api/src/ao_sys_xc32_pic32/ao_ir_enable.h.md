@@ -6,12 +6,6 @@ permalink: /api/src/ao_sys_xc32_pic32/ao_ir_enable.h/
 toc: true
 ---
 
-# Identifier
-
-```c
-#define AO_IR_ENABLE
-```
-
 # Functions
 
 ## `ao_ir_enable`

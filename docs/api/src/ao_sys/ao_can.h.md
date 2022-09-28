@@ -12,12 +12,6 @@ toc: true
 
 | `stdint.h` |
 
-# Identifier
-
-```c
-#define AO_CAN
-```
-
 # Types
 
 ## `ao_can_t`

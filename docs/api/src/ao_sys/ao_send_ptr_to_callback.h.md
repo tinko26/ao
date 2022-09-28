@@ -10,12 +10,6 @@ toc: true
 
 | [`ao_send_ptr.h`](ao_send_ptr.h.md) |
 
-# Identifier
-
-```c
-#define AO_SEND_PTR_TO_CALLBACK
-```
-
 # Functions
 
 ## `ao_send_ptr_to_callback`

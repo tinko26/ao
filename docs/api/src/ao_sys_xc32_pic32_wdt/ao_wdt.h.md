@@ -11,12 +11,6 @@ toc: true
 | `stdbool.h` |
 | `xc.h` |
 
-# Identifier
-
-```c
-#define AO_WDT
-```
-
 # Functions
 
 ## `ao_wdt_enable`

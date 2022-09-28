@@ -6,12 +6,6 @@ permalink: /api/src/ao_sys/ao_button.h/
 toc: true
 ---
 
-# Identifier
-
-```c
-#define AO_BUTTON
-```
-
 # Constants
 
 ## `AO_BUTTON_COUNT`

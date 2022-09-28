@@ -13,12 +13,6 @@ toc: true
 | [`ao_time.h`](ao_time.h.md) |
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_SLEEP
-```
-
 # Types
 
 ## `ao_sleep_t`

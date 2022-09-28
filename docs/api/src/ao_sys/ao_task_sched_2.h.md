@@ -14,12 +14,6 @@ toc: true
 | [`ao_uint.h`](../ao/ao_uint.h.md) |
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_TASK_SCHED_2
-```
-
 # Configuration
 
 ## `AO_TASK_CEILING`

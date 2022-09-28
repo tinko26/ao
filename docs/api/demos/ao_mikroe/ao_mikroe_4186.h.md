@@ -15,12 +15,6 @@ toc: true
 | `stddef.h` |
 | `stdint.h` |
 
-# Identifier
-
-```c
-#define AO_MIKROE_4186
-```
-
 # Configuration
 
 ```c

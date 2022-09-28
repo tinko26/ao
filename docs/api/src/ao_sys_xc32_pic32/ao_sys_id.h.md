@@ -12,12 +12,6 @@ toc: true
 
 | `xc.h` |
 
-# Identifier
-
-```c
-#define AO_SYS_ID
-```
-
 # Functions
 
 ## `ao_sys_id_device`

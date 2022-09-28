@@ -33,12 +33,6 @@ ao_sys_unlock_dma(x);
 
 | `stdint.h` |
 
-# Identifier
-
-```c
-#define AO_SYS_LOCK_DMA
-```
-
 # Functions
 
 ## `ao_sys_lock_dma`

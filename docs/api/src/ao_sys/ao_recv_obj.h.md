@@ -16,12 +16,6 @@ This module provides an abstraction for receiving objects from an opaque source.
 | [`ao_time.h`](ao_time.h.md) |
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_RECV_OBJ
-```
-
 # Types
 
 ## `ao_recv_obj_t`

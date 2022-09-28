@@ -11,12 +11,6 @@ toc: true
 | `stdbool.h` |
 | `stdint.h` |
 
-# Identifier
-
-```c
-#define AO_SPI
-```
-
 # Constants
 
 ## `AO_SPI_BRG_BITS`

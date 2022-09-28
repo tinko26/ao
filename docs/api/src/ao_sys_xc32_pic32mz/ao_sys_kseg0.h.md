@@ -10,12 +10,6 @@ toc: true
 
 | `xc.h` |
 
-# Identifier
-
-```c
-#define AO_SYS_KSEG0
-```
-
 # Functions
 
 ## `ao_sys_kseg0_cacheable_write_back_alloc`

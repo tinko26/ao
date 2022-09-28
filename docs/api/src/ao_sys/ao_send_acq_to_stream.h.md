@@ -11,12 +11,6 @@ toc: true
 | [`ao_send_acq.h`](ao_send_acq.h.md) |
 | [`ao_stream4acq.h`](ao_stream4acq.h.md) |
 
-# Identifier
-
-```c
-#define AO_SEND_ACQ_TO_STREAM
-```
-
 # Functions
 
 ## `ao_send_acq_to_stream`

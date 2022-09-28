@@ -14,12 +14,6 @@ This module declares functions for controlling the task interrupts as well as a 
 
 | [`ao_ir_cs.h`](ao_ir_cs.h.md) |
 
-# Identifier
-
-```c
-#define AO_IR_TASK
-```
-
 # Functions
 
 ## `ao_ir_task`

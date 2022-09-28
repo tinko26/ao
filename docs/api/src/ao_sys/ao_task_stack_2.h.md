@@ -11,12 +11,6 @@ toc: true
 | `stdbool.h` |
 | `stddef.h` |
 
-# Identifier
-
-```c
-#define AO_TASK_STACK_2
-```
-
 # Configuration
 
 ## `AO_TASK_STACK_HIGH_WATER_MARK`

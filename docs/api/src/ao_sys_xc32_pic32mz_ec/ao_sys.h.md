@@ -11,12 +11,6 @@ toc: true
 | [`ao_sys_clock.h`](ao_sys_clock.h.md) |
 | [`ao_sys_id.h`](ao_sys_id.h.md) |
 
-# Identifier
-
-```c
-#define AO_SYS_XC32_PIC32MZ_EC
-```
-
 # Include Next
 
 | [`ao_sys.h`](../ao_sys_xc32_pic32mz/ao_sys.h.md) |

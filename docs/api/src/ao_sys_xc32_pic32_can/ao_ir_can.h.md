@@ -10,12 +10,6 @@ toc: true
 
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_IR_CAN
-```
-
 # Functions
 
 ## `ao_ir_can1_*`

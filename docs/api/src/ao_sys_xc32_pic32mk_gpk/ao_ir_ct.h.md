@@ -12,12 +12,6 @@ toc: true
 | `sys/attribs.h` |
 | `xc.h` |
 
-# Identifier
-
-```c
-#define AO_IR_CT
-```
-
 # Configuration
 
 ## `AO_IR_CT_*`

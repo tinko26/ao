@@ -18,12 +18,6 @@ This module defines a mechanism for critical sections, that are required by the 
 | [`ao_sys.h`](ao_sys.h.md) |
 | `stdint.h` |
 
-# Identifier
-
-```c
-#define AO_LOCK
-```
-
 # Configuration
 
 ## `AO_LOCK_PRIO`

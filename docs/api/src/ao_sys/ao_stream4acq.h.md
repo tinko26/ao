@@ -11,12 +11,6 @@ toc: true
 | [`ao_stream4ptr.h`](ao_stream4ptr.h.md) |
 | [`ao_time.h`](ao_time.h.md) |
 
-# Identifier
-
-```c
-#define AO_STREAM4ACQ
-```
-
 # Types
 
 ## `ao_stream4acq_t`

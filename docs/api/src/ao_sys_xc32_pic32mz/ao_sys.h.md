@@ -14,12 +14,6 @@ toc: true
 | [`ao_sys_lock_pps.h`](ao_sys_lock_pps.h.md) |
 | [`ao_sys_pcache.h`](ao_sys_pcache.h.md) |
 
-# Identifier
-
-```c
-#define AO_SYS_XC32_PIC32MZ
-```
-
 # Include Next
 
 | [`ao_sys.h`](../ao_sys_xc32_pic32/ao_sys.h.md) |

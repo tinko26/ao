@@ -13,12 +13,6 @@ toc: true
 | [`ao_alarm.h`](ao_alarm.h.md) |
 | [`ao_time.h`](ao_time.h.md) |
 
-# Identifier
-
-```c
-#define AO_BLOCK
-```
-
 # Types
 
 ## `ao_block_t`

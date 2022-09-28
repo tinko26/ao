@@ -10,12 +10,6 @@ toc: true
 
 | [`ao_send.h`](ao_send.h.md) |
 
-# Identifier
-
-```c
-#define AO_SEND_TO_CALLBACK
-```
-
 # Functions
 
 ## `ao_send_to_callback`

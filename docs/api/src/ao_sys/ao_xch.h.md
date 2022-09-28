@@ -23,12 +23,6 @@ toc: true
 | [`ao_time.h`](ao_time.h.md) |
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_XCH
-```
-
 # Types
 
 ## `ao_xch_t`

@@ -6,12 +6,6 @@ permalink: /api/src/ao_sys/ao_task_sched.h/
 toc: true
 ---
 
-# Identifier
-
-```c
-#define AO_TASK_SCHED
-```
-
 # Configuration
 
 ## `AO_TASK_SCHED`

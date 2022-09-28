@@ -14,12 +14,6 @@ toc: true
 | `stdbool.h` |
 | `stddef.h` |
 
-# Identifier
-
-```c
-#define AO_MIKROE_3063
-```
-
 # Configuration
 
 ```c

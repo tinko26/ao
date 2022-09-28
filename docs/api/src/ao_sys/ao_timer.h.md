@@ -22,12 +22,6 @@ toc: true
 | [`ao_func.h`](../ao/ao_func.h.md) |
 | [`ao_time.h`](ao_time.h.md) |
 
-# Identifier
-
-```c
-#define AO_TIMER
-```
-
 # Types
 
 ## `ao_timer_t`

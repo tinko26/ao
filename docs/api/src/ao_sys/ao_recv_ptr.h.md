@@ -16,12 +16,6 @@ This module provides an abstraction for receiving pointers from an opaque source
 | [`ao_time.h`](ao_time.h.md) |
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_RECV_PTR
-```
-
 # Types
 
 ## `ao_recv_ptr_t`

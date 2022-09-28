@@ -16,12 +16,6 @@ This module provides an abstraction for sending objects to an opaque destination
 | [`ao_time.h`](ao_time.h.md) |
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_SEND_OBJ
-```
-
 # Types
 
 ## `ao_send_obj_t`

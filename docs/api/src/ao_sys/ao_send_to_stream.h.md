@@ -11,12 +11,6 @@ toc: true
 | [`ao_send.h`](ao_send.h.md) |
 | [`ao_stream.h`](ao_stream.h.md) |
 
-# Identifier
-
-```c
-#define AO_SEND_TO_STREAM
-```
-
 # Functions
 
 ## `ao_send_to_stream`

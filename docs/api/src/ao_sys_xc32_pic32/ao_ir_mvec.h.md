@@ -10,12 +10,6 @@ toc: true
 
 | `xc.h` |
 
-# Identifier
-
-```c
-#define AO_IR_MVEC
-```
-
 # Functions
 
 ## `ao_ir_mvec_enable`

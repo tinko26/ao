@@ -10,12 +10,6 @@ toc: true
 
 | [`ao_recv.h`](ao_recv.h.md) |
 
-# Identifier
-
-```c
-#define AO_RECV_FROM_CALLBACK
-```
-
 # Functions
 
 ## `ao_recv_from_callback`

@@ -10,12 +10,6 @@ toc: true
 
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_TASK_SCHED_0
-```
-
 # Constants
 
 ## `AO_TASK_CEILING`

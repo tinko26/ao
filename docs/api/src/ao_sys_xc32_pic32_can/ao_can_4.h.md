@@ -17,12 +17,6 @@ toc: true
 | `stdint.h` |
 | `xc.h` |
 
-# Identifier
-
-```c
-#define AO_CAN_4
-```
-
 # Configuration
 
 ## `AO_CAN_4`

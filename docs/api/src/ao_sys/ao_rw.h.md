@@ -25,12 +25,6 @@ toc: true
 | [`ao_uint.h`](../ao/ao_uint.h.md) |
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_RW
-```
-
 # Types
 
 ## `ao_rw_t`

@@ -14,12 +14,6 @@ toc: true
 | `stdbool.h` |
 | `stddef.h` |
 
-# Identifier
-
-```c
-#define AO_STREAM
-```
-
 # Types
 
 ## `ao_stream_t`

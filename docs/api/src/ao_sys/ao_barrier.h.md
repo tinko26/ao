@@ -20,12 +20,6 @@ This module defines execution barriers, where tasks can synchronize.
 | [`ao_uint.h`](../ao/ao_uint.h.md) |
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_BARRIER
-```
-
 # Types
 
 ## `ao_barrier_t`

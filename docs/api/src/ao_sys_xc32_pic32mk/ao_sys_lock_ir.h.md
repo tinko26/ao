@@ -35,12 +35,6 @@ ao_sys_unlock_ir(x);
 | `stdint.h` |
 | `xc.h` |
 
-# Identifier
-
-```c
-#define AO_SYS_LOCK_IR
-```
-
 # Functions
 
 ## `ao_sys_lock_ir`

@@ -17,12 +17,6 @@ toc: true
 | [`ao_sys_power.h`](ao_sys_power.h.md) |
 | [`ao_sys_reset.h`](ao_sys_reset.h.md) |
 
-# Identifier
-
-```c
-#define AO_SYS_XC32_PIC32
-```
-
 # Include Next
 
 | [`ao_sys.h`](../ao_sys_xc32/ao_sys.h.md) |

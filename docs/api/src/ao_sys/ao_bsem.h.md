@@ -19,12 +19,6 @@ This module defines binary semaphore.
 | [`ao_time.h`](ao_time.h.md) |
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_BSEM
-```
-
 # Types
 
 ## `ao_bsem_t`

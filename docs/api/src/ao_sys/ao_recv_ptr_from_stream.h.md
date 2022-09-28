@@ -11,12 +11,6 @@ toc: true
 | [`ao_recv_ptr.h`](ao_recv_ptr.h.md) |
 | [`ao_stream4ptr.h`](ao_stream4ptr.h.md) |
 
-# Identifier
-
-```c
-#define AO_RECV_PTR_FROM_STREAM
-```
-
 # Functions
 
 ## `ao_recv_ptr_from_stream`

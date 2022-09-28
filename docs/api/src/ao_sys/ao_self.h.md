@@ -10,12 +10,6 @@ toc: true
 
 | [`ao_task.h`](ao_task.h.md) |
 
-# Identifier
-
-```c
-#define AO_SELF
-```
-
 # Functions
 
 ## `ao_self`

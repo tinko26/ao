@@ -16,12 +16,6 @@ This module defines functions for spinning or busy waiting, respectively, that c
 
 | [`ao_time.h`](ao_time.h.md) |
 
-# Identifier
-
-```c
-#define AO_SPIN
-```
-
 # Functions
 
 ## `ao_spin`

@@ -18,12 +18,6 @@ This module defines execution barriers, where two tasks can synchronize and exch
 | [`ao_time.h`](ao_time.h.md) |
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_RENDEZVOUS
-```
-
 # Types
 
 ## `ao_rendezvous_t`

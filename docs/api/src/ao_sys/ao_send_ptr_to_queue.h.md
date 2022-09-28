@@ -11,12 +11,6 @@ toc: true
 | [`ao_queue4ptr.h`](ao_queue4ptr.h.md) |
 | [`ao_send_ptr.h`](ao_send_ptr.h.md) |
 
-# Identifier
-
-```c
-#define AO_SEND_PTR_TO_QUEUE
-```
-
 # Functions
 
 ## `ao_send_ptr_to_queue`

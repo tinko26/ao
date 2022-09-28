@@ -11,12 +11,6 @@ toc: true
 | [`ao_send_obj.h`](ao_send_obj.h.md) |
 | [`ao_stream4obj.h`](ao_stream4obj.h.md) |
 
-# Identifier
-
-```c
-#define AO_SEND_OBJ_TO_STREAM
-```
-
 # Functions
 
 ## `ao_send_obj_to_stream`

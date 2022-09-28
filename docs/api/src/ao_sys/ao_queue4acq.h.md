@@ -11,12 +11,6 @@ toc: true
 | [`ao_queue4ptr.h`](ao_queue4ptr.h.md) |
 | [`ao_time.h`](ao_time.h.md) |
 
-# Identifier
-
-```c
-#define AO_QUEUE4ACQ
-```
-
 # Types
 
 ## `ao_queue4acq_t`

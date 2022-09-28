@@ -11,12 +11,6 @@ toc: true
 | [`ao_queue4acq.h`](ao_queue4acq.h.md) |
 | [`ao_send_acq.h`](ao_send_acq.h.md) |
 
-# Identifier
-
-```c
-#define AO_SEND_ACQ_TO_QUEUE
-```
-
 # Functions
 
 ## `ao_send_acq_to_queue`

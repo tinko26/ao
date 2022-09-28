@@ -11,12 +11,6 @@ toc: true
 | [`ao_queue4obj.h`](ao_queue4obj.h.md) |
 | [`ao_send_obj.h`](ao_send_obj.h.md) |
 
-# Identifier
-
-```c
-#define AO_SEND_OBJ_TO_QUEUE
-```
-
 # Functions
 
 ## `ao_send_obj_to_queue`

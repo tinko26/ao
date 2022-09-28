@@ -13,12 +13,6 @@ toc: true
 
 | [`ao_task.h`](ao_task.h.md) |
 
-# Identifier
-
-```c
-#define AO_YIELD
-```
-
 # Functions
 
 ## `ao_yield`

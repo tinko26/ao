@@ -10,12 +10,6 @@ toc: true
 
 | `stddef.h` |
 
-# Identifier
-
-```c
-#define AO_TASK_STACK_0
-```
-
 # Types
 
 ## `ao_task_stack_t`

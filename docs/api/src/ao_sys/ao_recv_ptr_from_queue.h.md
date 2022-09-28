@@ -11,12 +11,6 @@ toc: true
 | [`ao_queue4ptr.h`](ao_queue4ptr.h.md) |
 | [`ao_recv_ptr.h`](ao_recv_ptr.h.md) |
 
-# Identifier
-
-```c
-#define AO_RECV_PTR_FROM_QUEUE
-```
-
 # Functions
 
 ## `ao_recv_ptr_from_queue`

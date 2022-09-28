@@ -20,12 +20,6 @@ This module defines counting semaphores.
 | [`ao_uint.h`](../ao/ao_uint.h.md) |
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_SEM
-```
-
 # Types
 
 ## `ao_sem_t`

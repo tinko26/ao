@@ -32,12 +32,6 @@ ao_sys_lock_pps(&x);
 | [`ao_sys_lock_device.h`](../ao_sys_xc32_pic32/ao_sys_lock_device.h.md) |
 | `stdint.h` |
 
-# Identifier
-
-```c
-#define AO_SYS_LOCK_PPS
-```
-
 # Types
 
 ## `ao_sys_lock_pps_t`

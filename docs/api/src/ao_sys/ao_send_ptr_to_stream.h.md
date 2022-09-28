@@ -11,12 +11,6 @@ toc: true
 | [`ao_send_ptr.h`](ao_send_ptr.h.md) |
 | [`ao_stream4ptr.h`](ao_stream4ptr.h.md) |
 
-# Identifier
-
-```c
-#define AO_SEND_PTR_TO_STREAM
-```
-
 # Functions
 
 ## `ao_send_ptr_to_stream`

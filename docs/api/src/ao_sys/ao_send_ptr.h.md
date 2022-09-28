@@ -16,12 +16,6 @@ This module provides an abstraction for sending pointers to an opaque destinatio
 | [`ao_time.h`](ao_time.h.md) |
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_SEND_PTR
-```
-
 # Types
 
 ## `ao_send_ptr_t`

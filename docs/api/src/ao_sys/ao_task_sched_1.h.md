@@ -12,12 +12,6 @@ toc: true
 | [`ao_time.h`](ao_time.h.md) |
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_TASK_SCHED_1
-```
-
 # Configuration
 
 ## `AO_TASK_QUANTUM`

@@ -14,9 +14,3 @@ This module gathers interrupt-related functions.
 
 | [`ao_ir_alarm.h`](ao_ir_alarm.h.md) |
 | [`ao_ir_task.h`](ao_ir_task.h.md) |
-
-# Identifier
-
-```c
-#define AO_IR
-```

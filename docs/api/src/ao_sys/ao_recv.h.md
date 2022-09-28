@@ -17,12 +17,6 @@ This module provides an abstraction for receiving from an opaque source.
 | `stdbool.h` |
 | `stddef.h` |
 
-# Identifier
-
-```c
-#define AO_RECV
-```
-
 # Types
 
 ## `ao_recv_t`

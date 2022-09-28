@@ -10,12 +10,6 @@ toc: true
 
 | `xc.h` |
 
-# Identifier
-
-```c
-#define AO_SYS_PCACHE
-```
-
 # Functions
 
 ## `ao_sys_pfm_ws_set`

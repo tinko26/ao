@@ -18,12 +18,6 @@ The port must implement an interrupt handler, which in turn must execute the cal
 
 | [`ao_time.h`](ao_time.h.md) |
 
-# Identifier
-
-```c
-#define AO_IR_ALARM
-```
-
 # Functions
 
 ## `ao_ir_alarm`

@@ -18,12 +18,6 @@ This module implements a priority queue based on a red-black tree. Fetching retu
 | [`ao_time.h`](ao_time.h.md) |
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_PMAIL
-```
-
 # Types
 
 ## `ao_pmail_t`

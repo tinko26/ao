@@ -15,12 +15,6 @@ This module provides an abstraction for receiving acquired memory blocks from an
 | [`ao_recv_ptr.h`](ao_recv_ptr.h.md) |
 | [`ao_time.h`](ao_time.h.md) |
 
-# Identifier
-
-```c
-#define AO_RECV_ACQ
-```
-
 # Types
 
 ## `ao_recv_acq_t`

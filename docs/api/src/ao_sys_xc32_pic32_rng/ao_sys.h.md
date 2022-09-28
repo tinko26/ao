@@ -10,12 +10,6 @@ toc: true
 
 | [`ao_sys_clock.h`](ao_sys_clock.h.md) |
 
-# Identifier
-
-```c
-#define AO_SYS_XC32_PIC32_RNG
-```
-
 # Include Next
 
 | [`ao_sys.h`](../ao_sys_xc32_pic32/ao_sys.h.md) |

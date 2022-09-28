@@ -16,12 +16,6 @@ toc: true
 | `stdbool.h` |
 | `xc.h` |
 
-# Identifier
-
-```c
-#define AO_UART_5
-```
-
 # Configuration
 
 ## `AO_UART_5`

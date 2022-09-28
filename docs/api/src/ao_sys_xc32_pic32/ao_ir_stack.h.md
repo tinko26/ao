@@ -15,12 +15,6 @@ toc: true
 | `stddef.h` |
 | `stdint.h` |
 
-# Identifier
-
-```c
-#define AO_IR_STACK
-```
-
 # Configuration
 
 ## `AO_IR_STACK_DEPTH_MAX`

@@ -16,12 +16,6 @@ toc: true
 | [`ao_time.h`](ao_time.h.md) |
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_MONITOR
-```
-
 # Types
 
 ## `ao_monitor_t`

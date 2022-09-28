@@ -14,12 +14,6 @@ toc: true
 | [`ao_time.h`](ao_time.h.md) |
 | `stdbool.h` |
 
-# Identifier
-
-```c
-#define AO_QUEUE4PTR
-```
-
 # Types
 
 ## `ao_queue4ptr_t`

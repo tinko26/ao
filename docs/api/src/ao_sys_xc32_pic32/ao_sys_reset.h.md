@@ -8,12 +8,6 @@ permalink: /api/src/ao_sys_xc32_pic32/ao_sys_reset.h/
 toc: true
 ---
 
-# Identifier
-
-```c
-#define AO_SYS_RESET
-```
-
 # Functions
 
 ## `ao_sys_reset`
