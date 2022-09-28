@@ -41,7 +41,7 @@ The difference between one and the next representable value.
 #define AO_FLOAT_MIN (LDBL_MIN)
 ```
 
-The maximum and minimum value, respectively.
+The maximum and minimum value.
 
 # Types
 
