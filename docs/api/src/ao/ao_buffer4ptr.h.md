@@ -1,10 +1,9 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-24
+date: 2022-09-28
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Circular_buffer : "Circular buffer"
-- https://en.wikipedia.org/wiki/Data_buffer : "Data buffer"
 permalink: /api/src/ao/ao_buffer4ptr.h/
 toc: true
 ---
@@ -62,28 +61,14 @@ struct ao_buffer4ptr_t
 # Functions
 
 ## `ao_buffer4ptr_is_empty`
-
-```c
-#define ao_buffer4ptr_is_empty(x) \
-(                                 \
-    (x)->count == 0               \
-    ? true                        \
-    : false                       \
-)
-```
-
-Checks whether a buffer is empty, in constant time.
-
 ## `ao_buffer4ptr_is_full`
 
 ```c
-#define ao_buffer4ptr_is_full(x) \
-(                                \
-    (x)->count == (x)->capacity  \
-    ? true                       \
-    : false                      \
-)
+bool ao_buffer4ptr_is_empty(ao_buffer4ptr_t const * x);
+bool ao_buffer4ptr_is_full (ao_buffer4ptr_t const * x);
 ```
+
+Checks whether a buffer is empty or full, respectively, in constant time.
 
 ## `ao_buffer4ptr_peek_*`
 
