@@ -61,8 +61,8 @@ struct ao_lock_t { };
 ## `ao_unlock`
 
 ```c
-void ao_lock  (ao_lock_t * lock);
-void ao_unlock(ao_lock_t * lock);
+void ao_lock  (ao_lock_t * l);
+void ao_unlock(ao_lock_t * l);
 ```
 
 Enters or exits a critical section, respectively.

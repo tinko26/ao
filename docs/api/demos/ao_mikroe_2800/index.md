@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-09-29
 draft: false
 external:
 - https://www.mikroe.com/clicker-2-for-pic32mz : "Clicker 2 for PIC32MZ"
@@ -33,5 +33,6 @@ wide: false
 | [`ao_sys.h`](ao_sys.h.md) | System |
 | [`ao_sys_clock.h`](ao_sys_clock.h.md) | System clocks |
 | [`ao_sys_config.h`](ao_sys_config.h.md) | System configuration bits |
+| [`ao_sys_exc.h`](ao_sys_exc.h.md) | System exceptions |
 | [`ao_uart_2.h`](ao_uart_2.h.md) | UART 2 |
 | [`ao_uart_3.h`](ao_uart_3.h.md) | UART 3 |

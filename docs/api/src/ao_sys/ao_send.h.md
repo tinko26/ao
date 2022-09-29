@@ -74,8 +74,8 @@ struct ao_send_t
 ## `ao_send_from`
 
 ```c
-void ao_send     (ao_send_t * send, ao_time_t timeout);
-void ao_send_from(ao_send_t * send, ao_time_t timeout, ao_time_t beginning);
+void ao_send     (ao_send_t * s, ao_time_t timeout);
+void ao_send_from(ao_send_t * s, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Sends in a blocking fashion with a timeout and an optional beginning.
@@ -83,7 +83,7 @@ Sends in a blocking fashion with a timeout and an optional beginning.
 ## `ao_send_forever`
 
 ```c
-void ao_send_forever(ao_send_t * send);
+void ao_send_forever(ao_send_t * s);
 ```
 
 Sends indefinitely in a blocking fashion.
@@ -91,7 +91,7 @@ Sends indefinitely in a blocking fashion.
 ## `ao_send_try`
 
 ```c
-void ao_send_try(ao_send_t * send);
+void ao_send_try(ao_send_t * s);
 ```
 
 Sends in a non-blocking fashion.
@@ -100,8 +100,8 @@ Sends in a non-blocking fashion.
 ## `ao_send_end`
 
 ```c
-void ao_send_begin(ao_send_t * send);
-void ao_send_end  (ao_send_t * send);
+void ao_send_begin(ao_send_t * s);
+void ao_send_end  (ao_send_t * s);
 ```
 
 Begins or ends, respectively, a sending.

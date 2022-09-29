@@ -134,8 +134,8 @@ struct ao_xch_server_t
 ## `ao_xch_client_from`
 
 ```c
-void ao_xch_client     (ao_xch_client_t * client, ao_time_t timeout);
-void ao_xch_client_from(ao_xch_client_t * client, ao_time_t timeout, ao_time_t beginning);
+void ao_xch_client     (ao_xch_client_t * c, ao_time_t timeout);
+void ao_xch_client_from(ao_xch_client_t * c, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Sends a request and receives a reply in a blocking fashion with a timeout and an optional beginning.
@@ -143,7 +143,7 @@ Sends a request and receives a reply in a blocking fashion with a timeout and an
 ## `ao_xch_client_forever`
 
 ```c
-void ao_xch_client_forever(ao_xch_client_t * client);
+void ao_xch_client_forever(ao_xch_client_t * c);
 ```
 
 Sends a request and receives a reply indefinitely in a blocking fashion.
@@ -152,8 +152,8 @@ Sends a request and receives a reply indefinitely in a blocking fashion.
 ## `ao_xch_client_end`
 
 ```c
-void ao_xch_client_begin(ao_xch_client_t * client);
-void ao_xch_client_end  (ao_xch_client_t * client);
+void ao_xch_client_begin(ao_xch_client_t * c);
+void ao_xch_client_end  (ao_xch_client_t * c);
 ```
 
 Begins or ends, respectively, a client sending a request and receiving a reply.
@@ -162,8 +162,8 @@ Begins or ends, respectively, a client sending a request and receiving a reply.
 ## `ao_xch_server_from`
 
 ```c
-void ao_xch_server     (ao_xch_server_t * server, ao_time_t timeout);
-void ao_xch_server_from(ao_xch_server_t * server, ao_time_t timeout, ao_time_t beginning);
+void ao_xch_server     (ao_xch_server_t * s, ao_time_t timeout);
+void ao_xch_server_from(ao_xch_server_t * s, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Receives a request in a blocking fashion with a timeout and an optional beginning.
@@ -171,7 +171,7 @@ Receives a request in a blocking fashion with a timeout and an optional beginnin
 ## `ao_xch_server_forever`
 
 ```c
-void ao_xch_server_forever(ao_xch_server_t * server);
+void ao_xch_server_forever(ao_xch_server_t * s);
 ```
 
 Receives a request indefinitely in a blocking fashion.
@@ -179,7 +179,7 @@ Receives a request indefinitely in a blocking fashion.
 ## `ao_xch_server_try`
 
 ```c
-void ao_xch_server_try(ao_xch_server_t * server);
+void ao_xch_server_try(ao_xch_server_t * s);
 ```
 
 Receives a request in a non-blocking fashion.
@@ -188,8 +188,8 @@ Receives a request in a non-blocking fashion.
 ## `ao_xch_server_end`
 
 ```c
-void ao_xch_server_begin(ao_xch_server_t * server);
-void ao_xch_server_end  (ao_xch_server_t * server);
+void ao_xch_server_begin(ao_xch_server_t * s);
+void ao_xch_server_end  (ao_xch_server_t * s);
 ```
 
 Begins or ends, respectively, the receiving of a request.
@@ -197,7 +197,7 @@ Begins or ends, respectively, the receiving of a request.
 ## `ao_xch_server_reply`
 
 ```c
-void ao_xch_server_reply(ao_xch_server_t * server);
+void ao_xch_server_reply(ao_xch_server_t * s);
 ```
 
 Sends a reply.

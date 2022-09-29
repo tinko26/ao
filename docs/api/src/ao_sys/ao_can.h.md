@@ -30,7 +30,6 @@ Represents a CAN message.
 struct  ao_can_t
 {
     uint64_t         data;
-
     union
     {
         struct

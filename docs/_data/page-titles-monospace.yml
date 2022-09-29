@@ -30,6 +30,7 @@
 /api/demos/ao_mikroe_2340/ao_sys.h/ : true
 /api/demos/ao_mikroe_2340/ao_sys_clock.h/ : true
 /api/demos/ao_mikroe_2340/ao_sys_config.h/ : true
+/api/demos/ao_mikroe_2340/ao_sys_exc.h/ : true
 /api/demos/ao_mikroe_2340/ao_uart_1.h/ : true
 /api/demos/ao_mikroe_2340/ao_uart_2.h/ : true
 /api/demos/ao_mikroe_2340/ao_uart_3.h/ : true
@@ -66,6 +67,7 @@
 /api/demos/ao_mikroe_2800/ao_sys.h/ : true
 /api/demos/ao_mikroe_2800/ao_sys_clock.h/ : true
 /api/demos/ao_mikroe_2800/ao_sys_config.h/ : true
+/api/demos/ao_mikroe_2800/ao_sys_exc.h/ : true
 /api/demos/ao_mikroe_2800/ao_uart_2.h/ : true
 /api/demos/ao_mikroe_2800/ao_uart_3.h/ : true
 /api/demos/ao_mikroe_2800_blink1/ : true

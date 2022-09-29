@@ -16,7 +16,11 @@ toc: true
 ## `ao_recv_ptr_from_stream`
 
 ```c
-void ao_recv_ptr_from_stream(ao_recv_ptr_t * recv, ao_spop_ptr_t * pop);
+void ao_recv_ptr_from_stream
+(
+    ao_recv_ptr_t * r, 
+    ao_spop_ptr_t * p
+);
 ```
 
 Sets up a receiving of a pointer to pop a pointer from a stream.

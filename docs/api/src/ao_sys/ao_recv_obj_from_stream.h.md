@@ -16,7 +16,11 @@ toc: true
 ## `ao_recv_obj_from_stream`
 
 ```c
-void ao_recv_obj_from_stream(ao_recv_obj_t * recv, ao_spop_obj_t * pop);
+void ao_recv_obj_from_stream
+(
+    ao_recv_obj_t * r, 
+    ao_spop_obj_t * p
+);
 ```
 
 Sets up a receiving of an object to pop an object from a stream.

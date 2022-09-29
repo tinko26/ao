@@ -15,7 +15,11 @@ toc: true
 ## `ao_send_to_callback`
 
 ```c
-void ao_send_to_callback(ao_send_t * send, ao_send_proc_t callback);
+void ao_send_to_callback
+(
+    ao_send_t * s, 
+    ao_send_proc_t callback
+);
 ```
 
 Sets up a sending to execute a callback.

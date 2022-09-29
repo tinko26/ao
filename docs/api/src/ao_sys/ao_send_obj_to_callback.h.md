@@ -15,7 +15,11 @@ toc: true
 ## `ao_send_obj_to_callback`
 
 ```c
-void ao_send_obj_to_callback(ao_send_obj_t * send, ao_send_obj_proc_t callback);
+void ao_send_obj_to_callback
+(
+    ao_send_obj_t * s, 
+    ao_send_obj_proc_t callback
+);
 ```
 
 Sets up a sending of an object to execute a callback.

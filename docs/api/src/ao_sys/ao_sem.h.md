@@ -77,7 +77,7 @@ struct ao_sem_take_t
 ## `ao_sem_give`
 
 ```c
-void ao_sem_give(ao_sem_t * sem, ao_uint_t count);
+void ao_sem_give(ao_sem_t * s, ao_uint_t count);
 ```
 
 Gives a counting semaphore.
@@ -86,8 +86,8 @@ Gives a counting semaphore.
 ## `ao_sem_take_from`
 
 ```c
-bool ao_sem_take     (ao_sem_t * sem, ao_uint_t count, ao_time_t timeout);
-bool ao_sem_take_from(ao_sem_t * sem, ao_uint_t count, ao_time_t timeout, ao_time_t beginning);
+bool ao_sem_take     (ao_sem_t * s, ao_uint_t count, ao_time_t timeout);
+bool ao_sem_take_from(ao_sem_t * s, ao_uint_t count, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Takes a counting semaphore in a blocking fashion with a timeout and an optional beginning.
@@ -95,7 +95,7 @@ Takes a counting semaphore in a blocking fashion with a timeout and an optional 
 ## `ao_sem_take_forever`
 
 ```c
-bool ao_sem_take_forever(ao_sem_t * sem, ao_uint_t count);
+bool ao_sem_take_forever(ao_sem_t * s, ao_uint_t count);
 ```
 
 Takes a counting semaphore indefinitely in a blocking fashion.
@@ -103,7 +103,7 @@ Takes a counting semaphore indefinitely in a blocking fashion.
 ## `ao_sem_take_try`
 
 ```c
-bool ao_sem_take_try(ao_sem_t * sem, ao_uint_t count);
+bool ao_sem_take_try(ao_sem_t * s, ao_uint_t count);
 ```
 
 Takes a counting semaphore in a non-blocking fashion.
@@ -112,8 +112,8 @@ Takes a counting semaphore in a non-blocking fashion.
 ## `ao_sem_take_end`
 
 ```c
-void ao_sem_take_begin(ao_sem_take_t * take);
-void ao_sem_take_end  (ao_sem_take_t * take);
+void ao_sem_take_begin(ao_sem_take_t * t);
+void ao_sem_take_end  (ao_sem_take_t * t);
 ```
 
 Begins or ends, respectively, a taking of a counting semaphore.

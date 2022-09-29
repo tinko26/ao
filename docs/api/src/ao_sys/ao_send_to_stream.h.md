@@ -16,7 +16,11 @@ toc: true
 ## `ao_send_to_stream`
 
 ```c
-void ao_send_to_stream(ao_send_t * send, ao_spush_t * push);
+void ao_send_to_stream
+(
+    ao_send_t * s, 
+    ao_spush_t * p
+);
 ```
 
 Sets up a sending to push to a stream.
@@ -24,7 +28,11 @@ Sets up a sending to push to a stream.
 ## `ao_send_to_stream_override`
 
 ```c
-void ao_send_to_stream_override(ao_send_t * send, ao_spush_t * push);
+void ao_send_to_stream_override
+(
+    ao_send_t * s, 
+    ao_spush_t * p
+);
 ```
 
 Sets up a sending to push to a stream, overriding old data if the stream is full.

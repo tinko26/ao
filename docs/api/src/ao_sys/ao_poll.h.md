@@ -17,8 +17,8 @@ toc: true
 ## `ao_poll_from`
 
 ```c
-void ao_poll     (ao_async_t const * async, ao_time_t timeout);
-void ao_poll_from(ao_async_t const * async, ao_time_t timeout, ao_time_t beginning);
+void ao_poll     (ao_async_t const * a, ao_time_t timeout);
+void ao_poll_from(ao_async_t const * a, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Polls an asynchronous event with a timeout and an optional beginning.
@@ -26,7 +26,7 @@ Polls an asynchronous event with a timeout and an optional beginning.
 ## `ao_poll_forever`
 
 ```c
-void ao_poll_forever(ao_async_t const * async);
+void ao_poll_forever(ao_async_t const * a);
 ```
 
 Polls an asynchronous event indefinitely.
@@ -35,8 +35,8 @@ Polls an asynchronous event indefinitely.
 ## `ao_poll_all_from`
 
 ```c
-void ao_poll_all     (ao_async_all_t * async_all, ao_time_t timeout);
-void ao_poll_all_from(ao_async_all_t * async_all, ao_time_t timeout, ao_time_t beginning);
+void ao_poll_all     (ao_async_all_t * a, ao_time_t timeout);
+void ao_poll_all_from(ao_async_all_t * a, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Polls all out of a set of asynchronous events with a timeout and an optional beginning.
@@ -44,7 +44,7 @@ Polls all out of a set of asynchronous events with a timeout and an optional beg
 ## `ao_poll_all_forever`
 
 ```c
-void ao_poll_all_forever(ao_async_all_t * async_all);
+void ao_poll_all_forever(ao_async_all_t * a);
 ```
 
 Polls all out of a set of asynchronous events indefinitely.
@@ -53,8 +53,8 @@ Polls all out of a set of asynchronous events indefinitely.
 ## `ao_poll_any_from`
 
 ```c
-void ao_poll_any     (ao_async_any_t * async_any, ao_time_t timeout);
-void ao_poll_any_from(ao_async_any_t * async_any, ao_time_t timeout, ao_time_t beginning);
+void ao_poll_any     (ao_async_any_t * a, ao_time_t timeout);
+void ao_poll_any_from(ao_async_any_t * a, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Polls any one out of a set of asynchronous events with a timeout and an optional beginning.
@@ -62,7 +62,7 @@ Polls any one out of a set of asynchronous events with a timeout and an optional
 ## `ao_poll_any_forever`
 
 ```c
-void ao_poll_any_forever(ao_async_any_t * async_any);
+void ao_poll_any_forever(ao_async_any_t * a);
 ```
 
 Polls any one out of a set of asynchronous events indefinitely.

@@ -33,7 +33,7 @@ struct ao_task_context_t { };
 ## `ao_task_start_context`
 
 ```c
-void ao_task_start_context(ao_task_t * task);
+void ao_task_start_context(ao_task_t * t);
 ```
 
 Starts a task. This function is called by the kernel when a task is being started in order to prepare its context.
@@ -41,7 +41,7 @@ Starts a task. This function is called by the kernel when a task is being starte
 ## `ao_task_stop_context`
 
 ```c
-void ao_task_stop_context(ao_task_t * task);
+void ao_task_stop_context(ao_task_t * t);
 ```
 
 Stops a task. This function is called by the kernel when a task is being stopped in order to clean up its context.

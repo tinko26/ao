@@ -15,7 +15,11 @@ toc: true
 ## `ao_recv_obj_from_callback`
 
 ```c
-void ao_recv_obj_from_callback(ao_recv_obj_t * recv, ao_recv_obj_proc_t callback);
+void ao_recv_obj_from_callback
+(
+    ao_recv_obj_t * r, 
+    ao_recv_obj_proc_t callback
+);
 ```
 
 Sets up a receiving of an object to execute a callback.

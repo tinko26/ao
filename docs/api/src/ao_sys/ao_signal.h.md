@@ -66,7 +66,7 @@ struct ao_signal_wait_t
 ## `ao_signal_notify`
 
 ```c
-void ao_signal_notify(ao_signal_t * signal);
+void ao_signal_notify(ao_signal_t * s);
 ```
 
 Notifies the first waiting for a signal.
@@ -74,7 +74,7 @@ Notifies the first waiting for a signal.
 ## `ao_signal_notify_all`
 
 ```c
-void ao_signal_notify_all(ao_signal_t * signal);
+void ao_signal_notify_all(ao_signal_t * s);
 ```
 
 Notifies all waitings for a signal.
@@ -83,8 +83,8 @@ Notifies all waitings for a signal.
 ## `ao_signal_wait_from`
 
 ```c
-bool ao_signal_wait     (ao_signal_t * signal, ao_time_t timeout);
-bool ao_signal_wait_from(ao_signal_t * signal, ao_time_t timeout, ao_time_t beginning);
+bool ao_signal_wait     (ao_signal_t * s, ao_time_t timeout);
+bool ao_signal_wait_from(ao_signal_t * s, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Waits for a signal in a blocking fashion with a timeout and an optional beginning.
@@ -92,7 +92,7 @@ Waits for a signal in a blocking fashion with a timeout and an optional beginnin
 ## `ao_signal_wait_forever`
 
 ```c
-bool ao_signal_wait_forever(ao_signal_t * signal);
+bool ao_signal_wait_forever(ao_signal_t * s);
 ```
 
 Waits for a signal indefinitely in a blocking fashion.
@@ -101,8 +101,8 @@ Waits for a signal indefinitely in a blocking fashion.
 ## `ao_signal_wait_end`
 
 ```c
-void ao_signal_wait_begin(ao_signal_wait_t * wait);
-void ao_signal_wait_end  (ao_signal_wait_t * wait);
+void ao_signal_wait_begin(ao_signal_wait_t * w);
+void ao_signal_wait_end  (ao_signal_wait_t * w);
 ```
 
 Begins or ends, respectively, a waiting for a signal.

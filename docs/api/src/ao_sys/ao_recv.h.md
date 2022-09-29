@@ -73,8 +73,8 @@ struct ao_recv_t
 ## `ao_recv_from`
 
 ```c
-void ao_recv     (ao_recv_t * recv, ao_time_t timeout);
-void ao_recv_from(ao_recv_t * recv, ao_time_t timeout, ao_time_t beginning);
+void ao_recv     (ao_recv_t * r, ao_time_t timeout);
+void ao_recv_from(ao_recv_t * r, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Receives in a blocking fashion with a timeout and an optional beginning.
@@ -82,7 +82,7 @@ Receives in a blocking fashion with a timeout and an optional beginning.
 ## `ao_recv_forever`
 
 ```c
-void ao_recv_forever(ao_recv_t * recv);
+void ao_recv_forever(ao_recv_t * r);
 ```
 
 Receives indefinitely in a blocking fashion.
@@ -90,7 +90,7 @@ Receives indefinitely in a blocking fashion.
 ## `ao_recv_try`
 
 ```c
-void ao_recv_try(ao_recv_t * recv);
+void ao_recv_try(ao_recv_t * r);
 ```
 
 Receives in a non-blocking fashion.
@@ -99,8 +99,8 @@ Receives in a non-blocking fashion.
 ## `ao_recv_end`
 
 ```c
-void ao_recv_begin(ao_recv_t * recv);
-void ao_recv_end  (ao_recv_t * recv);
+void ao_recv_begin(ao_recv_t * r);
+void ao_recv_end  (ao_recv_t * r);
 ```
 
 Begins or ends, respectively, a receiving.

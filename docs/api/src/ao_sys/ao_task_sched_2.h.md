@@ -201,8 +201,8 @@ struct ao_task_slave_t
 ## `ao_task_ceiling_set_prio`
 
 ```c
-ao_uint_t ao_task_ceiling_get_prio(ao_task_ceiling_t const * ceiling);
-void      ao_task_ceiling_set_prio(ao_task_ceiling_t       * ceiling, ao_uint_t x);
+ao_uint_t ao_task_ceiling_get_prio(ao_task_ceiling_t const * c);
+void      ao_task_ceiling_set_prio(ao_task_ceiling_t       * c, ao_uint_t x);
 ```
 
 Gets or sets, respectively, the priority of a task ceiling.
@@ -211,8 +211,8 @@ Gets or sets, respectively, the priority of a task ceiling.
 ## `ao_task_set_prio`
 
 ```c
-ao_uint_t ao_task_get_prio(ao_task_t const * task);
-void      ao_task_set_prio(ao_task_t       * task, ao_uint_t x);
+ao_uint_t ao_task_get_prio(ao_task_t const * t);
+void      ao_task_set_prio(ao_task_t       * t, ao_uint_t x);
 ```
 
 Gets or sets, respectively, the priority of a task.

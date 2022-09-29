@@ -106,19 +106,19 @@ struct ao_threshold32_wait_t
 ## `ao_threshold32_adjust`
 
 ```c
-void ao_threshold32_adjust(ao_threshold32_t * threshold, ao_threshold32_adjust_t adjust, void * adjust_parameter);
+void ao_threshold32_adjust(ao_threshold32_t * t, ao_threshold32_adjust_t a, void * ap);
 ```
 
-| `threshold` | The threshold. |
-| `adjust` | The adjust function. |
-| `adjust_parameter` | The adjust function parameter. |
+| `t` | The threshold. |
+| `a` | The adjust function. |
+| `ap` | The adjust function parameter. |
 
 Adjusts a threshold.
 
 ## `ao_threshold32_add`
 
 ```c
-void ao_threshold32_add(ao_threshold32_t * threshold, uint32_t x);
+void ao_threshold32_add(ao_threshold32_t * t, uint32_t x);
 ```
 
 Updates a threshold's value. This functions adds the threshold's value and the specified value.
@@ -126,7 +126,7 @@ Updates a threshold's value. This functions adds the threshold's value and the s
 ## `ao_threshold32_and`
 
 ```c
-void ao_threshold32_and(ao_threshold32_t * threshold, uint32_t x);
+void ao_threshold32_and(ao_threshold32_t * t, uint32_t x);
 ```
 
 Updates a threshold's value. This functions performs a bitwise AND with the specified value.
@@ -134,7 +134,7 @@ Updates a threshold's value. This functions performs a bitwise AND with the spec
 ## `ao_threshold32_decrement`
 
 ```c
-void ao_threshold32_decrement(ao_threshold32_t * threshold);
+void ao_threshold32_decrement(ao_threshold32_t * t);
 ```
 
 Updates a threshold's value. This functions decrements the threshold's value.
@@ -142,7 +142,7 @@ Updates a threshold's value. This functions decrements the threshold's value.
 ## `ao_threshold32_divide`
 
 ```c
-void ao_threshold32_divide(ao_threshold32_t * threshold, uint32_t x);
+void ao_threshold32_divide(ao_threshold32_t * t, uint32_t x);
 ```
 
 Updates a threshold's value. This functions divides the threshold's value by the specified value.
@@ -150,7 +150,7 @@ Updates a threshold's value. This functions divides the threshold's value by the
 ## `ao_threshold32_increment`
 
 ```c
-void ao_threshold32_increment(ao_threshold32_t * threshold);
+void ao_threshold32_increment(ao_threshold32_t * t);
 ```
 
 Updates a threshold's value. This functions increments the threshold's value.
@@ -158,7 +158,7 @@ Updates a threshold's value. This functions increments the threshold's value.
 ## `ao_threshold32_max`
 
 ```c
-void ao_threshold32_max(ao_threshold32_t * threshold);
+void ao_threshold32_max(ao_threshold32_t * t);
 ```
 
 Updates a threshold's value. This functions sets the threshold's value to the maximum possible value.
@@ -166,7 +166,7 @@ Updates a threshold's value. This functions sets the threshold's value to the ma
 ## `ao_threshold32_min`
 
 ```c
-void ao_threshold32_min(ao_threshold32_t * threshold);
+void ao_threshold32_min(ao_threshold32_t * t);
 ```
 
 Updates a threshold's value. This functions sets the threshold's value to the minimum possible value, i.e. zero.
@@ -174,7 +174,7 @@ Updates a threshold's value. This functions sets the threshold's value to the mi
 ## `ao_threshold32_modulo`
 
 ```c
-void ao_threshold32_modulo(ao_threshold32_t * threshold, uint32_t x);
+void ao_threshold32_modulo(ao_threshold32_t * t, uint32_t x);
 ```
 
 Updates a threshold's value. This functions sets the threshold's value to the remainder of it divided by the specified value.
@@ -182,7 +182,7 @@ Updates a threshold's value. This functions sets the threshold's value to the re
 ## `ao_threshold32_multiply`
 
 ```c
-void ao_threshold32_multiply(ao_threshold32_t * threshold, uint32_t x);
+void ao_threshold32_multiply(ao_threshold32_t * t, uint32_t x);
 ```
 
 Updates a threshold's value. This functions multiplies the threshold's value with the specified value.
@@ -190,7 +190,7 @@ Updates a threshold's value. This functions multiplies the threshold's value wit
 ## `ao_threshold32_nand`
 
 ```c
-void ao_threshold32_nand(ao_threshold32_t * threshold, uint32_t x);
+void ao_threshold32_nand(ao_threshold32_t * t, uint32_t x);
 ```
 
 Updates a threshold's value. This functions performs a bitwise NAND with the specified value.
@@ -198,7 +198,7 @@ Updates a threshold's value. This functions performs a bitwise NAND with the spe
 ## `ao_threshold32_nor`
 
 ```c
-void ao_threshold32_nor(ao_threshold32_t * threshold, uint32_t x);
+void ao_threshold32_nor(ao_threshold32_t * t, uint32_t x);
 ```
 
 Updates a threshold's value. This functions performs a bitwise NOR with the specified value.
@@ -206,7 +206,7 @@ Updates a threshold's value. This functions performs a bitwise NOR with the spec
 ## `ao_threshold32_not`
 
 ```c
-void ao_threshold32_not(ao_threshold32_t * threshold);
+void ao_threshold32_not(ao_threshold32_t * t);
 ```
 
 Updates a threshold's value. This functions performs a bitwise inversion on the threshold's value.
@@ -214,7 +214,7 @@ Updates a threshold's value. This functions performs a bitwise inversion on the 
 ## `ao_threshold32_or`
 
 ```c
-void ao_threshold32_or(ao_threshold32_t * threshold, uint32_t x);
+void ao_threshold32_or(ao_threshold32_t * t, uint32_t x);
 ```
 
 Updates a threshold's value. This functions performs a bitwise OR with the specified value.
@@ -222,7 +222,7 @@ Updates a threshold's value. This functions performs a bitwise OR with the speci
 ## `ao_threshold32_set`
 
 ```c
-void ao_threshold32_set(ao_threshold32_t * threshold, uint32_t x);
+void ao_threshold32_set(ao_threshold32_t * t, uint32_t x);
 ```
 
 Updates a threshold's value. This functions sets the threshold's value to the specified value.
@@ -230,7 +230,7 @@ Updates a threshold's value. This functions sets the threshold's value to the sp
 ## `ao_threshold32_subtract`
 
 ```c
-void ao_threshold32_subtract(ao_threshold32_t * threshold, uint32_t x);
+void ao_threshold32_subtract(ao_threshold32_t * t, uint32_t x);
 ```
 
 Updates a threshold's value. This functions subtracts the specified value from the threshold's value.
@@ -238,7 +238,7 @@ Updates a threshold's value. This functions subtracts the specified value from t
 ## `ao_threshold32_subtract_from`
 
 ```c
-void ao_threshold32_subtract_from(ao_threshold32_t * threshold, uint32_t x);
+void ao_threshold32_subtract_from(ao_threshold32_t * t, uint32_t x);
 ```
 
 Updates a threshold's value. This functions subtracts the threshold's value from the specified value.
@@ -246,7 +246,7 @@ Updates a threshold's value. This functions subtracts the threshold's value from
 ## `ao_threshold32_xnor`
 
 ```c
-void ao_threshold32_xnor(ao_threshold32_t * threshold, uint32_t x);
+void ao_threshold32_xnor(ao_threshold32_t * t, uint32_t x);
 ```
 
 Updates a threshold's value. This functions performs a bitwise XNOR with the specified value.
@@ -254,7 +254,7 @@ Updates a threshold's value. This functions performs a bitwise XNOR with the spe
 ## `ao_threshold32_xor`
 
 ```c
-void ao_threshold32_xor(ao_threshold32_t * threshold, uint32_t x);
+void ao_threshold32_xor(ao_threshold32_t * t, uint32_t x);
 ```
 
 Updates a threshold's value. This functions performs a bitwise XOR with the specified value.
@@ -263,8 +263,8 @@ Updates a threshold's value. This functions performs a bitwise XOR with the spec
 ## `ao_threshold32_wait_from`
 
 ```c
-bool ao_threshold32_wait     (ao_threshold32_wait_t * wait, ao_time_t timeout);
-bool ao_threshold32_wait_from(ao_threshold32_wait_t * wait, ao_time_t timeout, ao_time_t beginning);
+bool ao_threshold32_wait     (ao_threshold32_wait_t * w, ao_time_t timeout);
+bool ao_threshold32_wait_from(ao_threshold32_wait_t * w, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Waits for a threshold match in a blocking fashion with a timeout and an optional beginning.
@@ -272,7 +272,7 @@ Waits for a threshold match in a blocking fashion with a timeout and an optional
 ## `ao_threshold32_wait_forever`
 
 ```c
-bool ao_threshold32_wait_forever(ao_threshold32_wait_t * wait);
+bool ao_threshold32_wait_forever(ao_threshold32_wait_t * w);
 ```
 
 Waits for a threshold match indefinitely in a blocking fashion.
@@ -280,7 +280,7 @@ Waits for a threshold match indefinitely in a blocking fashion.
 ## `ao_threshold32_wait_try`
 
 ```c
-bool ao_threshold32_wait_try(ao_threshold32_wait_t * wait);
+bool ao_threshold32_wait_try(ao_threshold32_wait_t * w);
 ```
 
 Waits for a threshold match in a non-blocking fashion.
@@ -289,8 +289,8 @@ Waits for a threshold match in a non-blocking fashion.
 ## `ao_threshold32_wait_end`
 
 ```c
-void ao_threshold32_wait_begin(ao_threshold32_wait_t * wait);
-void ao_threshold32_wait_end  (ao_threshold32_wait_t * wait);
+void ao_threshold32_wait_begin(ao_threshold32_wait_t * w);
+void ao_threshold32_wait_end  (ao_threshold32_wait_t * w);
 ```
 
 Begins or ends, respectively, a waiting for a threshold match.

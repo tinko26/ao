@@ -78,8 +78,8 @@ struct ao_barrier_wait_t
 ## `ao_barrier_wait_from`
 
 ```c
-bool ao_barrier_wait     (ao_barrier_t * barrier, ao_time_t timeout);
-bool ao_barrier_wait_from(ao_barrier_t * barrier, ao_time_t timeout, ao_time_t beginning);
+bool ao_barrier_wait     (ao_barrier_t * b, ao_time_t timeout);
+bool ao_barrier_wait_from(ao_barrier_t * b, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Waits at a barrier in a blocking fashion with a timeout and an optional beginning.
@@ -87,7 +87,7 @@ Waits at a barrier in a blocking fashion with a timeout and an optional beginnin
 ## `ao_barrier_wait_forever`
 
 ```c
-bool ao_barrier_wait_forever(ao_barrier_t * barrier);
+bool ao_barrier_wait_forever(ao_barrier_t * b);
 ```
 
 Waits at a barrier indefinitely in a blocking fashion.
@@ -95,7 +95,7 @@ Waits at a barrier indefinitely in a blocking fashion.
 ## `ao_barrier_wait_try`
 
 ```c
-bool ao_barrier_wait_try(ao_barrier_t * barrier);
+bool ao_barrier_wait_try(ao_barrier_t * b);
 ```
 
 Waits at a barrier in a non-blocking fashion.
@@ -104,8 +104,8 @@ Waits at a barrier in a non-blocking fashion.
 ## `ao_barrier_wait_end`
 
 ```c
-void ao_barrier_wait_begin(ao_barrier_wait_t * wait);
-void ao_barrier_wait_end  (ao_barrier_wait_t * wait);
+void ao_barrier_wait_begin(ao_barrier_wait_t * w);
+void ao_barrier_wait_end  (ao_barrier_wait_t * w);
 ```
 
 Begins or ends, respectively, a waiting at a barrier.

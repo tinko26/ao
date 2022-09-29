@@ -115,8 +115,8 @@ struct ao_mutex_lock_t
 ## `ao_mutex_lock_from`
 
 ```c
-bool ao_mutex_lock     (ao_mutex_t * mutex, ao_time_t timeout);
-bool ao_mutex_lock_from(ao_mutex_t * mutex, ao_time_t timeout, ao_time_t beginning);
+bool ao_mutex_lock     (ao_mutex_t * m, ao_time_t timeout);
+bool ao_mutex_lock_from(ao_mutex_t * m, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Locks a mutex in a blocking fashion with a timeout and an optional beginning.
@@ -124,7 +124,7 @@ Locks a mutex in a blocking fashion with a timeout and an optional beginning.
 ## `ao_mutex_lock_forever`
 
 ```c
-bool ao_mutex_lock_forever(ao_mutex_t * mutex);
+bool ao_mutex_lock_forever(ao_mutex_t * m);
 ```
 
 Locks a mutex indefinitely in a blocking fashion.
@@ -132,7 +132,7 @@ Locks a mutex indefinitely in a blocking fashion.
 ## `ao_mutex_lock_try`
 
 ```c
-bool ao_mutex_lock_try(ao_mutex_t * mutex);
+bool ao_mutex_lock_try(ao_mutex_t * m);
 ```
 
 Locks a mutex in a non-blocking fashion.
@@ -141,8 +141,8 @@ Locks a mutex in a non-blocking fashion.
 ## `ao_mutex_lock_end`
 
 ```c
-void ao_mutex_lock_begin(ao_mutex_lock_t * lock);
-void ao_mutex_lock_end  (ao_mutex_lock_t * lock);
+void ao_mutex_lock_begin(ao_mutex_lock_t * l);
+void ao_mutex_lock_end  (ao_mutex_lock_t * l);
 ```
 
 Begins or ends, respectively, a locking of a mutex.
@@ -150,7 +150,7 @@ Begins or ends, respectively, a locking of a mutex.
 ## `ao_mutex_unlock`
 
 ```c
-void ao_mutex_unlock(ao_mutex_t * mutex);
+void ao_mutex_unlock(ao_mutex_t * m);
 ```
 
 Unlocks a mutex.

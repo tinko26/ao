@@ -66,8 +66,8 @@ struct ao_recv_obj_t
 ## `ao_recv_obj_from`
 
 ```c
-void ao_recv_obj     (ao_recv_obj_t * recv, ao_time_t timeout);
-void ao_recv_obj_from(ao_recv_obj_t * recv, ao_time_t timeout, ao_time_t beginning);
+void ao_recv_obj     (ao_recv_obj_t * r, ao_time_t timeout);
+void ao_recv_obj_from(ao_recv_obj_t * r, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Receives an object in a blocking fashion with a timeout and an optional beginning.
@@ -75,7 +75,7 @@ Receives an object in a blocking fashion with a timeout and an optional beginnin
 ## `ao_recv_obj_forever`
 
 ```c
-void ao_recv_obj_forever(ao_recv_obj_t * recv);
+void ao_recv_obj_forever(ao_recv_obj_t * r);
 ```
 
 Receives an object indefinitely in a blocking fashion.
@@ -83,7 +83,7 @@ Receives an object indefinitely in a blocking fashion.
 ## `ao_recv_obj_try`
 
 ```c
-void ao_recv_obj_try(ao_recv_obj_t * recv);
+void ao_recv_obj_try(ao_recv_obj_t * r);
 ```
 
 Receives an object in a non-blocking fashion.
@@ -92,8 +92,8 @@ Receives an object in a non-blocking fashion.
 ## `ao_recv_obj_end`
 
 ```c
-void ao_recv_obj_begin(ao_recv_obj_t * recv);
-void ao_recv_obj_end  (ao_recv_obj_t * recv);
+void ao_recv_obj_begin(ao_recv_obj_t * r);
+void ao_recv_obj_end  (ao_recv_obj_t * r);
 ```
 
 Begins or ends, respectively, a receiving of an object.

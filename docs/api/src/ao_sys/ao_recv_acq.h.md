@@ -39,8 +39,8 @@ Represents a function beginning or ending a receiving of an acquired memory bloc
 ## `ao_recv_acq_from`
 
 ```c
-void ao_recv_acq     (ao_recv_acq_t * recv, ao_time_t timeout);
-void ao_recv_acq_from(ao_recv_acq_t * recv, ao_time_t timeout, ao_time_t beginning);
+void ao_recv_acq     (ao_recv_acq_t * r, ao_time_t timeout);
+void ao_recv_acq_from(ao_recv_acq_t * r, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Receives an acquired memory block in a blocking fashion with a timeout and an optional beginning.
@@ -48,7 +48,7 @@ Receives an acquired memory block in a blocking fashion with a timeout and an op
 ## `ao_recv_acq_forever`
 
 ```c
-void ao_recv_acq_forever(ao_recv_acq_t * recv);
+void ao_recv_acq_forever(ao_recv_acq_t * r);
 ```
 
 Receives an acquired memory block indefinitely in a blocking fashion.
@@ -56,7 +56,7 @@ Receives an acquired memory block indefinitely in a blocking fashion.
 ## `ao_recv_acq_try`
 
 ```c
-void ao_recv_acq_try(ao_recv_acq_t * recv);
+void ao_recv_acq_try(ao_recv_acq_t * r);
 ```
 
 Receives an acquired memory block in a non-blocking fashion.
@@ -65,8 +65,8 @@ Receives an acquired memory block in a non-blocking fashion.
 ## `ao_recv_acq_end`
 
 ```c
-void ao_recv_acq_begin(ao_recv_acq_t * recv);
-void ao_recv_acq_end  (ao_recv_acq_t * recv);
+void ao_recv_acq_begin(ao_recv_acq_t * r);
+void ao_recv_acq_end  (ao_recv_acq_t * r);
 ```
 
 Begins or ends, respectively, a receiving of an acquired memory block.

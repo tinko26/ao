@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-26
+date: 2022-09-29
 draft: true
 permalink: /api/src/ao_sys/ao_pmail.h/
 toc: true
@@ -95,8 +95,8 @@ struct ao_pmailbox_t
 ## `ao_pmail_fetch_from`
 
 ```c
-bool ao_pmail_fetch     (ao_pmailbox_t * pmailbox, ao_pmail_t ** pmail, ao_time_t timeout);
-bool ao_pmail_fetch_from(ao_pmailbox_t * pmailbox, ao_pmail_t ** pmail, ao_time_t timeout, ao_time_t beginning);
+void ao_pmail_fetch     (ao_pmail_fetch_t * f, ao_time_t timeout);
+void ao_pmail_fetch_from(ao_pmail_fetch_t * f, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Fetches a priority mail in a blocking fashion with a timeout and an optional beginning.
@@ -104,7 +104,7 @@ Fetches a priority mail in a blocking fashion with a timeout and an optional beg
 ## `ao_pmail_fetch_forever`
 
 ```c
-bool ao_pmail_fetch_forever(ao_pmailbox_t * pmailbox, ao_pmail_t ** pmail);
+void ao_pmail_fetch_forever(ao_pmail_fetch_t * f);
 ```
 
 Fetches a priority mail indefinitely in a blocking fashion.
@@ -112,7 +112,7 @@ Fetches a priority mail indefinitely in a blocking fashion.
 ## `ao_pmail_fetch_try`
 
 ```c
-bool ao_pmail_fetch_try(ao_pmailbox_t * pmailbox, ao_pmail_t ** pmail);
+void ao_pmail_fetch_try(ao_pmail_fetch_t * f);
 ```
 
 Fetches a priority mail in a non-blocking fashion.
@@ -121,8 +121,8 @@ Fetches a priority mail in a non-blocking fashion.
 ## `ao_pmail_fetch_end`
 
 ```c
-void ao_pmail_fetch_begin(ao_pmail_fetch_t * x);
-void ao_pmail_fetch_end  (ao_pmail_fetch_t * x);
+void ao_pmail_fetch_begin(ao_pmail_fetch_t * f);
+void ao_pmail_fetch_end  (ao_pmail_fetch_t * f);
 ```
 
 Begins or ends, respectively, a fetching of a priority mail.
@@ -130,7 +130,7 @@ Begins or ends, respectively, a fetching of a priority mail.
 ## `ao_pmail_post`
 
 ```c
-void ao_pmail_post(ao_pmailbox_t * pmailbox, ao_pmail_t * m);
+void ao_pmail_post(ao_pmailbox_t * x, ao_pmail_t * p);
 ```
 
 Posts a priority mail.

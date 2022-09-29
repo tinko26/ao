@@ -263,7 +263,7 @@ struct ao_task_t
 ## `ao_task_entry`
 
 ```c
-void ao_task_entry(ao_task_t const * task);
+void ao_task_entry(ao_task_t const * t);
 ```
 
 The entry point for each task. It takes the respective task as its only argument.
@@ -273,16 +273,16 @@ First, this function calls the task procedure, if specified. Then, after the tas
 ## `ao_task_get_count_*`
 
 ```c
-ao_uint_t ao_task_get_count_activate  (ao_task_t const * task);
-ao_uint_t ao_task_get_count_block     (ao_task_t const * task);
-ao_uint_t ao_task_get_count_inactivate(ao_task_t const * task);
-ao_uint_t ao_task_get_count_resume    (ao_task_t const * task);
-ao_uint_t ao_task_get_count_start     (ao_task_t const * task);
-ao_uint_t ao_task_get_count_stop      (ao_task_t const * task);
-ao_uint_t ao_task_get_count_suspend   (ao_task_t const * task);
-ao_uint_t ao_task_get_count_switch_in (ao_task_t const * task);
-ao_uint_t ao_task_get_count_switch_out(ao_task_t const * task);
-ao_uint_t ao_task_get_count_unblock   (ao_task_t const * task);
+ao_uint_t ao_task_get_count_activate  (ao_task_t const * t);
+ao_uint_t ao_task_get_count_block     (ao_task_t const * t);
+ao_uint_t ao_task_get_count_inactivate(ao_task_t const * t);
+ao_uint_t ao_task_get_count_resume    (ao_task_t const * t);
+ao_uint_t ao_task_get_count_start     (ao_task_t const * t);
+ao_uint_t ao_task_get_count_stop      (ao_task_t const * t);
+ao_uint_t ao_task_get_count_suspend   (ao_task_t const * t);
+ao_uint_t ao_task_get_count_switch_in (ao_task_t const * t);
+ao_uint_t ao_task_get_count_switch_out(ao_task_t const * t);
+ao_uint_t ao_task_get_count_unblock   (ao_task_t const * t);
 ```
 
 Gets the number of state transitions a task has gone through.
@@ -290,7 +290,7 @@ Gets the number of state transitions a task has gone through.
 ## `ao_task_get_id`
 
 ```c
-ao_uint_t ao_task_get_id(ao_task_t const * task);
+ao_uint_t ao_task_get_id(ao_task_t const * t);
 ```
 
 Gets the ID of a task.
@@ -298,7 +298,7 @@ Gets the ID of a task.
 ## `ao_task_get_name`
 
 ```c
-char const * ao_task_get_name(ao_task_t const * task);
+char const * ao_task_get_name(ao_task_t const * t);
 ```
 
 Gets the name of a task.
@@ -307,8 +307,8 @@ Gets the name of a task.
 ## `ao_task_get_proc_parameter`
 
 ```c
-ao_proc_t ao_task_get_proc          (ao_task_t const * task);
-void *    ao_task_get_proc_parameter(ao_task_t const * task);
+ao_proc_t ao_task_get_proc          (ao_task_t const * t);
+void *    ao_task_get_proc_parameter(ao_task_t const * t);
 ```
 
 Gets the procedure or procedure parameter, respectively, of a task.
@@ -316,7 +316,7 @@ Gets the procedure or procedure parameter, respectively, of a task.
 ## `ao_task_get_state`
 
 ```c
-ao_task_state_t ao_task_get_state(ao_task_t const * task);
+ao_task_state_t ao_task_get_state(ao_task_t const * t);
 ```
 
 Gets the current state of a task.
@@ -324,7 +324,7 @@ Gets the current state of a task.
 ## `ao_task_get_state_pending`
 
 ```c
-ao_task_state_pending_t ao_task_get_state_pending(ao_task_t const * task);
+ao_task_state_pending_t ao_task_get_state_pending(ao_task_t const * t);
 ```
 
 Gets the current pending state transition of a task.
@@ -332,12 +332,12 @@ Gets the current pending state transition of a task.
 ## `ao_task_get_time_point_*`
 
 ```c
-ao_time_t ao_task_get_time_point_activation  (ao_task_t const * task);
-ao_time_t ao_task_get_time_point_inactivation(ao_task_t const * task);
-ao_time_t ao_task_get_time_point_start       (ao_task_t const * task);
-ao_time_t ao_task_get_time_point_stop        (ao_task_t const * task);
-ao_time_t ao_task_get_time_point_switch_in   (ao_task_t const * task);
-ao_time_t ao_task_get_time_point_switch_out  (ao_task_t const * task);
+ao_time_t ao_task_get_time_point_activation  (ao_task_t const * t);
+ao_time_t ao_task_get_time_point_inactivation(ao_task_t const * t);
+ao_time_t ao_task_get_time_point_start       (ao_task_t const * t);
+ao_time_t ao_task_get_time_point_stop        (ao_task_t const * t);
+ao_time_t ao_task_get_time_point_switch_in   (ao_task_t const * t);
+ao_time_t ao_task_get_time_point_switch_out  (ao_task_t const * t);
 ```
 
 Gets a time point of a task.
@@ -345,10 +345,10 @@ Gets a time point of a task.
 ## `ao_task_get_time_span_*`
 
 ```c
-ao_time_t ao_task_get_time_span_active  (ao_task_t const * task);
-ao_time_t ao_task_get_time_span_down    (ao_task_t const * task);
-ao_time_t ao_task_get_time_span_inactive(ao_task_t const * task);
-ao_time_t ao_task_get_time_span_up      (ao_task_t const * task);
+ao_time_t ao_task_get_time_span_active  (ao_task_t const * t);
+ao_time_t ao_task_get_time_span_down    (ao_task_t const * t);
+ao_time_t ao_task_get_time_span_inactive(ao_task_t const * t);
+ao_time_t ao_task_get_time_span_up      (ao_task_t const * t);
 ```
 
 Gets an accumulated time span measured for a task.
@@ -356,23 +356,23 @@ Gets an accumulated time span measured for a task.
 ## `ao_task_is_*`
 
 ```c
-bool ao_task_is_active     (ao_task_t const * task);
-bool ao_task_is_blocked    (ao_task_t const * task);
-bool ao_task_is_ready      (ao_task_t const * task);
-bool ao_task_is_running    (ao_task_t const * task);
-bool ao_task_is_started    (ao_task_t const * task);
-bool ao_task_is_stopped    (ao_task_t const * task);
-bool ao_task_is_suspendable(ao_task_t const * task);
-bool ao_task_is_suspended  (ao_task_t const * task);
+bool ao_task_is_active     (ao_task_t const * t);
+bool ao_task_is_blocked    (ao_task_t const * t);
+bool ao_task_is_ready      (ao_task_t const * t);
+bool ao_task_is_running    (ao_task_t const * t);
+bool ao_task_is_started    (ao_task_t const * t);
+bool ao_task_is_stopped    (ao_task_t const * t);
+bool ao_task_is_suspendable(ao_task_t const * t);
+bool ao_task_is_suspended  (ao_task_t const * t);
 ```
 
 Checks whether a task is in a specific state.
 
 ```c
-bool ao_task_is_blocking   (ao_task_t const * task);
-bool ao_task_is_stopping   (ao_task_t const * task);
-bool ao_task_is_suspending (ao_task_t const * task);
-bool ao_task_is_yielding   (ao_task_t const * task);
+bool ao_task_is_blocking   (ao_task_t const * t);
+bool ao_task_is_stopping   (ao_task_t const * t);
+bool ao_task_is_suspending (ao_task_t const * t);
+bool ao_task_is_yielding   (ao_task_t const * t);
 ```
 
 Checks whether a specific state transition is pending for a task.
@@ -380,7 +380,7 @@ Checks whether a specific state transition is pending for a task.
 ## `ao_task_resume`
 
 ```c
-void ao_task_resume(ao_task_t * task);
+void ao_task_resume(ao_task_t * t);
 ```
 
 Resumes a task.
@@ -388,16 +388,16 @@ Resumes a task.
 ## `ao_task_set_count_*`
 
 ```c
-void ao_task_set_count_activate  (ao_task_t * task, ao_uint_t x);
-void ao_task_set_count_block     (ao_task_t * task, ao_uint_t x);
-void ao_task_set_count_inactivate(ao_task_t * task, ao_uint_t x);
-void ao_task_set_count_resume    (ao_task_t * task, ao_uint_t x);
-void ao_task_set_count_start     (ao_task_t * task, ao_uint_t x);
-void ao_task_set_count_stop      (ao_task_t * task, ao_uint_t x);
-void ao_task_set_count_suspend   (ao_task_t * task, ao_uint_t x);
-void ao_task_set_count_switch_in (ao_task_t * task, ao_uint_t x);
-void ao_task_set_count_switch_out(ao_task_t * task, ao_uint_t x);
-void ao_task_set_count_unblock   (ao_task_t * task, ao_uint_t x);
+void ao_task_set_count_activate  (ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_block     (ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_inactivate(ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_resume    (ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_start     (ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_stop      (ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_suspend   (ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_switch_in (ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_switch_out(ao_task_t * t, ao_uint_t x);
+void ao_task_set_count_unblock   (ao_task_t * t, ao_uint_t x);
 ```
 
 Sets a specific state transition counter of a task.
@@ -405,7 +405,7 @@ Sets a specific state transition counter of a task.
 ## `ao_task_set_id`
 
 ```c
-void ao_task_set_id(ao_task_t * task, ao_uint_t x);
+void ao_task_set_id(ao_task_t * t, ao_uint_t x);
 ```
 
 Sets the ID of a task.
@@ -413,7 +413,7 @@ Sets the ID of a task.
 ## `ao_task_set_name`
 
 ```c
-void ao_task_set_name(ao_task_t * task, char const * x);
+void ao_task_set_name(ao_task_t * t, char const * x);
 ```
 
 Sets the name of a task.
@@ -421,7 +421,7 @@ Sets the name of a task.
 ## `ao_task_set_proc`
 
 ```c
-void ao_task_set_proc(ao_task_t * task, ao_proc_t proc, void * parameter);
+void ao_task_set_proc(ao_task_t * t, ao_proc_t p, void * parameter);
 ```
 
 Sets the procedure and procedure parameter of a task.
@@ -429,10 +429,10 @@ Sets the procedure and procedure parameter of a task.
 ## `ao_task_set_time_span_*`
 
 ```c
-void ao_task_set_time_span_active  (ao_task_t * task, ao_time_t x);
-void ao_task_set_time_span_down    (ao_task_t * task, ao_time_t x);
-void ao_task_set_time_span_inactive(ao_task_t * task, ao_time_t x);
-void ao_task_set_time_span_up      (ao_task_t * task, ao_time_t x);
+void ao_task_set_time_span_active  (ao_task_t * t, ao_time_t x);
+void ao_task_set_time_span_down    (ao_task_t * t, ao_time_t x);
+void ao_task_set_time_span_inactive(ao_task_t * t, ao_time_t x);
+void ao_task_set_time_span_up      (ao_task_t * t, ao_time_t x);
 ```
 
 Sets an accumulated time span of a task.
@@ -440,7 +440,7 @@ Sets an accumulated time span of a task.
 ## `ao_task_start`
 
 ```c
-void ao_task_start(ao_task_t * task);
+void ao_task_start(ao_task_t * t);
 ```
 
 Starts a task.
@@ -448,7 +448,7 @@ Starts a task.
 ## `ao_task_stop`
 
 ```c
-void ao_task_stop(ao_task_t * task);
+void ao_task_stop(ao_task_t * t);
 ```
 
 Stops a task.
@@ -456,7 +456,7 @@ Stops a task.
 ## `ao_task_suspend`
 
 ```c
-void ao_task_suspend(ao_task_t * task);
+void ao_task_suspend(ao_task_t * t);
 ```
 
 Suspends a task.
@@ -464,7 +464,7 @@ Suspends a task.
 ## `ao_task_wake`
 
 ```c
-void ao_task_wake(ao_task_t * task);
+void ao_task_wake(ao_task_t * t);
 ```
 
 Wakes up a task.

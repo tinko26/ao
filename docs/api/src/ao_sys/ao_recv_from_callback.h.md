@@ -15,7 +15,11 @@ toc: true
 ## `ao_recv_from_callback`
 
 ```c
-void ao_recv_from_callback(ao_recv_t * recv, ao_recv_proc_t callback);
+void ao_recv_from_callback
+(
+    ao_recv_t * r, 
+    ao_recv_proc_t callback
+);
 ```
 
 Sets up a receiving to execute a callback.

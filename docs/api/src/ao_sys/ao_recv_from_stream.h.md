@@ -16,7 +16,11 @@ toc: true
 ## `ao_recv_from_stream`
 
 ```c
-void ao_recv_from_stream(ao_recv_t * recv, ao_spop_t * pop);
+void ao_recv_from_stream
+(
+    ao_recv_t * r, 
+    ao_spop_t * p
+);
 ```
 
 Sets up a receiving to pop from a stream.

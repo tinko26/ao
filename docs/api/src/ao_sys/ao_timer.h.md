@@ -59,8 +59,8 @@ struct ao_timer_t
 ## `ao_timer_start_from`
 
 ```c
-void ao_timer_start     (ao_timer_t * timer, ao_time_t phase, ao_time_t period);
-void ao_timer_start_from(ao_timer_t * timer, ao_time_t phase, ao_time_t period, ao_time_t beginning);
+void ao_timer_start     (ao_timer_t * t, ao_time_t phase, ao_time_t period);
+void ao_timer_start_from(ao_timer_t * t, ao_time_t phase, ao_time_t period, ao_time_t beginning);
 ```
 
 Starts a timer with a phase, a period, and an optional beginning.
@@ -68,7 +68,7 @@ Starts a timer with a phase, a period, and an optional beginning.
 ## `ao_timer_stop`
 
 ```c
-void ao_timer_stop(ao_timer_t * timer);
+void ao_timer_stop(ao_timer_t * t);
 ```
 
 Stops a timer.

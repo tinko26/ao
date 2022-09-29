@@ -16,7 +16,11 @@ toc: true
 ## `ao_send_acq_to_stream`
 
 ```c
-void ao_send_acq_to_stream(ao_send_acq_t * send, ao_spush_acq_t * push);
+void ao_send_acq_to_stream
+(
+    ao_send_acq_t * s, 
+    ao_spush_acq_t * p
+);
 ```
 
 Sets up a sending of an acquired memory block to push an acquired memory block to a stream.
@@ -24,7 +28,11 @@ Sets up a sending of an acquired memory block to push an acquired memory block t
 ## `ao_send_acq_to_stream_override`
 
 ```c
-void ao_send_acq_to_stream_override(ao_send_acq_t * send, ao_spush_acq_t * push);
+void ao_send_acq_to_stream_override
+(
+    ao_send_acq_t * s, 
+    ao_spush_acq_t * p
+);
 ```
 
 Sets up a sending of an acquired memory block to push an acquired memory block to a stream, overriding old data if the stream is full.

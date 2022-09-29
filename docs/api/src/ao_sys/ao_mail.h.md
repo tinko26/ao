@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-26
+date: 2022-09-29
 draft: true
 permalink: /api/src/ao_sys/ao_mail.h/
 toc: true
@@ -81,8 +81,8 @@ struct ao_mailbox_t
 };
 ```
 
-| `fetchers` | The list of fetchings. |
-| `mails` | The list of mails. |
+| `fetch` | The list of fetchings. |
+| `mail` | The list of mails. |
 
 # Functions
 
@@ -90,8 +90,8 @@ struct ao_mailbox_t
 ## `ao_mail_fetch_from`
 
 ```c
-bool ao_mail_fetch     (ao_mailbox_t * mailbox, ao_mail_t ** mail, ao_time_t timeout);
-bool ao_mail_fetch_from(ao_mailbox_t * mailbox, ao_mail_t ** mail, ao_time_t timeout, ao_time_t beginning);
+void ao_mail_fetch     (ao_mail_fetch_t * f, ao_time_t timeout);
+void ao_mail_fetch_from(ao_mail_fetch_t * f, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Fetches a mail in a blocking fashion with a timeout and an optional beginning.
@@ -99,7 +99,7 @@ Fetches a mail in a blocking fashion with a timeout and an optional beginning.
 ## `ao_mail_fetch_forever`
 
 ```c
-bool ao_mail_fetch_forever(ao_mailbox_t * mailbox, ao_mail_t ** mail);
+void ao_mail_fetch_forever(ao_mail_fetch_t * f);
 ```
 
 Fetches a mail indefinitely in a blocking fashion.
@@ -107,7 +107,7 @@ Fetches a mail indefinitely in a blocking fashion.
 ## `ao_mail_fetch_try`
 
 ```c
-bool ao_mail_fetch_try(ao_mailbox_t * mailbox, ao_mail_t ** mail);
+void ao_mail_fetch_try(ao_mail_fetch_t * f);
 ```
 
 Fetches a mail in a non-blocking fashion.
@@ -116,8 +116,8 @@ Fetches a mail in a non-blocking fashion.
 ## `ao_mail_fetch_end`
 
 ```c
-void ao_mail_fetch_begin(ao_mail_fetch_t * fetch);
-void ao_mail_fetch_end  (ao_mail_fetch_t * fetch);
+void ao_mail_fetch_begin(ao_mail_fetch_t * f);
+void ao_mail_fetch_end  (ao_mail_fetch_t * f);
 ```
 
 Begins or ends, respectively, a fetching of a mail.
@@ -125,7 +125,7 @@ Begins or ends, respectively, a fetching of a mail.
 ## `ao_mail_post`
 
 ```c
-void ao_mail_post(ao_mailbox_t * mailbox, ao_mail_t * mail);
+void ao_mail_post(ao_mailbox_t * x, ao_mail_t * m);
 ```
 
 Posts a mail.

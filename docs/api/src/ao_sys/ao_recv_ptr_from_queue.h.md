@@ -16,7 +16,11 @@ toc: true
 ## `ao_recv_ptr_from_queue`
 
 ```c
-void ao_recv_ptr_from_queue(ao_recv_ptr_t * recv, ao_qpop_ptr_t * pop);
+void ao_recv_ptr_from_queue
+(
+    ao_recv_ptr_t * r, 
+    ao_qpop_ptr_t * p
+);
 ```
 
 Sets up a receiving of a pointer to pop a pointer from a queue.

@@ -51,7 +51,7 @@ Requests the interrupt or replies thereto.
 ## `ao_ir_alarm_set`
 
 ```c
-void ao_ir_alarm_set(ao_time_t time);
+void ao_ir_alarm_set(ao_time_t t);
 ```
 
 Sets the time for the next interrupt.

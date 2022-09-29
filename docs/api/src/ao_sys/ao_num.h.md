@@ -102,19 +102,19 @@ struct ao_num_wait_t
 ## `ao_num_adjust`
 
 ```c
-void ao_num_adjust(ao_num_t * num, ao_num_adjust_t adjust, void * adjust_parameter);
+void ao_num_adjust(ao_num_t * n, ao_num_adjust_t a, void * ap);
 ```
 
-| `num` | The number. |
-| `adjust` | The adjust function. |
-| `adjust_parameter` | The adjust function parameter. |
+| `n` | The number. |
+| `a` | The adjust function. |
+| `ap` | The adjust function parameter. |
 
 Adjusts a number.
 
 ## `ao_num_add`
 
 ```c
-void ao_num_add(ao_num_t * num, ao_uint_t x);
+void ao_num_add(ao_num_t * n, ao_uint_t x);
 ```
 
 Updates a number's value. This functions adds the number's value and the specified value.
@@ -122,7 +122,7 @@ Updates a number's value. This functions adds the number's value and the specifi
 ## `ao_num_and`
 
 ```c
-void ao_num_and(ao_num_t * num, ao_uint_t x);
+void ao_num_and(ao_num_t * n, ao_uint_t x);
 ```
 
 Updates a number's value. This functions performs a bitwise AND with the specified value.
@@ -130,7 +130,7 @@ Updates a number's value. This functions performs a bitwise AND with the specifi
 ## `ao_num_decrement`
 
 ```c
-void ao_num_decrement(ao_num_t * num);
+void ao_num_decrement(ao_num_t * n);
 ```
 
 Updates a number's value. This functions decrements the number's value.
@@ -138,7 +138,7 @@ Updates a number's value. This functions decrements the number's value.
 ## `ao_num_divide`
 
 ```c
-void ao_num_divide(ao_num_t * num, ao_uint_t x);
+void ao_num_divide(ao_num_t * n, ao_uint_t x);
 ```
 
 Updates a number's value. This functions divides the number's value by the specified value.
@@ -146,7 +146,7 @@ Updates a number's value. This functions divides the number's value by the speci
 ## `ao_num_increment`
 
 ```c
-void ao_num_increment(ao_num_t * num);
+void ao_num_increment(ao_num_t * n);
 ```
 
 Updates a number's value. This functions increments the number's value.
@@ -154,7 +154,7 @@ Updates a number's value. This functions increments the number's value.
 ## `ao_num_max`
 
 ```c
-void ao_num_max(ao_num_t * num);
+void ao_num_max(ao_num_t * n);
 ```
 
 Updates a number's value. This functions sets the number's value to the maximum possible value.
@@ -162,7 +162,7 @@ Updates a number's value. This functions sets the number's value to the maximum 
 ## `ao_num_min`
 
 ```c
-void ao_num_min(ao_num_t * num);
+void ao_num_min(ao_num_t * n);
 ```
 
 Updates a number's value. This functions sets the number's value to the minimum possible value, i.e. zero.
@@ -170,7 +170,7 @@ Updates a number's value. This functions sets the number's value to the minimum 
 ## `ao_num_modulo`
 
 ```c
-void ao_num_modulo(ao_num_t * num, ao_uint_t x);
+void ao_num_modulo(ao_num_t * n, ao_uint_t x);
 ```
 
 Updates a number's value. This functions sets the number's value to the remainder of it divided by the specified value.
@@ -178,7 +178,7 @@ Updates a number's value. This functions sets the number's value to the remainde
 ## `ao_num_multiply`
 
 ```c
-void ao_num_multiply(ao_num_t * num, ao_uint_t x);
+void ao_num_multiply(ao_num_t * n, ao_uint_t x);
 ```
 
 Updates a number's value. This functions multiplies the number's value with the specified value.
@@ -186,7 +186,7 @@ Updates a number's value. This functions multiplies the number's value with the 
 ## `ao_num_nand`
 
 ```c
-void ao_num_nand(ao_num_t * num, ao_uint_t x);
+void ao_num_nand(ao_num_t * n, ao_uint_t x);
 ```
 
 Updates a number's value. This functions performs a bitwise NAND with the specified value.
@@ -194,7 +194,7 @@ Updates a number's value. This functions performs a bitwise NAND with the specif
 ## `ao_num_nor`
 
 ```c
-void ao_num_nor(ao_num_t * num, ao_uint_t x);
+void ao_num_nor(ao_num_t * n, ao_uint_t x);
 ```
 
 Updates a number's value. This functions performs a bitwise NOR with the specified value.
@@ -202,7 +202,7 @@ Updates a number's value. This functions performs a bitwise NOR with the specifi
 ## `ao_num_not`
 
 ```c
-void ao_num_not(ao_num_t * num);
+void ao_num_not(ao_num_t * n);
 ```
 
 Updates a number's value. This functions performs a bitwise inversion on the number's value.
@@ -210,7 +210,7 @@ Updates a number's value. This functions performs a bitwise inversion on the num
 ## `ao_num_or`
 
 ```c
-void ao_num_or(ao_num_t * num, ao_uint_t x);
+void ao_num_or(ao_num_t * n, ao_uint_t x);
 ```
 
 Updates a number's value. This functions performs a bitwise OR with the specified value.
@@ -218,7 +218,7 @@ Updates a number's value. This functions performs a bitwise OR with the specifie
 ## `ao_num_set`
 
 ```c
-void ao_num_set(ao_num_t * num, ao_uint_t x);
+void ao_num_set(ao_num_t * n, ao_uint_t x);
 ```
 
 Updates a number's value. This functions sets the number's value to the specified value.
@@ -226,7 +226,7 @@ Updates a number's value. This functions sets the number's value to the specifie
 ## `ao_num_subtract`
 
 ```c
-void ao_num_subtract(ao_num_t * num, ao_uint_t x);
+void ao_num_subtract(ao_num_t * n, ao_uint_t x);
 ```
 
 Updates a number's value. This functions subtracts the specified value from the number's value.
@@ -234,7 +234,7 @@ Updates a number's value. This functions subtracts the specified value from the 
 ## `ao_num_subtract_from`
 
 ```c
-void ao_num_subtract_from(ao_num_t * num, ao_uint_t x);
+void ao_num_subtract_from(ao_num_t * n, ao_uint_t x);
 ```
 
 Updates a number's value. This functions subtracts the number's value from the specified value.
@@ -242,7 +242,7 @@ Updates a number's value. This functions subtracts the number's value from the s
 ## `ao_num_xnor`
 
 ```c
-void ao_num_xnor(ao_num_t * num, ao_uint_t x);
+void ao_num_xnor(ao_num_t * n, ao_uint_t x);
 ```
 
 Updates a number's value. This functions performs a bitwise XNOR with the specified value.
@@ -250,7 +250,7 @@ Updates a number's value. This functions performs a bitwise XNOR with the specif
 ## `ao_num_xor`
 
 ```c
-void ao_num_xor(ao_num_t * num, ao_uint_t x);
+void ao_num_xor(ao_num_t * n, ao_uint_t x);
 ```
 
 Updates a number's value. This functions performs a bitwise XOR with the specified value.
@@ -259,8 +259,8 @@ Updates a number's value. This functions performs a bitwise XOR with the specifi
 ## `ao_num_wait_from`
 
 ```c
-bool ao_num_wait     (ao_num_wait_t * wait, ao_time_t timeout);
-bool ao_num_wait_from(ao_num_wait_t * wait, ao_time_t timeout, ao_time_t beginning);
+bool ao_num_wait     (ao_num_wait_t * w, ao_time_t timeout);
+bool ao_num_wait_from(ao_num_wait_t * w, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Waits for a number match in a blocking fashion with a timeout and an optional beginning.
@@ -268,7 +268,7 @@ Waits for a number match in a blocking fashion with a timeout and an optional be
 ## `ao_num_wait_forever`
 
 ```c
-bool ao_num_wait_forever(ao_num_wait_t * wait);
+bool ao_num_wait_forever(ao_num_wait_t * w);
 ```
 
 Waits for a number match indefinitely in a blocking fashion.
@@ -276,7 +276,7 @@ Waits for a number match indefinitely in a blocking fashion.
 ## `ao_num_wait_try`
 
 ```c
-bool ao_num_wait_try(ao_num_wait_t * wait);
+bool ao_num_wait_try(ao_num_wait_t * w);
 ```
 
 Waits for a number match in a non-blocking fashion.
@@ -285,8 +285,8 @@ Waits for a number match in a non-blocking fashion.
 ## `ao_num_wait_end`
 
 ```c
-void ao_num_wait_begin(ao_num_wait_t * wait);
-void ao_num_wait_end  (ao_num_wait_t * wait);
+void ao_num_wait_begin(ao_num_wait_t * w);
+void ao_num_wait_end  (ao_num_wait_t * w);
 ```
 
 Begins or ends, respectively, a waiting for a number match.

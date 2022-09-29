@@ -66,8 +66,8 @@ struct ao_recv_ptr_t
 ## `ao_recv_ptr_from`
 
 ```c
-void ao_recv_ptr     (ao_recv_ptr_t * recv, ao_time_t timeout);
-void ao_recv_ptr_from(ao_recv_ptr_t * recv, ao_time_t timeout, ao_time_t beginning);
+void ao_recv_ptr     (ao_recv_ptr_t * r, ao_time_t timeout);
+void ao_recv_ptr_from(ao_recv_ptr_t * r, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Receives a pointer in a blocking fashion with a timeout and an optional beginning.
@@ -75,7 +75,7 @@ Receives a pointer in a blocking fashion with a timeout and an optional beginnin
 ## `ao_recv_ptr_forever`
 
 ```c
-void ao_recv_ptr_forever(ao_recv_ptr_t * recv);
+void ao_recv_ptr_forever(ao_recv_ptr_t * r);
 ```
 
 Receives a pointer indefinitely in a blocking fashion.
@@ -83,7 +83,7 @@ Receives a pointer indefinitely in a blocking fashion.
 ## `ao_recv_ptr_try`
 
 ```c
-void ao_recv_ptr_try(ao_recv_ptr_t * recv);
+void ao_recv_ptr_try(ao_recv_ptr_t * r);
 ```
 
 Receives a pointer in a non-blocking fashion.
@@ -92,8 +92,8 @@ Receives a pointer in a non-blocking fashion.
 ## `ao_recv_ptr_end`
 
 ```c
-void ao_recv_ptr_begin(ao_recv_ptr_t * recv);
-void ao_recv_ptr_end  (ao_recv_ptr_t * recv);
+void ao_recv_ptr_begin(ao_recv_ptr_t * r);
+void ao_recv_ptr_end  (ao_recv_ptr_t * r);
 ```
 
 Begins or ends, respectively, a receiving of a pointer.

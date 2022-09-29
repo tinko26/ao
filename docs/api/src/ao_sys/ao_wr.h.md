@@ -85,8 +85,8 @@ struct ao_wr_lock_t
 ## `ao_wr_lock_read_from`
 
 ```c
-bool ao_wr_lock_read     (ao_wr_t * wr, ao_time_t timeout);
-bool ao_wr_lock_read_from(ao_wr_t * wr, ao_time_t timeout, ao_time_t beginning);
+bool ao_wr_lock_read     (ao_wr_t * w, ao_time_t timeout);
+bool ao_wr_lock_read_from(ao_wr_t * w, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Locks a readers-writer lock for reading in a blocking fashion with a timeout and an optional beginning.
@@ -94,7 +94,7 @@ Locks a readers-writer lock for reading in a blocking fashion with a timeout and
 ## `ao_wr_lock_read_forever`
 
 ```c
-bool ao_wr_lock_read_forever(ao_wr_t * wr);
+bool ao_wr_lock_read_forever(ao_wr_t * w);
 ```
 
 Locks a readers-writer lock for reading indefinitely in a blocking fashion.
@@ -102,7 +102,7 @@ Locks a readers-writer lock for reading indefinitely in a blocking fashion.
 ## `ao_wr_lock_read_try`
 
 ```c
-bool ao_wr_lock_read_try(ao_wr_t * wr);
+bool ao_wr_lock_read_try(ao_wr_t * w);
 ```
 
 Locks a readers-writer lock for reading in a non-blocking fashion.
@@ -111,8 +111,8 @@ Locks a readers-writer lock for reading in a non-blocking fashion.
 ## `ao_wr_lock_read_end`
 
 ```c
-void ao_wr_lock_read_begin(ao_wr_lock_t * lock);
-void ao_wr_lock_read_end  (ao_wr_lock_t * lock);
+void ao_wr_lock_read_begin(ao_wr_lock_t * l);
+void ao_wr_lock_read_end  (ao_wr_lock_t * l);
 ```
 
 Begins or ends, respectively, a locking of a readers-writer lock for reading.
@@ -121,8 +121,8 @@ Begins or ends, respectively, a locking of a readers-writer lock for reading.
 ## `ao_wr_lock_write_from`
 
 ```c
-bool ao_wr_lock_write     (ao_wr_t * wr, ao_time_t timeout);
-bool ao_wr_lock_write_from(ao_wr_t * wr, ao_time_t timeout, ao_time_t beginning);
+bool ao_wr_lock_write     (ao_wr_t * w, ao_time_t timeout);
+bool ao_wr_lock_write_from(ao_wr_t * w, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Locks a readers-writer lock for writing in a blocking fashion with a timeout and an optional beginning.
@@ -130,7 +130,7 @@ Locks a readers-writer lock for writing in a blocking fashion with a timeout and
 ## `ao_wr_lock_write_forever`
 
 ```c
-bool ao_wr_lock_write_forever(ao_wr_t * wr);
+bool ao_wr_lock_write_forever(ao_wr_t * w);
 ```
 
 Locks a readers-writer lock for writing indefinitely in a blocking fashion.
@@ -138,7 +138,7 @@ Locks a readers-writer lock for writing indefinitely in a blocking fashion.
 ## `ao_wr_lock_write_try`
 
 ```c
-bool ao_wr_lock_write_try(ao_wr_t * wr);
+bool ao_wr_lock_write_try(ao_wr_t * w);
 ```
 
 Locks a readers-writer lock for writing in a non-blocking fashion.
@@ -147,8 +147,8 @@ Locks a readers-writer lock for writing in a non-blocking fashion.
 ## `ao_wr_lock_write_end`
 
 ```c
-void ao_wr_lock_write_begin(ao_wr_lock_t * lock);
-void ao_wr_lock_write_end  (ao_wr_lock_t * lock);
+void ao_wr_lock_write_begin(ao_wr_lock_t * l);
+void ao_wr_lock_write_end  (ao_wr_lock_t * l);
 ```
 
 Begins or ends, respectively, a locking of a readers-writer lock for writing.
@@ -156,7 +156,7 @@ Begins or ends, respectively, a locking of a readers-writer lock for writing.
 ## `ao_wr_unlock_read`
 
 ```c
-void ao_wr_unlock_read(ao_wr_t * wr);
+void ao_wr_unlock_read(ao_wr_t * w);
 ```
 
 Unlocks a readers-writer lock for reading.
@@ -164,7 +164,7 @@ Unlocks a readers-writer lock for reading.
 ## `ao_wr_unlock_write`
 
 ```c
-void ao_wr_unlock_write(ao_wr_t * wr);
+void ao_wr_unlock_write(ao_wr_t * w);
 ```
 
 Unlocks a readers-writer lock for writing.

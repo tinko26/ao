@@ -16,7 +16,11 @@ toc: true
 ## `ao_send_obj_to_queue`
 
 ```c
-void ao_send_obj_to_queue(ao_send_obj_t * send, ao_qinsert_obj_t * insert);
+void ao_send_obj_to_queue
+(
+    ao_send_obj_t * s, 
+    ao_qinsert_obj_t * i
+);
 ```
 
 Sets up a sending of an object to insert an object into a queue.

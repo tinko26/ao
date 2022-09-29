@@ -101,8 +101,8 @@ struct ao_async_any_t
 ## `ao_async_all_end`
 
 ```c
-void ao_async_all_begin(ao_async_all_t * async_all);
-void ao_async_all_end  (ao_async_all_t * async_all);
+void ao_async_all_begin(ao_async_all_t * a);
+void ao_async_all_end  (ao_async_all_t * a);
 ```
 
 Begins or ends, respectively, a waiting for all out of a set of asynchronous events.
@@ -110,7 +110,7 @@ Begins or ends, respectively, a waiting for all out of a set of asynchronous eve
 ## `ao_async_all_try`
 
 ```c
-void ao_async_all_try(ao_async_all_t * async_all);
+void ao_async_all_try(ao_async_all_t * a);
 ```
 
 Waits for all out of a set of asynchronous events in a non-blocking fashion.
@@ -119,8 +119,8 @@ Waits for all out of a set of asynchronous events in a non-blocking fashion.
 ## `ao_async_any_end`
 
 ```c
-void ao_async_any_begin(ao_async_any_t * async_any);
-void ao_async_any_end  (ao_async_any_t * async_any);
+void ao_async_any_begin(ao_async_any_t * a);
+void ao_async_any_end  (ao_async_any_t * a);
 ```
 
 Begins or ends, respectively, a waiting for any one out of a set of asynchronous events.
@@ -128,7 +128,7 @@ Begins or ends, respectively, a waiting for any one out of a set of asynchronous
 ## `ao_async_any_try`
 
 ```c
-void ao_async_any_try(ao_async_any_t * async_any);
+void ao_async_any_try(ao_async_any_t * a);
 ```
 
 Waits for any one out of a set of asynchronous events in a non-blocking fashion.

@@ -16,7 +16,11 @@ toc: true
 ## `ao_send_obj_to_stream`
 
 ```c
-void ao_send_obj_to_stream(ao_send_obj_t * send, ao_spush_obj_t * push);
+void ao_send_obj_to_stream
+(
+    ao_send_obj_t * s, 
+    ao_spush_obj_t * p
+);
 ```
 
 Sets up a sending of an object to push an object to a stream.
@@ -24,7 +28,11 @@ Sets up a sending of an object to push an object to a stream.
 ## `ao_send_obj_to_stream_override`
 
 ```c
-void ao_send_obj_to_stream_override(ao_send_obj_t * send, ao_spush_obj_t * push);
+void ao_send_obj_to_stream_override
+(
+    ao_send_obj_t * s, 
+    ao_spush_obj_t * p
+);
 ```
 
 Sets up a sending of an object to push an object to a stream, overriding old data if the stream is full.

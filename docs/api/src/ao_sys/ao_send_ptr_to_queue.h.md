@@ -16,7 +16,11 @@ toc: true
 ## `ao_send_ptr_to_queue`
 
 ```c
-void ao_send_ptr_to_queue(ao_send_ptr_t * send, ao_qinsert_ptr_t * insert);
+void ao_send_ptr_to_queue
+(
+    ao_send_ptr_t * s, 
+    ao_qinsert_ptr_t * i
+);
 ```
 
 Sets up a sending of a pointer to insert a pointer into a queue.

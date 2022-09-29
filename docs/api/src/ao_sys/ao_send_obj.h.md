@@ -66,8 +66,8 @@ struct ao_send_obj_t
 ## `ao_send_obj_from`
 
 ```c
-void ao_send_obj     (ao_send_obj_t * send, ao_time_t timeout);
-void ao_send_obj_from(ao_send_obj_t * send, ao_time_t timeout, ao_time_t beginning);
+void ao_send_obj     (ao_send_obj_t * s, ao_time_t timeout);
+void ao_send_obj_from(ao_send_obj_t * s, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Sends an object in a blocking fashion with a timeout and an optional beginning.
@@ -75,7 +75,7 @@ Sends an object in a blocking fashion with a timeout and an optional beginning.
 ## `ao_send_obj_forever`
 
 ```c
-void ao_send_obj_forever(ao_send_obj_t * send);
+void ao_send_obj_forever(ao_send_obj_t * s);
 ```
 
 Sends an object indefinitely in a blocking fashion.
@@ -83,7 +83,7 @@ Sends an object indefinitely in a blocking fashion.
 ## `ao_send_obj_try`
 
 ```c
-void ao_send_obj_try(ao_send_obj_t * send);
+void ao_send_obj_try(ao_send_obj_t * s);
 ```
 
 Sends an object in a non-blocking fashion.
@@ -92,8 +92,8 @@ Sends an object in a non-blocking fashion.
 ## `ao_send_obj_end`
 
 ```c
-void ao_send_obj_begin(ao_send_obj_t * send);
-void ao_send_obj_end  (ao_send_obj_t * send);
+void ao_send_obj_begin(ao_send_obj_t * s);
+void ao_send_obj_end  (ao_send_obj_t * s);
 ```
 
 Begins or ends, respectively, a sending of an object.

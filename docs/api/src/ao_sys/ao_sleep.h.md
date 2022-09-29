@@ -75,8 +75,8 @@ Puts the running task to sleep. The task will never be woken up by the operating
 ## `ao_sleep_end`
 
 ```c
-void ao_sleep_begin(ao_sleep_t * sleep);
-void ao_sleep_end  (ao_sleep_t * sleep);
+void ao_sleep_begin(ao_sleep_t * s);
+void ao_sleep_end  (ao_sleep_t * s);
 ```
 
 Begins or ends, respectively, a sleeping.

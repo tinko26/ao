@@ -26,7 +26,7 @@ Yields execution to another task.
 ## `ao_yield_to`
 
 ```c
-void ao_yield_to(ao_task_t * task);
+void ao_yield_to(ao_task_t * t);
 ```
 
 Yields execution to the specified task. Thereby, this function blocks the calling task indefinitely and unblocks the specified task.

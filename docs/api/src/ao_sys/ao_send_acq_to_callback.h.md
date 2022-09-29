@@ -15,7 +15,11 @@ toc: true
 ## `ao_send_acq_to_callback`
 
 ```c
-void ao_send_acq_to_callback(ao_send_acq_t * send, ao_send_acq_proc_t callback);
+void ao_send_acq_to_callback
+(
+    ao_send_acq_t * s, 
+    ao_send_acq_proc_t callback
+);
 ```
 
 Sets up a sending of an acquired memory block to execute a callback.

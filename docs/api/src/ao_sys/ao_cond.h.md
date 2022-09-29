@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-26
+date: 2022-09-29
 draft: true
 permalink: /api/src/ao_sys/ao_cond.h/
 toc: true
@@ -11,7 +11,7 @@ toc: true
 ...
 
 - Condition (variable), but not that monitor-based kind implemented in the STL.
-- actually the same behavior as a binary semaphore
+- actually the same behavior as a manual-reset event
 
 ...
 
@@ -74,28 +74,28 @@ struct ao_cond_wait_t
 
 # Functions
 
-## `ao_cond_clear`
+## `ao_cond_false`
 
 ```c
-void ao_cond_clear(ao_cond_t * cond);
+void ao_cond_false(ao_cond_t * c);
 ```
 
-Clears a condition.
+Sets a condition to `false`.
 
-## `ao_cond_set`
+## `ao_cond_true`
 
 ```c
-void ao_cond_set(ao_cond_t * cond);
+void ao_cond_true(ao_cond_t * c);
 ```
 
-Sets a condition.
+Sets a condition to `true`.
 
 ## `ao_cond_wait`
 ## `ao_cond_wait_from`
 
 ```c
-bool ao_cond_wait     (ao_cond_t * cond, ao_time_t timeout);
-bool ao_cond_wait_from(ao_cond_t * cond, ao_time_t timeout, ao_time_t beginning);
+bool ao_cond_wait     (ao_cond_t * c, ao_time_t timeout);
+bool ao_cond_wait_from(ao_cond_t * c, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Waits for a condition in a blocking fashion with a timeout and an optional beginning.
@@ -103,7 +103,7 @@ Waits for a condition in a blocking fashion with a timeout and an optional begin
 ## `ao_cond_wait_forever`
 
 ```c
-bool ao_cond_wait_forever(ao_cond_t * cond);
+bool ao_cond_wait_forever(ao_cond_t * c);
 ```
 
 Waits for a condition indefinitely in a blocking fashion.
@@ -111,7 +111,7 @@ Waits for a condition indefinitely in a blocking fashion.
 ## `ao_cond_wait_try`
 
 ```c
-bool ao_cond_wait_try(ao_cond_t * cond);
+bool ao_cond_wait_try(ao_cond_t * c);
 ```
 
 Waits for a condition in a non-blocking fashion.
@@ -120,8 +120,8 @@ Waits for a condition in a non-blocking fashion.
 ## `ao_cond_wait_end`
 
 ```c
-void ao_cond_wait_begin(ao_cond_wait_t * wait);
-void ao_cond_wait_end  (ao_cond_wait_t * wait);
+void ao_cond_wait_begin(ao_cond_wait_t * w);
+void ao_cond_wait_end  (ao_cond_wait_t * w);
 ```
 
 Begins or ends, respectively, a waiting for a condition.

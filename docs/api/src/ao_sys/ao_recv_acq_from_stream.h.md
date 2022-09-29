@@ -16,7 +16,11 @@ toc: true
 ## `ao_recv_acq_from_stream`
 
 ```c
-void ao_recv_acq_from_stream(ao_recv_acq_t * recv, ao_spop_acq_t * pop);
+void ao_recv_acq_from_stream
+(
+    ao_recv_acq_t * r, 
+    ao_spop_acq_t * p
+);
 ```
 
 Sets up a receiving of an acquired memory block to pop an acquired memory block from a stream.

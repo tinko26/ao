@@ -39,8 +39,8 @@ Represents a function beginning or ending a sending of an acquired memory block.
 ## `ao_send_acq_from`
 
 ```c
-void ao_send_acq     (ao_send_acq_t * send, ao_time_t timeout);
-void ao_send_acq_from(ao_send_acq_t * send, ao_time_t timeout, ao_time_t beginning);
+void ao_send_acq     (ao_send_acq_t * s, ao_time_t timeout);
+void ao_send_acq_from(ao_send_acq_t * s, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Sends an acquired memory block in a blocking fashion with a timeout and an optional beginning.
@@ -48,7 +48,7 @@ Sends an acquired memory block in a blocking fashion with a timeout and an optio
 ## `ao_send_acq_forever`
 
 ```c
-void ao_send_acq_forever(ao_send_acq_t * send);
+void ao_send_acq_forever(ao_send_acq_t * s);
 ```
 
 Sends an acquired memory block indefinitely in a blocking fashion.
@@ -56,7 +56,7 @@ Sends an acquired memory block indefinitely in a blocking fashion.
 ## `ao_send_acq_try`
 
 ```c
-void ao_send_acq_try(ao_send_acq_t * send);
+void ao_send_acq_try(ao_send_acq_t * s);
 ```
 
 Sends an acquired memory block in a non-blocking fashion.
@@ -65,8 +65,8 @@ Sends an acquired memory block in a non-blocking fashion.
 ## `ao_send_acq_end`
 
 ```c
-void ao_send_acq_begin(ao_send_acq_t * send);
-void ao_send_acq_end  (ao_send_acq_t * send);
+void ao_send_acq_begin(ao_send_acq_t * s);
+void ao_send_acq_end  (ao_send_acq_t * s);
 ```
 
 Begins or ends, respectively, a sending of an acquired memory block.

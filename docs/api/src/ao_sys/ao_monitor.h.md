@@ -104,8 +104,8 @@ struct ao_monitor_wait_t
 ## `ao_monitor_enter_from`
 
 ```c
-bool ao_monitor_enter     (ao_monitor_t * monitor, ao_time_t timeout);
-bool ao_monitor_enter_from(ao_monitor_t * monitor, ao_time_t timeout, ao_time_t beginning);
+bool ao_monitor_enter     (ao_monitor_t * m, ao_time_t timeout);
+bool ao_monitor_enter_from(ao_monitor_t * m, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Enters a monitor in a blocking fashion with a timeout and an optional beginning.
@@ -113,7 +113,7 @@ Enters a monitor in a blocking fashion with a timeout and an optional beginning.
 ## `ao_monitor_enter_forever`
 
 ```c
-bool ao_monitor_enter_forever(ao_monitor_t * monitor);
+bool ao_monitor_enter_forever(ao_monitor_t * m);
 ```
 
 Enters a monitor indefinitely in a blocking fashion.
@@ -121,7 +121,7 @@ Enters a monitor indefinitely in a blocking fashion.
 ## `ao_monitor_enter_try`
 
 ```c
-bool ao_monitor_enter_try(ao_monitor_t * monitor);
+bool ao_monitor_enter_try(ao_monitor_t * m);
 ```
 
 Enters a monitor in a non-blocking fashion.
@@ -130,8 +130,8 @@ Enters a monitor in a non-blocking fashion.
 ## `ao_monitor_enter_end`
 
 ```c
-void ao_monitor_enter_begin(ao_monitor_enter_t * enter);
-void ao_monitor_enter_end  (ao_monitor_enter_t * enter);
+void ao_monitor_enter_begin(ao_monitor_enter_t * e);
+void ao_monitor_enter_end  (ao_monitor_enter_t * e);
 ```
 
 Begins or ends, respectively, an entering of a monitor.
@@ -139,7 +139,7 @@ Begins or ends, respectively, an entering of a monitor.
 ## `ao_monitor_exit`
 
 ```c
-void ao_monitor_exit(ao_monitor_t * monitor);
+void ao_monitor_exit(ao_monitor_t * m);
 ```
 
 Exits a monitor.
@@ -147,7 +147,7 @@ Exits a monitor.
 ## `ao_monitor_notify`
 
 ```c
-void ao_monitor_notify(ao_monitor_t * monitor);
+void ao_monitor_notify(ao_monitor_t * m);
 ```
 
 Notifies the first waiting for a monitor.
@@ -155,7 +155,7 @@ Notifies the first waiting for a monitor.
 ## `ao_monitor_notify_all`
 
 ```c
-void ao_monitor_notify_all(ao_monitor_t * monitor);
+void ao_monitor_notify_all(ao_monitor_t * m);
 ```
 
 Notifies all waitings for a monitor.
@@ -164,8 +164,8 @@ Notifies all waitings for a monitor.
 ## `ao_monitor_wait_from`
 
 ```c
-bool ao_monitor_wait     (ao_monitor_t * monitor, ao_time_t timeout);
-bool ao_monitor_wait_from(ao_monitor_t * monitor, ao_time_t timeout, ao_time_t beginning);
+bool ao_monitor_wait     (ao_monitor_t * m, ao_time_t timeout);
+bool ao_monitor_wait_from(ao_monitor_t * m, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Waits for a monitor in a blocking fashion with a timeout and an optional beginning.
@@ -173,7 +173,7 @@ Waits for a monitor in a blocking fashion with a timeout and an optional beginni
 ## `ao_monitor_wait_forever`
 
 ```c
-bool ao_monitor_wait_forever(ao_monitor_t * monitor);
+bool ao_monitor_wait_forever(ao_monitor_t * m);
 ```
 
 Waits for a monitor indefinitely in a blocking fashion.
@@ -181,7 +181,7 @@ Waits for a monitor indefinitely in a blocking fashion.
 ## `ao_monitor_wait_try`
 
 ```c
-bool ao_monitor_wait_try(ao_monitor_t * monitor);
+bool ao_monitor_wait_try(ao_monitor_t * m);
 ```
 
 Waits for a monitor in a non-blocking fashion.
@@ -190,8 +190,8 @@ Waits for a monitor in a non-blocking fashion.
 ## `ao_monitor_wait_end`
 
 ```c
-void ao_monitor_wait_begin(ao_monitor_wait_t * wait);
-void ao_monitor_wait_end  (ao_monitor_wait_t * wait);
+void ao_monitor_wait_begin(ao_monitor_wait_t * w);
+void ao_monitor_wait_end  (ao_monitor_wait_t * w);
 ```
 
 Begins or ends, respectively, a waiting for a monitor.
