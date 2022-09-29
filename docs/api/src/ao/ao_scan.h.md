@@ -28,7 +28,7 @@ typedef struct ao_scan_t ao_scan_t;
 
 Represents options for the conversion.
 
-# Types
+# Structs
 
 ## `ao_scan_t`
 
