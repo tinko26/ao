@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-27
+date: 2022-09-29
 draft: true
 permalink: /api/src/ao_sys/ao_alloc.h/
 toc: true
@@ -55,33 +55,21 @@ Selects the allocator implementation. The following options are available.
 #define AO_RETAINED (false)
 ```
 
-Defines whether to execute a callback upon each call to `ao_acquire()`, `ao_release()`, or `ao_retain()`, respectively, which can aid in debugging an application or tracing and optimizing the memory usage of the allocator.
+Defines whether to notify the application of each to `ao_acquire()`, `ao_release()`, or `ao_retain()`, respectively, which can aid in debugging an application or tracing and optimizing the memory usage of the allocator.
 
 # Types
 
 ## `ao_acquired_t`
-
-```c
-typedef struct ao_acquired_t ao_acquired_t;
-```
-
-Represents the information about a call to `ao_acquire()`.
-
 ## `ao_released_t`
-
-```c
-typedef struct ao_released_t ao_released_t;
-```
-
-Represents the information about a call to `ao_release()`.
-
 ## `ao_retained_t`
 
 ```c
+typedef struct ao_acquired_t ao_acquired_t;
+typedef struct ao_released_t ao_released_t;
 typedef struct ao_retained_t ao_retained_t;
 ```
 
-Represents the information about a call to `ao_retain()`.
+Represents information in the context of a call to `ao_acquire()`, `ao_release()`, or `ao_retain()`, respectively.
 
 # Structs
 
@@ -161,10 +149,10 @@ If the operation fails, then the function returns `NULL`. This is either because
 ## `ao_acquired`
 
 ```c
-void ao_acquired(ao_acquired_t const * info);
+void ao_acquired(ao_acquired_t const * a);
 ```
 
-The callback for each call to `ao_acquire()`. This function must be implemented by the application.
+Notifies the application of a call to `ao_acquire()`.
 
 ## `ao_delete`
 
@@ -180,13 +168,17 @@ Deallocates a memory block.
 ## `ao_new`
 
 ```c
-#define ao_new(type)         \
-(                            \
-    ao_acquire(sizeof(type)) \
+#define ao_new(type) \
+(                    \
+    (type *)         \
+    ao_acquire       \
+    (                \
+        sizeof(type) \
+    )                \
 )
 ```
 
-Allocates a memory block large enough for the specified type. If the operation succeeds, then this function returns a pointer of type `type *`.
+Allocates a memory block large enough for the specified type.
 
 ## `ao_release`
 
@@ -203,10 +195,10 @@ The return value indicates whether the operation has succeeded or failed. The la
 ## `ao_released`
 
 ```c
-void ao_released(ao_released_t const * info);
+void ao_released(ao_released_t const * r);
 ```
 
-The callback for each call to `ao_release()`. This function must be implemented by the application.
+Notifies the application of a call to `ao_release()`.
 
 ## `ao_retain`
 
@@ -221,7 +213,7 @@ The return value indicates whether the operation has succeeded or failed. The la
 ## `ao_retained`
 
 ```c
-void ao_retained(ao_retained_t const * info);
+void ao_retained(ao_retained_t const * r);
 ```
 
-The callback for each call to `ao_retain()`. This function must be implemented by the application.
+Notifies the application of a call to `ao_retain()`.

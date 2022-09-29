@@ -70,8 +70,8 @@ struct ao_buffer_t
 ## `ao_buffer_is_full`
 
 ```c
-bool ao_buffer_is_empty(ao_buffer_t const * buffer);
-bool ao_buffer_is_full (ao_buffer_t const * buffer);
+bool ao_buffer_is_empty(ao_buffer_t const * b);
+bool ao_buffer_is_full (ao_buffer_t const * b);
 ```
 
 Checks whether a buffer is empty or full, respectively, in constant time.
@@ -79,8 +79,8 @@ Checks whether a buffer is empty or full, respectively, in constant time.
 ## `ao_buffer_peek_*`
 
 ```c
-bool ao_buffer_peek_back (ao_buffer_t const * buffer, void * p);
-bool ao_buffer_peek_front(ao_buffer_t const * buffer, void * p);
+bool ao_buffer_peek_back (ao_buffer_t const * b, void * p);
+bool ao_buffer_peek_front(ao_buffer_t const * b, void * p);
 ```
 
 Peeks the back or front byte, respectively, in constant time. The return value indicates whether the operation was successful. Therefore, it is safe to call this function, if the buffer is empty.
@@ -88,8 +88,8 @@ Peeks the back or front byte, respectively, in constant time. The return value i
 ## `ao_buffer_peek_range_*`
 
 ```c
-size_t ao_buffer_peek_range_back (ao_buffer_t const * buffer, void * p, size_t n_min, size_t n_max);
-size_t ao_buffer_peek_range_front(ao_buffer_t const * buffer, void * p, size_t n_min, size_t n_max);
+size_t ao_buffer_peek_range_back (ao_buffer_t const * b, void * p, size_t n_min, size_t n_max);
+size_t ao_buffer_peek_range_front(ao_buffer_t const * b, void * p, size_t n_min, size_t n_max);
 ```
 
 Peeks a sequence of back or front bytes, respectively. The `n_min` and `n_max` parameters specify the minimum and maximum number of bytes, respectively. The return value indicates the actual number of bytes and, hence, whether the operation was successful. Therefore, it is safe to call this function, if the buffer is empty.
@@ -97,8 +97,8 @@ Peeks a sequence of back or front bytes, respectively. The `n_min` and `n_max` p
 ## `ao_buffer_pop_*`
 
 ```c
-bool ao_buffer_pop_back (ao_buffer_t * buffer, void * p);
-bool ao_buffer_pop_front(ao_buffer_t * buffer, void * p);
+bool ao_buffer_pop_back (ao_buffer_t * b, void * p);
+bool ao_buffer_pop_front(ao_buffer_t * b, void * p);
 ```
 
 Pops the back or front byte, respectively, in constant time. The return value indicates whether the operation was successful. Therefore, it is safe to call this function, if the buffer is empty.
@@ -106,8 +106,8 @@ Pops the back or front byte, respectively, in constant time. The return value in
 ## `ao_buffer_pop_range_*`
 
 ```c
-size_t ao_buffer_pop_range_back (ao_buffer_t * buffer, void * p, size_t n_min, size_t n_max);
-size_t ao_buffer_pop_range_front(ao_buffer_t * buffer, void * p, size_t n_min, size_t n_max);
+size_t ao_buffer_pop_range_back (ao_buffer_t * b, void * p, size_t n_min, size_t n_max);
+size_t ao_buffer_pop_range_front(ao_buffer_t * b, void * p, size_t n_min, size_t n_max);
 ```
 
 Pops a sequence of back or front bytes, respectively. The `n_min` and `n_max` parameters specify the minimum and maximum number of bytes, respectively. The return value indicates the actual number of bytes and, hence, whether the operation was successful. Therefore, it is safe to call this function, if the buffer is empty.
@@ -115,8 +115,8 @@ Pops a sequence of back or front bytes, respectively. The `n_min` and `n_max` pa
 ## `ao_buffer_push_*`
 
 ```c
-bool ao_buffer_push_back (ao_buffer_t * buffer, void const * p);
-bool ao_buffer_push_front(ao_buffer_t * buffer, void const * p);
+bool ao_buffer_push_back (ao_buffer_t * b, void const * p);
+bool ao_buffer_push_front(ao_buffer_t * b, void const * p);
 ```
 
 Pushes a byte to the back or front, respectively, in constant time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the buffer is full.
@@ -124,8 +124,8 @@ Pushes a byte to the back or front, respectively, in constant time. The return v
 ## `ao_buffer_push_*_override`
 
 ```c
-bool ao_buffer_push_back_override (ao_buffer_t * buffer, void const * p);
-bool ao_buffer_push_front_override(ao_buffer_t * buffer, void const * p);
+bool ao_buffer_push_back_override (ao_buffer_t * b, void const * p);
+bool ao_buffer_push_front_override(ao_buffer_t * b, void const * p);
 ```
 
 Pushes a byte to the back or front, respectively, in constant time. If the buffer is full, then this function overrides the oldest byte in the buffer. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the buffer's capacity is zero.
@@ -133,8 +133,8 @@ Pushes a byte to the back or front, respectively, in constant time. If the buffe
 ## `ao_buffer_push_range_*`
 
 ```c
-size_t ao_buffer_push_range_back (ao_buffer_t * buffer, void const * p, size_t n_min, size_t n_max);
-size_t ao_buffer_push_range_front(ao_buffer_t * buffer, void const * p, size_t n_min, size_t n_max);
+size_t ao_buffer_push_range_back (ao_buffer_t * b, void const * p, size_t n_min, size_t n_max);
+size_t ao_buffer_push_range_front(ao_buffer_t * b, void const * p, size_t n_min, size_t n_max);
 ```
 
 Pushes a sequence of bytes to the back or front, respectively. The `n_min` and `n_max` parameters specify the minimum and maximum number of bytes, respectively. The return value indicates the actual number of bytes and, hence, whether the operation was successful. Therefore, it is safe to call this function, if the buffer is too full.
@@ -142,8 +142,8 @@ Pushes a sequence of bytes to the back or front, respectively. The `n_min` and `
 ## `ao_buffer_push_range_*_override`
 
 ```c
-size_t ao_buffer_push_range_back_override (ao_buffer_t * buffer, void const * p, size_t n_min, size_t n_max);
-size_t ao_buffer_push_range_front_override(ao_buffer_t * buffer, void const * p, size_t n_min, size_t n_max);
+size_t ao_buffer_push_range_back_override (ao_buffer_t * b, void const * p, size_t n_min, size_t n_max);
+size_t ao_buffer_push_range_front_override(ao_buffer_t * b, void const * p, size_t n_min, size_t n_max);
 ```
 
 Pushes a sequence of bytes to the back or front, respectively. The `n_min` and `n_max` parameters specify the minimum and maximum number of bytes, respectively. If the buffer is too full, then this function overrides the oldest bytes in the buffer. The return value indicates the actual number of bytes and, hence, whether the operation was successful. Therefore, it is safe to call this function, if the buffer's capacity is less than the specified minimum number of bytes.

@@ -96,7 +96,7 @@ struct ao_avl_node_t
 ## `ao_avl_assert`
 
 ```c
-void ao_avl_assert(ao_avl_t const * avl);
+void ao_avl_assert(ao_avl_t const * a);
 ```
 
 Checks whether a tree is valid, in linear time. This function traverses the tree top-down and checks, whether the relevant properties are maintained. If that is not the case, the function triggers a runtime assertion failure. It is therefore useful in debugging scenarios. However, the function is implemented recursively, which violates a common rule in embedded software engineering.
@@ -104,7 +104,7 @@ Checks whether a tree is valid, in linear time. This function traverses the tree
 ## `ao_avl_insert`
 
 ```c
-void ao_avl_insert(ao_avl_t * avl, ao_avl_node_t * node);
+void ao_avl_insert(ao_avl_t * a, ao_avl_node_t * n);
 ```
 
 Inserts a node into a tree, in logarithmic time.
@@ -112,7 +112,7 @@ Inserts a node into a tree, in logarithmic time.
 ## `ao_avl_is_empty`
 
 ```c
-bool ao_avl_is_empty(ao_avl_t const * avl);
+bool ao_avl_is_empty(ao_avl_t const * a);
 ```
 
 Checks whether a tree is empty, in constant time.
@@ -121,8 +121,8 @@ Checks whether a tree is empty, in constant time.
 ## `ao_avl_min`
 
 ```c
-ao_avl_node_t * ao_avl_max(ao_avl_t const * avl);
-ao_avl_node_t * ao_avl_min(ao_avl_t const * avl);
+ao_avl_node_t * ao_avl_max(ao_avl_t const * a);
+ao_avl_node_t * ao_avl_min(ao_avl_t const * a);
 ```
 
 Gets the maximum or minimum node, respectively, of a tree, in logarithmic time. Thereby, the maximum node is the rightmost node and the minimum node is the leftmost node in the tree. Both functions return `NULL`, if the tree is empty.
@@ -130,7 +130,7 @@ Gets the maximum or minimum node, respectively, of a tree, in logarithmic time. 
 ## `ao_avl_remove`
 
 ```c
-void ao_avl_remove(ao_avl_t * avl, ao_avl_node_t * node);
+void ao_avl_remove(ao_avl_t * a, ao_avl_node_t * n);
 ```
 
 Removes a node from a tree, in logarithmic time.

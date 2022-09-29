@@ -95,7 +95,7 @@ struct ao_rb_node_t
 ## `ao_rb_assert`
 
 ```c
-void ao_rb_assert(ao_rb_t const * rb);
+void ao_rb_assert(ao_rb_t const * r);
 ```
 
 Checks whether a tree is valid, in linear time. This function traverses the tree top-down and checks, whether the relevant properties are maintained. If that is not the case, the function triggers a runtime assertion failure. It is therefore useful in debugging scenarios. However, the function is implemented recursively, which violates a common rule in embedded software engineering.
@@ -103,7 +103,7 @@ Checks whether a tree is valid, in linear time. This function traverses the tree
 ## `ao_rb_insert`
 
 ```c
-void ao_rb_insert(ao_rb_t * rb, ao_rb_node_t * node);
+void ao_rb_insert(ao_rb_t * r, ao_rb_node_t * n);
 ```
 
 Inserts a node into a tree, in logarithmic time.
@@ -111,7 +111,7 @@ Inserts a node into a tree, in logarithmic time.
 ## `ao_rb_is_empty`
 
 ```c
-bool ao_rb_is_empty(ao_rb_t const * rb);
+bool ao_rb_is_empty(ao_rb_t const * r);
 ```
 
 Checks whether a tree is empty, in constant time.
@@ -120,8 +120,8 @@ Checks whether a tree is empty, in constant time.
 ## `ao_rb_min`
 
 ```c
-ao_rb_node_t * ao_rb_max(ao_rb_t const * rb);
-ao_rb_node_t * ao_rb_min(ao_rb_t const * rb);
+ao_rb_node_t * ao_rb_max(ao_rb_t const * r);
+ao_rb_node_t * ao_rb_min(ao_rb_t const * r);
 ```
 
 Gets the maximum or minimum node, respectively, of a tree, in logarithmic time. Thereby, the maximum node is the rightmost node and the minimum node is the leftmost node in the tree. Both functions return `NULL`, if the tree is empty.
@@ -129,7 +129,7 @@ Gets the maximum or minimum node, respectively, of a tree, in logarithmic time. 
 ## `ao_rb_remove`
 
 ```c
-void ao_rb_remove(ao_rb_t * rb, ao_rb_node_t * node);
+void ao_rb_remove(ao_rb_t * r, ao_rb_node_t * n);
 ```
 
 Removes a node from a tree, in logarithmic time.

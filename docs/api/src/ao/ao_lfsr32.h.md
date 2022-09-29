@@ -46,7 +46,7 @@ struct ao_lfsr32_t
 ## `ao_lfsr32`
 
 ```c
-void ao_lfsr32(ao_lfsr32_t * lfsr);
+void ao_lfsr32(ao_lfsr32_t * l);
 ```
 
 Generates a new bit.

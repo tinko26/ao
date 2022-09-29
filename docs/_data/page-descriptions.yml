@@ -149,6 +149,7 @@
 /api/src/ao_sys/ao_lock.h/ : "The /src/ao_sys/ao_lock.h file of the ao real-time operating system."
 /api/src/ao_sys/ao_mail.h/ : "The /src/ao_sys/ao_mail.h file of the ao real-time operating system."
 /api/src/ao_sys/ao_monitor.h/ : "The /src/ao_sys/ao_monitor.h file of the ao real-time operating system."
+/api/src/ao_sys/ao_mre.h/ : "The /src/ao_sys/ao_mre.h file of the ao real-time operating system."
 /api/src/ao_sys/ao_mutex.h/ : "The /src/ao_sys/ao_mutex.h file of the ao real-time operating system."
 /api/src/ao_sys/ao_num.h/ : "The /src/ao_sys/ao_num.h file of the ao real-time operating system."
 /api/src/ao_sys/ao_num8.h/ : "The /src/ao_sys/ao_num8.h file of the ao real-time operating system."

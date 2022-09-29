@@ -55,7 +55,7 @@ Defines whether to keep track of the current and minimum number of free bytes, r
 #define AO_ALLOC_SEGREGATION (3)
 ```
 
-The segregation has an influence on the performance of the allocator with respect to fragmentation. That is, a high segregation potentially leads to high external fragmentation, but low internal fragmentation. On the other hand, a low segregation potentially leads to low external fragmentation, but high internal fragmentation.
+Defines the segregation, which has an influence on the performance of the allocator with respect to fragmentation. That is, a high segregation potentially leads to high external fragmentation, but low internal fragmentation. On the other hand, a low segregation potentially leads to low external fragmentation, but high internal fragmentation.
 
 ## `AO_ALLOC_SIZE`
 
@@ -63,7 +63,7 @@ The segregation has an influence on the performance of the allocator with respec
 #define AO_ALLOC_SIZE (8192)
 ```
 
-The allocator size, in bytes.
+Defines the allocator size, in bytes.
 
 # Constants
 
@@ -75,7 +75,7 @@ The allocator size, in bytes.
 #define AO_ALLOC_SEGREGATION_MIN (0)
 ```
 
-The maximum and minimum segregation, respectively.
+The maximum and minimum segregation.
 
 # Variables
 
@@ -87,7 +87,7 @@ extern size_t volatile ao_alloc_allocated;
 extern size_t volatile ao_alloc_allocated_max;
 ```
 
-The current and maximum number of allocated bytes, respectively.
+The current and maximum number of allocated bytes.
 
 ## `ao_alloc_free`
 ## `ao_alloc_free_min`
@@ -97,4 +97,4 @@ extern size_t volatile ao_alloc_free;
 extern size_t volatile ao_alloc_free_min;
 ```
 
-The current and minimum number of free bytes, respectively.
+The current and minimum number of free bytes.

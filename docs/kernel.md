@@ -66,6 +66,7 @@ toc: true
 - counting semaphores
 - exchanges
 - mail
+- manual-reset events
 - monitors
 - mutexes
 - numbers

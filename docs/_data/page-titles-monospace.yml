@@ -142,6 +142,7 @@
 /api/src/ao_sys/ao_lock.h/ : true
 /api/src/ao_sys/ao_mail.h/ : true
 /api/src/ao_sys/ao_monitor.h/ : true
+/api/src/ao_sys/ao_mre.h/ : true
 /api/src/ao_sys/ao_mutex.h/ : true
 /api/src/ao_sys/ao_num.h/ : true
 /api/src/ao_sys/ao_num8.h/ : true

@@ -46,7 +46,7 @@ struct ao_lfsr8_t
 ## `ao_lfsr8`
 
 ```c
-void ao_lfsr8(ao_lfsr8_t * lfsr);
+void ao_lfsr8(ao_lfsr8_t * l);
 ```
 
 Generates a new bit.

@@ -63,7 +63,7 @@ Defines whether to keep track of the current and minimum number of free bytes, r
 #define AO_ALLOC_POOL_BLOCK_COUNT_63 (0)
 ```
 
-The number of blocks in each pool.
+Defines the number of blocks in each pool.
 
 ## `AO_ALLOC_POOL_BLOCK_SIZE_*`
 
@@ -76,7 +76,7 @@ The number of blocks in each pool.
 #define AO_ALLOC_POOL_BLOCK_SIZE_63 (0)
 ```
 
-The size of the blocks in each pool, in bytes.
+Defines the size of the blocks in each pool, in bytes.
 
 # Types
 
@@ -94,31 +94,19 @@ Represents a pool.
 typedef struct ao_alloc_pool_node_t ao_alloc_pool_node_t;
 ```
 
-Represents a block.
+Represents a pool node, which in turn contains a memory block.
 
 ## `ao_acquired_t`
-
-```c
-typedef struct ao_acquired_t ao_acquired_t;
-```
-
-Represents the information about a call to `ao_acquire()`.
-
 ## `ao_released_t`
-
-```c
-typedef struct ao_released_t ao_released_t;
-```
-
-Represents the information about a call to `ao_release()`.
-
 ## `ao_retained_t`
 
 ```c
+typedef struct ao_acquired_t ao_acquired_t;
+typedef struct ao_released_t ao_released_t;
 typedef struct ao_retained_t ao_retained_t;
 ```
 
-Represents the information about a call to `ao_retain()`.
+Represents information in the context of a call to `ao_acquire()`, `ao_release()`, or `ao_retain()`, respectively.
 
 # Structs
 
@@ -244,7 +232,7 @@ extern size_t volatile ao_alloc_allocated;
 extern size_t volatile ao_alloc_allocated_max;
 ```
 
-The current and maximum number of allocated bytes, respectively.
+The current and maximum number of allocated bytes.
 
 ## `ao_alloc_free`
 ## `ao_alloc_free_min`
@@ -254,7 +242,7 @@ extern size_t volatile ao_alloc_free;
 extern size_t volatile ao_alloc_free_min;
 ```
 
-The current and minimum number of free bytes, respectively.
+The current and minimum number of free bytes.
 
 ## `ao_alloc_pool_*`
 

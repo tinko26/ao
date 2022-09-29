@@ -115,7 +115,7 @@ struct ao_heap_node_t
 ## `ao_heap_assert`
 
 ```c
-void ao_heap_assert(ao_heap_t const * heap);
+void ao_heap_assert(ao_heap_t const * h);
 ```
 
 Asserts the correctness of a heap, in linear time. This function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a runtime assertion failure. It is therefore useful in debugging scenarios. However, the function is implemented recursively, which violates a common rule in embedded software engineering.
@@ -123,7 +123,7 @@ Asserts the correctness of a heap, in linear time. This function traverses the h
 ## `ao_heap_insert`
 
 ```c
-void ao_heap_insert(ao_heap_t * heap, ao_heap_node_t * node);
+void ao_heap_insert(ao_heap_t * h, ao_heap_node_t * n);
 ```
 
 Inserts a node into a heap, in logarithmic time.
@@ -131,7 +131,7 @@ Inserts a node into a heap, in logarithmic time.
 ## `ao_heap_is_empty`
 
 ```c
-bool ao_heap_is_empty(ao_heap_t const * heap);
+bool ao_heap_is_empty(ao_heap_t const * h);
 ```
 
 Checks whether a heap is empty, in constant time.
@@ -139,7 +139,7 @@ Checks whether a heap is empty, in constant time.
 ## `ao_heap_peek`
 
 ```c
-ao_heap_node_t * ao_heap_peek(ao_heap_t const * heap);
+ao_heap_node_t * ao_heap_peek(ao_heap_t const * h);
 ```
 
 Gets the root node of a heap without removing it, in constant time.
@@ -147,7 +147,7 @@ Gets the root node of a heap without removing it, in constant time.
 ## `ao_heap_pop`
 
 ```c
-ao_heap_node_t * ao_heap_pop(ao_heap_t * heap);
+ao_heap_node_t * ao_heap_pop(ao_heap_t * h);
 ```
 
 Removes the root node from a heap, in logarithmic time.
@@ -155,7 +155,7 @@ Removes the root node from a heap, in logarithmic time.
 ## `ao_heap_remove`
 
 ```c
-void ao_heap_remove(ao_heap_t * heap, ao_heap_node_t * node);
+void ao_heap_remove(ao_heap_t * h, ao_heap_node_t * n);
 ```
 
 Removes an arbitrary node from a heap, in logarithmic time.

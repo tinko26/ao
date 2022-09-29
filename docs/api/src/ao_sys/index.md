@@ -40,6 +40,7 @@ wide: false
 | [`ao_lock.h`](ao_lock.h.md) | Locks |
 | [`ao_mail.h`](ao_mail.h.md) | Mail for asynchronous messaging |
 | [`ao_monitor.h`](ao_monitor.h.md) | Monitors |
+| [`ao_mre.h`](ao_mre.h.md) | Manual-reset events |
 | [`ao_mutex.h`](ao_mutex.h.md) | Mutexes |
 | [`ao_num.h`](ao_num.h.md) | Numbers based on the fastest unsigned integer type |
 | [`ao_num8.h`](ao_num8.h.md) | Numbers based on the 8-bit unsigned integer type |

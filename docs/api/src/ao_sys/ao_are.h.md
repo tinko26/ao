@@ -1,20 +1,16 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-27
+date: 2022-09-29
 draft: true
 external:
-- https://docs.microsoft.com/en-us/dotnet/api/system.threading.autoresetevent : "AutoResetEvent"
+- https://learn.microsoft.com/en-us/dotnet/api/system.threading.autoresetevent : "AutoResetEvent"
 permalink: /api/src/ao_sys/ao_are.h/
 toc: true
 ---
 
 # Notes
 
-...
-
-microsoft: "Represents a thread synchronization event that, when signaled, resets automatically after releasing a single waiting thread."
-
-...
+This module defines auto-reset events.
 
 # Include
 
@@ -75,18 +71,10 @@ struct ao_are_wait_t
 
 # Functions
 
-## `ao_are_clear`
-
-```c
-void ao_are_clear(ao_are_t * are);
-```
-
-Clears an auto-reset event, i.e. set its state to `false`.
-
 ## `ao_are_set`
 
 ```c
-void ao_are_set(ao_are_t * are);
+void ao_are_set(ao_are_t * a);
 ```
 
 Sets an auto-reset event, i.e. set its state to `true`. Eventually, this wakes up the first waiting task.
@@ -95,8 +83,8 @@ Sets an auto-reset event, i.e. set its state to `true`. Eventually, this wakes u
 ## `ao_are_wait_from`
 
 ```c
-bool ao_are_wait     (ao_are_t * are, ao_time_t timeout);
-bool ao_are_wait_from(ao_are_t * are, ao_time_t timeout, ao_time_t beginning);
+bool ao_are_wait     (ao_are_t * a, ao_time_t timeout);
+bool ao_are_wait_from(ao_are_t * a, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Waits for an auto-reset event in a blocking fashion with a timeout and optional beginning.
@@ -104,7 +92,7 @@ Waits for an auto-reset event in a blocking fashion with a timeout and optional 
 ## `ao_are_wait_forever`
 
 ```c
-bool ao_are_wait_forever(ao_are_t * are);
+bool ao_are_wait_forever(ao_are_t * a);
 ```
 
 Waits for an auto-reset event indefinitely in a blocking fashion.
@@ -112,7 +100,7 @@ Waits for an auto-reset event indefinitely in a blocking fashion.
 ## `ao_are_wait_try`
 
 ```c
-bool ao_are_wait_try(ao_are_t * are);
+bool ao_are_wait_try(ao_are_t * a);
 ```
 
 Waits for an auto-reset event in a non-blocking fashion.
@@ -121,8 +109,8 @@ Waits for an auto-reset event in a non-blocking fashion.
 ## `ao_are_wait_end`
 
 ```c
-void ao_are_wait_begin(ao_are_wait_t * wait);
-void ao_are_wait_end  (ao_are_wait_t * wait);
+void ao_are_wait_begin(ao_are_wait_t * w);
+void ao_are_wait_end  (ao_are_wait_t * w);
 ```
 
 Begins or ends, respectively, a waiting for an auto-reset event.

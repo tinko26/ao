@@ -48,6 +48,7 @@ The following modules provide synchronization primitives.
 | [`ao_cond.h`](api/src/ao_sys/ao_cond.h.md) | Condition variables. |
 | [`ao_mail.h`](api/src/ao_sys/ao_mail.h.md) | Mail for asynchronous messaging. |
 | [`ao_monitor.h`](api/src/ao_sys/ao_monitor.h.md) | Monitors. |
+| [`ao_mre.h`](api/src/ao_sys/ao_mre.h.md) | Manual-reset events. |
 | [`ao_mutex.h`](api/src/ao_sys/ao_mutex.h.md) | Mutexes. |
 | [`ao_num.h`](api/src/ao_sys/ao_num.h.md) | Numbers based on the fastest unsigned integer type. |
 | [`ao_num8.h`](api/src/ao_sys/ao_num8.h.md) | Numbers based on the 8-bit unsigned integer type. |

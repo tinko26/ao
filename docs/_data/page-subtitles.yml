@@ -149,6 +149,7 @@
 /api/src/ao_sys/ao_lock.h/ : "Locks"
 /api/src/ao_sys/ao_mail.h/ : "Mail for asynchronous messaging"
 /api/src/ao_sys/ao_monitor.h/ : "Monitors"
+/api/src/ao_sys/ao_mre.h/ : "Manual-reset events"
 /api/src/ao_sys/ao_mutex.h/ : "Mutexes"
 /api/src/ao_sys/ao_num.h/ : "Numbers based on the fastest unsigned integer type"
 /api/src/ao_sys/ao_num8.h/ : "Numbers based on the 8-bit unsigned integer type"

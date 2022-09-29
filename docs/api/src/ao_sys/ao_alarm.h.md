@@ -75,8 +75,8 @@ struct ao_alarm_t
 ## `ao_alarm_start_from`
 
 ```c
-void ao_alarm_start     (ao_alarm_t * alarm, ao_time_t timeout);
-void ao_alarm_start_from(ao_alarm_t * alarm, ao_time_t timeout, ao_time_t beginning);
+void ao_alarm_start     (ao_alarm_t * a, ao_time_t timeout);
+void ao_alarm_start_from(ao_alarm_t * a, ao_time_t timeout, ao_time_t beginning);
 ```
 
 Starts an alarm with a timeout and an optional beginning.
@@ -84,7 +84,7 @@ Starts an alarm with a timeout and an optional beginning.
 ## `ao_alarm_stop`
 
 ```c
-void ao_alarm_stop(ao_alarm_t * alarm);
+void ao_alarm_stop(ao_alarm_t * a);
 ```
 
 Stops an alarm.

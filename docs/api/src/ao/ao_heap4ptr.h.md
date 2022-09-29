@@ -97,7 +97,7 @@ struct ao_heap4ptr_t
 ## `ao_heap4ptr_assert`
 
 ```c
-void ao_heap4ptr_assert(ao_heap4ptr_t const * heap);
+void ao_heap4ptr_assert(ao_heap4ptr_t const * h);
 ```
 
 Asserts the correctness of a heap,s in linear time. This function traverses the heap top-down and checks, whether both the heap condition and the shape of a complete binary tree are maintained. If that is not the case, the function triggers a runtime assertion failure.
@@ -105,7 +105,7 @@ Asserts the correctness of a heap,s in linear time. This function traverses the 
 ## `ao_heap4ptr_insert`
 
 ```c
-bool ao_heap4ptr_insert(ao_heap4ptr_t * heap, void * p);
+bool ao_heap4ptr_insert(ao_heap4ptr_t * h, void * p);
 ```
 
 Inserts a pointer into a heap, in logarithmic time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the heap is full.
@@ -114,8 +114,8 @@ Inserts a pointer into a heap, in logarithmic time. The return value indicates, 
 ## `ao_heap4ptr_is_full`
 
 ```c
-bool ao_heap4ptr_is_empty(ao_heap4ptr_t const * heap);
-bool ao_heap4ptr_is_full (ao_heap4ptr_t const * heap);
+bool ao_heap4ptr_is_empty(ao_heap4ptr_t const * h);
+bool ao_heap4ptr_is_full (ao_heap4ptr_t const * h);
 ```
 
 Checks whether a heap is empty or full, respectively, in constant time.
@@ -123,7 +123,7 @@ Checks whether a heap is empty or full, respectively, in constant time.
 ## `ao_heap4ptr_peek`
 
 ```c
-bool ao_heap4ptr_peek(ao_heap4ptr_t const * heap, void ** p);
+bool ao_heap4ptr_peek(ao_heap4ptr_t const * h, void ** p);
 ```
 
 Gets the root pointer of a heap without removing it, in constant time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the heap is empty.
@@ -131,7 +131,7 @@ Gets the root pointer of a heap without removing it, in constant time. The retur
 ## `ao_heap4ptr_pop`
 
 ```c
-bool ao_heap4ptr_pop(ao_heap4ptr_t * heap, void ** p);
+bool ao_heap4ptr_pop(ao_heap4ptr_t * h, void ** p);
 ```
 
 Removes the root pointer from a heap, in logarithmic time. The return value indicates, whether the operation was successful. Therefore, it is safe to call this function, if the heap is empty.
