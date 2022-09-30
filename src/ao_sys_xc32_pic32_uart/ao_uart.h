@@ -32,9 +32,7 @@
 
 // ----------------------------------------------------------------------------
 
-typedef enum    ao_uart_error_flags_t       ao_uart_error_flags_t;
-
-typedef struct  ao_uart_error_info_t        ao_uart_error_info_t;
+typedef enum    ao_uart_error_t             ao_uart_error_t;
 
 // ----------------------------------------------------------------------------
 
@@ -132,13 +130,13 @@ typedef struct  ao_uart_reg_tx_t            ao_uart_reg_tx_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_UART_ERROR_FLAGS
+#ifndef AO_UART_ERROR_T
 
-#define AO_UART_ERROR_FLAGS
+#define AO_UART_ERROR_T
 
 // ----------------------------------------------------------------------------
 
-enum    ao_uart_error_flags_t
+enum    ao_uart_error_t
 {
         AO_UART_ERROR_ALL                   = 0x0E,
 
@@ -155,26 +153,11 @@ enum    ao_uart_error_flags_t
 
 #endif
 
-#ifndef AO_UART_ERROR_INFO
-
-#define AO_UART_ERROR_INFO
-
 // ----------------------------------------------------------------------------
 
-struct  ao_uart_error_info_t
-{
-        ao_uart_error_flags_t               flags;
-};
+#ifndef AO_UART_REG_BRG_T
 
-// ----------------------------------------------------------------------------
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#ifndef AO_UART_REG_BRG
-
-#define AO_UART_REG_BRG
+#define AO_UART_REG_BRG_T
 
 // ----------------------------------------------------------------------------
 
@@ -202,9 +185,9 @@ struct  ao_uart_reg_brg_t
 
 #endif
 
-#ifndef AO_UART_REG_MODE
+#ifndef AO_UART_REG_MODE_T
 
-#define AO_UART_REG_MODE
+#define AO_UART_REG_MODE_T
 
 // ----------------------------------------------------------------------------
 
@@ -268,9 +251,9 @@ struct  ao_uart_reg_mode_t
 
 #endif
 
-#ifndef AO_UART_REG_RX
+#ifndef AO_UART_REG_RX_T
 
-#define AO_UART_REG_RX
+#define AO_UART_REG_RX_T
 
 // ----------------------------------------------------------------------------
 
@@ -298,9 +281,9 @@ struct  ao_uart_reg_rx_t
 
 #endif
 
-#ifndef AO_UART_REG_STA
+#ifndef AO_UART_REG_STA_T
 
-#define AO_UART_REG_STA
+#define AO_UART_REG_STA_T
 
 // ----------------------------------------------------------------------------
 
@@ -358,9 +341,9 @@ struct  ao_uart_reg_sta_t
 
 #endif
 
-#ifndef AO_UART_REG_TX
+#ifndef AO_UART_REG_TX_T
 
-#define AO_UART_REG_TX
+#define AO_UART_REG_TX_T
 
 // ----------------------------------------------------------------------------
 
@@ -388,9 +371,9 @@ struct  ao_uart_reg_tx_t
 
 #endif
 
-#ifndef AO_UART_REG
+#ifndef AO_UART_REG_T
 
-#define AO_UART_REG
+#define AO_UART_REG_T
 
 // ----------------------------------------------------------------------------
 
@@ -413,83 +396,76 @@ struct  ao_uart_reg_t
 
 // ----------------------------------------------------------------------------
 
-void    ao_uart_baud
-(
-        ao_uart_reg_t *                     r,
+#ifndef AO_UART_BAUD_MAX
 
-        uint32_t                            f_pbclk,
+#define AO_UART_BAUD_MAX(f_pbclk)           AO_UART_BAUD_MAX_HI(f_pbclk)
 
-        uint32_t                            f
-);
+#endif
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_UART_BAUD_MAX
+#ifndef AO_UART_BAUD_MAX_HI
 
-#define AO_UART_BAUD_MAX(f_pbclk)           AO_UART_BAUD_HIGH_MAX(f_pbclk)
+#define AO_UART_BAUD_MAX_HI(f_pbclk)                                        \
+(                                                                           \
+    (f_pbclk) /                                                             \
+    (                                                                       \
+        4 * ((AO_UART_BRG_MIN) + 1)                                         \
+    )                                                                       \
+)
 
 #endif
+
+#ifndef AO_UART_BAUD_MAX_LO
+
+#define AO_UART_BAUD_MAX_LO(f_pbclk)                                        \
+(                                                                           \
+    (f_pbclk) /                                                             \
+    (                                                                       \
+        16 * ((AO_UART_BRG_MIN) + 1)                                        \
+    )                                                                       \
+)
+
+#endif
+
+// ----------------------------------------------------------------------------
 
 #ifndef AO_UART_BAUD_MIN
 
-#define AO_UART_BAUD_MIN(f_pbclk)           AO_UART_BAUD_LOW_MIN(f_pbclk)
+#define AO_UART_BAUD_MIN(f_pbclk)           AO_UART_BAUD_MIN_LO(f_pbclk)
 
 #endif
 
 // ----------------------------------------------------------------------------
 
-void    ao_uart_baud_high
-(
-        ao_uart_reg_t *                     r,
+#ifndef AO_UART_BAUD_MIN_HI
 
-        uint32_t                            f_pbclk,
-
-        uint32_t                            f
-);
-
-// ----------------------------------------------------------------------------
-
-#ifndef AO_UART_BAUD_HIGH_MAX
-
-#define AO_UART_BAUD_HIGH_MAX(f_pbclk)      ((f_pbclk) / (4 * ((AO_UART_BRG_MIN) + 1)))
+#define AO_UART_BAUD_MIN_HI(f_pbclk)                                        \
+(                                                                           \
+    1 +                                                                     \
+    (                                                                       \
+        ((f_pbclk) - 1) /                                                   \
+        (                                                                   \
+            4 * ((AO_UART_BRG_MAX) + 1)                                     \
+        )                                                                   \
+    )                                                                       \
+)
 
 #endif
 
-#ifndef AO_UART_BAUD_HIGH_MIN
+#ifndef AO_UART_BAUD_MIN_LO
 
-#define AO_UART_BAUD_HIGH_MIN(f_pbclk)      (1 + (((f_pbclk) - 1) / (4 * ((AO_UART_BRG_MAX) + 1))))
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-void    ao_uart_baud_low
-(
-        ao_uart_reg_t *                     r,
-
-        uint32_t                            f_pbclk,
-
-        uint32_t                            f
-);
-
-// ----------------------------------------------------------------------------
-
-#ifndef AO_UART_BAUD_LOW_MAX
-
-#define AO_UART_BAUD_LOW_MAX(f_pbclk)       ((f_pbclk) / (16 * ((AO_UART_BRG_MIN) + 1)))
+#define AO_UART_BAUD_MIN_LO(f_pbclk)                                        \
+(                                                                           \
+    1 +                                                                     \
+    (                                                                       \
+        ((f_pbclk) - 1) /                                                   \
+        (                                                                   \
+            16 * ((AO_UART_BRG_MAX) + 1)                                    \
+        )                                                                   \
+    )                                                                       \
+)
 
 #endif
-
-#ifndef AO_UART_BAUD_LOW_MIN
-
-#define AO_UART_BAUD_LOW_MIN(f_pbclk)       (1 + (((f_pbclk) - 1) / (16 * ((AO_UART_BRG_MAX) + 1))))
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-void    ao_uart_loopback_disable(           ao_uart_reg_t * r);
-
-void    ao_uart_loopback_enable(            ao_uart_reg_t * r);
 
 // ----------------------------------------------------------------------------

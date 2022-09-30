@@ -28,39 +28,39 @@
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_SYS_CLOCK_U1
+#ifndef AO_SYS_CLOCK_UART1
 
-#define AO_SYS_CLOCK_U1     (0)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_U2
-
-#define AO_SYS_CLOCK_U2     (0)
+#define AO_SYS_CLOCK_UART1  (0)
 
 #endif
 
-#ifndef AO_SYS_CLOCK_U3
+#ifndef AO_SYS_CLOCK_UART2
 
-#define AO_SYS_CLOCK_U3     (0)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_U4
-
-#define AO_SYS_CLOCK_U4     (0)
+#define AO_SYS_CLOCK_UART2  (0)
 
 #endif
 
-#ifndef AO_SYS_CLOCK_U5
+#ifndef AO_SYS_CLOCK_UART3
 
-#define AO_SYS_CLOCK_U5     (0)
+#define AO_SYS_CLOCK_UART3  (0)
 
 #endif
 
-#ifndef AO_SYS_CLOCK_U6
+#ifndef AO_SYS_CLOCK_UART4
 
-#define AO_SYS_CLOCK_U6     (0)
+#define AO_SYS_CLOCK_UART4  (0)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_UART5
+
+#define AO_SYS_CLOCK_UART5  (0)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_UART6
+
+#define AO_SYS_CLOCK_UART6  (0)
 
 #endif
 

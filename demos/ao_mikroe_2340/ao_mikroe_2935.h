@@ -160,6 +160,20 @@
 
 // ----------------------------------------------------------------------------
 
+#ifndef AO_MIKROE_2935
+
+#define AO_MIKROE_2935                                                      \
+(                                                                           \
+        AO_MIKROE_2935_A ||                                                 \
+        AO_MIKROE_2935_B ||                                                 \
+        AO_MIKROE_2935_C ||                                                 \
+        AO_MIKROE_2935_D                                                    \
+)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
 extern  ao_task_t                           ao_mikroe_2935_task_a;
 
 extern  ao_task_t                           ao_mikroe_2935_task_b;

@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Stream for objects.
+// Streams for objects.
 
 // ----------------------------------------------------------------------------
 
@@ -50,6 +50,14 @@ typedef struct  ao_spush_obj_t  ao_spush_obj_t;
 
 #define AO_STREAM4OBJ
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_STREAM4OBJ_T
+
+#define AO_STREAM4OBJ_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_stream4obj_t
@@ -67,9 +75,9 @@ struct  ao_stream4obj_t
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_SPOP_OBJ
+#ifndef AO_SPOP_OBJ_T
 
-#define AO_SPOP_OBJ
+#define AO_SPOP_OBJ_T
 
 // ----------------------------------------------------------------------------
 
@@ -77,30 +85,28 @@ struct  ao_spop_obj_t
 {
         ao_async_t              async;
 
-        ao_list_node_t          node;
-
         void *                  ptr;
 
         bool        volatile    result;
 
         ao_stream4obj_t *       stream;
+
+        ao_list_node_t          stream_pop_node;
 };
 
 // ----------------------------------------------------------------------------
 
 #endif
 
-#ifndef AO_SPUSH_OBJ
+#ifndef AO_SPUSH_OBJ_T
 
-#define AO_SPUSH_OBJ
+#define AO_SPUSH_OBJ_T
 
 // ----------------------------------------------------------------------------
 
 struct  ao_spush_obj_t
 {
         ao_async_t              async;
-
-        ao_list_node_t          node;
 
         void *                  ptr;
 
@@ -111,6 +117,8 @@ struct  ao_spush_obj_t
         bool        volatile    result_override;
 
         ao_stream4obj_t *       stream;
+
+        ao_list_node_t          stream_push_node;
 };
 
 // ----------------------------------------------------------------------------
@@ -119,42 +127,42 @@ struct  ao_spush_obj_t
 
 // ----------------------------------------------------------------------------
 
-void    ao_spop_obj(            ao_spop_obj_t * x, ao_time_t timeout);
+void    ao_spop_obj(            ao_spop_obj_t * p, ao_time_t timeout);
 
-void    ao_spop_obj_from(       ao_spop_obj_t * x, ao_time_t timeout, ao_time_t beginning);
+void    ao_spop_obj_from(       ao_spop_obj_t * p, ao_time_t timeout, ao_time_t beginning);
 
-void    ao_spop_obj_forever(    ao_spop_obj_t * x);
-
-// ----------------------------------------------------------------------------
-
-void    ao_spop_obj_try(        ao_spop_obj_t * x);
+void    ao_spop_obj_forever(    ao_spop_obj_t * p);
 
 // ----------------------------------------------------------------------------
 
-void    ao_spop_obj_begin(      ao_spop_obj_t * x);
-
-void    ao_spop_obj_end(        ao_spop_obj_t * x);
+void    ao_spop_obj_try(        ao_spop_obj_t * p);
 
 // ----------------------------------------------------------------------------
 
-void    ao_spush_obj(           ao_spush_obj_t * x, ao_time_t timeout);
+void    ao_spop_obj_begin(      ao_spop_obj_t * p);
 
-void    ao_spush_obj_from(      ao_spush_obj_t * x, ao_time_t timeout, ao_time_t beginning);
-
-void    ao_spush_obj_forever(   ao_spush_obj_t * x);
+void    ao_spop_obj_end(        ao_spop_obj_t * p);
 
 // ----------------------------------------------------------------------------
 
-void    ao_spush_obj_try(       ao_spush_obj_t * x);
+void    ao_spush_obj(           ao_spush_obj_t * p, ao_time_t timeout);
+
+void    ao_spush_obj_from(      ao_spush_obj_t * p, ao_time_t timeout, ao_time_t beginning);
+
+void    ao_spush_obj_forever(   ao_spush_obj_t * p);
 
 // ----------------------------------------------------------------------------
 
-void    ao_spush_obj_begin(     ao_spush_obj_t * x);
-
-void    ao_spush_obj_end(       ao_spush_obj_t * x);
+void    ao_spush_obj_try(       ao_spush_obj_t * p);
 
 // ----------------------------------------------------------------------------
 
-void    ao_spush_obj_override(  ao_spush_obj_t * x);
+void    ao_spush_obj_begin(     ao_spush_obj_t * p);
+
+void    ao_spush_obj_end(       ao_spush_obj_t * p);
+
+// ----------------------------------------------------------------------------
+
+void    ao_spush_obj_override(  ao_spush_obj_t * p);
 
 // ----------------------------------------------------------------------------

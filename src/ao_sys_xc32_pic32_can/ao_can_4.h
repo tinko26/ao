@@ -31,23 +31,21 @@
 #include <ao_can.h>
 #include <ao_recv_obj.h>
 #include <ao_send_obj.h>
+#include <ao_sys.h>
 #include <ao_task.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include <xc.h>
+
+// ----------------------------------------------------------------------------
+
+// Configuration.
 
 // ----------------------------------------------------------------------------
 
 #ifndef AO_CAN_4
 
-#ifdef  _CAN4
-
-#define AO_CAN_4                        (true)
-
-#else
-
 #define AO_CAN_4                        (false)
-
-#endif
 
 #endif
 
@@ -59,11 +57,15 @@
 
 #endif
 
+// ----------------------------------------------------------------------------
+
 #ifndef AO_CAN_BAUD_SAMPLE_4
 
 #define AO_CAN_BAUD_SAMPLE_4            (85)
 
 #endif
+
+// ----------------------------------------------------------------------------
 
 #ifndef AO_CAN_BAUD_SAMPLE_THRICE_4
 
@@ -71,29 +73,19 @@
 
 #endif
 
+// ----------------------------------------------------------------------------
+
 #ifndef AO_CAN_BAUD_SJW_4
 
 #define AO_CAN_BAUD_SJW_4               (1)
 
 #endif
 
+// ----------------------------------------------------------------------------
+
 #ifndef AO_CAN_BAUD_WAKE_UP_FILTER_4
 
 #define AO_CAN_BAUD_WAKE_UP_FILTER_4    (false)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#ifndef AO_CAN_BAUD_MAX_4
-
-#define AO_CAN_BAUD_MAX_4               AO_CAN_BAUD_MAX(AO_SYS_CLOCK_CAN4)
-
-#endif
-
-#ifndef AO_CAN_BAUD_MIN_4
-
-#define AO_CAN_BAUD_MIN_4               AO_CAN_BAUD_MIN(AO_SYS_CLOCK_CAN4)
 
 #endif
 
@@ -293,48 +285,6 @@
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_CAN_BUFFERS_4
-
-#define AO_CAN_BUFFERS_4                                                    \
-(                                                                           \
-        AO_CAN_BUFFERS_4_0  +                                               \
-        AO_CAN_BUFFERS_4_1  +                                               \
-        AO_CAN_BUFFERS_4_2  +                                               \
-        AO_CAN_BUFFERS_4_3  +                                               \
-        AO_CAN_BUFFERS_4_4  +                                               \
-        AO_CAN_BUFFERS_4_5  +                                               \
-        AO_CAN_BUFFERS_4_6  +                                               \
-        AO_CAN_BUFFERS_4_7  +                                               \
-        AO_CAN_BUFFERS_4_8  +                                               \
-        AO_CAN_BUFFERS_4_9  +                                               \
-        AO_CAN_BUFFERS_4_10 +                                               \
-        AO_CAN_BUFFERS_4_11 +                                               \
-        AO_CAN_BUFFERS_4_12 +                                               \
-        AO_CAN_BUFFERS_4_13 +                                               \
-        AO_CAN_BUFFERS_4_14 +                                               \
-        AO_CAN_BUFFERS_4_15 +                                               \
-        AO_CAN_BUFFERS_4_16 +                                               \
-        AO_CAN_BUFFERS_4_17 +                                               \
-        AO_CAN_BUFFERS_4_18 +                                               \
-        AO_CAN_BUFFERS_4_19 +                                               \
-        AO_CAN_BUFFERS_4_20 +                                               \
-        AO_CAN_BUFFERS_4_21 +                                               \
-        AO_CAN_BUFFERS_4_22 +                                               \
-        AO_CAN_BUFFERS_4_23 +                                               \
-        AO_CAN_BUFFERS_4_24 +                                               \
-        AO_CAN_BUFFERS_4_25 +                                               \
-        AO_CAN_BUFFERS_4_26 +                                               \
-        AO_CAN_BUFFERS_4_27 +                                               \
-        AO_CAN_BUFFERS_4_28 +                                               \
-        AO_CAN_BUFFERS_4_29 +                                               \
-        AO_CAN_BUFFERS_4_30 +                                               \
-        AO_CAN_BUFFERS_4_31                                                 \
-)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
 #ifndef AO_CAN_BUS_4
 
 #define AO_CAN_BUS_4                    (false)
@@ -352,14 +302,6 @@
 #ifndef AO_CAN_FIFOS_TX_4
 
 #define AO_CAN_FIFOS_TX_4               (0)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#ifndef AO_CAN_FIFOS_4
-
-#define AO_CAN_FIFOS_4                  ((AO_CAN_FIFOS_RX_4) + (AO_CAN_FIFOS_TX_4))
 
 #endif
 
@@ -1685,14 +1627,6 @@
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_CAN_RX_4
-
-#define AO_CAN_RX_4                     ((AO_CAN_FIFOS_RX_4) > 0 ? true : false)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
 #ifndef AO_CAN_SENT_4
 
 #define AO_CAN_SENT_4                   (false)
@@ -1717,14 +1651,6 @@
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_CAN_TX_4
-
-#define AO_CAN_TX_4                     ((AO_CAN_FIFOS_TX_4) > 0 ? true : false)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
 #ifndef AO_CAN_UNDERFLOW_4
 
 #define AO_CAN_UNDERFLOW_4              (false)
@@ -1741,98 +1667,125 @@
 
 // ----------------------------------------------------------------------------
 
-extern  ao_can_t                        ao_can_buffers_4[AO_CAN_BUFFERS_4];
-
-extern  ao_send_obj_t                   ao_can_in_4     [AO_CAN_FIFOS_RX_4];
-
-extern  ao_recv_obj_t                   ao_can_out_4    [AO_CAN_FIFOS_TX_4];
-
-extern  ao_task_t                       ao_can_task_4;
+// Constants.
 
 // ----------------------------------------------------------------------------
 
-// This event is raised, when there is an error on the CAN bus.
+#ifndef AO_CAN_BAUD_MAX_4
 
-// This event is raised every time there is a change in the current error state
-// of the CAN module with respect to the CAN network.
+#define AO_CAN_BAUD_MAX_4               AO_CAN_BAUD_MAX(AO_SYS_CLOCK_CAN4)
 
-// The error states are tracked by the CxTREC register.
+#endif
 
-// ----------------------------------------------------------------------------
+#ifndef AO_CAN_BAUD_MIN_4
 
-void    ao_can_bus_4(                   ao_can_bus_info_t const * info);
-
-// ----------------------------------------------------------------------------
-
-void    ao_can_config_4();
-
-void    ao_can_config_baud_4();
-
-void    ao_can_config_fifos_4();
-
-void    ao_can_config_filter_masks_4();
-
-void    ao_can_config_filters_4();
-
-// ----------------------------------------------------------------------------
-
-// This event occurs, when there was an error in the last received message or
-// transmitted message.
-
-// However, the specific error is not available to the user application.
-
-// ----------------------------------------------------------------------------
-
-void    ao_can_invalid_4(               ao_can_invalid_info_t const * info);
-
-// ----------------------------------------------------------------------------
-
-void    ao_can_listen_all_4();
-
-// ----------------------------------------------------------------------------
-
-void    ao_can_listen_only_4();
-
-// ----------------------------------------------------------------------------
-
-void    ao_can_loopback_4();
-
-// ----------------------------------------------------------------------------
-
-// This event occurs upon an operation mode change.
-
-// ----------------------------------------------------------------------------
-
-void    ao_can_mode_4(                  ao_can_mode_info_t const * info);
-
-// ----------------------------------------------------------------------------
-
-void    ao_can_normal_4();
-
-// ----------------------------------------------------------------------------
-
-// This event occurs, when a message has been received, but the designated
-// fifo is full.
-
-// ----------------------------------------------------------------------------
-
-void    ao_can_overflow_4(              ao_can_overflow_info_t const * info);
-
-// ----------------------------------------------------------------------------
-
-#ifndef ao_can_reg_4
-
-#define ao_can_reg_4()                  ((ao_can_reg_t *) (_CAN4_BASE_ADDRESS))
+#define AO_CAN_BAUD_MIN_4               AO_CAN_BAUD_MIN(AO_SYS_CLOCK_CAN4)
 
 #endif
 
 // ----------------------------------------------------------------------------
 
-// This event occurs, when all messages in a fifo have been transmitted.
+#ifndef AO_CAN_BUFFERS_4
+
+#define AO_CAN_BUFFERS_4                                                    \
+(                                                                           \
+        (AO_CAN_BUFFERS_4_0)  +                                             \
+        (AO_CAN_BUFFERS_4_1)  +                                             \
+        (AO_CAN_BUFFERS_4_2)  +                                             \
+        (AO_CAN_BUFFERS_4_3)  +                                             \
+        (AO_CAN_BUFFERS_4_4)  +                                             \
+        (AO_CAN_BUFFERS_4_5)  +                                             \
+        (AO_CAN_BUFFERS_4_6)  +                                             \
+        (AO_CAN_BUFFERS_4_7)  +                                             \
+        (AO_CAN_BUFFERS_4_8)  +                                             \
+        (AO_CAN_BUFFERS_4_9)  +                                             \
+        (AO_CAN_BUFFERS_4_10) +                                             \
+        (AO_CAN_BUFFERS_4_11) +                                             \
+        (AO_CAN_BUFFERS_4_12) +                                             \
+        (AO_CAN_BUFFERS_4_13) +                                             \
+        (AO_CAN_BUFFERS_4_14) +                                             \
+        (AO_CAN_BUFFERS_4_15) +                                             \
+        (AO_CAN_BUFFERS_4_16) +                                             \
+        (AO_CAN_BUFFERS_4_17) +                                             \
+        (AO_CAN_BUFFERS_4_18) +                                             \
+        (AO_CAN_BUFFERS_4_19) +                                             \
+        (AO_CAN_BUFFERS_4_20) +                                             \
+        (AO_CAN_BUFFERS_4_21) +                                             \
+        (AO_CAN_BUFFERS_4_22) +                                             \
+        (AO_CAN_BUFFERS_4_23) +                                             \
+        (AO_CAN_BUFFERS_4_24) +                                             \
+        (AO_CAN_BUFFERS_4_25) +                                             \
+        (AO_CAN_BUFFERS_4_26) +                                             \
+        (AO_CAN_BUFFERS_4_27) +                                             \
+        (AO_CAN_BUFFERS_4_28) +                                             \
+        (AO_CAN_BUFFERS_4_29) +                                             \
+        (AO_CAN_BUFFERS_4_30) +                                             \
+        (AO_CAN_BUFFERS_4_31)                                               \
+)
+
+#endif
 
 // ----------------------------------------------------------------------------
 
-void    ao_can_sent_4(                  ao_can_sent_info_t const * info);
+#ifndef AO_CAN_FIFOS_4
+
+#define AO_CAN_FIFOS_4                                                      \
+(                                                                           \
+        (AO_CAN_FIFOS_RX_4) +                                               \
+        (AO_CAN_FIFOS_TX_4)                                                 \
+)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_CAN_RX_4
+
+#define AO_CAN_RX_4                                                         \
+(                                                                           \
+        (AO_CAN_FIFOS_RX_4) > 0                                             \
+        ? true                                                              \
+        : false                                                             \
+)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_CAN_TX_4
+
+#define AO_CAN_TX_4                                                         \
+(                                                                           \
+        (AO_CAN_FIFOS_TX_4) > 0                                             \
+        ? true                                                              \
+        : false                                                             \
+)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef ao_can_reg_4
+
+#define ao_can_reg_4()                                                      \
+(                                                                           \
+        (ao_can_reg_t *)                                                    \
+        (                                                                   \
+            _CAN4_BASE_ADDRESS                                              \
+        )                                                                   \
+)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+void    ao_can_listen_all_4();
+
+void    ao_can_listen_only_4();
+
+void    ao_can_loopback_4();
+
+void    ao_can_normal_4();
 
 // ----------------------------------------------------------------------------
 
@@ -1842,52 +1795,32 @@ void    ao_can_stop_4();
 
 // ----------------------------------------------------------------------------
 
-// This event occurs due to two types of errors, addressing errors and
-// bandwidth errors.
+void    ao_can_bus_4(                   ao_can_bus_t const * x);
 
-// Both of these errors are fatal. After the event was raised, the CAN module
-// will be stopped and started over again.
+void    ao_can_invalid_4();
 
-// An addressing error will occur, if the CAN module attempts to access a
-// restricted memory location. Most likely, this results from
+void    ao_can_mode_4();
 
-// * an invalid fifo base address, or
+void    ao_can_overflow_4(              uint32_t fifos);
 
-// * an invalid configuration of the fifo sizes in the CxFIFOCONi registers.
+void    ao_can_sent_4(                  uint32_t fifos);
 
-// A bandwidth error will occur, when the CAN module is unable to write a
-// received message to memory before the next message arrives. Most likely,
-// this results from the CAN interrupt being delayed for a too long period of
-// time.
+void    ao_can_system_4(                ao_can_system_t x);
 
-// ----------------------------------------------------------------------------
+void    ao_can_timer_4();
 
-void    ao_can_system_4(                ao_can_system_info_t const * info);
+void    ao_can_underflow_4(             uint32_t fifos);
+
+void    ao_can_wake_up_4();
 
 // ----------------------------------------------------------------------------
 
-// This event occurs, when the CAN timestamp timer overflows.
+extern  ao_send_obj_t                   ao_can_in_4     [AO_CAN_FIFOS_RX_4];
+
+extern  ao_recv_obj_t                   ao_can_out_4    [AO_CAN_FIFOS_TX_4];
 
 // ----------------------------------------------------------------------------
 
-void    ao_can_timer_4(                 ao_can_timer_info_t const * info);
-
-// ----------------------------------------------------------------------------
-
-// This event occurs, when a remote transmission request (RTR) has been
-// received, but the designated fifo to respond automatically is empty.
-
-// ----------------------------------------------------------------------------
-
-void    ao_can_underflow_4(             ao_can_underflow_info_t const * info);
-
-// ----------------------------------------------------------------------------
-
-// This event is raised, when activity is detected on the CAN bus while the
-// CAN module is in sleep mode.
-
-// ----------------------------------------------------------------------------
-
-void    ao_can_wake_up_4(               ao_can_wake_up_info_t const * info);
+extern  ao_task_t                       ao_can_task_4;
 
 // ----------------------------------------------------------------------------

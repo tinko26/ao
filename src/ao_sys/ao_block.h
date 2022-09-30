@@ -41,6 +41,14 @@ typedef struct  ao_block_t  ao_block_t;
 
 #define AO_BLOCK
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_BLOCK_T
+
+#define AO_BLOCK_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_block_t

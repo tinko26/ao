@@ -34,9 +34,9 @@ typedef struct  ao_task_context_t   ao_task_context_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_TASK_CONTEXT
+#ifndef AO_TASK_CONTEXT_T
 
-#define AO_TASK_CONTEXT
+#define AO_TASK_CONTEXT_T
 
 // ----------------------------------------------------------------------------
 

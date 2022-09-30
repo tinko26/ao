@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Condition variable.
+// Conditions.
 
 // ----------------------------------------------------------------------------
 
@@ -45,22 +45,30 @@ typedef struct  ao_cond_wait_t  ao_cond_wait_t;
 
 #define AO_COND
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_COND_T
+
+#define AO_COND_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_cond_t
 {
-        ao_list_t               list;
-
         bool                    state;
+
+        ao_list_t               wait;
 };
 
 // ----------------------------------------------------------------------------
 
 #endif
 
-#ifndef AO_COND_WAIT
+#ifndef AO_COND_WAIT_T
 
-#define AO_COND_WAIT
+#define AO_COND_WAIT_T
 
 // ----------------------------------------------------------------------------
 
@@ -70,7 +78,7 @@ struct  ao_cond_wait_t
 
         ao_cond_t *             cond;
 
-        ao_list_node_t          node;
+        ao_list_node_t          cond_wait_node;
 
         bool        volatile    result;
 };
@@ -81,26 +89,26 @@ struct  ao_cond_wait_t
 
 // ----------------------------------------------------------------------------
 
-void    ao_cond_clear(          ao_cond_t * x);
+void    ao_cond_false(          ao_cond_t * c);
 
-void    ao_cond_set(            ao_cond_t * x);
-
-// ----------------------------------------------------------------------------
-
-bool    ao_cond_wait(           ao_cond_t * x, ao_time_t timeout);
-
-bool    ao_cond_wait_from(      ao_cond_t * x, ao_time_t timeout, ao_time_t beginning);
-
-bool    ao_cond_wait_forever(   ao_cond_t * x);
+void    ao_cond_true(           ao_cond_t * c);
 
 // ----------------------------------------------------------------------------
 
-bool    ao_cond_wait_try(       ao_cond_t * x);
+bool    ao_cond_wait(           ao_cond_t * c, ao_time_t timeout);
+
+bool    ao_cond_wait_from(      ao_cond_t * c, ao_time_t timeout, ao_time_t beginning);
+
+bool    ao_cond_wait_forever(   ao_cond_t * c);
 
 // ----------------------------------------------------------------------------
 
-void    ao_cond_wait_begin(     ao_cond_wait_t * x);
+bool    ao_cond_wait_try(       ao_cond_t * c);
 
-void    ao_cond_wait_end(       ao_cond_wait_t * x);
+// ----------------------------------------------------------------------------
+
+void    ao_cond_wait_begin(     ao_cond_wait_t * w);
+
+void    ao_cond_wait_end(       ao_cond_wait_t * w);
 
 // ----------------------------------------------------------------------------

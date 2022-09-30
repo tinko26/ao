@@ -26,9 +26,7 @@
 
 // Task scheduler 1.
 
-// This module implements round-robin scheduling without priorities.
-
-// This module supports a single processor.
+// Round-robin scheduling without priorities on a single-core processor.
 
 // ----------------------------------------------------------------------------
 

@@ -26,7 +26,7 @@
 
 // Alarm queue 0.
 
-// This module is a stub implementation.
+// Alarm queue stub.
 
 // ----------------------------------------------------------------------------
 
@@ -42,9 +42,9 @@ typedef struct  ao_alarm_queue_node_t   ao_alarm_queue_node_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_ALARM_QUEUE_NODE
+#ifndef AO_ALARM_QUEUE_NODE_T
 
-#define AO_ALARM_QUEUE_NODE
+#define AO_ALARM_QUEUE_NODE_T
 
 // ----------------------------------------------------------------------------
 

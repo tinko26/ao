@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Signal.
+// Signals.
 
 // ----------------------------------------------------------------------------
 
@@ -45,20 +45,28 @@ typedef struct  ao_signal_wait_t    ao_signal_wait_t;
 
 #define AO_SIGNAL
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_SIGNAL_T
+
+#define AO_SIGNAL_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_signal_t
 {
-        ao_list_t                   list;
+        ao_list_t                   wait;
 };
 
 // ----------------------------------------------------------------------------
 
 #endif
 
-#ifndef AO_SIGNAL_WAIT
+#ifndef AO_SIGNAL_WAIT_T
 
-#define AO_SIGNAL_WAIT
+#define AO_SIGNAL_WAIT_T
 
 // ----------------------------------------------------------------------------
 
@@ -66,11 +74,11 @@ struct  ao_signal_wait_t
 {
         ao_async_t                  async;
 
-        ao_list_node_t              node;
-
         bool            volatile    result;
 
         ao_signal_t *               signal;
+
+        ao_list_node_t              signal_wait_node;
 };
 
 // ----------------------------------------------------------------------------
@@ -79,22 +87,22 @@ struct  ao_signal_wait_t
 
 // ----------------------------------------------------------------------------
 
-void    ao_signal_notify(           ao_signal_t * x);
+void    ao_signal_notify(           ao_signal_t * s);
 
-void    ao_signal_notify_all(       ao_signal_t * x);
-
-// ----------------------------------------------------------------------------
-
-bool    ao_signal_wait(             ao_signal_t * x, ao_time_t timeout);
-
-bool    ao_signal_wait_from(        ao_signal_t * x, ao_time_t timeout, ao_time_t beginning);
-
-bool    ao_signal_wait_forever(     ao_signal_t * x);
+void    ao_signal_notify_all(       ao_signal_t * s);
 
 // ----------------------------------------------------------------------------
 
-void    ao_signal_wait_begin(       ao_signal_wait_t * x);
+bool    ao_signal_wait(             ao_signal_t * s, ao_time_t timeout);
 
-void    ao_signal_wait_end(         ao_signal_wait_t * x);
+bool    ao_signal_wait_from(        ao_signal_t * s, ao_time_t timeout, ao_time_t beginning);
+
+bool    ao_signal_wait_forever(     ao_signal_t * s);
+
+// ----------------------------------------------------------------------------
+
+void    ao_signal_wait_begin(       ao_signal_wait_t * w);
+
+void    ao_signal_wait_end(         ao_signal_wait_t * w);
 
 // ----------------------------------------------------------------------------

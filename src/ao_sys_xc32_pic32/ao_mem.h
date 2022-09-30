@@ -32,21 +32,21 @@
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_memcpy
+#ifndef ao_mem_copy
 
-#define ao_memcpy(d, s, n)      memcpy(d, s, n)
-
-#endif
-
-#ifndef ao_memmove
-
-#define ao_memmove(d, s, n)     memmove(d, s, n)
+#define ao_mem_copy(d, s, n)    memcpy(d, s, n)
 
 #endif
 
-#ifndef ao_memset
+#ifndef ao_mem_move
 
-#define ao_memset(p, v, n)      memset(p, (int) (v), n)
+#define ao_mem_move(d, s, n)    memmove(d, s, n)
+
+#endif
+
+#ifndef ao_mem_set
+
+#define ao_mem_set(p, v, n)     memset(p, (int) (v), n)
 
 #endif
 

@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Send.
+// Sending.
 
 // ----------------------------------------------------------------------------
 
@@ -40,13 +40,21 @@ typedef struct  ao_send_t   ao_send_t;
 
 // ----------------------------------------------------------------------------
 
-typedef void (*             ao_send_proc_t) (ao_send_t * x);
+typedef void (*             ao_send_proc_t) (ao_send_t * send);
 
 // ----------------------------------------------------------------------------
 
 #ifndef AO_SEND
 
 #define AO_SEND
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_SEND_T
+
+#define AO_SEND_T
 
 // ----------------------------------------------------------------------------
 
@@ -77,20 +85,20 @@ struct  ao_send_t
 
 // ----------------------------------------------------------------------------
 
-void    ao_send(            ao_send_t * x, ao_time_t timeout);
+void    ao_send(            ao_send_t * s, ao_time_t timeout);
 
-void    ao_send_from(       ao_send_t * x, ao_time_t timeout, ao_time_t beginning);
+void    ao_send_from(       ao_send_t * s, ao_time_t timeout, ao_time_t beginning);
 
-void    ao_send_forever(    ao_send_t * x);
-
-// ----------------------------------------------------------------------------
-
-void    ao_send_try(        ao_send_t * x);
+void    ao_send_forever(    ao_send_t * s);
 
 // ----------------------------------------------------------------------------
 
-void    ao_send_begin(      ao_send_t * x);
+void    ao_send_try(        ao_send_t * s);
 
-void    ao_send_end(        ao_send_t * x);
+// ----------------------------------------------------------------------------
+
+void    ao_send_begin(      ao_send_t * s);
+
+void    ao_send_end(        ao_send_t * s);
 
 // ----------------------------------------------------------------------------

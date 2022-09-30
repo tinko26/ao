@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Sleep.
+// Sleeping.
 
 // ----------------------------------------------------------------------------
 
@@ -42,6 +42,14 @@ typedef struct  ao_sleep_t  ao_sleep_t;
 #ifndef AO_SLEEP
 
 #define AO_SLEEP
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_SLEEP_T
+
+#define AO_SLEEP_T
 
 // ----------------------------------------------------------------------------
 
@@ -64,72 +72,18 @@ struct  ao_sleep_t
 
 // ----------------------------------------------------------------------------
 
-// @brief
-
-// Puts the running task to sleep.
-
-// @details
-
-// If the #timeout is not equal to #AO_INFINITY, then the task will
-// wake up at #ao_now() + #timeout.
-
-// If the #timeout is equal to #AO_INFINITY, then the task will sleep forever.
-// It must be woken up explicitly by another task calling #ao_task_wake().
-
-// @return
-
-// #true    The task has woken up after the specified timeout.
-
-// #false   Otherwise.
-
 bool    ao_sleep(           ao_time_t timeout);
-
-// ----------------------------------------------------------------------------
-
-// @brief
-
-// Puts the running task to sleep.
-
-// @details
-
-// If the #timeout is not equal to #AO_INFINITY, then the task will
-// wake up at #beginning + #timeout.
-
-// If the #timeout is equal to #AO_INFINITY, then the task will sleep forever
-// and the specified #beginning will be ignored. Then, it must be woken up
-// explicitly by another task calling #ao_task_wake().
-
-// @return
-
-// #true    The task has woken up after the specified timeout.
-
-// #false   Otherwise.
 
 bool    ao_sleep_from(      ao_time_t timeout, ao_time_t beginning);
 
 // ----------------------------------------------------------------------------
 
-// @brief
-
-// Puts the running task to sleep.
-
-// @details
-
-// The task will never be woken up by the operating system. It must be woken up
-// explicitly by another task calling #ao_task_wake().
-
-// @return
-
-// #true    The task has woken up after the specified timeout.
-
-// #false   Otherwise.
-
 bool    ao_sleep_forever();
 
 // ----------------------------------------------------------------------------
 
-void    ao_sleep_begin(     ao_sleep_t * x);
+void    ao_sleep_begin(     ao_sleep_t * s);
 
-void    ao_sleep_end(       ao_sleep_t * x);
+void    ao_sleep_end(       ao_sleep_t * s);
 
 // ----------------------------------------------------------------------------

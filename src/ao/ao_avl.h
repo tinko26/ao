@@ -24,13 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// AVL tree.
-
-// ----------------------------------------------------------------------------
-
-// @seeAlso
-
-// https://en.wikipedia.org/wiki/AVL_tree
+// AVL trees.
 
 // ----------------------------------------------------------------------------
 
@@ -48,9 +42,9 @@ typedef struct  ao_avl_node_t   ao_avl_node_t;
 
 typedef bool (*                 ao_avl_less_t)
 (
-        ao_avl_node_t *         n1,
+        ao_avl_node_t const *   node1,
 
-        ao_avl_node_t *         n2,
+        ao_avl_node_t const *   node2,
 
         void *                  parameter
 );
@@ -60,6 +54,14 @@ typedef bool (*                 ao_avl_less_t)
 #ifndef AO_AVL
 
 #define AO_AVL
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_AVL_T
+
+#define AO_AVL_T
 
 // ----------------------------------------------------------------------------
 
@@ -76,9 +78,9 @@ struct  ao_avl_t
 
 #endif
 
-#ifndef AO_AVL_NODE
+#ifndef AO_AVL_NODE_T
 
-#define AO_AVL_NODE
+#define AO_AVL_NODE_T
 
 // ----------------------------------------------------------------------------
 
@@ -99,32 +101,28 @@ struct  ao_avl_node_t
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_avl_is_empty
-
-#define ao_avl_is_empty(x)      ((x)->root == NULL ? true : false)
-
-#endif
+void    ao_avl_assert(          ao_avl_t const * a);
 
 // ----------------------------------------------------------------------------
 
-void    ao_avl_assert(          ao_avl_t * x);
+void    ao_avl_insert(          ao_avl_t * a, ao_avl_node_t * n);
 
 // ----------------------------------------------------------------------------
 
-void    ao_avl_insert(          ao_avl_t * x, ao_avl_node_t * n);
+bool    ao_avl_is_empty(        ao_avl_t const * a);
 
 // ----------------------------------------------------------------------------
 
 ao_avl_node_t *
 
-        ao_avl_max(             ao_avl_t * x);
+        ao_avl_max(             ao_avl_t const * a);
 
 ao_avl_node_t *
 
-        ao_avl_min(             ao_avl_t * x);
+        ao_avl_min(             ao_avl_t const * a);
 
 // ----------------------------------------------------------------------------
 
-void    ao_avl_remove(          ao_avl_t * x, ao_avl_node_t * n);
+void    ao_avl_remove(          ao_avl_t * a, ao_avl_node_t * n);
 
 // ----------------------------------------------------------------------------

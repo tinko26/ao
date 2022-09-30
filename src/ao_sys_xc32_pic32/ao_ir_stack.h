@@ -73,9 +73,9 @@ typedef struct  ao_ir_stack_t       ao_ir_stack_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_IR_STACK
+#ifndef AO_IR_STACK_T
 
-#define AO_IR_STACK
+#define AO_IR_STACK_T
 
 // ----------------------------------------------------------------------------
 
@@ -113,8 +113,6 @@ extern  ao_ir_stack_t               ao_ir_stack;
 
 // ----------------------------------------------------------------------------
 
-// Executes function #f on the interrupt stack.
-
 void *  ao_ir_stack_func0(                                           ao_func0_t f);
 
 void *  ao_ir_stack_func1(          void * p1,                       ao_func1_t f);
@@ -124,8 +122,6 @@ void *  ao_ir_stack_func2(          void * p1, void * p2,            ao_func2_t 
 void *  ao_ir_stack_func3(          void * p1, void * p2, void * p3, ao_func3_t f);
 
 // ----------------------------------------------------------------------------
-
-// Measures the high water mark of the interrupt stack.
 
 void    ao_ir_stack_high_water_mark();
 

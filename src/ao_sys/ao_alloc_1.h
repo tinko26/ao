@@ -26,6 +26,8 @@
 
 // Allocator 1.
 
+// Allocator based on pools of fixed-size memory blocks.
+
 // ----------------------------------------------------------------------------
 
 #include <stdbool.h>
@@ -979,9 +981,9 @@ typedef struct  ao_retained_t           ao_retained_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_ALLOC_POOL
+#ifndef AO_ALLOC_POOL_T
 
-#define AO_ALLOC_POOL
+#define AO_ALLOC_POOL_T
 
 // ----------------------------------------------------------------------------
 

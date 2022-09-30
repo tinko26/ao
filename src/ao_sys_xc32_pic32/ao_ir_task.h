@@ -24,66 +24,49 @@
 
 // ----------------------------------------------------------------------------
 
-// Task switch interrupt.
+// Task interrupt.
 
 // ----------------------------------------------------------------------------
 
-#include <ao_core.h>
 #include <ao_ir_cs.h>
-#include <stdbool.h>
 
 // ----------------------------------------------------------------------------
 
-void    ao_task_switch();
+void    ao_ir_task();
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_IR_TASK
+#ifndef ao_ir_task_enable
 
-#define AO_IR_TASK
+#define ao_ir_task_enable(c)        ao_ir_cs1_enable()
 
-// ----------------------------------------------------------------------------
+#endif
 
-static void ao_task_switch_disable(ao_core_t c)
-{
-    (void) c;
+#ifndef ao_ir_task_disable
 
-    ao_ir_cs1_disable();
-}
+#define ao_ir_task_disable(c)       ao_ir_cs1_disable()
 
-static void ao_task_switch_enable(ao_core_t c)
-{
-    (void) c;
-
-    ao_ir_cs1_enable();
-}
+#endif
 
 // ----------------------------------------------------------------------------
 
-static bool ao_task_switch_is_pending(ao_core_t c)
-{
-    (void) c;
+#ifndef ao_ir_task_request
 
-    return ao_ir_cs1_is_pending();
-}
+#define ao_ir_task_request(c)       ao_ir_cs1_request()
 
-// ----------------------------------------------------------------------------
+#endif
 
-static void ao_task_switch_reply(ao_core_t c)
-{
-    (void) c;
+#ifndef ao_ir_task_reply
 
-    ao_ir_cs1_reply();
-}
+#define ao_ir_task_reply(c)         ao_ir_cs1_reply()
 
-static void ao_task_switch_request(ao_core_t c)
-{
-    (void) c;
-
-    ao_ir_cs1_request();
-}
+#endif
 
 // ----------------------------------------------------------------------------
+
+#ifndef ao_ir_task_is_pending
+
+#define ao_ir_task_is_pending(c)    ao_ir_cs1_is_pending()
 
 #endif
 

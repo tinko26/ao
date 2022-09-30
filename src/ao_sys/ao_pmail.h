@@ -24,15 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Priority mail.
-
-// Asynchronous messaging with priorities.
-
-// ----------------------------------------------------------------------------
-
-// This module implements a priority queue based on a red-black tree.
-
-// Fetching returns the minimum element of the tree.
+// Priority mail for asynchronous messaging.
 
 // ----------------------------------------------------------------------------
 
@@ -56,20 +48,28 @@ typedef struct  ao_pmailbox_t       ao_pmailbox_t;
 
 #define AO_PMAIL
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_PMAIL_T
+
+#define AO_PMAIL_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_pmail_t
 {
-        ao_rb_node_t                node;
+        ao_rb_node_t                pmailbox_pmail_node;
 };
 
 // ----------------------------------------------------------------------------
 
 #endif
 
-#ifndef AO_PMAIL_FETCH
+#ifndef AO_PMAIL_FETCH_T
 
-#define AO_PMAIL_FETCH
+#define AO_PMAIL_FETCH_T
 
 // ----------------------------------------------------------------------------
 
@@ -77,11 +77,11 @@ struct  ao_pmail_fetch_t
 {
         ao_async_t                  async;
 
-        ao_pmail_t *    volatile    mail;
+        ao_pmail_t *    volatile    pmail;
 
-        ao_pmailbox_t *             mailbox;
+        ao_pmailbox_t *             pmailbox;
 
-        ao_list_node_t              node;
+        ao_list_node_t              pmailbox_fetch_node;
 
         bool            volatile    result;
 };
@@ -90,17 +90,17 @@ struct  ao_pmail_fetch_t
 
 #endif
 
-#ifndef AO_PMAILBOX
+#ifndef AO_PMAILBOX_T
 
-#define AO_PMAILBOX
+#define AO_PMAILBOX_T
 
 // ----------------------------------------------------------------------------
 
 struct  ao_pmailbox_t
 {
-        ao_list_t                   fetchers;
+        ao_list_t                   fetch;
 
-        ao_rb_t                     mails;
+        ao_rb_t                     pmail;
 };
 
 // ----------------------------------------------------------------------------
@@ -109,24 +109,24 @@ struct  ao_pmailbox_t
 
 // ----------------------------------------------------------------------------
 
-void    ao_pmail_post(              ao_pmailbox_t * x, ao_pmail_t * m);
+void    ao_pmail_fetch(             ao_pmail_fetch_t * f, ao_time_t timeout);
+
+void    ao_pmail_fetch_from(        ao_pmail_fetch_t * f, ao_time_t timeout, ao_time_t beginning);
+
+void    ao_pmail_fetch_forever(     ao_pmail_fetch_t * f);
 
 // ----------------------------------------------------------------------------
 
-bool    ao_pmail_fetch(             ao_pmailbox_t * x, ao_pmail_t ** m, ao_time_t timeout);
-
-bool    ao_pmail_fetch_from(        ao_pmailbox_t * x, ao_pmail_t ** m, ao_time_t timeout, ao_time_t beginning);
-
-bool    ao_pmail_fetch_forever(     ao_pmailbox_t * x, ao_pmail_t ** m);
+void    ao_pmail_fetch_try(         ao_pmail_fetch_t * f);
 
 // ----------------------------------------------------------------------------
 
-bool    ao_pmail_fetch_try(         ao_pmailbox_t * x, ao_pmail_t ** m);
+void    ao_pmail_fetch_begin(       ao_pmail_fetch_t * f);
+
+void    ao_pmail_fetch_end(         ao_pmail_fetch_t * f);
 
 // ----------------------------------------------------------------------------
 
-void    ao_pmail_fetch_begin(       ao_pmail_fetch_t * x);
-
-void    ao_pmail_fetch_end(         ao_pmail_fetch_t * x);
+void    ao_pmail_post(              ao_pmailbox_t * x, ao_pmail_t * p);
 
 // ----------------------------------------------------------------------------

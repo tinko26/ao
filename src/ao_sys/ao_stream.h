@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Stream.
+// Streams.
 
 // ----------------------------------------------------------------------------
 
@@ -50,6 +50,14 @@ typedef struct  ao_spush_t  ao_spush_t;
 
 #define AO_STREAM
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_STREAM_T
+
+#define AO_STREAM_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_stream_t
@@ -67,9 +75,9 @@ struct  ao_stream_t
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_SPOP
+#ifndef AO_SPOP_T
 
-#define AO_SPOP
+#define AO_SPOP_T
 
 // ----------------------------------------------------------------------------
 
@@ -94,9 +102,9 @@ struct  ao_spop_t
 
 #endif
 
-#ifndef AO_SPUSH
+#ifndef AO_SPUSH_T
 
-#define AO_SPUSH
+#define AO_SPUSH_T
 
 // ----------------------------------------------------------------------------
 
@@ -123,42 +131,42 @@ struct  ao_spush_t
 
 // ----------------------------------------------------------------------------
 
-void    ao_spop(            ao_spop_t * x, ao_time_t timeout);
+void    ao_spop(            ao_spop_t * p, ao_time_t timeout);
 
-void    ao_spop_from(       ao_spop_t * x, ao_time_t timeout, ao_time_t beginning);
+void    ao_spop_from(       ao_spop_t * p, ao_time_t timeout, ao_time_t beginning);
 
-void    ao_spop_forever(    ao_spop_t * x);
-
-// ----------------------------------------------------------------------------
-
-void    ao_spop_try(        ao_spop_t * x);
+void    ao_spop_forever(    ao_spop_t * p);
 
 // ----------------------------------------------------------------------------
 
-void    ao_spop_begin(      ao_spop_t * x);
-
-void    ao_spop_end(        ao_spop_t * x);
+void    ao_spop_try(        ao_spop_t * p);
 
 // ----------------------------------------------------------------------------
 
-void    ao_spush(           ao_spush_t * x, ao_time_t timeout);
+void    ao_spop_begin(      ao_spop_t * p);
 
-void    ao_spush_from(      ao_spush_t * x, ao_time_t timeout, ao_time_t beginning);
-
-void    ao_spush_forever(   ao_spush_t * x);
+void    ao_spop_end(        ao_spop_t * p);
 
 // ----------------------------------------------------------------------------
 
-void    ao_spush_try(       ao_spush_t * x);
+void    ao_spush(           ao_spush_t * p, ao_time_t timeout);
+
+void    ao_spush_from(      ao_spush_t * p, ao_time_t timeout, ao_time_t beginning);
+
+void    ao_spush_forever(   ao_spush_t * p);
 
 // ----------------------------------------------------------------------------
 
-void    ao_spush_begin(     ao_spush_t * x);
-
-void    ao_spush_end(       ao_spush_t * x);
+void    ao_spush_try(       ao_spush_t * p);
 
 // ----------------------------------------------------------------------------
 
-void    ao_spush_override(  ao_spush_t * x);
+void    ao_spush_begin(     ao_spush_t * p);
+
+void    ao_spush_end(       ao_spush_t * p);
+
+// ----------------------------------------------------------------------------
+
+void    ao_spush_override(  ao_spush_t * p);
 
 // ----------------------------------------------------------------------------

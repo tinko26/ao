@@ -26,7 +26,7 @@
 
 // Task scheduler 0.
 
-// This module is a stub implementation.
+// Task scheduler stub.
 
 // ----------------------------------------------------------------------------
 

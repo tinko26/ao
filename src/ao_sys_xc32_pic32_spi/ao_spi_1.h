@@ -37,15 +37,7 @@
 
 #ifndef AO_SPI_1
 
-#ifdef  _SPI1
-
-#define AO_SPI_1            (true)
-
-#else
-
 #define AO_SPI_1            (false)
-
-#endif
 
 #endif
 
@@ -67,7 +59,15 @@
 
 #ifndef ao_spi_baud_1
 
-#define ao_spi_baud_1(f)    ao_spi_baud(ao_spi_reg_1(), AO_SYS_CLOCK_SPI1, f)
+#define ao_spi_baud_1(f)                                                    \
+{                                                                           \
+        ao_spi_baud                                                         \
+        (                                                                   \
+            ao_spi_reg_1(),                                                 \
+            AO_SYS_CLOCK_SPI1,                                              \
+            f                                                               \
+        );                                                                  \
+}
 
 #endif
 
@@ -75,7 +75,13 @@
 
 #ifndef ao_spi_reg_1
 
-#define ao_spi_reg_1()      ((ao_spi_reg_t *) (_SPI1_BASE_ADDRESS))
+#define ao_spi_reg_1()                                                      \
+(                                                                           \
+        (ao_spi_reg_t *)                                                    \
+        (                                                                   \
+            _SPI1_BASE_ADDRESS                                              \
+        )                                                                   \
+)
 
 #endif
 

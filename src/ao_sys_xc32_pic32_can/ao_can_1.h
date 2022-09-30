@@ -31,23 +31,21 @@
 #include <ao_can.h>
 #include <ao_recv_obj.h>
 #include <ao_send_obj.h>
+#include <ao_sys.h>
 #include <ao_task.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include <xc.h>
+
+// ----------------------------------------------------------------------------
+
+// Configuration.
 
 // ----------------------------------------------------------------------------
 
 #ifndef AO_CAN_1
 
-#ifdef  _CAN1
-
-#define AO_CAN_1                        (true)
-
-#else
-
 #define AO_CAN_1                        (false)
-
-#endif
 
 #endif
 
@@ -59,11 +57,15 @@
 
 #endif
 
+// ----------------------------------------------------------------------------
+
 #ifndef AO_CAN_BAUD_SAMPLE_1
 
 #define AO_CAN_BAUD_SAMPLE_1            (85)
 
 #endif
+
+// ----------------------------------------------------------------------------
 
 #ifndef AO_CAN_BAUD_SAMPLE_THRICE_1
 
@@ -71,29 +73,19 @@
 
 #endif
 
+// ----------------------------------------------------------------------------
+
 #ifndef AO_CAN_BAUD_SJW_1
 
 #define AO_CAN_BAUD_SJW_1               (1)
 
 #endif
 
+// ----------------------------------------------------------------------------
+
 #ifndef AO_CAN_BAUD_WAKE_UP_FILTER_1
 
 #define AO_CAN_BAUD_WAKE_UP_FILTER_1    (false)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#ifndef AO_CAN_BAUD_MAX_1
-
-#define AO_CAN_BAUD_MAX_1               AO_CAN_BAUD_MAX(AO_SYS_CLOCK_CAN1)
-
-#endif
-
-#ifndef AO_CAN_BAUD_MIN_1
-
-#define AO_CAN_BAUD_MIN_1               AO_CAN_BAUD_MIN(AO_SYS_CLOCK_CAN1)
 
 #endif
 
@@ -293,48 +285,6 @@
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_CAN_BUFFERS_1
-
-#define AO_CAN_BUFFERS_1                                                    \
-(                                                                           \
-        AO_CAN_BUFFERS_1_0  +                                               \
-        AO_CAN_BUFFERS_1_1  +                                               \
-        AO_CAN_BUFFERS_1_2  +                                               \
-        AO_CAN_BUFFERS_1_3  +                                               \
-        AO_CAN_BUFFERS_1_4  +                                               \
-        AO_CAN_BUFFERS_1_5  +                                               \
-        AO_CAN_BUFFERS_1_6  +                                               \
-        AO_CAN_BUFFERS_1_7  +                                               \
-        AO_CAN_BUFFERS_1_8  +                                               \
-        AO_CAN_BUFFERS_1_9  +                                               \
-        AO_CAN_BUFFERS_1_10 +                                               \
-        AO_CAN_BUFFERS_1_11 +                                               \
-        AO_CAN_BUFFERS_1_12 +                                               \
-        AO_CAN_BUFFERS_1_13 +                                               \
-        AO_CAN_BUFFERS_1_14 +                                               \
-        AO_CAN_BUFFERS_1_15 +                                               \
-        AO_CAN_BUFFERS_1_16 +                                               \
-        AO_CAN_BUFFERS_1_17 +                                               \
-        AO_CAN_BUFFERS_1_18 +                                               \
-        AO_CAN_BUFFERS_1_19 +                                               \
-        AO_CAN_BUFFERS_1_20 +                                               \
-        AO_CAN_BUFFERS_1_21 +                                               \
-        AO_CAN_BUFFERS_1_22 +                                               \
-        AO_CAN_BUFFERS_1_23 +                                               \
-        AO_CAN_BUFFERS_1_24 +                                               \
-        AO_CAN_BUFFERS_1_25 +                                               \
-        AO_CAN_BUFFERS_1_26 +                                               \
-        AO_CAN_BUFFERS_1_27 +                                               \
-        AO_CAN_BUFFERS_1_28 +                                               \
-        AO_CAN_BUFFERS_1_29 +                                               \
-        AO_CAN_BUFFERS_1_30 +                                               \
-        AO_CAN_BUFFERS_1_31                                                 \
-)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
 #ifndef AO_CAN_BUS_1
 
 #define AO_CAN_BUS_1                    (false)
@@ -352,14 +302,6 @@
 #ifndef AO_CAN_FIFOS_TX_1
 
 #define AO_CAN_FIFOS_TX_1               (0)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#ifndef AO_CAN_FIFOS_1
-
-#define AO_CAN_FIFOS_1                  ((AO_CAN_FIFOS_RX_1) + (AO_CAN_FIFOS_TX_1))
 
 #endif
 
@@ -1685,14 +1627,6 @@
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_CAN_RX_1
-
-#define AO_CAN_RX_1                     ((AO_CAN_FIFOS_RX_1) > 0 ? true : false)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
 #ifndef AO_CAN_SENT_1
 
 #define AO_CAN_SENT_1                   (false)
@@ -1717,14 +1651,6 @@
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_CAN_TX_1
-
-#define AO_CAN_TX_1                     ((AO_CAN_FIFOS_TX_1) > 0 ? true : false)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
 #ifndef AO_CAN_UNDERFLOW_1
 
 #define AO_CAN_UNDERFLOW_1              (false)
@@ -1741,98 +1667,125 @@
 
 // ----------------------------------------------------------------------------
 
-extern  ao_can_t                        ao_can_buffers_1[AO_CAN_BUFFERS_1];
-
-extern  ao_send_obj_t                   ao_can_in_1     [AO_CAN_FIFOS_RX_1];
-
-extern  ao_recv_obj_t                   ao_can_out_1    [AO_CAN_FIFOS_TX_1];
-
-extern  ao_task_t                       ao_can_task_1;
+// Constants.
 
 // ----------------------------------------------------------------------------
 
-// This event is raised, when there is an error on the CAN bus.
+#ifndef AO_CAN_BAUD_MAX_1
 
-// This event is raised every time there is a change in the current error state
-// of the CAN module with respect to the CAN network.
+#define AO_CAN_BAUD_MAX_1               AO_CAN_BAUD_MAX(AO_SYS_CLOCK_CAN1)
 
-// The error states are tracked by the CxTREC register.
+#endif
 
-// ----------------------------------------------------------------------------
+#ifndef AO_CAN_BAUD_MIN_1
 
-void    ao_can_bus_1(                   ao_can_bus_info_t const * info);
-
-// ----------------------------------------------------------------------------
-
-void    ao_can_config_1();
-
-void    ao_can_config_baud_1();
-
-void    ao_can_config_fifos_1();
-
-void    ao_can_config_filter_masks_1();
-
-void    ao_can_config_filters_1();
-
-// ----------------------------------------------------------------------------
-
-// This event occurs, when there was an error in the last received message or
-// transmitted message.
-
-// However, the specific error is not available to the user application.
-
-// ----------------------------------------------------------------------------
-
-void    ao_can_invalid_1(               ao_can_invalid_info_t const * info);
-
-// ----------------------------------------------------------------------------
-
-void    ao_can_listen_all_1();
-
-// ----------------------------------------------------------------------------
-
-void    ao_can_listen_only_1();
-
-// ----------------------------------------------------------------------------
-
-void    ao_can_loopback_1();
-
-// ----------------------------------------------------------------------------
-
-// This event occurs upon an operation mode change.
-
-// ----------------------------------------------------------------------------
-
-void    ao_can_mode_1(                  ao_can_mode_info_t const * info);
-
-// ----------------------------------------------------------------------------
-
-void    ao_can_normal_1();
-
-// ----------------------------------------------------------------------------
-
-// This event occurs, when a message has been received, but the designated
-// fifo is full.
-
-// ----------------------------------------------------------------------------
-
-void    ao_can_overflow_1(              ao_can_overflow_info_t const * info);
-
-// ----------------------------------------------------------------------------
-
-#ifndef ao_can_reg_1
-
-#define ao_can_reg_1()                  ((ao_can_reg_t *) (_CAN1_BASE_ADDRESS))
+#define AO_CAN_BAUD_MIN_1               AO_CAN_BAUD_MIN(AO_SYS_CLOCK_CAN1)
 
 #endif
 
 // ----------------------------------------------------------------------------
 
-// This event occurs, when all messages in a fifo have been transmitted.
+#ifndef AO_CAN_BUFFERS_1
+
+#define AO_CAN_BUFFERS_1                                                    \
+(                                                                           \
+        (AO_CAN_BUFFERS_1_0)  +                                             \
+        (AO_CAN_BUFFERS_1_1)  +                                             \
+        (AO_CAN_BUFFERS_1_2)  +                                             \
+        (AO_CAN_BUFFERS_1_3)  +                                             \
+        (AO_CAN_BUFFERS_1_4)  +                                             \
+        (AO_CAN_BUFFERS_1_5)  +                                             \
+        (AO_CAN_BUFFERS_1_6)  +                                             \
+        (AO_CAN_BUFFERS_1_7)  +                                             \
+        (AO_CAN_BUFFERS_1_8)  +                                             \
+        (AO_CAN_BUFFERS_1_9)  +                                             \
+        (AO_CAN_BUFFERS_1_10) +                                             \
+        (AO_CAN_BUFFERS_1_11) +                                             \
+        (AO_CAN_BUFFERS_1_12) +                                             \
+        (AO_CAN_BUFFERS_1_13) +                                             \
+        (AO_CAN_BUFFERS_1_14) +                                             \
+        (AO_CAN_BUFFERS_1_15) +                                             \
+        (AO_CAN_BUFFERS_1_16) +                                             \
+        (AO_CAN_BUFFERS_1_17) +                                             \
+        (AO_CAN_BUFFERS_1_18) +                                             \
+        (AO_CAN_BUFFERS_1_19) +                                             \
+        (AO_CAN_BUFFERS_1_20) +                                             \
+        (AO_CAN_BUFFERS_1_21) +                                             \
+        (AO_CAN_BUFFERS_1_22) +                                             \
+        (AO_CAN_BUFFERS_1_23) +                                             \
+        (AO_CAN_BUFFERS_1_24) +                                             \
+        (AO_CAN_BUFFERS_1_25) +                                             \
+        (AO_CAN_BUFFERS_1_26) +                                             \
+        (AO_CAN_BUFFERS_1_27) +                                             \
+        (AO_CAN_BUFFERS_1_28) +                                             \
+        (AO_CAN_BUFFERS_1_29) +                                             \
+        (AO_CAN_BUFFERS_1_30) +                                             \
+        (AO_CAN_BUFFERS_1_31)                                               \
+)
+
+#endif
 
 // ----------------------------------------------------------------------------
 
-void    ao_can_sent_1(                  ao_can_sent_info_t const * info);
+#ifndef AO_CAN_FIFOS_1
+
+#define AO_CAN_FIFOS_1                                                      \
+(                                                                           \
+        (AO_CAN_FIFOS_RX_1) +                                               \
+        (AO_CAN_FIFOS_TX_1)                                                 \
+)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_CAN_RX_1
+
+#define AO_CAN_RX_1                                                         \
+(                                                                           \
+        (AO_CAN_FIFOS_RX_1) > 0                                             \
+        ? true                                                              \
+        : false                                                             \
+)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_CAN_TX_1
+
+#define AO_CAN_TX_1                                                         \
+(                                                                           \
+        (AO_CAN_FIFOS_TX_1) > 0                                             \
+        ? true                                                              \
+        : false                                                             \
+)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef ao_can_reg_1
+
+#define ao_can_reg_1()                                                      \
+(                                                                           \
+        (ao_can_reg_t *)                                                    \
+        (                                                                   \
+            _CAN1_BASE_ADDRESS                                              \
+        )                                                                   \
+)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+void    ao_can_listen_all_1();
+
+void    ao_can_listen_only_1();
+
+void    ao_can_loopback_1();
+
+void    ao_can_normal_1();
 
 // ----------------------------------------------------------------------------
 
@@ -1842,52 +1795,32 @@ void    ao_can_stop_1();
 
 // ----------------------------------------------------------------------------
 
-// This event occurs due to two types of errors, addressing errors and
-// bandwidth errors.
+void    ao_can_bus_1(                   ao_can_bus_t const * x);
 
-// Both of these errors are fatal. After the event was raised, the CAN module
-// will be stopped and started over again.
+void    ao_can_invalid_1();
 
-// An addressing error will occur, if the CAN module attempts to access a
-// restricted memory location. Most likely, this results from
+void    ao_can_mode_1();
 
-// * an invalid fifo base address, or
+void    ao_can_overflow_1(              uint32_t fifos);
 
-// * an invalid configuration of the fifo sizes in the CxFIFOCONi registers.
+void    ao_can_sent_1(                  uint32_t fifos);
 
-// A bandwidth error will occur, when the CAN module is unable to write a
-// received message to memory before the next message arrives. Most likely,
-// this results from the CAN interrupt being delayed for a too long period of
-// time.
+void    ao_can_system_1(                ao_can_system_t x);
 
-// ----------------------------------------------------------------------------
+void    ao_can_timer_1();
 
-void    ao_can_system_1(                ao_can_system_info_t const * info);
+void    ao_can_underflow_1(             uint32_t fifos);
+
+void    ao_can_wake_up_1();
 
 // ----------------------------------------------------------------------------
 
-// This event occurs, when the CAN timestamp timer overflows.
+extern  ao_send_obj_t                   ao_can_in_1     [AO_CAN_FIFOS_RX_1];
+
+extern  ao_recv_obj_t                   ao_can_out_1    [AO_CAN_FIFOS_TX_1];
 
 // ----------------------------------------------------------------------------
 
-void    ao_can_timer_1(                 ao_can_timer_info_t const * info);
-
-// ----------------------------------------------------------------------------
-
-// This event occurs, when a remote transmission request (RTR) has been
-// received, but the designated fifo to respond automatically is empty.
-
-// ----------------------------------------------------------------------------
-
-void    ao_can_underflow_1(             ao_can_underflow_info_t const * info);
-
-// ----------------------------------------------------------------------------
-
-// This event is raised, when activity is detected on the CAN bus while the
-// CAN module is in sleep mode.
-
-// ----------------------------------------------------------------------------
-
-void    ao_can_wake_up_1(               ao_can_wake_up_info_t const * info);
+extern  ao_task_t                       ao_can_task_1;
 
 // ----------------------------------------------------------------------------

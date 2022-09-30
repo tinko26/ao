@@ -24,17 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Microchip XC32.
-
-// Microchip PIC32MK General Purpose and Motor Control (GPG/MCJ) with CAN FD Family.
-
-// ----------------------------------------------------------------------------
-
-// @seeAlso
-
-// https://microchip.com/DS60001570 (Data sheet)
-
-// https://microchip.com/DS80000833 (Errata)
+// PIC32MK General Purpose and Motor Control (GPG/MCJ) with CAN FD Family.
 
 // ----------------------------------------------------------------------------
 

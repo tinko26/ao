@@ -26,17 +26,7 @@
 
 // Allocator 2.
 
-// This allocator is implemented as a constant-time dynamic storage allocator
-// based on the two-level segregated fit (TLSF) algorithm proposed by Masmano
-// et al.
-
-// ----------------------------------------------------------------------------
-
-// @seeAlso
-
-// Masmano et al. 2008
-
-// Implementation of a constant-time dynamic storage allocator.
+// Allocator based on the two-level segregated fit algorithm.
 
 // ----------------------------------------------------------------------------
 
@@ -81,20 +71,6 @@
 #endif
 
 // ----------------------------------------------------------------------------
-
-// Segregation.
-
-// The segregation is the base-2 logarithm of the second-level range.
-
-// Thereby,
-
-// * high segregation means (potentially) high external fragmentation,
-
-// * high segregation means (potentially) low  internal fragmentation,
-
-// * low  segregation means (potentially) low  external fragmentation, and
-
-// * low  segregation means (potentially) high internal fragmentation.
 
 #ifndef AO_ALLOC_SEGREGATION
 

@@ -24,17 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Microchip XC32.
-
-// Microchip PIC32MZ Embedded Connectivity (EC) Family.
-
-// ----------------------------------------------------------------------------
-
-// @seeAlso
-
-// https://microchip.com/DS60001191 (Data sheet)
-
-// https://microchip.com/DS80000588 (Errata)
+// PIC32MZ Embedded Connectivity (EC) Family.
 
 // ----------------------------------------------------------------------------
 

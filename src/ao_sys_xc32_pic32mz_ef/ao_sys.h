@@ -24,17 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Microchip XC32.
-
-// Microchip PIC32MZ Embedded Connectivity with Floating Point Unit (EF) Family.
-
-// ----------------------------------------------------------------------------
-
-// @seeAlso
-
-// https://microchip.com/DS60001320 (Data sheet)
-
-// https://microchip.com/DS80000663 (Errata)
+// PIC32MZ Embedded Connectivity with Floating Point Unit (EF) Family.
 
 // ----------------------------------------------------------------------------
 

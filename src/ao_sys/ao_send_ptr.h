@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Send pointer.
+// Sending pointers.
 
 // ----------------------------------------------------------------------------
 
@@ -38,13 +38,21 @@ typedef struct  ao_send_ptr_t   ao_send_ptr_t;
 
 // ----------------------------------------------------------------------------
 
-typedef void (*                 ao_send_ptr_proc_t) (ao_send_ptr_t * x);
+typedef void (*                 ao_send_ptr_proc_t) (ao_send_ptr_t * send);
 
 // ----------------------------------------------------------------------------
 
 #ifndef AO_SEND_PTR
 
 #define AO_SEND_PTR
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_SEND_PTR_T
+
+#define AO_SEND_PTR_T
 
 // ----------------------------------------------------------------------------
 
@@ -69,20 +77,20 @@ struct  ao_send_ptr_t
 
 // ----------------------------------------------------------------------------
 
-void    ao_send_ptr(            ao_send_ptr_t * x, ao_time_t timeout);
+void    ao_send_ptr(            ao_send_ptr_t * s, ao_time_t timeout);
 
-void    ao_send_ptr_from(       ao_send_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
+void    ao_send_ptr_from(       ao_send_ptr_t * s, ao_time_t timeout, ao_time_t beginning);
 
-void    ao_send_ptr_forever(    ao_send_ptr_t * x);
-
-// ----------------------------------------------------------------------------
-
-void    ao_send_ptr_try(        ao_send_ptr_t * x);
+void    ao_send_ptr_forever(    ao_send_ptr_t * s);
 
 // ----------------------------------------------------------------------------
 
-void    ao_send_ptr_begin(      ao_send_ptr_t * x);
+void    ao_send_ptr_try(        ao_send_ptr_t * s);
 
-void    ao_send_ptr_end(        ao_send_ptr_t * x);
+// ----------------------------------------------------------------------------
+
+void    ao_send_ptr_begin(      ao_send_ptr_t * s);
+
+void    ao_send_ptr_end(        ao_send_ptr_t * s);
 
 // ----------------------------------------------------------------------------

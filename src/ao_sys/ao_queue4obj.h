@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Queue for objects.
+// Queues for objects.
 
 // ----------------------------------------------------------------------------
 
@@ -50,6 +50,14 @@ typedef struct  ao_qpop_obj_t       ao_qpop_obj_t;
 
 #define AO_QUEUE4OBJ
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_QUEUE4OBJ_T
+
+#define AO_QUEUE4OBJ_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_queue4obj_t
@@ -67,9 +75,9 @@ struct  ao_queue4obj_t
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_QINSERT_OBJ
+#ifndef AO_QINSERT_OBJ_T
 
-#define AO_QINSERT_OBJ
+#define AO_QINSERT_OBJ_T
 
 // ----------------------------------------------------------------------------
 
@@ -77,11 +85,11 @@ struct  ao_qinsert_obj_t
 {
         ao_async_t                  async;
 
-        ao_list_node_t              node;
-
         void *                      ptr;
 
         ao_queue4obj_t *            queue;
+
+        ao_list_node_t              queue_insert_node;
 
         bool            volatile    result;
 };
@@ -90,9 +98,9 @@ struct  ao_qinsert_obj_t
 
 #endif
 
-#ifndef AO_QPOP_OBJ
+#ifndef AO_QPOP_OBJ_T
 
-#define AO_QPOP_OBJ
+#define AO_QPOP_OBJ_T
 
 // ----------------------------------------------------------------------------
 
@@ -100,11 +108,11 @@ struct  ao_qpop_obj_t
 {
         ao_async_t                  async;
 
-        ao_list_node_t              node;
-
         void *                      ptr;
 
         ao_queue4obj_t *            queue;
+
+        ao_list_node_t              queue_pop_node;
 
         bool            volatile    result;
 };
@@ -115,38 +123,38 @@ struct  ao_qpop_obj_t
 
 // ----------------------------------------------------------------------------
 
-void    ao_qinsert_obj(             ao_qinsert_obj_t * x, ao_time_t timeout);
+void    ao_qinsert_obj(             ao_qinsert_obj_t * i, ao_time_t timeout);
 
-void    ao_qinsert_obj_from(        ao_qinsert_obj_t * x, ao_time_t timeout, ao_time_t beginning);
+void    ao_qinsert_obj_from(        ao_qinsert_obj_t * i, ao_time_t timeout, ao_time_t beginning);
 
-void    ao_qinsert_obj_forever(     ao_qinsert_obj_t * x);
-
-// ----------------------------------------------------------------------------
-
-void    ao_qinsert_obj_try(         ao_qinsert_obj_t * x);
+void    ao_qinsert_obj_forever(     ao_qinsert_obj_t * i);
 
 // ----------------------------------------------------------------------------
 
-void    ao_qinsert_obj_begin(       ao_qinsert_obj_t * x);
-
-void    ao_qinsert_obj_end(         ao_qinsert_obj_t * x);
+void    ao_qinsert_obj_try(         ao_qinsert_obj_t * i);
 
 // ----------------------------------------------------------------------------
 
-void    ao_qpop_obj(                ao_qpop_obj_t * x, ao_time_t timeout);
+void    ao_qinsert_obj_begin(       ao_qinsert_obj_t * i);
 
-void    ao_qpop_obj_from(           ao_qpop_obj_t * x, ao_time_t timeout, ao_time_t beginning);
-
-void    ao_qpop_obj_forever(        ao_qpop_obj_t * x);
+void    ao_qinsert_obj_end(         ao_qinsert_obj_t * i);
 
 // ----------------------------------------------------------------------------
 
-void    ao_qpop_obj_try(            ao_qpop_obj_t * x);
+void    ao_qpop_obj(                ao_qpop_obj_t * p, ao_time_t timeout);
+
+void    ao_qpop_obj_from(           ao_qpop_obj_t * p, ao_time_t timeout, ao_time_t beginning);
+
+void    ao_qpop_obj_forever(        ao_qpop_obj_t * p);
 
 // ----------------------------------------------------------------------------
 
-void    ao_qpop_obj_begin(          ao_qpop_obj_t * x);
+void    ao_qpop_obj_try(            ao_qpop_obj_t * p);
 
-void    ao_qpop_obj_end(            ao_qpop_obj_t * x);
+// ----------------------------------------------------------------------------
+
+void    ao_qpop_obj_begin(          ao_qpop_obj_t * p);
+
+void    ao_qpop_obj_end(            ao_qpop_obj_t * p);
 
 // ----------------------------------------------------------------------------

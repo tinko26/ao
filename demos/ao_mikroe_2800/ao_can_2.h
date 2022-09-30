@@ -34,7 +34,10 @@
 
 #ifndef AO_CAN_2
 
-#define AO_CAN_2    (AO_MIKROE_2334_1)
+#define AO_CAN_2                                                            \
+(                                                                           \
+        AO_MIKROE_2334_1                                                    \
+)
 
 #endif
 

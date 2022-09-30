@@ -26,27 +26,7 @@
 
 // Alarm queue 2.
 
-// This module implements an alarm queue based on a heap.
-
-// The heap is stored in a statically allocated array.
-
-// Therefore, the capacity of the alarm queue is both fixed and limited.
-
-// Time complexities:
-
-// Insert       O(log N)
-
-// Peek         O(1)
-
-// Remove       O(log N)
-
-// Remove peek  O(log N)
-
-// ----------------------------------------------------------------------------
-
-// @seeAlso
-
-// https://en.wikipedia.org/wiki/Binary_heap
+// Alarm queue based on an array-based binary heap.
 
 // ----------------------------------------------------------------------------
 

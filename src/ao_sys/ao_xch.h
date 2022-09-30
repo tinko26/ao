@@ -24,9 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Exchange.
-
-// Request-reply messaging.
+// Exchanges for client-server messaging.
 
 // ----------------------------------------------------------------------------
 
@@ -50,22 +48,30 @@ typedef struct  ao_xch_server_t         ao_xch_server_t;
 
 #define AO_XCH
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_XCH_T
+
+#define AO_XCH_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_xch_t
 {
-        ao_list_t                       clients;
+        ao_list_t                       client;
 
-        ao_list_t                       servers;
+        ao_list_t                       server;
 };
 
 // ----------------------------------------------------------------------------
 
 #endif
 
-#ifndef AO_XCH_CLIENT
+#ifndef AO_XCH_CLIENT_T
 
-#define AO_XCH_CLIENT
+#define AO_XCH_CLIENT_T
 
 // ----------------------------------------------------------------------------
 
@@ -79,8 +85,6 @@ struct  ao_xch_client_t
 
 #endif
 
-        ao_list_node_t                  node;
-
         bool                volatile    result;
 
         ao_xch_server_t *   volatile    server;
@@ -92,15 +96,17 @@ struct  ao_xch_client_t
 #endif
 
         ao_xch_t *                      xch;
+
+        ao_list_node_t                  xch_client_node;
 };
 
 // ----------------------------------------------------------------------------
 
 #endif
 
-#ifndef AO_XCH_SERVER
+#ifndef AO_XCH_SERVER_T
 
-#define AO_XCH_SERVER
+#define AO_XCH_SERVER_T
 
 // ----------------------------------------------------------------------------
 
@@ -109,8 +115,6 @@ struct  ao_xch_server_t
         ao_async_t                      async;
 
         ao_xch_client_t *   volatile    client;
-
-        ao_list_node_t                  node;
 
         bool                volatile    result;
 
@@ -123,6 +127,8 @@ struct  ao_xch_server_t
 #endif
 
         ao_xch_t *                      xch;
+
+        ao_list_node_t                  xch_server_node;
 };
 
 // ----------------------------------------------------------------------------
@@ -131,38 +137,38 @@ struct  ao_xch_server_t
 
 // ----------------------------------------------------------------------------
 
-void    ao_xch_client(                  ao_xch_client_t * x, ao_time_t timeout);
+void    ao_xch_client(                  ao_xch_client_t * c, ao_time_t timeout);
 
-void    ao_xch_client_from(             ao_xch_client_t * x, ao_time_t timeout, ao_time_t beginning);
+void    ao_xch_client_from(             ao_xch_client_t * c, ao_time_t timeout, ao_time_t beginning);
 
-void    ao_xch_client_forever(          ao_xch_client_t * x);
-
-// ----------------------------------------------------------------------------
-
-void    ao_xch_client_begin(            ao_xch_client_t * x);
-
-void    ao_xch_client_end(              ao_xch_client_t * x);
+void    ao_xch_client_forever(          ao_xch_client_t * c);
 
 // ----------------------------------------------------------------------------
 
-void    ao_xch_server(                  ao_xch_server_t * x, ao_time_t timeout);
+void    ao_xch_client_begin(            ao_xch_client_t * c);
 
-void    ao_xch_server_from(             ao_xch_server_t * x, ao_time_t timeout, ao_time_t beginning);
-
-void    ao_xch_server_forever(          ao_xch_server_t * x);
+void    ao_xch_client_end(              ao_xch_client_t * c);
 
 // ----------------------------------------------------------------------------
 
-void    ao_xch_server_try(              ao_xch_server_t * x);
+void    ao_xch_server(                  ao_xch_server_t * s, ao_time_t timeout);
+
+void    ao_xch_server_from(             ao_xch_server_t * s, ao_time_t timeout, ao_time_t beginning);
+
+void    ao_xch_server_forever(          ao_xch_server_t * s);
 
 // ----------------------------------------------------------------------------
 
-void    ao_xch_server_begin(            ao_xch_server_t * x);
-
-void    ao_xch_server_end(              ao_xch_server_t * x);
+void    ao_xch_server_try(              ao_xch_server_t * s);
 
 // ----------------------------------------------------------------------------
 
-void    ao_xch_server_reply(            ao_xch_server_t * x);
+void    ao_xch_server_begin(            ao_xch_server_t * s);
+
+void    ao_xch_server_end(              ao_xch_server_t * s);
+
+// ----------------------------------------------------------------------------
+
+void    ao_xch_server_reply(            ao_xch_server_t * s);
 
 // ----------------------------------------------------------------------------

@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Send pointer to stream.
+// Sending pointers to streams.
 
 // ----------------------------------------------------------------------------
 
@@ -41,14 +41,20 @@
 
 // ----------------------------------------------------------------------------
 
-void    ao_send_acq_to_stream(          ao_send_ptr_t * x, ao_spush_ptr_t * y);
+void    ao_send_ptr_to_stream
+(
+        ao_send_ptr_t * s,
 
-void    ao_send_acq_to_stream_override( ao_send_ptr_t * x, ao_spush_ptr_t * y);
+        ao_spush_ptr_t * p
+);
 
 // ----------------------------------------------------------------------------
 
-void    ao_send_ptr_to_stream(          ao_send_ptr_t * x, ao_spush_ptr_t * y);
+void    ao_send_ptr_to_stream_override
+(
+        ao_send_ptr_t * s,
 
-void    ao_send_ptr_to_stream_override( ao_send_ptr_t * x, ao_spush_ptr_t * y);
+        ao_spush_ptr_t * p
+);
 
 // ----------------------------------------------------------------------------

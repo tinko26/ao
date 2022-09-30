@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Clocks.
+// System clocks.
 
 // ----------------------------------------------------------------------------
 
@@ -37,14 +37,6 @@
 #ifndef AO_SYS_CLOCK_CAN2
 
 #define AO_SYS_CLOCK_CAN2   (AO_SYS_PBCLK5)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#ifndef AO_SYS_CLOCK_ETH
-
-#define AO_SYS_CLOCK_ETH    (AO_SYS_PBCLK5)
 
 #endif
 
@@ -128,39 +120,39 @@
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_SYS_CLOCK_U1
+#ifndef AO_SYS_CLOCK_UART1
 
-#define AO_SYS_CLOCK_U1     (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_U2
-
-#define AO_SYS_CLOCK_U2     (AO_SYS_PBCLK2)
+#define AO_SYS_CLOCK_UART1  (AO_SYS_PBCLK2)
 
 #endif
 
-#ifndef AO_SYS_CLOCK_U3
+#ifndef AO_SYS_CLOCK_UART2
 
-#define AO_SYS_CLOCK_U3     (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_U4
-
-#define AO_SYS_CLOCK_U4     (AO_SYS_PBCLK2)
+#define AO_SYS_CLOCK_UART2  (AO_SYS_PBCLK2)
 
 #endif
 
-#ifndef AO_SYS_CLOCK_U5
+#ifndef AO_SYS_CLOCK_UART3
 
-#define AO_SYS_CLOCK_U5     (AO_SYS_PBCLK2)
+#define AO_SYS_CLOCK_UART3  (AO_SYS_PBCLK2)
 
 #endif
 
-#ifndef AO_SYS_CLOCK_U6
+#ifndef AO_SYS_CLOCK_UART4
 
-#define AO_SYS_CLOCK_U6     (AO_SYS_PBCLK2)
+#define AO_SYS_CLOCK_UART4  (AO_SYS_PBCLK2)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_UART5
+
+#define AO_SYS_CLOCK_UART5  (AO_SYS_PBCLK2)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_UART6
+
+#define AO_SYS_CLOCK_UART6  (AO_SYS_PBCLK2)
 
 #endif
 

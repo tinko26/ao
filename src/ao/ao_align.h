@@ -32,8 +32,6 @@
 
 // ----------------------------------------------------------------------------
 
-// Aligns value #x to boundary #b.
-
 #ifndef AO_ALIGN_DOWN
 
 #define AO_ALIGN_DOWN(x, b)     (((x) / (b)) * (b))
@@ -47,8 +45,6 @@
 #endif
 
 // ----------------------------------------------------------------------------
-
-// Determines whether value #x is aligned to boundary #b.
 
 #ifndef AO_IS_ALIGNED
 

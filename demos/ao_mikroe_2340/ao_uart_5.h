@@ -26,8 +26,6 @@
 
 // UART 5.
 
-// This module supports baud rates up to 921600 bps.
-
 // ----------------------------------------------------------------------------
 
 #include_next <ao_uart_5.h>

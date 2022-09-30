@@ -60,7 +60,7 @@ typedef struct  ao_mikroe_4186_i2c_t        ao_mikroe_4186_i2c_t;
 
 // ----------------------------------------------------------------------------
 
-#if defined AO_MIKROE_1877
+#if defined AO_MIKROE_1877 && AO_MIKROE_1877
 
 // ----------------------------------------------------------------------------
 
@@ -274,7 +274,7 @@ struct  ao_mikroe_1877_mod_t
 
 #endif
 
-#if defined AO_MIKROE_2935
+#if defined AO_MIKROE_2935 && AO_MIKROE_2935
 
 // ----------------------------------------------------------------------------
 
@@ -351,7 +351,7 @@ struct  ao_mikroe_2935_mod_t
 
 #endif
 
-#if defined AO_MIKROE_2950
+#if defined AO_MIKROE_2950 && AO_MIKROE_2950
 
 // ----------------------------------------------------------------------------
 
@@ -368,7 +368,7 @@ struct  ao_mikroe_2950_i2c_t
 
 #endif
 
-#if defined AO_MIKROE_4186
+#if defined AO_MIKROE_4186 && AO_MIKROE_4186
 
 // ----------------------------------------------------------------------------
 
@@ -411,7 +411,7 @@ struct  ao_mikroe_4186_i2c_t
 
 // ----------------------------------------------------------------------------
 
-#if defined AO_MIKROE_1877
+#if defined AO_MIKROE_1877 && AO_MIKROE_1877
 
 // ----------------------------------------------------------------------------
 
@@ -2304,7 +2304,7 @@ void ao_mikroe_1877_mod_int(ao_mikroe_1877_mod_t * M)
 {
     if (M)
     {
-        ao_cond_set(&M->cond);
+        ao_cond_true(&M->cond);
     }
 
     else
@@ -2553,7 +2553,7 @@ void ao_mikroe_1877_mod_run_on(ao_mikroe_1877_mod_t * M)
 
             M->int_disable();
 
-            ao_cond_clear(&M->cond);
+            ao_cond_false(&M->cond);
 
             M->int_enable();
         }
@@ -3123,7 +3123,7 @@ void ao_mikroe_1877_mod_set_init7(ao_mikroe_1877_mod_t * M)
 {
     M->state = AO_MIKROE_1877_MOD_STATE_INIT7;
 
-    ao_cond_clear(&M->cond);
+    ao_cond_false(&M->cond);
 
     M->int_enable();
 
@@ -3443,7 +3443,7 @@ void ao_mikroe_1877_mod_set_on(ao_mikroe_1877_mod_t * M)
 {
     M->state = AO_MIKROE_1877_MOD_STATE_ON;
 
-    ao_cond_clear(&M->cond);
+    ao_cond_false(&M->cond);
 
     M->int_enable();
 
@@ -4027,7 +4027,7 @@ void ao_mikroe_1877_wake(size_t i)
 
 #endif
 
-#if defined AO_MIKROE_2935
+#if defined AO_MIKROE_2935 && AO_MIKROE_2935
 
 // ----------------------------------------------------------------------------
 
@@ -5157,7 +5157,7 @@ void ao_mikroe_2935_task_proc(void * x)
 
 #endif
 
-#if defined AO_MIKROE_2950
+#if defined AO_MIKROE_2950 && AO_MIKROE_2950
 
 // ----------------------------------------------------------------------------
 
@@ -5328,7 +5328,7 @@ void ao_mikroe_2950_send(size_t i, uint8_t x)
 
 #endif
 
-#if defined AO_MIKROE_3063
+#if defined AO_MIKROE_3063 && AO_MIKROE_3063
 
 // ----------------------------------------------------------------------------
 
@@ -5361,7 +5361,7 @@ void ao_mikroe_3063_reset(size_t i)
 
 #endif
 
-#if defined AO_MIKROE_4186
+#if defined AO_MIKROE_4186 && AO_MIKROE_4186
 
 // ----------------------------------------------------------------------------
 
@@ -5968,43 +5968,43 @@ void ao_boot()
 
     ao_boot_led();
 
-#if defined AO_MIKROE_1877
+#if defined AO_MIKROE_1877 && AO_MIKROE_1877
 
     ao_boot_mikroe_1877();
 
 #endif
 
-#if defined AO_MIKROE_2334
+#if defined AO_MIKROE_2334 && AO_MIKROE_2334
 
     ao_boot_mikroe_2334();
 
 #endif
 
-#if defined AO_MIKROE_2674
+#if defined AO_MIKROE_2674 && AO_MIKROE_2674
 
     ao_boot_mikroe_2674();
 
 #endif
 
-#if defined AO_MIKROE_2935
+#if defined AO_MIKROE_2935 && AO_MIKROE_2935
 
     ao_boot_mikroe_2935();
 
 #endif
 
-#if defined AO_MIKROE_2950
+#if defined AO_MIKROE_2950 && AO_MIKROE_2950
 
     ao_boot_mikroe_2950();
 
 #endif
 
-#if defined AO_MIKROE_3063
+#if defined AO_MIKROE_3063 && AO_MIKROE_3063
 
     ao_boot_mikroe_3063();
 
 #endif
 
-#if defined AO_MIKROE_4186
+#if defined AO_MIKROE_4186 && AO_MIKROE_4186
 
     ao_boot_mikroe_4186();
 
@@ -6700,7 +6700,7 @@ void ao_mikroe_1877_wake_enable_d()
 
 #endif
 
-#if defined AO_MIKROE_1877
+#if defined AO_MIKROE_1877   && AO_MIKROE_1877
 
 // ----------------------------------------------------------------------------
 
@@ -6784,7 +6784,7 @@ ao_mikroe_1877_mod_t * ao_mikroe_1877_mod(size_t i)
 
 #endif
 
-#if defined AO_MIKROE_2334
+#if defined AO_MIKROE_2334   && AO_MIKROE_2334
 
 // ----------------------------------------------------------------------------
 
@@ -6865,7 +6865,7 @@ void ao_boot_mikroe_2334_d()
 
 #endif
 
-#if defined AO_MIKROE_2674
+#if defined AO_MIKROE_2674   && AO_MIKROE_2674
 
 // ----------------------------------------------------------------------------
 
@@ -7571,7 +7571,7 @@ void ao_mikroe_2935_spi_end_d()
 
 #endif
 
-#if defined AO_MIKROE_2935
+#if defined AO_MIKROE_2935   && AO_MIKROE_2935
 
 // ----------------------------------------------------------------------------
 
@@ -7803,7 +7803,7 @@ void ao_boot_mikroe_2950_d()
 
 #endif
 
-#if defined AO_MIKROE_2950
+#if defined AO_MIKROE_2950   && AO_MIKROE_2950
 
 // ----------------------------------------------------------------------------
 
@@ -7887,7 +7887,7 @@ void * ao_mikroe_2950_i2c(size_t i)
 
 #endif
 
-#if defined AO_MIKROE_3063
+#if defined AO_MIKROE_3063   && AO_MIKROE_3063
 
 // ----------------------------------------------------------------------------
 
@@ -8761,7 +8761,7 @@ void ao_ir_int2()
 
 #endif
 
-#if defined AO_MIKROE_4186
+#if defined AO_MIKROE_4186   && AO_MIKROE_4186
 
 // ----------------------------------------------------------------------------
 
@@ -10754,43 +10754,43 @@ void ao_boot()
 
     ao_boot_led();
 
-#if defined AO_MIKROE_1877
+#if defined AO_MIKROE_1877 && AO_MIKROE_1877
 
     ao_boot_mikroe_1877();
 
 #endif
 
-#if defined AO_MIKROE_2334
+#if defined AO_MIKROE_2334 && AO_MIKROE_2334
 
     ao_boot_mikroe_2334();
 
 #endif
 
-#if defined AO_MIKROE_2674
+#if defined AO_MIKROE_2674 && AO_MIKROE_2674
 
     ao_boot_mikroe_2674();
 
 #endif
 
-#if defined AO_MIKROE_2935
+#if defined AO_MIKROE_2935 && AO_MIKROE_2935
 
     ao_boot_mikroe_2935();
 
 #endif
 
-#if defined AO_MIKROE_2950
+#if defined AO_MIKROE_2950 && AO_MIKROE_2950
 
     ao_boot_mikroe_2950();
 
 #endif
 
-#if defined AO_MIKROE_3063
+#if defined AO_MIKROE_3063 && AO_MIKROE_3063
 
     ao_boot_mikroe_3063();
 
 #endif
 
-#if defined AO_MIKROE_4186
+#if defined AO_MIKROE_4186 && AO_MIKROE_4186
 
     ao_boot_mikroe_4186();
 
@@ -11158,7 +11158,7 @@ void ao_mikroe_1877_wake_enable_2()
 
 #endif
 
-#if defined AO_MIKROE_1877
+#if defined AO_MIKROE_1877   && AO_MIKROE_1877
 
 // ----------------------------------------------------------------------------
 
@@ -11214,7 +11214,7 @@ ao_mikroe_1877_mod_t * ao_mikroe_1877_mod(size_t i)
 
 #endif
 
-#if defined AO_MIKROE_2334
+#if defined AO_MIKROE_2334   && AO_MIKROE_2334
 
 // ----------------------------------------------------------------------------
 
@@ -11295,7 +11295,7 @@ void ao_boot_mikroe_2334_2()
 
 #endif
 
-#if defined AO_MIKROE_2674
+#if defined AO_MIKROE_2674   && AO_MIKROE_2674
 
 // ----------------------------------------------------------------------------
 
@@ -11663,7 +11663,7 @@ void ao_mikroe_2935_spi_end_2()
 
 #endif
 
-#if defined AO_MIKROE_2935
+#if defined AO_MIKROE_2935   && AO_MIKROE_2935
 
 // ----------------------------------------------------------------------------
 
@@ -11797,7 +11797,7 @@ void ao_boot_mikroe_2950_2()
 
 #endif
 
-#if defined AO_MIKROE_2950
+#if defined AO_MIKROE_2950   && AO_MIKROE_2950
 
 // ----------------------------------------------------------------------------
 
@@ -11853,7 +11853,7 @@ void * ao_mikroe_2950_i2c(size_t i)
 
 #endif
 
-#if defined AO_MIKROE_3063
+#if defined AO_MIKROE_3063   && AO_MIKROE_3063
 
 // ----------------------------------------------------------------------------
 
@@ -12351,7 +12351,7 @@ void ao_ir_int2()
 
 #endif
 
-#if defined AO_MIKROE_4186
+#if defined AO_MIKROE_4186   && AO_MIKROE_4186
 
 // ----------------------------------------------------------------------------
 

@@ -26,23 +26,7 @@
 
 // Alarm queue 3.
 
-// This module implements an alarm queue based on a heap.
-
-// Time complexities:
-
-// Insert       O(log N)
-
-// Peek         O(1)
-
-// Remove       O(log N)
-
-// Remove peek  O(log N)
-
-// ----------------------------------------------------------------------------
-
-// @seeAlso
-
-// https://en.wikipedia.org/wiki/Binary_heap
+// Alarm queue based on a pointer-based binary heap.
 
 // ----------------------------------------------------------------------------
 

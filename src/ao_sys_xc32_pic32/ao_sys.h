@@ -24,13 +24,12 @@
 
 // ----------------------------------------------------------------------------
 
-// Microchip XC32.
-
-// Microchip PIC32.
+// PIC32.
 
 // ----------------------------------------------------------------------------
 
 #include <ao_sys_clock.h>
+#include <ao_sys_id.h>
 #include <ao_sys_lock_device.h>
 #include <ao_sys_lock_dma.h>
 #include <ao_sys_lock_ie.h>

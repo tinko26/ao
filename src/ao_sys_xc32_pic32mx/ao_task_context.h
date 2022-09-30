@@ -41,9 +41,9 @@ typedef struct  ao_task_context_data_t  ao_task_context_data_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_TASK_CONTEXT
+#ifndef AO_TASK_CONTEXT_T
 
-#define AO_TASK_CONTEXT
+#define AO_TASK_CONTEXT_T
 
 // ----------------------------------------------------------------------------
 
@@ -56,14 +56,18 @@ struct  ao_task_context_t
 
 #endif
 
-#ifndef AO_TASK_CONTEXT_DATA
+#ifndef AO_TASK_CONTEXT_DATA_T
 
-#define AO_TASK_CONTEXT_DATA
+#define AO_TASK_CONTEXT_DATA_T
 
 // ----------------------------------------------------------------------------
 
 struct  ao_task_context_data_t
 {
+        uint32_t                        hi;
+
+        uint32_t                        lo;
+
         uint32_t                        a0;
 
         uint32_t                        a1;
@@ -74,17 +78,7 @@ struct  ao_task_context_data_t
 
         uint32_t                        at;
 
-        uint32_t                        epc;
-
-        uint32_t                        hi;
-
-        uint32_t                        lo;
-
         uint32_t                        ra;
-
-        uint32_t                        s0;
-
-        uint32_t                        s1;
 
         uint32_t                        s2;
 
@@ -97,10 +91,6 @@ struct  ao_task_context_data_t
         uint32_t                        s6;
 
         uint32_t                        s7;
-
-        uint32_t                        s8;
-
-        uint32_t                        status;
 
         uint32_t                        t0;
 
@@ -126,7 +116,17 @@ struct  ao_task_context_data_t
 
         uint32_t                        v1;
 
-        uint32_t                        pad1;
+        uint32_t                        epc;
+
+        uint32_t                        status;
+
+        uint32_t                        s0;
+
+        uint32_t                        s1;
+
+        uint32_t                        s8;
+
+        uint32_t                        padding;
 };
 
 // ----------------------------------------------------------------------------

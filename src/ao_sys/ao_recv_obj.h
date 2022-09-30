@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Receive object.
+// Receiving objects.
 
 // ----------------------------------------------------------------------------
 
@@ -38,13 +38,21 @@ typedef struct  ao_recv_obj_t   ao_recv_obj_t;
 
 // ----------------------------------------------------------------------------
 
-typedef void (*                 ao_recv_obj_proc_t) (ao_recv_obj_t * x);
+typedef void (*                 ao_recv_obj_proc_t) (ao_recv_obj_t * recv);
 
 // ----------------------------------------------------------------------------
 
 #ifndef AO_RECV_OBJ
 
 #define AO_RECV_OBJ
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_RECV_OBJ_T
+
+#define AO_RECV_OBJ_T
 
 // ----------------------------------------------------------------------------
 
@@ -69,20 +77,20 @@ struct  ao_recv_obj_t
 
 // ----------------------------------------------------------------------------
 
-void    ao_recv_obj(            ao_recv_obj_t * x, ao_time_t timeout);
+void    ao_recv_obj(            ao_recv_obj_t * r, ao_time_t timeout);
 
-void    ao_recv_obj_from(       ao_recv_obj_t * x, ao_time_t timeout, ao_time_t beginning);
+void    ao_recv_obj_from(       ao_recv_obj_t * r, ao_time_t timeout, ao_time_t beginning);
 
-void    ao_recv_obj_forever(    ao_recv_obj_t * x);
-
-// ----------------------------------------------------------------------------
-
-void    ao_recv_obj_try(        ao_recv_obj_t * x);
+void    ao_recv_obj_forever(    ao_recv_obj_t * r);
 
 // ----------------------------------------------------------------------------
 
-void    ao_recv_obj_begin(      ao_recv_obj_t * x);
+void    ao_recv_obj_try(        ao_recv_obj_t * r);
 
-void    ao_recv_obj_end(        ao_recv_obj_t * x);
+// ----------------------------------------------------------------------------
+
+void    ao_recv_obj_begin(      ao_recv_obj_t * r);
+
+void    ao_recv_obj_end(        ao_recv_obj_t * r);
 
 // ----------------------------------------------------------------------------

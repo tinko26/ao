@@ -36,29 +36,29 @@
 
 // ----------------------------------------------------------------------------
 
-static  ao_int_t        ao_avl_assert_node( ao_avl_t * X, ao_avl_node_t * N);
+static  ao_int_t        ao_avl_assert_node( ao_avl_t const * A, ao_avl_node_t const * N);
 
 // ----------------------------------------------------------------------------
 
-static  ao_int_t        ao_avl_balance(     ao_avl_node_t * N);
+static  ao_int_t        ao_avl_balance(     ao_avl_node_t const * N);
 
 // ----------------------------------------------------------------------------
 
-static  ao_int_t        ao_avl_height(      ao_avl_node_t * N);
+static  ao_int_t        ao_avl_height(      ao_avl_node_t const * N);
 
 // ----------------------------------------------------------------------------
 
-static  ao_int_t        ao_avl_rotate_left( ao_avl_t * X, ao_avl_node_t * N);
+static  ao_int_t        ao_avl_rotate_left( ao_avl_t * A, ao_avl_node_t * N);
 
-static  ao_int_t        ao_avl_rotate_right(ao_avl_t * X, ao_avl_node_t * N);
-
-// ----------------------------------------------------------------------------
-
-static  ao_avl_node_t * ao_avl_successor(   ao_avl_node_t * N);
+static  ao_int_t        ao_avl_rotate_right(ao_avl_t * A, ao_avl_node_t * N);
 
 // ----------------------------------------------------------------------------
 
-static  void            ao_avl_swap(        ao_avl_t * X, ao_avl_node_t * N1, ao_avl_node_t * N2);
+static  ao_avl_node_t * ao_avl_successor(   ao_avl_node_t const * N);
+
+// ----------------------------------------------------------------------------
+
+static  void            ao_avl_swap(        ao_avl_t * A, ao_avl_node_t * N1, ao_avl_node_t * N2);
 
 // ----------------------------------------------------------------------------
 
@@ -66,13 +66,13 @@ static  ao_int_t        ao_avl_update(      ao_avl_node_t * N);
 
 // ----------------------------------------------------------------------------
 
-void ao_avl_assert(ao_avl_t * X)
+void ao_avl_assert(ao_avl_t const * A)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(A);
 
-    ao_assert(X->less);
+    ao_assert(A->less);
 
 
     // Variables.
@@ -82,17 +82,17 @@ void ao_avl_assert(ao_avl_t * X)
 
     // Ready.
 
-    N = X->root;
+    N = A->root;
 
     if (N)
     {
         ao_assert(!N->parent);
 
-        ao_avl_assert_node(X, N);
+        ao_avl_assert_node(A, N);
     }
 }
 
-ao_int_t ao_avl_assert_node(ao_avl_t * X, ao_avl_node_t * N)
+ao_int_t ao_avl_assert_node(ao_avl_t const * A, ao_avl_node_t const * N)
 {
     // Variables.
 
@@ -119,9 +119,9 @@ ao_int_t ao_avl_assert_node(ao_avl_t * X, ao_avl_node_t * N)
 
     if (L)
     {
-        Less = X->less;
+        Less = A->less;
 
-        LessParameter = X->less_parameter;
+        LessParameter = A->less_parameter;
 
         ao_assert(Less(L, N, LessParameter));
 
@@ -133,9 +133,9 @@ ao_int_t ao_avl_assert_node(ao_avl_t * X, ao_avl_node_t * N)
 
             ao_assert(R->parent == N);
 
-            HL = ao_avl_assert_node(X, L);
+            HL = ao_avl_assert_node(A, L);
 
-            HR = ao_avl_assert_node(X, R);
+            HR = ao_avl_assert_node(A, R);
 
             if (HL > HR)
             {
@@ -177,9 +177,9 @@ ao_int_t ao_avl_assert_node(ao_avl_t * X, ao_avl_node_t * N)
 
     else if (R)
     {
-        Less = X->less;
+        Less = A->less;
 
-        LessParameter = X->less_parameter;
+        LessParameter = A->less_parameter;
 
         ao_assert(Less(N, R, LessParameter));
 
@@ -204,7 +204,7 @@ ao_int_t ao_avl_assert_node(ao_avl_t * X, ao_avl_node_t * N)
     }
 }
 
-ao_int_t ao_avl_balance(ao_avl_node_t * N)
+ao_int_t ao_avl_balance(ao_avl_node_t const * N)
 {
     // Assert.
 
@@ -227,18 +227,18 @@ ao_int_t ao_avl_balance(ao_avl_node_t * N)
     return HR - HL;
 }
 
-ao_int_t ao_avl_height(ao_avl_node_t * N)
+ao_int_t ao_avl_height(ao_avl_node_t const * N)
 {
     return N ? N->height : 0;
 }
 
-void ao_avl_insert(ao_avl_t * X, ao_avl_node_t * N)
+void ao_avl_insert(ao_avl_t * A, ao_avl_node_t * N)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(A);
 
-    ao_assert(X->less);
+    ao_assert(A->less);
 
     ao_assert(N);
 
@@ -259,9 +259,9 @@ void ao_avl_insert(ao_avl_t * X, ao_avl_node_t * N)
 
     bool IsLeft;
 
-    ao_avl_less_t Less = X->less;
+    ao_avl_less_t Less = A->less;
 
-    void * LessParameter = X->less_parameter;
+    void * LessParameter = A->less_parameter;
 
     ao_avl_node_t * P;
 
@@ -272,7 +272,7 @@ void ao_avl_insert(ao_avl_t * X, ao_avl_node_t * N)
 
     P = NULL;
 
-    C = X->root;
+    C = A->root;
 
     while (C)
     {
@@ -413,7 +413,7 @@ void ao_avl_insert(ao_avl_t * X, ao_avl_node_t * N)
 
                         if (BN < 0)
                         {
-                            ao_avl_rotate_right(X, P);
+                            ao_avl_rotate_right(A, P);
                         }
 
 
@@ -425,9 +425,9 @@ void ao_avl_insert(ao_avl_t * X, ao_avl_node_t * N)
 
                             // Rotate right around parent.
 
-                            ao_avl_rotate_left(X, N);
+                            ao_avl_rotate_left(A, N);
 
-                            ao_avl_rotate_right(X, P);
+                            ao_avl_rotate_right(A, P);
                         }
 
 
@@ -492,7 +492,7 @@ void ao_avl_insert(ao_avl_t * X, ao_avl_node_t * N)
                         {
                             // Rotate left around parent.
 
-                            ao_avl_rotate_left(X, P);
+                            ao_avl_rotate_left(A, P);
                         }
 
 
@@ -504,9 +504,9 @@ void ao_avl_insert(ao_avl_t * X, ao_avl_node_t * N)
 
                             // Rotate left around parent.
 
-                            ao_avl_rotate_right(X, N);
+                            ao_avl_rotate_right(A, N);
 
-                            ao_avl_rotate_left(X, P);
+                            ao_avl_rotate_left(A, P);
                         }
 
 
@@ -528,22 +528,29 @@ void ao_avl_insert(ao_avl_t * X, ao_avl_node_t * N)
 
     else
     {
-        X->root = N;
+        A->root = N;
 
         N->height = 1;
     }
 }
 
-ao_avl_node_t * ao_avl_max(ao_avl_t * X)
+bool ao_avl_is_empty(ao_avl_t const * A)
+{
+    ao_assert(A);
+
+    return A->root == NULL ? true : false;
+}
+
+ao_avl_node_t * ao_avl_max(ao_avl_t const * A)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(A);
 
 
     // Variables.
 
-    ao_avl_node_t * N = X->root;
+    ao_avl_node_t * N = A->root;
 
 
     // Ready.
@@ -559,16 +566,16 @@ ao_avl_node_t * ao_avl_max(ao_avl_t * X)
     return N;
 }
 
-ao_avl_node_t * ao_avl_min(ao_avl_t * X)
+ao_avl_node_t * ao_avl_min(ao_avl_t const * A)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(A);
 
 
     // Variables.
 
-    ao_avl_node_t * N = X->root;
+    ao_avl_node_t * N = A->root;
 
 
     // Ready.
@@ -584,13 +591,13 @@ ao_avl_node_t * ao_avl_min(ao_avl_t * X)
     return N;
 }
 
-void ao_avl_remove(ao_avl_t * X, ao_avl_node_t * N)
+void ao_avl_remove(ao_avl_t * A, ao_avl_node_t * N)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(A);
 
-    ao_assert(X->root);
+    ao_assert(A->root);
 
     ao_assert(N);
 
@@ -632,7 +639,7 @@ void ao_avl_remove(ao_avl_t * X, ao_avl_node_t * N)
     {
         R = ao_avl_successor(N);
 
-        ao_avl_swap(X, N, R);
+        ao_avl_swap(A, N, R);
 
         L = N->left;
 
@@ -772,11 +779,11 @@ void ao_avl_remove(ao_avl_t * X, ao_avl_node_t * N)
                     {
                         if (SR)
                         {
-                            ao_avl_rotate_left(X, P);
+                            ao_avl_rotate_left(A, P);
 
                             if (SL)
                             {
-                                ao_avl_rotate_left(X, P);
+                                ao_avl_rotate_left(A, P);
 
                                 P = NULL;
                             }
@@ -791,9 +798,9 @@ void ao_avl_remove(ao_avl_t * X, ao_avl_node_t * N)
 
                         else
                         {
-                            ao_avl_rotate_right(X, S);
+                            ao_avl_rotate_right(A, S);
 
-                            ao_avl_rotate_left(X, P);
+                            ao_avl_rotate_left(A, P);
 
                             N = P;
 
@@ -808,11 +815,11 @@ void ao_avl_remove(ao_avl_t * X, ao_avl_node_t * N)
                     {
                         if (SL)
                         {
-                            ao_avl_rotate_right(X, P);
+                            ao_avl_rotate_right(A, P);
 
                             if (SR)
                             {
-                                ao_avl_rotate_right(X, P);
+                                ao_avl_rotate_right(A, P);
 
                                 P = NULL;
                             }
@@ -827,9 +834,9 @@ void ao_avl_remove(ao_avl_t * X, ao_avl_node_t * N)
 
                         else
                         {
-                            ao_avl_rotate_left(X, S);
+                            ao_avl_rotate_left(A, S);
 
-                            ao_avl_rotate_right(X, P);
+                            ao_avl_rotate_right(A, P);
 
                             N = P;
 
@@ -947,7 +954,7 @@ void ao_avl_remove(ao_avl_t * X, ao_avl_node_t * N)
 
                     if (BS == 0)
                     {
-                        ao_avl_rotate_left(X, P);
+                        ao_avl_rotate_left(A, P);
 
                         P = NULL;
                     }
@@ -961,9 +968,9 @@ void ao_avl_remove(ao_avl_t * X, ao_avl_node_t * N)
 
                         ao_assert(SL);
 
-                        ao_avl_rotate_right(X, S);
+                        ao_avl_rotate_right(A, S);
 
-                        ao_avl_rotate_left(X, P);
+                        ao_avl_rotate_left(A, P);
 
                         N = SL;
 
@@ -975,7 +982,7 @@ void ao_avl_remove(ao_avl_t * X, ao_avl_node_t * N)
 
                     else
                     {
-                        ao_avl_rotate_left(X, P);
+                        ao_avl_rotate_left(A, P);
 
                         N = P;
 
@@ -1055,7 +1062,7 @@ void ao_avl_remove(ao_avl_t * X, ao_avl_node_t * N)
 
                     if (BS == 0)
                     {
-                        ao_avl_rotate_right(X, P);
+                        ao_avl_rotate_right(A, P);
 
                         P = NULL;
                     }
@@ -1069,9 +1076,9 @@ void ao_avl_remove(ao_avl_t * X, ao_avl_node_t * N)
 
                         ao_assert(SR);
 
-                        ao_avl_rotate_left(X, S);
+                        ao_avl_rotate_left(A, S);
 
-                        ao_avl_rotate_right(X, P);
+                        ao_avl_rotate_right(A, P);
 
                         N = SR;
 
@@ -1083,7 +1090,7 @@ void ao_avl_remove(ao_avl_t * X, ao_avl_node_t * N)
 
                     else
                     {
-                        ao_avl_rotate_right(X, P);
+                        ao_avl_rotate_right(A, P);
 
                         N = P;
 
@@ -1101,11 +1108,11 @@ void ao_avl_remove(ao_avl_t * X, ao_avl_node_t * N)
 
     else
     {
-        ao_assert(N == X->root);
+        ao_assert(N == A->root);
 
         if (L)
         {
-            X->root = L;
+            A->root = L;
 
             L->parent = NULL;
 
@@ -1114,7 +1121,7 @@ void ao_avl_remove(ao_avl_t * X, ao_avl_node_t * N)
 
         else if (R)
         {
-            X->root = R;
+            A->root = R;
 
             R->parent = NULL;
 
@@ -1123,16 +1130,16 @@ void ao_avl_remove(ao_avl_t * X, ao_avl_node_t * N)
 
         else
         {
-            X->root = NULL;
+            A->root = NULL;
         }
     }
 }
 
-ao_int_t ao_avl_rotate_left(ao_avl_t * X, ao_avl_node_t * N)
+ao_int_t ao_avl_rotate_left(ao_avl_t * A, ao_avl_node_t * N)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(A);
 
     ao_assert(N);
 
@@ -1177,7 +1184,7 @@ ao_int_t ao_avl_rotate_left(ao_avl_t * X, ao_avl_node_t * N)
 
     else
     {
-        P2N = &X->root;
+        P2N = &A->root;
     }
 
     R = N->right;
@@ -1245,11 +1252,11 @@ ao_int_t ao_avl_rotate_left(ao_avl_t * X, ao_avl_node_t * N)
     return B;
 }
 
-ao_int_t ao_avl_rotate_right(ao_avl_t * X, ao_avl_node_t * N)
+ao_int_t ao_avl_rotate_right(ao_avl_t * A, ao_avl_node_t * N)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(A);
 
     ao_assert(N);
 
@@ -1294,7 +1301,7 @@ ao_int_t ao_avl_rotate_right(ao_avl_t * X, ao_avl_node_t * N)
 
     else
     {
-        P2N = &X->root;
+        P2N = &A->root;
     }
 
     L = N->left;
@@ -1362,28 +1369,28 @@ ao_int_t ao_avl_rotate_right(ao_avl_t * X, ao_avl_node_t * N)
     return B;
 }
 
-ao_avl_node_t * ao_avl_successor(ao_avl_node_t * N)
+ao_avl_node_t * ao_avl_successor(ao_avl_node_t const * N)
 {
     ao_assert(N);
 
-    N = N->right;
+    ao_avl_node_t * S = N->right;
 
-    if (N)
+    if (S)
     {
-        while (N->left)
+        while (S->left)
         {
-            N = N->left;
+            S = S->left;
         }
     }
 
-    return N;
+    return S;
 }
 
-void ao_avl_swap(ao_avl_t * X, ao_avl_node_t * N1, ao_avl_node_t * N2)
+void ao_avl_swap(ao_avl_t * A, ao_avl_node_t * N1, ao_avl_node_t * N2)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(A);
 
     ao_assert(N1);
 
@@ -1434,7 +1441,7 @@ void ao_avl_swap(ao_avl_t * X, ao_avl_node_t * N1, ao_avl_node_t * N2)
 
     else
     {
-        P2N1 = &X->root;
+        P2N1 = &A->root;
     }
 
     if (P2)
@@ -1452,7 +1459,7 @@ void ao_avl_swap(ao_avl_t * X, ao_avl_node_t * N1, ao_avl_node_t * N2)
 
     else
     {
-        P2N2 = &X->root;
+        P2N2 = &A->root;
     }
 
     *P2N1 = N2;
@@ -1556,41 +1563,57 @@ ao_int_t ao_avl_update(ao_avl_node_t * N)
 
 // ----------------------------------------------------------------------------
 
-bool ao_buffer_peek_back(ao_buffer_t const * x, void * p)
+bool ao_buffer_is_empty(ao_buffer_t const * B)
+{
+    ao_assert(B);
+
+    return B->count == 0 ? true : false;
+}
+
+bool ao_buffer_is_full(ao_buffer_t const * B)
+{
+    ao_assert(B);
+
+    return B->count == B->capacity ? true : false;
+}
+
+// ----------------------------------------------------------------------------
+
+bool ao_buffer_peek_back(ao_buffer_t const * B, void * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t      c;
+    size_t c;
 
-    size_t      C;
+    size_t C;
 
-    size_t      i;
+    size_t i;
 
-    uint8_t *   pi;
-    uint8_t *   po;
+    uint8_t * pi;
+    uint8_t * po;
 
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c == 0) return false;
 
 
     // Ready.
 
-    C = x->capacity;        ao_assert(c <= C);
+    C = B->capacity;        ao_assert(c <= C);
 
-    i = x->front;           ao_assert(i <  C);
+    i = B->front;           ao_assert(i <  C);
 
     i = (i + c - 1) % C;
 
-    pi = x->store;          ao_assert(pi);
+    pi = B->store;          ao_assert(pi);
 
     po = p;                 ao_assert(po);
 
@@ -1599,41 +1622,41 @@ bool ao_buffer_peek_back(ao_buffer_t const * x, void * p)
     return true;
 }
 
-bool ao_buffer_peek_front(ao_buffer_t const * x, void * p)
+bool ao_buffer_peek_front(ao_buffer_t const * B, void * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t      c;
+    size_t c;
 
-    size_t      C;
+    size_t C;
 
-    size_t      i;
+    size_t i;
 
-    uint8_t *   pi;
-    uint8_t *   po;
+    uint8_t * pi;
+    uint8_t * po;
 
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c == 0) return false;
 
 
     // Ready.
 
-    C = x->capacity;        ao_assert(c <= C);
+    C = B->capacity;    ao_assert(c <= C);
 
-    i = x->front;           ao_assert(i <  C);
+    i = B->front;       ao_assert(i <  C);
 
-    pi = x->store;          ao_assert(pi);
+    pi = B->store;      ao_assert(pi);
 
-    po = p;                 ao_assert(po);
+    po = p;             ao_assert(po);
 
     *po = *(pi + i);
 
@@ -1642,45 +1665,45 @@ bool ao_buffer_peek_front(ao_buffer_t const * x, void * p)
 
 // ----------------------------------------------------------------------------
 
-size_t ao_buffer_peek_range_back(ao_buffer_t const * x, void * p, size_t n_min, size_t n_max)
+size_t ao_buffer_peek_range_back(ao_buffer_t const * B, void * p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t      c;
+    size_t c;
 
-    size_t      C;
+    size_t C;
 
-    size_t      i;
+    size_t i;
 
-    size_t      n;
+    size_t n;
 
-    size_t      n1;
-    size_t      n2;
+    size_t n1;
+    size_t n2;
 
-    uint8_t *   pi;
-    uint8_t *   po;
+    uint8_t * pi;
+    uint8_t * po;
 
-    size_t      t;
+    size_t t;
 
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c >= n_min)
     {
         n = AO_MIN(c, n_max);
 
-        C = x->capacity;        ao_assert(c <= C);
+        C = B->capacity;    ao_assert(c <= C);
 
-        i = x->front;           ao_assert(i <  C);
+        i = B->front;       ao_assert(i <  C);
 
         i = (i + c - n) % C;
 
@@ -1698,13 +1721,13 @@ size_t ao_buffer_peek_range_back(ao_buffer_t const * x, void * p, size_t n_min, 
             n2 = n - t;
         }
 
-        pi = x->store;          ao_assert(pi);
+        pi = B->store;      ao_assert(pi);
 
-        po = p;                 ao_assert(po);
+        po = p;             ao_assert(po);
 
-        ao_memcpy(po,      pi + i, n1);
+        ao_mem_copy(po,      pi + i, n1);
 
-        ao_memcpy(po + n1, pi,     n2);
+        ao_mem_copy(po + n1, pi,     n2);
     }
 
     else
@@ -1715,45 +1738,45 @@ size_t ao_buffer_peek_range_back(ao_buffer_t const * x, void * p, size_t n_min, 
     return n;
 }
 
-size_t ao_buffer_peek_range_front(ao_buffer_t const * x, void * p, size_t n_min, size_t n_max)
+size_t ao_buffer_peek_range_front(ao_buffer_t const * B, void * p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t      c;
+    size_t c;
 
-    size_t      C;
+    size_t C;
 
-    size_t      i;
+    size_t i;
 
-    size_t      n;
+    size_t n;
 
-    size_t      n1;
-    size_t      n2;
+    size_t n1;
+    size_t n2;
 
-    uint8_t *   pi;
-    uint8_t *   po;
+    uint8_t * pi;
+    uint8_t * po;
 
-    size_t      t;
+    size_t t;
 
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c >= n_min)
     {
         n = AO_MIN(c, n_max);
 
-        C = x->capacity;        ao_assert(c <= C);
+        C = B->capacity;    ao_assert(c <= C);
 
-        i = x->front;           ao_assert(i <  C);
+        i = B->front;       ao_assert(i <  C);
 
         t = C - i;
 
@@ -1769,13 +1792,13 @@ size_t ao_buffer_peek_range_front(ao_buffer_t const * x, void * p, size_t n_min,
             n2 = n - t;
         }
 
-        pi = x->store;          ao_assert(pi);
+        pi = B->store;      ao_assert(pi);
 
-        po = p;                 ao_assert(po);
+        po = p;             ao_assert(po);
 
-        ao_memcpy(po,      pi + i, n1);
+        ao_mem_copy(po,      pi + i, n1);
 
-        ao_memcpy(po + n1, pi,     n2);
+        ao_mem_copy(po + n1, pi,     n2);
     }
 
     else
@@ -1788,90 +1811,90 @@ size_t ao_buffer_peek_range_front(ao_buffer_t const * x, void * p, size_t n_min,
 
 // ----------------------------------------------------------------------------
 
-bool ao_buffer_pop_back(ao_buffer_t * x, void * p)
+bool ao_buffer_pop_back(ao_buffer_t * B, void * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t      c;
+    size_t c;
 
-    size_t      C;
+    size_t C;
 
-    size_t      i;
+    size_t i;
 
-    uint8_t *   pi;
-    uint8_t *   po;
+    uint8_t * pi;
+    uint8_t * po;
 
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c == 0) return false;
 
 
     // Ready.
 
-    C = x->capacity;        ao_assert(c <= C);
+    C = B->capacity;    ao_assert(c <= C);
 
-    i = x->front;           ao_assert(i <  C);
+    i = B->front;       ao_assert(i <  C);
 
     i = (i + c - 1) % C;
 
-    pi = x->store;          ao_assert(pi);
+    pi = B->store;      ao_assert(pi);
 
-    po = p;                 ao_assert(po);
+    po = p;             ao_assert(po);
 
-    x->count = c - 1;
+    B->count = c - 1;
 
     *po = *(pi + i);
 
     return true;
 }
 
-bool ao_buffer_pop_front(ao_buffer_t * x, void * p)
+bool ao_buffer_pop_front(ao_buffer_t * B, void * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t      c;
+    size_t c;
 
-    size_t      C;
+    size_t C;
 
-    size_t      i;
+    size_t i;
 
-    uint8_t *   pi;
-    uint8_t *   po;
+    uint8_t * pi;
+    uint8_t * po;
 
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c == 0) return false;
 
 
     // Ready.
 
-    C = x->capacity;        ao_assert(c <= C);
+    C = B->capacity;    ao_assert(c <= C);
 
-    i = x->front;           ao_assert(i <  C);
+    i = B->front;       ao_assert(i <  C);
 
-    pi = x->store;          ao_assert(pi);
+    pi = B->store;      ao_assert(pi);
 
-    po = p;                 ao_assert(po);
+    po = p;             ao_assert(po);
 
-    x->count = c - 1;
+    B->count = c - 1;
 
-    x->front = (i + 1) % C;
+    B->front = (i + 1) % C;
 
     *po = *(pi + i);
 
@@ -1880,45 +1903,45 @@ bool ao_buffer_pop_front(ao_buffer_t * x, void * p)
 
 // ----------------------------------------------------------------------------
 
-size_t ao_buffer_pop_range_back(ao_buffer_t * x, void * p, size_t n_min, size_t n_max)
+size_t ao_buffer_pop_range_back(ao_buffer_t * B, void * p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t      c;
+    size_t c;
 
-    size_t      C;
+    size_t C;
 
-    size_t      i;
+    size_t i;
 
-    size_t      n;
+    size_t n;
 
-    size_t      n1;
-    size_t      n2;
+    size_t n1;
+    size_t n2;
 
-    uint8_t *   pi;
-    uint8_t *   po;
+    uint8_t * pi;
+    uint8_t * po;
 
-    size_t      t;
+    size_t t;
 
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c >= n_min)
     {
         n = AO_MIN(c, n_max);
 
-        C = x->capacity;        ao_assert(c <= C);
+        C = B->capacity;    ao_assert(c <= C);
 
-        i = x->front;           ao_assert(i <  C);
+        i = B->front;       ao_assert(i <  C);
 
         i = (i + c - n) % C;
 
@@ -1936,15 +1959,15 @@ size_t ao_buffer_pop_range_back(ao_buffer_t * x, void * p, size_t n_min, size_t 
             n2 = n - t;
         }
 
-        pi = x->store;          ao_assert(pi);
+        pi = B->store;      ao_assert(pi);
 
-        po = p;                 ao_assert(po);
+        po = p;             ao_assert(po);
 
-        x->count = c - n;
+        B->count = c - n;
 
-        ao_memcpy(po,      pi + i, n1);
+        ao_mem_copy(po,      pi + i, n1);
 
-        ao_memcpy(po + n1, pi,     n2);
+        ao_mem_copy(po + n1, pi,     n2);
     }
 
     else
@@ -1955,45 +1978,45 @@ size_t ao_buffer_pop_range_back(ao_buffer_t * x, void * p, size_t n_min, size_t 
     return n;
 }
 
-size_t ao_buffer_pop_range_front(ao_buffer_t * x, void * p, size_t n_min, size_t n_max)
+size_t ao_buffer_pop_range_front(ao_buffer_t * B, void * p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t      c;
+    size_t c;
 
-    size_t      C;
+    size_t C;
 
-    size_t      i;
+    size_t i;
 
-    size_t      n;
+    size_t n;
 
-    size_t      n1;
-    size_t      n2;
+    size_t n1;
+    size_t n2;
 
-    uint8_t *   pi;
-    uint8_t *   po;
+    uint8_t * pi;
+    uint8_t * po;
 
-    size_t      t;
+    size_t t;
 
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c >= n_min)
     {
         n = AO_MIN(c, n_max);
 
-        C = x->capacity;        ao_assert(c <= C);
+        C = B->capacity;    ao_assert(c <= C);
 
-        i = x->front;           ao_assert(i <  C);
+        i = B->front;       ao_assert(i <  C);
 
         t = C - i;
 
@@ -2009,17 +2032,17 @@ size_t ao_buffer_pop_range_front(ao_buffer_t * x, void * p, size_t n_min, size_t
             n2 = n - t;
         }
 
-        pi = x->store;          ao_assert(pi);
+        pi = B->store;      ao_assert(pi);
 
-        po = p;                 ao_assert(po);
+        po = p;             ao_assert(po);
 
-        x->count = c - n;
+        B->count = c - n;
 
-        x->front = (i + n) % C;
+        B->front = (i + n) % C;
 
-        ao_memcpy(po,      pi + i, n1);
+        ao_mem_copy(po,      pi + i, n1);
 
-        ao_memcpy(po + n1, pi,     n2);
+        ao_mem_copy(po + n1, pi,     n2);
     }
 
     else
@@ -2032,53 +2055,54 @@ size_t ao_buffer_pop_range_front(ao_buffer_t * x, void * p, size_t n_min, size_t
 
 // ----------------------------------------------------------------------------
 
-bool ao_buffer_push_back(ao_buffer_t * x, void const * p)
+bool ao_buffer_push_back(ao_buffer_t * B, void const * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t          c;
+    size_t c;
 
-    size_t          C;
+    size_t C;
 
-    size_t          f;
+    size_t f;
 
     uint8_t const * pi;
-    uint8_t       * po;
+
+    uint8_t * po;
 
 #if AO_BUFFER_COUNT_MAX
 
-    size_t          t;
+    size_t t;
 
 #endif
 
 
     // Ready.
 
-    C = x->capacity;
+    C = B->capacity;
 
-    c = x->count;               ao_assert(c <= C);
+    c = B->count;       ao_assert(c <= C);
 
     if (c == C) return false;
 
 
     // Ready.
 
-    f = x->front;               ao_assert(f < C);
+    f = B->front;       ao_assert(f < C);
 
     f = (f + c) % C;
 
-    pi = p;                     ao_assert(pi);
+    pi = p;             ao_assert(pi);
 
-    po = x->store;              ao_assert(po);
+    po = B->store;      ao_assert(po);
 
 #if AO_BUFFER_COUNT_MAX
 
-    t = x->count_max;           ao_assert(c <= t && t <= C);
+    t = B->count_max;   ao_assert(c <= t && t <= C);
 
 #endif
 
@@ -2086,72 +2110,143 @@ bool ao_buffer_push_back(ao_buffer_t * x, void const * p)
 
 #if AO_BUFFER_COUNT_MAX
 
-    x->count_max = AO_MAX(t, c);
+    B->count_max = AO_MAX(t, c);
 
 #endif
 
-    x->count = c;
+    B->count = c;
 
     *(po + f) = *pi;
 
     return true;
 }
 
-bool ao_buffer_push_back_override(ao_buffer_t * x, void const * p)
+bool ao_buffer_push_front(ao_buffer_t * B, void const * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t          c;
+    size_t c;
 
-    size_t          C;
+    size_t C;
 
-    size_t          f;
-
-    size_t          i;
+    size_t f;
 
     uint8_t const * pi;
-    uint8_t       * po;
+
+    uint8_t * po;
 
 #if AO_BUFFER_COUNT_MAX
 
-    size_t          t;
+    size_t t;
 
 #endif
 
 
     // Ready.
 
-    C = x->capacity;
+    C = B->capacity;
+
+    c = B->count;       ao_assert(c <= C);
+
+    if (c == C) return false;
+
+
+    // Ready.
+
+    f = B->front;       ao_assert(f < C);
+
+    f = (f + C - 1) % C;
+
+    pi = p;             ao_assert(pi);
+
+    po = B->store;      ao_assert(po);
+
+#if AO_BUFFER_COUNT_MAX
+
+    t = B->count_max;   ao_assert(c <= t && t <= C);
+
+#endif
+
+    c = c + 1;
+
+#if AO_BUFFER_COUNT_MAX
+
+    B->count_max = AO_MAX(t, c);
+
+#endif
+
+    B->count = c;
+
+    B->front = f;
+
+    *(po + f) = *pi;
+
+    return true;
+}
+
+// ----------------------------------------------------------------------------
+
+bool ao_buffer_push_back_override(ao_buffer_t * B, void const * p)
+{
+    // Assert.
+
+    ao_assert(B);
+
+
+    // Variables.
+
+    size_t c;
+
+    size_t C;
+
+    size_t f;
+
+    size_t i;
+
+    uint8_t const * pi;
+
+    uint8_t * po;
+
+#if AO_BUFFER_COUNT_MAX
+
+    size_t t;
+
+#endif
+
+
+    // Ready.
+
+    C = B->capacity;
 
     if (C == 0) return false;
 
 
     // Ready.
 
-    c = x->count;           ao_assert(c <= C);
+    c = B->count;       ao_assert(c <= C);
 
-    f = x->front;           ao_assert(f < C);
+    f = B->front;       ao_assert(f < C);
 
     i = (f + c) % C;
 
-    pi = p;                 ao_assert(pi);
+    pi = p;             ao_assert(pi);
 
-    po = x->store;          ao_assert(po);
+    po = B->store;      ao_assert(po);
 
 #if AO_BUFFER_COUNT_MAX
 
-    t = x->count_max;       ao_assert(c <= t && t <= C);
+    t = B->count_max;   ao_assert(c <= t && t <= C);
 
 #endif
 
     if (c == C)
     {
-        x->front = (f + 1) % C;
+        B->front = (f + 1) % C;
     }
 
     else
@@ -2161,131 +2256,65 @@ bool ao_buffer_push_back_override(ao_buffer_t * x, void const * p)
 
 #if AO_BUFFER_COUNT_MAX
 
-    x->count_max = AO_MAX(t, c);
+    B->count_max = AO_MAX(t, c);
 
 #endif
 
-    x->count = c;
+    B->count = c;
 
     *(po + f) = *pi;
 
     return true;
 }
 
-bool ao_buffer_push_front(ao_buffer_t * x, void const * p)
+bool ao_buffer_push_front_override(ao_buffer_t * B, void const * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t          c;
+    size_t c;
 
-    size_t          C;
+    size_t C;
 
-    size_t          f;
-
-    uint8_t const * pi;
-    uint8_t       * po;
-
-#if AO_BUFFER_COUNT_MAX
-
-    size_t          t;
-
-#endif
-
-
-    // Ready.
-
-    C = x->capacity;
-
-    c = x->count;               ao_assert(c <= C);
-
-    if (c == C) return false;
-
-
-    // Ready.
-
-    f = x->front;               ao_assert(f < C);
-
-    f = (f + C - 1) % C;
-
-    pi = p;                     ao_assert(pi);
-
-    po = x->store;              ao_assert(po);
-
-#if AO_BUFFER_COUNT_MAX
-
-    t = x->count_max;           ao_assert(c <= t && t <= C);
-
-#endif
-
-    c = c + 1;
-
-#if AO_BUFFER_COUNT_MAX
-
-    x->count_max = AO_MAX(t, c);
-
-#endif
-
-    x->count = c;
-
-    x->front = f;
-
-    *(po + f) = *pi;
-
-    return true;
-}
-
-bool ao_buffer_push_front_override(ao_buffer_t * x, void const * p)
-{
-    // Assert.
-
-    ao_assert(x);
-
-
-    // Variables.
-
-    size_t          c;
-
-    size_t          C;
-
-    size_t          f;
+    size_t f;
 
     uint8_t const * pi;
-    uint8_t       * po;
+
+    uint8_t * po;
 
 #if AO_BUFFER_COUNT_MAX
 
-    size_t          t;
+    size_t t;
 
 #endif
 
 
     // Ready.
 
-    C = x->capacity;
+    C = B->capacity;
 
     if (C == 0) return false;
 
 
     // Ready.
 
-    c = x->count;           ao_assert(c <= C);
+    c = B->count;     ao_assert(c <= C);
 
-    f = x->front;           ao_assert(f < C);
+    f = B->front;     ao_assert(f < C);
 
     f = (f + C - 1) % C;
 
-    pi = p;                 ao_assert(pi);
+    pi = p;           ao_assert(pi);
 
-    po = x->store;          ao_assert(po);
+    po = B->store;    ao_assert(po);
 
 #if AO_BUFFER_COUNT_MAX
 
-    t = x->count_max;       ao_assert(c <= t && t <= C);
+    t = B->count_max; ao_assert(c <= t && t <= C);
 
 #endif
 
@@ -2298,13 +2327,13 @@ bool ao_buffer_push_front_override(ao_buffer_t * x, void const * p)
 
 #if AO_BUFFER_COUNT_MAX
 
-    x->count_max = AO_MAX(t, c);
+    B->count_max = AO_MAX(t, c);
 
 #endif
 
-    x->count = c;
+    B->count = c;
 
-    x->front = f;
+    B->front = f;
 
     *(po + f) = *pi;
 
@@ -2313,39 +2342,40 @@ bool ao_buffer_push_front_override(ao_buffer_t * x, void const * p)
 
 // ----------------------------------------------------------------------------
 
-size_t ao_buffer_push_range_back(ao_buffer_t * x, void const * p, size_t n_min, size_t n_max)
+size_t ao_buffer_push_range_back(ao_buffer_t * B, void const * p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t          c;
+    size_t c;
 
-    size_t          C;
+    size_t C;
 
-    size_t          f;
+    size_t f;
 
-    size_t          n;
+    size_t n;
 
-    size_t          n1;
-    size_t          n2;
+    size_t n1;
+    size_t n2;
 
     uint8_t const * pi;
-    uint8_t       * po;
 
-    size_t          t;
+    uint8_t * po;
+
+    size_t t;
 
 
     // Ready.
 
-    C = x->capacity;
+    C = B->capacity;
 
-    c = x->count;               ao_assert(c <= C);
+    c = B->count;           ao_assert(c <= C);
 
     t = C - c;
 
@@ -2353,7 +2383,7 @@ size_t ao_buffer_push_range_back(ao_buffer_t * x, void const * p, size_t n_min, 
     {
         n = AO_MIN(t, n_max);
 
-        f = x->front;           ao_assert(f < C);
+        f = B->front;       ao_assert(f < C);
 
         f = (f + c) % C;
 
@@ -2371,13 +2401,13 @@ size_t ao_buffer_push_range_back(ao_buffer_t * x, void const * p, size_t n_min, 
             n2 = n - t;
         }
 
-        pi = p;                 ao_assert(pi);
+        pi = p;             ao_assert(pi);
 
-        po = x->store;          ao_assert(po);
+        po = B->store;      ao_assert(po);
 
 #if AO_BUFFER_COUNT_MAX
 
-        t = x->count_max;       ao_assert(c <= t && t <= C);
+        t = B->count_max;   ao_assert(c <= t && t <= C);
 
 #endif
 
@@ -2387,15 +2417,15 @@ size_t ao_buffer_push_range_back(ao_buffer_t * x, void const * p, size_t n_min, 
 
         t = AO_MAX(t, c);
 
-        x->count_max = t;
+        B->count_max = t;
 
 #endif
 
-        x->count = c;
+        B->count = c;
 
-        ao_memcpy(po + f, pi,      n1);
+        ao_mem_copy(po + f, pi,      n1);
 
-        ao_memcpy(po,     pi + n1, n2);
+        ao_mem_copy(po,     pi + n1, n2);
     }
 
     else
@@ -2406,152 +2436,40 @@ size_t ao_buffer_push_range_back(ao_buffer_t * x, void const * p, size_t n_min, 
     return n;
 }
 
-size_t ao_buffer_push_range_back_override(ao_buffer_t * x, void const * p, size_t n_min, size_t n_max)
+size_t ao_buffer_push_range_front(ao_buffer_t * B, void const * p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t          c;
+    size_t c;
 
-    size_t          C;
+    size_t C;
 
-    size_t          f;
+    size_t f;
 
-    size_t          i;
+    size_t n;
 
-    size_t          n;
-
-    size_t          n1;
-    size_t          n2;
+    size_t n1;
+    size_t n2;
 
     uint8_t const * pi;
-    uint8_t       * po;
 
-    size_t          t1;
+    uint8_t * po;
 
-#if AO_BUFFER_COUNT_MAX
-
-    size_t          t2;
-
-#endif
+    size_t t;
 
 
     // Ready.
 
-    C = x->capacity;
+    C = B->capacity;
 
-    if (C >= n_min)
-    {
-        n = AO_MIN(C, n_max);
-
-        c = x->count;           ao_assert(c <= C);
-
-        f = x->front;           ao_assert(f < C);
-
-        i = (f + c) % C;
-
-        t1 = C - i;
-
-        if (t1 >= n)
-        {
-            n1 = n;
-            n2 = 0;
-        }
-
-        else
-        {
-            n1 = t1;
-            n2 = n - t1;
-        }
-
-        pi = p;                 ao_assert(pi);
-
-        po = x->store;          ao_assert(po);
-
-#if AO_BUFFER_COUNT_MAX
-
-        t2 = x->count_max;      ao_assert(c <= t2 && t2 <= C);
-
-#endif
-
-        t1 = C - c;
-
-        if (t1 < n)
-        {
-            c = C;
-
-            f = (f + n - t1) % C;
-
-            x->front = f;
-        }
-
-        else
-        {
-            c = c + n;
-        }
-
-#if AO_BUFFER_COUNT_MAX
-
-        t2 = AO_MAX(t2, c);
-
-        x->count_max = t2;
-
-#endif
-
-        x->count = c;
-
-        ao_memcpy(po + i, pi,      n1);
-
-        ao_memcpy(po,     pi + n1, n2);
-    }
-
-    else
-    {
-        n = 0;
-    }
-
-    return n;
-}
-
-size_t ao_buffer_push_range_front(ao_buffer_t * x, void const * p, size_t n_min, size_t n_max)
-{
-    // Assert.
-
-    ao_assert(x);
-
-    ao_assert(n_min <= n_max);
-
-
-    // Variables.
-
-    size_t          c;
-
-    size_t          C;
-
-    size_t          f;
-
-    size_t          n;
-
-    size_t          n1;
-    size_t          n2;
-
-    uint8_t const * pi;
-    uint8_t       * po;
-
-    size_t          t;
-
-
-    // Ready.
-
-    C = x->capacity;
-
-    c = x->count;               ao_assert(c <= C);
+    c = B->count;           ao_assert(c <= C);
 
     t = C - c;
 
@@ -2559,7 +2477,7 @@ size_t ao_buffer_push_range_front(ao_buffer_t * x, void const * p, size_t n_min,
     {
         n = AO_MIN(t, n_max);
 
-        f = x->front;           ao_assert(f < C);
+        f = B->front;       ao_assert(f < C);
 
         f = (f + C - n) % C;
 
@@ -2577,13 +2495,13 @@ size_t ao_buffer_push_range_front(ao_buffer_t * x, void const * p, size_t n_min,
             n2 = n - t;
         }
 
-        pi = p;                 ao_assert(pi);
+        pi = p;             ao_assert(pi);
 
-        po = x->store;          ao_assert(po);
+        po = B->store;      ao_assert(po);
 
 #if AO_BUFFER_COUNT_MAX
 
-        t = x->count_max;       ao_assert(c <= t && t <= C);
+        t = B->count_max;   ao_assert(c <= t && t <= C);
 
 #endif
 
@@ -2593,17 +2511,17 @@ size_t ao_buffer_push_range_front(ao_buffer_t * x, void const * p, size_t n_min,
 
         t = AO_MAX(t, c);
 
-        x->count_max = t;
+        B->count_max = t;
 
 #endif
 
-        x->count = c;
+        B->count = c;
 
-        x->front = f;
+        B->front = f;
 
-        ao_memcpy(po + f, pi,      n1);
+        ao_mem_copy(po + f, pi,      n1);
 
-        ao_memcpy(po,     pi + n1, n2);
+        ao_mem_copy(po,     pi + n1, n2);
     }
 
     else
@@ -2614,51 +2532,168 @@ size_t ao_buffer_push_range_front(ao_buffer_t * x, void const * p, size_t n_min,
     return n;
 }
 
-size_t ao_buffer_push_range_front_override(ao_buffer_t * x, void const * p, size_t n_min, size_t n_max)
+// ----------------------------------------------------------------------------
+
+size_t ao_buffer_push_range_back_override(ao_buffer_t * B, void const * p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t          c;
+    size_t c;
 
-    size_t          C;
+    size_t C;
 
-    size_t          f;
+    size_t f;
 
-    size_t          n;
+    size_t i;
 
-    size_t          n1;
-    size_t          n2;
+    size_t n;
+
+    size_t n1;
+    size_t n2;
 
     uint8_t const * pi;
-    uint8_t       * po;
 
-    size_t          t1;
+    uint8_t * po;
+
+    size_t t1;
 
 #if AO_BUFFER_COUNT_MAX
 
-    size_t          t2;
+    size_t t2;
 
 #endif
 
 
     // Ready.
 
-    C = x->capacity;
+    C = B->capacity;
 
     if (C >= n_min)
     {
         n = AO_MIN(C, n_max);
 
-        c = x->count;           ao_assert(c <= C);
+        c = B->count;       ao_assert(c <= C);
 
-        f = x->front;           ao_assert(f < C);
+        f = B->front;       ao_assert(f < C);
+
+        i = (f + c) % C;
+
+        t1 = C - i;
+
+        if (t1 >= n)
+        {
+            n1 = n;
+            n2 = 0;
+        }
+
+        else
+        {
+            n1 = t1;
+            n2 = n - t1;
+        }
+
+        pi = p;             ao_assert(pi);
+
+        po = B->store;      ao_assert(po);
+
+#if AO_BUFFER_COUNT_MAX
+
+        t2 = B->count_max;  ao_assert(c <= t2 && t2 <= C);
+
+#endif
+
+        t1 = C - c;
+
+        if (t1 < n)
+        {
+            c = C;
+
+            f = (f + n - t1) % C;
+
+            B->front = f;
+        }
+
+        else
+        {
+            c = c + n;
+        }
+
+#if AO_BUFFER_COUNT_MAX
+
+        t2 = AO_MAX(t2, c);
+
+        B->count_max = t2;
+
+#endif
+
+        B->count = c;
+
+        ao_mem_copy(po + i, pi,      n1);
+
+        ao_mem_copy(po,     pi + n1, n2);
+    }
+
+    else
+    {
+        n = 0;
+    }
+
+    return n;
+}
+
+size_t ao_buffer_push_range_front_override(ao_buffer_t * B, void const * p, size_t n_min, size_t n_max)
+{
+    // Assert.
+
+    ao_assert(B);
+
+    ao_assert(n_min <= n_max);
+
+
+    // Variables.
+
+    size_t c;
+
+    size_t C;
+
+    size_t f;
+
+    size_t n;
+
+    size_t n1;
+    size_t n2;
+
+    uint8_t const * pi;
+
+    uint8_t * po;
+
+    size_t t1;
+
+#if AO_BUFFER_COUNT_MAX
+
+    size_t t2;
+
+#endif
+
+
+    // Ready.
+
+    C = B->capacity;
+
+    if (C >= n_min)
+    {
+        n = AO_MIN(C, n_max);
+
+        c = B->count;       ao_assert(c <= C);
+
+        f = B->front;       ao_assert(f < C);
 
         f = (f + C - n) % C;
 
@@ -2676,13 +2711,13 @@ size_t ao_buffer_push_range_front_override(ao_buffer_t * x, void const * p, size
             n2 = n - t1;
         }
 
-        pi = p;                 ao_assert(pi);
+        pi = p;             ao_assert(pi);
 
-        po = x->store;          ao_assert(po);
+        po = B->store;      ao_assert(po);
 
 #if AO_BUFFER_COUNT_MAX
 
-        t2 = x->count_max;      ao_assert(c <= t2 && t2 <= C);
+        t2 = B->count_max;  ao_assert(c <= t2 && t2 <= C);
 
 #endif
 
@@ -2702,17 +2737,17 @@ size_t ao_buffer_push_range_front_override(ao_buffer_t * x, void const * p, size
 
         t2 = AO_MAX(t2, c);
 
-        x->count_max = t2;
+        B->count_max = t2;
 
 #endif
 
-        x->count = c;
+        B->count = c;
 
-        x->front = f;
+        B->front = f;
 
-        ao_memcpy(po + f, pi,      n1);
+        ao_mem_copy(po + f, pi,      n1);
 
-        ao_memcpy(po,     pi + n1, n2);
+        ao_mem_copy(po,     pi + n1, n2);
     }
 
     else
@@ -2731,139 +2766,155 @@ size_t ao_buffer_push_range_front_override(ao_buffer_t * x, void const * p, size
 
 // ----------------------------------------------------------------------------
 
-bool ao_buffer4obj_peek_back(ao_buffer4obj_t const * x, void * p)
+bool ao_buffer4obj_is_empty(ao_buffer4obj_t const * B)
+{
+    ao_assert(B);
+
+    return B->count == 0 ? true : false;
+}
+
+bool ao_buffer4obj_is_full(ao_buffer4obj_t const * B)
+{
+    ao_assert(B);
+
+    return B->count == B->capacity ? true : false;
+}
+
+// ----------------------------------------------------------------------------
+
+bool ao_buffer4obj_peek_back(ao_buffer4obj_t const * B, void * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t      c;
+    size_t c;
 
-    size_t      C;
+    size_t C;
 
-    size_t      i;
+    size_t i;
 
-    uint8_t *   pi;
-    uint8_t *   po;
+    uint8_t * pi;
+    uint8_t * po;
 
-    size_t      s;
+    size_t s;
 
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c == 0) return false;
 
 
     // Ready.
 
-    C = x->capacity;            ao_assert(c <= C);
+    C = B->capacity;    ao_assert(c <= C);
 
-    i = x->front;               ao_assert(i <  C);
+    i = B->front;       ao_assert(i <  C);
 
-    s = x->size;
+    s = B->size;
 
     i = (i + c - 1) % C;
 
-    pi = x->store;              ao_assert(pi);
+    pi = B->store;      ao_assert(pi);
 
-    po = p;                     ao_assert(po);
+    po = p;             ao_assert(po);
 
-    ao_memcpy(po, pi + s * i, s);
+    ao_mem_copy(po, pi + s * i, s);
 
     return true;
 }
 
-bool ao_buffer4obj_peek_front(ao_buffer4obj_t const * x, void * p)
+bool ao_buffer4obj_peek_front(ao_buffer4obj_t const * B, void * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t      c;
+    size_t c;
 
-    size_t      i;
+    size_t i;
 
-    uint8_t *   pi;
-    uint8_t *   po;
+    uint8_t * pi;
+    uint8_t * po;
 
-    size_t      s;
+    size_t s;
 
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c == 0) return false;
 
 
     // Ready.
 
-    i = x->front;
+    i = B->front;
 
-    s = x->size;
+    s = B->size;
 
-    pi = x->store;              ao_assert(pi);
+    pi = B->store;  ao_assert(pi);
 
-    po = p;                     ao_assert(po);
+    po = p;         ao_assert(po);
 
-    ao_memcpy(po, pi + s * i, s);
+    ao_mem_copy(po, pi + s * i, s);
 
     return true;
 }
 
 // ----------------------------------------------------------------------------
 
-size_t ao_buffer4obj_peek_range_back(ao_buffer4obj_t const * x, void * p, size_t n_min, size_t n_max)
+size_t ao_buffer4obj_peek_range_back(ao_buffer4obj_t const * B, void * p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t      c;
+    size_t c;
 
-    size_t      C;
+    size_t C;
 
-    size_t      i;
+    size_t i;
 
-    size_t      n;
+    size_t n;
 
-    size_t      n1;
-    size_t      n2;
+    size_t n1;
+    size_t n2;
 
-    uint8_t *   pi;
-    uint8_t *   po;
+    uint8_t * pi;
+    uint8_t * po;
 
-    size_t      s;
+    size_t s;
 
-    size_t      t;
+    size_t t;
 
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c >= n_min)
     {
         n = AO_MIN(c, n_max);
 
-        C = x->capacity;        ao_assert(c <= C);
+        C = B->capacity;    ao_assert(c <= C);
 
-        i = x->front;           ao_assert(i <  C);
+        i = B->front;       ao_assert(i <  C);
 
-        s = x->size;
+        s = B->size;
 
         i = (i + c - n) % C;
 
@@ -2883,13 +2934,13 @@ size_t ao_buffer4obj_peek_range_back(ao_buffer4obj_t const * x, void * p, size_t
 
         i = s * i;
 
-        pi = x->store;          ao_assert(pi);
+        pi = B->store;      ao_assert(pi);
 
-        po = p;                 ao_assert(po);
+        po = p;             ao_assert(po);
 
-        ao_memcpy(po,      pi + i, n1);
+        ao_mem_copy(po,      pi + i, n1);
 
-        ao_memcpy(po + n1, pi,     n2);
+        ao_mem_copy(po + n1, pi,     n2);
     }
 
     else
@@ -2900,49 +2951,49 @@ size_t ao_buffer4obj_peek_range_back(ao_buffer4obj_t const * x, void * p, size_t
     return n;
 }
 
-size_t ao_buffer4obj_peek_range_front(ao_buffer4obj_t const * x, void * p, size_t n_min, size_t n_max)
+size_t ao_buffer4obj_peek_range_front(ao_buffer4obj_t const * B, void * p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t      c;
+    size_t c;
 
-    size_t      C;
+    size_t C;
 
-    size_t      i;
+    size_t i;
 
-    size_t      n;
+    size_t n;
 
-    size_t      n1;
-    size_t      n2;
+    size_t n1;
+    size_t n2;
 
-    uint8_t *   pi;
-    uint8_t *   po;
+    uint8_t * pi;
+    uint8_t * po;
 
-    size_t      s;
+    size_t s;
 
-    size_t      t;
+    size_t t;
 
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c >= n_min)
     {
         n = AO_MIN(c, n_max);
 
-        C = x->capacity;        ao_assert(c <= C);
+        C = B->capacity;    ao_assert(c <= C);
 
-        i = x->front;           ao_assert(i <  C);
+        i = B->front;       ao_assert(i <  C);
 
-        s = x->size;
+        s = B->size;
 
         t = C - i;
 
@@ -2960,13 +3011,13 @@ size_t ao_buffer4obj_peek_range_front(ao_buffer4obj_t const * x, void * p, size_
 
         i = s * i;
 
-        pi = x->store;          ao_assert(pi);
+        pi = B->store;      ao_assert(pi);
 
-        po = p;                 ao_assert(po);
+        po = p;             ao_assert(po);
 
-        ao_memcpy(po,      pi + i, n1);
+        ao_mem_copy(po,      pi + i, n1);
 
-        ao_memcpy(po + n1, pi,     n2);
+        ao_mem_copy(po + n1, pi,     n2);
     }
 
     else
@@ -2979,149 +3030,149 @@ size_t ao_buffer4obj_peek_range_front(ao_buffer4obj_t const * x, void * p, size_
 
 // ----------------------------------------------------------------------------
 
-bool ao_buffer4obj_pop_back(ao_buffer4obj_t * x, void * p)
+bool ao_buffer4obj_pop_back(ao_buffer4obj_t * B, void * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t      c;
+    size_t c;
 
-    size_t      C;
+    size_t C;
 
-    size_t      i;
+    size_t i;
 
-    uint8_t *   pi;
-    uint8_t *   po;
+    uint8_t * pi;
+    uint8_t * po;
 
-    size_t      s;
+    size_t s;
 
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c == 0) return false;
 
 
     // Ready.
 
-    C = x->capacity;            ao_assert(c <= C);
+    C = B->capacity;    ao_assert(c <= C);
 
-    i = x->front;               ao_assert(i <  C);
+    i = B->front;       ao_assert(i <  C);
 
-    s = x->size;
+    s = B->size;
 
     i = (i + c - 1) % C;
 
-    pi = x->store;              ao_assert(pi);
+    pi = B->store;      ao_assert(pi);
 
-    po = p;                     ao_assert(po);
+    po = p;             ao_assert(po);
 
-    x->count = c - 1;
+    B->count = c - 1;
 
-    ao_memcpy(po, pi + s * i, s);
+    ao_mem_copy(po, pi + s * i, s);
 
     return true;
 }
 
-bool ao_buffer4obj_pop_front(ao_buffer4obj_t * x, void * p)
+bool ao_buffer4obj_pop_front(ao_buffer4obj_t * B, void * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t      c;
+    size_t c;
 
-    size_t      C;
+    size_t C;
 
-    size_t      f;
+    size_t f;
 
-    uint8_t *   pi;
-    uint8_t *   po;
+    uint8_t * pi;
+    uint8_t * po;
 
-    size_t      s;
+    size_t s;
 
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c == 0) return false;
 
 
     // Ready.
 
-    C = x->capacity;            ao_assert(c <= C);
+    C = B->capacity;    ao_assert(c <= C);
 
-    f = x->front;               ao_assert(f <  C);
+    f = B->front;       ao_assert(f <  C);
 
-    s = x->size;
+    s = B->size;
 
-    pi = x->store;              ao_assert(pi);
+    pi = B->store;      ao_assert(pi);
 
-    po = p;                     ao_assert(po);
+    po = p;             ao_assert(po);
 
-    x->count = c - 1;
+    B->count = c - 1;
 
-    x->front = (f + 1) % C;
+    B->front = (f + 1) % C;
 
-    ao_memcpy(po, pi + s * f, s);
+    ao_mem_copy(po, pi + s * f, s);
 
     return true;
 }
 
 // ----------------------------------------------------------------------------
 
-size_t ao_buffer4obj_pop_range_back(ao_buffer4obj_t * x, void * p, size_t n_min, size_t n_max)
+size_t ao_buffer4obj_pop_range_back(ao_buffer4obj_t * B, void * p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t      c;
+    size_t c;
 
-    size_t      C;
+    size_t C;
 
-    size_t      i;
+    size_t i;
 
-    size_t      n;
+    size_t n;
 
-    size_t      n1;
-    size_t      n2;
+    size_t n1;
+    size_t n2;
 
-    uint8_t *   pi;
-    uint8_t *   po;
+    uint8_t * pi;
+    uint8_t * po;
 
-    size_t      s;
+    size_t s;
 
-    size_t      t;
+    size_t t;
 
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c >= n_min)
     {
         n = AO_MIN(c, n_max);
 
-        C = x->capacity;        ao_assert(c <= C);
+        C = B->capacity;    ao_assert(c <= C);
 
-        i = x->front;           ao_assert(i <  C);
+        i = B->front;       ao_assert(i <  C);
 
-        s = x->size;
+        s = B->size;
 
         i = (i + c - n) % C;
 
@@ -3141,15 +3192,15 @@ size_t ao_buffer4obj_pop_range_back(ao_buffer4obj_t * x, void * p, size_t n_min,
 
         i = s * i;
 
-        pi = x->store;          ao_assert(pi);
+        pi = B->store;      ao_assert(pi);
 
-        po = p;                 ao_assert(po);
+        po = p;             ao_assert(po);
 
-        x->count = c - n;
+        B->count = c - n;
 
-        ao_memcpy(po,      pi + i, n1);
+        ao_mem_copy(po,      pi + i, n1);
 
-        ao_memcpy(po + n1, pi,     n2);
+        ao_mem_copy(po + n1, pi,     n2);
     }
 
     else
@@ -3160,51 +3211,51 @@ size_t ao_buffer4obj_pop_range_back(ao_buffer4obj_t * x, void * p, size_t n_min,
     return n;
 }
 
-size_t ao_buffer4obj_pop_range_front(ao_buffer4obj_t * x, void * p, size_t n_min, size_t n_max)
+size_t ao_buffer4obj_pop_range_front(ao_buffer4obj_t * B, void * p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t      c;
+    size_t c;
 
-    size_t      C;
+    size_t C;
 
-    size_t      f;
+    size_t f;
 
-    size_t      i;
+    size_t i;
 
-    size_t      n;
+    size_t n;
 
-    size_t      n1;
-    size_t      n2;
+    size_t n1;
+    size_t n2;
 
-    uint8_t *   pi;
-    uint8_t *   po;
+    uint8_t * pi;
+    uint8_t * po;
 
-    size_t      s;
+    size_t s;
 
-    size_t      t;
+    size_t t;
 
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c >= n_min)
     {
         n = AO_MIN(c, n_max);
 
-        C = x->capacity;        ao_assert(c <= C);
+        C = B->capacity;    ao_assert(c <= C);
 
-        f = x->front;           ao_assert(f <  C);
+        f = B->front;       ao_assert(f <  C);
 
-        s = x->size;
+        s = B->size;
 
         t = C - f;
 
@@ -3222,17 +3273,17 @@ size_t ao_buffer4obj_pop_range_front(ao_buffer4obj_t * x, void * p, size_t n_min
 
         i = s * f;
 
-        pi = x->store;          ao_assert(pi);
+        pi = B->store;      ao_assert(pi);
 
-        po = p;                 ao_assert(po);
+        po = p;             ao_assert(po);
 
-        x->count = c - n;
+        B->count = c - n;
 
-        x->front = (f + n) % C;
+        B->front = (f + n) % C;
 
-        ao_memcpy(po,      pi + i, n1);
+        ao_mem_copy(po,      pi + i, n1);
 
-        ao_memcpy(po + n1, pi,     n2);
+        ao_mem_copy(po + n1, pi,     n2);
     }
 
     else
@@ -3245,130 +3296,206 @@ size_t ao_buffer4obj_pop_range_front(ao_buffer4obj_t * x, void * p, size_t n_min
 
 // ----------------------------------------------------------------------------
 
-bool ao_buffer4obj_push_back(ao_buffer4obj_t * x, void const * p)
+bool ao_buffer4obj_push_back(ao_buffer4obj_t * B, void const * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t          c;
+    size_t c;
 
-    size_t          C;
+    size_t C;
 
-    size_t          f;
+    size_t f;
 
-    size_t          n;
+    size_t n;
 
     uint8_t const * pi;
-    uint8_t       * po;
 
-    size_t          s;
+    uint8_t * po;
+
+    size_t s;
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-    size_t          t;
+    size_t t;
 
 #endif
 
 
     // Ready.
 
-    C = x->capacity;
+    C = B->capacity;
 
-    c = x->count;               ao_assert(c <= C);
+    c = B->count;       ao_assert(c <= C);
 
     if (c == C) return false;
 
 
     // Ready.
 
-    f = x->front;               ao_assert(f < C);
+    f = B->front;       ao_assert(f < C);
 
-    s = x->size;
+    s = B->size;
 
-    pi = p;                     ao_assert(pi);
+    pi = p;             ao_assert(pi);
 
-    po = x->store;              ao_assert(po);
+    po = B->store;      ao_assert(po);
 
     f = (f + c) % C;
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-    t = x->count_max;           ao_assert(c <= t && t <= C);
+    t = B->count_max;   ao_assert(c <= t && t <= C);
 
 #endif
 
     c = c + 1;
 
-    x->count = c;
+    B->count = c;
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-    x->count_max = AO_MAX(t, c);
+    B->count_max = AO_MAX(t, c);
 
 #endif
 
-    ao_memcpy(po + s * f, pi, s);
+    ao_mem_copy(po + s * f, pi, s);
 
     return true;
 }
 
-bool ao_buffer4obj_push_back_override(ao_buffer4obj_t * x, void const * p)
+bool ao_buffer4obj_push_front(ao_buffer4obj_t * B, void const * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t          c;
+    size_t c;
 
-    size_t          C;
+    size_t C;
 
-    size_t          f;
-
-    size_t          i;
+    size_t f;
 
     uint8_t const * pi;
-    uint8_t       * po;
 
-    size_t          s;
+    uint8_t * po;
+
+    size_t s;
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-    size_t          t;
+    size_t t;
 
 #endif
 
 
     // Ready.
 
-    C = x->capacity;
+    C = B->capacity;
+
+    c = B->count;       ao_assert(c <= C);
+
+    if (c == C) return false;
+
+
+    // Ready.
+
+    f = B->front;       ao_assert(f < C);
+
+    s = B->size;
+
+    pi = p;             ao_assert(pi);
+
+    po = B->store;      ao_assert(po);
+
+    f = (f + C - 1) % C;
+
+#if AO_BUFFER4OBJ_COUNT_MAX
+
+    t = B->count_max;   ao_assert(c <= t && t <= C);
+
+#endif
+
+    c = c + 1;
+
+    B->count = c;
+
+#if AO_BUFFER4OBJ_COUNT_MAX
+
+    B->count_max = AO_MAX(t, c);
+
+#endif
+
+    B->front = f;
+
+    ao_mem_copy(po + s * f, pi, s);
+
+    return true;
+}
+
+// ----------------------------------------------------------------------------
+
+bool ao_buffer4obj_push_back_override(ao_buffer4obj_t * B, void const * p)
+{
+    // Assert.
+
+    ao_assert(B);
+
+
+    // Variables.
+
+    size_t c;
+
+    size_t C;
+
+    size_t f;
+
+    size_t i;
+
+    uint8_t const * pi;
+
+    uint8_t * po;
+
+    size_t s;
+
+#if AO_BUFFER4OBJ_COUNT_MAX
+
+    size_t t;
+
+#endif
+
+
+    // Ready.
+
+    C = B->capacity;
 
     if (C == 0) return false;
 
 
     // Ready.
 
-    c = x->count;               ao_assert(c <= C);
+    c = B->count;           ao_assert(c <= C);
 
-    f = x->front;               ao_assert(f < C);
+    f = B->front;           ao_assert(f < C);
 
-    s = x->size;
+    s = B->size;
 
-    pi = p;                     ao_assert(pi);
+    pi = p;                 ao_assert(pi);
 
-    po = x->store;              ao_assert(po);
+    po = B->store;          ao_assert(po);
 
     if (c == C)
     {
         i = f;
 
-        x->front = (f + 1) % C;
+        B->front = (f + 1) % C;
     }
 
     else
@@ -3376,7 +3503,7 @@ bool ao_buffer4obj_push_back_override(ao_buffer4obj_t * x, void const * p)
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-        t = x->count_max;       ao_assert(c <= t && t <= C);
+        t = B->count_max;   ao_assert(c <= t && t <= C);
 
 #endif
 
@@ -3384,137 +3511,67 @@ bool ao_buffer4obj_push_back_override(ao_buffer4obj_t * x, void const * p)
 
         c = c + 1;
 
-        x->count = c;
+        B->count = c;
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-        x->count_max = AO_MAX(t, c);
+        B->count_max = AO_MAX(t, c);
 
 #endif
 
     }
 
-    ao_memcpy(po + s * i, pi, s);
+    ao_mem_copy(po + s * i, pi, s);
 
     return true;
 }
 
-bool ao_buffer4obj_push_front(ao_buffer4obj_t * x, void const * p)
+bool ao_buffer4obj_push_front_override(ao_buffer4obj_t * B, void const * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t          c;
+    size_t c;
 
-    size_t          C;
+    size_t C;
 
-    size_t          f;
-
-    uint8_t const * pi;
-    uint8_t       * po;
-
-    size_t          s;
-
-#if AO_BUFFER4OBJ_COUNT_MAX
-
-    size_t          t;
-
-#endif
-
-
-    // Ready.
-
-    C = x->capacity;
-
-    c = x->count;               ao_assert(c <= C);
-
-    if (c == C) return false;
-
-
-    // Ready.
-
-    f = x->front;               ao_assert(f < C);
-
-    s = x->size;
-
-    pi = p;                     ao_assert(pi);
-
-    po = x->store;              ao_assert(po);
-
-    f = (f + C - 1) % C;
-
-#if AO_BUFFER4OBJ_COUNT_MAX
-
-    t = x->count_max;           ao_assert(c <= t && t <= C);
-
-#endif
-
-    c = c + 1;
-
-    x->count = c;
-
-#if AO_BUFFER4OBJ_COUNT_MAX
-
-    x->count_max = AO_MAX(t, c);
-
-#endif
-
-    x->front = f;
-
-    ao_memcpy(po + s * f, pi, s);
-
-    return true;
-}
-
-bool ao_buffer4obj_push_front_override(ao_buffer4obj_t * x, void const * p)
-{
-    // Assert.
-
-    ao_assert(x);
-
-
-    // Variables.
-
-    size_t          c;
-
-    size_t          C;
-
-    size_t          f;
+    size_t f;
 
     uint8_t const * pi;
-    uint8_t       * po;
 
-    size_t          s;
+    uint8_t * po;
+
+    size_t s;
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-    size_t          t;
+    size_t t;
 
 #endif
 
 
     // Ready.
 
-    C = x->capacity;
+    C = B->capacity;
 
     if (C == 0) return false;
 
 
     // Ready.
 
-    c = x->count;           ao_assert(c <= C);
+    c = B->count;           ao_assert(c <= C);
 
-    f = x->front;           ao_assert(f < C);
+    f = B->front;           ao_assert(f < C);
 
-    s = x->size;
+    s = B->size;
 
     pi = p;                 ao_assert(pi);
 
-    po = x->store;          ao_assert(po);
+    po = B->store;          ao_assert(po);
 
     f = (f + C - 1) % C;
 
@@ -3523,68 +3580,69 @@ bool ao_buffer4obj_push_front_override(ao_buffer4obj_t * x, void const * p)
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-        t = x->count_max;   ao_assert(c <= t && t <= C);
+        t = B->count_max;   ao_assert(c <= t && t <= C);
 
 #endif
 
         c = c + 1;
 
-        x->count = c;
+        B->count = c;
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-        x->count_max = AO_MAX(t, c);
+        B->count_max = AO_MAX(t, c);
 
 #endif
 
     }
 
-    x->front = f;
+    B->front = f;
 
-    ao_memcpy(po + s * f, pi, s);
+    ao_mem_copy(po + s * f, pi, s);
 
     return true;
 }
 
 // ----------------------------------------------------------------------------
 
-size_t ao_buffer4obj_push_range_back(ao_buffer4obj_t * x, void const * p, size_t n_min, size_t n_max)
+size_t ao_buffer4obj_push_range_back(ao_buffer4obj_t * B, void const * p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t          c;
+    size_t c;
 
-    size_t          C;
+    size_t C;
 
-    size_t          f;
+    size_t f;
 
-    size_t          i;
+    size_t i;
 
-    size_t          n;
+    size_t n;
 
-    size_t          n1;
-    size_t          n2;
+    size_t n1;
+    size_t n2;
 
     uint8_t const * pi;
-    uint8_t       * po;
 
-    size_t          s;
+    uint8_t * po;
 
-    size_t          t;
+    size_t s;
+
+    size_t t;
 
 
     // Ready.
 
-    C = x->capacity;
+    C = B->capacity;
 
-    c = x->count;               ao_assert(c <= C);
+    c = B->count;           ao_assert(c <= C);
 
     t = C - c;
 
@@ -3592,9 +3650,9 @@ size_t ao_buffer4obj_push_range_back(ao_buffer4obj_t * x, void const * p, size_t
     {
         n = AO_MIN(t, n_max);
 
-        f = x->front;           ao_assert(f < C);
+        f = B->front;       ao_assert(f < C);
 
-        s = x->size;
+        s = B->size;
 
         f = (f + c) % C;
 
@@ -3614,13 +3672,13 @@ size_t ao_buffer4obj_push_range_back(ao_buffer4obj_t * x, void const * p, size_t
 
         i = s * f;
 
-        pi = p;                 ao_assert(pi);
+        pi = p;             ao_assert(pi);
 
-        po = x->store;          ao_assert(po);
+        po = B->store;      ao_assert(po);
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-        t = x->count_max;       ao_assert(c <= t && t <= C);
+        t = B->count_max;   ao_assert(c <= t && t <= C);
 
 #endif
 
@@ -3630,15 +3688,15 @@ size_t ao_buffer4obj_push_range_back(ao_buffer4obj_t * x, void const * p, size_t
 
         t = AO_MAX(t, c);
 
-        x->count_max = t;
+        B->count_max = t;
 
 #endif
 
-        x->count = c;
+        B->count = c;
 
-        ao_memcpy(po + i, pi,      n1);
+        ao_mem_copy(po + i, pi,      n1);
 
-        ao_memcpy(po,     pi + n1, n2);
+        ao_mem_copy(po,     pi + n1, n2);
     }
 
     else
@@ -3649,162 +3707,44 @@ size_t ao_buffer4obj_push_range_back(ao_buffer4obj_t * x, void const * p, size_t
     return n;
 }
 
-size_t ao_buffer4obj_push_range_back_override(ao_buffer4obj_t * x, void const * p, size_t n_min, size_t n_max)
+size_t ao_buffer4obj_push_range_front(ao_buffer4obj_t * B, void const * p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t          c;
+    size_t c;
 
-    size_t          C;
+    size_t C;
 
-    size_t          f;
+    size_t f;
 
-    size_t          i;
+    size_t i;
 
-    size_t          n;
+    size_t n;
 
-    size_t          n1;
-    size_t          n2;
+    size_t n1;
+    size_t n2;
 
     uint8_t const * pi;
-    uint8_t       * po;
 
-    size_t          s;
+    uint8_t * po;
 
-    size_t          t1;
+    size_t s;
 
-#if AO_BUFFER4OBJ_COUNT_MAX
-
-    size_t          t2;
-
-#endif
+    size_t t;
 
 
     // Ready.
 
-    C = x->capacity;
+    C = B->capacity;
 
-    if (C >= n_min)
-    {
-        n = AO_MIN(C, n_max);
-
-        c = x->count;           ao_assert(c <= C);
-
-        f = x->front;           ao_assert(f < C);
-
-        s = x->size;
-
-        i = (f + c) % C;
-
-        t1 = C - i;
-
-        if (t1 >= n)
-        {
-            n1 = s * n;
-            n2 = 0;
-        }
-
-        else
-        {
-            n1 = s * t1;
-            n2 = s * (n - t1);
-        }
-
-        i = s * i;
-
-        pi = p;                 ao_assert(pi);
-
-        po = x->store;          ao_assert(po);
-
-#if AO_BUFFER4OBJ_COUNT_MAX
-
-        t2 = x->count_max;      ao_assert(c <= t2 && t2 <= C);
-
-#endif
-
-        t1 = C - c;
-
-        if (t1 < n)
-        {
-            c = C;
-
-            f = (f + n - t1) % C;
-
-            x->front = f;
-        }
-
-        else
-        {
-            c = c + n;
-        }
-
-#if AO_BUFFER4OBJ_COUNT_MAX
-
-        t2 = AO_MAX(t2, c);
-
-        x->count_max = t2;
-
-#endif
-
-        x->count = c;
-
-        ao_memcpy(po + i, pi,      n1);
-
-        ao_memcpy(po,     pi + n1, n2);
-    }
-
-    else
-    {
-        n = 0;
-    }
-
-    return n;
-}
-
-size_t ao_buffer4obj_push_range_front(ao_buffer4obj_t * x, void const * p, size_t n_min, size_t n_max)
-{
-    // Assert.
-
-    ao_assert(x);
-
-    ao_assert(n_min <= n_max);
-
-
-    // Variables.
-
-    size_t          c;
-
-    size_t          C;
-
-    size_t          f;
-
-    size_t          i;
-
-    size_t          n;
-
-    size_t          n1;
-    size_t          n2;
-
-    uint8_t const * pi;
-    uint8_t       * po;
-
-    size_t          s;
-
-    size_t          t;
-
-
-    // Ready.
-
-    C = x->capacity;
-
-    c = x->count;               ao_assert(c <= C);
+    c = B->count;           ao_assert(c <= C);
 
     t = C - c;
 
@@ -3812,9 +3752,9 @@ size_t ao_buffer4obj_push_range_front(ao_buffer4obj_t * x, void const * p, size_
     {
         n = AO_MIN(t, n_max);
 
-        f = x->front;           ao_assert(f < C);
+        f = B->front;       ao_assert(f < C);
 
-        s = x->size;
+        s = B->size;
 
         f = (f + C - n) % C;
 
@@ -3834,13 +3774,13 @@ size_t ao_buffer4obj_push_range_front(ao_buffer4obj_t * x, void const * p, size_
 
         i = s * f;
 
-        pi = p;                 ao_assert(pi);
+        pi = p;             ao_assert(pi);
 
-        po = x->store;          ao_assert(po);
+        po = B->store;      ao_assert(po);
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-        t = x->count_max;       ao_assert(c <= t && t <= C);
+        t = B->count_max;   ao_assert(c <= t && t <= C);
 
 #endif
 
@@ -3850,17 +3790,17 @@ size_t ao_buffer4obj_push_range_front(ao_buffer4obj_t * x, void const * p, size_
 
         t = AO_MAX(t, c);
 
-        x->count_max = t;
+        B->count_max = t;
 
 #endif
 
-        x->count = c;
+        B->count = c;
 
-        x->front = f;
+        B->front = f;
 
-        ao_memcpy(po + i, pi,      n1);
+        ao_mem_copy(po + i, pi,      n1);
 
-        ao_memcpy(po,     pi + n1, n2);
+        ao_mem_copy(po,     pi + n1, n2);
     }
 
     else
@@ -3871,57 +3811,180 @@ size_t ao_buffer4obj_push_range_front(ao_buffer4obj_t * x, void const * p, size_
     return n;
 }
 
-size_t ao_buffer4obj_push_range_front_override(ao_buffer4obj_t * x, void const * p, size_t n_min, size_t n_max)
+// ----------------------------------------------------------------------------
+
+size_t ao_buffer4obj_push_range_back_override(ao_buffer4obj_t * B, void const * p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t          c;
+    size_t c;
 
-    size_t          C;
+    size_t C;
 
-    size_t          f;
+    size_t f;
 
-    size_t          i;
+    size_t i;
 
-    size_t          n;
+    size_t n;
 
-    size_t          n1;
-    size_t          n2;
+    size_t n1;
+    size_t n2;
 
     uint8_t const * pi;
-    uint8_t       * po;
 
-    size_t          s;
+    uint8_t * po;
 
-    size_t          t1;
+    size_t s;
+
+    size_t t1;
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-    size_t          t2;
+    size_t t2;
 
 #endif
 
 
     // Ready.
 
-    C = x->capacity;
+    C = B->capacity;
 
     if (C >= n_min)
     {
         n = AO_MIN(C, n_max);
 
-        c = x->count;           ao_assert(c <= C);
+        c = B->count;       ao_assert(c <= C);
 
-        f = x->front;           ao_assert(f < C);
+        f = B->front;       ao_assert(f < C);
 
-        s = x->size;
+        s = B->size;
+
+        i = (f + c) % C;
+
+        t1 = C - i;
+
+        if (t1 >= n)
+        {
+            n1 = s * n;
+            n2 = 0;
+        }
+
+        else
+        {
+            n1 = s * t1;
+            n2 = s * (n - t1);
+        }
+
+        i = s * i;
+
+        pi = p;             ao_assert(pi);
+
+        po = B->store;      ao_assert(po);
+
+#if AO_BUFFER4OBJ_COUNT_MAX
+
+        t2 = B->count_max;  ao_assert(c <= t2 && t2 <= C);
+
+#endif
+
+        t1 = C - c;
+
+        if (t1 < n)
+        {
+            c = C;
+
+            f = (f + n - t1) % C;
+
+            B->front = f;
+        }
+
+        else
+        {
+            c = c + n;
+        }
+
+#if AO_BUFFER4OBJ_COUNT_MAX
+
+        t2 = AO_MAX(t2, c);
+
+        B->count_max = t2;
+
+#endif
+
+        B->count = c;
+
+        ao_mem_copy(po + i, pi,      n1);
+
+        ao_mem_copy(po,     pi + n1, n2);
+    }
+
+    else
+    {
+        n = 0;
+    }
+
+    return n;
+}
+
+size_t ao_buffer4obj_push_range_front_override(ao_buffer4obj_t * B, void const * p, size_t n_min, size_t n_max)
+{
+    // Assert.
+
+    ao_assert(B);
+
+    ao_assert(n_min <= n_max);
+
+
+    // Variables.
+
+    size_t c;
+
+    size_t C;
+
+    size_t f;
+
+    size_t i;
+
+    size_t n;
+
+    size_t n1;
+    size_t n2;
+
+    uint8_t const * pi;
+
+    uint8_t * po;
+
+    size_t s;
+
+    size_t t1;
+
+#if AO_BUFFER4OBJ_COUNT_MAX
+
+    size_t t2;
+
+#endif
+
+
+    // Ready.
+
+    C = B->capacity;
+
+    if (C >= n_min)
+    {
+        n = AO_MIN(C, n_max);
+
+        c = B->count;       ao_assert(c <= C);
+
+        f = B->front;       ao_assert(f < C);
+
+        s = B->size;
 
         f = (f + C - n) % C;
 
@@ -3941,13 +4004,13 @@ size_t ao_buffer4obj_push_range_front_override(ao_buffer4obj_t * x, void const *
 
         i = s * f;
 
-        pi = p;                 ao_assert(pi);
+        pi = p;             ao_assert(pi);
 
-        po = x->store;          ao_assert(po);
+        po = B->store;      ao_assert(po);
 
 #if AO_BUFFER4OBJ_COUNT_MAX
 
-        t2 = x->count_max;      ao_assert(c <= t2 && t2 <= C);
+        t2 = B->count_max;  ao_assert(c <= t2 && t2 <= C);
 
 #endif
 
@@ -3967,17 +4030,17 @@ size_t ao_buffer4obj_push_range_front_override(ao_buffer4obj_t * x, void const *
 
         t2 = AO_MAX(t2, c);
 
-        x->count_max = t2;
+        B->count_max = t2;
 
 #endif
 
-        x->count = c;
+        B->count = c;
 
-        x->front = f;
+        B->front = f;
 
-        ao_memcpy(po + i, pi,      n1);
+        ao_mem_copy(po + i, pi,      n1);
 
-        ao_memcpy(po,     pi + n1, n2);
+        ao_mem_copy(po,     pi + n1, n2);
     }
 
     else
@@ -3996,20 +4059,36 @@ size_t ao_buffer4obj_push_range_front_override(ao_buffer4obj_t * x, void const *
 
 // ----------------------------------------------------------------------------
 
-bool ao_buffer4ptr_peek_back(ao_buffer4ptr_t const * x, void ** p)
+bool ao_buffer4ptr_is_empty(ao_buffer4ptr_t const * B)
+{
+    ao_assert(B);
+
+    return B->count == 0 ? true : false;
+}
+
+bool ao_buffer4ptr_is_full(ao_buffer4ptr_t const * B)
+{
+    ao_assert(B);
+
+    return B->count == B->capacity ? true : false;
+}
+
+// ----------------------------------------------------------------------------
+
+bool ao_buffer4ptr_peek_back(ao_buffer4ptr_t const * B, void ** p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t  c;
+    size_t c;
 
-    size_t  C;
+    size_t C;
 
-    size_t  i;
+    size_t i;
 
     void ** pi;
     void ** po;
@@ -4017,40 +4096,40 @@ bool ao_buffer4ptr_peek_back(ao_buffer4ptr_t const * x, void ** p)
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c == 0) return false;
 
 
     // Ready.
 
-    C   = x->capacity;      ao_assert(c <= C);
+    C   = B->capacity;  ao_assert(c <= C);
 
-    i   = x->front;         ao_assert(i <  C);
+    i   = B->front;     ao_assert(i <  C);
 
     i   = (i + c - 1) % C;
 
-    po  = p;                ao_assert(po);
+    po  = p;            ao_assert(po);
 
-    pi  = x->store;         ao_assert(pi);
+    pi  = B->store;     ao_assert(pi);
 
     *po = *(pi + i);
 
     return true;
 }
 
-bool ao_buffer4ptr_peek_front(ao_buffer4ptr_t const * x, void ** p)
+bool ao_buffer4ptr_peek_front(ao_buffer4ptr_t const * B, void ** p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t  c;
+    size_t c;
 
-    size_t  i;
+    size_t i;
 
     void ** pi;
     void ** po;
@@ -4058,7 +4137,7 @@ bool ao_buffer4ptr_peek_front(ao_buffer4ptr_t const * x, void ** p)
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c == 0) return false;
 
@@ -4067,9 +4146,9 @@ bool ao_buffer4ptr_peek_front(ao_buffer4ptr_t const * x, void ** p)
 
     po  = p;            ao_assert(po);
 
-    pi  = x->store;     ao_assert(pi);
+    pi  = B->store;     ao_assert(pi);
 
-    i   = x->front;
+    i   = B->front;
 
     *po = *(pi + i);
 
@@ -4078,45 +4157,45 @@ bool ao_buffer4ptr_peek_front(ao_buffer4ptr_t const * x, void ** p)
 
 // ----------------------------------------------------------------------------
 
-size_t ao_buffer4ptr_peek_range_back(ao_buffer4ptr_t const * x, void ** p, size_t n_min, size_t n_max)
+size_t ao_buffer4ptr_peek_range_back(ao_buffer4ptr_t const * B, void ** p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t  c;
+    size_t c;
 
-    size_t  C;
+    size_t C;
 
-    size_t  i;
+    size_t i;
 
-    size_t  n;
+    size_t n;
 
-    size_t  n1;
-    size_t  n2;
+    size_t n1;
+    size_t n2;
 
     void ** pi;
     void ** po;
 
-    size_t  t;
+    size_t t;
 
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c >= n_min)
     {
         n = AO_MIN(c, n_max);
 
-        C = x->capacity;        ao_assert(c <= C);
+        C = B->capacity;    ao_assert(c <= C);
 
-        i = x->front;           ao_assert(i <  C);
+        i = B->front;       ao_assert(i <  C);
 
         i = (i + c - n) % C;
 
@@ -4134,13 +4213,13 @@ size_t ao_buffer4ptr_peek_range_back(ao_buffer4ptr_t const * x, void ** p, size_
             n2 = n - t;
         }
 
-        pi = x->store;          ao_assert(pi);
+        pi = B->store;      ao_assert(pi);
 
-        po = p;                 ao_assert(po);
+        po = p;             ao_assert(po);
 
-        ao_memcpy(po,      pi + i, n1 * sizeof(void *));
+        ao_mem_copy(po,      pi + i, n1 * sizeof(void *));
 
-        ao_memcpy(po + n1, pi,     n2 * sizeof(void *));
+        ao_mem_copy(po + n1, pi,     n2 * sizeof(void *));
     }
 
     else
@@ -4151,45 +4230,45 @@ size_t ao_buffer4ptr_peek_range_back(ao_buffer4ptr_t const * x, void ** p, size_
     return n;
 }
 
-size_t ao_buffer4ptr_peek_range_front(ao_buffer4ptr_t const * x, void ** p, size_t n_min, size_t n_max)
+size_t ao_buffer4ptr_peek_range_front(ao_buffer4ptr_t const * B, void ** p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t  c;
+    size_t c;
 
-    size_t  C;
+    size_t C;
 
-    size_t  i;
+    size_t i;
 
-    size_t  n;
+    size_t n;
 
-    size_t  n1;
-    size_t  n2;
+    size_t n1;
+    size_t n2;
 
     void ** pi;
     void ** po;
 
-    size_t  t;
+    size_t t;
 
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c >= n_min)
     {
         n = AO_MIN(c, n_max);
 
-        C = x->capacity;        ao_assert(c <= C);
+        C = B->capacity;    ao_assert(c <= C);
 
-        i = x->front;           ao_assert(i <  C);
+        i = B->front;       ao_assert(i <  C);
 
         t = C - i;
 
@@ -4205,13 +4284,13 @@ size_t ao_buffer4ptr_peek_range_front(ao_buffer4ptr_t const * x, void ** p, size
             n2 = n - t;
         }
 
-        pi = x->store;          ao_assert(pi);
+        pi = B->store;      ao_assert(pi);
 
-        po = p;                 ao_assert(po);
+        po = p;             ao_assert(po);
 
-        ao_memcpy(po,      pi + i, n1 * sizeof(void *));
+        ao_mem_copy(po,      pi + i, n1 * sizeof(void *));
 
-        ao_memcpy(po + n1, pi,     n2 * sizeof(void *));
+        ao_mem_copy(po + n1, pi,     n2 * sizeof(void *));
     }
 
     else
@@ -4224,20 +4303,20 @@ size_t ao_buffer4ptr_peek_range_front(ao_buffer4ptr_t const * x, void ** p, size
 
 // ----------------------------------------------------------------------------
 
-bool ao_buffer4ptr_pop_back(ao_buffer4ptr_t * x, void ** p)
+bool ao_buffer4ptr_pop_back(ao_buffer4ptr_t * B, void ** p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t  c;
+    size_t c;
 
-    size_t  C;
+    size_t C;
 
-    size_t  i;
+    size_t i;
 
     void ** pi;
     void ** po;
@@ -4245,46 +4324,46 @@ bool ao_buffer4ptr_pop_back(ao_buffer4ptr_t * x, void ** p)
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c == 0) return false;
 
 
     // Ready.
 
-    C = x->capacity;        ao_assert(c <= C);
+    C = B->capacity;    ao_assert(c <= C);
 
     c = c - 1;
 
-    i = x->front;           ao_assert(i <  C);
+    i = B->front;       ao_assert(i <  C);
 
     i = (i + c) % C;
 
-    pi = x->store;          ao_assert(pi);
+    pi = B->store;      ao_assert(pi);
 
-    po = p;                 ao_assert(po);
+    po = p;             ao_assert(po);
 
     *po = *(pi + i);
 
-    x->count = c;
+    B->count = c;
 
     return true;
 }
 
-bool ao_buffer4ptr_pop_front(ao_buffer4ptr_t * x, void ** p)
+bool ao_buffer4ptr_pop_front(ao_buffer4ptr_t * B, void ** p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t  c;
+    size_t c;
 
-    size_t  C;
+    size_t C;
 
-    size_t  f;
+    size_t f;
 
     void ** pi;
     void ** po;
@@ -4292,71 +4371,71 @@ bool ao_buffer4ptr_pop_front(ao_buffer4ptr_t * x, void ** p)
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c == 0) return false;
 
 
     // Ready.
 
-    C = x->capacity;            ao_assert(c <= C);
+    C = B->capacity;    ao_assert(c <= C);
 
-    f = x->front;               ao_assert(f <  C);
+    f = B->front;       ao_assert(f <  C);
 
-    pi = x->store;              ao_assert(pi);
+    pi = B->store;      ao_assert(pi);
 
-    po = p;                     ao_assert(po);
+    po = p;             ao_assert(po);
 
     *po = *(pi + f);
 
-    x->count = c - 1;
+    B->count = c - 1;
 
-    x->front = (f + 1) % C;
+    B->front = (f + 1) % C;
 
     return true;
 }
 
 // ----------------------------------------------------------------------------
 
-size_t ao_buffer4ptr_pop_range_back(ao_buffer4ptr_t * x, void ** p, size_t n_min, size_t n_max)
+size_t ao_buffer4ptr_pop_range_back(ao_buffer4ptr_t * B, void ** p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t  c;
+    size_t c;
 
-    size_t  C;
+    size_t C;
 
-    size_t  i;
+    size_t i;
 
-    size_t  n;
+    size_t n;
 
-    size_t  n1;
-    size_t  n2;
+    size_t n1;
+    size_t n2;
 
     void ** pi;
     void ** po;
 
-    size_t  t;
+    size_t t;
 
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c >= n_min)
     {
         n = AO_MIN(c, n_max);
 
-        C = x->capacity;        ao_assert(c <= C);
+        C = B->capacity;    ao_assert(c <= C);
 
-        i = x->front;           ao_assert(i <  C);
+        i = B->front;       ao_assert(i <  C);
 
         i = (i + c - n) % C;
 
@@ -4374,15 +4453,15 @@ size_t ao_buffer4ptr_pop_range_back(ao_buffer4ptr_t * x, void ** p, size_t n_min
             n2 = n - t;
         }
 
-        pi = x->store;          ao_assert(pi);
+        pi = B->store;      ao_assert(pi);
 
-        po = p;                 ao_assert(po);
+        po = p;             ao_assert(po);
 
-        x->count = c - n;
+        B->count = c - n;
 
-        ao_memcpy(po,      pi + i, n1 * sizeof(void *));
+        ao_mem_copy(po,      pi + i, n1 * sizeof(void *));
 
-        ao_memcpy(po + n1, pi,     n2 * sizeof(void *));
+        ao_mem_copy(po + n1, pi,     n2 * sizeof(void *));
     }
 
     else
@@ -4393,45 +4472,45 @@ size_t ao_buffer4ptr_pop_range_back(ao_buffer4ptr_t * x, void ** p, size_t n_min
     return n;
 }
 
-size_t ao_buffer4ptr_pop_range_front(ao_buffer4ptr_t * x, void ** p, size_t n_min, size_t n_max)
+size_t ao_buffer4ptr_pop_range_front(ao_buffer4ptr_t * B, void ** p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t  c;
+    size_t c;
 
-    size_t  C;
+    size_t C;
 
-    size_t  f;
+    size_t f;
 
-    size_t  n;
+    size_t n;
 
-    size_t  n1;
-    size_t  n2;
+    size_t n1;
+    size_t n2;
 
     void ** pi;
     void ** po;
 
-    size_t  t;
+    size_t t;
 
 
     // Ready.
 
-    c = x->count;
+    c = B->count;
 
     if (c >= n_min)
     {
         n = AO_MIN(c, n_max);
 
-        C = x->capacity;        ao_assert(c <= C);
+        C = B->capacity;    ao_assert(c <= C);
 
-        f = x->front;           ao_assert(f <  C);
+        f = B->front;       ao_assert(f <  C);
 
         t = C - f;
 
@@ -4447,17 +4526,17 @@ size_t ao_buffer4ptr_pop_range_front(ao_buffer4ptr_t * x, void ** p, size_t n_mi
             n2 = n - t;
         }
 
-        pi = x->store;          ao_assert(pi);
+        pi = B->store;      ao_assert(pi);
 
-        po = p;                 ao_assert(po);
+        po = p;             ao_assert(po);
 
-        x->count = c - n;
+        B->count = c - n;
 
-        x->front = (f + n) % C;
+        B->front = (f + n) % C;
 
-        ao_memcpy(po,      pi + f, n1 * sizeof(void *));
+        ao_mem_copy(po,      pi + f, n1 * sizeof(void *));
 
-        ao_memcpy(po + n1, pi,     n2 * sizeof(void *));
+        ao_mem_copy(po + n1, pi,     n2 * sizeof(void *));
     }
 
     else
@@ -4470,62 +4549,62 @@ size_t ao_buffer4ptr_pop_range_front(ao_buffer4ptr_t * x, void ** p, size_t n_mi
 
 // ----------------------------------------------------------------------------
 
-bool ao_buffer4ptr_push_back(ao_buffer4ptr_t * x, void * p)
+bool ao_buffer4ptr_push_back(ao_buffer4ptr_t * B, void * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t  c;
+    size_t c;
 
-    size_t  C;
+    size_t C;
 
-    size_t  f;
+    size_t f;
 
-    size_t  n;
+    size_t n;
 
     void ** q;
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-    size_t  t;
+    size_t t;
 
 #endif
 
 
     // Ready.
 
-    C = x->capacity;
+    C = B->capacity;
 
-    c = x->count;               ao_assert(c <= C);
+    c = B->count;       ao_assert(c <= C);
 
     if (c == C) return false;
 
 
     // Ready.
 
-    f = x->front;               ao_assert(f < C);
+    f = B->front;       ao_assert(f < C);
 
-    q = x->store;               ao_assert(q);
+    q = B->store;       ao_assert(q);
 
     f = (f + c) % C;
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-    t = x->count_max;           ao_assert(c <= t && t <= C);
+    t = B->count_max;   ao_assert(c <= t && t <= C);
 
 #endif
 
     c = c + 1;
 
-    x->count = c;
+    B->count = c;
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-    x->count_max = AO_MAX(t, c);
+    B->count_max = AO_MAX(t, c);
 
 #endif
 
@@ -4534,52 +4613,118 @@ bool ao_buffer4ptr_push_back(ao_buffer4ptr_t * x, void * p)
     return true;
 }
 
-bool ao_buffer4ptr_push_back_override(ao_buffer4ptr_t * x, void * p)
+bool ao_buffer4ptr_push_front(ao_buffer4ptr_t * B, void * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t  c;
+    size_t c;
 
-    size_t  C;
+    size_t C;
 
-    size_t  f;
-
-    size_t  i;
+    size_t f;
 
     void ** q;
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-    size_t  t;
+    size_t t;
 
 #endif
 
 
     // Ready.
 
-    C = x->capacity;
+    C = B->capacity;
+
+    c = B->count;       ao_assert(c <= C);
+
+    if (c == C) return false;
+
+
+    // Ready.
+
+    f = B->front;       ao_assert(f < C);
+
+    q = B->store;       ao_assert(q);
+
+    f = (f + C - 1) % C;
+
+#if AO_BUFFER4PTR_COUNT_MAX
+
+    t = B->count_max;   ao_assert(c <= t && t <= C);
+
+#endif
+
+    c = c + 1;
+
+    B->count = c;
+
+#if AO_BUFFER4PTR_COUNT_MAX
+
+    B->count_max = AO_MAX(t, c);
+
+#endif
+
+    B->front = f;
+
+    *(q + f) = p;
+
+    return true;
+}
+
+// ----------------------------------------------------------------------------
+
+bool ao_buffer4ptr_push_back_override(ao_buffer4ptr_t * B, void * p)
+{
+    // Assert.
+
+    ao_assert(B);
+
+
+    // Variables.
+
+    size_t c;
+
+    size_t C;
+
+    size_t f;
+
+    size_t i;
+
+    void ** q;
+
+#if AO_BUFFER4PTR_COUNT_MAX
+
+    size_t t;
+
+#endif
+
+
+    // Ready.
+
+    C = B->capacity;
 
     if (C == 0) return false;
 
 
     // Ready.
 
-    c = x->count;               ao_assert(c <= C);
+    c = B->count;           ao_assert(c <= C);
 
-    f = x->front;               ao_assert(f < C);
+    f = B->front;           ao_assert(f < C);
 
-    q = x->store;               ao_assert(q);
+    q = B->store;           ao_assert(q);
 
     if (c == C)
     {
         i = f;
 
-        x->front = (f + 1) % C;
+        B->front = (f + 1) % C;
     }
 
     else
@@ -4587,7 +4732,7 @@ bool ao_buffer4ptr_push_back_override(ao_buffer4ptr_t * x, void * p)
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-        t = x->count_max;       ao_assert(c <= t && t <= C);
+        t = B->count_max;   ao_assert(c <= t && t <= C);
 
 #endif
 
@@ -4595,11 +4740,11 @@ bool ao_buffer4ptr_push_back_override(ao_buffer4ptr_t * x, void * p)
 
         c = c + 1;
 
-        x->count = c;
+        B->count = c;
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-        x->count_max = AO_MAX(t, c);
+        B->count_max = AO_MAX(t, c);
 
 #endif
 
@@ -4610,108 +4755,44 @@ bool ao_buffer4ptr_push_back_override(ao_buffer4ptr_t * x, void * p)
     return true;
 }
 
-bool ao_buffer4ptr_push_front(ao_buffer4ptr_t * x, void * p)
+bool ao_buffer4ptr_push_front_override(ao_buffer4ptr_t * B, void * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
 
     // Variables.
 
-    size_t  c;
+    size_t c;
 
-    size_t  C;
+    size_t C;
 
-    size_t  f;
+    size_t f;
 
     void ** q;
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-    size_t  t;
+    size_t t;
 
 #endif
 
 
     // Ready.
 
-    C = x->capacity;
-
-    c = x->count;               ao_assert(c <= C);
-
-    if (c == C) return false;
-
-
-    // Ready.
-
-    f = x->front;               ao_assert(f < C);
-
-    q = x->store;               ao_assert(q);
-
-    f = (f + C - 1) % C;
-
-#if AO_BUFFER4PTR_COUNT_MAX
-
-    t = x->count_max;           ao_assert(c <= t && t <= C);
-
-#endif
-
-    c = c + 1;
-
-    x->count = c;
-
-#if AO_BUFFER4PTR_COUNT_MAX
-
-    x->count_max = AO_MAX(t, c);
-
-#endif
-
-    x->front = f;
-
-    *(q + f) = p;
-
-    return true;
-}
-
-bool ao_buffer4ptr_push_front_override(ao_buffer4ptr_t * x, void * p)
-{
-    // Assert.
-
-    ao_assert(x);
-
-
-    // Variables.
-
-    size_t  c;
-
-    size_t  C;
-
-    size_t  f;
-
-    void ** q;
-
-#if AO_BUFFER4PTR_COUNT_MAX
-
-    size_t  t;
-
-#endif
-
-
-    // Ready.
-
-    C = x->capacity;
+    C = B->capacity;
 
     if (C == 0) return false;
 
 
     // Ready.
 
-    c = x->count;           ao_assert(c <= C);
+    c = B->count;           ao_assert(c <= C);
 
-    f = x->front;           ao_assert(f < C);
+    f = B->front;           ao_assert(f < C);
 
-    q = x->store;           ao_assert(q);
+    q = B->store;           ao_assert(q);
 
     f = (f + C - 1) % C;
 
@@ -4720,23 +4801,23 @@ bool ao_buffer4ptr_push_front_override(ao_buffer4ptr_t * x, void * p)
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-        t = x->count_max;   ao_assert(c <= t && t <= C);
+        t = B->count_max;   ao_assert(c <= t && t <= C);
 
 #endif
 
         c = c + 1;
 
-        x->count = c;
+        B->count = c;
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-        x->count_max = AO_MAX(t, c);
+        B->count_max = AO_MAX(t, c);
 
 #endif
 
     }
 
-    x->front = f;
+    B->front = f;
 
     *(q + f) = p;
 
@@ -4745,39 +4826,40 @@ bool ao_buffer4ptr_push_front_override(ao_buffer4ptr_t * x, void * p)
 
 // ----------------------------------------------------------------------------
 
-size_t ao_buffer4ptr_push_range_back(ao_buffer4ptr_t * x, void * const * p, size_t n_min, size_t n_max)
+size_t ao_buffer4ptr_push_range_back(ao_buffer4ptr_t * B, void * const * p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t          c;
+    size_t c;
 
-    size_t          C;
+    size_t C;
 
-    size_t          f;
+    size_t f;
 
-    size_t          n;
+    size_t n;
 
-    size_t          n1;
-    size_t          n2;
+    size_t n1;
+    size_t n2;
 
-    void * const *  pi;
-    void **         po;
+    void * const * pi;
 
-    size_t          t;
+    void ** po;
+
+    size_t t;
 
 
     // Ready.
 
-    C = x->capacity;
+    C = B->capacity;
 
-    c = x->count;               ao_assert(c <= C);
+    c = B->count;           ao_assert(c <= C);
 
     t = C - c;
 
@@ -4785,7 +4867,7 @@ size_t ao_buffer4ptr_push_range_back(ao_buffer4ptr_t * x, void * const * p, size
     {
         n = AO_MIN(t, n_max);
 
-        f = x->front;           ao_assert(f < C);
+        f = B->front;       ao_assert(f < C);
 
         f = (f + c) % C;
 
@@ -4803,13 +4885,13 @@ size_t ao_buffer4ptr_push_range_back(ao_buffer4ptr_t * x, void * const * p, size
             n2 = n - t;
         }
 
-        pi = p;                 ao_assert(pi);
+        pi = p;             ao_assert(pi);
 
-        po = x->store;          ao_assert(po);
+        po = B->store;      ao_assert(po);
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-        t = x->count_max;       ao_assert(c <= t && t <= C);
+        t = B->count_max;   ao_assert(c <= t && t <= C);
 
 #endif
 
@@ -4819,15 +4901,15 @@ size_t ao_buffer4ptr_push_range_back(ao_buffer4ptr_t * x, void * const * p, size
 
         t = AO_MAX(t, c);
 
-        x->count_max = t;
+        B->count_max = t;
 
 #endif
 
-        x->count = c;
+        B->count = c;
 
-        ao_memcpy(po + f, pi,      n1 * sizeof(void *));
+        ao_mem_copy(po + f, pi,      n1 * sizeof(void *));
 
-        ao_memcpy(po,     pi + n1, n2 * sizeof(void *));
+        ao_mem_copy(po,     pi + n1, n2 * sizeof(void *));
     }
 
     else
@@ -4838,152 +4920,40 @@ size_t ao_buffer4ptr_push_range_back(ao_buffer4ptr_t * x, void * const * p, size
     return n;
 }
 
-size_t ao_buffer4ptr_push_range_back_override(ao_buffer4ptr_t * x, void * const * p, size_t n_min, size_t n_max)
+size_t ao_buffer4ptr_push_range_front(ao_buffer4ptr_t * B, void * const * p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t          c;
+    size_t c;
 
-    size_t          C;
+    size_t C;
 
-    size_t          f;
+    size_t f;
 
-    size_t          i;
+    size_t n;
 
-    size_t          n;
+    size_t n1;
+    size_t n2;
 
-    size_t          n1;
-    size_t          n2;
+    void * const * pi;
 
-    void * const *  pi;
-    void **         po;
+    void ** po;
 
-    size_t          t1;
-
-#if AO_BUFFER4PTR_COUNT_MAX
-
-    size_t          t2;
-
-#endif
+    size_t t;
 
 
     // Ready.
 
-    C = x->capacity;
+    C = B->capacity;
 
-    if (C >= n_min)
-    {
-        n = AO_MIN(C, n_max);
-
-        c = x->count;           ao_assert(c <= C);
-
-        f = x->front;           ao_assert(f < C);
-
-        i = (f + c) % C;
-
-        t1 = C - i;
-
-        if (t1 >= n)
-        {
-            n1 = n;
-            n2 = 0;
-        }
-
-        else
-        {
-            n1 = t1;
-            n2 = n - t1;
-        }
-
-        pi = p;                 ao_assert(pi);
-
-        po = x->store;          ao_assert(po);
-
-#if AO_BUFFER4PTR_COUNT_MAX
-
-        t2 = x->count_max;      ao_assert(c <= t2 && t2 <= C);
-
-#endif
-
-        t1 = C - c;
-
-        if (t1 < n)
-        {
-            c = C;
-
-            f = (f + n - t1) % C;
-
-            x->front = f;
-        }
-
-        else
-        {
-            c = c + n;
-        }
-
-#if AO_BUFFER4PTR_COUNT_MAX
-
-        t2 = AO_MAX(t2, c);
-
-        x->count_max = t2;
-
-#endif
-
-        x->count = c;
-
-        ao_memcpy(po + i, pi,      n1 * sizeof(void *));
-
-        ao_memcpy(po,     pi + n1, n2 * sizeof(void *));
-    }
-
-    else
-    {
-        n = 0;
-    }
-
-    return n;
-}
-
-size_t ao_buffer4ptr_push_range_front(ao_buffer4ptr_t * x, void * const * p, size_t n_min, size_t n_max)
-{
-    // Assert.
-
-    ao_assert(x);
-
-    ao_assert(n_min <= n_max);
-
-
-    // Variables.
-
-    size_t          c;
-
-    size_t          C;
-
-    size_t          f;
-
-    size_t          n;
-
-    size_t          n1;
-    size_t          n2;
-
-    void * const *  pi;
-    void **         po;
-
-    size_t          t;
-
-
-    // Ready.
-
-    C = x->capacity;
-
-    c = x->count;               ao_assert(c <= C);
+    c = B->count;           ao_assert(c <= C);
 
     t = C - c;
 
@@ -4991,7 +4961,7 @@ size_t ao_buffer4ptr_push_range_front(ao_buffer4ptr_t * x, void * const * p, siz
     {
         n = AO_MIN(t, n_max);
 
-        f = x->front;           ao_assert(f < C);
+        f = B->front;       ao_assert(f < C);
 
         f = (f + C - n) % C;
 
@@ -5009,13 +4979,13 @@ size_t ao_buffer4ptr_push_range_front(ao_buffer4ptr_t * x, void * const * p, siz
             n2 = n - t;
         }
 
-        pi = p;                 ao_assert(pi);
+        pi = p;             ao_assert(pi);
 
-        po = x->store;          ao_assert(po);
+        po = B->store;      ao_assert(po);
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-        t = x->count_max;       ao_assert(c <= t && t <= C);
+        t = B->count_max;   ao_assert(c <= t && t <= C);
 
 #endif
 
@@ -5025,17 +4995,17 @@ size_t ao_buffer4ptr_push_range_front(ao_buffer4ptr_t * x, void * const * p, siz
 
         t = AO_MAX(t, c);
 
-        x->count_max = t;
+        B->count_max = t;
 
 #endif
 
-        x->count = c;
+        B->count = c;
 
-        x->front = f;
+        B->front = f;
 
-        ao_memcpy(po + f, pi,      n1 * sizeof(void *));
+        ao_mem_copy(po + f, pi,      n1 * sizeof(void *));
 
-        ao_memcpy(po,     pi + n1, n2 * sizeof(void *));
+        ao_mem_copy(po,     pi + n1, n2 * sizeof(void *));
     }
 
     else
@@ -5046,53 +5016,170 @@ size_t ao_buffer4ptr_push_range_front(ao_buffer4ptr_t * x, void * const * p, siz
     return n;
 }
 
-size_t ao_buffer4ptr_push_range_front_override(ao_buffer4ptr_t * x, void * const * p, size_t n_min, size_t n_max)
+// ----------------------------------------------------------------------------
+
+size_t ao_buffer4ptr_push_range_back_override(ao_buffer4ptr_t * B, void * const * p, size_t n_min, size_t n_max)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(B);
 
     ao_assert(n_min <= n_max);
 
 
     // Variables.
 
-    size_t          c;
+    size_t c;
 
-    size_t          C;
+    size_t C;
 
-    size_t          f;
+    size_t f;
 
-    size_t          i;
+    size_t i;
 
-    size_t          n;
+    size_t n;
 
-    size_t          n1;
-    size_t          n2;
+    size_t n1;
+    size_t n2;
 
-    void * const *  pi;
-    void **         po;
+    void * const * pi;
 
-    size_t          t1;
+    void ** po;
+
+    size_t t1;
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-    size_t          t2;
+    size_t t2;
 
 #endif
 
 
     // Ready.
 
-    C = x->capacity;
+    C = B->capacity;
 
     if (C >= n_min)
     {
         n = AO_MIN(C, n_max);
 
-        c = x->count;           ao_assert(c <= C);
+        c = B->count;       ao_assert(c <= C);
 
-        f = x->front;           ao_assert(f < C);
+        f = B->front;       ao_assert(f < C);
+
+        i = (f + c) % C;
+
+        t1 = C - i;
+
+        if (t1 >= n)
+        {
+            n1 = n;
+            n2 = 0;
+        }
+
+        else
+        {
+            n1 = t1;
+            n2 = n - t1;
+        }
+
+        pi = p;             ao_assert(pi);
+
+        po = B->store;      ao_assert(po);
+
+#if AO_BUFFER4PTR_COUNT_MAX
+
+        t2 = B->count_max;  ao_assert(c <= t2 && t2 <= C);
+
+#endif
+
+        t1 = C - c;
+
+        if (t1 < n)
+        {
+            c = C;
+
+            f = (f + n - t1) % C;
+
+            B->front = f;
+        }
+
+        else
+        {
+            c = c + n;
+        }
+
+#if AO_BUFFER4PTR_COUNT_MAX
+
+        t2 = AO_MAX(t2, c);
+
+        B->count_max = t2;
+
+#endif
+
+        B->count = c;
+
+        ao_mem_copy(po + i, pi,      n1 * sizeof(void *));
+
+        ao_mem_copy(po,     pi + n1, n2 * sizeof(void *));
+    }
+
+    else
+    {
+        n = 0;
+    }
+
+    return n;
+}
+
+size_t ao_buffer4ptr_push_range_front_override(ao_buffer4ptr_t * B, void * const * p, size_t n_min, size_t n_max)
+{
+    // Assert.
+
+    ao_assert(B);
+
+    ao_assert(n_min <= n_max);
+
+
+    // Variables.
+
+    size_t c;
+
+    size_t C;
+
+    size_t f;
+
+    size_t i;
+
+    size_t n;
+
+    size_t n1;
+    size_t n2;
+
+    void * const * pi;
+
+    void ** po;
+
+    size_t t1;
+
+#if AO_BUFFER4PTR_COUNT_MAX
+
+    size_t t2;
+
+#endif
+
+
+    // Ready.
+
+    C = B->capacity;
+
+    if (C >= n_min)
+    {
+        n = AO_MIN(C, n_max);
+
+        c = B->count;       ao_assert(c <= C);
+
+        f = B->front;       ao_assert(f < C);
 
         f = (f + C - n) % C;
 
@@ -5112,13 +5199,13 @@ size_t ao_buffer4ptr_push_range_front_override(ao_buffer4ptr_t * x, void * const
 
         i = f;
 
-        pi = p;                 ao_assert(pi);
+        pi = p;             ao_assert(pi);
 
-        po = x->store;          ao_assert(po);
+        po = B->store;      ao_assert(po);
 
 #if AO_BUFFER4PTR_COUNT_MAX
 
-        t2 = x->count_max;      ao_assert(c <= t2 && t2 <= C);
+        t2 = B->count_max;  ao_assert(c <= t2 && t2 <= C);
 
 #endif
 
@@ -5138,17 +5225,17 @@ size_t ao_buffer4ptr_push_range_front_override(ao_buffer4ptr_t * x, void * const
 
         t2 = AO_MAX(t2, c);
 
-        x->count_max = t2;
+        B->count_max = t2;
 
 #endif
 
-        x->count = c;
+        B->count = c;
 
-        x->front = f;
+        B->front = f;
 
-        ao_memcpy(po + i, pi,      n1 * sizeof(void *));
+        ao_mem_copy(po + i, pi,      n1 * sizeof(void *));
 
-        ao_memcpy(po,     pi + n1, n2 * sizeof(void *));
+        ao_mem_copy(po,     pi + n1, n2 * sizeof(void *));
     }
 
     else
@@ -5295,32 +5382,37 @@ bool ao_char_is_whitespace(char x)
 
 // ----------------------------------------------------------------------------
 
-static  ao_uint_t   ao_heap_assert_node(ao_heap_t * X, ao_heap_node_t * N);
+static  ao_uint_t   ao_heap_assert_node(ao_heap_t const * H, ao_heap_node_t const * N);
 
 // ----------------------------------------------------------------------------
 
-static  void        ao_heap_down(       ao_heap_t * X, ao_heap_node_t * N);
+static  void        ao_heap_down(       ao_heap_t * H, ao_heap_node_t * N);
 
 // ----------------------------------------------------------------------------
 
-static  void        ao_heap_replace(    ao_heap_t * X, ao_heap_node_t * N1, ao_heap_node_t * N2);
+static  void        ao_heap_replace(    ao_heap_t * H, ao_heap_node_t * N1, ao_heap_node_t * N2);
 
 // ----------------------------------------------------------------------------
 
-static  void        ao_heap_swap_left(  ao_heap_t * X, ao_heap_node_t * N);
+static  void        ao_heap_swap_left(  ao_heap_t * H, ao_heap_node_t * N);
 
-static  void        ao_heap_swap_parent(ao_heap_t * X, ao_heap_node_t * N);
+static  void        ao_heap_swap_parent(ao_heap_t * H, ao_heap_node_t * N);
 
-static  void        ao_heap_swap_right( ao_heap_t * X, ao_heap_node_t * N);
-
-// ----------------------------------------------------------------------------
-
-static  void        ao_heap_up(         ao_heap_t * X, ao_heap_node_t * N);
+static  void        ao_heap_swap_right( ao_heap_t * H, ao_heap_node_t * N);
 
 // ----------------------------------------------------------------------------
 
-void ao_heap_assert(ao_heap_t * X)
+static  void        ao_heap_up(         ao_heap_t * H, ao_heap_node_t * N);
+
+// ----------------------------------------------------------------------------
+
+void ao_heap_assert(ao_heap_t const * H)
 {
+    // Assert.
+
+    ao_assert(H);
+
+
     // Variables.
 
     ao_uint_t C1;
@@ -5332,15 +5424,15 @@ void ao_heap_assert(ao_heap_t * X)
 
     // Ready.
 
-    C1 = X->count;
+    C1 = H->count;
 
-    N = X->root;
+    N = H->root;
 
     if (N)
     {
         ao_assert(!N->parent);
 
-        C2 = ao_heap_assert_node(X, N);
+        C2 = ao_heap_assert_node(H, N);
 
         ao_assert(C1 == C2);
     }
@@ -5352,13 +5444,13 @@ void ao_heap_assert(ao_heap_t * X)
 
 #if AO_HEAP_COUNT_MAX
 
-    ao_assert(C1 <= X->count_max);
+    ao_assert(C1 <= H->count_max);
 
 #endif
 
 }
 
-ao_uint_t ao_heap_assert_node(ao_heap_t * X, ao_heap_node_t * N)
+ao_uint_t ao_heap_assert_node(ao_heap_t const * H, ao_heap_node_t const * N)
 {
     // Variables.
 
@@ -5381,15 +5473,15 @@ ao_uint_t ao_heap_assert_node(ao_heap_t * X, ao_heap_node_t * N)
 
     if (L)
     {
-        Less = X->less;
+        Less = H->less;
 
-        LessParameter = X->less_parameter;
+        LessParameter = H->less_parameter;
 
         ao_assert(N == L->parent);
 
         ao_assert(Less(N, L, LessParameter));
 
-        CL = ao_heap_assert_node(X, L);
+        CL = ao_heap_assert_node(H, L);
 
         R = N->right;
 
@@ -5399,7 +5491,7 @@ ao_uint_t ao_heap_assert_node(ao_heap_t * X, ao_heap_node_t * N)
 
             ao_assert(Less(N, R, LessParameter));
 
-            CR = ao_heap_assert_node(X, R);
+            CR = ao_heap_assert_node(H, R);
         }
 
         else
@@ -5420,13 +5512,15 @@ ao_uint_t ao_heap_assert_node(ao_heap_t * X, ao_heap_node_t * N)
     return 1 + CL + CR;
 }
 
-void ao_heap_down(ao_heap_t * X, ao_heap_node_t * N)
+// ----------------------------------------------------------------------------
+
+void ao_heap_down(ao_heap_t * H, ao_heap_node_t * N)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(H);
 
-    ao_assert(X->less);
+    ao_assert(H->less);
 
     ao_assert(N);
 
@@ -5437,9 +5531,9 @@ void ao_heap_down(ao_heap_t * X, ao_heap_node_t * N)
 
     ao_heap_node_t * L;
 
-    ao_heap_less_t Less = X->less;
+    ao_heap_less_t Less = H->less;
 
-    void * LessParameter = X->less_parameter;
+    void * LessParameter = H->less_parameter;
 
     ao_heap_node_t * R;
 
@@ -5470,7 +5564,7 @@ void ao_heap_down(ao_heap_t * X, ao_heap_node_t * N)
 
                     if (Less(R, L, LessParameter))
                     {
-                        ao_heap_swap_right(X, N);
+                        ao_heap_swap_right(H, N);
                     }
 
 
@@ -5478,7 +5572,7 @@ void ao_heap_down(ao_heap_t * X, ao_heap_node_t * N)
 
                     else
                     {
-                        ao_heap_swap_left(X, N);
+                        ao_heap_swap_left(H, N);
                     }
                 }
 
@@ -5491,7 +5585,7 @@ void ao_heap_down(ao_heap_t * X, ao_heap_node_t * N)
 
                     if (Less(R, N, LessParameter))
                     {
-                        ao_heap_swap_right(X, N);
+                        ao_heap_swap_right(H, N);
                     }
 
 
@@ -5513,7 +5607,7 @@ void ao_heap_down(ao_heap_t * X, ao_heap_node_t * N)
 
                 if (Less(L, N, LessParameter))
                 {
-                    ao_heap_swap_left(X, N);
+                    ao_heap_swap_left(H, N);
                 }
 
 
@@ -5539,11 +5633,13 @@ void ao_heap_down(ao_heap_t * X, ao_heap_node_t * N)
     while (B);
 }
 
-void ao_heap_insert(ao_heap_t * X, ao_heap_node_t * N)
+// ----------------------------------------------------------------------------
+
+void ao_heap_insert(ao_heap_t * H, ao_heap_node_t * N)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(H);
 
     ao_assert(N);
 
@@ -5571,7 +5667,7 @@ void ao_heap_insert(ao_heap_t * X, ao_heap_node_t * N)
 
     // Count.
 
-    C1 = X->count;
+    C1 = H->count;
 
     C2 = C1 + 1;
 
@@ -5579,20 +5675,20 @@ void ao_heap_insert(ao_heap_t * X, ao_heap_node_t * N)
 
 #if AO_HEAP_COUNT_MAX
 
-    CM = X->count_max;
+    CM = H->count_max;
 
     CM = AO_MAX(C2, CM);
 
-    X->count_max = CM;
+    H->count_max = CM;
 
 #endif
 
-    X->count = C2;
+    H->count = C2;
 
 
     // Insert.
 
-    P2N = &X->root;
+    P2N = &H->root;
 
     if (C1)
     {
@@ -5631,31 +5727,53 @@ void ao_heap_insert(ao_heap_t * X, ao_heap_node_t * N)
 
     // Bubble upwards, until the heap condition is fulfilled.
 
-    ao_heap_up(X, N);
+    ao_heap_up(H, N);
 }
 
-ao_heap_node_t * ao_heap_pop(ao_heap_t * X)
+// ----------------------------------------------------------------------------
+
+bool ao_heap_is_empty(ao_heap_t const * H)
 {
-    ao_assert(X);
+    ao_assert(H);
 
-    ao_heap_node_t * N = X->root;
+    return H->root == NULL ? true : false;
+}
 
-    ao_heap_remove(X, N);
+// ----------------------------------------------------------------------------
+
+ao_heap_node_t * ao_heap_peek(ao_heap_t const * H)
+{
+    ao_assert(H);
+
+    return H->root;
+}
+
+// ----------------------------------------------------------------------------
+
+ao_heap_node_t * ao_heap_pop(ao_heap_t * H)
+{
+    ao_assert(H);
+
+    ao_heap_node_t * N = H->root;
+
+    ao_heap_remove(H, N);
 
     return N;
 }
 
-void ao_heap_remove(ao_heap_t * X, ao_heap_node_t * N)
+// ----------------------------------------------------------------------------
+
+void ao_heap_remove(ao_heap_t * H, ao_heap_node_t * N)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(H);
 
-    ao_assert(X->count);
+    ao_assert(H->count);
 
-    ao_assert(X->less);
+    ao_assert(H->less);
 
-    ao_assert(X->root);
+    ao_assert(H->root);
 
     ao_assert(N);
 
@@ -5679,16 +5797,16 @@ void ao_heap_remove(ao_heap_t * X, ao_heap_node_t * N)
 
     // Count.
 
-    C1 = X->count;
+    C1 = H->count;
 
     C2 = C1 - 1;
 
-    X->count = C2;
+    H->count = C2;
 
 
     // Find and remove the end.
 
-    P2E = &X->root;
+    P2E = &H->root;
 
     if (C2)
     {
@@ -5719,7 +5837,7 @@ void ao_heap_remove(ao_heap_t * X, ao_heap_node_t * N)
 
     else
     {
-        E = X->root;
+        E = H->root;
 
         P = NULL;
     }
@@ -5739,25 +5857,27 @@ void ao_heap_remove(ao_heap_t * X, ao_heap_node_t * N)
 
     if (N != E)
     {
-        ao_heap_replace(X, N, E);
+        ao_heap_replace(H, N, E);
 
-        if (X->less(E, N, X->less_parameter))
+        if (H->less(E, N, H->less_parameter))
         {
-            ao_heap_up(X, E);
+            ao_heap_up(H, E);
         }
 
         else
         {
-            ao_heap_down(X, E);
+            ao_heap_down(H, E);
         }
     }
 }
 
-void ao_heap_replace(ao_heap_t * X, ao_heap_node_t * N1, ao_heap_node_t * N2)
+// ----------------------------------------------------------------------------
+
+void ao_heap_replace(ao_heap_t * H, ao_heap_node_t * N1, ao_heap_node_t * N2)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(H);
 
     ao_assert(N1);
 
@@ -5802,7 +5922,7 @@ void ao_heap_replace(ao_heap_t * X, ao_heap_node_t * N1, ao_heap_node_t * N2)
 
     else
     {
-        P2N = &X->root;
+        P2N = &H->root;
     }
 
     L = N1->left;
@@ -5832,11 +5952,13 @@ void ao_heap_replace(ao_heap_t * X, ao_heap_node_t * N1, ao_heap_node_t * N2)
     }
 }
 
-void ao_heap_swap_left(ao_heap_t * X, ao_heap_node_t * N)
+// ----------------------------------------------------------------------------
+
+void ao_heap_swap_left(ao_heap_t * H, ao_heap_node_t * N)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(H);
 
     ao_assert(N);
 
@@ -5877,7 +5999,7 @@ void ao_heap_swap_left(ao_heap_t * X, ao_heap_node_t * N)
 
     else
     {
-        P2L = &X->root;
+        P2L = &H->root;
     }
 
     L = N->left;
@@ -5918,11 +6040,11 @@ void ao_heap_swap_left(ao_heap_t * X, ao_heap_node_t * N)
     }
 }
 
-void ao_heap_swap_parent(ao_heap_t * X, ao_heap_node_t * N)
+void ao_heap_swap_parent(ao_heap_t * H, ao_heap_node_t * N)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(H);
 
     ao_assert(N);
 
@@ -5991,7 +6113,7 @@ void ao_heap_swap_parent(ao_heap_t * X, ao_heap_node_t * N)
 
     else
     {
-        G2N = &X->root;
+        G2N = &H->root;
     }
 
     *G2N = N;
@@ -6024,11 +6146,11 @@ void ao_heap_swap_parent(ao_heap_t * X, ao_heap_node_t * N)
     }
 }
 
-void ao_heap_swap_right(ao_heap_t * X, ao_heap_node_t * N)
+void ao_heap_swap_right(ao_heap_t * H, ao_heap_node_t * N)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(H);
 
     ao_assert(N);
 
@@ -6071,7 +6193,7 @@ void ao_heap_swap_right(ao_heap_t * X, ao_heap_node_t * N)
 
     else
     {
-        P2R = &X->root;
+        P2R = &H->root;
     }
 
     L = N->left;
@@ -6109,22 +6231,24 @@ void ao_heap_swap_right(ao_heap_t * X, ao_heap_node_t * N)
     }
 }
 
-void ao_heap_up(ao_heap_t * X, ao_heap_node_t * N)
+// ----------------------------------------------------------------------------
+
+void ao_heap_up(ao_heap_t * H, ao_heap_node_t * N)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(H);
 
-    ao_assert(X->less);
+    ao_assert(H->less);
 
     ao_assert(N);
 
 
     // Variables.
 
-    ao_heap_less_t Less = X->less;
+    ao_heap_less_t Less = H->less;
 
-    void * LessParameter = X->less_parameter;
+    void * LessParameter = H->less_parameter;
 
     ao_heap_node_t * P;
 
@@ -6135,7 +6259,7 @@ void ao_heap_up(ao_heap_t * X, ao_heap_node_t * N)
 
     while (P && Less(N, P, LessParameter))
     {
-        ao_heap_swap_parent(X, N);
+        ao_heap_swap_parent(H, N);
 
         P = N->parent;
     }
@@ -6149,9 +6273,11 @@ void ao_heap_up(ao_heap_t * X, ao_heap_node_t * N)
 
 // ----------------------------------------------------------------------------
 
-static  void    ao_heap4obj_down(   ao_heap4obj_t * x, size_t i);
+static  void    ao_heap4obj_down(   ao_heap4obj_t * H, size_t i);
 
-static  void    ao_heap4obj_up(     ao_heap4obj_t * x, size_t i);
+// ----------------------------------------------------------------------------
+
+static  void    ao_heap4obj_up(     ao_heap4obj_t * H, size_t i);
 
 // ----------------------------------------------------------------------------
 
@@ -6165,15 +6291,20 @@ static  void    ao_heap4obj_up(     ao_heap4obj_t * x, size_t i);
 
 // ----------------------------------------------------------------------------
 
-#define ao_heap4obj_q(x, j)         ((uint8_t *) (x)->store + (x)->size * (j))
+#define ao_heap4obj_q(H, j)         ((uint8_t *) (H)->store + (H)->size * (j))
 
 // ----------------------------------------------------------------------------
 
-void ao_heap4obj_assert(ao_heap4obj_t * x)
+void ao_heap4obj_assert(ao_heap4obj_t const * H)
 {
+    // Assert.
+
+    ao_assert(H);
+
+
     // Variables.
 
-    size_t c = x->count;
+    size_t c = H->count;
 
     size_t il;
 
@@ -6190,9 +6321,9 @@ void ao_heap4obj_assert(ao_heap4obj_t * x)
 
     // Variables.
 
-    size_t * h1 = x->heap1;
+    size_t * h1 = H->heap1;
 
-    size_t * h2 = x->heap2;
+    size_t * h2 = H->heap2;
 
 
     // Variables.
@@ -6206,9 +6337,9 @@ void ao_heap4obj_assert(ao_heap4obj_t * x)
 
     // Variables.
 
-    ao_heap4obj_less_t less = x->less;
+    ao_heap4obj_less_t less = H->less;
 
-    void * less_parameter = x->less_parameter;
+    void * less_parameter = H->less_parameter;
 
 
     // Ready.
@@ -6233,9 +6364,9 @@ void ao_heap4obj_assert(ao_heap4obj_t * x)
 
             ao_assert(h2[jr] == ir);
 
-            qp = ao_heap4obj_q(x, jp);
+            qp = ao_heap4obj_q(H, jp);
 
-            qr = ao_heap4obj_q(x, jr);
+            qr = ao_heap4obj_q(H, jr);
 
             if (less(qr, qp, less_parameter))
             {
@@ -6248,7 +6379,7 @@ void ao_heap4obj_assert(ao_heap4obj_t * x)
 
             ao_assert(h2[jl] == il);
 
-            ql = ao_heap4obj_q(x, jl);
+            ql = ao_heap4obj_q(H, jl);
 
             if (less(ql, qp, less_parameter))
             {
@@ -6270,9 +6401,9 @@ void ao_heap4obj_assert(ao_heap4obj_t * x)
 
             ao_assert(h2[jl] == il);
 
-            qp = ao_heap4obj_q(x, jp);
+            qp = ao_heap4obj_q(H, jp);
 
-            ql = ao_heap4obj_q(x, jl);
+            ql = ao_heap4obj_q(H, jl);
 
             if (less(ql, qp, less_parameter))
             {
@@ -6282,7 +6413,9 @@ void ao_heap4obj_assert(ao_heap4obj_t * x)
     }
 }
 
-void ao_heap4obj_down(ao_heap4obj_t * x, size_t i1)
+// ----------------------------------------------------------------------------
+
+void ao_heap4obj_down(ao_heap4obj_t * H, size_t i1)
 {
     // Variables.
 
@@ -6293,7 +6426,7 @@ void ao_heap4obj_down(ao_heap4obj_t * x, size_t i1)
 
     // Variables.
 
-    size_t c = x->count;
+    size_t c = H->count;
 
     size_t il;
 
@@ -6317,9 +6450,9 @@ void ao_heap4obj_down(ao_heap4obj_t * x, size_t i1)
 
     // Variables.
 
-    ao_heap4obj_less_t less = x->less;
+    ao_heap4obj_less_t less = H->less;
 
-    void * less_parameter = x->less_parameter;
+    void * less_parameter = H->less_parameter;
 
 
     // Ready.
@@ -6328,9 +6461,9 @@ void ao_heap4obj_down(ao_heap4obj_t * x, size_t i1)
 
     b2 = false;
 
-    j1 = x->heap1[i1];
+    j1 = H->heap1[i1];
 
-    q1 = ao_heap4obj_q(x, j1);
+    q1 = ao_heap4obj_q(H, j1);
 
     do
     {
@@ -6342,13 +6475,13 @@ void ao_heap4obj_down(ao_heap4obj_t * x, size_t i1)
 
         if (ir < c)
         {
-            jl = x->heap1[il];
+            jl = H->heap1[il];
 
-            jr = x->heap1[ir];
+            jr = H->heap1[ir];
 
-            ql = ao_heap4obj_q(x, jl);
+            ql = ao_heap4obj_q(H, jl);
 
-            qr = ao_heap4obj_q(x, jr);
+            qr = ao_heap4obj_q(H, jr);
 
             // qr is less.
 
@@ -6360,9 +6493,9 @@ void ao_heap4obj_down(ao_heap4obj_t * x, size_t i1)
 
                 if (less(ql, qr, less_parameter))
                 {
-                    x->heap1[i1] = jl;
+                    H->heap1[i1] = jl;
 
-                    x->heap2[jl] = i1;
+                    H->heap2[jl] = i1;
 
                     i1 = il;
 
@@ -6375,9 +6508,9 @@ void ao_heap4obj_down(ao_heap4obj_t * x, size_t i1)
 
                 else
                 {
-                    x->heap1[i1] = jr;
+                    H->heap1[i1] = jr;
 
-                    x->heap2[jr] = i1;
+                    H->heap2[jr] = i1;
 
                     i1 = ir;
 
@@ -6391,9 +6524,9 @@ void ao_heap4obj_down(ao_heap4obj_t * x, size_t i1)
 
             else if (less(ql, q1, less_parameter))
             {
-                x->heap1[i1] = jl;
+                H->heap1[i1] = jl;
 
-                x->heap2[jl] = i1;
+                H->heap2[jl] = i1;
 
                 i1 = il;
 
@@ -6414,17 +6547,17 @@ void ao_heap4obj_down(ao_heap4obj_t * x, size_t i1)
 
         else if (il < c)
         {
-            jl = x->heap1[il];
+            jl = H->heap1[il];
 
-            ql = ao_heap4obj_q(x, jl);
+            ql = ao_heap4obj_q(H, jl);
 
             // ql is less.
 
             if (less(ql, q1, less_parameter))
             {
-                x->heap1[i1] = jl;
+                H->heap1[i1] = jl;
 
-                x->heap2[jl] = i1;
+                H->heap2[jl] = i1;
 
                 i1 = il;
 
@@ -6450,36 +6583,38 @@ void ao_heap4obj_down(ao_heap4obj_t * x, size_t i1)
 
     if (b2)
     {
-        x->heap1[i1] = j1;
+        H->heap1[i1] = j1;
 
-        x->heap2[j1] = i1;
+        H->heap2[j1] = i1;
     }
 }
 
-bool ao_heap4obj_insert(ao_heap4obj_t * x, void const * p)
+// ----------------------------------------------------------------------------
+
+bool ao_heap4obj_insert(ao_heap4obj_t * H, void const * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(H);
 
-    ao_assert(x->capacity >= x->count);
+    ao_assert(H->capacity >= H->count);
 
-    ao_assert(x->heap1);
+    ao_assert(H->heap1);
 
-    ao_assert(x->heap2);
+    ao_assert(H->heap2);
 
-    ao_assert(x->less);
+    ao_assert(H->less);
 
-    ao_assert(x->size);
+    ao_assert(H->size);
 
-    ao_assert(x->store);
+    ao_assert(H->store);
 
     ao_assert(p);
 
 
     // Variables.
 
-    size_t c1 = x->count;
+    size_t c1 = H->count;
 
     size_t c2;
 
@@ -6499,7 +6634,7 @@ bool ao_heap4obj_insert(ao_heap4obj_t * x, void const * p)
 
     // Heap is full.
 
-    if (c1 == x->capacity) return false;
+    if (c1 == H->capacity) return false;
 
 
     // Heap is not full.
@@ -6508,46 +6643,64 @@ bool ao_heap4obj_insert(ao_heap4obj_t * x, void const * p)
 
 #if AO_HEAP4OBJ_COUNT_MAX
 
-    cm = x->count_max;
+    cm = H->count_max;
 
     cm = AO_MAX(cm, c2);
 
-    x->count_max = cm;
+    H->count_max = cm;
 
 #endif
 
-    x->count = c2;
+    H->count = c2;
 
-    x->heap1[c1] = c1;
+    H->heap1[c1] = c1;
 
-    x->heap2[c1] = c1;
+    H->heap2[c1] = c1;
 
-    q = ao_heap4obj_q(x, c1);
+    q = ao_heap4obj_q(H, c1);
 
-    ao_memcpy(q, p, x->size);
+    ao_mem_copy(q, p, H->size);
 
-    ao_heap4obj_up(x, c1);
+    ao_heap4obj_up(H, c1);
 
     return true;
 }
 
-bool ao_heap4obj_peek(ao_heap4obj_t const * x, void * p)
+// ----------------------------------------------------------------------------
+
+bool ao_heap4obj_is_empty(ao_heap4obj_t const * H)
+{
+    ao_assert(H);
+
+    return H->count == 0 ? true : false;
+}
+
+bool ao_heap4obj_is_full(ao_heap4obj_t const * H)
+{
+    ao_assert(H);
+
+    return H->count == H->capacity ? true : false;
+}
+
+// ----------------------------------------------------------------------------
+
+bool ao_heap4obj_peek(ao_heap4obj_t const * H, void * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(H);
 
-    ao_assert(x->capacity >= x->count);
+    ao_assert(H->capacity >= H->count);
 
-    ao_assert(x->heap1);
+    ao_assert(H->heap1);
 
-    ao_assert(x->heap2);
+    ao_assert(H->heap2);
 
-    ao_assert(x->less);
+    ao_assert(H->less);
 
-    ao_assert(x->size);
+    ao_assert(H->size);
 
-    ao_assert(x->store);
+    ao_assert(H->store);
 
     ao_assert(p);
 
@@ -6563,44 +6716,46 @@ bool ao_heap4obj_peek(ao_heap4obj_t const * x, void * p)
 
     // Heap is empty.
 
-    if (x->count == 0) return false;
+    if (H->count == 0) return false;
 
 
     // Heap is not empty.
 
-    j = x->heap1[0];
+    j = H->heap1[0];
 
-    q = ao_heap4obj_q(x, j);
+    q = ao_heap4obj_q(H, j);
 
-    ao_memcpy(p, q, x->size);
+    ao_mem_copy(p, q, H->size);
 
     return true;
 }
 
-bool ao_heap4obj_pop(ao_heap4obj_t * x, void * p)
+// ----------------------------------------------------------------------------
+
+bool ao_heap4obj_pop(ao_heap4obj_t * H, void * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(H);
 
-    ao_assert(x->capacity >= x->count);
+    ao_assert(H->capacity >= H->count);
 
-    ao_assert(x->heap1);
+    ao_assert(H->heap1);
 
-    ao_assert(x->heap2);
+    ao_assert(H->heap2);
 
-    ao_assert(x->less);
+    ao_assert(H->less);
 
-    ao_assert(x->size);
+    ao_assert(H->size);
 
-    ao_assert(x->store);
+    ao_assert(H->store);
 
     ao_assert(p);
 
 
     // Variables.
 
-    size_t c = x->count;
+    size_t c = H->count;
 
     size_t i;
 
@@ -6620,42 +6775,44 @@ bool ao_heap4obj_pop(ao_heap4obj_t * x, void * p)
 
     // Heap is not empty.
 
-    j = x->heap1[0];
+    j = H->heap1[0];
 
-    q1 = ao_heap4obj_q(x, j);
+    q1 = ao_heap4obj_q(H, j);
 
-    ao_memcpy(p, q1, x->size);
+    ao_mem_copy(p, q1, H->size);
 
-    x->count = --c;
+    H->count = --c;
 
     if (c > 0)
     {
         if (j != c)
         {
-            q2 = ao_heap4obj_q(x, c);
+            q2 = ao_heap4obj_q(H, c);
 
-            ao_memcpy(q1, q2, x->size);
+            ao_mem_copy(q1, q2, H->size);
 
-            i = x->heap2[c];
+            i = H->heap2[c];
 
-            x->heap2[j] = i;
+            H->heap2[j] = i;
 
-            x->heap1[i] = j;
+            H->heap1[i] = j;
         }
 
-        j = x->heap1[c];
+        j = H->heap1[c];
 
-        x->heap1[0] = j;
+        H->heap1[0] = j;
 
-        x->heap2[j] = 0;
+        H->heap2[j] = 0;
 
-        ao_heap4obj_down(x, 0);
+        ao_heap4obj_down(H, 0);
     }
 
     return true;
 }
 
-void ao_heap4obj_up(ao_heap4obj_t * x, size_t i1)
+// ----------------------------------------------------------------------------
+
+void ao_heap4obj_up(ao_heap4obj_t * H, size_t i1)
 {
     // Variables.
 
@@ -6691,29 +6848,29 @@ void ao_heap4obj_up(ao_heap4obj_t * x, size_t i1)
 
     if (b1)
     {
-        less = x->less;
+        less = H->less;
 
-        less_parameter = x->less_parameter;
+        less_parameter = H->less_parameter;
 
         b2 = false;
 
-        j1 = x->heap1[i1];
+        j1 = H->heap1[i1];
 
-        q1 = ao_heap4obj_q(x, j1);
+        q1 = ao_heap4obj_q(H, j1);
 
         do
         {
             i2 = AO_HEAP4OBJ_PARENT(i1);
 
-            j2 = x->heap1[i2];
+            j2 = H->heap1[i2];
 
-            q2 = ao_heap4obj_q(x, j2);
+            q2 = ao_heap4obj_q(H, j2);
 
             if (less(q1, q2, less_parameter))
             {
-                x->heap1[i1] = j2;
+                H->heap1[i1] = j2;
 
-                x->heap2[j2] = i1;
+                H->heap2[j2] = i1;
 
                 i1 = i2;
 
@@ -6731,9 +6888,9 @@ void ao_heap4obj_up(ao_heap4obj_t * x, size_t i1)
 
         if (b2)
         {
-            x->heap1[i1] = j1;
+            H->heap1[i1] = j1;
 
-            x->heap2[j1] = i1;
+            H->heap2[j1] = i1;
         }
     }
 }
@@ -6746,9 +6903,9 @@ void ao_heap4obj_up(ao_heap4obj_t * x, size_t i1)
 
 // ----------------------------------------------------------------------------
 
-static  void    ao_heap4ptr_down(   ao_heap4ptr_t * x, size_t i);
+static  void    ao_heap4ptr_down(   ao_heap4ptr_t * H, size_t i);
 
-static  void    ao_heap4ptr_up(     ao_heap4ptr_t * x, size_t i);
+static  void    ao_heap4ptr_up(     ao_heap4ptr_t * H, size_t i);
 
 // ----------------------------------------------------------------------------
 
@@ -6762,9 +6919,16 @@ static  void    ao_heap4ptr_up(     ao_heap4ptr_t * x, size_t i);
 
 // ----------------------------------------------------------------------------
 
-void ao_heap4ptr_assert(ao_heap4ptr_t * x)
+void ao_heap4ptr_assert(ao_heap4ptr_t const * H)
 {
-    size_t c = x->count;
+    // Assert.
+
+    ao_assert(H);
+
+
+    // Variables.
+
+    size_t c = H->count;
 
     size_t il;
 
@@ -6781,9 +6945,9 @@ void ao_heap4ptr_assert(ao_heap4ptr_t * x)
 
     // Variables.
 
-    size_t * h1 = x->heap1;
+    size_t * h1 = H->heap1;
 
-    size_t * h2 = x->heap2;
+    size_t * h2 = H->heap2;
 
 
     // Variables.
@@ -6797,9 +6961,9 @@ void ao_heap4ptr_assert(ao_heap4ptr_t * x)
 
     // Variables.
 
-    ao_heap4ptr_less_t less = x->less;
+    ao_heap4ptr_less_t less = H->less;
 
-    void * less_parameter = x->less_parameter;
+    void * less_parameter = H->less_parameter;
 
 
     // Ready.
@@ -6824,9 +6988,9 @@ void ao_heap4ptr_assert(ao_heap4ptr_t * x)
 
             ao_assert(h2[jr] == ir);
 
-            qp = x->store[jp];
+            qp = H->store[jp];
 
-            qr = x->store[jr];
+            qr = H->store[jr];
 
             if (less(qr, qp, less_parameter))
             {
@@ -6839,7 +7003,7 @@ void ao_heap4ptr_assert(ao_heap4ptr_t * x)
 
             ao_assert(h2[jl] == il);
 
-            ql = x->store[jl];
+            ql = H->store[jl];
 
             if (less(ql, qp, less_parameter))
             {
@@ -6861,9 +7025,9 @@ void ao_heap4ptr_assert(ao_heap4ptr_t * x)
 
             ao_assert(h2[jl] == il);
 
-            qp = x->store[jp];
+            qp = H->store[jp];
 
-            ql = x->store[jl];
+            ql = H->store[jl];
 
             if (less(ql, qp, less_parameter))
             {
@@ -6873,7 +7037,9 @@ void ao_heap4ptr_assert(ao_heap4ptr_t * x)
     }
 }
 
-void ao_heap4ptr_down(ao_heap4ptr_t * x, size_t i1)
+// ----------------------------------------------------------------------------
+
+void ao_heap4ptr_down(ao_heap4ptr_t * H, size_t i1)
 {
     // Variables.
 
@@ -6884,7 +7050,7 @@ void ao_heap4ptr_down(ao_heap4ptr_t * x, size_t i1)
 
     // Variables.
 
-    size_t c = x->count;
+    size_t c = H->count;
 
     size_t il;
 
@@ -6908,9 +7074,9 @@ void ao_heap4ptr_down(ao_heap4ptr_t * x, size_t i1)
 
     // Variables.
 
-    ao_heap4ptr_less_t less = x->less;
+    ao_heap4ptr_less_t less = H->less;
 
-    void * less_parameter = x->less_parameter;
+    void * less_parameter = H->less_parameter;
 
 
     // Ready.
@@ -6919,9 +7085,9 @@ void ao_heap4ptr_down(ao_heap4ptr_t * x, size_t i1)
 
     b2 = false;
 
-    j1 = x->heap1[i1];
+    j1 = H->heap1[i1];
 
-    q1 = x->store[j1];
+    q1 = H->store[j1];
 
     do
     {
@@ -6933,13 +7099,13 @@ void ao_heap4ptr_down(ao_heap4ptr_t * x, size_t i1)
 
         if (ir < c)
         {
-            jl = x->heap1[il];
+            jl = H->heap1[il];
 
-            jr = x->heap1[ir];
+            jr = H->heap1[ir];
 
-            ql = x->store[jl];
+            ql = H->store[jl];
 
-            qr = x->store[jr];
+            qr = H->store[jr];
 
             // qr is less.
 
@@ -6951,9 +7117,9 @@ void ao_heap4ptr_down(ao_heap4ptr_t * x, size_t i1)
 
                 if (less(ql, qr, less_parameter))
                 {
-                    x->heap1[i1] = jl;
+                    H->heap1[i1] = jl;
 
-                    x->heap2[jl] = i1;
+                    H->heap2[jl] = i1;
 
                     i1 = il;
 
@@ -6966,9 +7132,9 @@ void ao_heap4ptr_down(ao_heap4ptr_t * x, size_t i1)
 
                 else
                 {
-                    x->heap1[i1] = jr;
+                    H->heap1[i1] = jr;
 
-                    x->heap2[jr] = i1;
+                    H->heap2[jr] = i1;
 
                     i1 = ir;
 
@@ -6982,9 +7148,9 @@ void ao_heap4ptr_down(ao_heap4ptr_t * x, size_t i1)
 
             else if (less(ql, q1, less_parameter))
             {
-                x->heap1[i1] = jl;
+                H->heap1[i1] = jl;
 
-                x->heap2[jl] = i1;
+                H->heap2[jl] = i1;
 
                 i1 = il;
 
@@ -7005,17 +7171,17 @@ void ao_heap4ptr_down(ao_heap4ptr_t * x, size_t i1)
 
         else if (il < c)
         {
-            jl = x->heap1[il];
+            jl = H->heap1[il];
 
-            ql = x->store[jl];
+            ql = H->store[jl];
 
             // ql is less.
 
             if (less(ql, q1, less_parameter))
             {
-                x->heap1[i1] = jl;
+                H->heap1[i1] = jl;
 
-                x->heap2[jl] = i1;
+                H->heap2[jl] = i1;
 
                 i1 = il;
 
@@ -7041,32 +7207,34 @@ void ao_heap4ptr_down(ao_heap4ptr_t * x, size_t i1)
 
     if (b2)
     {
-        x->heap1[i1] = j1;
+        H->heap1[i1] = j1;
 
-        x->heap2[j1] = i1;
+        H->heap2[j1] = i1;
     }
 }
 
-bool ao_heap4ptr_insert(ao_heap4ptr_t * x, void * p)
+// ----------------------------------------------------------------------------
+
+bool ao_heap4ptr_insert(ao_heap4ptr_t * H, void * p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(H);
 
-    ao_assert(x->capacity >= x->count);
+    ao_assert(H->capacity >= H->count);
 
-    ao_assert(x->heap1);
+    ao_assert(H->heap1);
 
-    ao_assert(x->heap2);
+    ao_assert(H->heap2);
 
-    ao_assert(x->less);
+    ao_assert(H->less);
 
-    ao_assert(x->store);
+    ao_assert(H->store);
 
 
     // Variables.
 
-    size_t c1 = x->count;
+    size_t c1 = H->count;
 
     size_t c2;
 
@@ -7081,7 +7249,7 @@ bool ao_heap4ptr_insert(ao_heap4ptr_t * x, void * p)
 
     // Heap is full.
 
-    if (c1 == x->capacity) return false;
+    if (c1 == H->capacity) return false;
 
 
     // Heap is not full.
@@ -7090,42 +7258,60 @@ bool ao_heap4ptr_insert(ao_heap4ptr_t * x, void * p)
 
 #if AO_HEAP4PTR_COUNT_MAX
 
-    cm = x->count_max;
+    cm = H->count_max;
 
     cm = AO_MAX(cm, c2);
 
-    x->count_max = cm;
+    H->count_max = cm;
 
 #endif
 
-    x->count = c2;
+    H->count = c2;
 
-    x->heap1[c1] = c1;
+    H->heap1[c1] = c1;
 
-    x->heap2[c1] = c1;
+    H->heap2[c1] = c1;
 
-    x->store[c1] = p;
+    H->store[c1] = p;
 
-    ao_heap4ptr_up(x, c1);
+    ao_heap4ptr_up(H, c1);
 
     return true;
 }
 
-bool ao_heap4ptr_peek(ao_heap4ptr_t const * x, void ** p)
+// ----------------------------------------------------------------------------
+
+bool ao_heap4ptr_is_empty(ao_heap4ptr_t const * H)
+{
+    ao_assert(H);
+
+    return H->count == 0 ? true : false;
+}
+
+bool ao_heap4ptr_is_full(ao_heap4ptr_t const * H)
+{
+    ao_assert(H);
+
+    return H->count == H->capacity ? true : false;
+}
+
+// ----------------------------------------------------------------------------
+
+bool ao_heap4ptr_peek(ao_heap4ptr_t const * H, void ** p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(H);
 
-    ao_assert(x->capacity >= x->count);
+    ao_assert(H->capacity >= H->count);
 
-    ao_assert(x->heap1);
+    ao_assert(H->heap1);
 
-    ao_assert(x->heap2);
+    ao_assert(H->heap2);
 
-    ao_assert(x->less);
+    ao_assert(H->less);
 
-    ao_assert(x->store);
+    ao_assert(H->store);
 
     ao_assert(p);
 
@@ -7139,40 +7325,42 @@ bool ao_heap4ptr_peek(ao_heap4ptr_t const * x, void ** p)
 
     // Heap is empty.
 
-    if (x->count == 0) return false;
+    if (H->count == 0) return false;
 
 
     // Heap is not empty.
 
-    j = x->heap1[0];
+    j = H->heap1[0];
 
-    *p = x->store[j];
+    *p = H->store[j];
 
     return true;
 }
 
-bool ao_heap4ptr_pop(ao_heap4ptr_t * x, void ** p)
+// ----------------------------------------------------------------------------
+
+bool ao_heap4ptr_pop(ao_heap4ptr_t * H, void ** p)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(H);
 
-    ao_assert(x->capacity >= x->count);
+    ao_assert(H->capacity >= H->count);
 
-    ao_assert(x->heap1);
+    ao_assert(H->heap1);
 
-    ao_assert(x->heap2);
+    ao_assert(H->heap2);
 
-    ao_assert(x->less);
+    ao_assert(H->less);
 
-    ao_assert(x->store);
+    ao_assert(H->store);
 
     ao_assert(p);
 
 
     // Variables.
 
-    size_t c = x->count;
+    size_t c = H->count;
 
     size_t i;
 
@@ -7192,38 +7380,40 @@ bool ao_heap4ptr_pop(ao_heap4ptr_t * x, void ** p)
 
     // Heap is not empty.
 
-    j = x->heap1[0];
+    j = H->heap1[0];
 
-    *p = x->store[j];
+    *p = H->store[j];
 
-    x->count = --c;
+    H->count = --c;
 
     if (c > 0)
     {
         if (j != c)
         {
-            x->store[j] = x->store[c];
+            H->store[j] = H->store[c];
 
-            i = x->heap2[c];
+            i = H->heap2[c];
 
-            x->heap2[j] = i;
+            H->heap2[j] = i;
 
-            x->heap1[i] = j;
+            H->heap1[i] = j;
         }
 
-        j = x->heap1[c];
+        j = H->heap1[c];
 
-        x->heap1[0] = j;
+        H->heap1[0] = j;
 
-        x->heap2[j] = 0;
+        H->heap2[j] = 0;
 
-        ao_heap4ptr_down(x, 0);
+        ao_heap4ptr_down(H, 0);
     }
 
     return true;
 }
 
-void ao_heap4ptr_up(ao_heap4ptr_t * x, size_t i1)
+// ----------------------------------------------------------------------------
+
+void ao_heap4ptr_up(ao_heap4ptr_t * H, size_t i1)
 {
     // Variables.
 
@@ -7259,29 +7449,29 @@ void ao_heap4ptr_up(ao_heap4ptr_t * x, size_t i1)
 
     if (b1)
     {
-        less = x->less;
+        less = H->less;
 
-        less_parameter = x->less_parameter;
+        less_parameter = H->less_parameter;
 
         b2 = false;
 
-        j1 = x->heap1[i1];
+        j1 = H->heap1[i1];
 
-        q1 = x->store[j1];
+        q1 = H->store[j1];
 
         do
         {
             i2 = AO_HEAP4PTR_PARENT(i1);
 
-            j2 = x->heap1[i2];
+            j2 = H->heap1[i2];
 
-            q2 = x->store[j2];
+            q2 = H->store[j2];
 
             if (less(q1, q2, less_parameter))
             {
-                x->heap1[i1] = j2;
+                H->heap1[i1] = j2;
 
-                x->heap2[j2] = i1;
+                H->heap2[j2] = i1;
 
                 i1 = i2;
 
@@ -7299,9 +7489,9 @@ void ao_heap4ptr_up(ao_heap4ptr_t * x, size_t i1)
 
         if (b2)
         {
-            x->heap1[i1] = j1;
+            H->heap1[i1] = j1;
 
-            x->heap2[j1] = i1;
+            H->heap2[j1] = i1;
         }
     }
 }
@@ -7314,38 +7504,38 @@ void ao_heap4ptr_up(ao_heap4ptr_t * x, size_t i1)
 
 // ----------------------------------------------------------------------------
 
-void ao_lfsr8(ao_lfsr8_t * x)
+void ao_lfsr8(ao_lfsr8_t * L)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(L);
 
-    ao_assert(x->polynomial);
+    ao_assert(L->polynomial);
 
-    ao_assert(x->seed);
+    ao_assert(L->value);
 
 
     // Variables.
 
-    uint8_t s;
-
     uint8_t t;
+
+    uint8_t v;
 
 
     // Ready.
 
-    s = x->seed;
+    v = L->value;
 
-    t = s & 1;
+    t = v & 1;
 
-    s >>= 1;
+    v >>= 1;
 
     if (t)
     {
-        s ^= x->polynomial;
+        v ^= L->polynomial;
     }
 
-    x->seed = s;
+    L->value = v;
 }
 
 // ----------------------------------------------------------------------------
@@ -7356,38 +7546,38 @@ void ao_lfsr8(ao_lfsr8_t * x)
 
 // ----------------------------------------------------------------------------
 
-void ao_lfsr16(ao_lfsr16_t * x)
+void ao_lfsr16(ao_lfsr16_t * L)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(L);
 
-    ao_assert(x->polynomial);
+    ao_assert(L->polynomial);
 
-    ao_assert(x->seed);
+    ao_assert(L->value);
 
 
     // Variables.
 
-    uint16_t s;
-
     uint16_t t;
+
+    uint16_t v;
 
 
     // Ready.
 
-    s = x->seed;
+    v = L->value;
 
-    t = s & 1;
+    t = v & 1;
 
-    s >>= 1;
+    v >>= 1;
 
     if (t)
     {
-        s ^= x->polynomial;
+        v ^= L->polynomial;
     }
 
-    x->seed = s;
+    L->value = v;
 }
 
 // ----------------------------------------------------------------------------
@@ -7398,38 +7588,38 @@ void ao_lfsr16(ao_lfsr16_t * x)
 
 // ----------------------------------------------------------------------------
 
-void ao_lfsr32(ao_lfsr32_t * x)
+void ao_lfsr32(ao_lfsr32_t * L)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(L);
 
-    ao_assert(x->polynomial);
+    ao_assert(L->polynomial);
 
-    ao_assert(x->seed);
+    ao_assert(L->value);
 
 
     // Variables.
 
-    uint32_t s;
-
     uint32_t t;
+
+    uint32_t v;
 
 
     // Ready.
 
-    s = x->seed;
+    v = L->value;
 
-    t = s & 1;
+    t = v & 1;
 
-    s >>= 1;
+    v >>= 1;
 
     if (t)
     {
-        s ^= x->polynomial;
+        v ^= L->polynomial;
     }
 
-    x->seed = s;
+    L->value = v;
 }
 
 // ----------------------------------------------------------------------------
@@ -7440,38 +7630,38 @@ void ao_lfsr32(ao_lfsr32_t * x)
 
 // ----------------------------------------------------------------------------
 
-void ao_lfsr64(ao_lfsr64_t * x)
+void ao_lfsr64(ao_lfsr64_t * L)
 {
     // Assert.
 
-    ao_assert(x);
+    ao_assert(L);
 
-    ao_assert(x->polynomial);
+    ao_assert(L->polynomial);
 
-    ao_assert(x->seed);
+    ao_assert(L->value);
 
 
     // Variables.
 
-    uint64_t s;
-
     uint64_t t;
+
+    uint64_t v;
 
 
     // Ready.
 
-    s = x->seed;
+    v = L->value;
 
-    t = s & 1;
+    t = v & 1;
 
-    s >>= 1;
+    v >>= 1;
 
     if (t)
     {
-        s ^= x->polynomial;
+        v ^= L->polynomial;
     }
 
-    x->seed = s;
+    L->value = v;
 }
 
 // ----------------------------------------------------------------------------
@@ -7569,6 +7759,27 @@ void ao_list_insert_before(ao_list_t * L, ao_list_node_t * N2, ao_list_node_t * 
     else
     {
         L->front = N2;
+    }
+}
+
+// ----------------------------------------------------------------------------
+
+bool ao_list_is_empty(ao_list_t const * L)
+{
+    ao_assert(L);
+
+    if (L->front == NULL)
+    {
+        ao_assert(L->back == NULL);
+
+        return true;
+    }
+
+    else
+    {
+        ao_assert(L->back != NULL);
+
+        return false;
     }
 }
 
@@ -16984,11 +17195,11 @@ size_t ao_printu64(char * s, size_t no_max, ao_print_t const * o, uint64_t const
 
 // ----------------------------------------------------------------------------
 
-static  size_t          ao_rb_assert_node(  ao_rb_t * X, ao_rb_node_t * N);
+static  size_t          ao_rb_assert_node(  ao_rb_t const * X, ao_rb_node_t const * N);
 
 // ----------------------------------------------------------------------------
 
-static  bool            ao_rb_is_black(     ao_rb_node_t * N);
+static  bool            ao_rb_is_black(     ao_rb_node_t const * N);
 
 // ----------------------------------------------------------------------------
 
@@ -16998,7 +17209,7 @@ static  void            ao_rb_rotate_right( ao_rb_t * X, ao_rb_node_t * N);
 
 // ----------------------------------------------------------------------------
 
-static  ao_rb_node_t *  ao_rb_successor(    ao_rb_node_t * N);
+static  ao_rb_node_t *  ao_rb_successor(    ao_rb_node_t const * N);
 
 // ----------------------------------------------------------------------------
 
@@ -17006,7 +17217,7 @@ static  void            ao_rb_swap(         ao_rb_t * X, ao_rb_node_t * N1, ao_r
 
 // ----------------------------------------------------------------------------
 
-void ao_rb_assert(ao_rb_t * X)
+void ao_rb_assert(ao_rb_t const * X)
 {
     // Assert.
 
@@ -17032,7 +17243,7 @@ void ao_rb_assert(ao_rb_t * X)
     }
 }
 
-size_t ao_rb_assert_node(ao_rb_t * X, ao_rb_node_t * N)
+size_t ao_rb_assert_node(ao_rb_t const * X, ao_rb_node_t const * N)
 {
     // Variables.
 
@@ -17131,6 +17342,8 @@ size_t ao_rb_assert_node(ao_rb_t * X, ao_rb_node_t * N)
         }
     }
 }
+
+// ----------------------------------------------------------------------------
 
 void ao_rb_insert(ao_rb_t * X, ao_rb_node_t * N)
 {
@@ -17358,12 +17571,25 @@ void ao_rb_insert(ao_rb_t * X, ao_rb_node_t * N)
     }
 }
 
-bool ao_rb_is_black(ao_rb_node_t * N)
+// ----------------------------------------------------------------------------
+
+bool ao_rb_is_black(ao_rb_node_t const * N)
 {
     return N ? N->black : true;
 }
 
-ao_rb_node_t * ao_rb_max(ao_rb_t * X)
+// ----------------------------------------------------------------------------
+
+bool ao_rb_is_empty(ao_rb_t const * R)
+{
+    ao_assert(R);
+
+    return R->root == NULL ? true : false;
+}
+
+// ----------------------------------------------------------------------------
+
+ao_rb_node_t * ao_rb_max(ao_rb_t const * X)
 {
     // Assert.
 
@@ -17388,7 +17614,7 @@ ao_rb_node_t * ao_rb_max(ao_rb_t * X)
     return N;
 }
 
-ao_rb_node_t * ao_rb_min(ao_rb_t * X)
+ao_rb_node_t * ao_rb_min(ao_rb_t const * X)
 {
     // Assert.
 
@@ -17412,6 +17638,8 @@ ao_rb_node_t * ao_rb_min(ao_rb_t * X)
 
     return N;
 }
+
+// ----------------------------------------------------------------------------
 
 void ao_rb_remove(ao_rb_t * X, ao_rb_node_t * N)
 {
@@ -17819,6 +18047,8 @@ void ao_rb_remove(ao_rb_t * X, ao_rb_node_t * N)
     }
 }
 
+// ----------------------------------------------------------------------------
+
 void ao_rb_rotate_left(ao_rb_t * X, ao_rb_node_t * N)
 {
     // Assert.
@@ -17947,22 +18177,26 @@ void ao_rb_rotate_right( ao_rb_t * X, ao_rb_node_t * N)
     *P2N = L;
 }
 
-ao_rb_node_t * ao_rb_successor(ao_rb_node_t * N)
+// ----------------------------------------------------------------------------
+
+ao_rb_node_t * ao_rb_successor(ao_rb_node_t const * N)
 {
     ao_assert(N);
 
-    N = N->right;
+    ao_rb_node_t * S = N->right;
 
-    if (N)
+    if (S)
     {
-        while (N->left)
+        while (S->left)
         {
-            N = N->left;
+            S = S->left;
         }
     }
 
-    return N;
+    return S;
 }
+
+// ----------------------------------------------------------------------------
 
 void ao_rb_swap(ao_rb_t * X, ao_rb_node_t * N1, ao_rb_node_t * N2)
 {
@@ -20917,20 +21151,20 @@ size_t ao_scanu64(char const * s, size_t ni_max, ao_scan_t const * o, uint64_t *
 
 // ----------------------------------------------------------------------------
 
-void ao_slist_assert(ao_slist_t * X)
+void ao_slist_assert(ao_slist_t const * S)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(S);
 
-    ao_assert(X->less);
+    ao_assert(S->less);
 
 
     // Variables.
 
-    ao_slist_less_t Less = X->less;
+    ao_slist_less_t Less = S->less;
 
-    void * LessParameter = X->less_parameter;
+    void * LessParameter = S->less_parameter;
 
     ao_slist_node_t * N1;
 
@@ -20939,7 +21173,7 @@ void ao_slist_assert(ao_slist_t * X)
 
     // Ready.
 
-    N1 = X->front;
+    N1 = S->front;
 
     while (N1)
     {
@@ -20961,13 +21195,13 @@ void ao_slist_assert(ao_slist_t * X)
 
 // ----------------------------------------------------------------------------
 
-void ao_slist_insert(ao_slist_t * X, ao_slist_node_t * N2)
+void ao_slist_insert(ao_slist_t * S, ao_slist_node_t * N2)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(S);
 
-    ao_assert(X->less);
+    ao_assert(S->less);
 
     ao_assert(N2);
 
@@ -20978,9 +21212,9 @@ void ao_slist_insert(ao_slist_t * X, ao_slist_node_t * N2)
 
     // Variables.
 
-    ao_slist_less_t Less = X->less;
+    ao_slist_less_t Less = S->less;
 
-    void * LessParameter = X->less_parameter;
+    void * LessParameter = S->less_parameter;
 
     ao_slist_node_t * N1;
 
@@ -20991,7 +21225,7 @@ void ao_slist_insert(ao_slist_t * X, ao_slist_node_t * N2)
 
     N1 = NULL;
 
-    N3 = X->front;
+    N3 = S->front;
 
     while (N3 && !Less(N2, N3, LessParameter))
     {
@@ -21009,7 +21243,7 @@ void ao_slist_insert(ao_slist_t * X, ao_slist_node_t * N2)
 
     else
     {
-        X->front = N2;
+        S->front = N2;
     }
 
     if (N3)
@@ -21021,21 +21255,42 @@ void ao_slist_insert(ao_slist_t * X, ao_slist_node_t * N2)
 
     else
     {
-        X->back = N2;
+        S->back = N2;
     }
 }
 
 // ----------------------------------------------------------------------------
 
-ao_slist_node_t * ao_slist_pop_back(ao_slist_t * X)
+bool ao_slist_is_empty(ao_slist_t const * S)
+{
+    ao_assert(S);
+
+    if (S->front == NULL)
+    {
+        ao_assert(S->back == NULL);
+
+        return true;
+    }
+
+    else
+    {
+        ao_assert(S->back != NULL);
+
+        return false;
+    }
+}
+
+// ----------------------------------------------------------------------------
+
+ao_slist_node_t * ao_slist_pop_back(ao_slist_t * S)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(S);
 
-    ao_assert(X->front);
+    ao_assert(S->front);
 
-    ao_assert(X->back);
+    ao_assert(S->back);
 
 
     // Variables.
@@ -21047,7 +21302,7 @@ ao_slist_node_t * ao_slist_pop_back(ao_slist_t * X)
 
     // Ready.
 
-    N2 = X->back;
+    N2 = S->back;
 
     N1 = N2->prev;
 
@@ -21060,23 +21315,23 @@ ao_slist_node_t * ao_slist_pop_back(ao_slist_t * X)
 
     else
     {
-        X->front = NULL;
+        S->front = NULL;
     }
 
-    X->back = N1;
+    S->back = N1;
 
     return N2;
 }
 
-ao_slist_node_t * ao_slist_pop_front(ao_slist_t * X)
+ao_slist_node_t * ao_slist_pop_front(ao_slist_t * S)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(S);
 
-    ao_assert(X->front);
+    ao_assert(S->front);
 
-    ao_assert(X->back);
+    ao_assert(S->back);
 
 
     // Variables.
@@ -21088,7 +21343,7 @@ ao_slist_node_t * ao_slist_pop_front(ao_slist_t * X)
 
     // Ready.
 
-    N1 = X->front;
+    N1 = S->front;
 
     N2 = N1->next;
 
@@ -21101,25 +21356,25 @@ ao_slist_node_t * ao_slist_pop_front(ao_slist_t * X)
 
     else
     {
-        X->back = NULL;
+        S->back = NULL;
     }
 
-    X->front = N2;
+    S->front = N2;
 
     return N1;
 }
 
 // ----------------------------------------------------------------------------
 
-void ao_slist_remove(ao_slist_t * X, ao_slist_node_t * N2)
+void ao_slist_remove(ao_slist_t * S, ao_slist_node_t * N2)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(S);
 
-    ao_assert(X->front);
+    ao_assert(S->front);
 
-    ao_assert(X->back);
+    ao_assert(S->back);
 
     ao_assert(N2);
 
@@ -21146,7 +21401,7 @@ void ao_slist_remove(ao_slist_t * X, ao_slist_node_t * N2)
 
     else
     {
-        X->front = N3;
+        S->front = N3;
     }
 
     if (N3)
@@ -21158,15 +21413,15 @@ void ao_slist_remove(ao_slist_t * X, ao_slist_node_t * N2)
 
     else
     {
-        X->back = N1;
+        S->back = N1;
     }
 }
 
-void ao_slist_remove_all(ao_slist_t * X)
+void ao_slist_remove_all(ao_slist_t * S)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(S);
 
 
     // Variables.
@@ -21178,7 +21433,7 @@ void ao_slist_remove_all(ao_slist_t * X)
 
     // Ready.
 
-    N1 = X->front;
+    N1 = S->front;
 
     while (N1)
     {
@@ -21191,20 +21446,20 @@ void ao_slist_remove_all(ao_slist_t * X)
         N1 = N2;
     }
 
-    X->front = NULL;
+    S->front = NULL;
 
-    X->back  = NULL;
+    S->back  = NULL;
 }
 
-void ao_slist_remove_back(ao_slist_t * X)
+void ao_slist_remove_back(ao_slist_t * S)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(S);
 
-    ao_assert(X->front);
+    ao_assert(S->front);
 
-    ao_assert(X->back);
+    ao_assert(S->back);
 
 
     // Variables.
@@ -21216,7 +21471,7 @@ void ao_slist_remove_back(ao_slist_t * X)
 
     // Ready.
 
-    N2 = X->back;
+    N2 = S->back;
 
     N1 = N2->prev;
 
@@ -21229,21 +21484,21 @@ void ao_slist_remove_back(ao_slist_t * X)
 
     else
     {
-        X->front = NULL;
+        S->front = NULL;
     }
 
-    X->back = N1;
+    S->back = N1;
 }
 
-void ao_slist_remove_front(ao_slist_t * X)
+void ao_slist_remove_front(ao_slist_t * S)
 {
     // Assert.
 
-    ao_assert(X);
+    ao_assert(S);
 
-    ao_assert(X->front);
+    ao_assert(S->front);
 
-    ao_assert(X->back);
+    ao_assert(S->back);
 
 
     // Variables.
@@ -21255,7 +21510,7 @@ void ao_slist_remove_front(ao_slist_t * X)
 
     // Ready.
 
-    N1 = X->front;
+    N1 = S->front;
 
     N2 = N1->next;
 
@@ -21268,19 +21523,19 @@ void ao_slist_remove_front(ao_slist_t * X)
 
     else
     {
-        X->back = NULL;
+        S->back = NULL;
     }
 
-    X->front = N2;
+    S->front = N2;
 }
 
 // ----------------------------------------------------------------------------
 
-void ao_slist_update(ao_slist_t * X, ao_slist_node_t * N)
+void ao_slist_update(ao_slist_t * S, ao_slist_node_t * N)
 {
-    ao_slist_remove(X, N);
+    ao_slist_remove(S, N);
 
-    ao_slist_insert(X, N);
+    ao_slist_insert(S, N);
 }
 
 // ----------------------------------------------------------------------------

@@ -26,7 +26,7 @@
 
 // Allocator 0.
 
-// This module is a stub implementation.
+// Allocator stub.
 
 // ----------------------------------------------------------------------------
 

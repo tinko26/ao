@@ -24,9 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Mail.
-
-// Asynchronous messaging.
+// Mail for asynchronous messaging.
 
 // ----------------------------------------------------------------------------
 
@@ -49,20 +47,28 @@ typedef struct  ao_mailbox_t    ao_mailbox_t;
 
 #define AO_MAIL
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_MAIL_T
+
+#define AO_MAIL_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_mail_t
 {
-        ao_list_node_t          node;
+        ao_list_node_t          mailbox_mail_node;
 };
 
 // ----------------------------------------------------------------------------
 
 #endif
 
-#ifndef AO_MAIL_FETCH
+#ifndef AO_MAIL_FETCH_T
 
-#define AO_MAIL_FETCH
+#define AO_MAIL_FETCH_T
 
 // ----------------------------------------------------------------------------
 
@@ -74,7 +80,7 @@ struct  ao_mail_fetch_t
 
         ao_mailbox_t *          mailbox;
 
-        ao_list_node_t          node;
+        ao_list_node_t          mailbox_fetch_node;
 
         bool        volatile    result;
 };
@@ -83,17 +89,17 @@ struct  ao_mail_fetch_t
 
 #endif
 
-#ifndef AO_MAILBOX
+#ifndef AO_MAILBOX_T
 
-#define AO_MAILBOX
+#define AO_MAILBOX_T
 
 // ----------------------------------------------------------------------------
 
 struct  ao_mailbox_t
 {
-        ao_list_t               fetchers;
+        ao_list_t               fetch;
 
-        ao_list_t               mails;
+        ao_list_t               mail;
 };
 
 // ----------------------------------------------------------------------------
@@ -102,24 +108,24 @@ struct  ao_mailbox_t
 
 // ----------------------------------------------------------------------------
 
+void    ao_mail_fetch(          ao_mail_fetch_t * f, ao_time_t timeout);
+
+void    ao_mail_fetch_from(     ao_mail_fetch_t * f, ao_time_t timeout, ao_time_t beginning);
+
+void    ao_mail_fetch_forever(  ao_mail_fetch_t * f);
+
+// ----------------------------------------------------------------------------
+
+void    ao_mail_fetch_try(      ao_mail_fetch_t * f);
+
+// ----------------------------------------------------------------------------
+
+void    ao_mail_fetch_begin(    ao_mail_fetch_t * f);
+
+void    ao_mail_fetch_end(      ao_mail_fetch_t * f);
+
+// ----------------------------------------------------------------------------
+
 void    ao_mail_post(           ao_mailbox_t * x, ao_mail_t * m);
-
-// ----------------------------------------------------------------------------
-
-bool    ao_mail_fetch(          ao_mailbox_t * x, ao_mail_t ** m, ao_time_t timeout);
-
-bool    ao_mail_fetch_from(     ao_mailbox_t * x, ao_mail_t ** m, ao_time_t timeout, ao_time_t beginning);
-
-bool    ao_mail_fetch_forever(  ao_mailbox_t * x, ao_mail_t ** m);
-
-// ----------------------------------------------------------------------------
-
-bool    ao_mail_fetch_try(      ao_mailbox_t * x, ao_mail_t ** m);
-
-// ----------------------------------------------------------------------------
-
-void    ao_mail_fetch_begin(    ao_mail_fetch_t * x);
-
-void    ao_mail_fetch_end(      ao_mail_fetch_t * x);
 
 // ----------------------------------------------------------------------------

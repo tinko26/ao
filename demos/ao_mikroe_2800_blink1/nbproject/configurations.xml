@@ -98,9 +98,6 @@
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
       </C32>
-      <C32-AR>
-        <property key="additional-options-chop-files" value="false"/>
-      </C32-AR>
       <C32-AS>
         <property key="assembler-symbols" value=""/>
         <property key="enable-symbols" value="true"/>
@@ -121,10 +118,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="warning-level" value=""/>
       </C32-AS>
-      <C32-CO>
-        <property key="coverage-enable" value=""/>
-        <property key="stack-guidance" value="false"/>
-      </C32-CO>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
@@ -165,38 +158,9 @@
         <property key="trace-symbols" value=""/>
         <property key="warn-section-align" value="false"/>
       </C32-LD>
-      <C32CPP>
-        <property key="additional-warnings" value="false"/>
-        <property key="addresss-attribute-use" value="false"/>
-        <property key="check-new" value="false"/>
-        <property key="eh-specs" value="true"/>
-        <property key="enable-app-io" value="false"/>
-        <property key="enable-omit-frame-pointer" value="false"/>
-        <property key="enable-symbols" value="true"/>
-        <property key="enable-unroll-loops" value="false"/>
-        <property key="exceptions" value="true"/>
-        <property key="exclude-floating-point" value="false"/>
-        <property key="extra-include-directories" value=""/>
-        <property key="generate-16-bit-code" value="false"/>
-        <property key="generate-micro-compressed-code" value="false"/>
-        <property key="isolate-each-function" value="false"/>
-        <property key="make-warnings-into-errors" value="false"/>
-        <property key="optimization-level" value=""/>
-        <property key="place-data-into-section" value="false"/>
-        <property key="post-instruction-scheduling" value="default"/>
-        <property key="pre-instruction-scheduling" value="default"/>
-        <property key="preprocessor-macros" value=""/>
-        <property key="rtti" value="true"/>
-        <property key="strict-ansi" value="false"/>
-        <property key="toplevel-reordering" value=""/>
-        <property key="unaligned-access" value=""/>
-        <property key="use-cci" value="false"/>
-        <property key="use-iar" value="false"/>
-        <property key="use-indirect-calls" value="false"/>
-      </C32CPP>
       <C32Global>
         <property key="common-include-directories"
-                  value="../ao_mikroe_2800_blink1;../ao_mikroe_2800;../../src/ao_sys_xc32_pic32mz_ef;../../src/ao_sys_xc32_pic32mz;../../src/ao_sys_xc32_pic32;../../src/ao_sys_xc32;../../src/ao_sys;../../src/ao"/>
+                  value="../ao_mikroe_2800_blink1;../ao_mikroe_2800;../ao_mikroe;../../src/ao_sys_xc32_pic32mz_ef;../../src/ao_sys_xc32_pic32mz;../../src/ao_sys_xc32_pic32;../../src/ao_sys_xc32;../../src/ao_sys;../../src/ao"/>
         <property key="gp-relative-option" value=""/>
         <property key="legacy-libc" value="true"/>
         <property key="mdtcm" value=""/>

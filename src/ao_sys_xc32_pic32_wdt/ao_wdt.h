@@ -53,6 +53,8 @@
 
 #endif
 
+// ----------------------------------------------------------------------------
+
 #ifndef ao_wdt_is_enabled
 
 #define ao_wdt_is_enabled()     (WDTCON & _WDTCON_ON_MASK ? true : false)

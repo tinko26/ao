@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Clocks.
+// System clocks.
 
 // ----------------------------------------------------------------------------
 
@@ -80,202 +80,6 @@
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_SYS_CLOCK_IC1
-
-#define AO_SYS_CLOCK_IC1    (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_IC2
-
-#define AO_SYS_CLOCK_IC2    (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_IC3
-
-#define AO_SYS_CLOCK_IC3    (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_IC4
-
-#define AO_SYS_CLOCK_IC4    (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_IC5
-
-#define AO_SYS_CLOCK_IC5    (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_IC6
-
-#define AO_SYS_CLOCK_IC6    (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_IC7
-
-#define AO_SYS_CLOCK_IC7    (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_IC8
-
-#define AO_SYS_CLOCK_IC8    (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_IC9
-
-#define AO_SYS_CLOCK_IC9    (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_IC10
-
-#define AO_SYS_CLOCK_IC10   (AO_SYS_PBCLK3)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_IC11
-
-#define AO_SYS_CLOCK_IC11   (AO_SYS_PBCLK3)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_IC12
-
-#define AO_SYS_CLOCK_IC12   (AO_SYS_PBCLK3)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_IC13
-
-#define AO_SYS_CLOCK_IC13   (AO_SYS_PBCLK3)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_IC14
-
-#define AO_SYS_CLOCK_IC14   (AO_SYS_PBCLK3)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_IC15
-
-#define AO_SYS_CLOCK_IC15   (AO_SYS_PBCLK3)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_IC16
-
-#define AO_SYS_CLOCK_IC16   (AO_SYS_PBCLK3)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#ifndef AO_SYS_CLOCK_OC1
-
-#define AO_SYS_CLOCK_OC1    (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_OC2
-
-#define AO_SYS_CLOCK_OC2    (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_OC3
-
-#define AO_SYS_CLOCK_OC3    (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_OC4
-
-#define AO_SYS_CLOCK_OC4    (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_OC5
-
-#define AO_SYS_CLOCK_OC5    (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_OC6
-
-#define AO_SYS_CLOCK_OC6    (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_OC7
-
-#define AO_SYS_CLOCK_OC7    (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_OC8
-
-#define AO_SYS_CLOCK_OC8    (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_OC9
-
-#define AO_SYS_CLOCK_OC9    (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_OC10
-
-#define AO_SYS_CLOCK_OC10   (AO_SYS_PBCLK3)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_OC11
-
-#define AO_SYS_CLOCK_OC11   (AO_SYS_PBCLK3)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_OC12
-
-#define AO_SYS_CLOCK_OC12   (AO_SYS_PBCLK3)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_OC13
-
-#define AO_SYS_CLOCK_OC13   (AO_SYS_PBCLK3)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_OC14
-
-#define AO_SYS_CLOCK_OC14   (AO_SYS_PBCLK3)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_OC15
-
-#define AO_SYS_CLOCK_OC15   (AO_SYS_PBCLK3)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_OC16
-
-#define AO_SYS_CLOCK_OC16   (AO_SYS_PBCLK3)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
 #ifndef AO_SYS_CLOCK_SPI1
 
 #define AO_SYS_CLOCK_SPI1   (AO_SYS_PBCLK2)
@@ -314,95 +118,39 @@
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_SYS_CLOCK_T1
+#ifndef AO_SYS_CLOCK_UART1
 
-#define AO_SYS_CLOCK_T1     (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_T2
-
-#define AO_SYS_CLOCK_T2     (AO_SYS_PBCLK2)
+#define AO_SYS_CLOCK_UART1  (AO_SYS_PBCLK2)
 
 #endif
 
-#ifndef AO_SYS_CLOCK_T3
+#ifndef AO_SYS_CLOCK_UART2
 
-#define AO_SYS_CLOCK_T3     (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_T4
-
-#define AO_SYS_CLOCK_T4     (AO_SYS_PBCLK2)
+#define AO_SYS_CLOCK_UART2  (AO_SYS_PBCLK2)
 
 #endif
 
-#ifndef AO_SYS_CLOCK_T5
+#ifndef AO_SYS_CLOCK_UART3
 
-#define AO_SYS_CLOCK_T5     (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_T6
-
-#define AO_SYS_CLOCK_T6     (AO_SYS_PBCLK2)
+#define AO_SYS_CLOCK_UART3  (AO_SYS_PBCLK3)
 
 #endif
 
-#ifndef AO_SYS_CLOCK_T7
+#ifndef AO_SYS_CLOCK_UART4
 
-#define AO_SYS_CLOCK_T7     (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_T8
-
-#define AO_SYS_CLOCK_T8     (AO_SYS_PBCLK2)
+#define AO_SYS_CLOCK_UART4  (AO_SYS_PBCLK3)
 
 #endif
 
-#ifndef AO_SYS_CLOCK_T9
+#ifndef AO_SYS_CLOCK_UART5
 
-#define AO_SYS_CLOCK_T9     (AO_SYS_PBCLK2)
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#ifndef AO_SYS_CLOCK_U1
-
-#define AO_SYS_CLOCK_U1     (AO_SYS_PBCLK2)
+#define AO_SYS_CLOCK_UART5  (AO_SYS_PBCLK3)
 
 #endif
 
-#ifndef AO_SYS_CLOCK_U2
+#ifndef AO_SYS_CLOCK_UART6
 
-#define AO_SYS_CLOCK_U2     (AO_SYS_PBCLK2)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_U3
-
-#define AO_SYS_CLOCK_U3     (AO_SYS_PBCLK3)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_U4
-
-#define AO_SYS_CLOCK_U4     (AO_SYS_PBCLK3)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_U5
-
-#define AO_SYS_CLOCK_U5     (AO_SYS_PBCLK3)
-
-#endif
-
-#ifndef AO_SYS_CLOCK_U6
-
-#define AO_SYS_CLOCK_U6     (AO_SYS_PBCLK3)
+#define AO_SYS_CLOCK_UART6  (AO_SYS_PBCLK3)
 
 #endif
 

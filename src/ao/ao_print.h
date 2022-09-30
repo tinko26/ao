@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Printing numbers.
+// Converting numbers to string.
 
 // ----------------------------------------------------------------------------
 
@@ -42,31 +42,39 @@ typedef struct  ao_print_t  ao_print_t;
 
 #define AO_PRINT
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_PRINT_T
+
+#define AO_PRINT_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_print_t
 {
-        size_t      digits_exponent;
+        size_t              digits_exponent;
 
-        size_t      digits_fractional;
+        size_t              digits_fractional;
 
-        size_t      digits_integral;
+        size_t              digits_integral;
 
-        size_t      precision;
+        size_t              precision;
 
-        size_t      radix;
+        size_t              radix;
 
-        bool        right;
+        bool                right;
 
-        bool        sign;
+        bool                sign;
 
-        bool        sign_exponent;
+        bool                sign_exponent;
 
-        bool        sign_space;
+        bool                sign_space;
 
-        bool        uppercase;
+        bool                uppercase;
 
-        size_t      width;
+        size_t              width;
 };
 
 // ----------------------------------------------------------------------------
@@ -75,98 +83,38 @@ struct  ao_print_t
 
 // ----------------------------------------------------------------------------
 
-// @brief
+size_t  ao_printed(         char * s, size_t n, ao_print_t const * o, double const * v);
 
-// Prints a floating point number in scientific notation.
+size_t  ao_printef(         char * s, size_t n, ao_print_t const * o, float const * v);
 
-// @param [out] s   String.
-// @param [in]  n   Maximum number of characters to write.
-// @param [in]  o   Options.
-// @param [in]  v   Value.
-
-// @return
-
-// On success, the number of characters written.
-
-// On failure, zero.
-
-size_t  ao_printed( char * s, size_t n, ao_print_t const * o, double      const * v);
-
-size_t  ao_printef( char * s, size_t n, ao_print_t const * o, float       const * v);
-
-size_t  ao_printel( char * s, size_t n, ao_print_t const * o, long double const * v);
+size_t  ao_printel(         char * s, size_t n, ao_print_t const * o, long double const * v);
 
 // ----------------------------------------------------------------------------
 
-// @brief
+size_t  ao_printfd(         char * s, size_t n, ao_print_t const * o, double const * v);
 
-// Prints a floating point number.
+size_t  ao_printff(         char * s, size_t n, ao_print_t const * o, float const * v);
 
-// @param [out] s   String.
-// @param [in]  n   Maximum number of characters to write.
-// @param [in]  o   Options.
-// @param [in]  v   Value.
-
-// @return
-
-// On success, the number of characters written.
-
-// On failure, zero.
-
-size_t  ao_printfd( char * s, size_t n, ao_print_t const * o, double      const * v);
-
-size_t  ao_printff( char * s, size_t n, ao_print_t const * o, float       const * v);
-
-size_t  ao_printfl( char * s, size_t n, ao_print_t const * o, long double const * v);
+size_t  ao_printfl(         char * s, size_t n, ao_print_t const * o, long double const * v);
 
 // ----------------------------------------------------------------------------
 
-// @brief
+size_t  ao_printi8(         char * s, size_t n, ao_print_t const * o, int8_t const * v);
 
-// Prints a signed integer.
+size_t  ao_printi16(        char * s, size_t n, ao_print_t const * o, int16_t const * v);
 
-// @param [out] s   String.
-// @param [in]  n   Maximum number of characters to write.
-// @param [in]  o   Options.
-// @param [in]  v   Value.
+size_t  ao_printi32(        char * s, size_t n, ao_print_t const * o, int32_t const * v);
 
-// @return
-
-// On success, the number of characters written.
-
-// On failure, zero.
-
-size_t  ao_printi8( char * s, size_t n, ao_print_t const * o, int8_t  const * v);
-
-size_t  ao_printi16(char * s, size_t n, ao_print_t const * o, int16_t const * v);
-
-size_t  ao_printi32(char * s, size_t n, ao_print_t const * o, int32_t const * v);
-
-size_t  ao_printi64(char * s, size_t n, ao_print_t const * o, int64_t const * v);
+size_t  ao_printi64(        char * s, size_t n, ao_print_t const * o, int64_t const * v);
 
 // ----------------------------------------------------------------------------
 
-// @brief
+size_t  ao_printu8(         char * s, size_t n, ao_print_t const * o, uint8_t const * v);
 
-// Prints an unsigned integer.
+size_t  ao_printu16(        char * s, size_t n, ao_print_t const * o, uint16_t const * v);
 
-// @param [out] s   String.
-// @param [in]  n   Maximum number of characters to write.
-// @param [in]  o   Options.
-// @param [in]  v   Value.
+size_t  ao_printu32(        char * s, size_t n, ao_print_t const * o, uint32_t const * v);
 
-// @return
-
-// On success, the number of characters written.
-
-// On failure, zero.
-
-size_t  ao_printu8( char * s, size_t n, ao_print_t const * o, uint8_t  const * v);
-
-size_t  ao_printu16(char * s, size_t n, ao_print_t const * o, uint16_t const * v);
-
-size_t  ao_printu32(char * s, size_t n, ao_print_t const * o, uint32_t const * v);
-
-size_t  ao_printu64(char * s, size_t n, ao_print_t const * o, uint64_t const * v);
+size_t  ao_printu64(        char * s, size_t n, ao_print_t const * o, uint64_t const * v);
 
 // ----------------------------------------------------------------------------

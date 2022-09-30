@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Receive.
+// Receiving.
 
 // ----------------------------------------------------------------------------
 
@@ -39,13 +39,21 @@ typedef struct  ao_recv_t   ao_recv_t;
 
 // ----------------------------------------------------------------------------
 
-typedef void (*             ao_recv_proc_t) (ao_recv_t * x);
+typedef void (*             ao_recv_proc_t) (ao_recv_t * recv);
 
 // ----------------------------------------------------------------------------
 
 #ifndef AO_RECV
 
 #define AO_RECV
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_RECV_T
+
+#define AO_RECV_T
 
 // ----------------------------------------------------------------------------
 
@@ -76,20 +84,20 @@ struct  ao_recv_t
 
 // ----------------------------------------------------------------------------
 
-void    ao_recv(            ao_recv_t * x, ao_time_t timeout);
+void    ao_recv(            ao_recv_t * r, ao_time_t timeout);
 
-void    ao_recv_from(       ao_recv_t * x, ao_time_t timeout, ao_time_t beginning);
+void    ao_recv_from(       ao_recv_t * r, ao_time_t timeout, ao_time_t beginning);
 
-void    ao_recv_forever(    ao_recv_t * x);
-
-// ----------------------------------------------------------------------------
-
-void    ao_recv_try(        ao_recv_t * x);
+void    ao_recv_forever(    ao_recv_t * r);
 
 // ----------------------------------------------------------------------------
 
-void    ao_recv_begin(      ao_recv_t * x);
+void    ao_recv_try(        ao_recv_t * r);
 
-void    ao_recv_end(        ao_recv_t * x);
+// ----------------------------------------------------------------------------
+
+void    ao_recv_begin(      ao_recv_t * r);
+
+void    ao_recv_end(        ao_recv_t * r);
 
 // ----------------------------------------------------------------------------

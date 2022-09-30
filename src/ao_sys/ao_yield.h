@@ -24,65 +24,8 @@
 
 // ----------------------------------------------------------------------------
 
-// Yield.
+// Yielding.
 
-// ----------------------------------------------------------------------------
-
-// @seeAlso
-
-// https://en.wikipedia.org/wiki/Coroutine
-
-// https://en.wikipedia.org/wiki/Producer-consumer_problem
-
-// ----------------------------------------------------------------------------
-
-// @example
-
-// Producer-consumer problem.
-
-// @code
-
-/*
-
-    ao_task_t * consumer;
-
-    ao_task_t * producer;
-
-    void consumer_proc(void * x)
-    {
-        while (1)
-        {
-            // Wait for the producer to produce something.
-
-            ao_yield_to( producer );
-
-
-            // Consume what the producer has produced.
-
-            consume();
-        }
-    }
-
-    void producer_proc(void * x)
-    {
-        while (1)
-        {
-            // Produce something.
-
-            produce();
-
-
-            // Wait for the consumer to consume what has been produced.
-
-            ao_yield_to( consumer );
-        }
-    }
-
-*/
-
-// @endCode
-
-// ----------------------------------------------------------------------------
 
 #include <ao_task.h>
 
@@ -96,17 +39,9 @@
 
 // ----------------------------------------------------------------------------
 
-// Forces a context switch.
-
-// That is, the calling task gives up the CPU in favor of another task.
-
 void    ao_yield();
 
 // ----------------------------------------------------------------------------
-
-// Puts the calling task to sleep and wakes up another task.
-
-// This allows for tasks behaving similar to coroutines.
 
 void    ao_yield_to(ao_task_t * t);
 

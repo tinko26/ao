@@ -26,8 +26,6 @@
 
 // Sizes.
 
-// This module contains functions for size_t values.
-
 // ----------------------------------------------------------------------------
 
 #include <ao_uint.h>
@@ -72,19 +70,43 @@
 
 // ----------------------------------------------------------------------------
 
-size_t  ao_cloz(size_t x);
+#ifndef ao_cloz
 
-size_t  ao_clzz(size_t x);
+size_t  ao_cloz(            size_t x);
 
-size_t  ao_ctoz(size_t x);
+#endif
 
-size_t  ao_ctzz(size_t x);
+#ifndef ao_clzz
+
+size_t  ao_clzz(            size_t x);
+
+#endif
+
+#ifndef ao_ctoz
+
+size_t  ao_ctoz(            size_t x);
+
+#endif
+
+#ifndef ao_ctzz
+
+size_t  ao_ctzz(            size_t x);
+
+#endif
 
 // ----------------------------------------------------------------------------
 
-size_t  ao_ffsz(size_t x);
+#ifndef ao_ffsz
 
-size_t  ao_flsz(size_t x);
+size_t  ao_ffsz(            size_t x);
+
+#endif
+
+#ifndef ao_flsz
+
+size_t  ao_flsz(            size_t x);
+
+#endif
 
 // ----------------------------------------------------------------------------
 

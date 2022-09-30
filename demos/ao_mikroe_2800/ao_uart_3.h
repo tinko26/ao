@@ -26,8 +26,6 @@
 
 // UART 3.
 
-// This module supports baud rates up to 921600 bps.
-
 // ----------------------------------------------------------------------------
 
 #include <ao_mikroe_2674.h>

@@ -24,11 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Cores.
-
-// This module supports symmetric multiprocessing (SMP) systems.
-
-// This module provides information about identical processor cores.
+// Processor cores.
 
 // ----------------------------------------------------------------------------
 
@@ -47,9 +43,6 @@ typedef uint32_t        ao_core_t;
 #endif
 
 // ----------------------------------------------------------------------------
-
-// Gets the zero-based index of the core,
-// on which the calling thread of execution is running.
 
 #ifndef ao_core
 

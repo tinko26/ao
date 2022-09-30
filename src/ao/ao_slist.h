@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Sorted list.
+// Sorted lists.
 
 // ----------------------------------------------------------------------------
 
@@ -41,9 +41,9 @@ typedef struct  ao_slist_node_t ao_slist_node_t;
 
 typedef bool (*                 ao_slist_less_t)
 (
-        ao_slist_node_t *       n1,
+        ao_slist_node_t const * n1,
 
-        ao_slist_node_t *       n2,
+        ao_slist_node_t const * n2,
 
         void *                  parameter
 );
@@ -53,6 +53,14 @@ typedef bool (*                 ao_slist_less_t)
 #ifndef AO_SLIST
 
 #define AO_SLIST
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_SLIST_T
+
+#define AO_SLIST_T
 
 // ----------------------------------------------------------------------------
 
@@ -71,9 +79,9 @@ struct  ao_slist_t
 
 #endif
 
-#ifndef AO_SLIST_NODE
+#ifndef AO_SLIST_NODE_T
 
-#define AO_SLIST_NODE
+#define AO_SLIST_NODE_T
 
 // ----------------------------------------------------------------------------
 
@@ -90,42 +98,38 @@ struct  ao_slist_node_t
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_slist_is_empty
-
-#define ao_slist_is_empty(x)    ((x)->front == NULL ? true : false)
-
-#endif
+void    ao_slist_assert(        ao_slist_t const * s);
 
 // ----------------------------------------------------------------------------
 
-void    ao_slist_assert(        ao_slist_t * x);
+void    ao_slist_insert(        ao_slist_t * s, ao_slist_node_t * n);
 
 // ----------------------------------------------------------------------------
 
-void    ao_slist_insert(        ao_slist_t * x, ao_slist_node_t * n);
+bool    ao_slist_is_empty(      ao_slist_t const * s);
 
 // ----------------------------------------------------------------------------
 
 ao_slist_node_t *
 
-        ao_slist_pop_back(      ao_slist_t * x);
+        ao_slist_pop_back(      ao_slist_t * s);
 
 ao_slist_node_t *
 
-        ao_slist_pop_front(     ao_slist_t * x);
+        ao_slist_pop_front(     ao_slist_t * s);
 
 // ----------------------------------------------------------------------------
 
-void    ao_slist_remove(        ao_slist_t * x, ao_slist_node_t * n);
+void    ao_slist_remove(        ao_slist_t * s, ao_slist_node_t * n);
 
-void    ao_slist_remove_all(    ao_slist_t * x);
+void    ao_slist_remove_all(    ao_slist_t * s);
 
-void    ao_slist_remove_back(   ao_slist_t * x);
+void    ao_slist_remove_back(   ao_slist_t * s);
 
-void    ao_slist_remove_front(  ao_slist_t * x);
+void    ao_slist_remove_front(  ao_slist_t * s);
 
 // ----------------------------------------------------------------------------
 
-void    ao_slist_update(        ao_slist_t * x, ao_slist_node_t * n);
+void    ao_slist_update(        ao_slist_t * s, ao_slist_node_t * n);
 
 // ----------------------------------------------------------------------------

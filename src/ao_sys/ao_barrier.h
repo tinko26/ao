@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Barrier.
+// Barriers.
 
 // ----------------------------------------------------------------------------
 
@@ -46,6 +46,14 @@ typedef struct  ao_barrier_wait_t   ao_barrier_wait_t;
 
 #define AO_BARRIER
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_BARRIER_T
+
+#define AO_BARRIER_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_barrier_t
@@ -54,16 +62,16 @@ struct  ao_barrier_t
 
         ao_uint_t                   count_threshold;
 
-        ao_list_t                   list;
+        ao_list_t                   wait;
 };
 
 // ----------------------------------------------------------------------------
 
 #endif
 
-#ifndef AO_BARRIER_WAIT
+#ifndef AO_BARRIER_WAIT_T
 
-#define AO_BARRIER_WAIT
+#define AO_BARRIER_WAIT_T
 
 // ----------------------------------------------------------------------------
 
@@ -73,7 +81,7 @@ struct  ao_barrier_wait_t
 
         ao_barrier_t *              barrier;
 
-        ao_list_node_t              node;
+        ao_list_node_t              barrier_wait_node;
 
         bool            volatile    result;
 };
@@ -84,20 +92,20 @@ struct  ao_barrier_wait_t
 
 // ----------------------------------------------------------------------------
 
-bool    ao_barrier_wait(            ao_barrier_t * x, ao_time_t timeout);
+bool    ao_barrier_wait(            ao_barrier_t * b, ao_time_t timeout);
 
-bool    ao_barrier_wait_from(       ao_barrier_t * x, ao_time_t timeout, ao_time_t beginning);
+bool    ao_barrier_wait_from(       ao_barrier_t * b, ao_time_t timeout, ao_time_t beginning);
 
-bool    ao_barrier_wait_forever(    ao_barrier_t * x);
-
-// ----------------------------------------------------------------------------
-
-bool    ao_barrier_wait_try(        ao_barrier_t * x);
+bool    ao_barrier_wait_forever(    ao_barrier_t * b);
 
 // ----------------------------------------------------------------------------
 
-void    ao_barrier_wait_begin(      ao_barrier_wait_t * x);
+bool    ao_barrier_wait_try(        ao_barrier_t * b);
 
-void    ao_barrier_wait_end(        ao_barrier_wait_t * x);
+// ----------------------------------------------------------------------------
+
+void    ao_barrier_wait_begin(      ao_barrier_wait_t * w);
+
+void    ao_barrier_wait_end(        ao_barrier_wait_t * w);
 
 // ----------------------------------------------------------------------------

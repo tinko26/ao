@@ -26,23 +26,7 @@
 
 // Alarm queue 5.
 
-// This module implements an alarm queue based on a red-black tree.
-
-// Time complexities:
-
-// Insert       O(log N)
-
-// Peek         O(log N)
-
-// Remove       O(log N)
-
-// Remove peek  O(log N)
-
-// ----------------------------------------------------------------------------
-
-// @seeAlso
-
-// https://en.wikipedia.org/wiki/Red–black_tree
+// Alarm queue based on a red-black tree.
 
 // ----------------------------------------------------------------------------
 

@@ -24,23 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Microchip XC32.
-
-// Microchip PIC32.
-
-// Random number generators.
-
-// ----------------------------------------------------------------------------
-
-// @seeAlso
-
-// PIC32 Family Reference Manual.
-
-// Section 49.
-
-// Crypto Engine and Random Number Generator (RNG).
-
-// https://microchip.com/DS60001246
+// PIC32 RNG driver.
 
 // ----------------------------------------------------------------------------
 

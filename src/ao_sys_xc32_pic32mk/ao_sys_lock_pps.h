@@ -28,32 +28,6 @@
 
 // ----------------------------------------------------------------------------
 
-// @example
-
-// @code
-
-/*
-
-    ao_sys_lock_pps_t x;
-
-    ao_sys_unlock_pps(&x);
-    {
-        // ...
-
-        // Critical section.
-
-        // Peripheral pin select registers can be written.
-
-        // ...
-    }
-    ao_sys_lock_pps(&x);
-
-*/
-
-// @endCode
-
-// ----------------------------------------------------------------------------
-
 #include <ao_sys_lock_device.h>
 #include <stdint.h>
 
@@ -63,9 +37,9 @@ typedef struct  ao_sys_lock_pps_t   ao_sys_lock_pps_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_SYS_LOCK_PPS
+#ifndef AO_SYS_LOCK_PPS_T
 
-#define AO_SYS_LOCK_PPS
+#define AO_SYS_LOCK_PPS_T
 
 // ----------------------------------------------------------------------------
 

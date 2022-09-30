@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Floating-point numbers.
+// Floating-point numbers based on double.
 
 // ----------------------------------------------------------------------------
 
@@ -33,13 +33,13 @@
 
 // ----------------------------------------------------------------------------
 
-typedef double                                          ao_float_t;
+typedef double              ao_float_t;
 
 // ----------------------------------------------------------------------------
 
 #ifndef AO_FLOAT_DIG
 
-#define AO_FLOAT_DIG                                    (DBL_DIG)
+#define AO_FLOAT_DIG        (DBL_DIG)
 
 #endif
 
@@ -47,7 +47,7 @@ typedef double                                          ao_float_t;
 
 #ifndef AO_FLOAT_EPSILON
 
-#define AO_FLOAT_EPSILON                                (DBL_EPSILON)
+#define AO_FLOAT_EPSILON    (DBL_EPSILON)
 
 #endif
 
@@ -55,13 +55,13 @@ typedef double                                          ao_float_t;
 
 #ifndef AO_FLOAT_MAX
 
-#define AO_FLOAT_MAX                                    (DBL_MAX)
+#define AO_FLOAT_MAX        (DBL_MAX)
 
 #endif
 
 #ifndef AO_FLOAT_MIN
 
-#define AO_FLOAT_MIN                                    (DBL_MIN)
+#define AO_FLOAT_MIN        (DBL_MIN)
 
 #endif
 

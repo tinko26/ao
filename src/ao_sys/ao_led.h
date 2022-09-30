@@ -40,9 +40,9 @@ typedef     enum    ao_leds_t   ao_leds_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef     AO_LEDS
+#ifndef     AO_LEDS_T
 
-#define     AO_LEDS
+#define     AO_LEDS_T
 
 // ----------------------------------------------------------------------------
 
@@ -59,16 +59,14 @@ enum        ao_leds_t
 
 // ----------------------------------------------------------------------------
 
-// Gets the LEDs that are enabled.
-
 ao_leds_t   ao_leds();
 
 // ----------------------------------------------------------------------------
 
-void        ao_leds_disable(    ao_leds_t x);
+void        ao_leds_disable(    ao_leds_t l);
 
-void        ao_leds_enable(     ao_leds_t x);
+void        ao_leds_enable(     ao_leds_t l);
 
-void        ao_leds_toggle(     ao_leds_t x);
+void        ao_leds_toggle(     ao_leds_t l);
 
 // ----------------------------------------------------------------------------

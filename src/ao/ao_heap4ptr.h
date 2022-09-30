@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Heap for pointers.
+// Heaps for pointers.
 
 // ----------------------------------------------------------------------------
 
@@ -33,26 +33,18 @@
 
 // ----------------------------------------------------------------------------
 
-typedef struct  ao_heap4ptr_t       ao_heap4ptr_t;
+typedef struct  ao_heap4ptr_t   ao_heap4ptr_t;
 
 // ----------------------------------------------------------------------------
 
-typedef bool (*                     ao_heap4ptr_less_t)
+typedef bool (*                 ao_heap4ptr_less_t)
 (
-        void *                      p1,
+        void *                  pointer1,
 
-        void *                      p2,
+        void *                  pointer2,
 
-        void *                      parameter
+        void *                  parameter
 );
-
-// ----------------------------------------------------------------------------
-
-#ifndef AO_HEAP4PTR_COUNT_MAX
-
-#define AO_HEAP4PTR_COUNT_MAX       (false)
-
-#endif
 
 // ----------------------------------------------------------------------------
 
@@ -60,29 +52,45 @@ typedef bool (*                     ao_heap4ptr_less_t)
 
 #define AO_HEAP4PTR
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_HEAP4PTR_COUNT_MAX
+
+#define AO_HEAP4PTR_COUNT_MAX   (false)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_HEAP4PTR_T
+
+#define AO_HEAP4PTR_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_heap4ptr_t
 {
-        size_t                      capacity;
+        size_t                  capacity;
 
-        size_t                      count;
+        size_t                  count;
 
 #if     AO_HEAP4PTR_COUNT_MAX
 
-        size_t                      count_max;
+        size_t                  count_max;
 
 #endif
 
-        size_t *                    heap1;
+        size_t *                heap1;
 
-        size_t *                    heap2;
+        size_t *                heap2;
 
-        ao_heap4ptr_less_t          less;
+        ao_heap4ptr_less_t      less;
 
-        void *                      less_parameter;
+        void *                  less_parameter;
 
-        void **                     store;
+        void **                 store;
 };
 
 // ----------------------------------------------------------------------------
@@ -91,32 +99,24 @@ struct  ao_heap4ptr_t
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_heap4ptr_is_empty
-
-#define ao_heap4ptr_is_empty(x)     ((x)->count == 0 ? true : false)
-
-#endif
-
-#ifndef ao_heap4ptr_is_full
-
-#define ao_heap4ptr_is_full(x)      ((x)->count == (x)->capacity ? true : false)
-
-#endif
+void    ao_heap4ptr_assert(     ao_heap4ptr_t const * h);
 
 // ----------------------------------------------------------------------------
 
-void    ao_heap4ptr_assert(         ao_heap4ptr_t * x);
+bool    ao_heap4ptr_insert(     ao_heap4ptr_t * h, void * p);
 
 // ----------------------------------------------------------------------------
 
-bool    ao_heap4ptr_insert(         ao_heap4ptr_t * x, void * p);
+bool    ao_heap4ptr_is_empty(   ao_heap4ptr_t const * h);
+
+bool    ao_heap4ptr_is_full(    ao_heap4ptr_t const * h);
 
 // ----------------------------------------------------------------------------
 
-bool    ao_heap4ptr_peek(           ao_heap4ptr_t const * x, void ** p);
+bool    ao_heap4ptr_peek(       ao_heap4ptr_t const * h, void ** p);
 
 // ----------------------------------------------------------------------------
 
-bool    ao_heap4ptr_pop(            ao_heap4ptr_t * x, void ** p);
+bool    ao_heap4ptr_pop(        ao_heap4ptr_t * h, void ** p);
 
 // ----------------------------------------------------------------------------

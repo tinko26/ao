@@ -31,11 +31,20 @@
 #include <ao_ir_alarm.h>
 #include <ao_ir_cs.h>
 #include <ao_ir_ct.h>
+#include <ao_ir_int.h>
 #include <ao_ir_enable.h>
 #include <ao_ir_mvec.h>
 #include <ao_ir_prio.h>
 #include <ao_ir_stack.h>
 #include <ao_ir_task.h>
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_IR
+
+#define AO_IR
+
+#endif
 
 // ----------------------------------------------------------------------------
 

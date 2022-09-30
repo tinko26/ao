@@ -72,19 +72,43 @@ typedef     uint32_t            ao_uint_t;
 
 // ----------------------------------------------------------------------------
 
-ao_uint_t   ao_clou(ao_uint_t x);
+#ifndef     ao_clou
 
-ao_uint_t   ao_clzu(ao_uint_t x);
+ao_uint_t   ao_clou(            ao_uint_t x);
 
-ao_uint_t   ao_ctou(ao_uint_t x);
+#endif
 
-ao_uint_t   ao_ctzu(ao_uint_t x);
+#ifndef     ao_clzu
+
+ao_uint_t   ao_clzu(            ao_uint_t x);
+
+#endif
+
+#ifndef     ao_ctou
+
+ao_uint_t   ao_ctou(            ao_uint_t x);
+
+#endif
+
+#ifndef     ao_ctzu
+
+ao_uint_t   ao_ctzu(            ao_uint_t x);
+
+#endif
 
 // ----------------------------------------------------------------------------
 
-ao_uint_t   ao_ffsu(ao_uint_t x);
+#ifndef     ao_ffsu
 
-ao_uint_t   ao_flsu(ao_uint_t x);
+ao_uint_t   ao_ffsu(            ao_uint_t x);
+
+#endif
+
+#ifndef     ao_flsu
+
+ao_uint_t   ao_flsu(            ao_uint_t x);
+
+#endif
 
 // ----------------------------------------------------------------------------
 

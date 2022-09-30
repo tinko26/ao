@@ -24,17 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Microchip XC32.
-
-// Microchip PIC32MK General Purpose and Motor Control (GP/MC) Family.
-
-// ----------------------------------------------------------------------------
-
-// @seeAlso
-
-// https://microchip.com/DS60001402 (Data sheet)
-
-// https://microchip.com/DS80000737 (Errata)
+// PIC32MK General Purpose and Motor Control (GP/MC) Family.
 
 // ----------------------------------------------------------------------------
 

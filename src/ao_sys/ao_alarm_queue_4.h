@@ -26,23 +26,7 @@
 
 // Alarm queue 4.
 
-// This module implements an alarm queue based on an AVL tree.
-
-// Time complexities:
-
-// Insert       O(log N)
-
-// Peek         O(log N)
-
-// Remove       O(log N)
-
-// Remove peek  O(log N)
-
-// ----------------------------------------------------------------------------
-
-// @seeAlso
-
-// https://en.wikipedia.org/wiki/AVL_tree
+// Alarm queue based on an AVL tree.
 
 // ----------------------------------------------------------------------------
 

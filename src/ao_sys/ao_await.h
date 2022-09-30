@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Await.
+// Awaiting.
 
 // ----------------------------------------------------------------------------
 
@@ -41,26 +41,26 @@
 
 // ----------------------------------------------------------------------------
 
-void    ao_await(               ao_async_t * x,     ao_time_t timeout);
+void    ao_await(               ao_async_t * a, ao_time_t timeout);
 
-void    ao_await_from(          ao_async_t * x,     ao_time_t timeout, ao_time_t beginning);
+void    ao_await_from(          ao_async_t * a, ao_time_t timeout, ao_time_t beginning);
 
-void    ao_await_forever(       ao_async_t * x);
-
-// ----------------------------------------------------------------------------
-
-void    ao_await_all(           ao_async_all_t * x, ao_time_t timeout);
-
-void    ao_await_all_from(      ao_async_all_t * x, ao_time_t timeout, ao_time_t beginning);
-
-void    ao_await_all_forever(   ao_async_all_t * x);
+void    ao_await_forever(       ao_async_t * a);
 
 // ----------------------------------------------------------------------------
 
-void    ao_await_any(           ao_async_any_t * x, ao_time_t timeout);
+void    ao_await_all(           ao_async_all_t * a, ao_time_t timeout);
 
-void    ao_await_any_from(      ao_async_any_t * x, ao_time_t timeout, ao_time_t beginning);
+void    ao_await_all_from(      ao_async_all_t * a, ao_time_t timeout, ao_time_t beginning);
 
-void    ao_await_any_forever(   ao_async_any_t * x);
+void    ao_await_all_forever(   ao_async_all_t * a);
+
+// ----------------------------------------------------------------------------
+
+void    ao_await_any(           ao_async_any_t * a, ao_time_t timeout);
+
+void    ao_await_any_from(      ao_async_any_t * a, ao_time_t timeout, ao_time_t beginning);
+
+void    ao_await_any_forever(   ao_async_any_t * a);
 
 // ----------------------------------------------------------------------------

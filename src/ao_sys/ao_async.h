@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Async.
+// Asynchronous events.
 
 // ----------------------------------------------------------------------------
 
@@ -46,6 +46,14 @@ typedef struct  ao_async_any_t  ao_async_any_t;
 
 #define AO_ASYNC
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_ASYNC_T
+
+#define AO_ASYNC_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_async_t
@@ -61,9 +69,9 @@ struct  ao_async_t
 
 #endif
 
-#ifndef AO_ASYNC_ALL
+#ifndef AO_ASYNC_ALL_T
 
-#define AO_ASYNC_ALL
+#define AO_ASYNC_ALL_T
 
 // ----------------------------------------------------------------------------
 
@@ -84,9 +92,9 @@ struct  ao_async_all_t
 
 #endif
 
-#ifndef AO_ASYNC_ANY
+#ifndef AO_ASYNC_ANY_T
 
-#define AO_ASYNC_ANY
+#define AO_ASYNC_ANY_T
 
 // ----------------------------------------------------------------------------
 
@@ -107,22 +115,22 @@ struct  ao_async_any_t
 
 // ----------------------------------------------------------------------------
 
-void    ao_async_all_begin(     ao_async_all_t * x);
+void    ao_async_all_begin(     ao_async_all_t * a);
 
-void    ao_async_all_end(       ao_async_all_t * x);
-
-// ----------------------------------------------------------------------------
-
-void    ao_async_all_try(       ao_async_all_t * x);
+void    ao_async_all_end(       ao_async_all_t * a);
 
 // ----------------------------------------------------------------------------
 
-void    ao_async_any_begin(     ao_async_any_t * x);
-
-void    ao_async_any_end(       ao_async_any_t * x);
+void    ao_async_all_try(       ao_async_all_t * a);
 
 // ----------------------------------------------------------------------------
 
-void    ao_async_any_try(       ao_async_any_t * x);
+void    ao_async_any_begin(     ao_async_any_t * a);
+
+void    ao_async_any_end(       ao_async_any_t * a);
+
+// ----------------------------------------------------------------------------
+
+void    ao_async_any_try(       ao_async_any_t * a);
 
 // ----------------------------------------------------------------------------

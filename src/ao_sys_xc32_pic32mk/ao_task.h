@@ -33,20 +33,6 @@
 
 // ----------------------------------------------------------------------------
 
-// Task switch interrupt.
-
-// The implementation of the task switch interrupt makes the following assumptions.
-
-// The priority of the task switch interrupt equals 1.
-
-// Priority level 1 interrupts do not use a shadow set.
-
-// Status.MX == 1.
-
-// Status.CU1 == 1 and Status.FR == 1.
-
-// ----------------------------------------------------------------------------
-
 #include_next <ao_task.h>
 
 // ----------------------------------------------------------------------------

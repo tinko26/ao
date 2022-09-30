@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Task.
+// Tasks.
 
 // ----------------------------------------------------------------------------
 
@@ -57,6 +57,14 @@ typedef     enum    ao_task_state_pending_t     ao_task_state_pending_t;
 
 // ----------------------------------------------------------------------------
 
+#ifndef     AO_TASK
+
+#define     AO_TASK
+
+#endif
+
+// ----------------------------------------------------------------------------
+
 #ifndef     AO_TASK_COUNT
 
 #define     AO_TASK_COUNT                       (false)
@@ -83,9 +91,9 @@ typedef     enum    ao_task_state_pending_t     ao_task_state_pending_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef     AO_TASK_STATE
+#ifndef     AO_TASK_STATE_T
 
-#define     AO_TASK_STATE
+#define     AO_TASK_STATE_T
 
 // ----------------------------------------------------------------------------
 
@@ -112,9 +120,9 @@ enum        ao_task_state_t
 
 #endif
 
-#ifndef     AO_TASK_STATE_PENDING
+#ifndef     AO_TASK_STATE_PENDING_T
 
-#define     AO_TASK_STATE_PENDING
+#define     AO_TASK_STATE_PENDING_T
 
 // ----------------------------------------------------------------------------
 
@@ -135,9 +143,9 @@ enum        ao_task_state_pending_t
 
 // ----------------------------------------------------------------------------
 
-#ifndef     AO_TASK
+#ifndef     AO_TASK_T
 
-#define     AO_TASK
+#define     AO_TASK_T
 
 // ----------------------------------------------------------------------------
 
@@ -383,7 +391,7 @@ void        ao_task_set_name(                   ao_task_t * t, char const * x);
 
 // ----------------------------------------------------------------------------
 
-void        ao_task_set_proc(                   ao_task_t * t, ao_proc_t proc, void * parameter);
+void        ao_task_set_proc(                   ao_task_t * t, ao_proc_t p, void * parameter);
 
 // ----------------------------------------------------------------------------
 

@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Send object to stream.
+// Sending objects to streams.
 
 // ----------------------------------------------------------------------------
 
@@ -41,8 +41,20 @@
 
 // ----------------------------------------------------------------------------
 
-void    ao_send_obj_to_stream(          ao_send_obj_t * x, ao_spush_obj_t * y);
+void    ao_send_obj_to_stream
+(
+        ao_send_obj_t * s,
 
-void    ao_send_obj_to_stream_override( ao_send_obj_t * x, ao_spush_obj_t * y);
+        ao_spush_obj_t * p
+);
+
+// ----------------------------------------------------------------------------
+
+void    ao_send_obj_to_stream_override
+(
+        ao_send_obj_t * s,
+
+        ao_spush_obj_t * p
+);
 
 // ----------------------------------------------------------------------------

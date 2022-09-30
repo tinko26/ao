@@ -24,13 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Red-black tree.
-
-// ----------------------------------------------------------------------------
-
-// @seeAlso
-
-// https://en.wikipedia.org/wiki/Red–black_tree
+// Red-black trees.
 
 // ----------------------------------------------------------------------------
 
@@ -47,9 +41,9 @@ typedef struct  ao_rb_node_t    ao_rb_node_t;
 
 typedef bool (*                 ao_rb_less_t)
 (
-        ao_rb_node_t *          n1,
+        ao_rb_node_t const *    node1,
 
-        ao_rb_node_t *          n2,
+        ao_rb_node_t const *    node2,
 
         void *                  parameter
 );
@@ -59,6 +53,14 @@ typedef bool (*                 ao_rb_less_t)
 #ifndef AO_RB
 
 #define AO_RB
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_RB_T
+
+#define AO_RB_T
 
 // ----------------------------------------------------------------------------
 
@@ -75,9 +77,9 @@ struct  ao_rb_t
 
 #endif
 
-#ifndef AO_RB_NODE
+#ifndef AO_RB_NODE_T
 
-#define AO_RB_NODE
+#define AO_RB_NODE_T
 
 // ----------------------------------------------------------------------------
 
@@ -98,32 +100,28 @@ struct  ao_rb_node_t
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_rb_is_empty
-
-#define ao_rb_is_empty(x)       ((x)->root == NULL ? true : false)
-
-#endif
+void    ao_rb_assert(           ao_rb_t const * r);
 
 // ----------------------------------------------------------------------------
 
-void    ao_rb_assert(           ao_rb_t * x);
+void    ao_rb_insert(           ao_rb_t * r, ao_rb_node_t * n);
 
 // ----------------------------------------------------------------------------
 
-void    ao_rb_insert(           ao_rb_t * x, ao_rb_node_t * n);
+bool    ao_rb_is_empty(         ao_rb_t const * r);
 
 // ----------------------------------------------------------------------------
 
 ao_rb_node_t *
 
-        ao_rb_max(              ao_rb_t * x);
+        ao_rb_max(              ao_rb_t const * r);
 
 ao_rb_node_t *
 
-        ao_rb_min(              ao_rb_t * x);
+        ao_rb_min(              ao_rb_t const * r);
 
 // ----------------------------------------------------------------------------
 
-void    ao_rb_remove(           ao_rb_t * x, ao_rb_node_t * n);
+void    ao_rb_remove(           ao_rb_t * r, ao_rb_node_t * n);
 
 // ----------------------------------------------------------------------------

@@ -42,7 +42,17 @@
 
 #ifndef AO_CLAMP
 
-#define AO_CLAMP(x, x_min, x_max)   ((x) <= (x_min) ? (x_min) : ((x) >= (x_max) ? (x_max) : (x)))
+#define AO_CLAMP(x, x_min, x_max)                                           \
+(                                                                           \
+        (x) <= (x_min)                                                      \
+        ? (x_min)                                                           \
+        :                                                                   \
+        (                                                                   \
+            (x) >= (x_max)                                                  \
+            ? (x_max)                                                       \
+            : (x)                                                           \
+        )                                                                   \
+)
 
 #endif
 

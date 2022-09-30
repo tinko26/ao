@@ -26,8 +26,6 @@
 
 // Sizes.
 
-// This module contains functions for size_t values.
-
 // ----------------------------------------------------------------------------
 
 #include <ao_uint.h>

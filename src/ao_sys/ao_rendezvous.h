@@ -28,12 +28,6 @@
 
 // ----------------------------------------------------------------------------
 
-// @seeAlso
-
-// https://en.wikipedia.org/wiki/Rendezvous_(Plan_9)
-
-// ----------------------------------------------------------------------------
-
 #include <ao_async.h>
 #include <ao_time.h>
 #include <stdbool.h>
@@ -61,6 +55,14 @@ typedef void (*                         ao_rendezvous_exchange_t)
 
 #define AO_RENDEZVOUS
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_RENDEZVOUS_T
+
+#define AO_RENDEZVOUS_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_rendezvous_t
@@ -72,9 +74,9 @@ struct  ao_rendezvous_t
 
 #endif
 
-#ifndef AO_RENDEZVOUS_WAIT
+#ifndef AO_RENDEZVOUS_WAIT_T
 
-#define AO_RENDEZVOUS_WAIT
+#define AO_RENDEZVOUS_WAIT_T
 
 // ----------------------------------------------------------------------------
 
@@ -101,20 +103,20 @@ struct  ao_rendezvous_wait_t
 
 // ----------------------------------------------------------------------------
 
-void    ao_rendezvous(                  ao_rendezvous_wait_t * x, ao_time_t timeout);
+void    ao_rendezvous(                  ao_rendezvous_wait_t * w, ao_time_t timeout);
 
-void    ao_rendezvous_from(             ao_rendezvous_wait_t * x, ao_time_t timeout, ao_time_t beginning);
+void    ao_rendezvous_from(             ao_rendezvous_wait_t * w, ao_time_t timeout, ao_time_t beginning);
 
-void    ao_rendezvous_forever(          ao_rendezvous_wait_t * x);
-
-// ----------------------------------------------------------------------------
-
-void    ao_rendezvous_try(              ao_rendezvous_wait_t * x);
+void    ao_rendezvous_forever(          ao_rendezvous_wait_t * w);
 
 // ----------------------------------------------------------------------------
 
-void    ao_rendezvous_begin(            ao_rendezvous_wait_t * x);
+void    ao_rendezvous_try(              ao_rendezvous_wait_t * w);
 
-void    ao_rendezvous_end(              ao_rendezvous_wait_t * x);
+// ----------------------------------------------------------------------------
+
+void    ao_rendezvous_begin(            ao_rendezvous_wait_t * w);
+
+void    ao_rendezvous_end(              ao_rendezvous_wait_t * w);
 
 // ----------------------------------------------------------------------------

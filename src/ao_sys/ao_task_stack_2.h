@@ -26,7 +26,7 @@
 
 // Task stack 2.
 
-// This module acquires stacks from the allocator.
+// Task stack from allocation.
 
 // ----------------------------------------------------------------------------
 

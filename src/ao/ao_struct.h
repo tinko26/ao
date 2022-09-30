@@ -33,12 +33,15 @@
 
 // ----------------------------------------------------------------------------
 
-// Given a pointer #p to a member #m of a compound type #t,
-// this macro returns a pointer to the head of the compound.
-
 #ifndef ao_containerof
 
-#define ao_containerof(p, t, m)     ((t *) ((uint8_t *) (p) - offsetof(t, m)))
+#define ao_containerof(p, t, m)                                             \
+(                                                                           \
+        (t *)                                                               \
+        (                                                                   \
+            (uint8_t *) (p) - offsetof(t, m)                                \
+        )                                                                   \
+)
 
 #endif
 

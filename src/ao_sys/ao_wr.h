@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Readers-writer locking (preferring writers).
+// Readers-writer locks preferring writers.
 
 // ----------------------------------------------------------------------------
 
@@ -46,26 +46,34 @@ typedef struct  ao_wr_lock_t        ao_wr_lock_t;
 
 #define AO_WR
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_WR_T
+
+#define AO_WR_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_wr_t
 {
-        ao_uint_t                   r_active;
+        ao_uint_t                   active_r;
 
-        ao_list_t                   r_waiting;
+        bool                        active_w;
 
-        bool                        w_active;
+        ao_list_t                   lock_r;
 
-        ao_list_t                   w_waiting;
+        ao_list_t                   lock_w;
 };
 
 // ----------------------------------------------------------------------------
 
 #endif
 
-#ifndef AO_WR_LOCK
+#ifndef AO_WR_LOCK_T
 
-#define AO_WR_LOCK
+#define AO_WR_LOCK_T
 
 // ----------------------------------------------------------------------------
 
@@ -73,11 +81,11 @@ struct  ao_wr_lock_t
 {
         ao_async_t                  async;
 
-        ao_list_node_t              node;
-
         bool            volatile    result;
 
         ao_wr_t *                   wr;
+
+        ao_list_node_t              wr_lock_node;
 };
 
 // ----------------------------------------------------------------------------
@@ -86,42 +94,42 @@ struct  ao_wr_lock_t
 
 // ----------------------------------------------------------------------------
 
-bool    ao_wr_lock_read(            ao_wr_t * x, ao_time_t timeout);
+bool    ao_wr_lock_read(            ao_wr_t * w, ao_time_t timeout);
 
-bool    ao_wr_lock_read_forever(    ao_wr_t * x);
+bool    ao_wr_lock_read_forever(    ao_wr_t * w);
 
-bool    ao_wr_lock_read_from(       ao_wr_t * x, ao_time_t timeout, ao_time_t beginning);
+bool    ao_wr_lock_read_from(       ao_wr_t * w, ao_time_t timeout, ao_time_t beginning);
 
-bool    ao_wr_lock_read_try(        ao_wr_t * x);
-
-// ----------------------------------------------------------------------------
-
-void    ao_wr_lock_read_begin(      ao_wr_lock_t * x);
-
-void    ao_wr_lock_read_end(        ao_wr_lock_t * x);
+bool    ao_wr_lock_read_try(        ao_wr_t * w);
 
 // ----------------------------------------------------------------------------
 
-bool    ao_wr_lock_write(           ao_wr_t * x, ao_time_t timeout);
+void    ao_wr_lock_read_begin(      ao_wr_lock_t * l);
 
-bool    ao_wr_lock_write_forever(   ao_wr_t * x);
-
-bool    ao_wr_lock_write_from(      ao_wr_t * x, ao_time_t timeout, ao_time_t beginning);
-
-bool    ao_wr_lock_write_try(       ao_wr_t * x);
+void    ao_wr_lock_read_end(        ao_wr_lock_t * l);
 
 // ----------------------------------------------------------------------------
 
-void    ao_wr_lock_write_begin(     ao_wr_lock_t * x);
+bool    ao_wr_lock_write(           ao_wr_t * w, ao_time_t timeout);
 
-void    ao_wr_lock_write_end(       ao_wr_lock_t * x);
+bool    ao_wr_lock_write_forever(   ao_wr_t * w);
+
+bool    ao_wr_lock_write_from(      ao_wr_t * w, ao_time_t timeout, ao_time_t beginning);
+
+bool    ao_wr_lock_write_try(       ao_wr_t * w);
 
 // ----------------------------------------------------------------------------
 
-void    ao_wr_unlock_read(          ao_wr_t * x);
+void    ao_wr_lock_write_begin(     ao_wr_lock_t * l);
+
+void    ao_wr_lock_write_end(       ao_wr_lock_t * l);
 
 // ----------------------------------------------------------------------------
 
-void    ao_wr_unlock_write(         ao_wr_t * x);
+void    ao_wr_unlock_read(          ao_wr_t * w);
+
+// ----------------------------------------------------------------------------
+
+void    ao_wr_unlock_write(         ao_wr_t * w);
 
 // ----------------------------------------------------------------------------

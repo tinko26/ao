@@ -26,7 +26,7 @@
 
 // Task stack 0.
 
-// This module is a stub implementation.
+// Task stack stub.
 
 // ----------------------------------------------------------------------------
 

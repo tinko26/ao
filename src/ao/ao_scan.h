@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Scanning numbers.
+// Converting numbers from string.
 
 // ----------------------------------------------------------------------------
 
@@ -42,13 +42,21 @@ typedef struct  ao_scan_t   ao_scan_t;
 
 #define AO_SCAN
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_SCAN_T
+
+#define AO_SCAN_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_scan_t
 {
-        size_t      radix;
+        size_t              radix;
 
-        bool        seek;
+        bool                seek;
 };
 
 // ----------------------------------------------------------------------------
@@ -57,75 +65,30 @@ struct  ao_scan_t
 
 // ----------------------------------------------------------------------------
 
-// @brief
+size_t  ao_scanfd(          char const * s, size_t n, ao_scan_t const * o, double * v);
 
-// Scans a decimal floating point number.
+size_t  ao_scanff(          char const * s, size_t n, ao_scan_t const * o, float * v);
 
-// @param [in]  s   String.
-// @param [in]  n   Maximum number of characters to read.
-// @param [in]  o   Options.
-// @param [out] v   Value.
-
-// @return
-
-// On success, the number of characters read.
-
-// On failure, zero.
-
-size_t  ao_scanfd(  char const * s, size_t n, ao_scan_t const * o, double      * v);
-
-size_t  ao_scanff(  char const * s, size_t n, ao_scan_t const * o, float       * v);
-
-size_t  ao_scanfl(  char const * s, size_t n, ao_scan_t const * o, long double * v);
+size_t  ao_scanfl(          char const * s, size_t n, ao_scan_t const * o, long double * v);
 
 // ----------------------------------------------------------------------------
 
-// @brief
+size_t  ao_scani8(          char const * s, size_t n, ao_scan_t const * o, int8_t * v);
 
-// Scans a signed integer.
+size_t  ao_scani16(         char const * s, size_t n, ao_scan_t const * o, int16_t * v);
 
-// @param [in]  s   String.
-// @param [in]  n   Maximum number of characters to read.
-// @param [in]  o   Options.
-// @param [out] v   Value.
+size_t  ao_scani32(         char const * s, size_t n, ao_scan_t const * o, int32_t * v);
 
-// @return
-
-// On success, the number of characters read.
-
-// On failure, zero.
-
-size_t  ao_scani8(  char const * s, size_t n, ao_scan_t const * o, int8_t  * v);
-
-size_t  ao_scani16( char const * s, size_t n, ao_scan_t const * o, int16_t * v);
-
-size_t  ao_scani32( char const * s, size_t n, ao_scan_t const * o, int32_t * v);
-
-size_t  ao_scani64( char const * s, size_t n, ao_scan_t const * o, int64_t * v);
+size_t  ao_scani64(         char const * s, size_t n, ao_scan_t const * o, int64_t * v);
 
 // ----------------------------------------------------------------------------
 
-// @brief
+size_t  ao_scanu8(          char const * s, size_t n, ao_scan_t const * o, uint8_t * v);
 
-// Scans an unsigned integer.
+size_t  ao_scanu16(         char const * s, size_t n, ao_scan_t const * o, uint16_t * v);
 
-// @param [in]  s   String.
-// @param [in]  n   Maximum number of characters to read.
-// @param [in]  o   Options.
-// @param [out] v   Value.
+size_t  ao_scanu32(         char const * s, size_t n, ao_scan_t const * o, uint32_t * v);
 
-// @return
-
-// On success, the number of characters read.
-
-// On failure, zero.
-
-size_t  ao_scanu8(  char const * s, size_t n, ao_scan_t const * o, uint8_t  * v);
-
-size_t  ao_scanu16( char const * s, size_t n, ao_scan_t const * o, uint16_t * v);
-
-size_t  ao_scanu32( char const * s, size_t n, ao_scan_t const * o, uint32_t * v);
-
-size_t  ao_scanu64( char const * s, size_t n, ao_scan_t const * o, uint64_t * v);
+size_t  ao_scanu64(         char const * s, size_t n, ao_scan_t const * o, uint64_t * v);
 
 // ----------------------------------------------------------------------------

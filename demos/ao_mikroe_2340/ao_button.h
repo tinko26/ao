@@ -44,9 +44,9 @@ typedef enum    ao_buttons_t    ao_buttons_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_BUTTONS
+#ifndef AO_BUTTONS_T
 
-#define AO_BUTTONS
+#define AO_BUTTONS_T
 
 // ----------------------------------------------------------------------------
 
@@ -66,8 +66,6 @@ enum    ao_buttons_t
 #endif
 
 // ----------------------------------------------------------------------------
-
-// Gets the buttons that are down.
 
 #ifndef ao_buttons
 

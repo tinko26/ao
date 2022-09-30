@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Timer.
+// Timers.
 
 // ----------------------------------------------------------------------------
 
@@ -41,6 +41,14 @@ typedef struct  ao_timer_t      ao_timer_t;
 #ifndef AO_TIMER
 
 #define AO_TIMER
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_TIMER_T
+
+#define AO_TIMER_T
 
 // ----------------------------------------------------------------------------
 
@@ -66,6 +74,8 @@ struct  ao_timer_t
 void    ao_timer_start(         ao_timer_t * t, ao_time_t phase, ao_time_t period);
 
 void    ao_timer_start_from(    ao_timer_t * t, ao_time_t phase, ao_time_t period, ao_time_t beginning);
+
+// ----------------------------------------------------------------------------
 
 void    ao_timer_stop(          ao_timer_t * t);
 

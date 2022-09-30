@@ -24,47 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Locking.
-
-// This module defines locks.
-
-// Locks are the basic mechanism for system-wide critical sections.
-
-// Locks are used to synchronize access to low-level resources.
-
-// ----------------------------------------------------------------------------
-
-// Locking sets the interrupt priority level to the lock priority.
-
-// That is, locking disables only those interrupts, whose priority is less than
-// or equal to the lock priority.
-
-// Higher-priority interrupts will remain enabled. However, these interrupts
-// must not make system calls.
-
-// ----------------------------------------------------------------------------
-
-// @example
-
-// @code
-
-/*
-
-    ao_lock_t x;
-
-    ao_lock(&x);
-    {
-        // ...
-
-        // Critical section.
-
-        // ...
-    }
-    ao_unlock(&x);
-
-*/
-
-// @endCode
+// Locks.
 
 // ----------------------------------------------------------------------------
 
@@ -88,13 +48,19 @@ typedef uint32_t        ao_lock_t;
 
 #ifndef ao_lock
 
-#define ao_lock(x)      { *(x) = ao_sys_lock_ir(AO_LOCK_PRIO); }
+#define ao_lock(l)                                                          \
+{                                                                           \
+        *(l) = ao_sys_lock_ir(AO_LOCK_PRIO);                                \
+}
 
 #endif
 
 #ifndef ao_unlock
 
-#define ao_unlock(x)    { ao_sys_unlock_ir(*(x)); }
+#define ao_unlock(l)                                                        \
+{                                                                           \
+        ao_sys_unlock_ir(*(l));                                             \
+}
 
 #endif
 

@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Mutex.
+// Mutexes.
 
 // ----------------------------------------------------------------------------
 
@@ -47,6 +47,14 @@ typedef struct  ao_mutex_lock_t ao_mutex_lock_t;
 
 #define AO_MUTEX
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_MUTEX_T
+
+#define AO_MUTEX_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_mutex_t
@@ -60,7 +68,7 @@ struct  ao_mutex_t
 
 #endif
 
-        ao_list_t               list;
+        ao_list_t               lock;
 
         ao_task_t *             owner;
 
@@ -78,9 +86,9 @@ struct  ao_mutex_t
 
 #endif
 
-#ifndef AO_MUTEX_LOCK
+#ifndef AO_MUTEX_LOCK_T
 
-#define AO_MUTEX_LOCK
+#define AO_MUTEX_LOCK_T
 
 // ----------------------------------------------------------------------------
 
@@ -96,7 +104,7 @@ struct  ao_mutex_lock_t
 
         ao_mutex_t *            mutex;
 
-        ao_list_node_t          node;
+        ao_list_node_t          mutex_lock_node;
 
         bool        volatile    result;
 
@@ -109,24 +117,24 @@ struct  ao_mutex_lock_t
 
 // ----------------------------------------------------------------------------
 
-bool    ao_mutex_lock(          ao_mutex_t * x, ao_time_t timeout);
+bool    ao_mutex_lock(          ao_mutex_t * m, ao_time_t timeout);
 
-bool    ao_mutex_lock_from(     ao_mutex_t * x, ao_time_t timeout, ao_time_t beginning);
+bool    ao_mutex_lock_from(     ao_mutex_t * m, ao_time_t timeout, ao_time_t beginning);
 
-bool    ao_mutex_lock_forever(  ao_mutex_t * x);
-
-// ----------------------------------------------------------------------------
-
-bool    ao_mutex_lock_try(      ao_mutex_t * x);
+bool    ao_mutex_lock_forever(  ao_mutex_t * m);
 
 // ----------------------------------------------------------------------------
 
-void    ao_mutex_lock_begin(    ao_mutex_lock_t * x);
-
-void    ao_mutex_lock_end(      ao_mutex_lock_t * x);
+bool    ao_mutex_lock_try(      ao_mutex_t * m);
 
 // ----------------------------------------------------------------------------
 
-void    ao_mutex_unlock(        ao_mutex_t * x);
+void    ao_mutex_lock_begin(    ao_mutex_lock_t * l);
+
+void    ao_mutex_lock_end(      ao_mutex_lock_t * l);
+
+// ----------------------------------------------------------------------------
+
+void    ao_mutex_unlock(        ao_mutex_t * m);
 
 // ----------------------------------------------------------------------------

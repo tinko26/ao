@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Stack.
+// Stacks.
 
 // ----------------------------------------------------------------------------
 
@@ -32,15 +32,9 @@
 
 // ----------------------------------------------------------------------------
 
-// Fills a stack with a pattern.
-
-// This allows for measuring the high water mark of the stack, later on.
-
 void    ao_stack_fill(                  void * beginning, size_t size);
 
 // ----------------------------------------------------------------------------
-
-// Gets the high water mark of a stack.
 
 size_t  ao_stack_get_high_water_mark(   void const * beginning, size_t size);
 

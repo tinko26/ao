@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Alarm.
+// Alarms.
 
 // ----------------------------------------------------------------------------
 
@@ -39,21 +39,13 @@ typedef struct  ao_alarm_t      ao_alarm_t;
 
 // ----------------------------------------------------------------------------
 
-// Alarm delay.
+#ifndef AO_ALARM
 
-// The alarm delay is an estimate of the maximum latency of the alarm interrupt.
+#define AO_ALARM
 
-// This latency may be caused by
+#endif
 
-// * hardware,
-
-// * interrupts of higher priority being served,
-
-// * interrupts being disabled due to critical zones,
-
-// * interrupt context save and restore.
-
-// The alarm delay must not be zero.
+// ----------------------------------------------------------------------------
 
 #ifndef AO_ALARM_DELAY
 
@@ -63,23 +55,22 @@ typedef struct  ao_alarm_t      ao_alarm_t;
 
 // ----------------------------------------------------------------------------
 
-// Alarm update.
-
-// The alarm update specifies the maximum time span between subsequent alarm interrupts.
-
-// The alarm update takes into account the latency of the alarm interrupt in order to not miss a count overflow.
-
 #ifndef AO_ALARM_UPDATE
 
-#define AO_ALARM_UPDATE         (AO_TIME_MAX - AO_ALARM_DELAY + 1)
+#define AO_ALARM_UPDATE                                                     \
+(                                                                           \
+        (AO_TIME_MAX)    -                                                  \
+        (AO_ALARM_DELAY) +                                                  \
+        1                                                                   \
+)
 
 #endif
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_ALARM
+#ifndef AO_ALARM_T
 
-#define AO_ALARM
+#define AO_ALARM_T
 
 // ----------------------------------------------------------------------------
 
@@ -102,10 +93,12 @@ struct  ao_alarm_t
 
 // ----------------------------------------------------------------------------
 
-void    ao_alarm_start(         ao_alarm_t * x, ao_time_t t);
+void    ao_alarm_start(         ao_alarm_t * a, ao_time_t timeout);
 
-void    ao_alarm_start_from(    ao_alarm_t * x, ao_time_t t, ao_time_t b);
+void    ao_alarm_start_from(    ao_alarm_t * a, ao_time_t timeout, ao_time_t beginning);
 
-void    ao_alarm_stop(          ao_alarm_t * x);
+// ----------------------------------------------------------------------------
+
+void    ao_alarm_stop(          ao_alarm_t * a);
 
 // ----------------------------------------------------------------------------

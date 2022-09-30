@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Threshold.
+// Thresholds.
 
 // ----------------------------------------------------------------------------
 
@@ -44,14 +44,18 @@ typedef struct  ao_threshold_wait_t ao_threshold_wait_t;
 
 typedef ao_uint_t (*                ao_threshold_adjust_t)
 (
-        ao_uint_t                   value,
+        ao_uint_t                   value_old,
 
         void *                      parameter
 );
 
+// ----------------------------------------------------------------------------
+
 typedef bool (*                     ao_threshold_match_t)
 (
-        ao_uint_t                   value,
+        ao_uint_t                   value_old,
+
+        ao_uint_t                   value_new,
 
         void *                      parameter
 );
@@ -62,6 +66,14 @@ typedef bool (*                     ao_threshold_match_t)
 
 #define AO_THRESHOLD
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_THRESHOLD_T
+
+#define AO_THRESHOLD_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_threshold_t
@@ -70,22 +82,24 @@ struct  ao_threshold_t
 
         void *                      adjust_parameter;
 
-        ao_list_t                   list;
-
         ao_threshold_match_t        match;
 
         void *                      match_parameter;
 
         ao_uint_t                   value;
+
+        ao_list_t                   wait;
 };
 
 // ----------------------------------------------------------------------------
 
 #endif
 
-#ifndef AO_THRESHOLD_WAIT
+// ----------------------------------------------------------------------------
 
-#define AO_THRESHOLD_WAIT
+#ifndef AO_THRESHOLD_WAIT_T
+
+#define AO_THRESHOLD_WAIT_T
 
 // ----------------------------------------------------------------------------
 
@@ -93,12 +107,15 @@ struct  ao_threshold_wait_t
 {
         ao_async_t                  async;
 
-        ao_list_node_t              node;
-
         bool            volatile    result;
 
         ao_threshold_t *            threshold;
 
+        ao_list_node_t              threshold_wait_node;
+
+        ao_uint_t       volatile    value_old;
+
+        ao_uint_t       volatile    value_new;
 };
 
 // ----------------------------------------------------------------------------
@@ -107,44 +124,69 @@ struct  ao_threshold_wait_t
 
 // ----------------------------------------------------------------------------
 
-void    ao_threshold_adjust(        ao_threshold_t * x, ao_threshold_adjust_t adjust, void * adjust_parameter);
+void    ao_threshold_adjust
+(
+        ao_threshold_t *            t,
+
+        ao_threshold_adjust_t       a,
+
+        void *                      ap
+);
 
 // ----------------------------------------------------------------------------
 
-void    ao_threshold_add(           ao_threshold_t * x, ao_uint_t value);
+void    ao_threshold_add(           ao_threshold_t * t, ao_uint_t x);
 
-void    ao_threshold_decrement(     ao_threshold_t * x);
+void    ao_threshold_and(           ao_threshold_t * t, ao_uint_t x);
 
-void    ao_threshold_divide(        ao_threshold_t * x, ao_uint_t value);
+void    ao_threshold_decrement(     ao_threshold_t * t);
 
-void    ao_threshold_increment(     ao_threshold_t * x);
+void    ao_threshold_divide(        ao_threshold_t * t, ao_uint_t x);
 
-void    ao_threshold_modulo(        ao_threshold_t * x, ao_uint_t value);
+void    ao_threshold_increment(     ao_threshold_t * t);
 
-void    ao_threshold_multiply(      ao_threshold_t * x, ao_uint_t value);
+void    ao_threshold_max(           ao_threshold_t * t);
 
-void    ao_threshold_set(           ao_threshold_t * x, ao_uint_t value);
+void    ao_threshold_min(           ao_threshold_t * t);
 
-void    ao_threshold_subtract(      ao_threshold_t * x, ao_uint_t value);
+void    ao_threshold_modulo(        ao_threshold_t * t, ao_uint_t x);
 
-void    ao_threshold_subtract_from( ao_threshold_t * x, ao_uint_t value);
+void    ao_threshold_multiply(      ao_threshold_t * t, ao_uint_t x);
+
+void    ao_threshold_nand(          ao_threshold_t * t, ao_uint_t x);
+
+void    ao_threshold_nor(           ao_threshold_t * t, ao_uint_t x);
+
+void    ao_threshold_not(           ao_threshold_t * t);
+
+void    ao_threshold_or(            ao_threshold_t * t, ao_uint_t x);
+
+void    ao_threshold_set(           ao_threshold_t * t, ao_uint_t x);
+
+void    ao_threshold_subtract(      ao_threshold_t * t, ao_uint_t x);
+
+void    ao_threshold_subtract_from( ao_threshold_t * t, ao_uint_t x);
+
+void    ao_threshold_xnor(          ao_threshold_t * t, ao_uint_t x);
+
+void    ao_threshold_xor(           ao_threshold_t * t, ao_uint_t x);
 
 // ----------------------------------------------------------------------------
 
-bool    ao_threshold_wait(          ao_threshold_t * x, ao_time_t timeout);
+void    ao_threshold_wait(          ao_threshold_wait_t * w, ao_time_t timeout);
 
-bool    ao_threshold_wait_from(     ao_threshold_t * x, ao_time_t timeout, ao_time_t beginning);
+void    ao_threshold_wait_from(     ao_threshold_wait_t * w, ao_time_t timeout, ao_time_t beginning);
 
-bool    ao_threshold_wait_forever(  ao_threshold_t * x);
-
-// ----------------------------------------------------------------------------
-
-bool    ao_threshold_wait_try(      ao_threshold_t * x);
+void    ao_threshold_wait_forever(  ao_threshold_wait_t * w);
 
 // ----------------------------------------------------------------------------
 
-void    ao_threshold_wait_begin(    ao_threshold_wait_t * x);
+void    ao_threshold_wait_try(      ao_threshold_wait_t * w);
 
-void    ao_threshold_wait_end(      ao_threshold_wait_t * x);
+// ----------------------------------------------------------------------------
+
+void    ao_threshold_wait_begin(    ao_threshold_wait_t * w);
+
+void    ao_threshold_wait_end(      ao_threshold_wait_t * w);
 
 // ----------------------------------------------------------------------------

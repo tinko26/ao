@@ -269,188 +269,6 @@ static  ao_time_t   volatile    ao_alarm_beginning;
 
 // ----------------------------------------------------------------------------
 
-void ao_alarm()
-{
-    // Notes.
-
-    // This function is called by the alarm interrupt handler.
-
-    // The kernel is not locked.
-
-
-    // Variables.
-
-    ao_alarm_t * A;
-
-    ao_time_t B;
-
-    ao_proc_t C;
-
-    void * CP;
-
-    ao_time_t E;
-
-    ao_lock_t L;
-
-    ao_time_t N;
-
-    ao_time_t T;
-
-    bool U;
-
-    ao_time_t X;
-
-
-    // Ready.
-
-    do
-    {
-        // Update.
-
-        ao_lock(&L);
-        {
-            // Alarm interrupt.
-
-            ao_alarm_disable();
-
-            ao_alarm_reply();
-
-
-            // Alarm queue is not empty.
-
-            A = ao_alarm_queue_peek();
-
-            if (A)
-            {
-                // With respect to the reference point #B ...
-
-                B = ao_alarm_beginning;
-
-
-                // ... get the timeout #T of the next due alarm.
-
-                // ... get the time span #X that has already passed until now.
-
-                E = A->end;
-
-                N = ao_now();
-
-                T = E - B;
-
-                X = N - B;
-
-
-                // The next due alarm's timeout has already expired.
-
-                if (T <= X)
-                {
-                    // Callback.
-
-                    C = A->callback;
-
-                    CP = A->callback_parameter;
-
-
-                    // Alarm.
-
-                    A->running = false;
-
-                    ao_alarm_queue_remove_peek(A);
-
-
-                    // We must run this loop once again, because another alarm could be due, too.
-
-                    U = true;
-                }
-
-
-                // The next due alarm's timeout has not expired, yet.
-
-                else
-                {
-                    // Callback.
-
-                    C = NULL;
-
-
-                    // Since #E is later than #N, we can safely move the reference point #B forward to #N.
-
-                    B = N;
-
-                    ao_alarm_beginning = N;
-
-
-                    // The time span between #B and #E ...
-
-                    T = E - B;
-
-
-                    // ... must be limited.
-
-                    // This takes into account the latency of the alarm interrupt.
-
-                    // Otherwise, a count overflow could be missed.
-
-                    if (T > AO_ALARM_UPDATE)
-                    {
-                        T = AO_ALARM_UPDATE;
-
-                        E = B + T;
-                    }
-
-
-                    // Alarm interrupt.
-
-                    ao_alarm_set(E);
-
-                    ao_alarm_enable();
-
-
-                    // The timeout #T might have expired, before the setting of the alarm interrupt actually took place.
-
-                    // In this case, this loop must run once again.
-
-                    N = ao_now();
-
-                    X = N - B;
-
-                    if (T <= X)
-                    {
-                        U = true;
-                    }
-
-                    else
-                    {
-                        U = false;
-                    }
-                }
-            }
-
-
-            // Alarm queue is empty.
-
-            else
-            {
-                C = 0;
-
-                U = false;
-            }
-        }
-        ao_unlock(&L);
-
-
-        // Callback.
-
-        if (C)
-        {
-            C(CP);
-        }
-    }
-    while (U);
-}
-
-// ----------------------------------------------------------------------------
-
 bool ao_alarm_less(ao_alarm_t * A1, ao_alarm_t * A2)
 {
     // Notes.
@@ -741,9 +559,9 @@ void ao_alarm_update()
 
     // Alarm interrupt.
 
-    ao_alarm_disable();
+    ao_ir_alarm_disable();
 
-    ao_alarm_reply();
+    ao_ir_alarm_reply();
 
 
     // Alarm queue is not empty.
@@ -783,9 +601,9 @@ void ao_alarm_update()
 
         // Alarm interrupt.
 
-        ao_alarm_set(E);
+        ao_ir_alarm_set(E);
 
-        ao_alarm_enable();
+        ao_ir_alarm_enable();
 
 
         // The timeout #T might have expired, before the setting of the alarm interrupt actually took place.
@@ -798,7 +616,7 @@ void ao_alarm_update()
 
         if (T <= X)
         {
-            ao_alarm_request();
+            ao_ir_alarm_request();
         }
     }
 }
@@ -808,6 +626,188 @@ void ao_alarm_update()
 void ao_boot_alarm()
 {
     ao_boot_alarm_queue();
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_ir_alarm()
+{
+    // Notes.
+
+    // This function is called by the alarm interrupt handler.
+
+    // The kernel is not locked.
+
+
+    // Variables.
+
+    ao_alarm_t * A;
+
+    ao_time_t B;
+
+    ao_proc_t C;
+
+    void * CP;
+
+    ao_time_t E;
+
+    ao_lock_t L;
+
+    ao_time_t N;
+
+    ao_time_t T;
+
+    bool U;
+
+    ao_time_t X;
+
+
+    // Ready.
+
+    do
+    {
+        // Update.
+
+        ao_lock(&L);
+        {
+            // Alarm interrupt.
+
+            ao_ir_alarm_disable();
+
+            ao_ir_alarm_reply();
+
+
+            // Alarm queue is not empty.
+
+            A = ao_alarm_queue_peek();
+
+            if (A)
+            {
+                // With respect to the reference point #B ...
+
+                B = ao_alarm_beginning;
+
+
+                // ... get the timeout #T of the next due alarm.
+
+                // ... get the time span #X that has already passed until now.
+
+                E = A->end;
+
+                N = ao_now();
+
+                T = E - B;
+
+                X = N - B;
+
+
+                // The next due alarm's timeout has already expired.
+
+                if (T <= X)
+                {
+                    // Callback.
+
+                    C = A->callback;
+
+                    CP = A->callback_parameter;
+
+
+                    // Alarm.
+
+                    A->running = false;
+
+                    ao_alarm_queue_remove_peek(A);
+
+
+                    // We must run this loop once again, because another alarm could be due, too.
+
+                    U = true;
+                }
+
+
+                // The next due alarm's timeout has not expired, yet.
+
+                else
+                {
+                    // Callback.
+
+                    C = NULL;
+
+
+                    // Since #E is later than #N, we can safely move the reference point #B forward to #N.
+
+                    B = N;
+
+                    ao_alarm_beginning = N;
+
+
+                    // The time span between #B and #E ...
+
+                    T = E - B;
+
+
+                    // ... must be limited.
+
+                    // This takes into account the latency of the alarm interrupt.
+
+                    // Otherwise, a count overflow could be missed.
+
+                    if (T > AO_ALARM_UPDATE)
+                    {
+                        T = AO_ALARM_UPDATE;
+
+                        E = B + T;
+                    }
+
+
+                    // Alarm interrupt.
+
+                    ao_ir_alarm_set(E);
+
+                    ao_ir_alarm_enable();
+
+
+                    // The timeout #T might have expired, before the setting of the alarm interrupt actually took place.
+
+                    // In this case, this loop must run once again.
+
+                    N = ao_now();
+
+                    X = N - B;
+
+                    if (T <= X)
+                    {
+                        U = true;
+                    }
+
+                    else
+                    {
+                        U = false;
+                    }
+                }
+            }
+
+
+            // Alarm queue is empty.
+
+            else
+            {
+                C = 0;
+
+                U = false;
+            }
+        }
+        ao_unlock(&L);
+
+
+        // Callback.
+
+        if (C)
+        {
+            C(CP);
+        }
+    }
+    while (U);
 }
 
 // ----------------------------------------------------------------------------
@@ -855,7 +855,14 @@ void ao_boot_alarm_queue() { }
 
 // ----------------------------------------------------------------------------
 
-static  bool                ao_alarm_queue_less(ao_alarm_queue_node_t * N1, ao_alarm_queue_node_t * N2, void * Parameter);
+static  bool    ao_alarm_queue_less
+(
+        ao_alarm_queue_node_t const *   N1,
+
+        ao_alarm_queue_node_t const *   N2,
+
+        void *                          Parameter
+);
 
 // ----------------------------------------------------------------------------
 
@@ -887,7 +894,7 @@ bool ao_alarm_queue_is_empty()
     return ao_slist_is_empty(&ao_alarm_queue);
 }
 
-bool ao_alarm_queue_less(ao_alarm_queue_node_t * N1, ao_alarm_queue_node_t * N2, void * Parameter)
+bool ao_alarm_queue_less(ao_alarm_queue_node_t const * N1, ao_alarm_queue_node_t const * N2, void * Parameter)
 {
     (void) Parameter;
 
@@ -1490,7 +1497,14 @@ void ao_boot_alarm_queue() { }
 
 // ----------------------------------------------------------------------------
 
-static  bool                ao_alarm_queue_less(ao_alarm_queue_node_t * N1, ao_alarm_queue_node_t * N2, void * Parameter);
+static  bool    ao_alarm_queue_less
+(
+        ao_alarm_queue_node_t const *   N1,
+
+        ao_alarm_queue_node_t const *   N2,
+
+        void *                          Parameter
+);
 
 // ----------------------------------------------------------------------------
 
@@ -1522,7 +1536,7 @@ bool ao_alarm_queue_is_empty()
     return ao_heap_is_empty(&ao_alarm_queue);
 }
 
-bool ao_alarm_queue_less(ao_alarm_queue_node_t * N1, ao_alarm_queue_node_t * N2, void * Parameter)
+bool ao_alarm_queue_less(ao_alarm_queue_node_t const * N1, ao_alarm_queue_node_t const * N2, void * Parameter)
 {
     (void) Parameter;
 
@@ -1583,7 +1597,14 @@ static  ao_alarm_t *        ao_alarm_queue_find();
 
 // ----------------------------------------------------------------------------
 
-static  bool                ao_alarm_queue_less(    ao_alarm_queue_node_t * N1, ao_alarm_queue_node_t * N2, void * Parameter);
+static  bool    ao_alarm_queue_less
+(
+        ao_alarm_queue_node_t const *   N1,
+
+        ao_alarm_queue_node_t const *   N2,
+
+        void *                          Parameter
+);
 
 // ----------------------------------------------------------------------------
 
@@ -1654,7 +1675,7 @@ bool ao_alarm_queue_is_empty()
     return ao_avl_is_empty(&ao_alarm_queue);
 }
 
-bool ao_alarm_queue_less(ao_alarm_queue_node_t * N1, ao_alarm_queue_node_t * N2, void * Parameter)
+bool ao_alarm_queue_less(ao_alarm_queue_node_t const * N1, ao_alarm_queue_node_t const * N2, void * Parameter)
 {
     (void) Parameter;
 
@@ -1717,11 +1738,18 @@ void ao_boot_alarm_queue() { }
 
 // ----------------------------------------------------------------------------
 
-static  ao_alarm_t *        ao_alarm_queue_find();
+static  ao_alarm_t *    ao_alarm_queue_find();
 
 // ----------------------------------------------------------------------------
 
-static  bool                ao_alarm_queue_less(    ao_alarm_queue_node_t * N1, ao_alarm_queue_node_t * N2, void * Parameter);
+static  bool            ao_alarm_queue_less
+(
+        ao_alarm_queue_node_t const *   N1,
+
+        ao_alarm_queue_node_t const *   N2,
+
+        void *                          Parameter
+);
 
 // ----------------------------------------------------------------------------
 
@@ -1787,7 +1815,12 @@ bool ao_alarm_queue_is_empty()
     return ao_rb_is_empty(&ao_alarm_queue);
 }
 
-bool ao_alarm_queue_less(ao_alarm_queue_node_t * N1, ao_alarm_queue_node_t * N2, void * Parameter)
+bool ao_alarm_queue_less
+(
+    ao_alarm_queue_node_t const * N1,
+    ao_alarm_queue_node_t const * N2,
+    void * Parameter
+)
 {
     (void) Parameter;
 
@@ -11008,31 +11041,21 @@ bool ao_retain_3(void * p)
 
 // ----------------------------------------------------------------------------
 
-void ao_are_clear(ao_are_t * A)
-{
-    // Assert.
-
-    ao_assert(A);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    ao_lock(&L);
-    {
-        ao_assert(!A->state || ao_list_is_empty(&A->list));
-
-        A->state = false;
-    }
-    ao_unlock(&L);
-}
-
 void ao_are_set(ao_are_t * A)
 {
+    // Notes.
+
+    // https://learn.microsoft.com/en-us/dotnet/api/system.threading.autoresetevent
+
+    // Calling this function signals the auto-reset event to release a waiting
+    // task.
+
+    // It remains signaled until a single waiting task is released, and then
+    // automatically returns to the non-signaled state.
+
+    // If no tasks are waiting, the state remains signaled indefinitely.
+
+
     // Assert.
 
     ao_assert(A);
@@ -11042,9 +11065,11 @@ void ao_are_set(ao_are_t * A)
 
     ao_lock_t L;
 
-    ao_list_node_t * n;
-
     ao_are_wait_t * W;
+
+    ao_list_t * WL;
+
+    ao_list_node_t * WN;
 
 
     // Ready.
@@ -11055,29 +11080,31 @@ void ao_are_set(ao_are_t * A)
 
         if (A->state)
         {
-            ao_assert(ao_list_is_empty(&A->list));
+            ao_assert(ao_list_is_empty(&A->wait));
         }
 
-        // Auto-reset event is clear.
+        // Auto-reset event is not set.
 
         else
         {
-            // There are waiting tasks.
+            // The waiting list not empty.
 
-            n = A->list.front;
+            WL = &A->wait;
 
-            if (n)
+            WN = WL->front;
+
+            if (WN)
             {
-                W = ao_containerof(n, ao_are_wait_t, node);
+                ao_list_remove_front(WL);
 
-                ao_list_remove_front(&A->list);
+                W = ao_containerof(WN, ao_are_wait_t, are_wait_node);
 
                 W->result = true;
 
                 ao_async_check(&W->async);
             }
 
-            // There are no waiting tasks.
+            // The waiting list is empty.
 
             else
             {
@@ -11095,8 +11122,68 @@ bool ao_are_wait(ao_are_t * A, ao_time_t t)
     return ao_are_wait_from(A, t, ao_now());
 }
 
+bool ao_are_wait_from(ao_are_t * A, ao_time_t t, ao_time_t b)
+{
+    // Variables.
+
+    ao_are_wait_t W;
+
+
+    // Ready.
+
+    ao_clear(&W, ao_are_wait_t);
+
+    W.are = A;
+
+
+    ao_are_wait_begin(&W);
+
+    ao_await_from(&W.async, t, b);
+
+    ao_are_wait_end(&W);
+
+
+    return W.result;
+}
+
+bool ao_are_wait_forever(ao_are_t * A)
+{
+    return ao_are_wait_from(A, AO_INFINITY, 0);
+}
+
+// ----------------------------------------------------------------------------
+
+bool ao_are_wait_try(ao_are_t * A)
+{
+    // Variables.
+
+    ao_are_wait_t W;
+
+
+    // Ready.
+
+    ao_clear(&W, ao_are_wait_t);
+
+    W.are = A;
+
+
+    ao_are_wait_begin(&W);
+
+    ao_are_wait_end(&W);
+
+
+    return W.result;
+}
+
+// ----------------------------------------------------------------------------
+
 void ao_are_wait_begin(ao_are_wait_t * W)
 {
+    // Notes.
+
+    // https://learn.microsoft.com/en-us/dotnet/api/system.threading.autoresetevent
+
+
     // Assert.
 
     ao_assert(W);
@@ -11115,15 +11202,24 @@ void ao_are_wait_begin(ao_are_wait_t * W)
 
     A = W->are;
 
+
+    // Ready.
+
     ao_async_begin(&W->async);
 
     ao_lock(&L);
     {
         // Auto-reset event is set.
 
+        // If the auto-reset event is in the signaled state, the task does
+        // not block.
+
+        // The auto-reset event releases the task immediately and returns to
+        // the non-signaled state.
+
         if (A->state)
         {
-            ao_assert(ao_list_is_empty(&A->list));
+            ao_assert(ao_list_is_empty(&A->wait));
 
             A->state = false;
 
@@ -11132,11 +11228,18 @@ void ao_are_wait_begin(ao_are_wait_t * W)
             ao_async_check(&W->async);
         }
 
-        // Auto-reset event is clear.
+        // Auto-reset event is not set.
+
+        // If the auto-reset event is in the non-signaled state, the task
+        // blocks until ao_are_set() is called.
 
         else
         {
-            ao_list_push_back(&W->are->list, &W->node);
+            ao_list_push_back
+            (
+                &W->are->wait,
+                &W->are_wait_node
+            );
 
             W->result = false;
         }
@@ -11166,63 +11269,16 @@ void ao_are_wait_end(ao_are_wait_t * W)
 
         else
         {
-            ao_list_remove(&W->are->list, &W->node);
+            ao_list_remove
+            (
+                &W->are->wait,
+                &W->are_wait_node
+            );
         }
     }
     ao_unlock(&L);
 
     ao_async_end(&W->async);
-}
-
-bool ao_are_wait_forever(ao_are_t * A)
-{
-    return ao_are_wait_from(A, AO_INFINITY, 0);
-}
-
-bool ao_are_wait_from(ao_are_t * A, ao_time_t t, ao_time_t b)
-{
-    // Variables.
-
-    ao_are_wait_t W;
-
-
-    // Ready.
-
-    ao_clear(&W, ao_are_wait_t);
-
-    W.are = A;
-
-
-    ao_are_wait_begin(&W);
-
-    ao_await_from(&W.async, t, b);
-
-    ao_are_wait_end(&W);
-
-
-    return W.result;
-}
-
-bool ao_are_wait_try(ao_are_t * A)
-{
-    // Variables.
-
-    ao_are_wait_t W;
-
-
-    // Ready.
-
-    ao_clear(&W, ao_are_wait_t);
-
-    W.are = A;
-
-
-    ao_are_wait_begin(&W);
-
-    ao_are_wait_end(&W);
-
-
-    return W.result;
 }
 
 // ----------------------------------------------------------------------------
@@ -12020,6 +12076,61 @@ bool ao_barrier_wait(ao_barrier_t * B, ao_time_t t)
     return ao_barrier_wait_from(B, t, ao_now());
 }
 
+bool ao_barrier_wait_forever(ao_barrier_t * B)
+{
+    return ao_barrier_wait_from(B, AO_INFINITY, 0);
+}
+
+bool ao_barrier_wait_from(ao_barrier_t * B, ao_time_t t, ao_time_t b)
+{
+    // Variables.
+
+    ao_barrier_wait_t W;
+
+
+    // Ready.
+
+    ao_clear(&W, ao_barrier_wait_t);
+
+    W.barrier = B;
+
+
+    ao_barrier_wait_begin(&W);
+
+    ao_await_from(&W.async, t, b);
+
+    ao_barrier_wait_end(&W);
+
+
+    return W.result;
+}
+
+// ----------------------------------------------------------------------------
+
+bool ao_barrier_wait_try(ao_barrier_t * B)
+{
+    // Variables.
+
+    ao_barrier_wait_t W;
+
+
+    // Ready.
+
+    ao_clear(&W, ao_barrier_wait_t);
+
+    W.barrier = B;
+
+
+    ao_barrier_wait_begin(&W);
+
+    ao_barrier_wait_end(&W);
+
+
+    return W.result;
+}
+
+// ----------------------------------------------------------------------------
+
 void ao_barrier_wait_begin(ao_barrier_wait_t * W)
 {
     // Assert.
@@ -12066,15 +12177,15 @@ void ao_barrier_wait_begin(ao_barrier_wait_t * W)
 
             ao_async_check(&W->async);
 
-            n = B->list.front;
+            n = B->wait.front;
 
             while (n)
             {
-                W = ao_containerof(n, ao_barrier_wait_t, node);
+                W = ao_containerof(n, ao_barrier_wait_t, barrier_wait_node);
 
                 n = n->next;
 
-                ao_list_remove_front(&B->list);
+                ao_list_remove_front(&B->wait);
 
                 W->result = true;
 
@@ -12088,7 +12199,7 @@ void ao_barrier_wait_begin(ao_barrier_wait_t * W)
 
             W->result = false;
 
-            ao_list_push_back(&B->list, &W->node);
+            ao_list_push_back(&B->wait, &W->barrier_wait_node);
         }
     }
     ao_unlock(&L);
@@ -12122,63 +12233,12 @@ void ao_barrier_wait_end(ao_barrier_wait_t * W)
 
             B->count--;
 
-            ao_list_remove(&B->list, &W->node);
+            ao_list_remove(&B->wait, &W->barrier_wait_node);
         }
     }
     ao_unlock(&L);
 
     ao_async_end(&W->async);
-}
-
-bool ao_barrier_wait_forever(ao_barrier_t * B)
-{
-    return ao_barrier_wait_from(B, AO_INFINITY, 0);
-}
-
-bool ao_barrier_wait_from(ao_barrier_t * B, ao_time_t t, ao_time_t b)
-{
-    // Variables.
-
-    ao_barrier_wait_t W;
-
-
-    // Ready.
-
-    ao_clear(&W, ao_barrier_wait_t);
-
-    W.barrier = B;
-
-
-    ao_barrier_wait_begin(&W);
-
-    ao_await_from(&W.async, t, b);
-
-    ao_barrier_wait_end(&W);
-
-
-    return W.result;
-}
-
-bool ao_barrier_wait_try(ao_barrier_t * B)
-{
-    // Variables.
-
-    ao_barrier_wait_t W;
-
-
-    // Ready.
-
-    ao_clear(&W, ao_barrier_wait_t);
-
-    W.barrier = B;
-
-
-    ao_barrier_wait_begin(&W);
-
-    ao_barrier_wait_end(&W);
-
-
-    return W.result;
 }
 
 // ----------------------------------------------------------------------------
@@ -12193,7 +12253,7 @@ static void ao_block_callback(void * x);
 
 // ----------------------------------------------------------------------------
 
-void ao_block(ao_block_t * b)
+void ao_block(ao_block_t * B)
 {
     // Notes.
 
@@ -12204,45 +12264,54 @@ void ao_block(ao_block_t * b)
 
     ao_assert(ao_booted_task);
 
-    ao_assert(b);
+    ao_assert(B);
 
 
     // Variables.
 
-    ao_alarm_t * a;
+    ao_alarm_t * A;
 
-    ao_task_t * t;
+    ao_task_t * T;
 
 
     // Ready.
 
-    t = ao_self_locked();
+    T = ao_self_locked();
 
-    if (b->timeout != AO_INFINITY)
+
+    // Ready.
+
+    // Block with an infinite timeout.
+
+    if (B->timeout == AO_INFINITY) { }
+
+    // Block with a finite timeout.
+
+    else
     {
-        a = &b->alarm;
+        A = &B->alarm;
 
-        a->callback = ao_block_callback;
+        A->callback = ao_block_callback;
 
-        a->callback_parameter = t;
+        A->callback_parameter = T;
 
         ao_alarm_start_from
         (
-            a,
-            b->timeout,
-            b->beginning
+            A,
+            B->timeout,
+            B->beginning
         );
     }
 
 #if AO_TASK_COUNT
 
-    t->count.block++;
+    T->count.block++;
 
 #endif
 
-    t->block = b;
+    T->block = B;
 
-    ao_task_pend(t, AO_TASK_BLOCKING);
+    ao_task_pend(T, AO_TASK_BLOCKING);
 }
 
 void ao_block_callback(void * x)
@@ -12256,9 +12325,9 @@ void ao_block_callback(void * x)
 
     // Ready.
 
-    ao_task_t * t = x;
+    ao_task_t * T = x;
 
-    ao_task_wake(t);
+    ao_task_wake(T);
 }
 
 // ----------------------------------------------------------------------------
@@ -12269,11 +12338,11 @@ void ao_block_callback(void * x)
 
 // ----------------------------------------------------------------------------
 
-void ao_bsem_give(ao_bsem_t * S)
+void ao_bsem_give(ao_bsem_t * B)
 {
     // Assert.
 
-    ao_assert(S);
+    ao_assert(B);
 
 
     // Variables.
@@ -12289,15 +12358,15 @@ void ao_bsem_give(ao_bsem_t * S)
 
     ao_lock(&L);
     {
-        if (S->taken)
+        if (B->taken)
         {
-            n = S->list.front;
+            n = B->take.front;
 
             if (n)
             {
-                ao_list_remove_front(&S->list);
+                ao_list_remove_front(&B->take);
 
-                T = ao_containerof(n, ao_bsem_take_t, node);
+                T = ao_containerof(n, ao_bsem_take_t, bsem_take_node);
 
                 T->result = true;
 
@@ -12306,7 +12375,7 @@ void ao_bsem_give(ao_bsem_t * S)
 
             else
             {
-                S->taken = false;
+                B->taken = false;
             }
         }
     }
@@ -12315,10 +12384,65 @@ void ao_bsem_give(ao_bsem_t * S)
 
 // ----------------------------------------------------------------------------
 
-bool ao_bsem_take(ao_bsem_t * S, ao_time_t t)
+bool ao_bsem_take(ao_bsem_t * B, ao_time_t t)
 {
-    return ao_bsem_take_from(S, t, ao_now());
+    return ao_bsem_take_from(B, t, ao_now());
 }
+
+bool ao_bsem_take_from(ao_bsem_t * B, ao_time_t t, ao_time_t b)
+{
+    // Variables.
+
+    ao_bsem_take_t T;
+
+
+    // Ready.
+
+    ao_clear(&T, ao_bsem_take_t);
+
+    T.bsem = B;
+
+
+    ao_bsem_take_begin(&T);
+
+    ao_await_from(&T.async, t, b);
+
+    ao_bsem_take_end(&T);
+
+
+    return T.result;
+}
+
+bool ao_bsem_take_forever(ao_bsem_t * B)
+{
+    return ao_bsem_take_from(B, AO_INFINITY, 0);
+}
+
+// ----------------------------------------------------------------------------
+
+bool ao_bsem_take_try(ao_bsem_t * B)
+{
+    // Variables.
+
+    ao_bsem_take_t T;
+
+
+    // Ready.
+
+    ao_clear(&T, ao_bsem_take_t);
+
+    T.bsem = B;
+
+
+    ao_bsem_take_begin(&T);
+
+    ao_bsem_take_end(&T);
+
+
+    return T.result;
+}
+
+// ----------------------------------------------------------------------------
 
 void ao_bsem_take_begin(ao_bsem_take_t * T)
 {
@@ -12326,38 +12450,42 @@ void ao_bsem_take_begin(ao_bsem_take_t * T)
 
     ao_assert(T);
 
-    ao_assert(T->sem);
+    ao_assert(T->bsem);
 
 
     // Variables.
 
-    ao_lock_t L;
+    ao_bsem_t * B;
 
-    ao_bsem_t * S;
+    ao_lock_t L;
 
 
     // Ready.
 
-    S = T->sem;
+    B = T->bsem;
 
     ao_async_begin(&T->async);
 
     ao_lock(&L);
     {
-        // Semaphore is not available.
+        // Binary semaphore is taken.
 
-        if (S->taken)
+        if (B->taken)
         {
-            ao_list_push_back(&S->list, &T->node);
+            ao_list_push_back
+            (
+                &B->take,
+                &T->bsem_take_node
+            );
 
             T->result = false;
         }
 
-        // Semaphore is available.
+        // Binary semaphore is not taken.
 
         else
         {
-            S->taken = true;
+            B->taken = true;
 
             T->result = true;
 
@@ -12373,7 +12501,7 @@ void ao_bsem_take_end(ao_bsem_take_t * T)
 
     ao_assert(T);
 
-    ao_assert(T->sem);
+    ao_assert(T->bsem);
 
 
     // Variables.
@@ -12389,63 +12517,16 @@ void ao_bsem_take_end(ao_bsem_take_t * T)
 
         else
         {
-            ao_list_remove(&T->sem->list, &T->node);
+            ao_list_remove
+            (
+                &T->bsem->take,
+                &T->bsem_take_node
+            );
         }
     }
     ao_unlock(&L);
 
     ao_async_end(&T->async);
-}
-
-bool ao_bsem_take_forever(ao_bsem_t * S)
-{
-    return ao_bsem_take_from(S, AO_INFINITY, 0);
-}
-
-bool ao_bsem_take_from(ao_bsem_t * S, ao_time_t t, ao_time_t b)
-{
-    // Variables.
-
-    ao_bsem_take_t T;
-
-
-    // Ready.
-
-    ao_clear(&T, ao_bsem_take_t);
-
-    T.sem = S;
-
-
-    ao_bsem_take_begin(&T);
-
-    ao_await_from(&T.async, t, b);
-
-    ao_bsem_take_end(&T);
-
-
-    return T.result;
-}
-
-bool ao_bsem_take_try(ao_bsem_t * S)
-{
-    // Variables.
-
-    ao_bsem_take_t T;
-
-
-    // Ready.
-
-    ao_clear(&T, ao_bsem_take_t);
-
-    T.sem = S;
-
-
-    ao_bsem_take_begin(&T);
-
-    ao_bsem_take_end(&T);
-
-
-    return T.result;
 }
 
 // ----------------------------------------------------------------------------
@@ -12456,7 +12537,7 @@ bool ao_bsem_take_try(ao_bsem_t * S)
 
 // ----------------------------------------------------------------------------
 
-void ao_cond_clear(ao_cond_t * C)
+void ao_cond_false(ao_cond_t * C)
 {
     // Assert.
 
@@ -12472,14 +12553,23 @@ void ao_cond_clear(ao_cond_t * C)
 
     ao_lock(&L);
     {
-        ao_assert(!C->state || ao_list_is_empty(&C->list));
+        // Condition is true.
 
-        C->state = false;
+        if (C->state)
+        {
+            ao_assert(ao_list_is_empty(&C->wait));
+
+            C->state = false;
+        }
+
+        // Condition is false already.
+
+        else { }
     }
     ao_unlock(&L);
 }
 
-void ao_cond_set(ao_cond_t * C)
+void ao_cond_true(ao_cond_t * C)
 {
     // Assert.
 
@@ -12490,42 +12580,46 @@ void ao_cond_set(ao_cond_t * C)
 
     ao_lock_t L;
 
-    ao_list_node_t * n;
-
     ao_cond_wait_t * W;
+
+    ao_list_t * WL;
+
+    ao_list_node_t * WN;
 
 
     // Ready.
 
     ao_lock(&L);
     {
-        // Condition variable is set already.
+        // Condition is true already.
 
         if (C->state)
         {
-            ao_assert(ao_list_is_empty(&C->list));
+            ao_assert(ao_list_is_empty(&C->wait));
         }
 
-        // Condition variable is clear.
+        // Condition is false.
 
         else
         {
             C->state = true;
 
-            n = C->list.front;
+            WL = &C->wait;
 
-            while (n)
+            WN = WL->front;
+
+            while (WN)
             {
-                W = ao_containerof(n, ao_cond_wait_t, node);
-
-                n = n->next;
-
-                ao_list_remove_front(&C->list);
+                W = ao_containerof(WN, ao_cond_wait_t, cond_wait_node);
 
                 W->result = true;
 
                 ao_async_check(&W->async);
+
+                WN = WN->next;
             }
+
+            ao_list_remove_all(WL);
         }
     }
     ao_unlock(&L);
@@ -12537,6 +12631,61 @@ bool ao_cond_wait(ao_cond_t * C, ao_time_t t)
 {
     return ao_cond_wait_from(C, t, ao_now());
 }
+
+bool ao_cond_wait_from(ao_cond_t * C, ao_time_t t, ao_time_t b)
+{
+    // Variables.
+
+    ao_cond_wait_t W;
+
+
+    // Ready.
+
+    ao_clear(&W, ao_cond_wait_t);
+
+    W.cond = C;
+
+
+    ao_cond_wait_begin(&W);
+
+    ao_await_from(&W.async, t, b);
+
+    ao_cond_wait_end(&W);
+
+
+    return W.result;
+}
+
+bool ao_cond_wait_forever(ao_cond_t * C)
+{
+    return ao_cond_wait_from(C, AO_INFINITY, 0);
+}
+
+// ----------------------------------------------------------------------------
+
+bool ao_cond_wait_try(ao_cond_t * C)
+{
+    // Variables.
+
+    ao_cond_wait_t W;
+
+
+    // Ready.
+
+    ao_clear(&W, ao_cond_wait_t);
+
+    W.cond = C;
+
+
+    ao_cond_wait_begin(&W);
+
+    ao_cond_wait_end(&W);
+
+
+    return W.result;
+}
+
+// ----------------------------------------------------------------------------
 
 void ao_cond_wait_begin(ao_cond_wait_t * W)
 {
@@ -12558,28 +12707,35 @@ void ao_cond_wait_begin(ao_cond_wait_t * W)
 
     C = W->cond;
 
+
+    // Ready.
+
     ao_async_begin(&W->async);
 
     ao_lock(&L);
     {
-        // Condition variable is set.
+        // Condition is true.
 
         if (C->state)
         {
-            ao_assert(ao_list_is_empty(&C->list));
+            ao_assert(ao_list_is_empty(&C->wait));
 
             W->result = true;
 
             ao_async_check(&W->async);
         }
 
-        // Condition variable is clear.
+        // Condition is false.
 
         else
         {
-            W->result = false;
+            ao_list_push_back
+            (
+                &W->cond->wait,
+                &W->cond_wait_node
+            );
 
-            ao_list_push_back(&C->list, &W->node);
+            W->result = false;
         }
     }
     ao_unlock(&L);
@@ -12607,783 +12763,16 @@ void ao_cond_wait_end(ao_cond_wait_t * W)
 
         else
         {
-            ao_list_remove(&W->cond->list, &W->node);
+            ao_list_remove
+            (
+                &W->cond->wait,
+                &W->cond_wait_node
+            );
         }
     }
     ao_unlock(&L);
 
     ao_async_end(&W->async);
-}
-
-bool ao_cond_wait_forever(ao_cond_t * C)
-{
-    return ao_cond_wait_from(C, AO_INFINITY, 0);
-}
-
-bool ao_cond_wait_from(ao_cond_t * C, ao_time_t t, ao_time_t b)
-{
-    // Variables.
-
-    ao_cond_wait_t W;
-
-
-    // Ready.
-
-    ao_clear(&W, ao_cond_wait_t);
-
-    W.cond = C;
-
-
-    ao_cond_wait_begin(&W);
-
-    ao_await_from(&W.async, t, b);
-
-    ao_cond_wait_end(&W);
-
-
-    return W.result;
-}
-
-bool ao_cond_wait_try(ao_cond_t * C)
-{
-    // Variables.
-
-    ao_cond_wait_t W;
-
-
-    // Ready.
-
-    ao_clear(&W, ao_cond_wait_t);
-
-    W.cond = C;
-
-
-    ao_cond_wait_begin(&W);
-
-    ao_cond_wait_end(&W);
-
-
-    return W.result;
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#if defined AO_COUNTER
-
-// ----------------------------------------------------------------------------
-
-static void ao_counter_update_1(ao_counter_t * C, ao_uint_t v);
-
-static void ao_counter_update_2(ao_counter_t * C, ao_uint_t v);
-
-// ----------------------------------------------------------------------------
-
-void ao_counter_add(ao_counter_t * C, ao_uint_t v)
-{
-    // Assert.
-
-    ao_assert(C);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    if (v != 0)
-    {
-        ao_lock(&L);
-        {
-            ao_counter_update_2(C, C->value + v);
-        }
-        ao_unlock(&L);
-    }
-}
-
-void ao_counter_adjust(ao_counter_t * C, ao_counter_adjust_t a, void * p)
-{
-    // Assert.
-
-    ao_assert(C);
-
-    ao_assert(a);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-    ao_uint_t v;
-
-
-    // Ready.
-
-    ao_lock(&L);
-    {
-        v = a(C->value, p);
-
-        ao_counter_update_1(C, v);
-    }
-    ao_unlock(&L);
-}
-
-void ao_counter_decrement(ao_counter_t * C)
-{
-    // Assert.
-
-    ao_assert(C);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    ao_lock(&L);
-    {
-        ao_counter_update_2(C, C->value - 1);
-    }
-    ao_unlock(&L);
-}
-
-void ao_counter_divide(ao_counter_t * C, ao_uint_t v)
-{
-    // Assert.
-
-    ao_assert(C);
-
-    ao_assert(v != 0);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    if (v != 1)
-    {
-        ao_lock(&L);
-        {
-            ao_counter_update_1(C, C->value / v);
-        }
-        ao_unlock(&L);
-    }
-}
-
-void ao_counter_increment(ao_counter_t * C)
-{
-    // Assert.
-
-    ao_assert(C);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    ao_lock(&L);
-    {
-        ao_counter_update_2(C, C->value + 1);
-    }
-    ao_unlock(&L);
-}
-
-void ao_counter_modulo(ao_counter_t * C, ao_uint_t v)
-{
-    // Assert.
-
-    ao_assert(C);
-
-    ao_assert(v != 0);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    ao_lock(&L);
-    {
-        ao_counter_update_1(C, C->value % v);
-    }
-    ao_unlock(&L);
-}
-
-void ao_counter_multiply(ao_counter_t * C, ao_uint_t v)
-{
-    // Assert.
-
-    ao_assert(C);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    if (v != 1)
-    {
-        ao_lock(&L);
-        {
-            ao_counter_update_1(C, C->value * v);
-        }
-        ao_unlock(&L);
-    }
-}
-
-void ao_counter_set(ao_counter_t * C, ao_uint_t v)
-{
-    // Assert.
-
-    ao_assert(C);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    ao_lock(&L);
-    {
-        ao_counter_update_1(C, v);
-    }
-    ao_unlock(&L);
-}
-
-void ao_counter_subtract(ao_counter_t * C, ao_uint_t v)
-{
-    // Assert.
-
-    ao_assert(C);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    if (v != 0)
-    {
-        ao_lock(&L);
-        {
-            ao_counter_update_2(C, C->value - v);
-        }
-        ao_unlock(&L);
-    }
-}
-
-void ao_counter_subtract_from(ao_counter_t * C, ao_uint_t v)
-{
-    // Assert.
-
-    ao_assert(C);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    ao_lock(&L);
-    {
-        ao_counter_update_1(C, v - C->value);
-    }
-    ao_unlock(&L);
-}
-
-void ao_counter_update_1(ao_counter_t * C, ao_uint_t v)
-{
-    // Notes.
-
-    // The kernel is locked.
-
-
-    // Ready.
-
-    if (v != C->value)
-    {
-        ao_counter_update_2(C, v);
-    }
-}
-
-void ao_counter_update_2(ao_counter_t * C, ao_uint_t v)
-{
-    // Notes.
-
-    // The kernel is locked.
-
-
-    // Variables.
-
-    ao_list_node_t * n1;
-
-    ao_list_node_t * n2;
-
-    ao_counter_wait_t * W;
-
-
-    // Ready.
-
-    C->value = v;
-
-    n1 = C->list.front;
-
-    while (n1)
-    {
-        n2 = n1->next;
-
-        W = ao_containerof(n1, ao_counter_wait_t, node);
-
-        ao_assert(W->match);
-
-        if (W->match(v, W->value, W->match_parameter))
-        {
-            ao_list_remove(&C->list, n1);
-
-            W->result= true;
-
-            ao_async_check(&W->async);
-        }
-
-        n1 = n2;
-    }
-}
-
-// ----------------------------------------------------------------------------
-
-bool ao_counter_wait(ao_counter_t * C, ao_uint_t v, ao_counter_match_t m, void * p, ao_time_t t)
-{
-    return ao_counter_wait_from(C, v, m, p, t, ao_now());
-}
-
-void ao_counter_wait_begin(ao_counter_wait_t * W)
-{
-    // Assert.
-
-    ao_assert(W);
-
-    ao_assert(W->counter);
-
-    ao_assert(W->match);
-
-
-    // Variables.
-
-    ao_counter_t * C;
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    C = W->counter;
-
-    ao_async_begin(&W->async);
-
-    ao_lock(&L);
-    {
-        if (W->match(C->value, W->value, W->match_parameter))
-        {
-            W->result = true;
-
-            ao_async_check(&W->async);
-        }
-
-        else
-        {
-            W->result = false;
-
-            ao_list_push_back(&C->list, &W->node);
-        }
-    }
-    ao_unlock(&L);
-}
-
-void ao_counter_wait_end(ao_counter_wait_t * W)
-{
-    // Assert.
-
-    ao_assert(W);
-
-    ao_assert(W->counter);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    ao_lock(&L);
-    {
-        if (W->result) { }
-
-        else
-        {
-            ao_list_remove(&W->counter->list, &W->node);
-        }
-    }
-    ao_unlock(&L);
-
-    ao_async_end(&W->async);
-}
-
-bool ao_counter_wait_forever(ao_counter_t * C, ao_uint_t v, ao_counter_match_t m, void * p)
-{
-    return ao_counter_wait_from(C, v, m, p, AO_INFINITY, 0);
-}
-
-bool ao_counter_wait_from(ao_counter_t * C, ao_uint_t v, ao_counter_match_t m, void * p, ao_time_t t, ao_time_t b)
-{
-    // Variables.
-
-    ao_counter_wait_t W;
-
-
-    // Ready.
-
-    ao_clear(&W, ao_counter_wait_t);
-
-    W.counter = C;
-
-    W.match = m;
-
-    W.match_parameter = p;
-
-    W.value = v;
-
-
-    ao_counter_wait_begin(&W);
-
-    ao_await_from(&W.async, t, b);
-
-    ao_counter_wait_end(&W);
-
-
-    return W.result;
-}
-
-bool ao_counter_wait_try(ao_counter_t * C, ao_uint_t v, ao_counter_match_t m, void * p)
-{
-    // Variables.
-
-    ao_counter_wait_t W;
-
-
-    // Ready.
-
-    ao_clear(&W, ao_counter_wait_t);
-
-    W.counter = C;
-
-    W.match = m;
-
-    W.match_parameter = p;
-
-    W.value = v;
-
-
-    ao_counter_wait_begin(&W);
-
-    ao_counter_wait_end(&W);
-
-
-    return W.result;
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#if defined AO_FLAG
-
-// ----------------------------------------------------------------------------
-
-static void ao_flag_update(ao_flag_t * F, ao_uint_t m);
-
-// ----------------------------------------------------------------------------
-
-void ao_flag_mask_clear(ao_flag_t * F, ao_uint_t b)
-{
-    // Assert.
-
-    ao_assert(F);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    if (b)
-    {
-        ao_lock(&L);
-        {
-            ao_flag_update(F, F->mask & ~b);
-        }
-        ao_unlock(&L);
-    }
-}
-
-void ao_flag_mask_set(ao_flag_t * F, ao_uint_t b)
-{
-    // Assert.
-
-    ao_assert(F);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    if (b)
-    {
-        ao_lock(&L);
-        {
-            ao_flag_update(F, F->mask | b);
-        }
-        ao_unlock(&L);
-    }
-}
-
-void ao_flag_mask_toggle(ao_flag_t * F, ao_uint_t b)
-{
-    // Assert.
-
-    ao_assert(F);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    if (b)
-    {
-        ao_lock(&L);
-        {
-            ao_flag_update(F, F->mask ^ b);
-        }
-        ao_unlock(&L);
-    }
-}
-
-void ao_flag_update(ao_flag_t * F, ao_uint_t m)
-{
-    // Notes.
-
-    // The kernel is locked.
-
-
-    // Variables.
-
-    ao_list_node_t * n1;
-
-    ao_list_node_t * n2;
-
-    ao_flag_wait_t * W;
-
-
-    // Ready.
-
-    if (m != F->mask)
-    {
-        F->mask = m;
-
-        n1 = F->list.front;
-
-        while (n1)
-        {
-            n2 = n1->next;
-
-            W = ao_containerof(n1, ao_flag_wait_t, node);
-
-            ao_assert(W->match);
-
-            if (W->match(m, W->mask, W->match_parameter))
-            {
-                ao_list_remove(&F->list, n1);
-
-                W->result= true;
-
-                ao_async_check(&W->async);
-            }
-
-            n1 = n2;
-        }
-    }
-}
-
-// ----------------------------------------------------------------------------
-
-bool ao_flag_wait(ao_flag_t * F, ao_uint_t m, ao_flag_match_t x, void * p, ao_time_t t)
-{
-    return ao_flag_wait_from(F, m, x, p, t, ao_now());
-}
-
-void ao_flag_wait_begin(ao_flag_wait_t * W)
-{
-    // Assert.
-
-    ao_assert(W);
-
-    ao_assert(W->flag);
-
-    ao_assert(W->match);
-
-
-    // Variables.
-
-    ao_flag_t * F;
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    F = W->flag;
-
-    ao_async_begin(&W->async);
-
-    ao_lock(&L);
-    {
-        if (W->match(F->mask, W->mask, W->match_parameter))
-        {
-            W->result = true;
-
-            ao_async_check(&W->async);
-        }
-
-        else
-        {
-            W->result = false;
-
-            ao_list_push_back(&F->list, &W->node);
-        }
-    }
-    ao_unlock(&L);
-}
-
-void ao_flag_wait_end(ao_flag_wait_t * W)
-{
-    // Assert.
-
-    ao_assert(W);
-
-    ao_assert(W->flag);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    ao_lock(&L);
-    {
-        if (W->result) { }
-
-        else
-        {
-            ao_list_remove(&W->flag->list, &W->node);
-        }
-    }
-    ao_unlock(&L);
-
-    ao_async_end(&W->async);
-}
-
-bool ao_flag_wait_forever(ao_flag_t * F, ao_uint_t m, ao_flag_match_t x, void * p)
-{
-    return ao_flag_wait_from(F, m, x, p, AO_INFINITY, 0);
-}
-
-bool ao_flag_wait_from(ao_flag_t * F, ao_uint_t m, ao_flag_match_t x, void * p, ao_time_t t, ao_time_t b)
-{
-    // Variables.
-
-    ao_flag_wait_t W;
-
-
-    // Ready.
-
-    ao_clear(&W, ao_flag_wait_t);
-
-    W.flag = F;
-
-    W.mask = m;
-
-    W.match = x;
-
-    W.match_parameter = p;
-
-
-    ao_flag_wait_begin(&W);
-
-    ao_await_from(&W.async, t, b);
-
-    ao_flag_wait_end(&W);
-
-
-    return W.result;
-}
-
-bool ao_flag_wait_try(ao_flag_t * F, ao_uint_t m, ao_flag_match_t x, void * p)
-{
-    // Variables.
-
-    ao_flag_wait_t W;
-
-
-    // Ready.
-
-    ao_clear(&W, ao_flag_wait_t);
-
-    W.flag = F;
-
-    W.mask = m;
-
-    W.match = x;
-
-    W.match_parameter = p;
-
-
-    ao_flag_wait_begin(&W);
-
-    ao_flag_wait_end(&W);
-
-
-    return W.result;
 }
 
 // ----------------------------------------------------------------------------
@@ -13394,10 +12783,35 @@ bool ao_flag_wait_try(ao_flag_t * F, ao_uint_t m, ao_flag_match_t x, void * p)
 
 // ----------------------------------------------------------------------------
 
-bool ao_mail_fetch(ao_mailbox_t * B, ao_mail_t ** M, ao_time_t t)
+void ao_mail_fetch(ao_mail_fetch_t * F, ao_time_t t)
 {
-    return ao_mail_fetch_from(B, M, t, ao_now());
+    ao_mail_fetch_from(F, t, ao_now());
 }
+
+void ao_mail_fetch_from(ao_mail_fetch_t * F, ao_time_t t, ao_time_t b)
+{
+    ao_mail_fetch_begin(F);
+
+    ao_await_from(&F->async, t, b);
+
+    ao_mail_fetch_end(F);
+}
+
+void ao_mail_fetch_forever(ao_mail_fetch_t * F)
+{
+    ao_mail_fetch_from(F, AO_INFINITY, 0);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_mail_fetch_try(ao_mail_fetch_t * F)
+{
+    ao_mail_fetch_begin(F);
+
+    ao_mail_fetch_end(F);
+}
+
+// ----------------------------------------------------------------------------
 
 void ao_mail_fetch_begin(ao_mail_fetch_t * F)
 {
@@ -13410,39 +12824,50 @@ void ao_mail_fetch_begin(ao_mail_fetch_t * F)
 
     // Variables.
 
-    ao_mailbox_t * B;
-
     ao_lock_t L;
 
     ao_mail_t * M;
 
-    ao_list_node_t * n;
+    ao_list_t * ML;
+
+    ao_list_node_t * MN;
+
+    ao_mailbox_t * X;
 
 
     // Ready.
 
-    B = F->mailbox;
+    X = F->mailbox;
+
+    ML = &X->mail;
+
+
+    // Ready.
 
     ao_async_begin(&F->async);
 
     ao_lock(&L);
     {
-        // Mailbox is empty.
+        // List of mails is empty.
 
-        if (ao_list_is_empty(&B->mails))
+        if (ao_list_is_empty(ML))
         {
-            ao_list_push_back(&B->fetchers, &F->node);
+            ao_list_push_back
+            (
+                &X->fetch,
+                &F->mailbox_fetch_node
+            );
 
             F->result = false;
         }
 
-        // Mailbox is not empty.
+        // List of mails is not empty.
 
         else
         {
-            n = ao_list_pop_front(&B->mails);
+            MN = ao_list_pop_front(ML);
 
-            M = ao_containerof(n, ao_mail_t, node);
+            M = ao_containerof(MN, ao_mail_t, mailbox_mail_node);
 
             F->mail = M;
 
@@ -13476,7 +12901,11 @@ void ao_mail_fetch_end(ao_mail_fetch_t * F)
 
         else
         {
-            ao_list_remove(&F->mailbox->fetchers, &F->node);
+            ao_list_remove
+            (
+                &F->mailbox->fetch,
+                &F->mailbox_fetch_node
+            );
         }
     }
     ao_unlock(&L);
@@ -13484,78 +12913,13 @@ void ao_mail_fetch_end(ao_mail_fetch_t * F)
     ao_async_end(&F->async);
 }
 
-bool ao_mail_fetch_forever(ao_mailbox_t * B, ao_mail_t ** M)
-{
-    return ao_mail_fetch_from(B, M, AO_INFINITY, 0);
-}
-
-bool ao_mail_fetch_from(ao_mailbox_t * B, ao_mail_t ** M, ao_time_t t, ao_time_t b)
-{
-    // Assert.
-
-    ao_assert(M);
-
-
-    // Variables.
-
-    ao_mail_fetch_t F;
-
-
-    // Ready.
-
-    ao_clear(&F, ao_mail_fetch_t);
-
-    F.mailbox = B;
-
-
-    ao_mail_fetch_begin(&F);
-
-    ao_await_from(&F.async, t, b);
-
-    ao_mail_fetch_end(&F);
-
-
-    *M = F.mail;
-
-    return F.result;
-}
-
-bool ao_mail_fetch_try(ao_mailbox_t * B, ao_mail_t ** M)
-{
-    // Assert.
-
-    ao_assert(M);
-
-
-    // Variables.
-
-    ao_mail_fetch_t F;
-
-
-    // Ready.
-
-    ao_clear(&F, ao_mail_fetch_t);
-
-    F.mailbox = B;
-
-
-    ao_mail_fetch_begin(&F);
-
-    ao_mail_fetch_end(&F);
-
-
-    *M = F.mail;
-
-    return F.result;
-}
-
 // ----------------------------------------------------------------------------
 
-void ao_mail_post(ao_mailbox_t * B, ao_mail_t * M)
+void ao_mail_post(ao_mailbox_t * X, ao_mail_t * M)
 {
     // Assert.
 
-    ao_assert(B);
+    ao_assert(X);
 
     ao_assert(M);
 
@@ -13564,29 +12928,40 @@ void ao_mail_post(ao_mailbox_t * B, ao_mail_t * M)
 
     ao_mail_fetch_t * F;
 
+    ao_list_t * FL;
+
+    ao_list_node_t * FN;
+
     ao_lock_t L;
 
-    ao_list_node_t * n;
+
+    // Ready.
+
+    FL = &X->fetch;
 
 
     // Ready.
 
     ao_lock(&L);
     {
-        // Mailbox has no fetchers.
+        // List of fetchings is empty.
 
-        if (ao_list_is_empty(&B->fetchers))
+        if (ao_list_is_empty(FL))
         {
-            ao_list_push_back(&B->mails, &M->node);
+            ao_list_push_back
+            (
+                &X->mail,
+                &M->mailbox_mail_node
+            );
         }
 
-        // Mailbox has fetchers.
+        // List of fetchings is not empty.
 
         else
         {
-            n = ao_list_pop_front(&B->fetchers);
+            FN = ao_list_pop_front(FL);
 
-            F = ao_containerof(n, ao_mail_fetch_t, node);
+            F = ao_containerof(FN, ao_mail_fetch_t, mailbox_fetch_node);
 
             F->mail = M;
 
@@ -13643,7 +13018,7 @@ void ao_monitor_enter_begin(ao_monitor_enter_t * E)
 
     // Mutex lock.
 
-    XL = &E->mutex_lock;
+    XL = &E->monitor_mutex_lock;
 
     XL->async.callback = ao_monitor_enter_checked;
 
@@ -13696,7 +13071,7 @@ void ao_monitor_enter_end(ao_monitor_enter_t * E)
 
     // Mutex lock.
 
-    XL = &E->mutex_lock;
+    XL = &E->monitor_mutex_lock;
 
     ao_mutex_lock_end(XL);
 
@@ -13793,17 +13168,17 @@ void ao_monitor_notify(ao_monitor_t * M)
 
     ao_lock(&L);
     {
-        n = M->list.front;
+        n = M->wait.front;
 
         if (n)
         {
-            ao_list_remove_front(&M->list);
+            ao_list_remove_front(&M->wait);
 
-            W = ao_containerof(n, ao_monitor_wait_t, node);
+            W = ao_containerof(n, ao_monitor_wait_t, monitor_wait_node);
 
             W->waiting = false;
 
-            ao_mutex_lock_begin_locked(&W->mutex_lock);
+            ao_mutex_lock_begin_locked(&W->monitor_mutex_lock);
         }
     }
     ao_unlock(&L);
@@ -13829,20 +13204,20 @@ void ao_monitor_notify_all(ao_monitor_t * M)
 
     ao_lock(&L);
     {
-        n = M->list.front;
+        n = M->wait.front;
 
         while (n)
         {
-            W = ao_containerof(n, ao_monitor_wait_t, node);
+            W = ao_containerof(n, ao_monitor_wait_t, monitor_wait_node);
 
             W->waiting = false;
 
-            ao_mutex_lock_begin_locked(&W->mutex_lock);
+            ao_mutex_lock_begin_locked(&W->monitor_mutex_lock);
 
             n = n->next;
         }
 
-        ao_list_remove_all(&M->list);
+        ao_list_remove_all(&M->wait);
     }
     ao_unlock(&L);
 }
@@ -13886,11 +13261,11 @@ void ao_monitor_wait_begin(ao_monitor_wait_t * W)
 
     ao_async_begin(&W->async);
 
-    W->mutex_lock.async.callback = ao_monitor_wait_checked;
+    W->monitor_mutex_lock.async.callback = ao_monitor_wait_checked;
 
-    W->mutex_lock.async.callback_parameter = W;
+    W->monitor_mutex_lock.async.callback_parameter = W;
 
-    W->mutex_lock.mutex = X;
+    W->monitor_mutex_lock.mutex = X;
 
     W->result = false;
 
@@ -13900,7 +13275,7 @@ void ao_monitor_wait_begin(ao_monitor_wait_t * W)
 
     ao_lock(&L);
     {
-        ao_list_push_back(&M->list, &W->node);
+        ao_list_push_back(&M->wait, &W->monitor_wait_node);
 
         ao_mutex_unlock_locked(X);
     }
@@ -13952,23 +13327,23 @@ void ao_monitor_wait_end(ao_monitor_wait_t * W)
     {
         if (W->waiting)
         {
-            ao_list_remove(&M->list, &W->node);
+            ao_list_remove(&M->wait, &W->monitor_wait_node);
         }
 
         else
         {
-            ao_mutex_lock_end_locked(&W->mutex_lock);
+            ao_mutex_lock_end_locked(&W->monitor_mutex_lock);
         }
     }
     ao_unlock(&L);
 
     // Monitor wait.
 
-    W->mutex_lock.async.callback = NULL;
+    W->monitor_mutex_lock.async.callback = NULL;
 
-    W->mutex_lock.async.callback_parameter = NULL;
+    W->monitor_mutex_lock.async.callback_parameter = NULL;
 
-    W->mutex_lock.mutex = NULL;
+    W->monitor_mutex_lock.mutex = NULL;
 
     ao_async_end(&W->async);
 }
@@ -14022,6 +13397,271 @@ bool ao_monitor_wait_try(ao_monitor_t * M)
 
 
     return W.result;
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_MRE
+
+// ----------------------------------------------------------------------------
+
+void ao_mre_reset(ao_mre_t * M)
+{
+    // Notes.
+
+    // https://learn.microsoft.com/en-us/dotnet/api/system.threading.manualresetevent
+
+
+    // Assert.
+
+    ao_assert(M);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        // Manual-reset event is set.
+
+        if (M->state)
+        {
+            ao_assert(ao_list_is_empty(&M->wait));
+
+            M->state = false;
+        }
+
+        // Manual-reset event is not set, already.
+
+        else { }
+    }
+    ao_unlock(&L);
+}
+
+void ao_mre_set(ao_mre_t * M)
+{
+    // Notes.
+
+    // https://learn.microsoft.com/en-us/dotnet/api/system.threading.manualresetevent
+
+    // This function signals that the waiting threads can proceed.
+
+    // All waiting threads are released.
+
+
+    // Assert.
+
+    ao_assert(M);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+    ao_mre_wait_t * W;
+
+    ao_list_t * WL;
+
+    ao_list_node_t * WN;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        // Manual-reset event is set already.
+
+        if (M->state)
+        {
+            ao_assert(ao_list_is_empty(&M->wait));
+        }
+
+        // Manual-reset event is not set.
+
+        else
+        {
+            M->state = true;
+
+            WL = &M->wait;
+
+            WN = WL->front;
+
+            while (WN)
+            {
+                W = ao_containerof(WN, ao_mre_wait_t, mre_wait_node);
+
+                W->result = true;
+
+                ao_async_check(&W->async);
+
+                WN = WN->next;
+            }
+
+            ao_list_remove_all(WL);
+        }
+    }
+    ao_unlock(&L);
+}
+
+// ----------------------------------------------------------------------------
+
+bool ao_mre_wait(ao_mre_t * M, ao_time_t t)
+{
+    return ao_mre_wait_from(M, t, ao_now());
+}
+
+bool ao_mre_wait_from(ao_mre_t * M, ao_time_t t, ao_time_t b)
+{
+    // Variables.
+
+    ao_mre_wait_t W;
+
+
+    // Ready.
+
+    ao_clear(&W, ao_mre_wait_t);
+
+    W.mre = M;
+
+
+    ao_mre_wait_begin(&W);
+
+    ao_await_from(&W.async, t, b);
+
+    ao_mre_wait_end(&W);
+
+
+    return W.result;
+}
+
+bool ao_mre_wait_forever(ao_mre_t * M)
+{
+    return ao_mre_wait_from(M, AO_INFINITY, 0);
+}
+
+// ----------------------------------------------------------------------------
+
+bool ao_mre_wait_try(ao_mre_t * M)
+{
+    // Variables.
+
+    ao_mre_wait_t W;
+
+
+    // Ready.
+
+    ao_clear(&W, ao_mre_wait_t);
+
+    W.mre = M;
+
+
+    ao_mre_wait_begin(&W);
+
+    ao_mre_wait_end(&W);
+
+
+    return W.result;
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_mre_wait_begin(ao_mre_wait_t * W)
+{
+    // Notes.
+
+    // https://learn.microsoft.com/en-us/dotnet/api/system.threading.manualresetevent
+
+
+    // Assert.
+
+    ao_assert(W);
+
+    ao_assert(W->mre);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+    ao_mre_t * M;
+
+
+    // Ready.
+
+    M = W->mre;
+
+
+    // Ready.
+
+    ao_async_begin(&W->async);
+
+    ao_lock(&L);
+    {
+        // Manual-reset event is set.
+
+        if (M->state)
+        {
+            ao_assert(ao_list_is_empty(&M->wait));
+
+            W->result = true;
+
+            ao_async_check(&W->async);
+        }
+
+        // Manual-reset event is not set.
+
+        else
+        {
+            ao_list_push_back
+            (
+                &W->mre->wait,
+                &W->mre_wait_node
+            );
+
+            W->result = false;
+        }
+    }
+    ao_unlock(&L);
+}
+
+void ao_mre_wait_end(ao_mre_wait_t * W)
+{
+    // Assert.
+
+    ao_assert(W);
+
+    ao_assert(W->mre);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        if (W->result) { }
+
+        else
+        {
+            ao_list_remove
+            (
+                &W->mre->wait,
+                &W->mre_wait_node
+            );
+        }
+    }
+    ao_unlock(&L);
+
+    ao_async_end(&W->async);
 }
 
 // ----------------------------------------------------------------------------
@@ -14108,7 +13748,7 @@ void ao_mutex_lock_begin_locked(ao_mutex_lock_t * XL)
 
     else
     {
-        ao_list_push_back(&X->list, &XL->node);
+        ao_list_push_back(&X->lock, &XL->mutex_lock_node);
 
 #if AO_TASK_INHERITANCE
 
@@ -14163,11 +13803,11 @@ void ao_mutex_lock_end_locked(ao_mutex_lock_t * XL)
     {
         X = XL->mutex;
 
-        ao_list_remove(&X->list, &XL->node);
+        ao_list_remove(&X->lock, &XL->mutex_lock_node);
 
 #if AO_TASK_CEILING
 
-        if (ao_list_is_empty(&X->list))
+        if (ao_list_is_empty(&X->lock))
         {
             ao_task_ceiling_end(&X->ceiling_original);
         }
@@ -14286,7 +13926,7 @@ void ao_mutex_unlock_locked(ao_mutex_t * X)
 
         // Mutex list is empty.
 
-        if (ao_list_is_empty(&X->list))
+        if (ao_list_is_empty(&X->lock))
         {
             X->owner = NULL;
 
@@ -14304,13 +13944,13 @@ void ao_mutex_unlock_locked(ao_mutex_t * X)
 
         else
         {
-            n = ao_list_pop_front(&X->list);
+            n = ao_list_pop_front(&X->lock);
 
-            XL = ao_containerof(n, ao_mutex_lock_t, node);
+            XL = ao_containerof(n, ao_mutex_lock_t, mutex_lock_node);
 
 #if AO_TASK_CEILING
 
-            if (ao_list_is_empty(&X->list))
+            if (ao_list_is_empty(&X->lock))
             {
                 ao_task_ceiling_end(&X->ceiling_original);
             }
@@ -14352,14 +13992,3144 @@ void ao_mutex_unlock_locked(ao_mutex_t * X)
 
 #endif
 
+#if defined AO_NUM
+
+// ----------------------------------------------------------------------------
+
+static void ao_num_update(ao_num_t * N, ao_uint_t vn);
+
+// ----------------------------------------------------------------------------
+
+void ao_num_adjust(ao_num_t * N, ao_num_adjust_t A, void * AP)
+{
+    // Assert.
+
+    ao_assert(N);
+
+    ao_assert(A);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+    ao_uint_t vn;
+    ao_uint_t vo;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        vo = N->value;
+
+        vn = A(vo, AP);
+
+        ao_num_update(N, vn);
+    }
+    ao_unlock(&L);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num_add(ao_num_t * N, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num_update(N, N->value + x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num_and(ao_num_t * N, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num_update(N, N->value & x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num_decrement(ao_num_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num_update(N, N->value - 1);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num_divide(ao_num_t * N, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+    ao_assert(x != 0);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num_update(N, N->value / x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num_increment(ao_num_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num_update(N, N->value + 1);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num_max(ao_num_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num_update(N, AO_UINT_MAX);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num_min(ao_num_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num_update(N, 0);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num_modulo(ao_num_t * N, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+    ao_assert(x != 0);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num_update(N, N->value % x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num_multiply(ao_num_t * N, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num_update(N, N->value * x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num_nand(ao_num_t * N, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num_update(N, ~(N->value & x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_num_nor(ao_num_t * N, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num_update(N, ~(N->value | x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_num_not(ao_num_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num_update(N, ~(N->value));
+    }
+    ao_unlock(&L);
+}
+
+void ao_num_or(ao_num_t * N, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num_update(N, N->value | x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num_set(ao_num_t * N, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num_update(N, x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num_subtract(ao_num_t * N, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num_update(N, N->value - x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num_subtract_from(ao_num_t * N, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num_update(N, x - N->value);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num_xnor(ao_num_t * N, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num_update(N, ~(N->value ^ x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_num_xor(ao_num_t * N, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num_update(N, N->value ^ x);
+    }
+    ao_unlock(&L);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num_update(ao_num_t * N, ao_uint_t vn)
+{
+    // Notes.
+
+    // The kernel is locked.
+
+
+    // Variables.
+
+    ao_num_match_t M;
+
+    ao_list_t * L;
+
+    ao_list_node_t * N1;
+    ao_list_node_t * N2;
+
+    ao_num_wait_t * W;
+
+    ao_uint_t vo;
+
+
+    // Ready.
+
+    L = &N->wait;
+
+    vo = N->value;
+
+
+    // Ready.
+
+    N->value = vn;
+
+    N1 = L->front;
+
+    while (N1)
+    {
+        N2 = N1->next;
+
+        W = ao_containerof(N1, ao_num_wait_t, num_wait_node);
+
+        M = W->match;
+
+        ao_assert(M);
+
+        if (M(vo, vn, W->match_parameter))
+        {
+            ao_list_remove(L, N1);
+
+            W->result = true;
+
+            W->value_new = vn;
+
+            W->value_old = vo;
+
+            ao_async_check(&W->async);
+        }
+
+        N1 = N2;
+    }
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num_wait(ao_num_wait_t * W, ao_time_t t)
+{
+    ao_num_wait_from(W, t, ao_now());
+}
+
+void ao_num_wait_from(ao_num_wait_t * W, ao_time_t t, ao_time_t b)
+{
+    ao_num_wait_begin(W);
+
+    ao_await_from(&W->async, t, b);
+
+    ao_num_wait_end(W);
+}
+
+void ao_num_wait_forever(ao_num_wait_t * W)
+{
+    ao_num_wait_from(W, AO_INFINITY, 0);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num_wait_try(ao_num_wait_t * W)
+{
+    ao_num_wait_begin(W);
+
+    ao_num_wait_end(W);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num_wait_begin(ao_num_wait_t * W)
+{
+    // Assert.
+
+    ao_assert(W);
+
+    ao_assert(W->match);
+
+    ao_assert(W->num);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+    ao_num_match_t M;
+
+    void * MP;
+
+    ao_num_t * N;
+
+    ao_uint_t v;
+
+
+    // Ready.
+
+    M = W->match;
+
+    MP = W->match_parameter;
+
+    N = W->num;
+
+
+    // Ready.
+
+    ao_async_begin(&W->async);
+
+    ao_lock(&L);
+    {
+        v = N->value;
+
+        if (M(v, v, MP))
+        {
+            W->result = true;
+
+            W->value_new = v;
+
+            W->value_old = v;
+
+            ao_async_check(&W->async);
+        }
+
+        else
+        {
+            W->result = false;
+
+            ao_list_push_back
+            (
+                &N->wait,
+                &W->num_wait_node
+            );
+        }
+    }
+    ao_unlock(&L);
+}
+
+void ao_num_wait_end(ao_num_wait_t * W)
+{
+    // Assert.
+
+    ao_assert(W);
+
+    ao_assert(W->num);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        if (W->result) { }
+
+        else
+        {
+            ao_list_remove
+            (
+                &W->num->wait,
+                &W->num_wait_node
+            );
+        }
+    }
+    ao_unlock(&L);
+
+    ao_async_end(&W->async);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_NUM8
+
+// ----------------------------------------------------------------------------
+
+static void ao_num8_update(ao_num8_t * N, uint8_t vn);
+
+// ----------------------------------------------------------------------------
+
+void ao_num8_adjust(ao_num8_t * N, ao_num8_adjust_t A, void * AP)
+{
+    // Assert.
+
+    ao_assert(N);
+
+    ao_assert(A);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+    uint8_t vn;
+    uint8_t vo;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        vo = N->value;
+
+        vn = A(vo, AP);
+
+        ao_num8_update(N, vn);
+    }
+    ao_unlock(&L);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num8_add(ao_num8_t * N, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num8_update(N, N->value + x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num8_and(ao_num8_t * N, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num8_update(N, N->value & x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num8_decrement(ao_num8_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num8_update(N, N->value - 1);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num8_divide(ao_num8_t * N, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+    ao_assert(x != 0);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num8_update(N, N->value / x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num8_increment(ao_num8_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num8_update(N, N->value + 1);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num8_max(ao_num8_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num8_update(N, UINT8_MAX);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num8_min(ao_num8_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num8_update(N, 0);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num8_modulo(ao_num8_t * N, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+    ao_assert(x != 0);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num8_update(N, N->value % x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num8_multiply(ao_num8_t * N, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num8_update(N, N->value * x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num8_nand(ao_num8_t * N, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num8_update(N, ~(N->value & x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_num8_nor(ao_num8_t * N, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num8_update(N, ~(N->value | x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_num8_not(ao_num8_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num8_update(N, ~(N->value));
+    }
+    ao_unlock(&L);
+}
+
+void ao_num8_or(ao_num8_t * N, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num8_update(N, N->value | x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num8_set(ao_num8_t * N, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num8_update(N, x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num8_subtract(ao_num8_t * N, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num8_update(N, N->value - x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num8_subtract_from(ao_num8_t * N, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num8_update(N, x - N->value);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num8_xnor(ao_num8_t * N, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num8_update(N, ~(N->value ^ x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_num8_xor(ao_num8_t * N, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num8_update(N, N->value ^ x);
+    }
+    ao_unlock(&L);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num8_update(ao_num8_t * N, uint8_t vn)
+{
+    // Notes.
+
+    // The kernel is locked.
+
+
+    // Variables.
+
+    ao_num8_match_t M;
+
+    ao_list_t * L;
+
+    ao_list_node_t * N1;
+    ao_list_node_t * N2;
+
+    ao_num8_wait_t * W;
+
+    uint8_t vo;
+
+
+    // Ready.
+
+    L = &N->wait;
+
+    vo = N->value;
+
+
+    // Ready.
+
+    N->value = vn;
+
+    N1 = L->front;
+
+    while (N1)
+    {
+        N2 = N1->next;
+
+        W = ao_containerof(N1, ao_num8_wait_t, num_wait_node);
+
+        M = W->match;
+
+        ao_assert(M);
+
+        if (M(vo, vn, W->match_parameter))
+        {
+            ao_list_remove(L, N1);
+
+            W->result = true;
+
+            W->value_new = vn;
+
+            W->value_old = vo;
+
+            ao_async_check(&W->async);
+        }
+
+        N1 = N2;
+    }
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num8_wait(ao_num8_wait_t * W, ao_time_t t)
+{
+    ao_num8_wait_from(W, t, ao_now());
+}
+
+void ao_num8_wait_from(ao_num8_wait_t * W, ao_time_t t, ao_time_t b)
+{
+    ao_num8_wait_begin(W);
+
+    ao_await_from(&W->async, t, b);
+
+    ao_num8_wait_end(W);
+}
+
+void ao_num8_wait_forever(ao_num8_wait_t * W)
+{
+    ao_num8_wait_from(W, AO_INFINITY, 0);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num8_wait_try(ao_num8_wait_t * W)
+{
+    ao_num8_wait_begin(W);
+
+    ao_num8_wait_end(W);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num8_wait_begin(ao_num8_wait_t * W)
+{
+    // Assert.
+
+    ao_assert(W);
+
+    ao_assert(W->match);
+
+    ao_assert(W->num);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+    ao_num8_match_t M;
+
+    void * MP;
+
+    ao_num8_t * N;
+
+    uint8_t v;
+
+
+    // Ready.
+
+    M = W->match;
+
+    MP = W->match_parameter;
+
+    N = W->num;
+
+
+    // Ready.
+
+    ao_async_begin(&W->async);
+
+    ao_lock(&L);
+    {
+        v = N->value;
+
+        if (M(v, v, MP))
+        {
+            W->result = true;
+
+            W->value_new = v;
+
+            W->value_old = v;
+
+            ao_async_check(&W->async);
+        }
+
+        else
+        {
+            W->result = false;
+
+            ao_list_push_back
+            (
+                &N->wait,
+                &W->num_wait_node
+            );
+        }
+    }
+    ao_unlock(&L);
+}
+
+void ao_num8_wait_end(ao_num8_wait_t * W)
+{
+    // Assert.
+
+    ao_assert(W);
+
+    ao_assert(W->num);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        if (W->result) { }
+
+        else
+        {
+            ao_list_remove
+            (
+                &W->num->wait,
+                &W->num_wait_node
+            );
+        }
+    }
+    ao_unlock(&L);
+
+    ao_async_end(&W->async);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_NUM16
+
+// ----------------------------------------------------------------------------
+
+static void ao_num16_update(ao_num16_t * N, uint16_t vn);
+
+// ----------------------------------------------------------------------------
+
+void ao_num16_adjust(ao_num16_t * N, ao_num16_adjust_t A, void * AP)
+{
+    // Assert.
+
+    ao_assert(N);
+
+    ao_assert(A);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+    uint16_t vn;
+    uint16_t vo;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        vo = N->value;
+
+        vn = A(vo, AP);
+
+        ao_num16_update(N, vn);
+    }
+    ao_unlock(&L);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num16_add(ao_num16_t * N, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num16_update(N, N->value + x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num16_and(ao_num16_t * N, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num16_update(N, N->value & x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num16_decrement(ao_num16_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num16_update(N, N->value - 1);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num16_divide(ao_num16_t * N, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+    ao_assert(x != 0);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num16_update(N, N->value / x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num16_increment(ao_num16_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num16_update(N, N->value + 1);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num16_max(ao_num16_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num16_update(N, UINT16_MAX);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num16_min(ao_num16_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num16_update(N, 0);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num16_modulo(ao_num16_t * N, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+    ao_assert(x != 0);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num16_update(N, N->value % x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num16_multiply(ao_num16_t * N, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num16_update(N, N->value * x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num16_nand(ao_num16_t * N, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num16_update(N, ~(N->value & x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_num16_nor(ao_num16_t * N, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num16_update(N, ~(N->value | x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_num16_not(ao_num16_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num16_update(N, ~(N->value));
+    }
+    ao_unlock(&L);
+}
+
+void ao_num16_or(ao_num16_t * N, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num16_update(N, N->value | x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num16_set(ao_num16_t * N, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num16_update(N, x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num16_subtract(ao_num16_t * N, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num16_update(N, N->value - x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num16_subtract_from(ao_num16_t * N, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num16_update(N, x - N->value);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num16_xnor(ao_num16_t * N, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num16_update(N, ~(N->value ^ x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_num16_xor(ao_num16_t * N, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num16_update(N, N->value ^ x);
+    }
+    ao_unlock(&L);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num16_update(ao_num16_t * N, uint16_t vn)
+{
+    // Notes.
+
+    // The kernel is locked.
+
+
+    // Variables.
+
+    ao_num16_match_t M;
+
+    ao_list_t * L;
+
+    ao_list_node_t * N1;
+    ao_list_node_t * N2;
+
+    ao_num16_wait_t * W;
+
+    uint16_t vo;
+
+
+    // Ready.
+
+    L = &N->wait;
+
+    vo = N->value;
+
+
+    // Ready.
+
+    N->value = vn;
+
+    N1 = L->front;
+
+    while (N1)
+    {
+        N2 = N1->next;
+
+        W = ao_containerof(N1, ao_num16_wait_t, num_wait_node);
+
+        M = W->match;
+
+        ao_assert(M);
+
+        if (M(vo, vn, W->match_parameter))
+        {
+            ao_list_remove(L, N1);
+
+            W->result = true;
+
+            W->value_new = vn;
+
+            W->value_old = vo;
+
+            ao_async_check(&W->async);
+        }
+
+        N1 = N2;
+    }
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num16_wait(ao_num16_wait_t * W, ao_time_t t)
+{
+    ao_num16_wait_from(W, t, ao_now());
+}
+
+void ao_num16_wait_from(ao_num16_wait_t * W, ao_time_t t, ao_time_t b)
+{
+    ao_num16_wait_begin(W);
+
+    ao_await_from(&W->async, t, b);
+
+    ao_num16_wait_end(W);
+}
+
+void ao_num16_wait_forever(ao_num16_wait_t * W)
+{
+    ao_num16_wait_from(W, AO_INFINITY, 0);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num16_wait_try(ao_num16_wait_t * W)
+{
+    ao_num16_wait_begin(W);
+
+    ao_num16_wait_end(W);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num16_wait_begin(ao_num16_wait_t * W)
+{
+    // Assert.
+
+    ao_assert(W);
+
+    ao_assert(W->match);
+
+    ao_assert(W->num);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+    ao_num16_match_t M;
+
+    void * MP;
+
+    ao_num16_t * N;
+
+    uint16_t v;
+
+
+    // Ready.
+
+    M = W->match;
+
+    MP = W->match_parameter;
+
+    N = W->num;
+
+
+    // Ready.
+
+    ao_async_begin(&W->async);
+
+    ao_lock(&L);
+    {
+        v = N->value;
+
+        if (M(v, v, MP))
+        {
+            W->result = true;
+
+            W->value_new = v;
+
+            W->value_old = v;
+
+            ao_async_check(&W->async);
+        }
+
+        else
+        {
+            W->result = false;
+
+            ao_list_push_back
+            (
+                &N->wait,
+                &W->num_wait_node
+            );
+        }
+    }
+    ao_unlock(&L);
+}
+
+void ao_num16_wait_end(ao_num16_wait_t * W)
+{
+    // Assert.
+
+    ao_assert(W);
+
+    ao_assert(W->num);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        if (W->result) { }
+
+        else
+        {
+            ao_list_remove
+            (
+                &W->num->wait,
+                &W->num_wait_node
+            );
+        }
+    }
+    ao_unlock(&L);
+
+    ao_async_end(&W->async);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_NUM32
+
+// ----------------------------------------------------------------------------
+
+static void ao_num32_update(ao_num32_t * N, uint32_t vn);
+
+// ----------------------------------------------------------------------------
+
+void ao_num32_adjust(ao_num32_t * N, ao_num32_adjust_t A, void * AP)
+{
+    // Assert.
+
+    ao_assert(N);
+
+    ao_assert(A);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+    uint32_t vn;
+    uint32_t vo;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        vo = N->value;
+
+        vn = A(vo, AP);
+
+        ao_num32_update(N, vn);
+    }
+    ao_unlock(&L);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num32_add(ao_num32_t * N, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num32_update(N, N->value + x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num32_and(ao_num32_t * N, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num32_update(N, N->value & x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num32_decrement(ao_num32_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num32_update(N, N->value - 1);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num32_divide(ao_num32_t * N, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+    ao_assert(x != 0);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num32_update(N, N->value / x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num32_increment(ao_num32_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num32_update(N, N->value + 1);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num32_max(ao_num32_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num32_update(N, UINT32_MAX);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num32_min(ao_num32_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num32_update(N, 0);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num32_modulo(ao_num32_t * N, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+    ao_assert(x != 0);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num32_update(N, N->value % x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num32_multiply(ao_num32_t * N, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num32_update(N, N->value * x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num32_nand(ao_num32_t * N, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num32_update(N, ~(N->value & x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_num32_nor(ao_num32_t * N, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num32_update(N, ~(N->value | x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_num32_not(ao_num32_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num32_update(N, ~(N->value));
+    }
+    ao_unlock(&L);
+}
+
+void ao_num32_or(ao_num32_t * N, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num32_update(N, N->value | x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num32_set(ao_num32_t * N, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num32_update(N, x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num32_subtract(ao_num32_t * N, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num32_update(N, N->value - x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num32_subtract_from(ao_num32_t * N, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num32_update(N, x - N->value);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num32_xnor(ao_num32_t * N, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num32_update(N, ~(N->value ^ x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_num32_xor(ao_num32_t * N, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num32_update(N, N->value ^ x);
+    }
+    ao_unlock(&L);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num32_update(ao_num32_t * N, uint32_t vn)
+{
+    // Notes.
+
+    // The kernel is locked.
+
+
+    // Variables.
+
+    ao_num32_match_t M;
+
+    ao_list_t * L;
+
+    ao_list_node_t * N1;
+    ao_list_node_t * N2;
+
+    ao_num32_wait_t * W;
+
+    uint32_t vo;
+
+
+    // Ready.
+
+    L = &N->wait;
+
+    vo = N->value;
+
+
+    // Ready.
+
+    N->value = vn;
+
+    N1 = L->front;
+
+    while (N1)
+    {
+        N2 = N1->next;
+
+        W = ao_containerof(N1, ao_num32_wait_t, num_wait_node);
+
+        M = W->match;
+
+        ao_assert(M);
+
+        if (M(vo, vn, W->match_parameter))
+        {
+            ao_list_remove(L, N1);
+
+            W->result = true;
+
+            W->value_new = vn;
+
+            W->value_old = vo;
+
+            ao_async_check(&W->async);
+        }
+
+        N1 = N2;
+    }
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num32_wait(ao_num32_wait_t * W, ao_time_t t)
+{
+    ao_num32_wait_from(W, t, ao_now());
+}
+
+void ao_num32_wait_from(ao_num32_wait_t * W, ao_time_t t, ao_time_t b)
+{
+    ao_num32_wait_begin(W);
+
+    ao_await_from(&W->async, t, b);
+
+    ao_num32_wait_end(W);
+}
+
+void ao_num32_wait_forever(ao_num32_wait_t * W)
+{
+    ao_num32_wait_from(W, AO_INFINITY, 0);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num32_wait_try(ao_num32_wait_t * W)
+{
+    ao_num32_wait_begin(W);
+
+    ao_num32_wait_end(W);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num32_wait_begin(ao_num32_wait_t * W)
+{
+    // Assert.
+
+    ao_assert(W);
+
+    ao_assert(W->match);
+
+    ao_assert(W->num);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+    ao_num32_match_t M;
+
+    void * MP;
+
+    ao_num32_t * N;
+
+    uint32_t v;
+
+
+    // Ready.
+
+    M = W->match;
+
+    MP = W->match_parameter;
+
+    N = W->num;
+
+
+    // Ready.
+
+    ao_async_begin(&W->async);
+
+    ao_lock(&L);
+    {
+        v = N->value;
+
+        if (M(v, v, MP))
+        {
+            W->result = true;
+
+            W->value_new = v;
+
+            W->value_old = v;
+
+            ao_async_check(&W->async);
+        }
+
+        else
+        {
+            W->result = false;
+
+            ao_list_push_back
+            (
+                &N->wait,
+                &W->num_wait_node
+            );
+        }
+    }
+    ao_unlock(&L);
+}
+
+void ao_num32_wait_end(ao_num32_wait_t * W)
+{
+    // Assert.
+
+    ao_assert(W);
+
+    ao_assert(W->num);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        if (W->result) { }
+
+        else
+        {
+            ao_list_remove
+            (
+                &W->num->wait,
+                &W->num_wait_node
+            );
+        }
+    }
+    ao_unlock(&L);
+
+    ao_async_end(&W->async);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_NUM64
+
+// ----------------------------------------------------------------------------
+
+static void ao_num64_update(ao_num64_t * N, uint64_t vn);
+
+// ----------------------------------------------------------------------------
+
+void ao_num64_adjust(ao_num64_t * N, ao_num64_adjust_t A, void * AP)
+{
+    // Assert.
+
+    ao_assert(N);
+
+    ao_assert(A);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+    uint64_t vn;
+    uint64_t vo;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        vo = N->value;
+
+        vn = A(vo, AP);
+
+        ao_num64_update(N, vn);
+    }
+    ao_unlock(&L);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num64_add(ao_num64_t * N, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num64_update(N, N->value + x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num64_and(ao_num64_t * N, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num64_update(N, N->value & x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num64_decrement(ao_num64_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num64_update(N, N->value - 1);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num64_divide(ao_num64_t * N, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+    ao_assert(x != 0);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num64_update(N, N->value / x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num64_increment(ao_num64_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num64_update(N, N->value + 1);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num64_max(ao_num64_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num64_update(N, UINT64_MAX);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num64_min(ao_num64_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num64_update(N, 0);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num64_modulo(ao_num64_t * N, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+    ao_assert(x != 0);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num64_update(N, N->value % x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num64_multiply(ao_num64_t * N, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num64_update(N, N->value * x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num64_nand(ao_num64_t * N, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num64_update(N, ~(N->value & x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_num64_nor(ao_num64_t * N, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num64_update(N, ~(N->value | x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_num64_not(ao_num64_t * N)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num64_update(N, ~(N->value));
+    }
+    ao_unlock(&L);
+}
+
+void ao_num64_or(ao_num64_t * N, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num64_update(N, N->value | x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num64_set(ao_num64_t * N, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num64_update(N, x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num64_subtract(ao_num64_t * N, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num64_update(N, N->value - x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num64_subtract_from(ao_num64_t * N, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num64_update(N, x - N->value);
+    }
+    ao_unlock(&L);
+}
+
+void ao_num64_xnor(ao_num64_t * N, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num64_update(N, ~(N->value ^ x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_num64_xor(ao_num64_t * N, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(N);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_num64_update(N, N->value ^ x);
+    }
+    ao_unlock(&L);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num64_update(ao_num64_t * N, uint64_t vn)
+{
+    // Notes.
+
+    // The kernel is locked.
+
+
+    // Variables.
+
+    ao_num64_match_t M;
+
+    ao_list_t * L;
+
+    ao_list_node_t * N1;
+    ao_list_node_t * N2;
+
+    ao_num64_wait_t * W;
+
+    uint64_t vo;
+
+
+    // Ready.
+
+    L = &N->wait;
+
+    vo = N->value;
+
+
+    // Ready.
+
+    N->value = vn;
+
+    N1 = L->front;
+
+    while (N1)
+    {
+        N2 = N1->next;
+
+        W = ao_containerof(N1, ao_num64_wait_t, num_wait_node);
+
+        M = W->match;
+
+        ao_assert(M);
+
+        if (M(vo, vn, W->match_parameter))
+        {
+            ao_list_remove(L, N1);
+
+            W->result = true;
+
+            W->value_new = vn;
+
+            W->value_old = vo;
+
+            ao_async_check(&W->async);
+        }
+
+        N1 = N2;
+    }
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num64_wait(ao_num64_wait_t * W, ao_time_t t)
+{
+    ao_num64_wait_from(W, t, ao_now());
+}
+
+void ao_num64_wait_from(ao_num64_wait_t * W, ao_time_t t, ao_time_t b)
+{
+    ao_num64_wait_begin(W);
+
+    ao_await_from(&W->async, t, b);
+
+    ao_num64_wait_end(W);
+}
+
+void ao_num64_wait_forever(ao_num64_wait_t * W)
+{
+    ao_num64_wait_from(W, AO_INFINITY, 0);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num64_wait_try(ao_num64_wait_t * W)
+{
+    ao_num64_wait_begin(W);
+
+    ao_num64_wait_end(W);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_num64_wait_begin(ao_num64_wait_t * W)
+{
+    // Assert.
+
+    ao_assert(W);
+
+    ao_assert(W->match);
+
+    ao_assert(W->num);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+    ao_num64_match_t M;
+
+    void * MP;
+
+    ao_num64_t * N;
+
+    uint64_t v;
+
+
+    // Ready.
+
+    M = W->match;
+
+    MP = W->match_parameter;
+
+    N = W->num;
+
+
+    // Ready.
+
+    ao_async_begin(&W->async);
+
+    ao_lock(&L);
+    {
+        v = N->value;
+
+        if (M(v, v, MP))
+        {
+            W->result = true;
+
+            W->value_new = v;
+
+            W->value_old = v;
+
+            ao_async_check(&W->async);
+        }
+
+        else
+        {
+            W->result = false;
+
+            ao_list_push_back
+            (
+                &N->wait,
+                &W->num_wait_node
+            );
+        }
+    }
+    ao_unlock(&L);
+}
+
+void ao_num64_wait_end(ao_num64_wait_t * W)
+{
+    // Assert.
+
+    ao_assert(W);
+
+    ao_assert(W->num);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        if (W->result) { }
+
+        else
+        {
+            ao_list_remove
+            (
+                &W->num->wait,
+                &W->num_wait_node
+            );
+        }
+    }
+    ao_unlock(&L);
+
+    ao_async_end(&W->async);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
 #if defined AO_PMAIL
 
 // ----------------------------------------------------------------------------
 
-bool ao_pmail_fetch(ao_pmailbox_t * B, ao_pmail_t ** M, ao_time_t t)
+void ao_pmail_fetch(ao_pmail_fetch_t * F, ao_time_t t)
 {
-    return ao_pmail_fetch_from(B, M, t, ao_now());
+    ao_pmail_fetch_from(F, t, ao_now());
 }
+
+void ao_pmail_fetch_from(ao_pmail_fetch_t * F, ao_time_t t, ao_time_t b)
+{
+    ao_pmail_fetch_begin(F);
+
+    ao_await_from(&F->async, t, b);
+
+    ao_pmail_fetch_end(F);
+}
+
+void ao_pmail_fetch_forever(ao_pmail_fetch_t * F)
+{
+    ao_pmail_fetch_from(F, AO_INFINITY, 0);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_pmail_fetch_try(ao_pmail_fetch_t * F)
+{
+    ao_pmail_fetch_begin(F);
+
+    ao_pmail_fetch_end(F);
+}
+
+// ----------------------------------------------------------------------------
 
 void ao_pmail_fetch_begin(ao_pmail_fetch_t * F)
 {
@@ -14367,48 +17137,59 @@ void ao_pmail_fetch_begin(ao_pmail_fetch_t * F)
 
     ao_assert(F);
 
-    ao_assert(F->mailbox);
+    ao_assert(F->pmailbox);
 
 
     // Variables.
 
-    ao_pmailbox_t * B;
-
     ao_lock_t L;
 
-    ao_pmail_t * M;
+    ao_pmail_t * P;
 
-    ao_rb_node_t * n;
+    ao_rb_t * PL;
+
+    ao_rb_node_t * PN;
+
+    ao_pmailbox_t * X;
 
 
     // Ready.
 
-    B = F->mailbox;
+    X = F->pmailbox;
+
+    PL = &X->pmail;
+
+
+    // Ready.
 
     ao_async_begin(&F->async);
 
     ao_lock(&L);
     {
-        // Mailbox is empty.
+        // List of priority mails is empty.
 
-        if (ao_rb_is_empty(&B->mails))
+        if (ao_rb_is_empty(PL))
         {
-            ao_list_push_back(&B->fetchers, &F->node);
+            ao_list_push_back
+            (
+                &X->fetch,
+                &F->pmailbox_fetch_node
+            );
 
             F->result = false;
         }
 
-        // Mailbox is not empty.
+        // List of priority mails is not empty.
 
         else
         {
-            n = ao_rb_min(&B->mails);
+            PN = ao_rb_min(PL);
 
-            ao_rb_remove(&B->mails, n);
+            ao_rb_remove(PL, PN);
 
-            M = ao_containerof(n, ao_pmail_t, node);
+            P = ao_containerof(PN, ao_pmail_t, pmailbox_pmail_node);
 
-            F->mail = M;
+            F->pmail = P;
 
             F->result = true;
 
@@ -14424,7 +17205,7 @@ void ao_pmail_fetch_end(ao_pmail_fetch_t * F)
 
     ao_assert(F);
 
-    ao_assert(F->mailbox);
+    ao_assert(F->pmailbox);
 
 
     // Variables.
@@ -14440,7 +17221,11 @@ void ao_pmail_fetch_end(ao_pmail_fetch_t * F)
 
         else
         {
-            ao_list_remove(&F->mailbox->fetchers, &F->node);
+            ao_list_remove
+            (
+                &F->pmailbox->fetch,
+                &F->pmailbox_fetch_node
+            );
         }
     }
     ao_unlock(&L);
@@ -14448,111 +17233,57 @@ void ao_pmail_fetch_end(ao_pmail_fetch_t * F)
     ao_async_end(&F->async);
 }
 
-bool ao_pmail_fetch_forever(ao_pmailbox_t * B, ao_pmail_t ** M)
-{
-    return ao_pmail_fetch_from(B, M, AO_INFINITY, 0);
-}
-
-bool ao_pmail_fetch_from(ao_pmailbox_t * B, ao_pmail_t ** M, ao_time_t t, ao_time_t b)
-{
-    // Assert.
-
-    ao_assert(M);
-
-
-    // Variables.
-
-    ao_pmail_fetch_t F;
-
-
-    // Ready.
-
-    ao_clear(&F, ao_pmail_fetch_t);
-
-    F.mailbox = B;
-
-
-    ao_pmail_fetch_begin(&F);
-
-    ao_await_from(&F.async, t, b);
-
-    ao_pmail_fetch_end(&F);
-
-
-    *M = F.mail;
-
-    return F.result;
-}
-
-bool ao_pmail_fetch_try(ao_pmailbox_t * B, ao_pmail_t ** M)
-{
-    // Assert.
-
-    ao_assert(M);
-
-
-    // Variables.
-
-    ao_pmail_fetch_t F;
-
-
-    // Ready.
-
-    ao_clear(&F, ao_pmail_fetch_t);
-
-    F.mailbox = B;
-
-
-    ao_pmail_fetch_begin(&F);
-
-    ao_pmail_fetch_end(&F);
-
-
-    *M = F.mail;
-
-    return F.result;
-}
-
 // ----------------------------------------------------------------------------
 
-void ao_pmail_post(ao_pmailbox_t * B, ao_pmail_t * M)
+void ao_pmail_post(ao_pmailbox_t * X, ao_pmail_t * P)
 {
     // Assert.
 
-    ao_assert(B);
+    ao_assert(X);
 
-    ao_assert(M);
+    ao_assert(P);
 
 
     // Variables.
 
     ao_pmail_fetch_t * F;
 
+    ao_list_t * FL;
+
+    ao_list_node_t * FN;
+
     ao_lock_t L;
 
-    ao_list_node_t * n;
+
+    // Ready.
+
+    FL = &X->fetch;
 
 
     // Ready.
 
     ao_lock(&L);
     {
-        // Mailbox has no fetchers.
+        // List of fetchings is empty.
 
-        if (ao_list_is_empty(&B->fetchers))
+        if (ao_list_is_empty(FL))
         {
-            ao_rb_insert(&B->mails, &M->node);
+            ao_rb_insert
+            (
+                &X->pmail,
+                &P->pmailbox_pmail_node
+            );
         }
 
-        // Mailbox has fetchers.
+        // List of fetchings is not empty.
 
         else
         {
-            n = ao_list_pop_front(&B->fetchers);
+            FN = ao_list_pop_front(FL);
 
-            F = ao_containerof(n, ao_pmail_fetch_t, node);
+            F = ao_containerof(FN, ao_pmail_fetch_t, pmailbox_fetch_node);
 
-            F->mail = M;
+            F->pmail = P;
 
             F->result = true;
 
@@ -14685,6 +17416,102 @@ void ao_poll_any_from(ao_async_any_t * ANY, ao_time_t t, ao_time_t b)
 
 #endif
 
+#if defined AO_QUEUE4ACQ
+
+// ----------------------------------------------------------------------------
+
+void ao_qinsert_acq(ao_qinsert_acq_t * QI, ao_time_t t)
+{
+    ao_qinsert_acq_from(QI, t, ao_now());
+}
+
+void ao_qinsert_acq_begin(ao_qinsert_acq_t * QI)
+{
+    ao_assert(QI);
+
+    ao_retain(QI->ptr);
+
+    ao_qinsert_ptr_begin(QI);
+}
+
+void ao_qinsert_acq_end(ao_qinsert_acq_t * QI)
+{
+    ao_assert(QI);
+
+    ao_qinsert_ptr_end(QI);
+
+    if (QI->result) { }
+
+    else
+    {
+        ao_release(QI->ptr);
+    }
+}
+
+void ao_qinsert_acq_forever(ao_qinsert_acq_t * QI)
+{
+    ao_qinsert_acq_from(QI, AO_INFINITY, 0);
+}
+
+void ao_qinsert_acq_from(ao_qinsert_acq_t * QI, ao_time_t t, ao_time_t b)
+{
+    // Assert.
+
+    ao_assert(QI);
+
+
+    // Ready.
+
+    ao_qinsert_acq_begin(QI);
+
+    ao_await_from(&QI->async, t, b);
+
+    ao_qinsert_acq_end(QI);
+}
+
+void ao_qinsert_acq_try(ao_qinsert_acq_t * QI)
+{
+    ao_qinsert_acq_begin(QI);
+
+    ao_qinsert_acq_end(QI);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_qpop_acq(ao_qpop_acq_t * QP, ao_time_t t)
+{
+    ao_qpop_ptr(QP, t);
+}
+
+void ao_qpop_acq_begin(ao_qpop_acq_t * QP)
+{
+    ao_qpop_ptr_begin(QP);
+}
+
+void ao_qpop_acq_end(ao_qpop_acq_t * QP)
+{
+    ao_qpop_ptr_end(QP);
+}
+
+void ao_qpop_acq_forever(ao_qpop_acq_t * QP)
+{
+    ao_qpop_ptr_forever(QP);
+}
+
+void ao_qpop_acq_from(ao_qpop_acq_t * QP, ao_time_t t, ao_time_t b)
+{
+    ao_qpop_ptr_from(QP, t, b);
+}
+
+void ao_qpop_acq_try(ao_qpop_acq_t * QP)
+{
+    ao_qpop_ptr_try(QP);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
 #if defined AO_QUEUE4OBJ
 
 // ----------------------------------------------------------------------------
@@ -14746,9 +17573,9 @@ void ao_qinsert_obj_begin(ao_qinsert_obj_t * QI)
             {
                 ao_list_remove_front(l);
 
-                QP = ao_containerof(n, ao_qpop_obj_t, node);
+                QP = ao_containerof(n, ao_qpop_obj_t, queue_pop_node);
 
-                ao_memcpy(QP->ptr, QI->ptr, H->size);
+                ao_mem_copy(QP->ptr, QI->ptr, H->size);
 
                 QP->result = true;
 
@@ -14779,7 +17606,7 @@ void ao_qinsert_obj_begin(ao_qinsert_obj_t * QI)
             {
                 QI->result = false;
 
-                ao_list_push_back(&Q->insert, &QI->node);
+                ao_list_push_back(&Q->insert, &QI->queue_insert_node);
             }
 
             // Insert now.
@@ -14819,7 +17646,7 @@ void ao_qinsert_obj_end(ao_qinsert_obj_t * QI)
 
         else
         {
-            ao_list_remove(&QI->queue->insert, &QI->node);
+            ao_list_remove(&QI->queue->insert, &QI->queue_insert_node);
         }
     }
     ao_unlock(&L);
@@ -14920,9 +17747,9 @@ void ao_qpop_obj_begin(ao_qpop_obj_t * QP)
                 {
                     ao_list_remove_front(l);
 
-                    QI = ao_containerof(n, ao_qinsert_obj_t, node);
+                    QI = ao_containerof(n, ao_qinsert_obj_t, queue_insert_node);
 
-                    ao_memcpy(QP->ptr, QI->ptr, H->size);
+                    ao_mem_copy(QP->ptr, QI->ptr, H->size);
 
                     QP->result = true;
 
@@ -14947,7 +17774,7 @@ void ao_qpop_obj_begin(ao_qpop_obj_t * QP)
             {
                 QP->result = false;
 
-                ao_list_push_back(&Q->pop, &QP->node);
+                ao_list_push_back(&Q->pop, &QP->queue_pop_node);
             }
         }
 
@@ -14977,7 +17804,7 @@ void ao_qpop_obj_begin(ao_qpop_obj_t * QP)
                 {
                     ao_list_remove_front(l);
 
-                    QI = ao_containerof(n, ao_qinsert_obj_t, node);
+                    QI = ao_containerof(n, ao_qinsert_obj_t, queue_insert_node);
 
                     ao_heap4obj_insert(H, QI->ptr);
 
@@ -15013,7 +17840,7 @@ void ao_qpop_obj_end(ao_qpop_obj_t * QP)
 
         else
         {
-            ao_list_remove(&QP->queue->pop, &QP->node);
+            ao_list_remove(&QP->queue->pop, &QP->queue_pop_node);
         }
     }
     ao_unlock(&L);
@@ -15054,74 +17881,6 @@ void ao_qpop_obj_try(ao_qpop_obj_t * QP)
 #endif
 
 #if defined AO_QUEUE4PTR
-
-// ----------------------------------------------------------------------------
-
-void ao_qinsert_acq(ao_qinsert_ptr_t * QI, ao_time_t t)
-{
-    ao_qinsert_acq_from(QI, t, ao_now());
-}
-
-void ao_qinsert_acq_begin(ao_qinsert_ptr_t * QI)
-{
-
-#if defined AO_ALLOC
-
-    ao_assert(QI);
-
-    ao_retain(QI->ptr);
-
-#endif
-
-    ao_qinsert_ptr_begin(QI);
-}
-
-void ao_qinsert_acq_end(ao_qinsert_ptr_t * QI)
-{
-    ao_qinsert_ptr_end(QI);
-
-#if defined AO_ALLOC
-
-    ao_assert(QI);
-
-    if (QI->result) { }
-
-    else
-    {
-        ao_release(QI->ptr);
-    }
-
-#endif
-
-}
-
-void ao_qinsert_acq_forever(ao_qinsert_ptr_t * QI)
-{
-    ao_qinsert_acq_from(QI, AO_INFINITY, 0);
-}
-
-void ao_qinsert_acq_from(ao_qinsert_ptr_t * QI, ao_time_t t, ao_time_t b)
-{
-    // Assert.
-
-    ao_assert(QI);
-
-
-    // Ready.
-
-    ao_qinsert_acq_begin(QI);
-
-    ao_await_from(&QI->async, t, b);
-
-    ao_qinsert_acq_end(QI);
-}
-
-void ao_qinsert_acq_try(ao_qinsert_ptr_t * QI)
-{
-    ao_qinsert_acq_begin(QI);
-
-    ao_qinsert_acq_end(QI);
-}
 
 // ----------------------------------------------------------------------------
 
@@ -15182,7 +17941,7 @@ void ao_qinsert_ptr_begin(ao_qinsert_ptr_t * QI)
             {
                 ao_list_remove_front(l);
 
-                QP = ao_containerof(n, ao_qpop_ptr_t, node);
+                QP = ao_containerof(n, ao_qpop_ptr_t, queue_pop_node);
 
                 QP->ptr = QI->ptr;
 
@@ -15215,7 +17974,7 @@ void ao_qinsert_ptr_begin(ao_qinsert_ptr_t * QI)
             {
                 QI->result = false;
 
-                ao_list_push_back(&Q->insert, &QI->node);
+                ao_list_push_back(&Q->insert, &QI->queue_insert_node);
             }
 
             // Insert now.
@@ -15255,7 +18014,7 @@ void ao_qinsert_ptr_end(ao_qinsert_ptr_t * QI)
 
         else
         {
-            ao_list_remove(&QI->queue->insert, &QI->node);
+            ao_list_remove(&QI->queue->insert, &QI->queue_insert_node);
         }
     }
     ao_unlock(&L);
@@ -15358,7 +18117,7 @@ void ao_qpop_ptr_begin(ao_qpop_ptr_t * QP)
                 {
                     ao_list_remove_front(l);
 
-                    QI = ao_containerof(n, ao_qinsert_ptr_t, node);
+                    QI = ao_containerof(n, ao_qinsert_ptr_t, queue_insert_node);
 
                     QP->ptr = QI->ptr;
 
@@ -15388,7 +18147,7 @@ void ao_qpop_ptr_begin(ao_qpop_ptr_t * QP)
                 ao_list_push_back
                 (
                     &Q->pop,
-                    &QP->node
+                    &QP->queue_pop_node
                 );
             }
         }
@@ -15421,7 +18180,7 @@ void ao_qpop_ptr_begin(ao_qpop_ptr_t * QP)
                 {
                     ao_list_remove_front(l);
 
-                    QI = ao_containerof(n, ao_qinsert_ptr_t, node);
+                    QI = ao_containerof(n, ao_qinsert_ptr_t, queue_insert_node);
 
                     ao_heap4ptr_insert(H, QI->ptr);
 
@@ -15457,7 +18216,7 @@ void ao_qpop_ptr_end(ao_qpop_ptr_t * QP)
 
         else
         {
-            ao_list_remove(&QP->queue->pop, &QP->node);
+            ao_list_remove(&QP->queue->pop, &QP->queue_pop_node);
         }
     }
     ao_unlock(&L);
@@ -15556,6 +18315,83 @@ void ao_recv_try(ao_recv_t * R)
     ao_recv_begin(R);
 
     ao_recv_end(R);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_RECV_ACQ
+
+// ----------------------------------------------------------------------------
+
+void ao_recv_acq(ao_recv_acq_t * x, ao_time_t t)
+{
+    ao_recv_ptr(x, t);
+}
+
+void ao_recv_acq_begin(ao_recv_acq_t * x)
+{
+    ao_recv_ptr_begin(x);
+}
+
+void ao_recv_acq_end(ao_recv_acq_t * x)
+{
+    ao_recv_ptr_end(x);
+}
+
+void ao_recv_acq_forever(ao_recv_acq_t * x)
+{
+    ao_recv_ptr_forever(x);
+}
+
+void ao_recv_acq_from(ao_recv_acq_t * x, ao_time_t t, ao_time_t b)
+{
+    ao_recv_ptr_from(x, t, b);
+}
+
+void ao_recv_acq_try(ao_recv_acq_t * x)
+{
+    ao_recv_ptr_try(x);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_RECV_ACQ_FROM_CALLBACK
+
+// ----------------------------------------------------------------------------
+
+void ao_recv_acq_from_callback(ao_recv_acq_t * x, ao_recv_acq_proc_t y)
+{
+    ao_recv_ptr_from_callback(x, y);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_RECV_ACQ_FROM_QUEUE
+
+// ----------------------------------------------------------------------------
+
+void ao_recv_acq_from_queue(ao_recv_acq_t * x, ao_qpop_acq_t * y)
+{
+    ao_recv_ptr_from_queue(x, y);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_RECV_ACQ_FROM_STREAM
+
+// ----------------------------------------------------------------------------
+
+void ao_recv_acq_from_stream(ao_recv_acq_t * x, ao_spop_acq_t * y)
+{
+    ao_recv_ptr_from_stream(x, y);
 }
 
 // ----------------------------------------------------------------------------
@@ -16641,9 +19477,9 @@ void ao_rw_lock_read_begin(ao_rw_lock_t * L)
     {
         // Writing in progress.
 
-        if (R->w_active)
+        if (R->active_w)
         {
-            ao_list_push_back(&R->r_waiting, &L->node);
+            ao_list_push_back(&R->lock_r, &L->rw_lock_node);
 
             L->result = false;
         }
@@ -16652,7 +19488,7 @@ void ao_rw_lock_read_begin(ao_rw_lock_t * L)
 
         else
         {
-            R->r_active++;
+            R->active_r++;
 
             L->result = true;
 
@@ -16684,7 +19520,7 @@ void ao_rw_lock_read_end(ao_rw_lock_t * L)
 
         else
         {
-            ao_list_remove(&L->rw->r_waiting, &L->node);
+            ao_list_remove(&L->rw->lock_r, &L->rw_lock_node);
         }
     }
     ao_unlock(&l);
@@ -16790,13 +19626,13 @@ void ao_rw_lock_write_begin(ao_rw_lock_t * L)
 
         // Writing in progress.
 
-        b1 = R->r_active > 0 ? true : false;
+        b1 = R->active_r > 0 ? true : false;
 
-        b2 = R->w_active;
+        b2 = R->active_w;
 
         if (b1 || b2)
         {
-            ao_list_push_back(&R->w_waiting, &L->node);
+            ao_list_push_back(&R->lock_w, &L->rw_lock_node);
 
             L->result = false;
         }
@@ -16807,9 +19643,9 @@ void ao_rw_lock_write_begin(ao_rw_lock_t * L)
 
         else
         {
-            ao_assert(ao_list_is_empty(&R->w_waiting));
+            ao_assert(ao_list_is_empty(&R->lock_w));
 
-            R->w_active = true;
+            R->active_w = true;
 
             L->result = true;
 
@@ -16841,7 +19677,7 @@ void ao_rw_lock_write_end(ao_rw_lock_t * L)
 
         else
         {
-            ao_list_remove(&L->rw->w_waiting, &L->node);
+            ao_list_remove(&L->rw->lock_w, &L->rw_lock_node);
         }
     }
     ao_unlock(&l);
@@ -16916,9 +19752,9 @@ void ao_rw_unlock_read(ao_rw_t * R)
 
     ao_assert(R);
 
-    ao_assert(R->r_active > 0)
+    ao_assert(R->active_r > 0)
 
-    ao_assert(R->w_active == false);
+    ao_assert(R->active_w == false);
 
 
     // Variables.
@@ -16936,7 +19772,7 @@ void ao_rw_unlock_read(ao_rw_t * R)
 
     ao_lock(&l);
     {
-        r = R->r_active;
+        r = R->active_r;
 
         r--;
 
@@ -16950,15 +19786,15 @@ void ao_rw_unlock_read(ao_rw_t * R)
         {
             // Writing in standby.
 
-            n = R->w_waiting.front;
+            n = R->lock_w.front;
 
             if (n)
             {
-                ao_list_remove_front(&R->w_waiting);
+                ao_list_remove_front(&R->lock_w);
 
-                R->w_active = true;
+                R->active_w = true;
 
-                L = ao_containerof(n, ao_rw_lock_t, node);
+                L = ao_containerof(n, ao_rw_lock_t, rw_lock_node);
 
                 L->result = true;
 
@@ -16970,7 +19806,7 @@ void ao_rw_unlock_read(ao_rw_t * R)
             else { }
         }
 
-        R->r_active = r;
+        R->active_r = r;
     }
     ao_unlock(&l);
 }
@@ -16983,9 +19819,9 @@ void ao_rw_unlock_write(ao_rw_t * R)
 
     ao_assert(R);
 
-    ao_assert(R->r_active == 0);
+    ao_assert(R->active_r == 0);
 
-    ao_assert(R->w_active == true);
+    ao_assert(R->active_w == true);
 
 
     // Variables.
@@ -17005,7 +19841,7 @@ void ao_rw_unlock_write(ao_rw_t * R)
     {
         // Reading in standby.
 
-        n = R->r_waiting.front;
+        n = R->lock_r.front;
 
         if (n)
         {
@@ -17015,7 +19851,7 @@ void ao_rw_unlock_write(ao_rw_t * R)
             {
                 r++;
 
-                L = ao_containerof(n, ao_rw_lock_t, node);
+                L = ao_containerof(n, ao_rw_lock_t, rw_lock_node);
 
                 L->result = true;
 
@@ -17025,11 +19861,11 @@ void ao_rw_unlock_write(ao_rw_t * R)
             }
             while (n);
 
-            R->r_active = r;
+            R->active_r = r;
 
-            ao_list_remove_all(&R->r_waiting);
+            ao_list_remove_all(&R->lock_r);
 
-            R->w_active = false;
+            R->active_w = false;
         }
 
         // No reading.
@@ -17038,13 +19874,13 @@ void ao_rw_unlock_write(ao_rw_t * R)
         {
             // Writing in standby.
 
-            n = R->w_waiting.front;
+            n = R->lock_w.front;
 
             if (n)
             {
-                ao_list_remove_front(&R->w_waiting);
+                ao_list_remove_front(&R->lock_w);
 
-                L = ao_containerof(n, ao_rw_lock_t, node);
+                L = ao_containerof(n, ao_rw_lock_t, rw_lock_node);
 
                 L->result = true;
 
@@ -17055,7 +19891,7 @@ void ao_rw_unlock_write(ao_rw_t * R)
 
             else
             {
-                R->w_active = false;
+                R->active_w = false;
             }
         }
     }
@@ -17183,13 +20019,13 @@ void ao_sem_give(ao_sem_t * S, ao_uint_t c1)
         {
             c1 = c1 + S->count;
 
-            n1 = S->list.front;
+            n1 = S->take.front;
 
             if (n1)
             {
                 do
                 {
-                    T = ao_containerof(n1, ao_sem_take_t, node);
+                    T = ao_containerof(n1, ao_sem_take_t, sem_take_node);
 
                     n2 = n1->next;
 
@@ -17199,7 +20035,7 @@ void ao_sem_give(ao_sem_t * S, ao_uint_t c1)
                     {
                         c1 = c1 - c2;
 
-                        ao_list_remove(&S->list, n1);
+                        ao_list_remove(&S->take, n1);
 
                         T->result = true;
 
@@ -17275,7 +20111,7 @@ void ao_sem_take_begin(ao_sem_take_t * T)
             {
                 T->result = false;
 
-                ao_list_push_back(&S->list, &T->node);
+                ao_list_push_back(&S->take, &T->sem_take_node);
             }
         }
         ao_unlock(&L);
@@ -17311,7 +20147,7 @@ void ao_sem_take_end(ao_sem_take_t * T)
 
         else
         {
-            ao_list_remove(&T->sem->list, &T->node);
+            ao_list_remove(&T->sem->take, &T->sem_take_node);
         }
     }
     ao_unlock(&L);
@@ -17437,6 +20273,405 @@ void ao_send_try(ao_send_t * S)
     ao_send_begin(S);
 
     ao_send_end(S);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_SEND_ACQ
+
+// ----------------------------------------------------------------------------
+
+void ao_send_acq(ao_send_acq_t * S, ao_time_t t)
+{
+    ao_send_ptr(S, t);
+}
+
+void ao_send_acq_begin(ao_send_acq_t * S)
+{
+    ao_send_ptr_begin(S);
+}
+
+void ao_send_acq_end(ao_send_acq_t * S)
+{
+    ao_send_ptr_end(S);
+}
+
+void ao_send_acq_forever(ao_send_acq_t * S)
+{
+    ao_send_ptr_forever(S);
+}
+
+void ao_send_acq_from(ao_send_acq_t * S, ao_time_t t, ao_time_t b)
+{
+    ao_send_ptr_from(S, t, b);
+}
+
+void ao_send_acq_try(ao_send_acq_t * S)
+{
+    ao_send_ptr_try(S);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_SEND_ACQ_TO_CALLBACK
+
+// ----------------------------------------------------------------------------
+
+static  void    ao_send_acq_to_callback_begin(  ao_send_acq_t * x);
+
+static  void    ao_send_acq_to_callback_end(    ao_send_acq_t * x);
+
+// ----------------------------------------------------------------------------
+
+void ao_send_acq_to_callback(ao_send_acq_t * S, ao_send_acq_proc_t C)
+{
+    ao_assert(S);
+
+    ao_assert(C);
+
+    S->begin = ao_send_acq_to_callback_begin;
+
+    S->end = ao_send_acq_to_callback_end;
+
+    S->parameter = C;
+}
+
+void ao_send_acq_to_callback_begin(ao_send_acq_t * S)
+{
+    // Assert.
+
+    ao_assert(S);
+
+    ao_assert(S->parameter);
+
+
+    // Variables.
+
+    ao_send_acq_proc_t C;
+
+
+    // Ready.
+
+    // The caller has exclusive access to #S all the time.
+
+    // Therefore, it is safe to not lock the kernel.
+
+    ao_async_begin(&S->async);
+
+    ao_retain(S->ptr);
+
+    C = S->parameter;
+
+    C(S);
+
+    ao_async_check(&S->async);
+}
+
+void ao_send_acq_to_callback_end(ao_send_acq_t * S)
+{
+    ao_assert(S);
+
+    ao_async_end(&S->async);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_SEND_ACQ_TO_QUEUE
+
+// ----------------------------------------------------------------------------
+
+static  void    ao_send_acq_to_queue_begin(     ao_send_acq_t * x);
+
+static  void    ao_send_acq_to_queue_end(       ao_send_acq_t * x);
+
+// ----------------------------------------------------------------------------
+
+static  void    ao_send_acq_to_queue_checked(   void * x);
+
+// ----------------------------------------------------------------------------
+
+void ao_send_acq_to_queue(ao_send_acq_t * S, ao_qinsert_acq_t * I)
+{
+    ao_assert(S);
+
+    ao_assert(I);
+
+    S->begin = ao_send_acq_to_queue_begin;
+
+    S->end = ao_send_acq_to_queue_end;
+
+    S->parameter = I;
+}
+
+void ao_send_acq_to_queue_begin(ao_send_acq_t * S)
+{
+    // Assert.
+
+    ao_assert(S);
+
+    ao_assert(S->parameter);
+
+
+    // Variables.
+
+    ao_qinsert_acq_t * I;
+
+
+    // Ready.
+
+    // Send.
+
+    ao_async_begin(&S->async);
+
+    S->result = false;
+
+    // Insert.
+
+    I = S->parameter;
+
+    I->async.callback = ao_send_acq_to_queue_checked;
+
+    I->async.callback_parameter = S;
+
+    I->ptr = S->ptr;
+
+    ao_qinsert_acq_begin(I);
+}
+
+void ao_send_acq_to_queue_checked(void * x)
+{
+    // Notes.
+
+    // The kernel is locked.
+
+
+    // Ready.
+
+    ao_assert(x);
+
+    ao_send_acq_t * S = x;
+
+    ao_async_check(&S->async);
+}
+
+void ao_send_acq_to_queue_end(ao_send_acq_t * S)
+{
+    // Assert.
+
+    ao_assert(S);
+
+    ao_assert(S->parameter);
+
+
+    // Variables.
+
+    ao_qinsert_acq_t * I;
+
+
+    // Ready.
+
+    // Insert.
+
+    I = S->parameter;
+
+    ao_qinsert_acq_end(I);
+
+    I->async.callback = NULL;
+
+    I->async.callback_parameter = NULL;
+
+    // Send.
+
+    S->result = I->result;
+
+    ao_async_end(&S->async);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_SEND_ACQ_TO_STREAM
+
+// ----------------------------------------------------------------------------
+
+static  void    ao_send_acq_to_stream_begin(            ao_send_acq_t * x);
+
+static  void    ao_send_acq_to_stream_end(              ao_send_acq_t * x);
+
+// ----------------------------------------------------------------------------
+
+static  void    ao_send_acq_to_stream_checked(          void * x);
+
+// ----------------------------------------------------------------------------
+
+static  void    ao_send_acq_to_stream_override_begin(   ao_send_acq_t * x);
+
+static  void    ao_send_acq_to_stream_override_end(     ao_send_acq_t * x);
+
+// ----------------------------------------------------------------------------
+
+void ao_send_acq_to_stream(ao_send_acq_t * S, ao_spush_acq_t * P)
+{
+    ao_assert(S);
+
+    ao_assert(P);
+
+    S->begin = ao_send_acq_to_stream_begin;
+
+    S->end = ao_send_acq_to_stream_end;
+
+    S->parameter = P;
+}
+
+void ao_send_acq_to_stream_begin(ao_send_acq_t * S)
+{
+    // Assert.
+
+    ao_assert(S);
+
+    ao_assert(S->parameter);
+
+
+    // Variables.
+
+    ao_spush_acq_t * P;
+
+
+    // Ready.
+
+    // Send.
+
+    ao_async_begin(&S->async);
+
+    S->result = false;
+
+    // Push.
+
+    P = S->parameter;
+
+    P->async.callback = ao_send_acq_to_stream_checked;
+
+    P->async.callback_parameter = S;
+
+    P->ptr = S->ptr;
+
+    ao_spush_acq_begin(P);
+}
+
+void ao_send_acq_to_stream_checked(void * x)
+{
+    // Notes.
+
+    // The kernel is locked.
+
+
+    // Ready.
+
+    ao_assert(x);
+
+    ao_send_acq_t * S = x;
+
+    ao_async_check(&S->async);
+}
+
+void ao_send_acq_to_stream_end(ao_send_acq_t * S)
+{
+    // Assert.
+
+    ao_assert(S);
+
+    ao_assert(S->parameter);
+
+
+    // Variables.
+
+    ao_spush_acq_t * P;
+
+
+    // Ready.
+
+    // Push.
+
+    P = S->parameter;
+
+    ao_spush_acq_end(P);
+
+    P->async.callback = NULL;
+
+    P->async.callback_parameter = NULL;
+
+    // Send.
+
+    S->result = P->result;
+
+    ao_async_end(&S->async);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_send_acq_to_stream_override(ao_send_acq_t * S, ao_spush_acq_t * P)
+{
+    ao_assert(S);
+
+    ao_assert(P);
+
+    S->begin = ao_send_acq_to_stream_override_begin;
+
+    S->end = ao_send_acq_to_stream_override_end;
+
+    S->parameter = P;
+}
+
+void ao_send_acq_to_stream_override_begin(ao_send_acq_t * S)
+{
+    // Assert.
+
+    ao_assert(S);
+
+    ao_assert(S->parameter);
+
+
+    // Variables.
+
+    ao_spush_acq_t * P;
+
+
+    // Ready.
+
+    // Push.
+
+    P = S->parameter;
+
+    P->ptr = S->ptr;
+
+    ao_spush_acq_override(P);
+
+
+    // Send.
+
+    // The caller has exclusive access to #S all the time.
+
+    // Therefore, it is safe to not lock the kernel.
+
+    ao_async_begin(&S->async);
+
+    S->result = P->result;
+
+    ao_async_check(&S->async);
+}
+
+void ao_send_acq_to_stream_override_end(ao_send_acq_t * S)
+{
+    ao_assert(S);
+
+    ao_async_end(&S->async);
 }
 
 // ----------------------------------------------------------------------------
@@ -17842,6 +21077,7 @@ void ao_send_obj_to_stream_override_begin(ao_send_obj_t * S)
 
     ao_spush_obj_override(P);
 
+
     // Send.
 
     // The caller has exclusive access to #S all the time.
@@ -17998,16 +21234,6 @@ void ao_send_ptr_to_callback_end(ao_send_ptr_t * S)
 
 // ----------------------------------------------------------------------------
 
-static  void    ao_send_acq_to_queue_begin(     ao_send_ptr_t * x);
-
-static  void    ao_send_acq_to_queue_end(       ao_send_ptr_t * x);
-
-// ----------------------------------------------------------------------------
-
-static  void    ao_send_acq_to_queue_checked(   void * x);
-
-// ----------------------------------------------------------------------------
-
 static  void    ao_send_ptr_to_queue_begin(     ao_send_ptr_t * x);
 
 static  void    ao_send_ptr_to_queue_end(       ao_send_ptr_t * x);
@@ -18015,105 +21241,6 @@ static  void    ao_send_ptr_to_queue_end(       ao_send_ptr_t * x);
 // ----------------------------------------------------------------------------
 
 static  void    ao_send_ptr_to_queue_checked(   void * x);
-
-// ----------------------------------------------------------------------------
-
-void ao_send_acq_to_queue(ao_send_ptr_t * S, ao_qinsert_ptr_t * I)
-{
-    ao_assert(S);
-
-    ao_assert(I);
-
-    S->begin = ao_send_acq_to_queue_begin;
-
-    S->end = ao_send_acq_to_queue_end;
-
-    S->parameter = I;
-}
-
-void ao_send_acq_to_queue_begin(ao_send_ptr_t * S)
-{
-    // Assert.
-
-    ao_assert(S);
-
-    ao_assert(S->parameter);
-
-
-    // Variables.
-
-    ao_qinsert_ptr_t * I;
-
-
-    // Ready.
-
-    // Send.
-
-    ao_async_begin(&S->async);
-
-    S->result = false;
-
-    // Insert.
-
-    I = S->parameter;
-
-    I->async.callback = ao_send_acq_to_queue_checked;
-
-    I->async.callback_parameter = S;
-
-    I->ptr = S->ptr;
-
-    ao_qinsert_acq_begin(I);
-}
-
-void ao_send_acq_to_queue_checked(void * x)
-{
-    // Notes.
-
-    // The kernel is locked.
-
-
-    // Ready.
-
-    ao_assert(x);
-
-    ao_send_ptr_t * S = x;
-
-    ao_async_check(&S->async);
-}
-
-void ao_send_acq_to_queue_end(ao_send_ptr_t * S)
-{
-    // Assert.
-
-    ao_assert(S);
-
-    ao_assert(S->parameter);
-
-
-    // Variables.
-
-    ao_qinsert_ptr_t * I;
-
-
-    // Ready.
-
-    // Insert.
-
-    I = S->parameter;
-
-    ao_qinsert_acq_end(I);
-
-    I->async.callback = NULL;
-
-    I->async.callback_parameter = NULL;
-
-    // Send.
-
-    S->result = I->result;
-
-    ao_async_end(&S->async);
-}
 
 // ----------------------------------------------------------------------------
 
@@ -18222,22 +21349,6 @@ void ao_send_ptr_to_queue_end(ao_send_ptr_t * S)
 
 // ----------------------------------------------------------------------------
 
-static  void    ao_send_acq_to_stream_begin(            ao_send_ptr_t * x);
-
-static  void    ao_send_acq_to_stream_end(              ao_send_ptr_t * x);
-
-// ----------------------------------------------------------------------------
-
-static  void    ao_send_acq_to_stream_checked(          void * x);
-
-// ----------------------------------------------------------------------------
-
-static  void    ao_send_acq_to_stream_override_begin(   ao_send_ptr_t * x);
-
-static  void    ao_send_acq_to_stream_override_end(     ao_send_ptr_t * x);
-
-// ----------------------------------------------------------------------------
-
 static  void    ao_send_ptr_to_stream_begin(            ao_send_ptr_t * x);
 
 static  void    ao_send_ptr_to_stream_end(              ao_send_ptr_t * x);
@@ -18251,164 +21362,6 @@ static  void    ao_send_ptr_to_stream_checked(          void * x);
 static  void    ao_send_ptr_to_stream_override_begin(   ao_send_ptr_t * x);
 
 static  void    ao_send_ptr_to_stream_override_end(     ao_send_ptr_t * x);
-
-// ----------------------------------------------------------------------------
-
-void ao_send_acq_to_stream(ao_send_ptr_t * S, ao_spush_ptr_t * P)
-{
-    ao_assert(S);
-
-    ao_assert(P);
-
-    S->begin = ao_send_acq_to_stream_begin;
-
-    S->end = ao_send_acq_to_stream_end;
-
-    S->parameter = P;
-}
-
-void ao_send_acq_to_stream_begin(ao_send_ptr_t * S)
-{
-    // Assert.
-
-    ao_assert(S);
-
-    ao_assert(S->parameter);
-
-
-    // Variables.
-
-    ao_spush_ptr_t * P;
-
-
-    // Ready.
-
-    // Send.
-
-    ao_async_begin(&S->async);
-
-    S->result = false;
-
-    // Push.
-
-    P = S->parameter;
-
-    P->async.callback = ao_send_acq_to_stream_checked;
-
-    P->async.callback_parameter = S;
-
-    P->ptr = S->ptr;
-
-    ao_spush_acq_begin(P);
-}
-
-void ao_send_acq_to_stream_checked(void * x)
-{
-    // Notes.
-
-    // The kernel is locked.
-
-
-    // Ready.
-
-    ao_assert(x);
-
-    ao_send_ptr_t * S = x;
-
-    ao_async_check(&S->async);
-}
-
-void ao_send_acq_to_stream_end(ao_send_ptr_t * S)
-{
-    // Assert.
-
-    ao_assert(S);
-
-    ao_assert(S->parameter);
-
-
-    // Variables.
-
-    ao_spush_ptr_t * P;
-
-
-    // Ready.
-
-    // Push.
-
-    P = S->parameter;
-
-    ao_spush_acq_end(P);
-
-    P->async.callback = NULL;
-
-    P->async.callback_parameter = NULL;
-
-    // Send.
-
-    S->result = P->result;
-
-    ao_async_end(&S->async);
-}
-
-// ----------------------------------------------------------------------------
-
-void ao_send_acq_to_stream_override(ao_send_ptr_t * S, ao_spush_ptr_t * P)
-{
-    ao_assert(S);
-
-    ao_assert(P);
-
-    S->begin = ao_send_acq_to_stream_override_begin;
-
-    S->end = ao_send_acq_to_stream_override_end;
-
-    S->parameter = P;
-}
-
-void ao_send_acq_to_stream_override_begin(ao_send_ptr_t * S)
-{
-    // Assert.
-
-    ao_assert(S);
-
-    ao_assert(S->parameter);
-
-
-    // Variables.
-
-    ao_spush_ptr_t * P;
-
-
-    // Ready.
-
-    // Push.
-
-    P = S->parameter;
-
-    P->ptr = S->ptr;
-
-    ao_spush_acq_override(P);
-
-    // Send.
-
-    // The caller has exclusive access to #S all the time.
-
-    // Therefore, it is safe to not lock the kernel.
-
-    ao_async_begin(&S->async);
-
-    S->result = P->result;
-
-    ao_async_check(&S->async);
-}
-
-void ao_send_acq_to_stream_override_end(ao_send_ptr_t * S)
-{
-    ao_assert(S);
-
-    ao_async_end(&S->async);
-}
 
 // ----------------------------------------------------------------------------
 
@@ -18548,6 +21501,7 @@ void ao_send_ptr_to_stream_override_begin(ao_send_ptr_t * S)
 
     ao_spush_ptr_override(P);
 
+
     // Send.
 
     // The caller has exclusive access to #S all the time.
@@ -18644,13 +21598,19 @@ void ao_send_to_callback_end(ao_send_t * S)
 
 // ----------------------------------------------------------------------------
 
-static  void    ao_send_to_stream_begin(    ao_send_t * x);
+static  void    ao_send_to_stream_begin(            ao_send_t * x);
 
-static  void    ao_send_to_stream_end(      ao_send_t * x);
+static  void    ao_send_to_stream_end(              ao_send_t * x);
 
 // ----------------------------------------------------------------------------
 
-static  void    ao_send_to_stream_checked(  void * x);
+static  void    ao_send_to_stream_checked(          void * x);
+
+// ----------------------------------------------------------------------------
+
+static  void    ao_send_to_stream_override_begin(   ao_send_t * x);
+
+static  void    ao_send_to_stream_override_end(     ao_send_t * x);
 
 // ----------------------------------------------------------------------------
 
@@ -18764,6 +21724,72 @@ void ao_send_to_stream_end(ao_send_t * S)
 
 // ----------------------------------------------------------------------------
 
+void ao_send_to_stream_override(ao_send_t * S, ao_spush_t * P)
+{
+    ao_assert(S);
+
+    ao_assert(P);
+
+    S->begin = ao_send_to_stream_override_begin;
+
+    S->end = ao_send_to_stream_override_end;
+
+    S->parameter = P;
+}
+
+void ao_send_to_stream_override_begin(ao_send_t * S)
+{
+    // Assert.
+
+    ao_assert(S);
+
+    ao_assert(S->parameter);
+
+
+    // Variables.
+
+    ao_spush_t * P;
+
+
+    // Ready.
+
+    // Push.
+
+    P = S->parameter;
+
+    P->count_max = S->count_max;
+
+    P->count_min = S->count_min;
+
+    P->ptr = S->ptr;
+
+    ao_spush_override(P);
+
+
+    // Send.
+
+    // The caller has exclusive access to #S all the time.
+
+    // Therefore, it is safe to not lock the kernel.
+
+    ao_async_begin(&S->async);
+
+    S->count = P->count;
+
+    S->result = P->result;
+
+    ao_async_check(&S->async);
+}
+
+void ao_send_to_stream_override_end(ao_send_t * S)
+{
+    ao_assert(S);
+
+    ao_async_end(&S->async);
+}
+
+// ----------------------------------------------------------------------------
+
 #endif
 
 #if defined AO_SIGNAL
@@ -18790,17 +21816,17 @@ void ao_signal_notify(ao_signal_t * S)
 
     ao_lock(&L);
     {
-        n = S->list.front;
+        n = S->wait.front;
 
         if (n)
         {
-            W = ao_containerof(n, ao_signal_wait_t, node);
+            W = ao_containerof(n, ao_signal_wait_t, signal_wait_node);
 
             W->result = true;
 
             ao_async_check(&W->async);
 
-            ao_list_remove_front(&S->list);
+            ao_list_remove_front(&S->wait);
         }
     }
     ao_unlock(&L);
@@ -18826,13 +21852,13 @@ void ao_signal_notify_all(ao_signal_t * S)
 
     ao_lock(&L);
     {
-        n = S->list.front;
+        n = S->wait.front;
 
         if (n)
         {
             do
             {
-                W = ao_containerof(n, ao_signal_wait_t, node);
+                W = ao_containerof(n, ao_signal_wait_t, signal_wait_node);
 
                 W->result = true;
 
@@ -18842,7 +21868,7 @@ void ao_signal_notify_all(ao_signal_t * S)
             }
             while (n);
 
-            ao_list_remove_all(&S->list);
+            ao_list_remove_all(&S->wait);
         }
     }
     ao_unlock(&L);
@@ -18875,7 +21901,7 @@ void ao_signal_wait_begin(ao_signal_wait_t * W)
 
     ao_lock(&L);
     {
-        ao_list_push_back(&W->signal->list, &W->node);
+        ao_list_push_back(&W->signal->wait, &W->signal_wait_node);
 
         W->result = false;
     }
@@ -18904,7 +21930,7 @@ void ao_signal_wait_end(ao_signal_wait_t * W)
 
         else
         {
-            ao_list_remove(&W->signal->list, &W->node);
+            ao_list_remove(&W->signal->wait, &W->signal_wait_node);
         }
     }
     ao_unlock(&L);
@@ -19564,6 +22590,128 @@ void ao_spush_try(ao_spush_t * PU)
 
 #endif
 
+#if defined AO_STREAM4ACQ
+
+// ----------------------------------------------------------------------------
+
+void ao_spop_acq(ao_spop_acq_t * PO, ao_time_t t)
+{
+    ao_spop_ptr(PO, t);
+}
+
+void ao_spop_acq_begin(ao_spop_acq_t * PO)
+{
+    ao_spop_ptr_begin(PO);
+}
+
+void ao_spop_acq_end(ao_spop_acq_t * PO)
+{
+    ao_spop_ptr_end(PO);
+}
+
+void ao_spop_acq_forever(ao_spop_acq_t * PO)
+{
+    ao_spop_ptr_forever(PO);
+}
+
+void ao_spop_acq_from(ao_spop_acq_t * PO, ao_time_t t, ao_time_t b)
+{
+    ao_spop_ptr_from(PO, t, b);
+}
+
+void ao_spop_acq_try(ao_spop_acq_t * PO)
+{
+    ao_spop_ptr_try(PO);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_spush_acq(ao_spush_acq_t * PU, ao_time_t t)
+{
+    ao_spush_acq_from(PU, t, ao_now());
+}
+
+void ao_spush_acq_begin(ao_spush_acq_t * PU)
+{
+    ao_assert(PU);
+
+    ao_retain(PU->ptr);
+
+    ao_spush_ptr_begin(PU);
+}
+
+void ao_spush_acq_end(ao_spush_acq_t * PU)
+{
+    ao_assert(PU);
+
+    ao_spush_ptr_end(PU);
+
+    if (PU->result) { }
+
+    else
+    {
+        ao_release(PU->ptr);
+    }
+}
+
+void ao_spush_acq_forever(ao_spush_acq_t * PU)
+{
+    ao_spush_acq_from(PU, AO_INFINITY, 0);
+}
+
+void ao_spush_acq_from(ao_spush_acq_t * PU, ao_time_t t, ao_time_t b)
+{
+    // Assert.
+
+    ao_assert(PU);
+
+
+    // Ready.
+
+    ao_spush_acq_begin(PU);
+
+    ao_await_from(&PU->async, t, b);
+
+    ao_spush_acq_end(PU);
+}
+
+void ao_spush_acq_override(ao_spush_acq_t * PU)
+{
+    ao_assert(PU);
+
+    ao_retain(PU->ptr);
+
+    ao_spush_ptr_override(PU);
+
+    if (PU->result)
+    {
+        if (PU->result_override)
+        {
+            ao_release(PU->ptr_override);
+
+            PU->ptr_override = NULL;
+        }
+
+        else { }
+    }
+
+    else
+    {
+        ao_release(PU->ptr);
+    }
+}
+
+void ao_spush_acq_try(ao_spush_acq_t * PU)
+{
+    ao_spush_acq_begin(PU);
+
+    ao_spush_acq_end(PU);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
 #if defined AO_STREAM4OBJ
 
 // ----------------------------------------------------------------------------
@@ -19629,9 +22777,9 @@ void ao_spop_obj_begin(ao_spop_obj_t * PO)
                 {
                     ao_list_remove_front(l);
 
-                    PU = ao_containerof(n, ao_spush_obj_t, node);
+                    PU = ao_containerof(n, ao_spush_obj_t, stream_push_node);
 
-                    ao_memcpy(PO->ptr, PU->ptr, B->size);
+                    ao_mem_copy(PO->ptr, PU->ptr, B->size);
 
                     PO->result = true;
 
@@ -19656,7 +22804,7 @@ void ao_spop_obj_begin(ao_spop_obj_t * PO)
             {
                 PO->result = false;
 
-                ao_list_push_back(&S->pop, &PO->node);
+                ao_list_push_back(&S->pop, &PO->stream_pop_node);
             }
         }
 
@@ -19686,7 +22834,7 @@ void ao_spop_obj_begin(ao_spop_obj_t * PO)
                 {
                     ao_list_remove_front(l);
 
-                    PU = ao_containerof(n, ao_spush_obj_t, node);
+                    PU = ao_containerof(n, ao_spush_obj_t, stream_push_node);
 
                     ao_buffer4obj_push_back(B, PU->ptr);
 
@@ -19722,7 +22870,7 @@ void ao_spop_obj_end(ao_spop_obj_t * PO)
 
         else
         {
-            ao_list_remove(&PO->stream->pop, &PO->node);
+            ao_list_remove(&PO->stream->pop, &PO->stream_pop_node);
         }
     }
     ao_unlock(&L);
@@ -19817,9 +22965,9 @@ void ao_spush_obj_begin(ao_spush_obj_t * PU)
             {
                 ao_list_remove_front(l);
 
-                PO = ao_containerof(n, ao_spop_obj_t, node);
+                PO = ao_containerof(n, ao_spop_obj_t, stream_pop_node);
 
-                ao_memcpy(PO->ptr, PU->ptr, B->size);
+                ao_mem_copy(PO->ptr, PU->ptr, B->size);
 
                 PO->result = true;
 
@@ -19848,7 +22996,7 @@ void ao_spush_obj_begin(ao_spush_obj_t * PU)
             {
                 PU->result = false;
 
-                ao_list_push_back(&S->push, &PU->node);
+                ao_list_push_back(&S->push, &PU->stream_push_node);
             }
 
             // Push now.
@@ -19888,7 +23036,7 @@ void ao_spush_obj_end(ao_spush_obj_t * PU)
 
         else
         {
-            ao_list_remove(&PU->stream->push, &PU->node);
+            ao_list_remove(&PU->stream->push, &PU->stream_push_node);
         }
     }
     ao_unlock(&L);
@@ -19971,9 +23119,9 @@ void ao_spush_obj_override(ao_spush_obj_t * PU)
             {
                 ao_list_remove_front(l);
 
-                PO = ao_containerof(n, ao_spop_obj_t, node);
+                PO = ao_containerof(n, ao_spop_obj_t, stream_pop_node);
 
-                ao_memcpy(PO->ptr, PU->ptr, B->size);
+                ao_mem_copy(PO->ptr, PU->ptr, B->size);
 
                 PO->result = true;
 
@@ -20121,7 +23269,7 @@ void ao_spop_ptr_begin(ao_spop_ptr_t * PO)
                 {
                     ao_list_remove_front(l);
 
-                    PU = ao_containerof(n, ao_spush_ptr_t, node);
+                    PU = ao_containerof(n, ao_spush_ptr_t, stream_push_node);
 
                     PO->ptr = PU->ptr;
 
@@ -20148,7 +23296,7 @@ void ao_spop_ptr_begin(ao_spop_ptr_t * PO)
             {
                 PO->result = false;
 
-                ao_list_push_back(&S->pop, &PO->node);
+                ao_list_push_back(&S->pop, &PO->stream_pop_node);
             }
         }
 
@@ -20180,7 +23328,7 @@ void ao_spop_ptr_begin(ao_spop_ptr_t * PO)
                 {
                     ao_list_remove_front(l);
 
-                    PU = ao_containerof(n, ao_spush_ptr_t, node);
+                    PU = ao_containerof(n, ao_spush_ptr_t, stream_push_node);
 
                     ao_buffer4ptr_push_back(B, PU->ptr);
 
@@ -20216,7 +23364,7 @@ void ao_spop_ptr_end(ao_spop_ptr_t * PO)
 
         else
         {
-            ao_list_remove(&PO->stream->pop, &PO->node);
+            ao_list_remove(&PO->stream->pop, &PO->stream_pop_node);
         }
     }
     ao_unlock(&L);
@@ -20250,110 +23398,6 @@ void ao_spop_ptr_try(ao_spop_ptr_t * PO)
     ao_spop_ptr_begin(PO);
 
     ao_spop_ptr_end(PO);
-}
-
-// ----------------------------------------------------------------------------
-
-void ao_spush_acq(ao_spush_ptr_t * PU, ao_time_t t)
-{
-    ao_spush_acq_from(PU, t, ao_now());
-}
-
-void ao_spush_acq_begin(ao_spush_ptr_t * PU)
-{
-
-#if defined AO_ALLOC
-
-    ao_assert(PU);
-
-    ao_retain(PU->ptr);
-
-#endif
-
-    ao_spush_ptr_begin(PU);
-}
-
-void ao_spush_acq_end(ao_spush_ptr_t * PU)
-{
-    ao_spush_ptr_end(PU);
-
-#if defined AO_ALLOC
-
-    ao_assert(PU);
-
-    if (PU->result) { }
-
-    else
-    {
-        ao_release(PU->ptr);
-    }
-
-#endif
-
-}
-
-void ao_spush_acq_forever(ao_spush_ptr_t * PU)
-{
-    ao_spush_acq_from(PU, AO_INFINITY, 0);
-}
-
-void ao_spush_acq_from(ao_spush_ptr_t * PU, ao_time_t t, ao_time_t b)
-{
-    // Assert.
-
-    ao_assert(PU);
-
-
-    // Ready.
-
-    ao_spush_acq_begin(PU);
-
-    ao_await_from(&PU->async, t, b);
-
-    ao_spush_acq_end(PU);
-}
-
-void ao_spush_acq_override(ao_spush_ptr_t * PU)
-{
-
-#if defined AO_ALLOC
-
-    ao_assert(PU);
-
-    ao_retain(PU->ptr);
-
-#endif
-
-    ao_spush_ptr_override(PU);
-
-#if defined AO_ALLOC
-
-    if (PU->result)
-    {
-        if (PU->result_override)
-        {
-            ao_release(PU->ptr_override);
-
-            PU->ptr_override = NULL;
-        }
-
-        else { }
-    }
-
-    else
-    {
-        ao_release(PU->ptr);
-    }
-
-#endif
-
-}
-
-void ao_spush_acq_try(ao_spush_ptr_t * PU)
-{
-    ao_spush_acq_begin(PU);
-
-    ao_spush_acq_end(PU);
 }
 
 // ----------------------------------------------------------------------------
@@ -20415,7 +23459,7 @@ void ao_spush_ptr_begin(ao_spush_ptr_t * PU)
             {
                 ao_list_remove_front(l);
 
-                PO = ao_containerof(n, ao_spop_ptr_t, node);
+                PO = ao_containerof(n, ao_spop_ptr_t, stream_pop_node);
 
                 PO->ptr = PU->ptr;
 
@@ -20446,7 +23490,7 @@ void ao_spush_ptr_begin(ao_spush_ptr_t * PU)
             {
                 PU->result = false;
 
-                ao_list_push_back(&S->push, &PU->node);
+                ao_list_push_back(&S->push, &PU->stream_push_node);
             }
 
             // Push now.
@@ -20486,7 +23530,7 @@ void ao_spush_ptr_end(ao_spush_ptr_t * PU)
 
         else
         {
-            ao_list_remove(&PU->stream->push, &PU->node);
+            ao_list_remove(&PU->stream->push, &PU->stream_push_node);
         }
     }
     ao_unlock(&L);
@@ -20571,7 +23615,7 @@ void ao_spush_ptr_override(ao_spush_ptr_t * PU)
             {
                 ao_list_remove_front(l);
 
-                PO = ao_containerof(n, ao_spop_ptr_t, node);
+                PO = ao_containerof(n, ao_spop_ptr_t, stream_pop_node);
 
                 PO->ptr = PU->ptr;
 
@@ -22746,6 +25790,10 @@ void ao_boot_task_sched() { }
 
 // ----------------------------------------------------------------------------
 
+void ao_ir_task() { }
+
+// ----------------------------------------------------------------------------
+
 void ao_task_add(ao_task_t * t)
 {
     (void) t;
@@ -22835,10 +25883,6 @@ void ao_task_stop_sched(ao_task_t * t)
 
 // ----------------------------------------------------------------------------
 
-void ao_task_switch() { }
-
-// ----------------------------------------------------------------------------
-
 #endif
 
 #if defined AO_TASK_SCHED_1
@@ -22882,7 +25926,101 @@ static  ao_list_t   ao_task_sched_queue;
 
 void ao_boot_task_sched()
 {
-    ao_task_switch_enable(0);
+    ao_ir_task_enable(0);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_ir_task()
+{
+    // Variables.
+
+    ao_lock_t l;
+
+    bool r;
+
+    ao_task_t * t;
+
+
+    // Ready.
+
+    ao_lock(&l);
+    {
+        // Task interrupt.
+
+        ao_ir_task_reply(0);
+
+
+        // Task switch out.
+
+        t = ao_task_running[0];
+
+        r = ao_task_switch_out(t);
+
+
+        // Task is ready.
+
+        if (r)
+        {
+            if (ao_task_sched_queue_is_empty()) { }
+
+            else
+            {
+                ao_task_sched_queue_push(t);
+
+                t = ao_task_sched_queue_peek();
+
+                ao_task_sched_queue_pop();
+
+                ao_task_sched_alarm_start();
+            }
+        }
+
+        // Task is not ready.
+
+        else
+        {
+            // Queue is empty.
+
+            // This really should not have happened!
+
+            if (ao_task_sched_queue_is_empty())
+            {
+                ao_assert(false);
+
+                t = NULL;
+
+                ao_task_sched_alarm_stop();
+            }
+
+            // Queue is not empty.
+
+            else
+            {
+                t = ao_task_sched_queue_peek();
+
+                ao_task_sched_queue_pop();
+
+                if (ao_task_sched_queue_is_empty())
+                {
+                    ao_task_sched_alarm_stop();
+                }
+
+                else
+                {
+                    ao_task_sched_alarm_start();
+                }
+            }
+        }
+
+
+        // Task switch in.
+
+        ao_task_switch_in(t);
+
+        ao_task_running[0] = t;
+    }
+    ao_unlock(&l);
 }
 
 // ----------------------------------------------------------------------------
@@ -22916,7 +26054,7 @@ void ao_task_down(ao_task_t * t)
 {
     (void) t;
 
-    ao_task_switch_request(0);
+    ao_ir_task_request(0);
 }
 
 // ----------------------------------------------------------------------------
@@ -23001,7 +26139,7 @@ void ao_task_sched_alarm_callback(void * x)
     }
     ao_unlock(&l);
 
-    ao_task_switch_request(0);
+    ao_ir_task_request(0);
 }
 
 void ao_task_sched_alarm_start()
@@ -23099,100 +26237,6 @@ void ao_task_stop_sched(ao_task_t * t)
 
 // ----------------------------------------------------------------------------
 
-void ao_task_switch()
-{
-    // Variables.
-
-    ao_lock_t l;
-
-    bool r;
-
-    ao_task_t * t;
-
-
-    // Ready.
-
-    ao_lock(&l);
-    {
-        // Task switch interrupt.
-
-        ao_task_switch_reply(0);
-
-
-        // Task switch out.
-
-        t = ao_task_running[0];
-
-        r = ao_task_switch_out(t);
-
-
-        // Task is ready.
-
-        if (r)
-        {
-            if (ao_task_sched_queue_is_empty()) { }
-
-            else
-            {
-                ao_task_sched_queue_push(t);
-
-                t = ao_task_sched_queue_peek();
-
-                ao_task_sched_queue_pop();
-
-                ao_task_sched_alarm_start();
-            }
-        }
-
-        // Task is not ready.
-
-        else
-        {
-            // Queue is empty.
-
-            // This really should not have happened!
-
-            if (ao_task_sched_queue_is_empty())
-            {
-                ao_assert(false);
-
-                t = NULL;
-
-                ao_task_sched_alarm_stop();
-            }
-
-            // Queue is not empty.
-
-            else
-            {
-                t = ao_task_sched_queue_peek();
-
-                ao_task_sched_queue_pop();
-
-                if (ao_task_sched_queue_is_empty())
-                {
-                    ao_task_sched_alarm_stop();
-                }
-
-                else
-                {
-                    ao_task_sched_alarm_start();
-                }
-            }
-        }
-
-
-        // Task switch in.
-
-        ao_task_switch_in(t);
-
-        ao_task_running[0] = t;
-    }
-    ao_unlock(&l);
-}
-
-// ----------------------------------------------------------------------------
-
 #endif
 
 #if defined AO_TASK_SCHED_2
@@ -23213,11 +26257,11 @@ void ao_task_switch()
 
 // ----------------------------------------------------------------------------
 
-static  bool        ao_task_ceiling_less(           ao_rb_node_t * n1, ao_rb_node_t * n2, void * parameter);
+static  bool        ao_task_ceiling_less(           ao_rb_node_t const * n1, ao_rb_node_t const * n2, void * parameter);
 
 // ----------------------------------------------------------------------------
 
-static  bool        ao_task_master_less(            ao_rb_node_t * n1, ao_rb_node_t * n2, void * parameter);
+static  bool        ao_task_master_less(            ao_rb_node_t const * n1, ao_rb_node_t const * n2, void * parameter);
 
 static  void        ao_task_master_update(          ao_task_t * t);
 
@@ -23255,7 +26299,7 @@ static  void        ao_task_sched_queue_remove(     ao_task_t * t);
 
 // ----------------------------------------------------------------------------
 
-static  bool        ao_task_slave_less(             ao_rb_node_t * n1, ao_rb_node_t * n2, void * parameter);
+static  bool        ao_task_slave_less(             ao_rb_node_t const * n1, ao_rb_node_t const * n2, void * parameter);
 
 static  ao_uint_t   ao_task_slave_prio_keep(        ao_task_slave_t * s);
 
@@ -23284,7 +26328,171 @@ static  ao_uint_t   ao_task_sched_queue_prio_mask;
 
 void ao_boot_task_sched()
 {
-    ao_task_switch_enable(0);
+    ao_ir_task_enable(0);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_ir_task()
+{
+    // Variables.
+
+    ao_lock_t l;
+
+    ao_uint_t p1;
+
+    ao_uint_t p2;
+
+    ao_uint_t p3;
+
+    bool r;
+
+    ao_task_t * t1;
+
+    ao_task_t * t2;
+
+
+    // Ready.
+
+    ao_lock(&l);
+    {
+        // Task interrupt.
+
+        ao_ir_task_reply(0);
+
+
+        // Task switch out.
+
+        t1 = ao_task_running[0];
+
+        r = ao_task_switch_out(t1);
+
+
+        // Task is ready.
+
+        if (r)
+        {
+            // Queue is empty.
+
+            if (ao_task_sched_queue_is_empty())
+            {
+                t2 = t1;
+
+                ao_task_sched_alarm_stop();
+            }
+
+            // Queue is not empty.
+
+            else
+            {
+                t2 = ao_task_sched_queue_peek();
+
+                p1 = t1->sched.prio;
+
+                p2 = t2->sched.prio;
+
+                if (p1 > p2)
+                {
+                    t2 = t1;
+
+                    ao_task_sched_alarm_stop();
+                }
+
+                else
+                {
+                    ao_task_sched_queue_push(t1);
+
+                    ao_task_sched_queue_pop();
+
+                    if (p1 == p2)
+                    {
+                        ao_task_sched_alarm_start();
+                    }
+
+                    else
+                    {
+                        p3 = ao_task_sched_queue_peek_prio();
+
+                        ao_assert(p2 >= p3);
+
+                        if (p2 > p3)
+                        {
+                            ao_task_sched_alarm_stop();
+                        }
+
+                        else
+                        {
+                            ao_task_sched_alarm_start();
+                        }
+                    }
+                }
+            }
+        }
+
+        // Task is not ready.
+
+        else
+        {
+            // Queue is empty.
+
+            // This really should not have happened!
+
+            if (ao_task_sched_queue_is_empty())
+            {
+                ao_assert(false);
+
+                t2 = NULL;
+
+                ao_task_sched_alarm_stop();
+            }
+
+            // Queue is not empty.
+
+            else
+            {
+                t2 = ao_task_sched_queue_peek();
+
+                ao_task_sched_queue_pop();
+
+
+                // Queue is empty.
+
+                if (ao_task_sched_queue_is_empty())
+                {
+                    ao_task_sched_alarm_stop();
+                }
+
+                // Queue is not empty.
+
+                else
+                {
+                    p2 = t2->sched.prio;
+
+                    p3 = ao_task_sched_queue_peek_prio();
+
+                    ao_assert(p2 >= p3);
+
+                    if (p2 > p3)
+                    {
+                        ao_task_sched_alarm_stop();
+                    }
+
+                    else
+                    {
+                        ao_task_sched_alarm_start();
+                    }
+                }
+            }
+        }
+
+
+        // Task switch in.
+
+        ao_task_switch_in(t2);
+
+        ao_task_running[0] = t2;
+    }
+    ao_unlock(&l);
 }
 
 // ----------------------------------------------------------------------------
@@ -23314,7 +26522,7 @@ void ao_task_add(ao_task_t * t2)
 
     if (p2 > p1)
     {
-        ao_task_switch_request(0);
+        ao_ir_task_request(0);
     }
 
     else if (p2 == p1)
@@ -23329,7 +26537,7 @@ void ao_task_down(ao_task_t * t)
 {
     (void) t;
 
-    ao_task_switch_request(0);
+    ao_ir_task_request(0);
 }
 
 // ----------------------------------------------------------------------------
@@ -23431,7 +26639,7 @@ void ao_task_prio_update_3(ao_task_t * t2, ao_uint_t p2)
 
             if (p3 > p1)
             {
-                ao_task_switch_request(0);
+                ao_ir_task_request(0);
             }
 
             else
@@ -23558,7 +26766,7 @@ void ao_task_sched_alarm_callback(void * x)
     }
     ao_unlock(&l);
 
-    ao_task_switch_request(0);
+    ao_ir_task_request(0);
 }
 
 void ao_task_sched_alarm_start()
@@ -23769,170 +26977,6 @@ void ao_task_stop_sched(ao_task_t * t)
 
 // ----------------------------------------------------------------------------
 
-void ao_task_switch()
-{
-    // Variables.
-
-    ao_lock_t l;
-
-    ao_uint_t p1;
-
-    ao_uint_t p2;
-
-    ao_uint_t p3;
-
-    bool r;
-
-    ao_task_t * t1;
-
-    ao_task_t * t2;
-
-
-    // Ready.
-
-    ao_lock(&l);
-    {
-        // Task switch interrupt.
-
-        ao_task_switch_reply(0);
-
-
-        // Task switch out.
-
-        t1 = ao_task_running[0];
-
-        r = ao_task_switch_out(t1);
-
-
-        // Task is ready.
-
-        if (r)
-        {
-            // Queue is empty.
-
-            if (ao_task_sched_queue_is_empty())
-            {
-                t2 = t1;
-
-                ao_task_sched_alarm_stop();
-            }
-
-            // Queue is not empty.
-
-            else
-            {
-                t2 = ao_task_sched_queue_peek();
-
-                p1 = t1->sched.prio;
-
-                p2 = t2->sched.prio;
-
-                if (p1 > p2)
-                {
-                    t2 = t1;
-
-                    ao_task_sched_alarm_stop();
-                }
-
-                else
-                {
-                    ao_task_sched_queue_push(t1);
-
-                    ao_task_sched_queue_pop();
-
-                    if (p1 == p2)
-                    {
-                        ao_task_sched_alarm_start();
-                    }
-
-                    else
-                    {
-                        p3 = ao_task_sched_queue_peek_prio();
-
-                        ao_assert(p2 >= p3);
-
-                        if (p2 > p3)
-                        {
-                            ao_task_sched_alarm_stop();
-                        }
-
-                        else
-                        {
-                            ao_task_sched_alarm_start();
-                        }
-                    }
-                }
-            }
-        }
-
-        // Task is not ready.
-
-        else
-        {
-            // Queue is empty.
-
-            // This really should not have happened!
-
-            if (ao_task_sched_queue_is_empty())
-            {
-                ao_assert(false);
-
-                t2 = NULL;
-
-                ao_task_sched_alarm_stop();
-            }
-
-            // Queue is not empty.
-
-            else
-            {
-                t2 = ao_task_sched_queue_peek();
-
-                ao_task_sched_queue_pop();
-
-
-                // Queue is empty.
-
-                if (ao_task_sched_queue_is_empty())
-                {
-                    ao_task_sched_alarm_stop();
-                }
-
-                // Queue is not empty.
-
-                else
-                {
-                    p2 = t2->sched.prio;
-
-                    p3 = ao_task_sched_queue_peek_prio();
-
-                    ao_assert(p2 >= p3);
-
-                    if (p2 > p3)
-                    {
-                        ao_task_sched_alarm_stop();
-                    }
-
-                    else
-                    {
-                        ao_task_sched_alarm_start();
-                    }
-                }
-            }
-        }
-
-
-        // Task switch in.
-
-        ao_task_switch_in(t2);
-
-        ao_task_running[0] = t2;
-    }
-    ao_unlock(&l);
-}
-
-// ----------------------------------------------------------------------------
-
 #endif
 
 #if defined AO_TASK_SCHED_2 && AO_TASK_CEILING
@@ -24036,7 +27080,7 @@ ao_uint_t ao_task_ceiling_get_prio(ao_task_ceiling_t const * c)
     return x1;
 }
 
-bool ao_task_ceiling_less(ao_rb_node_t * n1, ao_rb_node_t * n2, void * parameter)
+bool ao_task_ceiling_less(ao_rb_node_t const * n1, ao_rb_node_t const * n2, void * parameter)
 {
     (void) parameter;
 
@@ -24287,7 +27331,7 @@ void ao_task_master_end(ao_task_master_t * m)
     else { }
 }
 
-bool ao_task_master_less(ao_rb_node_t * n1, ao_rb_node_t * n2, void * parameter)
+bool ao_task_master_less(ao_rb_node_t const * n1, ao_rb_node_t const * n2, void * parameter)
 {
     (void) parameter;
 
@@ -24497,7 +27541,7 @@ void ao_task_slave_end(ao_task_slave_t * s)
     ao_task_prio_update_2(t);
 }
 
-bool ao_task_slave_less(ao_rb_node_t * n1, ao_rb_node_t * n2, void * parameter)
+bool ao_task_slave_less(ao_rb_node_t const * n1, ao_rb_node_t const * n2, void * parameter)
 {
     (void) parameter;
 
@@ -25228,59 +28272,86 @@ void ao_task_stack_high_water_mark(ao_task_t * t)
 
 // ----------------------------------------------------------------------------
 
-static void ao_threshold_update_1(ao_threshold_t * T, ao_uint_t v);
-
-static void ao_threshold_update_2(ao_threshold_t * T, ao_uint_t v);
+static void ao_threshold_update(ao_threshold_t * T, ao_uint_t vn);
 
 // ----------------------------------------------------------------------------
 
-void ao_threshold_add(ao_threshold_t * T, ao_uint_t v)
+void ao_threshold_adjust(ao_threshold_t * T, ao_threshold_adjust_t A, void * AP)
 {
     // Assert.
 
     ao_assert(T);
+
+    ao_assert(T->match);
+
+    ao_assert(A);
 
 
     // Variables.
 
     ao_lock_t L;
 
-
-    // Ready.
-
-    if (v != 0)
-    {
-        ao_lock(&L);
-        {
-            ao_threshold_update_2(T, T->value + v);
-        }
-        ao_unlock(&L);
-    }
-}
-
-void ao_threshold_adjust(ao_threshold_t * T, ao_threshold_adjust_t a, void * p)
-{
-    // Assert.
-
-    ao_assert(T);
-
-    ao_assert(a);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-    ao_uint_t v;
+    ao_uint_t vn;
+    ao_uint_t vo;
 
 
     // Ready.
 
     ao_lock(&L);
     {
-        v = a(T->value, p);
+        vo = T->value;
 
-        ao_threshold_update_1(T, v);
+        vn = A(vo, AP);
+
+        ao_threshold_update(T, vn);
+    }
+    ao_unlock(&L);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold_add(ao_threshold_t * T, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold_update(T, T->value + x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold_and(ao_threshold_t * T, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold_update(T, T->value & x);
     }
     ao_unlock(&L);
 }
@@ -25291,6 +28362,8 @@ void ao_threshold_decrement(ao_threshold_t * T)
 
     ao_assert(T);
 
+    ao_assert(T->match);
+
 
     // Variables.
 
@@ -25301,18 +28374,20 @@ void ao_threshold_decrement(ao_threshold_t * T)
 
     ao_lock(&L);
     {
-        ao_threshold_update_2(T, T->value - 1);
+        ao_threshold_update(T, T->value - 1);
     }
     ao_unlock(&L);
 }
 
-void ao_threshold_divide(ao_threshold_t * T, ao_uint_t v)
+void ao_threshold_divide(ao_threshold_t * T, ao_uint_t x)
 {
     // Assert.
 
     ao_assert(T);
 
-    ao_assert(v != 0);
+    ao_assert(T->match);
+
+    ao_assert(x != 0);
 
 
     // Variables.
@@ -25322,14 +28397,11 @@ void ao_threshold_divide(ao_threshold_t * T, ao_uint_t v)
 
     // Ready.
 
-    if (v != 1)
+    ao_lock(&L);
     {
-        ao_lock(&L);
-        {
-            ao_threshold_update_1(T, T->value / v);
-        }
-        ao_unlock(&L);
+        ao_threshold_update(T, T->value / x);
     }
+    ao_unlock(&L);
 }
 
 void ao_threshold_increment(ao_threshold_t * T)
@@ -25338,28 +28410,7 @@ void ao_threshold_increment(ao_threshold_t * T)
 
     ao_assert(T);
 
-
-    // Variables.
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    ao_lock(&L);
-    {
-        ao_threshold_update_2(T, T->value + 1);
-    }
-    ao_unlock(&L);
-}
-
-void ao_threshold_modulo(ao_threshold_t * T, ao_uint_t v)
-{
-    // Assert.
-
-    ao_assert(T);
-
-    ao_assert(v != 0);
+    ao_assert(T->match);
 
 
     // Variables.
@@ -25371,173 +28422,425 @@ void ao_threshold_modulo(ao_threshold_t * T, ao_uint_t v)
 
     ao_lock(&L);
     {
-        ao_threshold_update_1(T, T->value % v);
+        ao_threshold_update(T, T->value + 1);
     }
     ao_unlock(&L);
 }
 
-void ao_threshold_multiply(ao_threshold_t * T, ao_uint_t v)
+void ao_threshold_max(ao_threshold_t * T)
 {
     // Assert.
 
     ao_assert(T);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    if (v != 1)
-    {
-        ao_lock(&L);
-        {
-            ao_threshold_update_1(T, T->value * v);
-        }
-        ao_unlock(&L);
-    }
-}
-
-void ao_threshold_set(ao_threshold_t * T, ao_uint_t v)
-{
-    // Assert.
-
-    ao_assert(T);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    ao_lock(&L);
-    {
-        ao_threshold_update_1(T, v);
-    }
-    ao_unlock(&L);
-}
-
-void ao_threshold_subtract(ao_threshold_t * T, ao_uint_t v)
-{
-    // Assert.
-
-    ao_assert(T);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    if (v != 0)
-    {
-        ao_lock(&L);
-        {
-            ao_threshold_update_2(T, T->value - v);
-        }
-        ao_unlock(&L);
-    }
-}
-
-void ao_threshold_subtract_from(ao_threshold_t * T, ao_uint_t v)
-{
-    // Assert.
-
-    ao_assert(T);
-
-
-    // Variables.
-
-    ao_lock_t L;
-
-
-    // Ready.
-
-    ao_lock(&L);
-    {
-        ao_threshold_update_1(T, v - T->value);
-    }
-    ao_unlock(&L);
-}
-
-void ao_threshold_update_1(ao_threshold_t * T, ao_uint_t v)
-{
-    // Notes.
-
-    // The kernel is locked.
-
-
-    // Ready.
-
-    if (v != T->value)
-    {
-        ao_threshold_update_2(T, v);
-    }
-}
-
-void ao_threshold_update_2(ao_threshold_t * T, ao_uint_t v)
-{
-    // Notes.
-
-    // The kernel is locked.
-
-
-    // Assert.
 
     ao_assert(T->match);
 
 
     // Variables.
 
-    ao_list_node_t * n;
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold_update(T, AO_UINT_MAX);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold_min(ao_threshold_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold_update(T, 0);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold_modulo(ao_threshold_t * T, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+    ao_assert(x != 0);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold_update(T, T->value % x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold_multiply(ao_threshold_t * T, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold_update(T, T->value * x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold_nand(ao_threshold_t * T, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold_update(T, ~(T->value & x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold_nor(ao_threshold_t * T, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold_update(T, ~(T->value | x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold_not(ao_threshold_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold_update(T, ~(T->value));
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold_or(ao_threshold_t * T, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold_update(T, T->value | x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold_set(ao_threshold_t * T, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold_update(T, x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold_subtract(ao_threshold_t * T, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold_update(T, T->value - x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold_subtract_from(ao_threshold_t * T, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold_update(T, x - T->value);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold_xnor(ao_threshold_t * T, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold_update(T, ~(T->value ^ x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold_xor(ao_threshold_t * T, ao_uint_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold_update(T, T->value ^ x);
+    }
+    ao_unlock(&L);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold_update(ao_threshold_t * T, ao_uint_t vn)
+{
+    // Notes.
+
+    // The kernel is locked.
+
+
+    // Variables.
+
+    ao_threshold_adjust_t A;
+
+    ao_list_t * L;
+
+    ao_list_node_t * LN;
+
+    ao_threshold_match_t M;
+
+    void * MP;
+
+    ao_uint_t va;
+    ao_uint_t vo;
 
     ao_threshold_wait_t * W;
 
 
     // Ready.
 
-    if (T->match(v, T->match_parameter))
+    M = T->match;
+
+    MP = T->match_parameter;
+
+    vo = T->value;
+
+
+    // Ready.
+
+    if (M(vo, vn, MP))
     {
-        n = T->list.front;
+        L = &T->wait;
 
-        if (n)
+        LN = L->front;
+
+        while (LN)
         {
-            do
-            {
-                W = ao_containerof(n, ao_threshold_wait_t, node);
+            W = ao_containerof(LN, ao_threshold_wait_t, threshold_wait_node);
 
-                W->result = true;
+            W->result = true;
 
-                ao_async_check(&W->async);
+            W->value_new = vn;
 
-                n = n->next;
-            }
-            while (n);
+            W->value_old = vo;
 
-            ao_list_remove_all(&T->list);
+            ao_async_check(&W->async);
+
+            LN = LN->next;
         }
 
-        if (T->adjust)
+        ao_list_remove_all(L);
+
+        A = T->adjust;
+
+        if (A)
         {
-            v = T->adjust(v, T->adjust_parameter);
+            va = A(vn, T->adjust_parameter);
+        }
+
+        else
+        {
+            va = vn;
         }
     }
 
-    T->value = v;
+    else
+    {
+        va = vn;
+    }
+
+    T->value = va;
 }
 
 // ----------------------------------------------------------------------------
 
-bool ao_threshold_wait(ao_threshold_t * T, ao_time_t t)
+void ao_threshold_wait(ao_threshold_wait_t * W, ao_time_t t)
 {
-    return ao_threshold_wait_from(T, t, ao_now());
+    ao_threshold_wait_from(W, t, ao_now());
 }
+
+void ao_threshold_wait_from(ao_threshold_wait_t * W, ao_time_t t, ao_time_t b)
+{
+    ao_threshold_wait_begin(W);
+
+    ao_await_from(&W->async, t, b);
+
+    ao_threshold_wait_end(W);
+}
+
+void ao_threshold_wait_forever(ao_threshold_wait_t * W)
+{
+    ao_threshold_wait_from(W, AO_INFINITY, 0);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold_wait_try(ao_threshold_wait_t * W)
+{
+    ao_threshold_wait_begin(W);
+
+    ao_threshold_wait_end(W);
+}
+
+// ----------------------------------------------------------------------------
 
 void ao_threshold_wait_begin(ao_threshold_wait_t * W)
 {
@@ -25552,14 +28855,29 @@ void ao_threshold_wait_begin(ao_threshold_wait_t * W)
 
     // Variables.
 
+    ao_threshold_adjust_t A;
+
     ao_lock_t L;
 
+    ao_threshold_match_t M;
+
+    void * MP;
+
     ao_threshold_t * T;
+
+    ao_uint_t v;
 
 
     // Ready.
 
     T = W->threshold;
+
+    M = T->match;
+
+    MP = T->match_parameter;
+
+
+    // Ready.
 
     ao_async_begin(&W->async);
 
@@ -25567,14 +28885,22 @@ void ao_threshold_wait_begin(ao_threshold_wait_t * W)
     {
         // Threshold value is a match.
 
-        if (T->match(T->value, T->match_parameter))
+        v = T->value;
+
+        if (M(v, v, MP))
         {
-            if (T->adjust)
+            A = T->adjust;
+
+            if (A)
             {
-                T->value = T->adjust(T->value, T->adjust_parameter);
+                T->value = A(v, T->adjust_parameter);
             }
 
             W->result = true;
+
+            W->value_new = v;
+
+            W->value_old = v;
 
             ao_async_check(&W->async);
         }
@@ -25585,7 +28911,11 @@ void ao_threshold_wait_begin(ao_threshold_wait_t * W)
         {
             W->result = false;
 
-            ao_list_push_back(&T->list, &W->node);
+            ao_list_push_back
+            (
+                &T->wait,
+                &W->threshold_wait_node
+            );
         }
     }
     ao_unlock(&L);
@@ -25613,7 +28943,11 @@ void ao_threshold_wait_end(ao_threshold_wait_t * W)
 
         else
         {
-            ao_list_remove(&W->threshold->list, &W->node);
+            ao_list_remove
+            (
+                &W->threshold->wait,
+                &W->threshold_wait_node
+            );
         }
     }
     ao_unlock(&L);
@@ -25621,55 +28955,2768 @@ void ao_threshold_wait_end(ao_threshold_wait_t * W)
     ao_async_end(&W->async);
 }
 
-bool ao_threshold_wait_forever(ao_threshold_t * T)
-{
-    return ao_threshold_wait_from(T, AO_INFINITY, 0);
-}
+// ----------------------------------------------------------------------------
 
-bool ao_threshold_wait_from(ao_threshold_t * T, ao_time_t t, ao_time_t b)
+#endif
+
+#if defined AO_THRESHOLD8
+
+// ----------------------------------------------------------------------------
+
+static void ao_threshold8_update(ao_threshold8_t * T, uint8_t vn);
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold8_adjust(ao_threshold8_t * T, ao_threshold8_adjust_t A, void * AP)
 {
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+    ao_assert(A);
+
+
     // Variables.
 
-    ao_threshold_wait_t W;
+    ao_lock_t L;
+
+    uint8_t vn;
+    uint8_t vo;
 
 
     // Ready.
 
-    ao_clear(&W, ao_threshold_wait_t);
+    ao_lock(&L);
+    {
+        vo = T->value;
 
-    W.threshold = T;
+        vn = A(vo, AP);
 
-
-    ao_threshold_wait_begin(&W);
-
-    ao_await_from(&W.async, t, b);
-
-    ao_threshold_wait_end(&W);
-
-
-    return W.result;
+        ao_threshold8_update(T, vn);
+    }
+    ao_unlock(&L);
 }
 
-bool ao_threshold_wait_try(ao_threshold_t * T)
+// ----------------------------------------------------------------------------
+
+void ao_threshold8_add(ao_threshold8_t * T, uint8_t x)
 {
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
     // Variables.
 
-    ao_threshold_wait_t W;
+    ao_lock_t L;
 
 
     // Ready.
 
-    ao_clear(&W, ao_threshold_wait_t);
+    ao_lock(&L);
+    {
+        ao_threshold8_update(T, T->value + x);
+    }
+    ao_unlock(&L);
+}
 
-    W.threshold = T;
+void ao_threshold8_and(ao_threshold8_t * T, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
 
 
-    ao_threshold_wait_begin(&W);
+    // Variables.
 
-    ao_threshold_wait_end(&W);
+    ao_lock_t L;
 
 
-    return W.result;
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold8_update(T, T->value & x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold8_decrement(ao_threshold8_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold8_update(T, T->value - 1);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold8_divide(ao_threshold8_t * T, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+    ao_assert(x != 0);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold8_update(T, T->value / x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold8_increment(ao_threshold8_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold8_update(T, T->value + 1);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold8_max(ao_threshold8_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold8_update(T, UINT8_MAX);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold8_min(ao_threshold8_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold8_update(T, 0);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold8_modulo(ao_threshold8_t * T, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+    ao_assert(x != 0);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold8_update(T, T->value % x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold8_multiply(ao_threshold8_t * T, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold8_update(T, T->value * x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold8_nand(ao_threshold8_t * T, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold8_update(T, ~(T->value & x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold8_nor(ao_threshold8_t * T, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold8_update(T, ~(T->value | x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold8_not(ao_threshold8_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold8_update(T, ~(T->value));
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold8_or(ao_threshold8_t * T, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold8_update(T, T->value | x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold8_set(ao_threshold8_t * T, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold8_update(T, x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold8_subtract(ao_threshold8_t * T, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold8_update(T, T->value - x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold8_subtract_from(ao_threshold8_t * T, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold8_update(T, x - T->value);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold8_xnor(ao_threshold8_t * T, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold8_update(T, ~(T->value ^ x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold8_xor(ao_threshold8_t * T, uint8_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold8_update(T, T->value ^ x);
+    }
+    ao_unlock(&L);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold8_update(ao_threshold8_t * T, uint8_t vn)
+{
+    // Notes.
+
+    // The kernel is locked.
+
+
+    // Variables.
+
+    ao_threshold8_adjust_t A;
+
+    ao_list_t * L;
+
+    ao_list_node_t * LN;
+
+    ao_threshold8_match_t M;
+
+    void * MP;
+
+    uint8_t va;
+    uint8_t vo;
+
+    ao_threshold8_wait_t * W;
+
+
+    // Ready.
+
+    M = T->match;
+
+    MP = T->match_parameter;
+
+    vo = T->value;
+
+
+    // Ready.
+
+    if (M(vo, vn, MP))
+    {
+        L = &T->wait;
+
+        LN = L->front;
+
+        while (LN)
+        {
+            W = ao_containerof(LN, ao_threshold8_wait_t, threshold_wait_node);
+
+            W->result = true;
+
+            W->value_new = vn;
+
+            W->value_old = vo;
+
+            ao_async_check(&W->async);
+
+            LN = LN->next;
+        }
+
+        ao_list_remove_all(L);
+
+        A = T->adjust;
+
+        if (A)
+        {
+            va = A(vn, T->adjust_parameter);
+        }
+
+        else
+        {
+            va = vn;
+        }
+    }
+
+    else
+    {
+        va = vn;
+    }
+
+    T->value = va;
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold8_wait(ao_threshold8_wait_t * W, ao_time_t t)
+{
+    ao_threshold8_wait_from(W, t, ao_now());
+}
+
+void ao_threshold8_wait_from(ao_threshold8_wait_t * W, ao_time_t t, ao_time_t b)
+{
+    ao_threshold8_wait_begin(W);
+
+    ao_await_from(&W->async, t, b);
+
+    ao_threshold8_wait_end(W);
+}
+
+void ao_threshold8_wait_forever(ao_threshold8_wait_t * W)
+{
+    ao_threshold8_wait_from(W, AO_INFINITY, 0);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold8_wait_try(ao_threshold8_wait_t * W)
+{
+    ao_threshold8_wait_begin(W);
+
+    ao_threshold8_wait_end(W);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold8_wait_begin(ao_threshold8_wait_t * W)
+{
+    // Assert.
+
+    ao_assert(W);
+
+    ao_assert(W->threshold);
+
+    ao_assert(W->threshold->match);
+
+
+    // Variables.
+
+    ao_threshold8_adjust_t A;
+
+    ao_lock_t L;
+
+    ao_threshold8_match_t M;
+
+    void * MP;
+
+    ao_threshold8_t * T;
+
+    uint8_t v;
+
+
+    // Ready.
+
+    T = W->threshold;
+
+    M = T->match;
+
+    MP = T->match_parameter;
+
+
+    // Ready.
+
+    ao_async_begin(&W->async);
+
+    ao_lock(&L);
+    {
+        // Threshold value is a match.
+
+        v = T->value;
+
+        if (M(v, v, MP))
+        {
+            A = T->adjust;
+
+            if (A)
+            {
+                T->value = A(v, T->adjust_parameter);
+            }
+
+            W->result = true;
+
+            W->value_new = v;
+
+            W->value_old = v;
+
+            ao_async_check(&W->async);
+        }
+
+        // Threshold value is not a match.
+
+        else
+        {
+            W->result = false;
+
+            ao_list_push_back
+            (
+                &T->wait,
+                &W->threshold_wait_node
+            );
+        }
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold8_wait_end(ao_threshold8_wait_t * W)
+{
+    // Assert.
+
+    ao_assert(W);
+
+    ao_assert(W->threshold);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        if (W->result) { }
+
+        else
+        {
+            ao_list_remove
+            (
+                &W->threshold->wait,
+                &W->threshold_wait_node
+            );
+        }
+    }
+    ao_unlock(&L);
+
+    ao_async_end(&W->async);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_THRESHOLD16
+
+// ----------------------------------------------------------------------------
+
+static void ao_threshold16_update(ao_threshold16_t * T, uint16_t vn);
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold16_adjust(ao_threshold16_t * T, ao_threshold16_adjust_t A, void * AP)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+    ao_assert(A);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+    uint16_t vn;
+    uint16_t vo;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        vo = T->value;
+
+        vn = A(vo, AP);
+
+        ao_threshold16_update(T, vn);
+    }
+    ao_unlock(&L);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold16_add(ao_threshold16_t * T, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold16_update(T, T->value + x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold16_and(ao_threshold16_t * T, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold16_update(T, T->value & x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold16_decrement(ao_threshold16_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold16_update(T, T->value - 1);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold16_divide(ao_threshold16_t * T, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+    ao_assert(x != 0);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold16_update(T, T->value / x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold16_increment(ao_threshold16_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold16_update(T, T->value + 1);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold16_max(ao_threshold16_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold16_update(T, UINT16_MAX);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold16_min(ao_threshold16_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold16_update(T, 0);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold16_modulo(ao_threshold16_t * T, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+    ao_assert(x != 0);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold16_update(T, T->value % x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold16_multiply(ao_threshold16_t * T, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold16_update(T, T->value * x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold16_nand(ao_threshold16_t * T, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold16_update(T, ~(T->value & x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold16_nor(ao_threshold16_t * T, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold16_update(T, ~(T->value | x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold16_not(ao_threshold16_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold16_update(T, ~(T->value));
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold16_or(ao_threshold16_t * T, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold16_update(T, T->value | x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold16_set(ao_threshold16_t * T, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold16_update(T, x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold16_subtract(ao_threshold16_t * T, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold16_update(T, T->value - x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold16_subtract_from(ao_threshold16_t * T, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold16_update(T, x - T->value);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold16_xnor(ao_threshold16_t * T, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold16_update(T, ~(T->value ^ x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold16_xor(ao_threshold16_t * T, uint16_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold16_update(T, T->value ^ x);
+    }
+    ao_unlock(&L);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold16_update(ao_threshold16_t * T, uint16_t vn)
+{
+    // Notes.
+
+    // The kernel is locked.
+
+
+    // Variables.
+
+    ao_threshold16_adjust_t A;
+
+    ao_list_t * L;
+
+    ao_list_node_t * LN;
+
+    ao_threshold16_match_t M;
+
+    void * MP;
+
+    uint16_t va;
+    uint16_t vo;
+
+    ao_threshold16_wait_t * W;
+
+
+    // Ready.
+
+    M = T->match;
+
+    MP = T->match_parameter;
+
+    vo = T->value;
+
+
+    // Ready.
+
+    if (M(vo, vn, MP))
+    {
+        L = &T->wait;
+
+        LN = L->front;
+
+        while (LN)
+        {
+            W = ao_containerof(LN, ao_threshold16_wait_t, threshold_wait_node);
+
+            W->result = true;
+
+            W->value_new = vn;
+
+            W->value_old = vo;
+
+            ao_async_check(&W->async);
+
+            LN = LN->next;
+        }
+
+        ao_list_remove_all(L);
+
+        A = T->adjust;
+
+        if (A)
+        {
+            va = A(vn, T->adjust_parameter);
+        }
+
+        else
+        {
+            va = vn;
+        }
+    }
+
+    else
+    {
+        va = vn;
+    }
+
+    T->value = va;
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold16_wait(ao_threshold16_wait_t * W, ao_time_t t)
+{
+    ao_threshold16_wait_from(W, t, ao_now());
+}
+
+void ao_threshold16_wait_from(ao_threshold16_wait_t * W, ao_time_t t, ao_time_t b)
+{
+    ao_threshold16_wait_begin(W);
+
+    ao_await_from(&W->async, t, b);
+
+    ao_threshold16_wait_end(W);
+}
+
+void ao_threshold16_wait_forever(ao_threshold16_wait_t * W)
+{
+    ao_threshold16_wait_from(W, AO_INFINITY, 0);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold16_wait_try(ao_threshold16_wait_t * W)
+{
+    ao_threshold16_wait_begin(W);
+
+    ao_threshold16_wait_end(W);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold16_wait_begin(ao_threshold16_wait_t * W)
+{
+    // Assert.
+
+    ao_assert(W);
+
+    ao_assert(W->threshold);
+
+    ao_assert(W->threshold->match);
+
+
+    // Variables.
+
+    ao_threshold16_adjust_t A;
+
+    ao_lock_t L;
+
+    ao_threshold16_match_t M;
+
+    void * MP;
+
+    ao_threshold16_t * T;
+
+    uint16_t v;
+
+
+    // Ready.
+
+    T = W->threshold;
+
+    M = T->match;
+
+    MP = T->match_parameter;
+
+
+    // Ready.
+
+    ao_async_begin(&W->async);
+
+    ao_lock(&L);
+    {
+        // Threshold value is a match.
+
+        v = T->value;
+
+        if (M(v, v, MP))
+        {
+            A = T->adjust;
+
+            if (A)
+            {
+                T->value = A(v, T->adjust_parameter);
+            }
+
+            W->result = true;
+
+            W->value_new = v;
+
+            W->value_old = v;
+
+            ao_async_check(&W->async);
+        }
+
+        // Threshold value is not a match.
+
+        else
+        {
+            W->result = false;
+
+            ao_list_push_back
+            (
+                &T->wait,
+                &W->threshold_wait_node
+            );
+        }
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold16_wait_end(ao_threshold16_wait_t * W)
+{
+    // Assert.
+
+    ao_assert(W);
+
+    ao_assert(W->threshold);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        if (W->result) { }
+
+        else
+        {
+            ao_list_remove
+            (
+                &W->threshold->wait,
+                &W->threshold_wait_node
+            );
+        }
+    }
+    ao_unlock(&L);
+
+    ao_async_end(&W->async);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_THRESHOLD32
+
+// ----------------------------------------------------------------------------
+
+static void ao_threshold32_update(ao_threshold32_t * T, uint32_t vn);
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold32_adjust(ao_threshold32_t * T, ao_threshold32_adjust_t A, void * AP)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+    ao_assert(A);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+    uint32_t vn;
+    uint32_t vo;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        vo = T->value;
+
+        vn = A(vo, AP);
+
+        ao_threshold32_update(T, vn);
+    }
+    ao_unlock(&L);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold32_add(ao_threshold32_t * T, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold32_update(T, T->value + x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold32_and(ao_threshold32_t * T, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold32_update(T, T->value & x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold32_decrement(ao_threshold32_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold32_update(T, T->value - 1);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold32_divide(ao_threshold32_t * T, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+    ao_assert(x != 0);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold32_update(T, T->value / x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold32_increment(ao_threshold32_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold32_update(T, T->value + 1);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold32_max(ao_threshold32_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold32_update(T, UINT32_MAX);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold32_min(ao_threshold32_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold32_update(T, 0);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold32_modulo(ao_threshold32_t * T, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+    ao_assert(x != 0);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold32_update(T, T->value % x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold32_multiply(ao_threshold32_t * T, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold32_update(T, T->value * x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold32_nand(ao_threshold32_t * T, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold32_update(T, ~(T->value & x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold32_nor(ao_threshold32_t * T, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold32_update(T, ~(T->value | x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold32_not(ao_threshold32_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold32_update(T, ~(T->value));
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold32_or(ao_threshold32_t * T, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold32_update(T, T->value | x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold32_set(ao_threshold32_t * T, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold32_update(T, x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold32_subtract(ao_threshold32_t * T, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold32_update(T, T->value - x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold32_subtract_from(ao_threshold32_t * T, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold32_update(T, x - T->value);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold32_xnor(ao_threshold32_t * T, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold32_update(T, ~(T->value ^ x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold32_xor(ao_threshold32_t * T, uint32_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold32_update(T, T->value ^ x);
+    }
+    ao_unlock(&L);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold32_update(ao_threshold32_t * T, uint32_t vn)
+{
+    // Notes.
+
+    // The kernel is locked.
+
+
+    // Variables.
+
+    ao_threshold32_adjust_t A;
+
+    ao_list_t * L;
+
+    ao_list_node_t * LN;
+
+    ao_threshold32_match_t M;
+
+    void * MP;
+
+    uint32_t va;
+    uint32_t vo;
+
+    ao_threshold32_wait_t * W;
+
+
+    // Ready.
+
+    M = T->match;
+
+    MP = T->match_parameter;
+
+    vo = T->value;
+
+
+    // Ready.
+
+    if (M(vo, vn, MP))
+    {
+        L = &T->wait;
+
+        LN = L->front;
+
+        while (LN)
+        {
+            W = ao_containerof(LN, ao_threshold32_wait_t, threshold_wait_node);
+
+            W->result = true;
+
+            W->value_new = vn;
+
+            W->value_old = vo;
+
+            ao_async_check(&W->async);
+
+            LN = LN->next;
+        }
+
+        ao_list_remove_all(L);
+
+        A = T->adjust;
+
+        if (A)
+        {
+            va = A(vn, T->adjust_parameter);
+        }
+
+        else
+        {
+            va = vn;
+        }
+    }
+
+    else
+    {
+        va = vn;
+    }
+
+    T->value = va;
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold32_wait(ao_threshold32_wait_t * W, ao_time_t t)
+{
+    ao_threshold32_wait_from(W, t, ao_now());
+}
+
+void ao_threshold32_wait_from(ao_threshold32_wait_t * W, ao_time_t t, ao_time_t b)
+{
+    ao_threshold32_wait_begin(W);
+
+    ao_await_from(&W->async, t, b);
+
+    ao_threshold32_wait_end(W);
+}
+
+void ao_threshold32_wait_forever(ao_threshold32_wait_t * W)
+{
+    ao_threshold32_wait_from(W, AO_INFINITY, 0);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold32_wait_try(ao_threshold32_wait_t * W)
+{
+    ao_threshold32_wait_begin(W);
+
+    ao_threshold32_wait_end(W);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold32_wait_begin(ao_threshold32_wait_t * W)
+{
+    // Assert.
+
+    ao_assert(W);
+
+    ao_assert(W->threshold);
+
+    ao_assert(W->threshold->match);
+
+
+    // Variables.
+
+    ao_threshold32_adjust_t A;
+
+    ao_lock_t L;
+
+    ao_threshold32_match_t M;
+
+    void * MP;
+
+    ao_threshold32_t * T;
+
+    uint32_t v;
+
+
+    // Ready.
+
+    T = W->threshold;
+
+    M = T->match;
+
+    MP = T->match_parameter;
+
+
+    // Ready.
+
+    ao_async_begin(&W->async);
+
+    ao_lock(&L);
+    {
+        // Threshold value is a match.
+
+        v = T->value;
+
+        if (M(v, v, MP))
+        {
+            A = T->adjust;
+
+            if (A)
+            {
+                T->value = A(v, T->adjust_parameter);
+            }
+
+            W->result = true;
+
+            W->value_new = v;
+
+            W->value_old = v;
+
+            ao_async_check(&W->async);
+        }
+
+        // Threshold value is not a match.
+
+        else
+        {
+            W->result = false;
+
+            ao_list_push_back
+            (
+                &T->wait,
+                &W->threshold_wait_node
+            );
+        }
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold32_wait_end(ao_threshold32_wait_t * W)
+{
+    // Assert.
+
+    ao_assert(W);
+
+    ao_assert(W->threshold);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        if (W->result) { }
+
+        else
+        {
+            ao_list_remove
+            (
+                &W->threshold->wait,
+                &W->threshold_wait_node
+            );
+        }
+    }
+    ao_unlock(&L);
+
+    ao_async_end(&W->async);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_THRESHOLD64
+
+// ----------------------------------------------------------------------------
+
+static void ao_threshold64_update(ao_threshold64_t * T, uint64_t vn);
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold64_adjust(ao_threshold64_t * T, ao_threshold64_adjust_t A, void * AP)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+    ao_assert(A);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+    uint64_t vn;
+    uint64_t vo;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        vo = T->value;
+
+        vn = A(vo, AP);
+
+        ao_threshold64_update(T, vn);
+    }
+    ao_unlock(&L);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold64_add(ao_threshold64_t * T, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold64_update(T, T->value + x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold64_and(ao_threshold64_t * T, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold64_update(T, T->value & x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold64_decrement(ao_threshold64_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold64_update(T, T->value - 1);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold64_divide(ao_threshold64_t * T, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+    ao_assert(x != 0);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold64_update(T, T->value / x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold64_increment(ao_threshold64_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold64_update(T, T->value + 1);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold64_max(ao_threshold64_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold64_update(T, UINT64_MAX);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold64_min(ao_threshold64_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold64_update(T, 0);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold64_modulo(ao_threshold64_t * T, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+    ao_assert(x != 0);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold64_update(T, T->value % x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold64_multiply(ao_threshold64_t * T, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold64_update(T, T->value * x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold64_nand(ao_threshold64_t * T, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold64_update(T, ~(T->value & x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold64_nor(ao_threshold64_t * T, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold64_update(T, ~(T->value | x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold64_not(ao_threshold64_t * T)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold64_update(T, ~(T->value));
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold64_or(ao_threshold64_t * T, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold64_update(T, T->value | x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold64_set(ao_threshold64_t * T, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold64_update(T, x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold64_subtract(ao_threshold64_t * T, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold64_update(T, T->value - x);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold64_subtract_from(ao_threshold64_t * T, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold64_update(T, x - T->value);
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold64_xnor(ao_threshold64_t * T, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold64_update(T, ~(T->value ^ x));
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold64_xor(ao_threshold64_t * T, uint64_t x)
+{
+    // Assert.
+
+    ao_assert(T);
+
+    ao_assert(T->match);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        ao_threshold64_update(T, T->value ^ x);
+    }
+    ao_unlock(&L);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold64_update(ao_threshold64_t * T, uint64_t vn)
+{
+    // Notes.
+
+    // The kernel is locked.
+
+
+    // Variables.
+
+    ao_threshold64_adjust_t A;
+
+    ao_list_t * L;
+
+    ao_list_node_t * LN;
+
+    ao_threshold64_match_t M;
+
+    void * MP;
+
+    uint64_t va;
+    uint64_t vo;
+
+    ao_threshold64_wait_t * W;
+
+
+    // Ready.
+
+    M = T->match;
+
+    MP = T->match_parameter;
+
+    vo = T->value;
+
+
+    // Ready.
+
+    if (M(vo, vn, MP))
+    {
+        L = &T->wait;
+
+        LN = L->front;
+
+        while (LN)
+        {
+            W = ao_containerof(LN, ao_threshold64_wait_t, threshold_wait_node);
+
+            W->result = true;
+
+            W->value_new = vn;
+
+            W->value_old = vo;
+
+            ao_async_check(&W->async);
+
+            LN = LN->next;
+        }
+
+        ao_list_remove_all(L);
+
+        A = T->adjust;
+
+        if (A)
+        {
+            va = A(vn, T->adjust_parameter);
+        }
+
+        else
+        {
+            va = vn;
+        }
+    }
+
+    else
+    {
+        va = vn;
+    }
+
+    T->value = va;
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold64_wait(ao_threshold64_wait_t * W, ao_time_t t)
+{
+    ao_threshold64_wait_from(W, t, ao_now());
+}
+
+void ao_threshold64_wait_from(ao_threshold64_wait_t * W, ao_time_t t, ao_time_t b)
+{
+    ao_threshold64_wait_begin(W);
+
+    ao_await_from(&W->async, t, b);
+
+    ao_threshold64_wait_end(W);
+}
+
+void ao_threshold64_wait_forever(ao_threshold64_wait_t * W)
+{
+    ao_threshold64_wait_from(W, AO_INFINITY, 0);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold64_wait_try(ao_threshold64_wait_t * W)
+{
+    ao_threshold64_wait_begin(W);
+
+    ao_threshold64_wait_end(W);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_threshold64_wait_begin(ao_threshold64_wait_t * W)
+{
+    // Assert.
+
+    ao_assert(W);
+
+    ao_assert(W->threshold);
+
+    ao_assert(W->threshold->match);
+
+
+    // Variables.
+
+    ao_threshold64_adjust_t A;
+
+    ao_lock_t L;
+
+    ao_threshold64_match_t M;
+
+    void * MP;
+
+    ao_threshold64_t * T;
+
+    uint64_t v;
+
+
+    // Ready.
+
+    T = W->threshold;
+
+    M = T->match;
+
+    MP = T->match_parameter;
+
+
+    // Ready.
+
+    ao_async_begin(&W->async);
+
+    ao_lock(&L);
+    {
+        // Threshold value is a match.
+
+        v = T->value;
+
+        if (M(v, v, MP))
+        {
+            A = T->adjust;
+
+            if (A)
+            {
+                T->value = A(v, T->adjust_parameter);
+            }
+
+            W->result = true;
+
+            W->value_new = v;
+
+            W->value_old = v;
+
+            ao_async_check(&W->async);
+        }
+
+        // Threshold value is not a match.
+
+        else
+        {
+            W->result = false;
+
+            ao_list_push_back
+            (
+                &T->wait,
+                &W->threshold_wait_node
+            );
+        }
+    }
+    ao_unlock(&L);
+}
+
+void ao_threshold64_wait_end(ao_threshold64_wait_t * W)
+{
+    // Assert.
+
+    ao_assert(W);
+
+    ao_assert(W->threshold);
+
+
+    // Variables.
+
+    ao_lock_t L;
+
+
+    // Ready.
+
+    ao_lock(&L);
+    {
+        if (W->result) { }
+
+        else
+        {
+            ao_list_remove
+            (
+                &W->threshold->wait,
+                &W->threshold_wait_node
+            );
+        }
+    }
+    ao_unlock(&L);
+
+    ao_async_end(&W->async);
 }
 
 // ----------------------------------------------------------------------------
@@ -25860,13 +31907,13 @@ void ao_wr_lock_read_begin(ao_wr_lock_t * L)
 
         // Writing in standby.
 
-        b1 = W->w_active;
+        b1 = W->active_w;
 
-        b2 = !ao_list_is_empty(&W->w_waiting);
+        b2 = !ao_list_is_empty(&W->lock_w);
 
         if (b1 || b2)
         {
-            ao_list_push_back(&W->r_waiting, &L->node);
+            ao_list_push_back(&W->lock_r, &L->wr_lock_node);
 
             L->result = false;
         }
@@ -25875,7 +31922,7 @@ void ao_wr_lock_read_begin(ao_wr_lock_t * L)
 
         else
         {
-            W->r_active++;
+            W->active_r++;
 
             L->result = true;
 
@@ -25907,7 +31954,7 @@ void ao_wr_lock_read_end(ao_wr_lock_t * L)
 
         else
         {
-            ao_list_remove(&L->wr->r_waiting, &L->node);
+            ao_list_remove(&L->wr->lock_r, &L->wr_lock_node);
         }
     }
     ao_unlock(&l);
@@ -26013,13 +32060,13 @@ void ao_wr_lock_write_begin(ao_wr_lock_t * L)
 
         // Writing in progress.
 
-        b1 = W->r_active > 0 ? true : false;
+        b1 = W->active_r > 0 ? true : false;
 
-        b2 = W->w_active;
+        b2 = W->active_w;
 
         if (b1 || b2)
         {
-            ao_list_push_back(&W->w_waiting, &L->node);
+            ao_list_push_back(&W->lock_w, &L->wr_lock_node);
 
             L->result = false;
         }
@@ -26030,9 +32077,9 @@ void ao_wr_lock_write_begin(ao_wr_lock_t * L)
 
         else
         {
-            ao_assert(ao_list_is_empty(&W->w_waiting));
+            ao_assert(ao_list_is_empty(&W->lock_w));
 
-            W->w_active = true;
+            W->active_w = true;
 
             L->result = true;
 
@@ -26064,7 +32111,7 @@ void ao_wr_lock_write_end(ao_wr_lock_t * L)
 
         else
         {
-            ao_list_remove(&L->wr->w_waiting, &L->node);
+            ao_list_remove(&L->wr->lock_w, &L->wr_lock_node);
         }
     }
     ao_unlock(&l);
@@ -26139,9 +32186,9 @@ void ao_wr_unlock_read(ao_wr_t * W)
 
     ao_assert(W);
 
-    ao_assert(W->r_active > 0)
+    ao_assert(W->active_r > 0)
 
-    ao_assert(W->w_active == false);
+    ao_assert(W->active_w == false);
 
 
     // Variables.
@@ -26159,7 +32206,7 @@ void ao_wr_unlock_read(ao_wr_t * W)
 
     ao_lock(&l);
     {
-        r = W->r_active;
+        r = W->active_r;
 
         r--;
 
@@ -26173,15 +32220,15 @@ void ao_wr_unlock_read(ao_wr_t * W)
         {
             // Writing in standby.
 
-            n = W->w_waiting.front;
+            n = W->lock_w.front;
 
             if (n)
             {
-                ao_list_remove_front(&W->w_waiting);
+                ao_list_remove_front(&W->lock_w);
 
-                W->w_active = true;
+                W->active_w = true;
 
-                L = ao_containerof(n, ao_wr_lock_t, node);
+                L = ao_containerof(n, ao_wr_lock_t, wr_lock_node);
 
                 L->result = true;
 
@@ -26193,7 +32240,7 @@ void ao_wr_unlock_read(ao_wr_t * W)
             else { }
         }
 
-        W->r_active = r;
+        W->active_r = r;
     }
     ao_unlock(&l);
 }
@@ -26206,9 +32253,9 @@ void ao_wr_unlock_write(ao_wr_t * W)
 
     ao_assert(W);
 
-    ao_assert(W->r_active == 0);
+    ao_assert(W->active_r == 0);
 
-    ao_assert(W->w_active == true);
+    ao_assert(W->active_w == true);
 
 
     // Variables.
@@ -26228,13 +32275,13 @@ void ao_wr_unlock_write(ao_wr_t * W)
     {
         // Writing in standby.
 
-        n = W->w_waiting.front;
+        n = W->lock_w.front;
 
         if (n)
         {
-            ao_list_remove_front(&W->w_waiting);
+            ao_list_remove_front(&W->lock_w);
 
-            L = ao_containerof(n, ao_wr_lock_t, node);
+            L = ao_containerof(n, ao_wr_lock_t, wr_lock_node);
 
             L->result = true;
 
@@ -26245,11 +32292,11 @@ void ao_wr_unlock_write(ao_wr_t * W)
 
         else
         {
-            W->w_active = false;
+            W->active_w = false;
 
             // Reading in standby.
 
-            n = W->r_waiting.front;
+            n = W->lock_r.front;
 
             if (n)
             {
@@ -26259,7 +32306,7 @@ void ao_wr_unlock_write(ao_wr_t * W)
                 {
                     r++;
 
-                    L = ao_containerof(n, ao_wr_lock_t, node);
+                    L = ao_containerof(n, ao_wr_lock_t, wr_lock_node);
 
                     n = n->next;
 
@@ -26269,9 +32316,9 @@ void ao_wr_unlock_write(ao_wr_t * W)
                 }
                 while (n);
 
-                W->r_active = r;
+                W->active_r = r;
 
-                ao_list_remove_all(&W->r_waiting);
+                ao_list_remove_all(&W->lock_r);
             }
 
             // No more reading.
@@ -26345,13 +32392,13 @@ void ao_xch_client_begin(ao_xch_client_t * C)
 
         // Servers are available.
 
-        n = X->servers.front;
+        n = X->server.front;
 
         if (n)
         {
-            S = ao_containerof(n, ao_xch_server_t, node);
+            S = ao_containerof(n, ao_xch_server_t, xch_server_node);
 
-            ao_list_remove(&X->servers, n);
+            ao_list_remove(&X->server, n);
 
 #if AO_TASK_INHERITANCE
 
@@ -26376,7 +32423,7 @@ void ao_xch_client_begin(ao_xch_client_t * C)
 
         else
         {
-            ao_list_push_back(&X->clients, &C->node);
+            ao_list_push_back(&X->client, &C->xch_client_node);
         }
     }
     ao_unlock(&L);
@@ -26428,7 +32475,7 @@ void ao_xch_client_end(ao_xch_client_t * C)
 
             else
             {
-                ao_list_remove(&C->xch->clients, &C->node);
+                ao_list_remove(&C->xch->client, &C->xch_client_node);
             }
         }
     }
@@ -26509,13 +32556,13 @@ void ao_xch_server_begin(ao_xch_server_t * S)
 
         // Clients are available.
 
-        n = X->clients.front;
+        n = X->client.front;
 
         if (n)
         {
-            C = ao_containerof(n, ao_xch_client_t, node);
+            C = ao_containerof(n, ao_xch_client_t, xch_client_node);
 
-            ao_list_remove(&X->clients, n);
+            ao_list_remove(&X->client, n);
 
 #if AO_TASK_INHERITANCE
 
@@ -26542,7 +32589,7 @@ void ao_xch_server_begin(ao_xch_server_t * S)
         {
             S->result = false;
 
-            ao_list_push_back(&X->servers, &S->node);
+            ao_list_push_back(&X->server, &S->xch_server_node);
         }
     }
     ao_unlock(&L);
@@ -26570,7 +32617,7 @@ void ao_xch_server_end(ao_xch_server_t * S)
 
         else
         {
-            ao_list_remove(&S->xch->servers, &S->node);
+            ao_list_remove(&S->xch->server, &S->xch_server_node);
         }
     }
     ao_unlock(&L);

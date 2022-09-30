@@ -33,36 +33,14 @@
 
 // ----------------------------------------------------------------------------
 
-// Copies the first #n bytes from the memory block beginning at #s to the
-// memory block beginning at #d.
-
-// Copies the data directly.
-
-// Therefore, the memory blocks should not overlap.
-
-// Returns #d.
-
-void *  ao_memcpy(void * d, void const * s, size_t n);
+void *  ao_mem_copy(void * d, void const * s, size_t n);
 
 // ----------------------------------------------------------------------------
 
-// Copies the first #n bytes from the memory block beginning at #s to the
-// memory block beginning at #d.
-
-// Copies the data using a temporary buffer.
-
-// Therefore, the memory blocks can overlap.
-
-// Returns #d.
-
-void *  ao_memmove(void * d, void const * s, size_t n);
+void *  ao_mem_move(void * d, void const * s, size_t n);
 
 // ----------------------------------------------------------------------------
 
-// Writes #v to the first #n bytes of the memory block beginning at #p.
-
-// Returns #p.
-
-void *  ao_memset(void * p, uint8_t v, size_t n);
+void *  ao_mem_set( void * p, uint8_t v, size_t n);
 
 // ----------------------------------------------------------------------------

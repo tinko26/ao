@@ -24,13 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Auto-reset event.
-
-// ----------------------------------------------------------------------------
-
-// @seeAlso
-
-// https://docs.microsoft.com/en-us/dotnet/api/system.threading.autoresetevent
+// Auto-reset events.
 
 // ----------------------------------------------------------------------------
 
@@ -51,22 +45,30 @@ typedef struct  ao_are_wait_t   ao_are_wait_t;
 
 #define AO_ARE
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_ARE_T
+
+#define AO_ARE_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_are_t
 {
-        ao_list_t               list;
-
         bool                    state;
+
+        ao_list_t               wait;
 };
 
 // ----------------------------------------------------------------------------
 
 #endif
 
-#ifndef AO_ARE_WAIT
+#ifndef AO_ARE_WAIT_T
 
-#define AO_ARE_WAIT
+#define AO_ARE_WAIT_T
 
 // ----------------------------------------------------------------------------
 
@@ -74,9 +76,9 @@ struct  ao_are_wait_t
 {
         ao_are_t *              are;
 
-        ao_async_t              async;
+        ao_list_node_t          are_wait_node;
 
-        ao_list_node_t          node;
+        ao_async_t              async;
 
         bool        volatile    result;
 };
@@ -87,26 +89,24 @@ struct  ao_are_wait_t
 
 // ----------------------------------------------------------------------------
 
-void    ao_are_clear(           ao_are_t * x);
-
-void    ao_are_set(             ao_are_t * x);
+void    ao_are_set(             ao_are_t * a);
 
 // ----------------------------------------------------------------------------
 
-bool    ao_are_wait(            ao_are_t * x, ao_time_t timeout);
+bool    ao_are_wait(            ao_are_t * a, ao_time_t timeout);
 
-bool    ao_are_wait_from(       ao_are_t * x, ao_time_t timeout, ao_time_t beginning);
+bool    ao_are_wait_from(       ao_are_t * a, ao_time_t timeout, ao_time_t beginning);
 
-bool    ao_are_wait_forever(    ao_are_t * x);
-
-// ----------------------------------------------------------------------------
-
-bool    ao_are_wait_try(        ao_are_t * x);
+bool    ao_are_wait_forever(    ao_are_t * a);
 
 // ----------------------------------------------------------------------------
 
-void    ao_are_wait_begin(      ao_are_wait_t * x);
+bool    ao_are_wait_try(        ao_are_t * a);
 
-void    ao_are_wait_end(        ao_are_wait_t * x);
+// ----------------------------------------------------------------------------
+
+void    ao_are_wait_begin(      ao_are_wait_t * w);
+
+void    ao_are_wait_end(        ao_are_wait_t * w);
 
 // ----------------------------------------------------------------------------

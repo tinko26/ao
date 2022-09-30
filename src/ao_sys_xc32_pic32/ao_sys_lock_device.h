@@ -28,40 +28,6 @@
 
 // ----------------------------------------------------------------------------
 
-// @seeAlso
-
-// Microchip. PIC32 Family Reference Manual. Section 6.
-
-// DS61112.
-
-// ----------------------------------------------------------------------------
-
-// @example
-
-// @code
-
-/*
-
-    ao_sys_lock_device_t x;
-
-    ao_sys_unlock_device(&x);
-    {
-        // ...
-
-        // Critical section.
-
-        // Device is unlocked.
-
-        // ...
-    }
-    ao_sys_lock_device(&x);
-
-*/
-
-// @endCode
-
-// ----------------------------------------------------------------------------
-
 #include <stdint.h>
 
 // ----------------------------------------------------------------------------
@@ -70,9 +36,9 @@ typedef struct  ao_sys_lock_device_t    ao_sys_lock_device_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_SYS_LOCK_DEVICE
+#ifndef AO_SYS_LOCK_DEVICE_T
 
-#define AO_SYS_LOCK_DEVICE
+#define AO_SYS_LOCK_DEVICE_T
 
 // ----------------------------------------------------------------------------
 

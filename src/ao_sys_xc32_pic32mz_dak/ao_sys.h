@@ -24,17 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Microchip XC32.
-
-// Microchip PIC32MZ Graphics (DAK/DAL/DAR/DAS) Family.
-
-// ----------------------------------------------------------------------------
-
-// @seeAlso
-
-// https://microchip.com/DS60001565 (Data sheet)
-
-// https://microchip.com/DS80000823 (Errata)
+// PIC32MZ Graphics (DAK/DAL/DAR/DAS) Family.
 
 // ----------------------------------------------------------------------------
 

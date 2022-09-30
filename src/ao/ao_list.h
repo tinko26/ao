@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// List.
+// Doubly linked lists.
 
 // ----------------------------------------------------------------------------
 
@@ -43,6 +43,14 @@ typedef struct  ao_list_node_t  ao_list_node_t;
 
 #define AO_LIST
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_LIST_T
+
+#define AO_LIST_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_list_t
@@ -56,9 +64,9 @@ struct  ao_list_t
 
 #endif
 
-#ifndef AO_LIST_NODE
+#ifndef AO_LIST_NODE_T
 
-#define AO_LIST_NODE
+#define AO_LIST_NODE_T
 
 // ----------------------------------------------------------------------------
 
@@ -75,46 +83,42 @@ struct  ao_list_node_t
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_list_is_empty
+void    ao_list_insert_after(   ao_list_t * l, ao_list_node_t * n1, ao_list_node_t * n2);
 
-#define ao_list_is_empty(x)     ((x)->front == NULL ? true : false)
-
-#endif
+void    ao_list_insert_before(  ao_list_t * l, ao_list_node_t * n1, ao_list_node_t * n2);
 
 // ----------------------------------------------------------------------------
 
-void    ao_list_insert_after(   ao_list_t * x, ao_list_node_t * n1, ao_list_node_t * n2);
-
-void    ao_list_insert_before(  ao_list_t * x, ao_list_node_t * n1, ao_list_node_t * n2);
+bool    ao_list_is_empty(       ao_list_t const * l);
 
 // ----------------------------------------------------------------------------
 
 ao_list_node_t *
 
-        ao_list_pop_back(       ao_list_t * x);
+        ao_list_pop_back(       ao_list_t * l);
 
 ao_list_node_t *
 
-        ao_list_pop_front(      ao_list_t * x);
+        ao_list_pop_front(      ao_list_t * l);
 
 // ----------------------------------------------------------------------------
 
-void    ao_list_push_back(      ao_list_t * x, ao_list_node_t * n);
+void    ao_list_push_back(      ao_list_t * l, ao_list_node_t * n);
 
-void    ao_list_push_front(     ao_list_t * x, ao_list_node_t * n);
-
-// ----------------------------------------------------------------------------
-
-void    ao_list_remove(         ao_list_t * x, ao_list_node_t * n);
-
-void    ao_list_remove_all(     ao_list_t * x);
-
-void    ao_list_remove_back(    ao_list_t * x);
-
-void    ao_list_remove_front(   ao_list_t * x);
+void    ao_list_push_front(     ao_list_t * l, ao_list_node_t * n);
 
 // ----------------------------------------------------------------------------
 
-void    ao_list_reverse(        ao_list_t * x);
+void    ao_list_remove(         ao_list_t * l, ao_list_node_t * n);
+
+void    ao_list_remove_all(     ao_list_t * l);
+
+void    ao_list_remove_back(    ao_list_t * l);
+
+void    ao_list_remove_front(   ao_list_t * l);
+
+// ----------------------------------------------------------------------------
+
+void    ao_list_reverse(        ao_list_t * l);
 
 // ----------------------------------------------------------------------------

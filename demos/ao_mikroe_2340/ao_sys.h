@@ -26,6 +26,7 @@
 
 #include <ao_sys_clock.h>
 #include <ao_sys_config.h>
+#include <ao_sys_exc.h>
 
 // ----------------------------------------------------------------------------
 

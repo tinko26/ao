@@ -108,6 +108,20 @@
 
 // ----------------------------------------------------------------------------
 
+#ifndef AO_MIKROE_1877
+
+#define AO_MIKROE_1877                                                      \
+(                                                                           \
+        AO_MIKROE_1877_A ||                                                 \
+        AO_MIKROE_1877_B ||                                                 \
+        AO_MIKROE_1877_C ||                                                 \
+        AO_MIKROE_1877_D                                                    \
+)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
 extern  ao_task_t                   ao_mikroe_1877_task_a;
 
 extern  ao_task_t                   ao_mikroe_1877_task_b;

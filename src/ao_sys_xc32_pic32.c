@@ -1137,7 +1137,7 @@ void ao_sys_wait_sleep()
 AO_IR_CT_ATTRIBUTE
 void ao_ir_ct()
 {
-    ao_ir_stack_func0((ao_func0_t) ao_alarm);
+    ao_ir_stack_func0((ao_func0_t) ao_ir_alarm);
 }
 
 // ----------------------------------------------------------------------------
@@ -1444,7 +1444,7 @@ void ao_ir_cs1()
     asm volatile (".set reorder");
     asm volatile (".set at");
 
-    asm volatile ("jal ao_task_switch");
+    asm volatile ("jal ao_ir_task");
     asm volatile ("nop");
 
     asm volatile (".set nomips16");
@@ -1719,7 +1719,7 @@ void ao_task_stack_check()
 {
     // Notes.
 
-    // This function is called by the task switch interrupt handler.
+    // This function is called by the task interrupt handler.
 
     // The kernel is not locked.
 
@@ -1798,7 +1798,7 @@ void ao_task_stack_check()
         }
     }
 
-    ao_task_switch();
+    ao_ir_task();
 }
 
 // ----------------------------------------------------------------------------
@@ -1955,7 +1955,7 @@ void ao_boot_sys_pcache()
 AO_IR_CT_ATTRIBUTE
 void ao_ir_ct()
 {
-    ao_ir_stack_func0((ao_func0_t) ao_alarm);
+    ao_ir_stack_func0((ao_func0_t) ao_ir_alarm);
 }
 
 // ----------------------------------------------------------------------------
@@ -2157,7 +2157,7 @@ void ao_ir_cs1()
     asm volatile (".set reorder");
     asm volatile (".set at");
 
-    asm volatile ("jal ao_task_switch");
+    asm volatile ("jal ao_ir_task");
     asm volatile ("nop");
 
     asm volatile (".set nomips16");
@@ -2350,7 +2350,7 @@ void ao_task_stack_check()
 {
     // Notes.
 
-    // This function is called by the task switch interrupt handler.
+    // This function is called by the task interrupt handler.
 
     // The kernel is not locked.
 
@@ -2429,7 +2429,7 @@ void ao_task_stack_check()
         }
     }
 
-    ao_task_switch();
+    ao_ir_task();
 }
 
 // ----------------------------------------------------------------------------
@@ -2681,7 +2681,7 @@ void ao_boot_sys_pcache()
 AO_IR_CT_ATTRIBUTE
 void ao_ir_ct()
 {
-    ao_ir_stack_func0((ao_func0_t) ao_alarm);
+    ao_ir_stack_func0((ao_func0_t) ao_ir_alarm);
 }
 
 // ----------------------------------------------------------------------------
@@ -2988,7 +2988,7 @@ void ao_ir_cs1()
     asm volatile (".set reorder");
     asm volatile (".set at");
 
-    asm volatile ("jal ao_task_switch");
+    asm volatile ("jal ao_ir_task");
     asm volatile ("nop");
 
     asm volatile (".set nomips16");
@@ -3263,7 +3263,7 @@ void ao_task_stack_check()
 {
     // Notes.
 
-    // This function is called by the task switch interrupt handler.
+    // This function is called by the task interrupt handler.
 
     // The kernel is not locked.
 
@@ -3342,7 +3342,7 @@ void ao_task_stack_check()
         }
     }
 
-    ao_task_switch();
+    ao_ir_task();
 }
 
 // ----------------------------------------------------------------------------
@@ -3708,6 +3708,55 @@ static  void    ao_can_ir_4();
 // ----------------------------------------------------------------------------
 
 #if defined AO_SYS_XC32_PIC32
+
+// ----------------------------------------------------------------------------
+
+typedef struct  ao_can_baud_t   ao_can_baud_t;
+
+// ----------------------------------------------------------------------------
+
+struct  ao_can_baud_t
+{
+        uint32_t                brp;
+
+        uint32_t                cfg;
+
+        uint32_t                f;
+
+        uint32_t                f_error;
+
+        uint32_t                f_pbclk;
+
+        uint32_t                f_real;
+
+        uint32_t                n;
+
+        uint32_t                n1;
+
+        uint32_t                n2;
+
+        uint32_t                np;
+
+        bool                    result;
+
+        double                  sample;
+
+        double                  sample_error;
+
+        double                  sample_real;
+
+        bool                    sample_thrice;
+
+        bool                    sample_thrice_real;
+
+        uint32_t                sjw;
+
+        bool                    wake_up_filter;
+};
+
+// ----------------------------------------------------------------------------
+
+static  void                    ao_can_baud(ao_can_baud_t * x);
 
 // ----------------------------------------------------------------------------
 
@@ -5419,6 +5468,16 @@ void ao_can_baud(ao_can_baud_t * x)
 
 static  void                    ao_can_change_1(    uint32_t mode);
 
+static  void                    ao_can_config_1();
+
+static  void                    ao_can_config_baud_1();
+
+static  void                    ao_can_config_fifos_1();
+
+static  void                    ao_can_config_filter_masks_1();
+
+static  void                    ao_can_config_filters_1();
+
 static  void                    ao_can_started_1();
 
 static  void                    ao_can_starting_1();
@@ -5429,61 +5488,13 @@ static  void                    ao_can_task_proc_1( void * x);
 
 // ----------------------------------------------------------------------------
 
-        ao_can_t                ao_can_buffers_1    [AO_CAN_BUFFERS_1];
+static  ao_can_msg_t            ao_can_buffers_1    [AO_CAN_BUFFERS_1];
 
 // ----------------------------------------------------------------------------
 
 #if AO_CAN_BUS_1
 
-static  ao_can_bus_info_t       ao_can_bus_info_1;
-
-#endif
-
-#if AO_CAN_INVALID_1
-
-static  ao_can_invalid_info_t   ao_can_invalid_info_1;
-
-#endif
-
-#if AO_CAN_MODE_1
-
-static  ao_can_mode_info_t      ao_can_mode_info_1;
-
-#endif
-
-#if AO_CAN_RXOF_1
-
-static  ao_can_overflow_info_t  ao_can_overflow_info_1;
-
-#endif
-
-#if AO_CAN_SYSTEM_1
-
-static  ao_can_system_info_t    ao_can_system_info_1;
-
-#endif
-
-#if AO_CAN_TIMER_1
-
-static  ao_can_timer_info_t     ao_can_timer_info_1;
-
-#endif
-
-#if AO_CAN_TXST_1
-
-static  ao_can_sent_info_t      ao_can_sent_info_1;
-
-#endif
-
-#if AO_CAN_TXUF_1
-
-static  ao_can_underflow_info_t ao_can_underflow_info_1;
-
-#endif
-
-#if AO_CAN_WAKE_UP_1
-
-static  ao_can_wake_up_info_t   ao_can_wake_up_info_1;
+static  ao_can_bus_t            ao_can_bus_data_1;
 
 #endif
 
@@ -7202,7 +7213,7 @@ void ao_can_change_1(uint32_t mode)
     {
         // Request.
 
-        ao_cond_clear(&ao_can_cond_changed_1);
+        ao_cond_false(&ao_can_cond_changed_1);
 
         reg->con.bits.reqop = mode;
 
@@ -7234,7 +7245,6 @@ void ao_can_change_1(uint32_t mode)
 
 // ----------------------------------------------------------------------------
 
-__attribute__ ((weak))
 void ao_can_config_1()
 {
     ao_can_config_baud_1();
@@ -7246,7 +7256,6 @@ void ao_can_config_1()
     ao_can_config_filters_1();
 }
 
-__attribute__ ((weak))
 void ao_can_config_baud_1()
 {
     // Variables.
@@ -7275,7 +7284,6 @@ void ao_can_config_baud_1()
     C1CFG = x.cfg;
 }
 
-__attribute__ ((weak))
 void ao_can_config_fifos_1()
 {
     // Fifo base address.
@@ -7483,7 +7491,6 @@ void ao_can_config_fifos_1()
 
 }
 
-__attribute__ ((weak))
 void ao_can_config_filter_masks_1()
 {
     C1RXM0bits.EID  = AO_CAN_FILTER_MASK_EID_1_0;
@@ -7503,7 +7510,6 @@ void ao_can_config_filter_masks_1()
     C1RXM3bits.SID  = AO_CAN_FILTER_MASK_SID_1_3;
 }
 
-__attribute__ ((weak))
 void ao_can_config_filters_1()
 {
 
@@ -7867,30 +7873,47 @@ void ao_can_ir_1()
 {
     // Variables.
 
-    ao_can_t *          c1;
-    ao_can_t *          c2;
+    uint32_t i1;
 
-    ao_can_fifo_flags_t f;
+    ao_can_reg_t * R = ao_can_reg_1();
 
-    uint32_t            i1;
-    uint32_t            i2;
+#if AO_CAN_RBOV_1
 
-    uint32_t            m;
+    uint32_t i2;
 
-    uint32_t            r;
+    uint32_t m;
 
-    ao_can_reg_t *      reg = ao_can_reg_1();
+    uint32_t r;
 
-    ao_time_t           t;
+#endif
+
+#if AO_CAN_RX_1
+
+    ao_can_t * C;
+
+    ao_can_msg_t * M;
+
+#endif
+
+#if AO_CAN_RXOF_1                                                       ||  \
+    AO_CAN_TXUF_1
+
+    uint32_t f;
+
+#endif
+
+#if AO_CAN_SYSTEM_1
+
+    ao_can_system_t s;
+
+#endif
 
 
     // Ready.
 
     do
     {
-        t = ao_now();
-
-        i1 = reg->vec.bits.icode;
+        i1 = R->vec.bits.icode;
 
         ao_ir_can1_reply();
 
@@ -7899,105 +7922,97 @@ void ao_can_ir_1()
 
 #if AO_CAN_INVALID_1
 
+            // Invalid message received.
+
             case 0b1001000:
 
-                // Invalid message received.
+                ao_can_invalid_1();
 
-                ao_can_invalid_1(&ao_can_invalid_info_1);
-
-                reg->intx.bits.ivrif = 0;
+                R->intx.bits.ivrif = 0;
 
                 break;
 
 #endif
 
-                // Mode changed.
+            // Mode changed.
 
             case 0b1000111:
 
 #if AO_CAN_MODE_1
 
-                ao_can_mode_1(&ao_can_mode_info_1);
+                ao_can_mode_1();
 
 #endif
 
-                ao_cond_set(&ao_can_cond_changed_1);
+                ao_cond_true(&ao_can_cond_changed_1);
 
-                reg->intx.bits.modif = 0;
+                R->intx.bits.modif = 0;
 
                 break;
 
 #if AO_CAN_TIMER_1
 
+            // Timestamp timer overflow.
+
             case 0b1000110:
 
-                // Timer.
+                ao_can_timer_1();
 
-                ao_can_timer_1(&ao_can_timer_info_1);
-
-                reg->intx.bits.ctmrif = 0;
+                R->intx.bits.ctmrif = 0;
 
                 break;
 
 #endif
 
+            // System error.
+
             case 0b1000101:
             case 0b1000100:
 
-                // System error.
-
 #if AO_CAN_SYSTEM_1
 
-                ao_can_system_info_1.flags = (ao_can_system_flags_t) i1;
+                s = (ao_can_system_t) i1;
 
-                ao_can_system_1(&ao_can_system_info_1);
+                ao_can_system_1(s);
 
 #endif
 
-                reg->con.bits.on = 0;
+                R->con.bits.on = 0;
 
-                while (reg->con.bits.canbusy) { }
+                while (R->con.bits.canbusy) { }
 
-                reg->con.bits.on = 1;
+                R->con.bits.on = 1;
 
                 break;
 
 #if AO_CAN_RBOV_1
 
+            // Receive buffer overrun.
+
             case 0b1000011:
 
-                // Receive buffer overrun.
+                r = R->rxovf.reg;
 
-                r = reg->rxovf.reg;
-
-                m = (AO_CAN_FIFOS_TX_1 == 32) ? UINT32_MAX : (1 << AO_CAN_FIFOS_TX_1) - 1;
+                m = ((AO_CAN_FIFOS_TX_1) == 32) ? UINT32_MAX : (1 << (AO_CAN_FIFOS_TX_1)) - 1;
 
 #if AO_CAN_RXOF_1
 
-                f = (ao_can_fifo_flags_t) (r & ~m);
+                f = r & ~m;
 
-                if (f != AO_CAN_FIFO_FLAGS_NONE)
+                if (f)
                 {
-                    ao_can_overflow_info_1.fifos = f;
-
-                    ao_can_overflow_info_1.fifos_rx = (ao_can_fifo_flags_t) ((uint32_t) f >> AO_CAN_FIFOS_TX_1);
-
-                    ao_can_overflow_1(&ao_can_overflow_info_1);
+                    ao_can_overflow_1(f);
                 }
 
 #endif
 
 #if AO_CAN_TXUF_1
 
-                f = (ao_can_fifo_flags_t) (r & m);
+                f = r & m;
 
-                if (f != AO_CAN_FIFO_FLAGS_NONE)
+                if (f)
                 {
-                    ao_can_underflow_info_1.fifos = f;
-
-                    ao_can_underflow_info_1.fifos_tx = f;
-
-                    ao_can_underflow_1(&ao_can_underflow_info_1);
+                    ao_can_underflow_1(f);
                 }
 
 #endif
@@ -8017,7 +8032,7 @@ void ao_can_ir_1()
 
                     r = r & ~m;
 
-                    reg->fifo[i2].intx.bits.rxovflif = 0;
+                    R->fifo[i2].intx.bits.rxovflif = 0;
                 }
 
                 // DS61154.
@@ -8026,7 +8041,7 @@ void ao_can_ir_1()
 
                 // Section 34.3.4    : The CxINT.RBOVIF bit is writable.
 
-                reg->intx.bits.rbovif = 0;
+                R->intx.bits.rbovif = 0;
 
                 break;
 
@@ -8034,13 +8049,13 @@ void ao_can_ir_1()
 
 #if AO_CAN_WAKE_UP_1
 
+            // Wake up.
+
             case 0b1000010:
 
-                // Wake up.
+                ao_can_wake_up_1();
 
-                ao_can_wake_up_1(&ao_can_wake_up_info_1);
-
-                reg->intx.bits.wakif = 0;
+                R->intx.bits.wakif = 0;
 
                 break;
 
@@ -8048,62 +8063,64 @@ void ao_can_ir_1()
 
 #if AO_CAN_BUS_1
 
+            // Bus error.
+
             case 0b1000001:
 
-                // CAN bus error.
+                ao_can_bus_data_1.receive_error_counter = R->trec.bits.rerrcnt;
 
-                ao_can_bus_info_1.receive_error_counter = reg->trec.bits.rerrcnt;
-
-                if (reg->trec.bits.rxbp)
+                if (R->trec.bits.rxbp)
                 {
-                    ao_can_bus_info_1.receive_error_state = AO_CAN_BUS_PASSIVE;
+                    ao_can_bus_data_1.receive_error_state = AO_CAN_BUS_PASSIVE;
                 }
 
-                else if (reg->trec.bits.rxwarn)
+                else if (R->trec.bits.rxwarn)
                 {
-                    ao_can_bus_info_1.receive_error_state = AO_CAN_BUS_ACTIVE_WARNING;
-                }
-
-                else
-                {
-                    ao_can_bus_info_1.receive_error_state = AO_CAN_BUS_ACTIVE;
-                }
-
-                ao_can_bus_info_1.transmit_error_counter = reg->trec.bits.terrcnt;
-
-                if (reg->trec.bits.txbo)
-                {
-                    ao_can_bus_info_1.transmit_error_state = AO_CAN_BUS_OFF;
-                }
-
-                else if (reg->trec.bits.txbp)
-                {
-                    ao_can_bus_info_1.transmit_error_state = AO_CAN_BUS_PASSIVE;
-                }
-
-                else if (reg->trec.bits.txwarn)
-                {
-                    ao_can_bus_info_1.transmit_error_state = AO_CAN_BUS_ACTIVE_WARNING;
+                    ao_can_bus_data_1.receive_error_state = AO_CAN_BUS_ACTIVE_WARNING;
                 }
 
                 else
                 {
-                    ao_can_bus_info_1.transmit_error_state = AO_CAN_BUS_ACTIVE;
+                    ao_can_bus_data_1.receive_error_state = AO_CAN_BUS_ACTIVE;
                 }
 
-                ao_can_bus_1(&ao_can_bus_info_1);
+                ao_can_bus_data_1.transmit_error_counter = R->trec.bits.terrcnt;
 
-                reg->intx.bits.cerrif = 0;
+                if (R->trec.bits.txbo)
+                {
+                    ao_can_bus_data_1.transmit_error_state = AO_CAN_BUS_OFF;
+                }
+
+                else if (R->trec.bits.txbp)
+                {
+                    ao_can_bus_data_1.transmit_error_state = AO_CAN_BUS_PASSIVE;
+                }
+
+                else if (R->trec.bits.txwarn)
+                {
+                    ao_can_bus_data_1.transmit_error_state = AO_CAN_BUS_ACTIVE_WARNING;
+                }
+
+                else
+                {
+                    ao_can_bus_data_1.transmit_error_state = AO_CAN_BUS_ACTIVE;
+                }
+
+                ao_can_bus_1(&ao_can_bus_data_1);
+
+                R->intx.bits.cerrif = 0;
 
                 break;
 
 #endif
 
+            // No interrupt.
+
             case 0b1000000:
 
-                // No interrupt.
-
                 break;
+
+            // FIFO.
 
 #if AO_CAN_RX_1
 
@@ -8299,27 +8316,34 @@ void ao_can_ir_1()
 
 #endif
 
-                c1 = PA_TO_KVA1(reg->fifo[i1].ua.reg);
+                M = PA_TO_KVA1(R->fifo[i1].ua.reg);
 
-                c2 = ao_can_in_can_1 + i1 - AO_CAN_FIFOS_TX_1;
+                C = ao_can_in_can_1 + i1 - AO_CAN_FIFOS_TX_1;
 
-                if (reg->fifo[i1].con.bits.donly)
+                C->data = M->data;
+
+                if (R->fifo[i1].con.bits.donly)
                 {
-                    c2->cmsgsid = 0;
-
-                    c2->cmsgeid = 0;
-
-                    c2->data = *((uint64_t *) c1);
+                    C->dlc = 0;
+                    C->eid = 0;
+                    C->ide = 0;
+                    C->rtr = 0;
+                    C->sid = 0;
                 }
 
                 else
                 {
-                    *c2 = *c1;
+                    C->dlc = (uint8_t) M->dlc;
+
+                    C->eid = M->eid;
+                    C->ide = M->ide;
+                    C->rtr = M->rtr;
+                    C->sid = M->sid;
                 }
 
-                if (!c2->ide && c2->srr)
+                if (!M->ide && M->srr)
                 {
-                    c2->rtr = 1;
+                    C->rtr = 1;
                 }
 
                 ao_send_obj_try(ao_can_in_1 + i1 - AO_CAN_FIFOS_TX_1);
@@ -8333,7 +8357,7 @@ void ao_can_ir_1()
                 // Use the SET register operations to change the state
                 // of these bits.
 
-                reg->fifo[i1].con.set = _C1FIFOCON0_UINC_MASK;
+                R->fifo[i1].con.set = _C1FIFOCON0_UINC_MASK;
 
                 break;
 
@@ -8533,37 +8557,31 @@ void ao_can_ir_1()
 
 #endif
 
-                // Fifo.
-
 #if AO_CAN_TXST_1
 
                 if
                 (
-                    reg->fifo[i1].intx.bits.txemptyie &&
-                    reg->fifo[i1].intx.bits.txemptyif
+                    R->fifo[i1].intx.bits.txemptyie &&
+                    R->fifo[i1].intx.bits.txemptyif
                 )
                 {
-                    ao_can_sent_info_1.fifo = i1;
+                    ao_can_sent_1(i1);
 
-                    ao_can_sent_info_1.fifo_tx = i1;
-
-                    ao_can_sent_1(&ao_can_sent_info_1);
-
-                    reg->fifo[i1].intx.bits.txemptyie = 0;
+                    R->fifo[i1].intx.bits.txemptyie = 0;
                 }
 
                 if
                 (
-                    reg->fifo[i1].intx.bits.txnfullie &&
-                    reg->fifo[i1].intx.bits.txnfullif
+                    R->fifo[i1].intx.bits.txnfullie &&
+                    R->fifo[i1].intx.bits.txnfullif
                 )
                 {
 
 #endif
 
-                    ao_cond_set(ao_can_cond_not_full_1 + i1);
+                    ao_cond_true(ao_can_cond_not_full_1 + i1);
 
-                    reg->fifo[i1].intx.bits.txnfullie = 0;
+                    R->fifo[i1].intx.bits.txnfullie = 0;
 
 #if AO_CAN_TXST_1
 
@@ -8575,9 +8593,9 @@ void ao_can_ir_1()
 
 #endif
 
-            default:
+            // This really should not have happend.
 
-                // This really should not have happend.
+            default:
 
                 ao_assert(false);
 
@@ -8593,28 +8611,28 @@ void ao_can_listen_all_1()
 {
     ao_can_var_mode_1 = 7;
 
-    ao_cond_set(&ao_can_cond_change_1);
+    ao_cond_true(&ao_can_cond_change_1);
 }
 
 void ao_can_listen_only_1()
 {
     ao_can_var_mode_1 = 3;
 
-    ao_cond_set(&ao_can_cond_change_1);
+    ao_cond_true(&ao_can_cond_change_1);
 }
 
 void ao_can_loopback_1()
 {
     ao_can_var_mode_1 = 2;
 
-    ao_cond_set(&ao_can_cond_change_1);
+    ao_cond_true(&ao_can_cond_change_1);
 }
 
 void ao_can_normal_1()
 {
     ao_can_var_mode_1 = 0;
 
-    ao_cond_set(&ao_can_cond_change_1);
+    ao_cond_true(&ao_can_cond_change_1);
 }
 
 // ----------------------------------------------------------------------------
@@ -8630,12 +8648,13 @@ void ao_can_started_1()
 
 #if AO_CAN_TX_1
 
-    ao_can_t *      c1;
-    ao_can_t *      c2;
+    ao_can_t * C;
 
-    size_t          i;
+    size_t i;
 
-    ao_can_reg_t *  reg = ao_can_reg_1();
+    ao_can_msg_t * M;
+
+    ao_can_reg_t * R = ao_can_reg_1();
 
 #endif
 
@@ -8701,7 +8720,7 @@ void ao_can_started_1()
 
         else if (ao_can_cond_change_wait_1.result)
         {
-            ao_cond_clear(&ao_can_cond_change_1);
+            ao_cond_false(&ao_can_cond_change_1);
 
             ao_can_change_1(ao_can_var_mode_1);
         }
@@ -8721,11 +8740,9 @@ void ao_can_started_1()
                     ao_can_out_1                [i].result
                 )
                 {
-                    c2 = ao_can_out_can_1 + i;
+                    C = ao_can_out_can_1 + i;
 
-                    c1 = (ao_can_t *) PA_TO_KVA1(reg->fifo[i].ua.reg);
-
-                    *c1 = *c2;
+                    M = (ao_can_msg_t *) PA_TO_KVA1(R->fifo[i].ua.reg);
 
 
                     // DS61154.
@@ -8738,16 +8755,24 @@ void ao_can_started_1()
 
                     // RB0 and RB1 bits must be clear.
 
-                    c1->cmsgeid &= 0x3FFFFE0F;
-                    c1->cmsgsid &= 0x000007FF;
+                    M->cmsgeid = 0;
+                    M->cmsgsid = 0;
+
+
+                    M->data = C->data;
+                    M->dlc  = C->dlc;
+                    M->eid  = C->eid;
+                    M->ide  = C->ide;
+                    M->rtr  = C->rtr;
+                    M->sid  = C->sid;
 
 
                     // In case of an extended message format,
                     // the SRR bit should be set.
 
-                    if (c1->ide)
+                    if (M->ide)
                     {
-                        c1->srr = 1;
+                        M->srr = 1;
                     }
 
 
@@ -8760,25 +8785,24 @@ void ao_can_started_1()
                     // Use the SET register operations to change the state of
                     // these bits.
 
-                    reg->fifo[i].con.set = _C1FIFOCON0_UINC_MASK;
-
+                    R->fifo[i].con.set = _C1FIFOCON0_UINC_MASK;
 
 #if AO_CAN_TXST_1
 
-                    reg->fifo[i].intx.bits.txemptyie = 1;
+                    R->fifo[i].intx.bits.txemptyie = 1;
 
 #endif
 
-                    if (reg->fifo[i].con.bits.rtren == 0)
+                    if (R->fifo[i].con.bits.rtren == 0)
                     {
-                        if (reg->fifo[i].intx.bits.txnfullif == 0)
+                        if (R->fifo[i].intx.bits.txnfullif == 0)
                         {
-                            ao_cond_clear(ao_can_cond_not_full_1 + i);
+                            ao_cond_false(ao_can_cond_not_full_1 + i);
 
-                            reg->fifo[i].intx.bits.txnfullie = 1;
+                            R->fifo[i].intx.bits.txnfullie = 1;
                         }
 
-                        reg->fifo[i].con.set = _C1FIFOCON0_TXREQ_MASK;
+                        R->fifo[i].con.set = _C1FIFOCON0_TXREQ_MASK;
                     }
                 }
             }
@@ -8800,7 +8824,7 @@ void ao_can_starting_1()
 
     ao_can_var_started_1 = true;
 
-    ao_cond_clear(&ao_can_cond_change_1);
+    ao_cond_false(&ao_can_cond_change_1);
 
     mode = ao_can_var_mode_1;
 
@@ -8831,11 +8855,11 @@ void ao_can_task_proc_1(void * x)
 {
     // Variables.
 
-    size_t          i;
+    size_t i;
 
-    ao_can_reg_t *  reg = ao_can_reg_1();
+    ao_can_reg_t * reg = ao_can_reg_1();
 
-    (void)          x;
+    (void) x;
 
 
     // Ready.
@@ -8889,7 +8913,7 @@ void ao_can_task_proc_1(void * x)
 
 #endif
 
-                ao_cond_set(&ao_can_cond_not_full_1[i]);
+                ao_cond_true(&ao_can_cond_not_full_1[i]);
             }
 
             else
@@ -8901,7 +8925,7 @@ void ao_can_task_proc_1(void * x)
 
                 else
                 {
-                    ao_cond_set(&ao_can_cond_not_full_1[i]);
+                    ao_cond_true(&ao_can_cond_not_full_1[i]);
                 }
             }
 
@@ -10588,6 +10612,16 @@ void ao_can_task_proc_1(void * x)
 
 static  void                    ao_can_change_2(    uint32_t mode);
 
+static  void                    ao_can_config_2();
+
+static  void                    ao_can_config_baud_2();
+
+static  void                    ao_can_config_fifos_2();
+
+static  void                    ao_can_config_filter_masks_2();
+
+static  void                    ao_can_config_filters_2();
+
 static  void                    ao_can_started_2();
 
 static  void                    ao_can_starting_2();
@@ -10598,61 +10632,13 @@ static  void                    ao_can_task_proc_2( void * x);
 
 // ----------------------------------------------------------------------------
 
-        ao_can_t                ao_can_buffers_2    [AO_CAN_BUFFERS_2];
+static  ao_can_msg_t            ao_can_buffers_2    [AO_CAN_BUFFERS_2];
 
 // ----------------------------------------------------------------------------
 
 #if AO_CAN_BUS_2
 
-static  ao_can_bus_info_t       ao_can_bus_info_2;
-
-#endif
-
-#if AO_CAN_INVALID_2
-
-static  ao_can_invalid_info_t   ao_can_invalid_info_2;
-
-#endif
-
-#if AO_CAN_MODE_2
-
-static  ao_can_mode_info_t      ao_can_mode_info_2;
-
-#endif
-
-#if AO_CAN_RXOF_2
-
-static  ao_can_overflow_info_t  ao_can_overflow_info_2;
-
-#endif
-
-#if AO_CAN_SYSTEM_2
-
-static  ao_can_system_info_t    ao_can_system_info_2;
-
-#endif
-
-#if AO_CAN_TIMER_2
-
-static  ao_can_timer_info_t     ao_can_timer_info_2;
-
-#endif
-
-#if AO_CAN_TXST_2
-
-static  ao_can_sent_info_t      ao_can_sent_info_2;
-
-#endif
-
-#if AO_CAN_TXUF_2
-
-static  ao_can_underflow_info_t ao_can_underflow_info_2;
-
-#endif
-
-#if AO_CAN_WAKE_UP_2
-
-static  ao_can_wake_up_info_t   ao_can_wake_up_info_2;
+static  ao_can_bus_t            ao_can_bus_data_2;
 
 #endif
 
@@ -12371,7 +12357,7 @@ void ao_can_change_2(uint32_t mode)
     {
         // Request.
 
-        ao_cond_clear(&ao_can_cond_changed_2);
+        ao_cond_false(&ao_can_cond_changed_2);
 
         reg->con.bits.reqop = mode;
 
@@ -12403,7 +12389,6 @@ void ao_can_change_2(uint32_t mode)
 
 // ----------------------------------------------------------------------------
 
-__attribute__ ((weak))
 void ao_can_config_2()
 {
     ao_can_config_baud_2();
@@ -12415,7 +12400,6 @@ void ao_can_config_2()
     ao_can_config_filters_2();
 }
 
-__attribute__ ((weak))
 void ao_can_config_baud_2()
 {
     // Variables.
@@ -12444,7 +12428,6 @@ void ao_can_config_baud_2()
     C2CFG = x.cfg;
 }
 
-__attribute__ ((weak))
 void ao_can_config_fifos_2()
 {
     // Fifo base address.
@@ -12652,7 +12635,6 @@ void ao_can_config_fifos_2()
 
 }
 
-__attribute__ ((weak))
 void ao_can_config_filter_masks_2()
 {
     C2RXM0bits.EID  = AO_CAN_FILTER_MASK_EID_2_0;
@@ -12672,7 +12654,6 @@ void ao_can_config_filter_masks_2()
     C2RXM3bits.SID  = AO_CAN_FILTER_MASK_SID_2_3;
 }
 
-__attribute__ ((weak))
 void ao_can_config_filters_2()
 {
 
@@ -13036,30 +13017,47 @@ void ao_can_ir_2()
 {
     // Variables.
 
-    ao_can_t *          c1;
-    ao_can_t *          c2;
+    uint32_t i1;
 
-    ao_can_fifo_flags_t f;
+    ao_can_reg_t * R = ao_can_reg_2();
 
-    uint32_t            i1;
-    uint32_t            i2;
+#if AO_CAN_RBOV_2
 
-    uint32_t            m;
+    uint32_t i2;
 
-    uint32_t            r;
+    uint32_t m;
 
-    ao_can_reg_t *      reg = ao_can_reg_2();
+    uint32_t r;
 
-    ao_time_t           t;
+#endif
+
+#if AO_CAN_RX_2
+
+    ao_can_t * C;
+
+    ao_can_msg_t * M;
+
+#endif
+
+#if AO_CAN_RXOF_2                                                       ||  \
+    AO_CAN_TXUF_2
+
+    uint32_t f;
+
+#endif
+
+#if AO_CAN_SYSTEM_2
+
+    ao_can_system_t s;
+
+#endif
 
 
     // Ready.
 
     do
     {
-        t = ao_now();
-
-        i1 = reg->vec.bits.icode;
+        i1 = R->vec.bits.icode;
 
         ao_ir_can2_reply();
 
@@ -13068,105 +13066,97 @@ void ao_can_ir_2()
 
 #if AO_CAN_INVALID_2
 
+            // Invalid message received.
+
             case 0b1001000:
 
-                // Invalid message received.
+                ao_can_invalid_2();
 
-                ao_can_invalid_2(&ao_can_invalid_info_2);
-
-                reg->intx.bits.ivrif = 0;
+                R->intx.bits.ivrif = 0;
 
                 break;
 
 #endif
 
-                // Mode changed.
+            // Mode changed.
 
             case 0b1000111:
 
 #if AO_CAN_MODE_2
 
-                ao_can_mode_2(&ao_can_mode_info_2);
+                ao_can_mode_2();
 
 #endif
 
-                ao_cond_set(&ao_can_cond_changed_2);
+                ao_cond_true(&ao_can_cond_changed_2);
 
-                reg->intx.bits.modif = 0;
+                R->intx.bits.modif = 0;
 
                 break;
 
 #if AO_CAN_TIMER_2
 
+            // Timestamp timer overflow.
+
             case 0b1000110:
 
-                // Timer.
+                ao_can_timer_2();
 
-                ao_can_timer_2(&ao_can_timer_info_2);
-
-                reg->intx.bits.ctmrif = 0;
+                R->intx.bits.ctmrif = 0;
 
                 break;
 
 #endif
 
+            // System error.
+
             case 0b1000101:
             case 0b1000100:
 
-                // System error.
-
 #if AO_CAN_SYSTEM_2
 
-                ao_can_system_info_2.flags = (ao_can_system_flags_t) i1;
+                s = (ao_can_system_t) i1;
 
-                ao_can_system_2(&ao_can_system_info_2);
+                ao_can_system_2(s);
 
 #endif
 
-                reg->con.bits.on = 0;
+                R->con.bits.on = 0;
 
-                while (reg->con.bits.canbusy) { }
+                while (R->con.bits.canbusy) { }
 
-                reg->con.bits.on = 1;
+                R->con.bits.on = 1;
 
                 break;
 
 #if AO_CAN_RBOV_2
 
+            // Receive buffer overrun.
+
             case 0b1000011:
 
-                // Receive buffer overrun.
+                r = R->rxovf.reg;
 
-                r = reg->rxovf.reg;
-
-                m = (AO_CAN_FIFOS_TX_2 == 32) ? UINT32_MAX : (1 << AO_CAN_FIFOS_TX_2) - 1;
+                m = ((AO_CAN_FIFOS_TX_2) == 32) ? UINT32_MAX : (1 << (AO_CAN_FIFOS_TX_2)) - 1;
 
 #if AO_CAN_RXOF_2
 
-                f = (ao_can_fifo_flags_t) (r & ~m);
+                f = r & ~m;
 
-                if (f != AO_CAN_FIFO_FLAGS_NONE)
+                if (f)
                 {
-                    ao_can_overflow_info_2.fifos = f;
-
-                    ao_can_overflow_info_2.fifos_rx = (ao_can_fifo_flags_t) ((uint32_t) f >> AO_CAN_FIFOS_TX_2);
-
-                    ao_can_overflow_2(&ao_can_overflow_info_2);
+                    ao_can_overflow_2(f);
                 }
 
 #endif
 
 #if AO_CAN_TXUF_2
 
-                f = (ao_can_fifo_flags_t) (r & m);
+                f = r & m;
 
-                if (f != AO_CAN_FIFO_FLAGS_NONE)
+                if (f)
                 {
-                    ao_can_underflow_info_2.fifos = f;
-
-                    ao_can_underflow_info_2.fifos_tx = f;
-
-                    ao_can_underflow_2(&ao_can_underflow_info_2);
+                    ao_can_underflow_2(f);
                 }
 
 #endif
@@ -13186,7 +13176,7 @@ void ao_can_ir_2()
 
                     r = r & ~m;
 
-                    reg->fifo[i2].intx.bits.rxovflif = 0;
+                    R->fifo[i2].intx.bits.rxovflif = 0;
                 }
 
                 // DS61154.
@@ -13195,7 +13185,7 @@ void ao_can_ir_2()
 
                 // Section 34.3.4    : The CxINT.RBOVIF bit is writable.
 
-                reg->intx.bits.rbovif = 0;
+                R->intx.bits.rbovif = 0;
 
                 break;
 
@@ -13203,13 +13193,13 @@ void ao_can_ir_2()
 
 #if AO_CAN_WAKE_UP_2
 
+            // Wake up.
+
             case 0b1000010:
 
-                // Wake up.
+                ao_can_wake_up_2();
 
-                ao_can_wake_up_2(&ao_can_wake_up_info_2);
-
-                reg->intx.bits.wakif = 0;
+                R->intx.bits.wakif = 0;
 
                 break;
 
@@ -13217,62 +13207,64 @@ void ao_can_ir_2()
 
 #if AO_CAN_BUS_2
 
+            // Bus error.
+
             case 0b1000001:
 
-                // CAN bus error.
+                ao_can_bus_data_2.receive_error_counter = R->trec.bits.rerrcnt;
 
-                ao_can_bus_info_2.receive_error_counter = reg->trec.bits.rerrcnt;
-
-                if (reg->trec.bits.rxbp)
+                if (R->trec.bits.rxbp)
                 {
-                    ao_can_bus_info_2.receive_error_state = AO_CAN_BUS_PASSIVE;
+                    ao_can_bus_data_2.receive_error_state = AO_CAN_BUS_PASSIVE;
                 }
 
-                else if (reg->trec.bits.rxwarn)
+                else if (R->trec.bits.rxwarn)
                 {
-                    ao_can_bus_info_2.receive_error_state = AO_CAN_BUS_ACTIVE_WARNING;
-                }
-
-                else
-                {
-                    ao_can_bus_info_2.receive_error_state = AO_CAN_BUS_ACTIVE;
-                }
-
-                ao_can_bus_info_2.transmit_error_counter = reg->trec.bits.terrcnt;
-
-                if (reg->trec.bits.txbo)
-                {
-                    ao_can_bus_info_2.transmit_error_state = AO_CAN_BUS_OFF;
-                }
-
-                else if (reg->trec.bits.txbp)
-                {
-                    ao_can_bus_info_2.transmit_error_state = AO_CAN_BUS_PASSIVE;
-                }
-
-                else if (reg->trec.bits.txwarn)
-                {
-                    ao_can_bus_info_2.transmit_error_state = AO_CAN_BUS_ACTIVE_WARNING;
+                    ao_can_bus_data_2.receive_error_state = AO_CAN_BUS_ACTIVE_WARNING;
                 }
 
                 else
                 {
-                    ao_can_bus_info_2.transmit_error_state = AO_CAN_BUS_ACTIVE;
+                    ao_can_bus_data_2.receive_error_state = AO_CAN_BUS_ACTIVE;
                 }
 
-                ao_can_bus_2(&ao_can_bus_info_2);
+                ao_can_bus_data_2.transmit_error_counter = R->trec.bits.terrcnt;
 
-                reg->intx.bits.cerrif = 0;
+                if (R->trec.bits.txbo)
+                {
+                    ao_can_bus_data_2.transmit_error_state = AO_CAN_BUS_OFF;
+                }
+
+                else if (R->trec.bits.txbp)
+                {
+                    ao_can_bus_data_2.transmit_error_state = AO_CAN_BUS_PASSIVE;
+                }
+
+                else if (R->trec.bits.txwarn)
+                {
+                    ao_can_bus_data_2.transmit_error_state = AO_CAN_BUS_ACTIVE_WARNING;
+                }
+
+                else
+                {
+                    ao_can_bus_data_2.transmit_error_state = AO_CAN_BUS_ACTIVE;
+                }
+
+                ao_can_bus_2(&ao_can_bus_data_2);
+
+                R->intx.bits.cerrif = 0;
 
                 break;
 
 #endif
 
+            // No interrupt.
+
             case 0b1000000:
 
-                // No interrupt.
-
                 break;
+
+            // FIFO.
 
 #if AO_CAN_RX_2
 
@@ -13468,27 +13460,34 @@ void ao_can_ir_2()
 
 #endif
 
-                c1 = PA_TO_KVA1(reg->fifo[i1].ua.reg);
+                M = PA_TO_KVA1(R->fifo[i1].ua.reg);
 
-                c2 = ao_can_in_can_2 + i1 - AO_CAN_FIFOS_TX_2;
+                C = ao_can_in_can_2 + i1 - AO_CAN_FIFOS_TX_2;
 
-                if (reg->fifo[i1].con.bits.donly)
+                C->data = M->data;
+
+                if (R->fifo[i1].con.bits.donly)
                 {
-                    c2->cmsgsid = 0;
-
-                    c2->cmsgeid = 0;
-
-                    c2->data = *((uint64_t *) c1);
+                    C->dlc = 0;
+                    C->eid = 0;
+                    C->ide = 0;
+                    C->rtr = 0;
+                    C->sid = 0;
                 }
 
                 else
                 {
-                    *c2 = *c1;
+                    C->dlc = (uint8_t) M->dlc;
+
+                    C->eid = M->eid;
+                    C->ide = M->ide;
+                    C->rtr = M->rtr;
+                    C->sid = M->sid;
                 }
 
-                if (!c2->ide && c2->srr)
+                if (!M->ide && M->srr)
                 {
-                    c2->rtr = 1;
+                    C->rtr = 1;
                 }
 
                 ao_send_obj_try(ao_can_in_2 + i1 - AO_CAN_FIFOS_TX_2);
@@ -13502,7 +13501,7 @@ void ao_can_ir_2()
                 // Use the SET register operations to change the state
                 // of these bits.
 
-                reg->fifo[i1].con.set = _C2FIFOCON0_UINC_MASK;
+                R->fifo[i1].con.set = _C2FIFOCON0_UINC_MASK;
 
                 break;
 
@@ -13702,37 +13701,31 @@ void ao_can_ir_2()
 
 #endif
 
-                // Fifo.
-
 #if AO_CAN_TXST_2
 
                 if
                 (
-                    reg->fifo[i1].intx.bits.txemptyie &&
-                    reg->fifo[i1].intx.bits.txemptyif
+                    R->fifo[i1].intx.bits.txemptyie &&
+                    R->fifo[i1].intx.bits.txemptyif
                 )
                 {
-                    ao_can_sent_info_2.fifo = i1;
+                    ao_can_sent_2(i1);
 
-                    ao_can_sent_info_2.fifo_tx = i1;
-
-                    ao_can_sent_2(&ao_can_sent_info_2);
-
-                    reg->fifo[i1].intx.bits.txemptyie = 0;
+                    R->fifo[i1].intx.bits.txemptyie = 0;
                 }
 
                 if
                 (
-                    reg->fifo[i1].intx.bits.txnfullie &&
-                    reg->fifo[i1].intx.bits.txnfullif
+                    R->fifo[i1].intx.bits.txnfullie &&
+                    R->fifo[i1].intx.bits.txnfullif
                 )
                 {
 
 #endif
 
-                    ao_cond_set(ao_can_cond_not_full_2 + i1);
+                    ao_cond_true(ao_can_cond_not_full_2 + i1);
 
-                    reg->fifo[i1].intx.bits.txnfullie = 0;
+                    R->fifo[i1].intx.bits.txnfullie = 0;
 
 #if AO_CAN_TXST_2
 
@@ -13744,9 +13737,9 @@ void ao_can_ir_2()
 
 #endif
 
-            default:
+            // This really should not have happend.
 
-                // This really should not have happend.
+            default:
 
                 ao_assert(false);
 
@@ -13762,28 +13755,28 @@ void ao_can_listen_all_2()
 {
     ao_can_var_mode_2 = 7;
 
-    ao_cond_set(&ao_can_cond_change_2);
+    ao_cond_true(&ao_can_cond_change_2);
 }
 
 void ao_can_listen_only_2()
 {
     ao_can_var_mode_2 = 3;
 
-    ao_cond_set(&ao_can_cond_change_2);
+    ao_cond_true(&ao_can_cond_change_2);
 }
 
 void ao_can_loopback_2()
 {
     ao_can_var_mode_2 = 2;
 
-    ao_cond_set(&ao_can_cond_change_2);
+    ao_cond_true(&ao_can_cond_change_2);
 }
 
 void ao_can_normal_2()
 {
     ao_can_var_mode_2 = 0;
 
-    ao_cond_set(&ao_can_cond_change_2);
+    ao_cond_true(&ao_can_cond_change_2);
 }
 
 // ----------------------------------------------------------------------------
@@ -13799,12 +13792,13 @@ void ao_can_started_2()
 
 #if AO_CAN_TX_2
 
-    ao_can_t *      c1;
-    ao_can_t *      c2;
+    ao_can_t * C;
 
-    size_t          i;
+    size_t i;
 
-    ao_can_reg_t *  reg = ao_can_reg_2();
+    ao_can_msg_t * M;
+
+    ao_can_reg_t * R = ao_can_reg_2();
 
 #endif
 
@@ -13870,7 +13864,7 @@ void ao_can_started_2()
 
         else if (ao_can_cond_change_wait_2.result)
         {
-            ao_cond_clear(&ao_can_cond_change_2);
+            ao_cond_false(&ao_can_cond_change_2);
 
             ao_can_change_2(ao_can_var_mode_2);
         }
@@ -13890,11 +13884,9 @@ void ao_can_started_2()
                     ao_can_out_2                [i].result
                 )
                 {
-                    c2 = ao_can_out_can_2 + i;
+                    C = ao_can_out_can_2 + i;
 
-                    c1 = (ao_can_t *) PA_TO_KVA1(reg->fifo[i].ua.reg);
-
-                    *c1 = *c2;
+                    M = (ao_can_msg_t *) PA_TO_KVA1(R->fifo[i].ua.reg);
 
 
                     // DS61154.
@@ -13907,16 +13899,24 @@ void ao_can_started_2()
 
                     // RB0 and RB1 bits must be clear.
 
-                    c1->cmsgeid &= 0x3FFFFE0F;
-                    c1->cmsgsid &= 0x000007FF;
+                    M->cmsgeid = 0;
+                    M->cmsgsid = 0;
+
+
+                    M->data = C->data;
+                    M->dlc  = C->dlc;
+                    M->eid  = C->eid;
+                    M->ide  = C->ide;
+                    M->rtr  = C->rtr;
+                    M->sid  = C->sid;
 
 
                     // In case of an extended message format,
                     // the SRR bit should be set.
 
-                    if (c1->ide)
+                    if (M->ide)
                     {
-                        c1->srr = 1;
+                        M->srr = 1;
                     }
 
 
@@ -13929,25 +13929,24 @@ void ao_can_started_2()
                     // Use the SET register operations to change the state of
                     // these bits.
 
-                    reg->fifo[i].con.set = _C2FIFOCON0_UINC_MASK;
-
+                    R->fifo[i].con.set = _C2FIFOCON0_UINC_MASK;
 
 #if AO_CAN_TXST_2
 
-                    reg->fifo[i].intx.bits.txemptyie = 1;
+                    R->fifo[i].intx.bits.txemptyie = 1;
 
 #endif
 
-                    if (reg->fifo[i].con.bits.rtren == 0)
+                    if (R->fifo[i].con.bits.rtren == 0)
                     {
-                        if (reg->fifo[i].intx.bits.txnfullif == 0)
+                        if (R->fifo[i].intx.bits.txnfullif == 0)
                         {
-                            ao_cond_clear(ao_can_cond_not_full_2 + i);
+                            ao_cond_false(ao_can_cond_not_full_2 + i);
 
-                            reg->fifo[i].intx.bits.txnfullie = 1;
+                            R->fifo[i].intx.bits.txnfullie = 1;
                         }
 
-                        reg->fifo[i].con.set = _C2FIFOCON0_TXREQ_MASK;
+                        R->fifo[i].con.set = _C2FIFOCON0_TXREQ_MASK;
                     }
                 }
             }
@@ -13969,7 +13968,7 @@ void ao_can_starting_2()
 
     ao_can_var_started_2 = true;
 
-    ao_cond_clear(&ao_can_cond_change_2);
+    ao_cond_false(&ao_can_cond_change_2);
 
     mode = ao_can_var_mode_2;
 
@@ -14000,11 +13999,11 @@ void ao_can_task_proc_2(void * x)
 {
     // Variables.
 
-    size_t          i;
+    size_t i;
 
-    ao_can_reg_t *  reg = ao_can_reg_2();
+    ao_can_reg_t * reg = ao_can_reg_2();
 
-    (void)          x;
+    (void) x;
 
 
     // Ready.
@@ -14058,7 +14057,7 @@ void ao_can_task_proc_2(void * x)
 
 #endif
 
-                ao_cond_set(&ao_can_cond_not_full_2[i]);
+                ao_cond_true(&ao_can_cond_not_full_2[i]);
             }
 
             else
@@ -14070,7 +14069,7 @@ void ao_can_task_proc_2(void * x)
 
                 else
                 {
-                    ao_cond_set(&ao_can_cond_not_full_2[i]);
+                    ao_cond_true(&ao_can_cond_not_full_2[i]);
                 }
             }
 
@@ -15757,6 +15756,16 @@ void ao_can_task_proc_2(void * x)
 
 static  void                    ao_can_change_3(    uint32_t mode);
 
+static  void                    ao_can_config_3();
+
+static  void                    ao_can_config_baud_3();
+
+static  void                    ao_can_config_fifos_3();
+
+static  void                    ao_can_config_filter_masks_3();
+
+static  void                    ao_can_config_filters_3();
+
 static  void                    ao_can_started_3();
 
 static  void                    ao_can_starting_3();
@@ -15767,61 +15776,13 @@ static  void                    ao_can_task_proc_3( void * x);
 
 // ----------------------------------------------------------------------------
 
-        ao_can_t                ao_can_buffers_3    [AO_CAN_BUFFERS_3];
+static  ao_can_msg_t            ao_can_buffers_3    [AO_CAN_BUFFERS_3];
 
 // ----------------------------------------------------------------------------
 
 #if AO_CAN_BUS_3
 
-static  ao_can_bus_info_t       ao_can_bus_info_3;
-
-#endif
-
-#if AO_CAN_INVALID_3
-
-static  ao_can_invalid_info_t   ao_can_invalid_info_3;
-
-#endif
-
-#if AO_CAN_MODE_3
-
-static  ao_can_mode_info_t      ao_can_mode_info_3;
-
-#endif
-
-#if AO_CAN_RXOF_3
-
-static  ao_can_overflow_info_t  ao_can_overflow_info_3;
-
-#endif
-
-#if AO_CAN_SYSTEM_3
-
-static  ao_can_system_info_t    ao_can_system_info_3;
-
-#endif
-
-#if AO_CAN_TIMER_3
-
-static  ao_can_timer_info_t     ao_can_timer_info_3;
-
-#endif
-
-#if AO_CAN_TXST_3
-
-static  ao_can_sent_info_t      ao_can_sent_info_3;
-
-#endif
-
-#if AO_CAN_TXUF_3
-
-static  ao_can_underflow_info_t ao_can_underflow_info_3;
-
-#endif
-
-#if AO_CAN_WAKE_UP_3
-
-static  ao_can_wake_up_info_t   ao_can_wake_up_info_3;
+static  ao_can_bus_t            ao_can_bus_data_3;
 
 #endif
 
@@ -17540,7 +17501,7 @@ void ao_can_change_3(uint32_t mode)
     {
         // Request.
 
-        ao_cond_clear(&ao_can_cond_changed_3);
+        ao_cond_false(&ao_can_cond_changed_3);
 
         reg->con.bits.reqop = mode;
 
@@ -17572,7 +17533,6 @@ void ao_can_change_3(uint32_t mode)
 
 // ----------------------------------------------------------------------------
 
-__attribute__ ((weak))
 void ao_can_config_3()
 {
     ao_can_config_baud_3();
@@ -17584,7 +17544,6 @@ void ao_can_config_3()
     ao_can_config_filters_3();
 }
 
-__attribute__ ((weak))
 void ao_can_config_baud_3()
 {
     // Variables.
@@ -17613,7 +17572,6 @@ void ao_can_config_baud_3()
     C3CFG = x.cfg;
 }
 
-__attribute__ ((weak))
 void ao_can_config_fifos_3()
 {
     // Fifo base address.
@@ -17821,7 +17779,6 @@ void ao_can_config_fifos_3()
 
 }
 
-__attribute__ ((weak))
 void ao_can_config_filter_masks_3()
 {
     C3RXM0bits.EID  = AO_CAN_FILTER_MASK_EID_3_0;
@@ -17841,7 +17798,6 @@ void ao_can_config_filter_masks_3()
     C3RXM3bits.SID  = AO_CAN_FILTER_MASK_SID_3_3;
 }
 
-__attribute__ ((weak))
 void ao_can_config_filters_3()
 {
 
@@ -18205,30 +18161,47 @@ void ao_can_ir_3()
 {
     // Variables.
 
-    ao_can_t *          c1;
-    ao_can_t *          c2;
+    uint32_t i1;
 
-    ao_can_fifo_flags_t f;
+    ao_can_reg_t * R = ao_can_reg_3();
 
-    uint32_t            i1;
-    uint32_t            i2;
+#if AO_CAN_RBOV_3
 
-    uint32_t            m;
+    uint32_t i2;
 
-    uint32_t            r;
+    uint32_t m;
 
-    ao_can_reg_t *      reg = ao_can_reg_3();
+    uint32_t r;
 
-    ao_time_t           t;
+#endif
+
+#if AO_CAN_RX_3
+
+    ao_can_t * C;
+
+    ao_can_msg_t * M;
+
+#endif
+
+#if AO_CAN_RXOF_3                                                       ||  \
+    AO_CAN_TXUF_3
+
+    uint32_t f;
+
+#endif
+
+#if AO_CAN_SYSTEM_3
+
+    ao_can_system_t s;
+
+#endif
 
 
     // Ready.
 
     do
     {
-        t = ao_now();
-
-        i1 = reg->vec.bits.icode;
+        i1 = R->vec.bits.icode;
 
         ao_ir_can3_reply();
 
@@ -18237,105 +18210,97 @@ void ao_can_ir_3()
 
 #if AO_CAN_INVALID_3
 
+            // Invalid message received.
+
             case 0b1001000:
 
-                // Invalid message received.
+                ao_can_invalid_3();
 
-                ao_can_invalid_3(&ao_can_invalid_info_3);
-
-                reg->intx.bits.ivrif = 0;
+                R->intx.bits.ivrif = 0;
 
                 break;
 
 #endif
 
-                // Mode changed.
+            // Mode changed.
 
             case 0b1000111:
 
 #if AO_CAN_MODE_3
 
-                ao_can_mode_3(&ao_can_mode_info_3);
+                ao_can_mode_3();
 
 #endif
 
-                ao_cond_set(&ao_can_cond_changed_3);
+                ao_cond_true(&ao_can_cond_changed_3);
 
-                reg->intx.bits.modif = 0;
+                R->intx.bits.modif = 0;
 
                 break;
 
 #if AO_CAN_TIMER_3
 
+            // Timestamp timer overflow.
+
             case 0b1000110:
 
-                // Timer.
+                ao_can_timer_3();
 
-                ao_can_timer_3(&ao_can_timer_info_3);
-
-                reg->intx.bits.ctmrif = 0;
+                R->intx.bits.ctmrif = 0;
 
                 break;
 
 #endif
 
+            // System error.
+
             case 0b1000101:
             case 0b1000100:
 
-                // System error.
-
 #if AO_CAN_SYSTEM_3
 
-                ao_can_system_info_3.flags = (ao_can_system_flags_t) i1;
+                s = (ao_can_system_t) i1;
 
-                ao_can_system_3(&ao_can_system_info_3);
+                ao_can_system_3(s);
 
 #endif
 
-                reg->con.bits.on = 0;
+                R->con.bits.on = 0;
 
-                while (reg->con.bits.canbusy) { }
+                while (R->con.bits.canbusy) { }
 
-                reg->con.bits.on = 1;
+                R->con.bits.on = 1;
 
                 break;
 
 #if AO_CAN_RBOV_3
 
+            // Receive buffer overrun.
+
             case 0b1000011:
 
-                // Receive buffer overrun.
+                r = R->rxovf.reg;
 
-                r = reg->rxovf.reg;
-
-                m = (AO_CAN_FIFOS_TX_3 == 32) ? UINT32_MAX : (1 << AO_CAN_FIFOS_TX_3) - 1;
+                m = ((AO_CAN_FIFOS_TX_3) == 32) ? UINT32_MAX : (1 << (AO_CAN_FIFOS_TX_3)) - 1;
 
 #if AO_CAN_RXOF_3
 
-                f = (ao_can_fifo_flags_t) (r & ~m);
+                f = r & ~m;
 
-                if (f != AO_CAN_FIFO_FLAGS_NONE)
+                if (f)
                 {
-                    ao_can_overflow_info_3.fifos = f;
-
-                    ao_can_overflow_info_3.fifos_rx = (ao_can_fifo_flags_t) ((uint32_t) f >> AO_CAN_FIFOS_TX_3);
-
-                    ao_can_overflow_3(&ao_can_overflow_info_3);
+                    ao_can_overflow_3(f);
                 }
 
 #endif
 
 #if AO_CAN_TXUF_3
 
-                f = (ao_can_fifo_flags_t) (r & m);
+                f = r & m;
 
-                if (f != AO_CAN_FIFO_FLAGS_NONE)
+                if (f)
                 {
-                    ao_can_underflow_info_3.fifos = f;
-
-                    ao_can_underflow_info_3.fifos_tx = f;
-
-                    ao_can_underflow_3(&ao_can_underflow_info_3);
+                    ao_can_underflow_3(f);
                 }
 
 #endif
@@ -18355,7 +18320,7 @@ void ao_can_ir_3()
 
                     r = r & ~m;
 
-                    reg->fifo[i2].intx.bits.rxovflif = 0;
+                    R->fifo[i2].intx.bits.rxovflif = 0;
                 }
 
                 // DS61154.
@@ -18364,7 +18329,7 @@ void ao_can_ir_3()
 
                 // Section 34.3.4    : The CxINT.RBOVIF bit is writable.
 
-                reg->intx.bits.rbovif = 0;
+                R->intx.bits.rbovif = 0;
 
                 break;
 
@@ -18372,13 +18337,13 @@ void ao_can_ir_3()
 
 #if AO_CAN_WAKE_UP_3
 
+            // Wake up.
+
             case 0b1000010:
 
-                // Wake up.
+                ao_can_wake_up_3();
 
-                ao_can_wake_up_3(&ao_can_wake_up_info_3);
-
-                reg->intx.bits.wakif = 0;
+                R->intx.bits.wakif = 0;
 
                 break;
 
@@ -18386,62 +18351,64 @@ void ao_can_ir_3()
 
 #if AO_CAN_BUS_3
 
+            // Bus error.
+
             case 0b1000001:
 
-                // CAN bus error.
+                ao_can_bus_data_3.receive_error_counter = R->trec.bits.rerrcnt;
 
-                ao_can_bus_info_3.receive_error_counter = reg->trec.bits.rerrcnt;
-
-                if (reg->trec.bits.rxbp)
+                if (R->trec.bits.rxbp)
                 {
-                    ao_can_bus_info_3.receive_error_state = AO_CAN_BUS_PASSIVE;
+                    ao_can_bus_data_3.receive_error_state = AO_CAN_BUS_PASSIVE;
                 }
 
-                else if (reg->trec.bits.rxwarn)
+                else if (R->trec.bits.rxwarn)
                 {
-                    ao_can_bus_info_3.receive_error_state = AO_CAN_BUS_ACTIVE_WARNING;
-                }
-
-                else
-                {
-                    ao_can_bus_info_3.receive_error_state = AO_CAN_BUS_ACTIVE;
-                }
-
-                ao_can_bus_info_3.transmit_error_counter = reg->trec.bits.terrcnt;
-
-                if (reg->trec.bits.txbo)
-                {
-                    ao_can_bus_info_3.transmit_error_state = AO_CAN_BUS_OFF;
-                }
-
-                else if (reg->trec.bits.txbp)
-                {
-                    ao_can_bus_info_3.transmit_error_state = AO_CAN_BUS_PASSIVE;
-                }
-
-                else if (reg->trec.bits.txwarn)
-                {
-                    ao_can_bus_info_3.transmit_error_state = AO_CAN_BUS_ACTIVE_WARNING;
+                    ao_can_bus_data_3.receive_error_state = AO_CAN_BUS_ACTIVE_WARNING;
                 }
 
                 else
                 {
-                    ao_can_bus_info_3.transmit_error_state = AO_CAN_BUS_ACTIVE;
+                    ao_can_bus_data_3.receive_error_state = AO_CAN_BUS_ACTIVE;
                 }
 
-                ao_can_bus_3(&ao_can_bus_info_3);
+                ao_can_bus_data_3.transmit_error_counter = R->trec.bits.terrcnt;
 
-                reg->intx.bits.cerrif = 0;
+                if (R->trec.bits.txbo)
+                {
+                    ao_can_bus_data_3.transmit_error_state = AO_CAN_BUS_OFF;
+                }
+
+                else if (R->trec.bits.txbp)
+                {
+                    ao_can_bus_data_3.transmit_error_state = AO_CAN_BUS_PASSIVE;
+                }
+
+                else if (R->trec.bits.txwarn)
+                {
+                    ao_can_bus_data_3.transmit_error_state = AO_CAN_BUS_ACTIVE_WARNING;
+                }
+
+                else
+                {
+                    ao_can_bus_data_3.transmit_error_state = AO_CAN_BUS_ACTIVE;
+                }
+
+                ao_can_bus_3(&ao_can_bus_data_3);
+
+                R->intx.bits.cerrif = 0;
 
                 break;
 
 #endif
 
+            // No interrupt.
+
             case 0b1000000:
 
-                // No interrupt.
-
                 break;
+
+            // FIFO.
 
 #if AO_CAN_RX_3
 
@@ -18637,27 +18604,34 @@ void ao_can_ir_3()
 
 #endif
 
-                c1 = PA_TO_KVA1(reg->fifo[i1].ua.reg);
+                M = PA_TO_KVA1(R->fifo[i1].ua.reg);
 
-                c2 = ao_can_in_can_3 + i1 - AO_CAN_FIFOS_TX_3;
+                C = ao_can_in_can_3 + i1 - AO_CAN_FIFOS_TX_3;
 
-                if (reg->fifo[i1].con.bits.donly)
+                C->data = M->data;
+
+                if (R->fifo[i1].con.bits.donly)
                 {
-                    c2->cmsgsid = 0;
-
-                    c2->cmsgeid = 0;
-
-                    c2->data = *((uint64_t *) c1);
+                    C->dlc = 0;
+                    C->eid = 0;
+                    C->ide = 0;
+                    C->rtr = 0;
+                    C->sid = 0;
                 }
 
                 else
                 {
-                    *c2 = *c1;
+                    C->dlc = (uint8_t) M->dlc;
+
+                    C->eid = M->eid;
+                    C->ide = M->ide;
+                    C->rtr = M->rtr;
+                    C->sid = M->sid;
                 }
 
-                if (!c2->ide && c2->srr)
+                if (!M->ide && M->srr)
                 {
-                    c2->rtr = 1;
+                    C->rtr = 1;
                 }
 
                 ao_send_obj_try(ao_can_in_3 + i1 - AO_CAN_FIFOS_TX_3);
@@ -18671,7 +18645,7 @@ void ao_can_ir_3()
                 // Use the SET register operations to change the state
                 // of these bits.
 
-                reg->fifo[i1].con.set = _C3FIFOCON0_UINC_MASK;
+                R->fifo[i1].con.set = _C3FIFOCON0_UINC_MASK;
 
                 break;
 
@@ -18871,37 +18845,31 @@ void ao_can_ir_3()
 
 #endif
 
-                // Fifo.
-
 #if AO_CAN_TXST_3
 
                 if
                 (
-                    reg->fifo[i1].intx.bits.txemptyie &&
-                    reg->fifo[i1].intx.bits.txemptyif
+                    R->fifo[i1].intx.bits.txemptyie &&
+                    R->fifo[i1].intx.bits.txemptyif
                 )
                 {
-                    ao_can_sent_info_3.fifo = i1;
+                    ao_can_sent_3(i1);
 
-                    ao_can_sent_info_3.fifo_tx = i1;
-
-                    ao_can_sent_3(&ao_can_sent_info_3);
-
-                    reg->fifo[i1].intx.bits.txemptyie = 0;
+                    R->fifo[i1].intx.bits.txemptyie = 0;
                 }
 
                 if
                 (
-                    reg->fifo[i1].intx.bits.txnfullie &&
-                    reg->fifo[i1].intx.bits.txnfullif
+                    R->fifo[i1].intx.bits.txnfullie &&
+                    R->fifo[i1].intx.bits.txnfullif
                 )
                 {
 
 #endif
 
-                    ao_cond_set(ao_can_cond_not_full_3 + i1);
+                    ao_cond_true(ao_can_cond_not_full_3 + i1);
 
-                    reg->fifo[i1].intx.bits.txnfullie = 0;
+                    R->fifo[i1].intx.bits.txnfullie = 0;
 
 #if AO_CAN_TXST_3
 
@@ -18913,9 +18881,9 @@ void ao_can_ir_3()
 
 #endif
 
-            default:
+            // This really should not have happend.
 
-                // This really should not have happend.
+            default:
 
                 ao_assert(false);
 
@@ -18931,28 +18899,28 @@ void ao_can_listen_all_3()
 {
     ao_can_var_mode_3 = 7;
 
-    ao_cond_set(&ao_can_cond_change_3);
+    ao_cond_true(&ao_can_cond_change_3);
 }
 
 void ao_can_listen_only_3()
 {
     ao_can_var_mode_3 = 3;
 
-    ao_cond_set(&ao_can_cond_change_3);
+    ao_cond_true(&ao_can_cond_change_3);
 }
 
 void ao_can_loopback_3()
 {
     ao_can_var_mode_3 = 2;
 
-    ao_cond_set(&ao_can_cond_change_3);
+    ao_cond_true(&ao_can_cond_change_3);
 }
 
 void ao_can_normal_3()
 {
     ao_can_var_mode_3 = 0;
 
-    ao_cond_set(&ao_can_cond_change_3);
+    ao_cond_true(&ao_can_cond_change_3);
 }
 
 // ----------------------------------------------------------------------------
@@ -18968,12 +18936,13 @@ void ao_can_started_3()
 
 #if AO_CAN_TX_3
 
-    ao_can_t *      c1;
-    ao_can_t *      c2;
+    ao_can_t * C;
 
-    size_t          i;
+    size_t i;
 
-    ao_can_reg_t *  reg = ao_can_reg_3();
+    ao_can_msg_t * M;
+
+    ao_can_reg_t * R = ao_can_reg_3();
 
 #endif
 
@@ -19039,7 +19008,7 @@ void ao_can_started_3()
 
         else if (ao_can_cond_change_wait_3.result)
         {
-            ao_cond_clear(&ao_can_cond_change_3);
+            ao_cond_false(&ao_can_cond_change_3);
 
             ao_can_change_3(ao_can_var_mode_3);
         }
@@ -19059,11 +19028,9 @@ void ao_can_started_3()
                     ao_can_out_3                [i].result
                 )
                 {
-                    c2 = ao_can_out_can_3 + i;
+                    C = ao_can_out_can_3 + i;
 
-                    c1 = (ao_can_t *) PA_TO_KVA1(reg->fifo[i].ua.reg);
-
-                    *c1 = *c2;
+                    M = (ao_can_msg_t *) PA_TO_KVA1(R->fifo[i].ua.reg);
 
 
                     // DS61154.
@@ -19076,16 +19043,24 @@ void ao_can_started_3()
 
                     // RB0 and RB1 bits must be clear.
 
-                    c1->cmsgeid &= 0x3FFFFE0F;
-                    c1->cmsgsid &= 0x000007FF;
+                    M->cmsgeid = 0;
+                    M->cmsgsid = 0;
+
+
+                    M->data = C->data;
+                    M->dlc  = C->dlc;
+                    M->eid  = C->eid;
+                    M->ide  = C->ide;
+                    M->rtr  = C->rtr;
+                    M->sid  = C->sid;
 
 
                     // In case of an extended message format,
                     // the SRR bit should be set.
 
-                    if (c1->ide)
+                    if (M->ide)
                     {
-                        c1->srr = 1;
+                        M->srr = 1;
                     }
 
 
@@ -19098,25 +19073,24 @@ void ao_can_started_3()
                     // Use the SET register operations to change the state of
                     // these bits.
 
-                    reg->fifo[i].con.set = _C3FIFOCON0_UINC_MASK;
-
+                    R->fifo[i].con.set = _C3FIFOCON0_UINC_MASK;
 
 #if AO_CAN_TXST_3
 
-                    reg->fifo[i].intx.bits.txemptyie = 1;
+                    R->fifo[i].intx.bits.txemptyie = 1;
 
 #endif
 
-                    if (reg->fifo[i].con.bits.rtren == 0)
+                    if (R->fifo[i].con.bits.rtren == 0)
                     {
-                        if (reg->fifo[i].intx.bits.txnfullif == 0)
+                        if (R->fifo[i].intx.bits.txnfullif == 0)
                         {
-                            ao_cond_clear(ao_can_cond_not_full_3 + i);
+                            ao_cond_false(ao_can_cond_not_full_3 + i);
 
-                            reg->fifo[i].intx.bits.txnfullie = 1;
+                            R->fifo[i].intx.bits.txnfullie = 1;
                         }
 
-                        reg->fifo[i].con.set = _C3FIFOCON0_TXREQ_MASK;
+                        R->fifo[i].con.set = _C3FIFOCON0_TXREQ_MASK;
                     }
                 }
             }
@@ -19138,7 +19112,7 @@ void ao_can_starting_3()
 
     ao_can_var_started_3 = true;
 
-    ao_cond_clear(&ao_can_cond_change_3);
+    ao_cond_false(&ao_can_cond_change_3);
 
     mode = ao_can_var_mode_3;
 
@@ -19169,11 +19143,11 @@ void ao_can_task_proc_3(void * x)
 {
     // Variables.
 
-    size_t          i;
+    size_t i;
 
-    ao_can_reg_t *  reg = ao_can_reg_3();
+    ao_can_reg_t * reg = ao_can_reg_3();
 
-    (void)          x;
+    (void) x;
 
 
     // Ready.
@@ -19227,7 +19201,7 @@ void ao_can_task_proc_3(void * x)
 
 #endif
 
-                ao_cond_set(&ao_can_cond_not_full_3[i]);
+                ao_cond_true(&ao_can_cond_not_full_3[i]);
             }
 
             else
@@ -19239,7 +19213,7 @@ void ao_can_task_proc_3(void * x)
 
                 else
                 {
-                    ao_cond_set(&ao_can_cond_not_full_3[i]);
+                    ao_cond_true(&ao_can_cond_not_full_3[i]);
                 }
             }
 
@@ -20926,6 +20900,16 @@ void ao_can_task_proc_3(void * x)
 
 static  void                    ao_can_change_4(    uint32_t mode);
 
+static  void                    ao_can_config_4();
+
+static  void                    ao_can_config_baud_4();
+
+static  void                    ao_can_config_fifos_4();
+
+static  void                    ao_can_config_filter_masks_4();
+
+static  void                    ao_can_config_filters_4();
+
 static  void                    ao_can_started_4();
 
 static  void                    ao_can_starting_4();
@@ -20936,61 +20920,13 @@ static  void                    ao_can_task_proc_4( void * x);
 
 // ----------------------------------------------------------------------------
 
-        ao_can_t                ao_can_buffers_4    [AO_CAN_BUFFERS_4];
+static  ao_can_msg_t            ao_can_buffers_4    [AO_CAN_BUFFERS_4];
 
 // ----------------------------------------------------------------------------
 
 #if AO_CAN_BUS_4
 
-static  ao_can_bus_info_t       ao_can_bus_info_4;
-
-#endif
-
-#if AO_CAN_INVALID_4
-
-static  ao_can_invalid_info_t   ao_can_invalid_info_4;
-
-#endif
-
-#if AO_CAN_MODE_4
-
-static  ao_can_mode_info_t      ao_can_mode_info_4;
-
-#endif
-
-#if AO_CAN_RXOF_4
-
-static  ao_can_overflow_info_t  ao_can_overflow_info_4;
-
-#endif
-
-#if AO_CAN_SYSTEM_4
-
-static  ao_can_system_info_t    ao_can_system_info_4;
-
-#endif
-
-#if AO_CAN_TIMER_4
-
-static  ao_can_timer_info_t     ao_can_timer_info_4;
-
-#endif
-
-#if AO_CAN_TXST_4
-
-static  ao_can_sent_info_t      ao_can_sent_info_4;
-
-#endif
-
-#if AO_CAN_TXUF_4
-
-static  ao_can_underflow_info_t ao_can_underflow_info_4;
-
-#endif
-
-#if AO_CAN_WAKE_UP_4
-
-static  ao_can_wake_up_info_t   ao_can_wake_up_info_4;
+static  ao_can_bus_t            ao_can_bus_data_4;
 
 #endif
 
@@ -22709,7 +22645,7 @@ void ao_can_change_4(uint32_t mode)
     {
         // Request.
 
-        ao_cond_clear(&ao_can_cond_changed_4);
+        ao_cond_false(&ao_can_cond_changed_4);
 
         reg->con.bits.reqop = mode;
 
@@ -22741,7 +22677,6 @@ void ao_can_change_4(uint32_t mode)
 
 // ----------------------------------------------------------------------------
 
-__attribute__ ((weak))
 void ao_can_config_4()
 {
     ao_can_config_baud_4();
@@ -22753,7 +22688,6 @@ void ao_can_config_4()
     ao_can_config_filters_4();
 }
 
-__attribute__ ((weak))
 void ao_can_config_baud_4()
 {
     // Variables.
@@ -22782,7 +22716,6 @@ void ao_can_config_baud_4()
     C4CFG = x.cfg;
 }
 
-__attribute__ ((weak))
 void ao_can_config_fifos_4()
 {
     // Fifo base address.
@@ -22990,7 +22923,6 @@ void ao_can_config_fifos_4()
 
 }
 
-__attribute__ ((weak))
 void ao_can_config_filter_masks_4()
 {
     C4RXM0bits.EID  = AO_CAN_FILTER_MASK_EID_4_0;
@@ -23010,7 +22942,6 @@ void ao_can_config_filter_masks_4()
     C4RXM3bits.SID  = AO_CAN_FILTER_MASK_SID_4_3;
 }
 
-__attribute__ ((weak))
 void ao_can_config_filters_4()
 {
 
@@ -23374,30 +23305,47 @@ void ao_can_ir_4()
 {
     // Variables.
 
-    ao_can_t *          c1;
-    ao_can_t *          c2;
+    uint32_t i1;
 
-    ao_can_fifo_flags_t f;
+    ao_can_reg_t * R = ao_can_reg_4();
 
-    uint32_t            i1;
-    uint32_t            i2;
+#if AO_CAN_RBOV_4
 
-    uint32_t            m;
+    uint32_t i2;
 
-    uint32_t            r;
+    uint32_t m;
 
-    ao_can_reg_t *      reg = ao_can_reg_4();
+    uint32_t r;
 
-    ao_time_t           t;
+#endif
+
+#if AO_CAN_RX_4
+
+    ao_can_t * C;
+
+    ao_can_msg_t * M;
+
+#endif
+
+#if AO_CAN_RXOF_4                                                       ||  \
+    AO_CAN_TXUF_4
+
+    uint32_t f;
+
+#endif
+
+#if AO_CAN_SYSTEM_4
+
+    ao_can_system_t s;
+
+#endif
 
 
     // Ready.
 
     do
     {
-        t = ao_now();
-
-        i1 = reg->vec.bits.icode;
+        i1 = R->vec.bits.icode;
 
         ao_ir_can4_reply();
 
@@ -23406,105 +23354,97 @@ void ao_can_ir_4()
 
 #if AO_CAN_INVALID_4
 
+            // Invalid message received.
+
             case 0b1001000:
 
-                // Invalid message received.
+                ao_can_invalid_4();
 
-                ao_can_invalid_4(&ao_can_invalid_info_4);
-
-                reg->intx.bits.ivrif = 0;
+                R->intx.bits.ivrif = 0;
 
                 break;
 
 #endif
 
-                // Mode changed.
+            // Mode changed.
 
             case 0b1000111:
 
 #if AO_CAN_MODE_4
 
-                ao_can_mode_4(&ao_can_mode_info_4);
+                ao_can_mode_4();
 
 #endif
 
-                ao_cond_set(&ao_can_cond_changed_4);
+                ao_cond_true(&ao_can_cond_changed_4);
 
-                reg->intx.bits.modif = 0;
+                R->intx.bits.modif = 0;
 
                 break;
 
 #if AO_CAN_TIMER_4
 
+            // Timestamp timer overflow.
+
             case 0b1000110:
 
-                // Timer.
+                ao_can_timer_4();
 
-                ao_can_timer_4(&ao_can_timer_info_4);
-
-                reg->intx.bits.ctmrif = 0;
+                R->intx.bits.ctmrif = 0;
 
                 break;
 
 #endif
 
+            // System error.
+
             case 0b1000101:
             case 0b1000100:
 
-                // System error.
-
 #if AO_CAN_SYSTEM_4
 
-                ao_can_system_info_4.flags = (ao_can_system_flags_t) i1;
+                s = (ao_can_system_t) i1;
 
-                ao_can_system_4(&ao_can_system_info_4);
+                ao_can_system_4(s);
 
 #endif
 
-                reg->con.bits.on = 0;
+                R->con.bits.on = 0;
 
-                while (reg->con.bits.canbusy) { }
+                while (R->con.bits.canbusy) { }
 
-                reg->con.bits.on = 1;
+                R->con.bits.on = 1;
 
                 break;
 
 #if AO_CAN_RBOV_4
 
+            // Receive buffer overrun.
+
             case 0b1000011:
 
-                // Receive buffer overrun.
+                r = R->rxovf.reg;
 
-                r = reg->rxovf.reg;
-
-                m = (AO_CAN_FIFOS_TX_4 == 32) ? UINT32_MAX : (1 << AO_CAN_FIFOS_TX_4) - 1;
+                m = ((AO_CAN_FIFOS_TX_4) == 32) ? UINT32_MAX : (1 << (AO_CAN_FIFOS_TX_4)) - 1;
 
 #if AO_CAN_RXOF_4
 
-                f = (ao_can_fifo_flags_t) (r & ~m);
+                f = r & ~m;
 
-                if (f != AO_CAN_FIFO_FLAGS_NONE)
+                if (f)
                 {
-                    ao_can_overflow_info_4.fifos = f;
-
-                    ao_can_overflow_info_4.fifos_rx = (ao_can_fifo_flags_t) ((uint32_t) f >> AO_CAN_FIFOS_TX_4);
-
-                    ao_can_overflow_4(&ao_can_overflow_info_4);
+                    ao_can_overflow_4(f);
                 }
 
 #endif
 
 #if AO_CAN_TXUF_4
 
-                f = (ao_can_fifo_flags_t) (r & m);
+                f = r & m;
 
-                if (f != AO_CAN_FIFO_FLAGS_NONE)
+                if (f)
                 {
-                    ao_can_underflow_info_4.fifos = f;
-
-                    ao_can_underflow_info_4.fifos_tx = f;
-
-                    ao_can_underflow_4(&ao_can_underflow_info_4);
+                    ao_can_underflow_4(f);
                 }
 
 #endif
@@ -23524,7 +23464,7 @@ void ao_can_ir_4()
 
                     r = r & ~m;
 
-                    reg->fifo[i2].intx.bits.rxovflif = 0;
+                    R->fifo[i2].intx.bits.rxovflif = 0;
                 }
 
                 // DS61154.
@@ -23533,7 +23473,7 @@ void ao_can_ir_4()
 
                 // Section 34.3.4    : The CxINT.RBOVIF bit is writable.
 
-                reg->intx.bits.rbovif = 0;
+                R->intx.bits.rbovif = 0;
 
                 break;
 
@@ -23541,13 +23481,13 @@ void ao_can_ir_4()
 
 #if AO_CAN_WAKE_UP_4
 
+            // Wake up.
+
             case 0b1000010:
 
-                // Wake up.
+                ao_can_wake_up_4();
 
-                ao_can_wake_up_4(&ao_can_wake_up_info_4);
-
-                reg->intx.bits.wakif = 0;
+                R->intx.bits.wakif = 0;
 
                 break;
 
@@ -23555,62 +23495,64 @@ void ao_can_ir_4()
 
 #if AO_CAN_BUS_4
 
+            // Bus error.
+
             case 0b1000001:
 
-                // CAN bus error.
+                ao_can_bus_data_4.receive_error_counter = R->trec.bits.rerrcnt;
 
-                ao_can_bus_info_4.receive_error_counter = reg->trec.bits.rerrcnt;
-
-                if (reg->trec.bits.rxbp)
+                if (R->trec.bits.rxbp)
                 {
-                    ao_can_bus_info_4.receive_error_state = AO_CAN_BUS_PASSIVE;
+                    ao_can_bus_data_4.receive_error_state = AO_CAN_BUS_PASSIVE;
                 }
 
-                else if (reg->trec.bits.rxwarn)
+                else if (R->trec.bits.rxwarn)
                 {
-                    ao_can_bus_info_4.receive_error_state = AO_CAN_BUS_ACTIVE_WARNING;
-                }
-
-                else
-                {
-                    ao_can_bus_info_4.receive_error_state = AO_CAN_BUS_ACTIVE;
-                }
-
-                ao_can_bus_info_4.transmit_error_counter = reg->trec.bits.terrcnt;
-
-                if (reg->trec.bits.txbo)
-                {
-                    ao_can_bus_info_4.transmit_error_state = AO_CAN_BUS_OFF;
-                }
-
-                else if (reg->trec.bits.txbp)
-                {
-                    ao_can_bus_info_4.transmit_error_state = AO_CAN_BUS_PASSIVE;
-                }
-
-                else if (reg->trec.bits.txwarn)
-                {
-                    ao_can_bus_info_4.transmit_error_state = AO_CAN_BUS_ACTIVE_WARNING;
+                    ao_can_bus_data_4.receive_error_state = AO_CAN_BUS_ACTIVE_WARNING;
                 }
 
                 else
                 {
-                    ao_can_bus_info_4.transmit_error_state = AO_CAN_BUS_ACTIVE;
+                    ao_can_bus_data_4.receive_error_state = AO_CAN_BUS_ACTIVE;
                 }
 
-                ao_can_bus_4(&ao_can_bus_info_4);
+                ao_can_bus_data_4.transmit_error_counter = R->trec.bits.terrcnt;
 
-                reg->intx.bits.cerrif = 0;
+                if (R->trec.bits.txbo)
+                {
+                    ao_can_bus_data_4.transmit_error_state = AO_CAN_BUS_OFF;
+                }
+
+                else if (R->trec.bits.txbp)
+                {
+                    ao_can_bus_data_4.transmit_error_state = AO_CAN_BUS_PASSIVE;
+                }
+
+                else if (R->trec.bits.txwarn)
+                {
+                    ao_can_bus_data_4.transmit_error_state = AO_CAN_BUS_ACTIVE_WARNING;
+                }
+
+                else
+                {
+                    ao_can_bus_data_4.transmit_error_state = AO_CAN_BUS_ACTIVE;
+                }
+
+                ao_can_bus_4(&ao_can_bus_data_4);
+
+                R->intx.bits.cerrif = 0;
 
                 break;
 
 #endif
 
+            // No interrupt.
+
             case 0b1000000:
 
-                // No interrupt.
-
                 break;
+
+            // FIFO.
 
 #if AO_CAN_RX_4
 
@@ -23806,27 +23748,34 @@ void ao_can_ir_4()
 
 #endif
 
-                c1 = PA_TO_KVA1(reg->fifo[i1].ua.reg);
+                M = PA_TO_KVA1(R->fifo[i1].ua.reg);
 
-                c2 = ao_can_in_can_4 + i1 - AO_CAN_FIFOS_TX_4;
+                C = ao_can_in_can_4 + i1 - AO_CAN_FIFOS_TX_4;
 
-                if (reg->fifo[i1].con.bits.donly)
+                C->data = M->data;
+
+                if (R->fifo[i1].con.bits.donly)
                 {
-                    c2->cmsgsid = 0;
-
-                    c2->cmsgeid = 0;
-
-                    c2->data = *((uint64_t *) c1);
+                    C->dlc = 0;
+                    C->eid = 0;
+                    C->ide = 0;
+                    C->rtr = 0;
+                    C->sid = 0;
                 }
 
                 else
                 {
-                    *c2 = *c1;
+                    C->dlc = (uint8_t) M->dlc;
+
+                    C->eid = M->eid;
+                    C->ide = M->ide;
+                    C->rtr = M->rtr;
+                    C->sid = M->sid;
                 }
 
-                if (!c2->ide && c2->srr)
+                if (!M->ide && M->srr)
                 {
-                    c2->rtr = 1;
+                    C->rtr = 1;
                 }
 
                 ao_send_obj_try(ao_can_in_4 + i1 - AO_CAN_FIFOS_TX_4);
@@ -23840,7 +23789,7 @@ void ao_can_ir_4()
                 // Use the SET register operations to change the state
                 // of these bits.
 
-                reg->fifo[i1].con.set = _C4FIFOCON0_UINC_MASK;
+                R->fifo[i1].con.set = _C4FIFOCON0_UINC_MASK;
 
                 break;
 
@@ -24040,37 +23989,31 @@ void ao_can_ir_4()
 
 #endif
 
-                // Fifo.
-
 #if AO_CAN_TXST_4
 
                 if
                 (
-                    reg->fifo[i1].intx.bits.txemptyie &&
-                    reg->fifo[i1].intx.bits.txemptyif
+                    R->fifo[i1].intx.bits.txemptyie &&
+                    R->fifo[i1].intx.bits.txemptyif
                 )
                 {
-                    ao_can_sent_info_4.fifo = i1;
+                    ao_can_sent_4(i1);
 
-                    ao_can_sent_info_4.fifo_tx = i1;
-
-                    ao_can_sent_4(&ao_can_sent_info_4);
-
-                    reg->fifo[i1].intx.bits.txemptyie = 0;
+                    R->fifo[i1].intx.bits.txemptyie = 0;
                 }
 
                 if
                 (
-                    reg->fifo[i1].intx.bits.txnfullie &&
-                    reg->fifo[i1].intx.bits.txnfullif
+                    R->fifo[i1].intx.bits.txnfullie &&
+                    R->fifo[i1].intx.bits.txnfullif
                 )
                 {
 
 #endif
 
-                    ao_cond_set(ao_can_cond_not_full_4 + i1);
+                    ao_cond_true(ao_can_cond_not_full_4 + i1);
 
-                    reg->fifo[i1].intx.bits.txnfullie = 0;
+                    R->fifo[i1].intx.bits.txnfullie = 0;
 
 #if AO_CAN_TXST_4
 
@@ -24082,9 +24025,9 @@ void ao_can_ir_4()
 
 #endif
 
-            default:
+            // This really should not have happend.
 
-                // This really should not have happend.
+            default:
 
                 ao_assert(false);
 
@@ -24100,28 +24043,28 @@ void ao_can_listen_all_4()
 {
     ao_can_var_mode_4 = 7;
 
-    ao_cond_set(&ao_can_cond_change_4);
+    ao_cond_true(&ao_can_cond_change_4);
 }
 
 void ao_can_listen_only_4()
 {
     ao_can_var_mode_4 = 3;
 
-    ao_cond_set(&ao_can_cond_change_4);
+    ao_cond_true(&ao_can_cond_change_4);
 }
 
 void ao_can_loopback_4()
 {
     ao_can_var_mode_4 = 2;
 
-    ao_cond_set(&ao_can_cond_change_4);
+    ao_cond_true(&ao_can_cond_change_4);
 }
 
 void ao_can_normal_4()
 {
     ao_can_var_mode_4 = 0;
 
-    ao_cond_set(&ao_can_cond_change_4);
+    ao_cond_true(&ao_can_cond_change_4);
 }
 
 // ----------------------------------------------------------------------------
@@ -24137,12 +24080,13 @@ void ao_can_started_4()
 
 #if AO_CAN_TX_4
 
-    ao_can_t *      c1;
-    ao_can_t *      c2;
+    ao_can_t * C;
 
-    size_t          i;
+    size_t i;
 
-    ao_can_reg_t *  reg = ao_can_reg_4();
+    ao_can_msg_t * M;
+
+    ao_can_reg_t * R = ao_can_reg_4();
 
 #endif
 
@@ -24208,7 +24152,7 @@ void ao_can_started_4()
 
         else if (ao_can_cond_change_wait_4.result)
         {
-            ao_cond_clear(&ao_can_cond_change_4);
+            ao_cond_false(&ao_can_cond_change_4);
 
             ao_can_change_4(ao_can_var_mode_4);
         }
@@ -24228,11 +24172,9 @@ void ao_can_started_4()
                     ao_can_out_4                [i].result
                 )
                 {
-                    c2 = ao_can_out_can_4 + i;
+                    C = ao_can_out_can_4 + i;
 
-                    c1 = (ao_can_t *) PA_TO_KVA1(reg->fifo[i].ua.reg);
-
-                    *c1 = *c2;
+                    M = (ao_can_msg_t *) PA_TO_KVA1(R->fifo[i].ua.reg);
 
 
                     // DS61154.
@@ -24245,16 +24187,24 @@ void ao_can_started_4()
 
                     // RB0 and RB1 bits must be clear.
 
-                    c1->cmsgeid &= 0x3FFFFE0F;
-                    c1->cmsgsid &= 0x000007FF;
+                    M->cmsgeid = 0;
+                    M->cmsgsid = 0;
+
+
+                    M->data = C->data;
+                    M->dlc  = C->dlc;
+                    M->eid  = C->eid;
+                    M->ide  = C->ide;
+                    M->rtr  = C->rtr;
+                    M->sid  = C->sid;
 
 
                     // In case of an extended message format,
                     // the SRR bit should be set.
 
-                    if (c1->ide)
+                    if (M->ide)
                     {
-                        c1->srr = 1;
+                        M->srr = 1;
                     }
 
 
@@ -24267,25 +24217,24 @@ void ao_can_started_4()
                     // Use the SET register operations to change the state of
                     // these bits.
 
-                    reg->fifo[i].con.set = _C4FIFOCON0_UINC_MASK;
-
+                    R->fifo[i].con.set = _C4FIFOCON0_UINC_MASK;
 
 #if AO_CAN_TXST_4
 
-                    reg->fifo[i].intx.bits.txemptyie = 1;
+                    R->fifo[i].intx.bits.txemptyie = 1;
 
 #endif
 
-                    if (reg->fifo[i].con.bits.rtren == 0)
+                    if (R->fifo[i].con.bits.rtren == 0)
                     {
-                        if (reg->fifo[i].intx.bits.txnfullif == 0)
+                        if (R->fifo[i].intx.bits.txnfullif == 0)
                         {
-                            ao_cond_clear(ao_can_cond_not_full_4 + i);
+                            ao_cond_false(ao_can_cond_not_full_4 + i);
 
-                            reg->fifo[i].intx.bits.txnfullie = 1;
+                            R->fifo[i].intx.bits.txnfullie = 1;
                         }
 
-                        reg->fifo[i].con.set = _C4FIFOCON0_TXREQ_MASK;
+                        R->fifo[i].con.set = _C4FIFOCON0_TXREQ_MASK;
                     }
                 }
             }
@@ -24307,7 +24256,7 @@ void ao_can_starting_4()
 
     ao_can_var_started_4 = true;
 
-    ao_cond_clear(&ao_can_cond_change_4);
+    ao_cond_false(&ao_can_cond_change_4);
 
     mode = ao_can_var_mode_4;
 
@@ -24338,11 +24287,11 @@ void ao_can_task_proc_4(void * x)
 {
     // Variables.
 
-    size_t          i;
+    size_t i;
 
-    ao_can_reg_t *  reg = ao_can_reg_4();
+    ao_can_reg_t * reg = ao_can_reg_4();
 
-    (void)          x;
+    (void) x;
 
 
     // Ready.
@@ -24396,7 +24345,7 @@ void ao_can_task_proc_4(void * x)
 
 #endif
 
-                ao_cond_set(&ao_can_cond_not_full_4[i]);
+                ao_cond_true(&ao_can_cond_not_full_4[i]);
             }
 
             else
@@ -24408,7 +24357,7 @@ void ao_can_task_proc_4(void * x)
 
                 else
                 {
-                    ao_cond_set(&ao_can_cond_not_full_4[i]);
+                    ao_cond_true(&ao_can_cond_not_full_4[i]);
                 }
             }
 
@@ -24604,8 +24553,6 @@ void ao_can_task_proc_4(void * x)
 // ----------------------------------------------------------------------------
 
 #endif
-
-// ----------------------------------------------------------------------------
 
 #endif
 
@@ -25838,6 +25785,14 @@ static  void    ao_uart_ir_tx_6();
 
 // ----------------------------------------------------------------------------
 
+static  void    ao_uart_baud(               ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f);
+
+static  void    ao_uart_baud_high(          ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f);
+
+static  void    ao_uart_baud_low(           ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f);
+
+// ----------------------------------------------------------------------------
+
 #if defined AO_UART
 
 // ----------------------------------------------------------------------------
@@ -25881,7 +25836,7 @@ void ao_uart_baud(ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f)
 
 #endif
 
-    if (f <= AO_UART_BAUD_LOW_MAX(f_pbclk))
+    if (f <= AO_UART_BAUD_MAX_LO(f_pbclk))
     {
         ao_uart_baud_low(r, f_pbclk, f);
     }
@@ -25900,8 +25855,8 @@ void ao_uart_baud_high(ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f)
 
     ao_assert(f_pbclk > 0);
 
-    ao_assert(f >= AO_UART_BAUD_HIGH_MIN(f_pbclk));
-    ao_assert(f <= AO_UART_BAUD_HIGH_MAX(f_pbclk));
+    ao_assert(f >= AO_UART_BAUD_MIN_HI(f_pbclk));
+    ao_assert(f <= AO_UART_BAUD_MAX_HI(f_pbclk));
 
 
     // Assert.
@@ -26001,8 +25956,8 @@ void ao_uart_baud_low(ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f)
 
     ao_assert(f_pbclk > 0);
 
-    ao_assert(f >= AO_UART_BAUD_LOW_MIN(f_pbclk));
-    ao_assert(f <= AO_UART_BAUD_LOW_MAX(f_pbclk));
+    ao_assert(f >= AO_UART_BAUD_MIN_LO(f_pbclk));
+    ao_assert(f <= AO_UART_BAUD_MAX_LO(f_pbclk));
 
 
     // Variables.
@@ -26045,22 +26000,6 @@ void ao_uart_baud_low(ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f)
 
 // ----------------------------------------------------------------------------
 
-void ao_uart_loopback_disable(ao_uart_reg_t * r)
-{
-    ao_assert(r);
-
-    r->mode.bits.lpback = 0;
-}
-
-void ao_uart_loopback_enable(ao_uart_reg_t * r)
-{
-    ao_assert(r);
-
-    r->mode.bits.lpback = 1;
-}
-
-// ----------------------------------------------------------------------------
-
 #endif
 
 // ----------------------------------------------------------------------------
@@ -26069,61 +26008,11 @@ void ao_uart_loopback_enable(ao_uart_reg_t * r)
 
 // ----------------------------------------------------------------------------
 
-#if AO_UART_ERROR_1
-
-static  ao_uart_error_info_t    ao_uart_error_info_1;
-
-#endif
-
 #if AO_UART_TX_1
 
-static  ao_sem_t                ao_uart_sem_1;
+static  ao_sem_t    ao_uart_sem_1;
 
 #endif
-
-// ----------------------------------------------------------------------------
-
-__attribute__ ((weak))
-void ao_uart_config_1()
-{
-    ao_uart_config_baud_1();
-
-    ao_uart_config_frame_1();
-
-    ao_uart_config_loopback_1();
-}
-
-__attribute__ ((weak))
-void ao_uart_config_baud_1()
-{
-    ao_uart_baud_1(AO_UART_BAUD_1);
-}
-
-__attribute__ ((weak))
-void ao_uart_config_frame_1()
-{
-    ao_uart_reg_t * r = ao_uart_reg_1();
-
-    r->mode.bits.pdsel = AO_UART_DATA_BITS_PARITY_1;
-
-    r->mode.bits.stsel = AO_UART_STOP_BITS_1;
-}
-
-__attribute__ ((weak))
-void ao_uart_config_loopback_1()
-{
-
-#if AO_UART_LOOPBACK_1
-
-    ao_uart_loopback_enable_1();
-
-#else
-
-    ao_uart_loopback_disable_1();
-
-#endif
-
-}
 
 // ----------------------------------------------------------------------------
 
@@ -26136,7 +26025,18 @@ void ao_uart_start_1()
 
     // Ready.
 
-    ao_uart_config_1();
+    ao_uart_baud
+    (
+        r,
+        AO_SYS_CLOCK_UART1,
+        AO_UART_BAUD_1
+    );
+
+    r->mode.bits.pdsel = AO_UART_DATA_BITS_PARITY_1;
+
+    r->mode.bits.stsel = AO_UART_STOP_BITS_1;
+
+    r->mode.bits.lpback = AO_UART_LOOPBACK_1 ? 1 : 0;
 
 #if AO_UART_RX_1
 
@@ -26216,15 +26116,21 @@ void ao_uart_ir_rx_1()
 {
     // Variables.
 
-    uint8_t                 c;
+    uint8_t c;
 
-    size_t                  n;
+#if AO_UART_ERROR_1
 
-    ao_uart_reg_t * const   r = ao_uart_reg_1();
+    ao_uart_error_t e;
 
-    ao_send_t *     const   s = &ao_uart_in_1;
+#endif
 
-    uint32_t                t;
+    size_t n;
+
+    ao_uart_reg_t * const r = ao_uart_reg_1();
+
+    ao_send_t * const s = &ao_uart_in_1;
+
+    uint32_t t;
 
 
     // Ready.
@@ -26235,9 +26141,9 @@ void ao_uart_ir_rx_1()
 
     if (t)
     {
-        ao_uart_error_info_1.flags = (ao_uart_error_flags_t) t;
+        e = (ao_uart_error_t) t;
 
-        ao_uart_error_1(&ao_uart_error_info_1);
+        ao_uart_error_1(e);
     }
 
 #endif
@@ -26256,9 +26162,9 @@ void ao_uart_ir_rx_1()
 
 #if AO_UART_ERROR_1
 
-            ao_uart_error_info_1.flags = (ao_uart_error_flags_t) t;
+            e = (ao_uart_error_t) t;
 
-            ao_uart_error_1(&ao_uart_error_info_1);
+            ao_uart_error_1(e);
 
 #endif
 
@@ -26364,7 +26270,7 @@ static  ao_async_any_t  ao_uart_async_a_1 =
 
 void ao_uart_ir_tx_1()
 {
-    ao_cond_set(&ao_uart_cond_1);
+    ao_cond_true(&ao_uart_cond_1);
 
     ao_ir_u1tx_disable();
 }
@@ -26423,23 +26329,23 @@ void ao_uart_task_proc_1(void * x)
         {
             // Await.
 
-            ao_cond_wait_begin(     cond_wait);
+            ao_cond_wait_begin(cond_wait);
 
-            ao_recv_begin(          out);
+            ao_recv_begin(out);
 
-            ao_async_all_begin(     async_b);
+            ao_async_all_begin(async_b);
 
-            ao_sem_take_begin(      sem_take);
+            ao_sem_take_begin(sem_take);
 
-            ao_await_any_forever(   async_a);
+            ao_await_any_forever(async_a);
 
-            ao_sem_take_end(        sem_take);
+            ao_sem_take_end(sem_take);
 
-            ao_async_all_end(       async_b);
+            ao_async_all_end(async_b);
 
-            ao_recv_end(            out);
+            ao_recv_end(out);
 
-            ao_cond_wait_end(       cond_wait);
+            ao_cond_wait_end(cond_wait);
 
 
             // Stop.
@@ -26492,7 +26398,7 @@ void ao_uart_task_proc_1(void * x)
 
 #endif
 
-                ao_cond_clear(cond);
+                ao_cond_false(cond);
 
                 // DS80000737.
 
@@ -26538,61 +26444,11 @@ void ao_uart_task_proc_1(void * x)
 
 // ----------------------------------------------------------------------------
 
-#if AO_UART_ERROR_2
-
-static  ao_uart_error_info_t    ao_uart_error_info_2;
-
-#endif
-
 #if AO_UART_TX_2
 
-static  ao_sem_t                ao_uart_sem_2;
+static  ao_sem_t    ao_uart_sem_2;
 
 #endif
-
-// ----------------------------------------------------------------------------
-
-__attribute__ ((weak))
-void ao_uart_config_2()
-{
-    ao_uart_config_baud_2();
-
-    ao_uart_config_frame_2();
-
-    ao_uart_config_loopback_2();
-}
-
-__attribute__ ((weak))
-void ao_uart_config_baud_2()
-{
-    ao_uart_baud_2(AO_UART_BAUD_2);
-}
-
-__attribute__ ((weak))
-void ao_uart_config_frame_2()
-{
-    ao_uart_reg_t * r = ao_uart_reg_2();
-
-    r->mode.bits.pdsel = AO_UART_DATA_BITS_PARITY_2;
-
-    r->mode.bits.stsel = AO_UART_STOP_BITS_2;
-}
-
-__attribute__ ((weak))
-void ao_uart_config_loopback_2()
-{
-
-#if AO_UART_LOOPBACK_2
-
-    ao_uart_loopback_enable_2();
-
-#else
-
-    ao_uart_loopback_disable_2();
-
-#endif
-
-}
 
 // ----------------------------------------------------------------------------
 
@@ -26605,7 +26461,18 @@ void ao_uart_start_2()
 
     // Ready.
 
-    ao_uart_config_2();
+    ao_uart_baud
+    (
+        r,
+        AO_SYS_CLOCK_UART2,
+        AO_UART_BAUD_2
+    );
+
+    r->mode.bits.pdsel = AO_UART_DATA_BITS_PARITY_2;
+
+    r->mode.bits.stsel = AO_UART_STOP_BITS_2;
+
+    r->mode.bits.lpback = AO_UART_LOOPBACK_2 ? 1 : 0;
 
 #if AO_UART_RX_2
 
@@ -26685,15 +26552,21 @@ void ao_uart_ir_rx_2()
 {
     // Variables.
 
-    uint8_t                 c;
+    uint8_t c;
 
-    size_t                  n;
+#if AO_UART_ERROR_2
 
-    ao_uart_reg_t * const   r = ao_uart_reg_2();
+    ao_uart_error_t e;
 
-    ao_send_t *     const   s = &ao_uart_in_2;
+#endif
 
-    uint32_t                t;
+    size_t n;
+
+    ao_uart_reg_t * const r = ao_uart_reg_2();
+
+    ao_send_t * const s = &ao_uart_in_2;
+
+    uint32_t t;
 
 
     // Ready.
@@ -26704,9 +26577,9 @@ void ao_uart_ir_rx_2()
 
     if (t)
     {
-        ao_uart_error_info_2.flags = (ao_uart_error_flags_t) t;
+        e = (ao_uart_error_t) t;
 
-        ao_uart_error_2(&ao_uart_error_info_2);
+        ao_uart_error_2(e);
     }
 
 #endif
@@ -26725,9 +26598,9 @@ void ao_uart_ir_rx_2()
 
 #if AO_UART_ERROR_2
 
-            ao_uart_error_info_2.flags = (ao_uart_error_flags_t) t;
+            e = (ao_uart_error_t) t;
 
-            ao_uart_error_2(&ao_uart_error_info_2);
+            ao_uart_error_2(e);
 
 #endif
 
@@ -26833,7 +26706,7 @@ static  ao_async_any_t  ao_uart_async_a_2 =
 
 void ao_uart_ir_tx_2()
 {
-    ao_cond_set(&ao_uart_cond_2);
+    ao_cond_true(&ao_uart_cond_2);
 
     ao_ir_u2tx_disable();
 }
@@ -26892,23 +26765,23 @@ void ao_uart_task_proc_2(void * x)
         {
             // Await.
 
-            ao_cond_wait_begin(     cond_wait);
+            ao_cond_wait_begin(cond_wait);
 
-            ao_recv_begin(          out);
+            ao_recv_begin(out);
 
-            ao_async_all_begin(     async_b);
+            ao_async_all_begin(async_b);
 
-            ao_sem_take_begin(      sem_take);
+            ao_sem_take_begin(sem_take);
 
-            ao_await_any_forever(   async_a);
+            ao_await_any_forever(async_a);
 
-            ao_sem_take_end(        sem_take);
+            ao_sem_take_end(sem_take);
 
-            ao_async_all_end(       async_b);
+            ao_async_all_end(async_b);
 
-            ao_recv_end(            out);
+            ao_recv_end(out);
 
-            ao_cond_wait_end(       cond_wait);
+            ao_cond_wait_end(cond_wait);
 
 
             // Stop.
@@ -26961,13 +26834,13 @@ void ao_uart_task_proc_2(void * x)
 
 #endif
 
-                ao_cond_clear(cond);
+                ao_cond_false(cond);
 
                 // DS80000737.
 
-				// In order to avoid a race condition, the interrupt flag
-				// should be cleared before writing new data to the transmit
-				// register.
+                // In order to avoid a race condition, the interrupt flag
+                // should be cleared before writing new data to the transmit
+                // register.
 
                 ao_ir_u2tx_reply();
 
@@ -27007,61 +26880,11 @@ void ao_uart_task_proc_2(void * x)
 
 // ----------------------------------------------------------------------------
 
-#if AO_UART_ERROR_3
-
-static  ao_uart_error_info_t    ao_uart_error_info_3;
-
-#endif
-
 #if AO_UART_TX_3
 
-static  ao_sem_t                ao_uart_sem_3;
+static  ao_sem_t    ao_uart_sem_3;
 
 #endif
-
-// ----------------------------------------------------------------------------
-
-__attribute__ ((weak))
-void ao_uart_config_3()
-{
-    ao_uart_config_baud_3();
-
-    ao_uart_config_frame_3();
-
-    ao_uart_config_loopback_3();
-}
-
-__attribute__ ((weak))
-void ao_uart_config_baud_3()
-{
-    ao_uart_baud_3(AO_UART_BAUD_3);
-}
-
-__attribute__ ((weak))
-void ao_uart_config_frame_3()
-{
-    ao_uart_reg_t * r = ao_uart_reg_3();
-
-    r->mode.bits.pdsel = AO_UART_DATA_BITS_PARITY_3;
-
-    r->mode.bits.stsel = AO_UART_STOP_BITS_3;
-}
-
-__attribute__ ((weak))
-void ao_uart_config_loopback_3()
-{
-
-#if AO_UART_LOOPBACK_3
-
-    ao_uart_loopback_enable_3();
-
-#else
-
-    ao_uart_loopback_disable_3();
-
-#endif
-
-}
 
 // ----------------------------------------------------------------------------
 
@@ -27074,7 +26897,18 @@ void ao_uart_start_3()
 
     // Ready.
 
-    ao_uart_config_3();
+    ao_uart_baud
+    (
+        r,
+        AO_SYS_CLOCK_UART3,
+        AO_UART_BAUD_3
+    );
+
+    r->mode.bits.pdsel = AO_UART_DATA_BITS_PARITY_3;
+
+    r->mode.bits.stsel = AO_UART_STOP_BITS_3;
+
+    r->mode.bits.lpback = AO_UART_LOOPBACK_3 ? 1 : 0;
 
 #if AO_UART_RX_3
 
@@ -27154,15 +26988,21 @@ void ao_uart_ir_rx_3()
 {
     // Variables.
 
-    uint8_t                 c;
+    uint8_t c;
 
-    size_t                  n;
+#if AO_UART_ERROR_3
 
-    ao_uart_reg_t * const   r = ao_uart_reg_3();
+    ao_uart_error_t e;
 
-    ao_send_t *     const   s = &ao_uart_in_3;
+#endif
 
-    uint32_t                t;
+    size_t n;
+
+    ao_uart_reg_t * const r = ao_uart_reg_3();
+
+    ao_send_t * const s = &ao_uart_in_3;
+
+    uint32_t t;
 
 
     // Ready.
@@ -27173,9 +27013,9 @@ void ao_uart_ir_rx_3()
 
     if (t)
     {
-        ao_uart_error_info_3.flags = (ao_uart_error_flags_t) t;
+        e = (ao_uart_error_t) t;
 
-        ao_uart_error_3(&ao_uart_error_info_3);
+        ao_uart_error_3(e);
     }
 
 #endif
@@ -27194,9 +27034,9 @@ void ao_uart_ir_rx_3()
 
 #if AO_UART_ERROR_3
 
-            ao_uart_error_info_3.flags = (ao_uart_error_flags_t) t;
+            e = (ao_uart_error_t) t;
 
-            ao_uart_error_3(&ao_uart_error_info_3);
+            ao_uart_error_3(e);
 
 #endif
 
@@ -27302,7 +27142,7 @@ static  ao_async_any_t  ao_uart_async_a_3 =
 
 void ao_uart_ir_tx_3()
 {
-    ao_cond_set(&ao_uart_cond_3);
+    ao_cond_true(&ao_uart_cond_3);
 
     ao_ir_u3tx_disable();
 }
@@ -27361,23 +27201,23 @@ void ao_uart_task_proc_3(void * x)
         {
             // Await.
 
-            ao_cond_wait_begin(     cond_wait);
+            ao_cond_wait_begin(cond_wait);
 
-            ao_recv_begin(          out);
+            ao_recv_begin(out);
 
-            ao_async_all_begin(     async_b);
+            ao_async_all_begin(async_b);
 
-            ao_sem_take_begin(      sem_take);
+            ao_sem_take_begin(sem_take);
 
-            ao_await_any_forever(   async_a);
+            ao_await_any_forever(async_a);
 
-            ao_sem_take_end(        sem_take);
+            ao_sem_take_end(sem_take);
 
-            ao_async_all_end(       async_b);
+            ao_async_all_end(async_b);
 
-            ao_recv_end(            out);
+            ao_recv_end(out);
 
-            ao_cond_wait_end(       cond_wait);
+            ao_cond_wait_end(cond_wait);
 
 
             // Stop.
@@ -27430,13 +27270,13 @@ void ao_uart_task_proc_3(void * x)
 
 #endif
 
-                ao_cond_clear(cond);
+                ao_cond_false(cond);
 
                 // DS80000737.
 
-				// In order to avoid a race condition, the interrupt flag
-				// should be cleared before writing new data to the transmit
-				// register.
+                // In order to avoid a race condition, the interrupt flag
+                // should be cleared before writing new data to the transmit
+                // register.
 
                 ao_ir_u3tx_reply();
 
@@ -27476,61 +27316,11 @@ void ao_uart_task_proc_3(void * x)
 
 // ----------------------------------------------------------------------------
 
-#if AO_UART_ERROR_4
-
-static  ao_uart_error_info_t    ao_uart_error_info_4;
-
-#endif
-
 #if AO_UART_TX_4
 
-static  ao_sem_t                ao_uart_sem_4;
+static  ao_sem_t    ao_uart_sem_4;
 
 #endif
-
-// ----------------------------------------------------------------------------
-
-__attribute__ ((weak))
-void ao_uart_config_4()
-{
-    ao_uart_config_baud_4();
-
-    ao_uart_config_frame_4();
-
-    ao_uart_config_loopback_4();
-}
-
-__attribute__ ((weak))
-void ao_uart_config_baud_4()
-{
-    ao_uart_baud_4(AO_UART_BAUD_4);
-}
-
-__attribute__ ((weak))
-void ao_uart_config_frame_4()
-{
-    ao_uart_reg_t * r = ao_uart_reg_4();
-
-    r->mode.bits.pdsel = AO_UART_DATA_BITS_PARITY_4;
-
-    r->mode.bits.stsel = AO_UART_STOP_BITS_4;
-}
-
-__attribute__ ((weak))
-void ao_uart_config_loopback_4()
-{
-
-#if AO_UART_LOOPBACK_4
-
-    ao_uart_loopback_enable_4();
-
-#else
-
-    ao_uart_loopback_disable_4();
-
-#endif
-
-}
 
 // ----------------------------------------------------------------------------
 
@@ -27543,7 +27333,18 @@ void ao_uart_start_4()
 
     // Ready.
 
-    ao_uart_config_4();
+    ao_uart_baud
+    (
+        r,
+        AO_SYS_CLOCK_UART4,
+        AO_UART_BAUD_4
+    );
+
+    r->mode.bits.pdsel = AO_UART_DATA_BITS_PARITY_4;
+
+    r->mode.bits.stsel = AO_UART_STOP_BITS_4;
+
+    r->mode.bits.lpback = AO_UART_LOOPBACK_4 ? 1 : 0;
 
 #if AO_UART_RX_4
 
@@ -27623,15 +27424,21 @@ void ao_uart_ir_rx_4()
 {
     // Variables.
 
-    uint8_t                 c;
+    uint8_t c;
 
-    size_t                  n;
+#if AO_UART_ERROR_4
 
-    ao_uart_reg_t * const   r = ao_uart_reg_4();
+    ao_uart_error_t e;
 
-    ao_send_t *     const   s = &ao_uart_in_4;
+#endif
 
-    uint32_t                t;
+    size_t n;
+
+    ao_uart_reg_t * const r = ao_uart_reg_4();
+
+    ao_send_t * const s = &ao_uart_in_4;
+
+    uint32_t t;
 
 
     // Ready.
@@ -27642,9 +27449,9 @@ void ao_uart_ir_rx_4()
 
     if (t)
     {
-        ao_uart_error_info_4.flags = (ao_uart_error_flags_t) t;
+        e = (ao_uart_error_t) t;
 
-        ao_uart_error_4(&ao_uart_error_info_4);
+        ao_uart_error_4(e);
     }
 
 #endif
@@ -27663,9 +27470,9 @@ void ao_uart_ir_rx_4()
 
 #if AO_UART_ERROR_4
 
-            ao_uart_error_info_4.flags = (ao_uart_error_flags_t) t;
+            e = (ao_uart_error_t) t;
 
-            ao_uart_error_4(&ao_uart_error_info_4);
+            ao_uart_error_4(e);
 
 #endif
 
@@ -27771,7 +27578,7 @@ static  ao_async_any_t  ao_uart_async_a_4 =
 
 void ao_uart_ir_tx_4()
 {
-    ao_cond_set(&ao_uart_cond_4);
+    ao_cond_true(&ao_uart_cond_4);
 
     ao_ir_u4tx_disable();
 }
@@ -27830,23 +27637,23 @@ void ao_uart_task_proc_4(void * x)
         {
             // Await.
 
-            ao_cond_wait_begin(     cond_wait);
+            ao_cond_wait_begin(cond_wait);
 
-            ao_recv_begin(          out);
+            ao_recv_begin(out);
 
-            ao_async_all_begin(     async_b);
+            ao_async_all_begin(async_b);
 
-            ao_sem_take_begin(      sem_take);
+            ao_sem_take_begin(sem_take);
 
-            ao_await_any_forever(   async_a);
+            ao_await_any_forever(async_a);
 
-            ao_sem_take_end(        sem_take);
+            ao_sem_take_end(sem_take);
 
-            ao_async_all_end(       async_b);
+            ao_async_all_end(async_b);
 
-            ao_recv_end(            out);
+            ao_recv_end(out);
 
-            ao_cond_wait_end(       cond_wait);
+            ao_cond_wait_end(cond_wait);
 
 
             // Stop.
@@ -27899,13 +27706,13 @@ void ao_uart_task_proc_4(void * x)
 
 #endif
 
-                ao_cond_clear(cond);
+                ao_cond_false(cond);
 
                 // DS80000737.
 
-				// In order to avoid a race condition, the interrupt flag
-				// should be cleared before writing new data to the transmit
-				// register.
+                // In order to avoid a race condition, the interrupt flag
+                // should be cleared before writing new data to the transmit
+                // register.
 
                 ao_ir_u4tx_reply();
 
@@ -27945,61 +27752,11 @@ void ao_uart_task_proc_4(void * x)
 
 // ----------------------------------------------------------------------------
 
-#if AO_UART_ERROR_5
-
-static  ao_uart_error_info_t    ao_uart_error_info_5;
-
-#endif
-
 #if AO_UART_TX_5
 
-static  ao_sem_t                ao_uart_sem_5;
+static  ao_sem_t    ao_uart_sem_5;
 
 #endif
-
-// ----------------------------------------------------------------------------
-
-__attribute__ ((weak))
-void ao_uart_config_5()
-{
-    ao_uart_config_baud_5();
-
-    ao_uart_config_frame_5();
-
-    ao_uart_config_loopback_5();
-}
-
-__attribute__ ((weak))
-void ao_uart_config_baud_5()
-{
-    ao_uart_baud_5(AO_UART_BAUD_5);
-}
-
-__attribute__ ((weak))
-void ao_uart_config_frame_5()
-{
-    ao_uart_reg_t * r = ao_uart_reg_5();
-
-    r->mode.bits.pdsel = AO_UART_DATA_BITS_PARITY_5;
-
-    r->mode.bits.stsel = AO_UART_STOP_BITS_5;
-}
-
-__attribute__ ((weak))
-void ao_uart_config_loopback_5()
-{
-
-#if AO_UART_LOOPBACK_5
-
-    ao_uart_loopback_enable_5();
-
-#else
-
-    ao_uart_loopback_disable_5();
-
-#endif
-
-}
 
 // ----------------------------------------------------------------------------
 
@@ -28012,7 +27769,18 @@ void ao_uart_start_5()
 
     // Ready.
 
-    ao_uart_config_5();
+    ao_uart_baud
+    (
+        r,
+        AO_SYS_CLOCK_UART5,
+        AO_UART_BAUD_5
+    );
+
+    r->mode.bits.pdsel = AO_UART_DATA_BITS_PARITY_5;
+
+    r->mode.bits.stsel = AO_UART_STOP_BITS_5;
+
+    r->mode.bits.lpback = AO_UART_LOOPBACK_5 ? 1 : 0;
 
 #if AO_UART_RX_5
 
@@ -28092,15 +27860,21 @@ void ao_uart_ir_rx_5()
 {
     // Variables.
 
-    uint8_t                 c;
+    uint8_t c;
 
-    size_t                  n;
+#if AO_UART_ERROR_5
 
-    ao_uart_reg_t * const   r = ao_uart_reg_5();
+    ao_uart_error_t e;
 
-    ao_send_t *     const   s = &ao_uart_in_5;
+#endif
 
-    uint32_t                t;
+    size_t n;
+
+    ao_uart_reg_t * const r = ao_uart_reg_5();
+
+    ao_send_t * const s = &ao_uart_in_5;
+
+    uint32_t t;
 
 
     // Ready.
@@ -28111,9 +27885,9 @@ void ao_uart_ir_rx_5()
 
     if (t)
     {
-        ao_uart_error_info_5.flags = (ao_uart_error_flags_t) t;
+        e = (ao_uart_error_t) t;
 
-        ao_uart_error_5(&ao_uart_error_info_5);
+        ao_uart_error_5(e);
     }
 
 #endif
@@ -28132,9 +27906,9 @@ void ao_uart_ir_rx_5()
 
 #if AO_UART_ERROR_5
 
-            ao_uart_error_info_5.flags = (ao_uart_error_flags_t) t;
+            e = (ao_uart_error_t) t;
 
-            ao_uart_error_5(&ao_uart_error_info_5);
+            ao_uart_error_5(e);
 
 #endif
 
@@ -28240,7 +28014,7 @@ static  ao_async_any_t  ao_uart_async_a_5 =
 
 void ao_uart_ir_tx_5()
 {
-    ao_cond_set(&ao_uart_cond_5);
+    ao_cond_true(&ao_uart_cond_5);
 
     ao_ir_u5tx_disable();
 }
@@ -28299,23 +28073,23 @@ void ao_uart_task_proc_5(void * x)
         {
             // Await.
 
-            ao_cond_wait_begin(     cond_wait);
+            ao_cond_wait_begin(cond_wait);
 
-            ao_recv_begin(          out);
+            ao_recv_begin(out);
 
-            ao_async_all_begin(     async_b);
+            ao_async_all_begin(async_b);
 
-            ao_sem_take_begin(      sem_take);
+            ao_sem_take_begin(sem_take);
 
-            ao_await_any_forever(   async_a);
+            ao_await_any_forever(async_a);
 
-            ao_sem_take_end(        sem_take);
+            ao_sem_take_end(sem_take);
 
-            ao_async_all_end(       async_b);
+            ao_async_all_end(async_b);
 
-            ao_recv_end(            out);
+            ao_recv_end(out);
 
-            ao_cond_wait_end(       cond_wait);
+            ao_cond_wait_end(cond_wait);
 
 
             // Stop.
@@ -28368,13 +28142,13 @@ void ao_uart_task_proc_5(void * x)
 
 #endif
 
-                ao_cond_clear(cond);
+                ao_cond_false(cond);
 
                 // DS80000737.
 
-				// In order to avoid a race condition, the interrupt flag
-				// should be cleared before writing new data to the transmit
-				// register.
+                // In order to avoid a race condition, the interrupt flag
+                // should be cleared before writing new data to the transmit
+                // register.
 
                 ao_ir_u5tx_reply();
 
@@ -28414,61 +28188,11 @@ void ao_uart_task_proc_5(void * x)
 
 // ----------------------------------------------------------------------------
 
-#if AO_UART_ERROR_6
-
-static  ao_uart_error_info_t    ao_uart_error_info_6;
-
-#endif
-
 #if AO_UART_TX_6
 
-static  ao_sem_t                ao_uart_sem_6;
+static  ao_sem_t    ao_uart_sem_6;
 
 #endif
-
-// ----------------------------------------------------------------------------
-
-__attribute__ ((weak))
-void ao_uart_config_6()
-{
-    ao_uart_config_baud_6();
-
-    ao_uart_config_frame_6();
-
-    ao_uart_config_loopback_6();
-}
-
-__attribute__ ((weak))
-void ao_uart_config_baud_6()
-{
-    ao_uart_baud_6(AO_UART_BAUD_6);
-}
-
-__attribute__ ((weak))
-void ao_uart_config_frame_6()
-{
-    ao_uart_reg_t * r = ao_uart_reg_6();
-
-    r->mode.bits.pdsel = AO_UART_DATA_BITS_PARITY_6;
-
-    r->mode.bits.stsel = AO_UART_STOP_BITS_6;
-}
-
-__attribute__ ((weak))
-void ao_uart_config_loopback_6()
-{
-
-#if AO_UART_LOOPBACK_6
-
-    ao_uart_loopback_enable_6();
-
-#else
-
-    ao_uart_loopback_disable_6();
-
-#endif
-
-}
 
 // ----------------------------------------------------------------------------
 
@@ -28481,7 +28205,18 @@ void ao_uart_start_6()
 
     // Ready.
 
-    ao_uart_config_6();
+    ao_uart_baud
+    (
+        r,
+        AO_SYS_CLOCK_UART6,
+        AO_UART_BAUD_6
+    );
+
+    r->mode.bits.pdsel = AO_UART_DATA_BITS_PARITY_6;
+
+    r->mode.bits.stsel = AO_UART_STOP_BITS_6;
+
+    r->mode.bits.lpback = AO_UART_LOOPBACK_6 ? 1 : 0;
 
 #if AO_UART_RX_6
 
@@ -28561,15 +28296,21 @@ void ao_uart_ir_rx_6()
 {
     // Variables.
 
-    uint8_t                 c;
+    uint8_t c;
 
-    size_t                  n;
+#if AO_UART_ERROR_6
 
-    ao_uart_reg_t * const   r = ao_uart_reg_6();
+    ao_uart_error_t e;
 
-    ao_send_t *     const   s = &ao_uart_in_6;
+#endif
 
-    uint32_t                t;
+    size_t n;
+
+    ao_uart_reg_t * const r = ao_uart_reg_6();
+
+    ao_send_t * const s = &ao_uart_in_6;
+
+    uint32_t t;
 
 
     // Ready.
@@ -28580,9 +28321,9 @@ void ao_uart_ir_rx_6()
 
     if (t)
     {
-        ao_uart_error_info_6.flags = (ao_uart_error_flags_t) t;
+        e = (ao_uart_error_t) t;
 
-        ao_uart_error_6(&ao_uart_error_info_6);
+        ao_uart_error_6(e);
     }
 
 #endif
@@ -28601,9 +28342,9 @@ void ao_uart_ir_rx_6()
 
 #if AO_UART_ERROR_6
 
-            ao_uart_error_info_6.flags = (ao_uart_error_flags_t) t;
+            e = (ao_uart_error_t) t;
 
-            ao_uart_error_6(&ao_uart_error_info_6);
+            ao_uart_error_6(e);
 
 #endif
 
@@ -28709,7 +28450,7 @@ static  ao_async_any_t  ao_uart_async_a_6 =
 
 void ao_uart_ir_tx_6()
 {
-    ao_cond_set(&ao_uart_cond_6);
+    ao_cond_true(&ao_uart_cond_6);
 
     ao_ir_u6tx_disable();
 }
@@ -28768,23 +28509,23 @@ void ao_uart_task_proc_6(void * x)
         {
             // Await.
 
-            ao_cond_wait_begin(     cond_wait);
+            ao_cond_wait_begin(cond_wait);
 
-            ao_recv_begin(          out);
+            ao_recv_begin(out);
 
-            ao_async_all_begin(     async_b);
+            ao_async_all_begin(async_b);
 
-            ao_sem_take_begin(      sem_take);
+            ao_sem_take_begin(sem_take);
 
-            ao_await_any_forever(   async_a);
+            ao_await_any_forever(async_a);
 
-            ao_sem_take_end(        sem_take);
+            ao_sem_take_end(sem_take);
 
-            ao_async_all_end(       async_b);
+            ao_async_all_end(async_b);
 
-            ao_recv_end(            out);
+            ao_recv_end(out);
 
-            ao_cond_wait_end(       cond_wait);
+            ao_cond_wait_end(cond_wait);
 
 
             // Stop.
@@ -28837,13 +28578,13 @@ void ao_uart_task_proc_6(void * x)
 
 #endif
 
-                ao_cond_clear(cond);
+                ao_cond_false(cond);
 
                 // DS80000737.
 
-				// In order to avoid a race condition, the interrupt flag
-				// should be cleared before writing new data to the transmit
-				// register.
+                // In order to avoid a race condition, the interrupt flag
+                // should be cleared before writing new data to the transmit
+                // register.
 
                 ao_ir_u6tx_reply();
 

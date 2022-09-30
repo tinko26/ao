@@ -24,13 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Heap.
-
-// ----------------------------------------------------------------------------
-
-// @seeAlso
-
-// https://en.wikipedia.org/wiki/Binary_heap
+// Heaps.
 
 // ----------------------------------------------------------------------------
 
@@ -48,12 +42,20 @@ typedef struct  ao_heap_node_t  ao_heap_node_t;
 
 typedef bool (*                 ao_heap_less_t)
 (
-        ao_heap_node_t *        n1,
+        ao_heap_node_t const *  node1,
 
-        ao_heap_node_t *        n2,
+        ao_heap_node_t const *  node2,
 
         void *                  parameter
 );
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_HEAP
+
+#define AO_HEAP
+
+#endif
 
 // ----------------------------------------------------------------------------
 
@@ -65,9 +67,9 @@ typedef bool (*                 ao_heap_less_t)
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_HEAP
+#ifndef AO_HEAP_T
 
-#define AO_HEAP
+#define AO_HEAP_T
 
 // ----------------------------------------------------------------------------
 
@@ -92,9 +94,9 @@ struct  ao_heap_t
 
 #endif
 
-#ifndef AO_HEAP_NODE
+#ifndef AO_HEAP_NODE_T
 
-#define AO_HEAP_NODE
+#define AO_HEAP_NODE_T
 
 // ----------------------------------------------------------------------------
 
@@ -113,34 +115,30 @@ struct  ao_heap_node_t
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_heap_is_empty
-
-#define ao_heap_is_empty(x)     ((x)->root == NULL ? true : false)
-
-#endif
-
-#ifndef ao_heap_peek
-
-#define ao_heap_peek(x)         ((x)->root)
-
-#endif
+void    ao_heap_assert(         ao_heap_t const * h);
 
 // ----------------------------------------------------------------------------
 
-void    ao_heap_assert(         ao_heap_t * x);
+void    ao_heap_insert(         ao_heap_t * h, ao_heap_node_t * n);
 
 // ----------------------------------------------------------------------------
 
-void    ao_heap_insert(         ao_heap_t * x, ao_heap_node_t * n);
+bool    ao_heap_is_empty(       ao_heap_t const * h);
 
 // ----------------------------------------------------------------------------
 
 ao_heap_node_t *
 
-        ao_heap_pop(            ao_heap_t * x);
+        ao_heap_peek(           ao_heap_t const * h);
 
 // ----------------------------------------------------------------------------
 
-void    ao_heap_remove(         ao_heap_t * x, ao_heap_node_t * n);
+ao_heap_node_t *
+
+        ao_heap_pop(            ao_heap_t * h);
+
+// ----------------------------------------------------------------------------
+
+void    ao_heap_remove(         ao_heap_t * h, ao_heap_node_t * n);
 
 // ----------------------------------------------------------------------------

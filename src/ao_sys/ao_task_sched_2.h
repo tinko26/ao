@@ -26,9 +26,7 @@
 
 // Task scheduler 2.
 
-// This module implements round-robin scheduling with priorities.
-
-// This module supports a single processor.
+// Round-robin scheduling with priorities on a single-core processor.
 
 // ----------------------------------------------------------------------------
 
@@ -82,8 +80,8 @@ typedef     struct  ao_task_slave_t     ao_task_slave_t;
 
 #define     AO_TASK_SUBMISSION                                              \
 (                                                                           \
-            AO_TASK_CEILING             ||                                  \
-            AO_TASK_INHERITANCE                                             \
+            (AO_TASK_CEILING)           ||                                  \
+            (AO_TASK_INHERITANCE)                                           \
 )
 
 #endif
@@ -98,7 +96,7 @@ typedef     struct  ao_task_slave_t     ao_task_slave_t;
 
 #ifndef     AO_TASK_PRIO_MAX
 
-#define     AO_TASK_PRIO_MAX            (AO_UINT_BITS - 1)
+#define     AO_TASK_PRIO_MAX            ((AO_UINT_BITS) - 1)
 
 #endif
 

@@ -26,23 +26,7 @@
 
 // Alarm queue 1.
 
-// This module implements an alarm queue based on a sorted list.
-
-// Time complexities:
-
-// Insert       O(N)
-
-// Peek         O(1)
-
-// Remove       O(1)
-
-// Remove peek  O(1)
-
-// ----------------------------------------------------------------------------
-
-// @seeAlso
-
-// https://en.wikipedia.org/wiki/Linked_list
+// Alarm queue a sorted list.
 
 // ----------------------------------------------------------------------------
 

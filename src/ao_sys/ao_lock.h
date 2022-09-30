@@ -24,37 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Locking.
-
-// This module defines locks.
-
-// Locks are the basic mechanism for system-wide critical sections.
-
-// Locks are used to synchronize access to low-level resources.
-
-// ----------------------------------------------------------------------------
-
-// @example
-
-// @code
-
-/*
-
-    ao_lock_t x;
-
-    ao_lock(&x);
-    {
-        // ...
-
-        // Critical section.
-
-        // ...
-    }
-    ao_unlock(&x);
-
-*/
-
-// @endCode
+// Locks.
 
 // ----------------------------------------------------------------------------
 
@@ -62,9 +32,9 @@ typedef struct  ao_lock_t   ao_lock_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_LOCK
+#ifndef AO_LOCK_T
 
-#define AO_LOCK
+#define AO_LOCK_T
 
 // ----------------------------------------------------------------------------
 
@@ -76,8 +46,8 @@ struct  ao_lock_t           { };
 
 // ----------------------------------------------------------------------------
 
-void    ao_lock(            ao_lock_t * x);
+void    ao_lock(            ao_lock_t * l);
 
-void    ao_unlock(          ao_lock_t * x);
+void    ao_unlock(          ao_lock_t * l);
 
 // ----------------------------------------------------------------------------

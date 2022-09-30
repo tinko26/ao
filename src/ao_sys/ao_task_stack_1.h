@@ -26,6 +26,8 @@
 
 // Task stack 1.
 
+// Task stack from injection.
+
 // ----------------------------------------------------------------------------
 
 #include <stdbool.h>

@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Buffer.
+// Buffers.
 
 // ----------------------------------------------------------------------------
 
@@ -37,6 +37,14 @@ typedef struct  ao_buffer_t                 ao_buffer_t;
 
 // ----------------------------------------------------------------------------
 
+#ifndef AO_BUFFER
+
+#define AO_BUFFER
+
+#endif
+
+// ----------------------------------------------------------------------------
+
 #ifndef AO_BUFFER_COUNT_MAX
 
 #define AO_BUFFER_COUNT_MAX                 (false)
@@ -45,9 +53,9 @@ typedef struct  ao_buffer_t                 ao_buffer_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_BUFFER
+#ifndef AO_BUFFER_T
 
-#define AO_BUFFER
+#define AO_BUFFER_T
 
 // ----------------------------------------------------------------------------
 
@@ -74,60 +82,56 @@ struct  ao_buffer_t
 
 // ----------------------------------------------------------------------------
 
-#ifndef ao_buffer_is_empty
+bool    ao_buffer_is_empty(                 ao_buffer_t const * b);
 
-#define ao_buffer_is_empty(x)               ((x)->count == 0 ? true : false)
-
-#endif
-
-#ifndef ao_buffer_is_full
-
-#define ao_buffer_is_full(x)                ((x)->count == (x)->capacity ? true : false)
-
-#endif
+bool    ao_buffer_is_full(                  ao_buffer_t const * b);
 
 // ----------------------------------------------------------------------------
 
-bool    ao_buffer_peek_back(                ao_buffer_t const * x, void * p);
+bool    ao_buffer_peek_back(                ao_buffer_t const * b, void * p);
 
-bool    ao_buffer_peek_front(               ao_buffer_t const * x, void * p);
-
-// ----------------------------------------------------------------------------
-
-size_t  ao_buffer_peek_range_back(          ao_buffer_t const * x, void * p, size_t n_min, size_t n_max);
-
-size_t  ao_buffer_peek_range_front(         ao_buffer_t const * x, void * p, size_t n_min, size_t n_max);
+bool    ao_buffer_peek_front(               ao_buffer_t const * b, void * p);
 
 // ----------------------------------------------------------------------------
 
-bool    ao_buffer_pop_back(                 ao_buffer_t * x, void * p);
+size_t  ao_buffer_peek_range_back(          ao_buffer_t const * b, void * p, size_t n_min, size_t n_max);
 
-bool    ao_buffer_pop_front(                ao_buffer_t * x, void * p);
-
-// ----------------------------------------------------------------------------
-
-size_t  ao_buffer_pop_range_back(           ao_buffer_t * x, void * p, size_t n_min, size_t n_max);
-
-size_t  ao_buffer_pop_range_front(          ao_buffer_t * x, void * p, size_t n_min, size_t n_max);
+size_t  ao_buffer_peek_range_front(         ao_buffer_t const * b, void * p, size_t n_min, size_t n_max);
 
 // ----------------------------------------------------------------------------
 
-bool    ao_buffer_push_back(                ao_buffer_t * x, void const * p);
+bool    ao_buffer_pop_back(                 ao_buffer_t * b, void * p);
 
-bool    ao_buffer_push_back_override(       ao_buffer_t * x, void const * p);
-
-bool    ao_buffer_push_front(               ao_buffer_t * x, void const * p);
-
-bool    ao_buffer_push_front_override(      ao_buffer_t * x, void const * p);
+bool    ao_buffer_pop_front(                ao_buffer_t * b, void * p);
 
 // ----------------------------------------------------------------------------
 
-size_t  ao_buffer_push_range_back(          ao_buffer_t * x, void const * p, size_t n_min, size_t n_max);
+size_t  ao_buffer_pop_range_back(           ao_buffer_t * b, void * p, size_t n_min, size_t n_max);
 
-size_t  ao_buffer_push_range_back_override( ao_buffer_t * x, void const * p, size_t n_min, size_t n_max);
+size_t  ao_buffer_pop_range_front(          ao_buffer_t * b, void * p, size_t n_min, size_t n_max);
 
-size_t  ao_buffer_push_range_front(         ao_buffer_t * x, void const * p, size_t n_min, size_t n_max);
+// ----------------------------------------------------------------------------
 
-size_t  ao_buffer_push_range_front_override(ao_buffer_t * x, void const * p, size_t n_min, size_t n_max);
+bool    ao_buffer_push_back(                ao_buffer_t * b, void const * p);
+
+bool    ao_buffer_push_front(               ao_buffer_t * b, void const * p);
+
+// ----------------------------------------------------------------------------
+
+bool    ao_buffer_push_back_override(       ao_buffer_t * b, void const * p);
+
+bool    ao_buffer_push_front_override(      ao_buffer_t * b, void const * p);
+
+// ----------------------------------------------------------------------------
+
+size_t  ao_buffer_push_range_back(          ao_buffer_t * b, void const * p, size_t n_min, size_t n_max);
+
+size_t  ao_buffer_push_range_front(         ao_buffer_t * b, void const * p, size_t n_min, size_t n_max);
+
+// ----------------------------------------------------------------------------
+
+size_t  ao_buffer_push_range_back_override( ao_buffer_t * b, void const * p, size_t n_min, size_t n_max);
+
+size_t  ao_buffer_push_range_front_override(ao_buffer_t * b, void const * p, size_t n_min, size_t n_max);
 
 // ----------------------------------------------------------------------------

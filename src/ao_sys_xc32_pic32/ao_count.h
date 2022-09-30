@@ -26,12 +26,6 @@
 
 // Counter.
 
-// This module wraps around a hardware counter incrementing at a constant rate.
-
-// The counter makes up the basis for measuring time.
-
-// The counter and a corresponding interrupt make up the basis for alarms.
-
 // ----------------------------------------------------------------------------
 
 #include <ao_sys.h>

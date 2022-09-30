@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Queue for pointers.
+// Queues for pointers.
 
 // ----------------------------------------------------------------------------
 
@@ -50,6 +50,14 @@ typedef struct  ao_qpop_ptr_t       ao_qpop_ptr_t;
 
 #define AO_QUEUE4PTR
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_QUEUE4PTR_T
+
+#define AO_QUEUE4PTR_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_queue4ptr_t
@@ -67,9 +75,9 @@ struct  ao_queue4ptr_t
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_QINSERT_PTR
+#ifndef AO_QINSERT_PTR_T
 
-#define AO_QINSERT_PTR
+#define AO_QINSERT_PTR_T
 
 // ----------------------------------------------------------------------------
 
@@ -77,11 +85,11 @@ struct  ao_qinsert_ptr_t
 {
         ao_async_t                  async;
 
-        ao_list_node_t              node;
-
         void *                      ptr;
 
         ao_queue4ptr_t *            queue;
+
+        ao_list_node_t              queue_insert_node;
 
         bool            volatile    result;
 };
@@ -90,9 +98,9 @@ struct  ao_qinsert_ptr_t
 
 #endif
 
-#ifndef AO_QPOP_PTR
+#ifndef AO_QPOP_PTR_T
 
-#define AO_QPOP_PTR
+#define AO_QPOP_PTR_T
 
 // ----------------------------------------------------------------------------
 
@@ -100,11 +108,11 @@ struct  ao_qpop_ptr_t
 {
         ao_async_t                  async;
 
-        ao_list_node_t              node;
-
         void *          volatile    ptr;
 
         ao_queue4ptr_t *            queue;
+
+        ao_list_node_t              queue_pop_node;
 
         bool            volatile    result;
 };
@@ -115,56 +123,38 @@ struct  ao_qpop_ptr_t
 
 // ----------------------------------------------------------------------------
 
-void    ao_qinsert_acq(             ao_qinsert_ptr_t * x, ao_time_t timeout);
+void    ao_qinsert_ptr(             ao_qinsert_ptr_t * i, ao_time_t timeout);
 
-void    ao_qinsert_acq_from(        ao_qinsert_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
+void    ao_qinsert_ptr_from(        ao_qinsert_ptr_t * i, ao_time_t timeout, ao_time_t beginning);
 
-void    ao_qinsert_acq_forever(     ao_qinsert_ptr_t * x);
-
-// ----------------------------------------------------------------------------
-
-void    ao_qinsert_acq_try(         ao_qinsert_ptr_t * x);
+void    ao_qinsert_ptr_forever(     ao_qinsert_ptr_t * i);
 
 // ----------------------------------------------------------------------------
 
-void    ao_qinsert_acq_begin(       ao_qinsert_ptr_t * x);
-
-void    ao_qinsert_acq_end(         ao_qinsert_ptr_t * x);
+void    ao_qinsert_ptr_try(         ao_qinsert_ptr_t * i);
 
 // ----------------------------------------------------------------------------
 
-void    ao_qinsert_ptr(             ao_qinsert_ptr_t * x, ao_time_t timeout);
+void    ao_qinsert_ptr_begin(       ao_qinsert_ptr_t * i);
 
-void    ao_qinsert_ptr_from(        ao_qinsert_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
-
-void    ao_qinsert_ptr_forever(     ao_qinsert_ptr_t * x);
+void    ao_qinsert_ptr_end(         ao_qinsert_ptr_t * i);
 
 // ----------------------------------------------------------------------------
 
-void    ao_qinsert_ptr_try(         ao_qinsert_ptr_t * x);
+void    ao_qpop_ptr(                ao_qpop_ptr_t * p, ao_time_t timeout);
+
+void    ao_qpop_ptr_from(           ao_qpop_ptr_t * p, ao_time_t timeout, ao_time_t beginning);
+
+void    ao_qpop_ptr_forever(        ao_qpop_ptr_t * p);
 
 // ----------------------------------------------------------------------------
 
-void    ao_qinsert_ptr_begin(       ao_qinsert_ptr_t * x);
-
-void    ao_qinsert_ptr_end(         ao_qinsert_ptr_t * x);
+void    ao_qpop_ptr_try(            ao_qpop_ptr_t * p);
 
 // ----------------------------------------------------------------------------
 
-void    ao_qpop_ptr(                ao_qpop_ptr_t * x, ao_time_t timeout);
+void    ao_qpop_ptr_begin(          ao_qpop_ptr_t * p);
 
-void    ao_qpop_ptr_from(           ao_qpop_ptr_t * x, ao_time_t timeout, ao_time_t beginning);
-
-void    ao_qpop_ptr_forever(        ao_qpop_ptr_t * x);
-
-// ----------------------------------------------------------------------------
-
-void    ao_qpop_ptr_try(            ao_qpop_ptr_t * x);
-
-// ----------------------------------------------------------------------------
-
-void    ao_qpop_ptr_begin(          ao_qpop_ptr_t * x);
-
-void    ao_qpop_ptr_end(            ao_qpop_ptr_t * x);
+void    ao_qpop_ptr_end(            ao_qpop_ptr_t * p);
 
 // ----------------------------------------------------------------------------

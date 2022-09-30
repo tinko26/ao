@@ -33,21 +33,17 @@
 
 // ----------------------------------------------------------------------------
 
-// Clears a variable of type #t pointed to by #p.
-
 #ifndef ao_clear
 
-#define ao_clear(p, t)      ao_memset(p, 0, sizeof(t))
+#define ao_clear(p, t)      ao_mem_set(p, 0, sizeof(t))
 
 #endif
 
 // ----------------------------------------------------------------------------
 
-// Copies a variable of type #t from #s to #d.
-
 #ifndef ao_copy
 
-#define ao_copy(d, s, t)    ao_memcpy(d, s, sizeof(t))
+#define ao_copy(d, s, t)    ao_mem_copy(d, s, sizeof(t))
 
 #endif
 

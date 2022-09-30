@@ -87,9 +87,9 @@ typedef struct  ao_spi_reg_stat_t       ao_spi_reg_stat_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_SPI_REG_BRG
+#ifndef AO_SPI_REG_BRG_T
 
-#define AO_SPI_REG_BRG
+#define AO_SPI_REG_BRG_T
 
 // ----------------------------------------------------------------------------
 
@@ -117,9 +117,9 @@ struct  ao_spi_reg_brg_t
 
 #endif
 
-#ifndef AO_SPI_REG_BUF
+#ifndef AO_SPI_REG_BUF_T
 
-#define AO_SPI_REG_BUF
+#define AO_SPI_REG_BUF_T
 
 // ----------------------------------------------------------------------------
 
@@ -147,9 +147,9 @@ struct  ao_spi_reg_buf_t
 
 #endif
 
-#ifndef AO_SPI_REG_CON
+#ifndef AO_SPI_REG_CON_T
 
-#define AO_SPI_REG_CON
+#define AO_SPI_REG_CON_T
 
 // ----------------------------------------------------------------------------
 
@@ -223,9 +223,9 @@ struct  ao_spi_reg_con_t
 
 #endif
 
-#ifndef AO_SPI_REG_CON2
+#ifndef AO_SPI_REG_CON2_T
 
-#define AO_SPI_REG_CON2
+#define AO_SPI_REG_CON2_T
 
 // ----------------------------------------------------------------------------
 
@@ -275,9 +275,9 @@ struct  ao_spi_reg_con2_t
 
 #endif
 
-#ifndef AO_SPI_REG_STAT
+#ifndef AO_SPI_REG_STAT_T
 
-#define AO_SPI_REG_STAT
+#define AO_SPI_REG_STAT_T
 
 // ----------------------------------------------------------------------------
 
@@ -335,9 +335,9 @@ struct  ao_spi_reg_stat_t
 
 #endif
 
-#ifndef AO_SPI_REG
+#ifndef AO_SPI_REG_T
 
-#define AO_SPI_REG
+#define AO_SPI_REG_T
 
 // ----------------------------------------------------------------------------
 

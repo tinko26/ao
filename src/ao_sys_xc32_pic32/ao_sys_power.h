@@ -24,32 +24,20 @@
 
 // ----------------------------------------------------------------------------
 
-// Power-saving modes.
+// System power-saving modes.
 
 // ----------------------------------------------------------------------------
 
-// @seeAlso
+void    ao_sys_idle();
 
-// Microchip. PIC32 Family Reference Manual. Section 10.
+void    ao_sys_sleep();
 
-// DS61130.
-
-// ----------------------------------------------------------------------------
-
-// Enter idle or sleep mode, respectively.
-
-void ao_sys_idle();
-
-void ao_sys_sleep();
-
-void ao_sys_wait();
+void    ao_sys_wait();
 
 // ----------------------------------------------------------------------------
 
-// Enter idle or sleep mode, respectively, when a wait instruction is executed.
+void    ao_sys_wait_idle();
 
-void ao_sys_wait_idle();
-
-void ao_sys_wait_sleep();
+void    ao_sys_wait_sleep();
 
 // ----------------------------------------------------------------------------

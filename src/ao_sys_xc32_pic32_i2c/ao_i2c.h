@@ -85,9 +85,9 @@ typedef struct  ao_i2c_reg_trn_t        ao_i2c_reg_trn_t;
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_I2C_REG_ADD
+#ifndef AO_I2C_REG_ADD_T
 
-#define AO_I2C_REG_ADD
+#define AO_I2C_REG_ADD_T
 
 // ----------------------------------------------------------------------------
 
@@ -115,9 +115,9 @@ struct  ao_i2c_reg_add_t
 
 #endif
 
-#ifndef AO_I2C_REG_BRG
+#ifndef AO_I2C_REG_BRG_T
 
-#define AO_I2C_REG_BRG
+#define AO_I2C_REG_BRG_T
 
 // ----------------------------------------------------------------------------
 
@@ -145,9 +145,9 @@ struct  ao_i2c_reg_brg_t
 
 #endif
 
-#ifndef AO_I2C_REG_CON
+#ifndef AO_I2C_REG_CON_T
 
-#define AO_I2C_REG_CON
+#define AO_I2C_REG_CON_T
 
 // ----------------------------------------------------------------------------
 
@@ -219,9 +219,9 @@ struct  ao_i2c_reg_con_t
 
 #endif
 
-#ifndef AO_I2C_REG_MSK
+#ifndef AO_I2C_REG_MSK_T
 
-#define AO_I2C_REG_MSK
+#define AO_I2C_REG_MSK_T
 
 // ----------------------------------------------------------------------------
 
@@ -249,9 +249,9 @@ struct  ao_i2c_reg_msk_t
 
 #endif
 
-#ifndef AO_I2C_REG_RCV
+#ifndef AO_I2C_REG_RCV_T
 
-#define AO_I2C_REG_RCV
+#define AO_I2C_REG_RCV_T
 
 // ----------------------------------------------------------------------------
 
@@ -273,9 +273,9 @@ struct  ao_i2c_reg_rcv_t
 
 #endif
 
-#ifndef AO_I2C_REG_STAT
+#ifndef AO_I2C_REG_STAT_T
 
-#define AO_I2C_REG_STAT
+#define AO_I2C_REG_STAT_T
 
 // ----------------------------------------------------------------------------
 
@@ -331,9 +331,9 @@ struct  ao_i2c_reg_stat_t
 
 #endif
 
-#ifndef AO_I2C_REG_TRN
+#ifndef AO_I2C_REG_TRN_T
 
-#define AO_I2C_REG_TRN
+#define AO_I2C_REG_TRN_T
 
 // ----------------------------------------------------------------------------
 
@@ -361,9 +361,9 @@ struct  ao_i2c_reg_trn_t
 
 #endif
 
-#ifndef AO_I2C_REG
+#ifndef AO_I2C_REG_T
 
-#define AO_I2C_REG
+#define AO_I2C_REG_T
 
 // ----------------------------------------------------------------------------
 

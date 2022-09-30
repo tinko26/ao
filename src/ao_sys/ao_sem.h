@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// Counting semaphore.
+// Counting semaphores.
 
 // ----------------------------------------------------------------------------
 
@@ -46,22 +46,30 @@ typedef struct  ao_sem_take_t   ao_sem_take_t;
 
 #define AO_SEM
 
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_SEM_T
+
+#define AO_SEM_T
+
 // ----------------------------------------------------------------------------
 
 struct  ao_sem_t
 {
         ao_uint_t               count;
 
-        ao_list_t               list;
+        ao_list_t               take;
 };
 
 // ----------------------------------------------------------------------------
 
 #endif
 
-#ifndef AO_SEM_TAKE
+#ifndef AO_SEM_TAKE_T
 
-#define AO_SEM_TAKE
+#define AO_SEM_TAKE_T
 
 // ----------------------------------------------------------------------------
 
@@ -71,11 +79,11 @@ struct  ao_sem_take_t
 
         ao_uint_t               count;
 
-        ao_list_node_t          node;
-
         bool        volatile    result;
 
         ao_sem_t *              sem;
+
+        ao_list_node_t          sem_take_node;
 };
 
 // ----------------------------------------------------------------------------
@@ -84,24 +92,24 @@ struct  ao_sem_take_t
 
 // ----------------------------------------------------------------------------
 
-void    ao_sem_give(            ao_sem_t * x, ao_uint_t count);
+void    ao_sem_give(            ao_sem_t * s, ao_uint_t count);
 
 // ----------------------------------------------------------------------------
 
-bool    ao_sem_take(            ao_sem_t * x, ao_uint_t count, ao_time_t timeout);
+bool    ao_sem_take(            ao_sem_t * s, ao_uint_t count, ao_time_t timeout);
 
-bool    ao_sem_take_from(       ao_sem_t * x, ao_uint_t count, ao_time_t timeout, ao_time_t beginning);
+bool    ao_sem_take_from(       ao_sem_t * s, ao_uint_t count, ao_time_t timeout, ao_time_t beginning);
 
-bool    ao_sem_take_forever(    ao_sem_t * x, ao_uint_t count);
-
-// ----------------------------------------------------------------------------
-
-bool    ao_sem_take_try(        ao_sem_t * x, ao_uint_t count);
+bool    ao_sem_take_forever(    ao_sem_t * s, ao_uint_t count);
 
 // ----------------------------------------------------------------------------
 
-void    ao_sem_take_begin(      ao_sem_take_t * x);
+bool    ao_sem_take_try(        ao_sem_t * s, ao_uint_t count);
 
-void    ao_sem_take_end(        ao_sem_take_t * x);
+// ----------------------------------------------------------------------------
+
+void    ao_sem_take_begin(      ao_sem_take_t * t);
+
+void    ao_sem_take_end(        ao_sem_take_t * t);
 
 // ----------------------------------------------------------------------------
