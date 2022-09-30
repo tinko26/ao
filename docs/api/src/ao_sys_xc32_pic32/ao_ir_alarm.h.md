@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-26
+date: 2022-09-30
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_ir_alarm.h/
 toc: true
@@ -23,7 +23,7 @@ This module declares functions for controlling the alarm interrupt as well as a 
 void ao_ir_alarm();
 ```
 
-The callback for the interrupt handler. Actually, this function is implemented by the [`ao_alarm.h`](../ao_sys/ao_alarm.h.md) module.
+Notifies the kernel of an expired alarm. This function is the callback for the alarm interrupt handler. It is implemented by the [`ao_alarm.h`](../ao_sys/ao_alarm.h.md) module.
 
 ## `ao_ir_alarm_enable`
 ## `ao_ir_alarm_disable`

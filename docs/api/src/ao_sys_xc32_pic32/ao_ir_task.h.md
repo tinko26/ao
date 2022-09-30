@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-26
+date: 2022-09-30
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32/ao_ir_task.h/
 toc: true
@@ -22,7 +22,7 @@ This module declares functions for controlling the task interrupts as well as a 
 void ao_ir_task();
 ```
 
-The callback for the interrupt handlers. Actually, this function is implemented by the [`ao_task_sched.h`](../ao_sys/ao_task_sched.h.md) module.
+Notifies the kernel of a task switch. This function is the callback for the task interrupt handlers. It is implemented by the [`ao_task_sched.h`](../ao_sys/ao_task_sched.h.md) module.
 
 ## `ao_ir_task_enable`
 ## `ao_ir_task_disable`
