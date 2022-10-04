@@ -575,6 +575,7 @@
 /time/ : "Time in the ao real-time operating system."
 /timers/ : "Timers in the ao real-time operating system."
 /timing/ : "Timing in the ao real-time operating system."
+/topics/ : "Topics."
 /usage/ : "Usage of the ao real-time operating system."
 /user-mode/ : "User mode in the ao real-time operating system."
 /variables/ : "Variables in the ao real-time operating system."

@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-09
+date: 2022-10-04
 draft: true
 permalink: /
 toc: false
@@ -8,16 +8,7 @@ toc: false
 
 # Overview
 
-- [Buffers](buffers.md)
-- [Critical sections](critical-sections.md)
-- [Debugging](debugging.md)
-- [Heaps](heaps.md)
-- [Interrupts](interrupts.md)
-- [Priority queues](priority-queues.md)
-- [Receiving](receiving.md)
-- [Spinning](spinning.md)
-- [Time](time.md)
-- [Timers](timers.md)
+[API](api/index.md)
 
 <!--
 
