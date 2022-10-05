@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-30
+date: 2022-10-04
 draft: true
 permalink: /api/src/ao_sys/ao_ir_task.h/
 toc: true
@@ -24,7 +24,7 @@ The port must implement the necessary interrupt handlers, which in turn must exe
 ## `ao_ir_task`
 
 ```c
-void ao_ir_task();
+void ao_ir_task(ao_core_t c);
 ```
 
 Notifies the kernel of a task switch. This function is the callback for the task interrupt handlers. It is implemented by the [`ao_task_sched.h`](ao_task_sched.h.md) module.
