@@ -289,9 +289,9 @@ struct ao_mikroe_1877_data_accelerometer_t
 ```
 
 | `shake_detected` | |
-| `x` | |
-| `y` | |
-| `z` | |
+| `x` | +- 2 g |
+| `y` | +- 2 g |
+| `z` | +- 2 g |
 
 ## `ao_mikroe_1877_data_gyroscope_t`
 
@@ -306,9 +306,9 @@ struct ao_mikroe_1877_data_gyroscope_t
 ```
 
 | `shake_detected` | |
-| `x` | |
-| `y` | |
-| `z` | |
+| `x` | +- 2000°/s |
+| `y` | +- 2000°/s |
+| `z` | +- 2000°/s |
 
 ## `ao_mikroe_1877_data_inclinometer_t`
 
@@ -321,9 +321,9 @@ struct ao_mikroe_1877_data_inclinometer_t
 };
 ```
 
-| `x` | |
-| `y` | |
-| `z` | |
+| `x` | Pitch -180° ... 180° |
+| `y` | Roll -90° ... 90° |
+| `z` | Yaw 0° ... 360° |
 
 ## `ao_mikroe_1877_data_magnetometer_t`
 
@@ -337,10 +337,10 @@ struct ao_mikroe_1877_data_magnetometer_t
 };
 ```
 
-| `heading` | |
-| `x` | |
-| `y` | |
-| `z` | |
+| `heading` | North 0° ... 360° |
+| `x` | +- 1300 µT |
+| `y` | +- 1300 µT |
+| `z` | +- 2500 µT |
 
 ## `ao_mikroe_1877_data_orientation_t`
 
@@ -354,10 +354,10 @@ struct ao_mikroe_1877_data_orientation_t
 };
 ```
 
-| `w` | |
-| `x` | |
-| `y` | |
-| `z` | |
+| `w` | Quaternion real +- 1 |
+| `x` | Quaternion i    +- 1 |
+| `y` | Quaternion j    +- 1 |
+| `z` | Quaternion k    +- 1 |
 
 ## `ao_mikroe_1877_info_t`
 
