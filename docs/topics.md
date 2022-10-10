@@ -1,9 +1,9 @@
 ---
 author: "Stefan Wagner"
-date: 2022-10-04
+date: 2022-10-10
 draft: true
 permalink: /topics/
-toc: true
+toc: false
 ---
 
 # A
