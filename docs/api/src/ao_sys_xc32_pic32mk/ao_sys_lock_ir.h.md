@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-25
+date: 2022-10-10
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mk/ao_sys_lock_ir.h/
 toc: true
@@ -40,7 +40,18 @@ ao_sys_unlock_ir(x);
 ## `ao_sys_lock_ir`
 
 ```c
-uint32_t ao_sys_lock_ir(uint32_t p);
+#define ao_sys_lock_ir(p)              \
+({                                     \
+    uint32_t x0 = _CP0_GET_VIEW_IPL(); \
+    uint32_t x1 = (p) << 2;            \
+                                       \
+    if (x0 < x1)                       \
+    {                                  \
+        _CP0_SET_VIEW_IPL(x1);         \
+    }                                  \
+                                       \
+    x0;                                \
+})
 ```
 
 Enters a critical section. This function disables all interrupts whose priority is not greater than `p` by manipulating the `Status.IPL` bits.
@@ -48,7 +59,10 @@ Enters a critical section. This function disables all interrupts whose priority 
 ## `ao_sys_unlock_ir`
 
 ```c
-void ao_sys_unlock_ir(uint32_t x);
+#define ao_sys_unlock_ir(x) \
+{                           \
+    _CP0_SET_VIEW_IPL(x);   \
+}
 ```
 
 Exits a critical section. This function restores the previous value of the `Status.IPL` bits.
