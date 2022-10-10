@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-27
+date: 2022-10-10
 draft: false
 permalink: /api/src/ao/
 toc: true
@@ -10,7 +10,7 @@ wide: false
 # Files
 
 | [`ao_align.h`](ao_align.h.md) | Memory alignment |
-| [`ao_assert.h`](ao_assert.h.md) | Runtime assertions |
+| [`ao_assert.h`](ao_assert.h.md) | Assertions |
 | [`ao_avl.h`](ao_avl.h.md) | AVL trees |
 | [`ao_break.h`](ao_break.h.md) | Breakpoints |
 | [`ao_buffer.h`](ao_buffer.h.md) | Buffers |

@@ -85,7 +85,7 @@
 /api/src/ : ""
 /api/src/ao/ : "Environment"
 /api/src/ao/ao_align.h/ : "Memory alignment"
-/api/src/ao/ao_assert.h/ : "Runtime assertions"
+/api/src/ao/ao_assert.h/ : "Assertions"
 /api/src/ao/ao_avl.h/ : "AVL trees"
 /api/src/ao/ao_break.h/ : "Breakpoints"
 /api/src/ao/ao_buffer.h/ : "Buffers"
