@@ -2,7 +2,7 @@
 author: "Stefan Wagner"
 date: 2022-10-13
 draft: true
-permalink: /api/src/ao_sys_xc32_pic32mx_1xx_xlp/ao_spi.h/
+permalink: /api/src/ao_sys_xc32_pic32mx_120/ao_spi.h/
 toc: true
 ---
 
@@ -15,7 +15,7 @@ toc: true
 ## `AO_SPI_BRG_BITS`
 
 ```c
-#define AO_SPI_BRG_BITS (13)
+#define AO_SPI_BRG_BITS (9)
 ```
 
 The size of the `SPIxBRG.BRG` field, in bits.

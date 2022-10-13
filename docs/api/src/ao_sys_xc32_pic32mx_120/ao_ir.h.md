@@ -1,8 +1,8 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-10-13
 draft: true
-permalink: /api/src/ao_sys_xc32_pic32mx_1xx_xlp/ao_ir.h/
+permalink: /api/src/ao_sys_xc32_pic32mx_120/ao_ir.h/
 toc: true
 ---
 
@@ -12,6 +12,7 @@ This module gathers interrupt-related functions.
 
 # Include
 
+| [`ao_ir_can.h`](ao_ir_can.h.md) |
 | [`ao_ir_cs.h`](ao_ir_cs.h.md) |
 | [`ao_ir_ct.h`](ao_ir_ct.h.md) |
 | [`ao_ir_int.h`](ao_ir_int.h.md) |

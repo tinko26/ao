@@ -1,11 +1,11 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-10-13
 draft: false
 external:
-- https://microchip.com/DS60001404 : "PIC32MX1XX/2XX 28/44-Pin XLP Family Data sheet"
-- https://microchip.com/DS80000739 : "PIC32MX1XX/2XX 28/44-Pin XLP Family Errata"
-permalink: /api/src/ao_sys_xc32_pic32mx_1xx_xlp/
+- https://microchip.com/DS60001290 : "PIC32MX1XX/2XX/5XX 64/100-Pin Family Data sheet"
+- https://microchip.com/DS80000616 : "PIC32MX1XX/2XX/5XX 64/100-Pin Family Errata"
+permalink: /api/src/ao_sys_xc32_pic32mx_120/
 toc: true
 wide: false
 ---
@@ -15,6 +15,7 @@ wide: false
 | [`ao_boot.h`](ao_boot.h.md) | Booting |
 | [`ao_i2c.h`](ao_i2c.h.md) | I²C |
 | [`ao_ir.h`](ao_ir.h.md) | Interrupts |
+| [`ao_ir_can.h`](ao_ir_can.h.md) | CAN interrupts |
 | [`ao_ir_cs.h`](ao_ir_cs.h.md) | Core software interrupts |
 | [`ao_ir_ct.h`](ao_ir_ct.h.md) | Core timer interrupt |
 | [`ao_ir_int.h`](ao_ir_int.h.md) | External interrupts |

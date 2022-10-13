@@ -2,7 +2,7 @@
 author: "Stefan Wagner"
 date: 2022-10-13
 draft: true
-permalink: /api/src/ao_sys_xc32_pic32mx_1xx_64_100/ao_i2c.h/
+permalink: /api/src/ao_sys_xc32_pic32mx_154/ao_i2c.h/
 toc: true
 ---
 

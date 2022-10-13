@@ -1,8 +1,8 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-25
+date: 2022-10-13
 draft: true
-permalink: /api/src/ao_sys_xc32_pic32mx_1xx_64_100/ao_ir_int.h/
+permalink: /api/src/ao_sys_xc32_pic32mx_120/ao_ir_int.h/
 toc: true
 ---
 

@@ -18,9 +18,9 @@ wide: true
 | [`ao_sys_xc32_pic32mk_gpg`](ao_sys_xc32_pic32mk_gpg/index.md) | PIC32MK General Purpose and Motor Control (GPG / MCJ) with CAN FD Family |
 | [`ao_sys_xc32_pic32mk_gpk`](ao_sys_xc32_pic32mk_gpk/index.md) | PIC32MK General Purpose and Motor Control (GPK / MCM) with CAN FD Family |
 | [`ao_sys_xc32_pic32mx`](ao_sys_xc32_pic32mx/index.md) | PIC32MX |
+| [`ao_sys_xc32_pic32mx_120`](ao_sys_xc32_pic32mx_120/index.md) | PIC32MX1XX / 2XX / 5XX 64 / 100-Pin Family |
+| [`ao_sys_xc32_pic32mx_154`](ao_sys_xc32_pic32mx_154/index.md) | PIC32MX1XX / 2XX 28 / 44-Pin XLP Family |
 | [`ao_sys_xc32_pic32mx_1xx`](ao_sys_xc32_pic32mx_1xx/index.md) | PIC32MX1XX / 2XX 28 / 36 / 44-Pin Family |
-| [`ao_sys_xc32_pic32mx_1xx_64_100`](ao_sys_xc32_pic32mx_1xx_64_100/index.md) | PIC32MX1XX / 2XX / 5XX 64 / 100-Pin Family |
-| [`ao_sys_xc32_pic32mx_1xx_xlp`](ao_sys_xc32_pic32mx_1xx_xlp/index.md) | PIC32MX1XX / 2XX 28 / 44-Pin XLP Family |
 | [`ao_sys_xc32_pic32mx_330`](ao_sys_xc32_pic32mx_330/index.md) | PIC32MX330 / 350 / 370 / 430 / 450 / 470 Family |
 | [`ao_sys_xc32_pic32mx_3xx`](ao_sys_xc32_pic32mx_3xx/index.md) | PIC32MX3XX / 4XX Family |
 | [`ao_sys_xc32_pic32mx_5xx`](ao_sys_xc32_pic32mx_5xx/index.md) | PIC32MX5XX / 6XX / 7XX Family |

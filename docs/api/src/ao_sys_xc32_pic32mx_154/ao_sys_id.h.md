@@ -1,12 +1,12 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-25
+date: 2022-10-13
 draft: true
 external:
 - https://microchip.com/DS60001145 : "PIC32 Flash Programming Specification"
 - https://microchip.com/DS60001404 : "PIC32MX1XX/2XX 28/44-Pin XLP Family Data sheet"
 - https://microchip.com/DS80000739 : "PIC32MX1XX/2XX 28/44-Pin XLP Family Errata"
-permalink: /api/src/ao_sys_xc32_pic32mx_1xx_xlp/ao_sys_id.h/
+permalink: /api/src/ao_sys_xc32_pic32mx_154/ao_sys_id.h/
 toc: true
 ---
 

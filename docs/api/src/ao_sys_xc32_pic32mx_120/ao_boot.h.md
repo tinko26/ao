@@ -1,8 +1,8 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-10-13
 draft: true
-permalink: /api/src/ao_sys_xc32_pic32mx_1xx_xlp/ao_boot.h/
+permalink: /api/src/ao_sys_xc32_pic32mx_120/ao_boot.h/
 toc: true
 ---
 
@@ -12,6 +12,18 @@ toc: true
 | `xc.h` |
 
 # Functions
+
+## `ao_boot_ir_can1`
+
+```c
+#define ao_boot_ir_can1()                    \
+{                                            \
+    IPC11bits.CAN1IP = (AO_IR_CAN1_PRIO);    \
+    IPC11bits.CAN1IS = (AO_IR_CAN1_SUBPRIO); \
+}
+```
+
+Sets up both priority and subpriority of the CAN 1 interrupt.
 
 ## `ao_boot_ir_cs0`
 
@@ -114,8 +126,8 @@ Sets up both priority and subpriority of the external interrupt 4.
 ```c
 #define ao_boot_ir_u1()                 \
 {                                       \
-    IPC8bits.U1IP = (AO_IR_U1_PRIO);    \
-    IPC8bits.U1IS = (AO_IR_U1_SUBPRIO); \
+    IPC7bits.U1IP = (AO_IR_U1_PRIO);    \
+    IPC7bits.U1IS = (AO_IR_U1_SUBPRIO); \
 }
 ```
 
@@ -132,6 +144,42 @@ Sets up both priority and subpriority of the UART 1 interrupt.
 ```
 
 Sets up both priority and subpriority of the UART 2 interrupt.
+
+## `ao_boot_ir_u3`
+
+```c
+#define ao_boot_ir_u3()                 \
+{                                       \
+    IPC9bits.U3IP = (AO_IR_U3_PRIO);    \
+    IPC9bits.U3IS = (AO_IR_U3_SUBPRIO); \
+}
+```
+
+Sets up both priority and subpriority of the UART 3 interrupt.
+
+## `ao_boot_ir_u4`
+
+```c
+#define ao_boot_ir_u4()                 \
+{                                       \
+    IPC9bits.U4IP = (AO_IR_U4_PRIO);    \
+    IPC9bits.U4IS = (AO_IR_U4_SUBPRIO); \
+}
+```
+
+Sets up both priority and subpriority of the UART 4 interrupt.
+
+## `ao_boot_ir_u5`
+
+```c
+#define ao_boot_ir_u5()                  \
+{                                        \
+    IPC10bits.U5IP = (AO_IR_U5_PRIO);    \
+    IPC10bits.U5IS = (AO_IR_U5_SUBPRIO); \
+}
+```
+
+Sets up both priority and subpriority of the UART 5 interrupt.
 
 ## `ao_boot_sys_pcache`
 
