@@ -28,9 +28,151 @@
 
 // ----------------------------------------------------------------------------
 
+#ifndef AO_SYS_CLOCK_CAN1
+
+#define AO_SYS_CLOCK_CAN1   (0)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_CAN2
+
+#define AO_SYS_CLOCK_CAN2   (0)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_CAN3
+
+#define AO_SYS_CLOCK_CAN3   (0)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_CAN4
+
+#define AO_SYS_CLOCK_CAN4   (0)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_SYS_CLOCK_I2C1
+
+#define AO_SYS_CLOCK_I2C1   (0)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_I2C2
+
+#define AO_SYS_CLOCK_I2C2   (0)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_I2C3
+
+#define AO_SYS_CLOCK_I2C3   (0)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_I2C4
+
+#define AO_SYS_CLOCK_I2C4   (0)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_I2C5
+
+#define AO_SYS_CLOCK_I2C5   (0)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_SYS_CLOCK_RNG
+
+#define AO_SYS_CLOCK_RNG    (0)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_SYS_CLOCK_SPI1
+
+#define AO_SYS_CLOCK_SPI1   (0)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_SPI2
+
+#define AO_SYS_CLOCK_SPI2   (0)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_SPI3
+
+#define AO_SYS_CLOCK_SPI3   (0)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_SPI4
+
+#define AO_SYS_CLOCK_SPI4   (0)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_SPI5
+
+#define AO_SYS_CLOCK_SPI5   (0)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_SPI6
+
+#define AO_SYS_CLOCK_SPI6   (0)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#ifndef AO_SYS_CLOCK_UART1
+
+#define AO_SYS_CLOCK_UART1  (0)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_UART2
+
+#define AO_SYS_CLOCK_UART2  (0)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_UART3
+
+#define AO_SYS_CLOCK_UART3  (0)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_UART4
+
+#define AO_SYS_CLOCK_UART4  (0)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_UART5
+
+#define AO_SYS_CLOCK_UART5  (0)
+
+#endif
+
+#ifndef AO_SYS_CLOCK_UART6
+
+#define AO_SYS_CLOCK_UART6  (0)
+
+#endif
+
+// ----------------------------------------------------------------------------
+
 #ifndef AO_SYS_SYSCLK
 
-#define AO_SYS_SYSCLK   (0)
+#define AO_SYS_SYSCLK       (0)
 
 #endif
 

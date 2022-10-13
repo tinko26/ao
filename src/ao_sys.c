@@ -9857,6 +9857,26 @@ static  ao_alloc_list_t                 ao_alloc_list           [AO_ALLOC_L1_COU
 
 // ----------------------------------------------------------------------------
 
+ao_static_assert(AO_ALLOC_SEGREGATION >= AO_ALLOC_SEGREGATION_MIN,          "AO_ALLOC_SEGREGATION is invalid.");
+
+ao_static_assert(AO_ALLOC_SEGREGATION <= AO_ALLOC_SEGREGATION_MAX,          "AO_ALLOC_SEGREGATION is invalid.");
+
+// ----------------------------------------------------------------------------
+
+ao_static_assert(AO_ALLOC_SIZE_STORE >= 0,                                  "AO_ALLOC_SIZE is invalid.");
+
+ao_static_assert(AO_ALLOC_SIZE_STORE <= AO_UINT_MAX,                        "AO_ALLOC_SIZE is invalid.");
+
+// ----------------------------------------------------------------------------
+
+ao_static_assert(AO_IS_ALIGNED(AO_ALLOC_SIZE_BLOCK, AO_ALLOC_ALIGN),        "A static type is not properly aligned.");
+
+ao_static_assert(AO_IS_ALIGNED(AO_ALLOC_SIZE_BLOCK_BODY, AO_ALLOC_ALIGN),   "A static type is not properly aligned.");
+
+ao_static_assert(AO_IS_ALIGNED(AO_ALLOC_SIZE_BLOCK_HEAD, AO_ALLOC_ALIGN),   "A static type is not properly aligned.");
+
+// ----------------------------------------------------------------------------
+
 void * ao_acquire_2(size_t s)
 {
     // Notes.
@@ -10679,29 +10699,6 @@ void ao_alloc_list_remove(ao_alloc_list_t * l, ao_alloc_list_node_t * n2)
 
 void ao_boot_alloc()
 {
-    // Assert.
-
-    ao_assert(AO_ALLOC_SEGREGATION >= AO_ALLOC_SEGREGATION_MIN);
-
-    ao_assert(AO_ALLOC_SEGREGATION <= AO_ALLOC_SEGREGATION_MAX);
-
-
-    // Assert.
-
-    ao_assert(AO_ALLOC_SIZE_STORE >= 0);
-
-    ao_assert(AO_ALLOC_SIZE_STORE <= AO_UINT_MAX);
-
-
-    // Assert.
-
-    ao_assert(AO_IS_ALIGNED(AO_ALLOC_SIZE_BLOCK, AO_ALLOC_ALIGN));
-
-    ao_assert(AO_IS_ALIGNED(AO_ALLOC_SIZE_BLOCK_BODY, AO_ALLOC_ALIGN));
-
-    ao_assert(AO_IS_ALIGNED(AO_ALLOC_SIZE_BLOCK_HEAD, AO_ALLOC_ALIGN));
-
-
     // Assert.
 
     ao_assert(!ao_booted_alloc);
@@ -25790,7 +25787,10 @@ void ao_boot_task_sched() { }
 
 // ----------------------------------------------------------------------------
 
-void ao_ir_task() { }
+void ao_ir_task(ao_core_t c)
+{
+    (void) c;
+}
 
 // ----------------------------------------------------------------------------
 
@@ -25931,8 +25931,18 @@ void ao_boot_task_sched()
 
 // ----------------------------------------------------------------------------
 
-void ao_ir_task()
+void ao_ir_task(ao_core_t c)
 {
+    // Assert.
+
+    ao_assert(c == 0);
+
+
+    // Variables.
+
+    (void) c;
+
+
     // Variables.
 
     ao_lock_t l;
@@ -26333,8 +26343,18 @@ void ao_boot_task_sched()
 
 // ----------------------------------------------------------------------------
 
-void ao_ir_task()
+void ao_ir_task(ao_core_t c)
 {
+    // Assert.
+
+    ao_assert(c == 0);
+
+
+    // Variables.
+
+    (void) c;
+
+
     // Variables.
 
     ao_lock_t l;

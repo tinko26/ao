@@ -33,32 +33,32 @@
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_SYS_LOCK_IR
+#ifndef ao_sys_lock_ir
 
-#define AO_SYS_LOCK_IR
+#define ao_sys_lock_ir(p)                                                   \
+(                                                                           \
+{                                                                           \
+    uint32_t x0 = _CP0_GET_VIEW_IPL();                                      \
+                                                                            \
+    uint32_t x1 = (p) << 2;                                                 \
+                                                                            \
+    if (x0 < x1)                                                            \
+    {                                                                       \
+        _CP0_SET_VIEW_IPL(x1);                                              \
+    }                                                                       \
+                                                                            \
+    x0;                                                                     \
+}                                                                           \
+)
 
-// ----------------------------------------------------------------------------
+#endif
 
-static uint32_t ao_sys_lock_ir(uint32_t p)
-{
-    uint32_t x = _CP0_GET_VIEW_IPL();
+#ifndef ao_sys_unlock_ir
 
-    p = p << 2;
-
-    if (x < p)
-    {
-        _CP0_SET_VIEW_IPL(p);
-    }
-
-    return x;
+#define ao_sys_unlock_ir(x)                                                 \
+{                                                                           \
+    _CP0_SET_VIEW_IPL(x);                                                   \
 }
-
-static void ao_sys_unlock_ir(uint32_t x)
-{
-    _CP0_SET_VIEW_IPL(x);
-}
-
-// ----------------------------------------------------------------------------
 
 #endif
 

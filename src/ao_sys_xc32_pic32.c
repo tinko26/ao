@@ -49,3650 +49,6 @@ static  void *  ao_stack_get_end(       void const * ptr, size_t size);
 
 #if defined AO_SYS_XC32_PIC32
 
-#if defined AO_IR
-
-// ----------------------------------------------------------------------------
-
-        ao_ir_stack_t   ao_ir_stack                                 __attribute__ ((used));
-
-static  uint8_t         ao_ir_stack_store[AO_IR_STACK_SIZE_ALIGNED] __attribute__ ((used, aligned(AO_STACK_ALIGN)));
-
-// ----------------------------------------------------------------------------
-
-void ao_boot_ir_stack()
-{
-    uint8_t * sp;
-
-    sp = ao_ir_stack_store;
-
-    sp = sp + AO_IR_STACK_SIZE_ALIGNED;
-
-    sp = sp - AO_IR_STACK_SIZE_AS;
-
-    ao_ir_stack.sp = (uint32_t) sp;
-
-#if AO_IR_STACK_FILL
-
-    ao_stack_fill
-    (
-        (void *) ao_ir_stack_store,
-        (size_t) AO_IR_STACK_SIZE_ALIGNED
-    );
-
-#endif
-
-}
-
-// ----------------------------------------------------------------------------
-
-__attribute__ ((naked))
-void * ao_ir_stack_func0(ao_func0_t func)
-{
-    // Variables.
-
-    (void) func;
-
-
-    // Ready.
-
-    asm volatile (".set nomips16");
-    asm volatile (".set noreorder");
-    asm volatile (".set noat");
-
-    // Disable interrupts.
-
-    asm volatile ("di");
-    asm volatile ("ehb");
-
-    // k0 = &ao_ir_stack
-
-    asm volatile ("la $k0, ao_ir_stack");
-
-    // k1 = ao_ir_stack.depth
-
-    asm volatile ("lw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-    // if (k1 != 0) then goto 1
-
-    asm volatile ("bne $k1, $zero, 1f");
-
-    // k1++
-
-    asm volatile ("addiu $k1, $k1, 1");
-
-    // ao_ir_stack.sp_backup = sp
-
-    asm volatile ("sw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp_backup)));
-
-    // ao_ir_stack.fp_backup = s8
-
-    asm volatile ("sw $s8, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, fp_backup)));
-
-    // sp = ao_ir_stack.sp
-
-    asm volatile ("lw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp)));
-
-    // s8 = sp
-
-    asm volatile ("addu $s8, $sp, $zero");
-
-    asm volatile ("1:");
-
-    // ao_ir_stack.depth = k1
-
-    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-#if AO_IR_STACK_DEPTH_MAX
-
-    // sp -= 8
-
-    asm volatile ("addiu $sp, $sp, -8");
-
-    // Save s0.
-
-    asm volatile ("sw $s0, 0($sp)");
-
-    // s0 = ao_ir_stack.depth_max
-
-    asm volatile ("lw $s0, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
-
-    // s0 = s0 - k1
-
-    asm volatile ("subu $s0, $s0, $k1");
-
-    // if (s0 >= 0) then goto 1
-
-    asm volatile ("bgez $s0, 1f");
-    asm volatile ("nop");
-
-    // ao_ir_stack.depth_max = k1
-
-    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
-
-    asm volatile ("1:");
-
-    // Restore s0.
-
-    asm volatile ("lw $s0, 0($sp)");
-
-    // sp += 8
-
-    asm volatile ("addiu $sp, $sp, 8");
-
-#endif
-
-    // Enable interrupts.
-
-    asm volatile ("ei");
-    asm volatile ("nop");
-
-    // Save ra.
-
-    asm volatile ("sw $ra, 20($sp)");
-
-    // Execute.
-
-    asm volatile (".set reorder");
-    asm volatile (".set at");
-
-    asm volatile ("jalr $a0");
-    asm volatile ("nop");
-
-    asm volatile (".set nomips16");
-    asm volatile (".set noreorder");
-    asm volatile (".set noat");
-
-    // Restore ra.
-
-    asm volatile ("lw $ra, 20($sp)");
-
-    // Disable interrupts.
-
-    asm volatile ("di");
-    asm volatile ("ehb");
-
-    // k0 = &ao_ir_stack
-
-    asm volatile ("la $k0, ao_ir_stack");
-
-    // k1 = ao_ir_stack.depth
-
-    asm volatile ("lw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-    // k1--
-
-    asm volatile ("addiu $k1, $k1, -1");
-
-    // if (k1 != 0) then goto 1
-
-    asm volatile ("bne $k1, $zero, 1f");
-
-    // ao_ir_stack.depth = k1
-
-    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-    // sp = ao_ir_stack.sp_backup
-
-    asm volatile ("lw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp_backup)));
-
-    // s8 = ao_ir_stack.fp_backup
-
-    asm volatile ("lw $s8, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, fp_backup)));
-
-    asm volatile ("1:");
-
-    // Enable interrupts.
-
-    asm volatile ("ei");
-    asm volatile ("nop");
-
-    // Return.
-
-    asm volatile ("jr $ra");
-    asm volatile ("nop");
-
-    asm volatile (".set reorder");
-    asm volatile (".set at");
-}
-
-__attribute__ ((naked))
-void * ao_ir_stack_func1(void * param1, ao_func1_t func)
-{
-    // Variables.
-
-    (void) param1;
-
-    (void) func;
-
-
-    // Ready.
-
-    asm volatile (".set nomips16");
-    asm volatile (".set noreorder");
-    asm volatile (".set noat");
-
-    // Disable interrupts.
-
-    asm volatile ("di");
-    asm volatile ("ehb");
-
-    // k0 = &ao_ir_stack
-
-    asm volatile ("la $k0, ao_ir_stack");
-
-    // k1 = ao_ir_stack.depth
-
-    asm volatile ("lw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-    // if (k1 != 0) then goto 1
-
-    asm volatile ("bne $k1, $zero, 1f");
-
-    // k1++
-
-    asm volatile ("addiu $k1, $k1, 1");
-
-    // ao_ir_stack.sp_backup = sp
-
-    asm volatile ("sw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp_backup)));
-
-    // ao_ir_stack.fp_backup = s8
-
-    asm volatile ("sw $s8, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, fp_backup)));
-
-    // sp = ao_ir_stack.sp
-
-    asm volatile ("lw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp)));
-
-    // s8 = sp
-
-    asm volatile ("addu $s8, $sp, $zero");
-
-    asm volatile ("1:");
-
-    // ao_ir_stack.depth = k1
-
-    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-#if AO_IR_STACK_DEPTH_MAX
-
-    // sp -= 8
-
-    asm volatile ("addiu $sp, $sp, -8");
-
-    // Save s0.
-
-    asm volatile ("sw $s0, 0($sp)");
-
-    // s0 = ao_ir_stack.depth_max
-
-    asm volatile ("lw $s0, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
-
-    // s0 = s0 - k1
-
-    asm volatile ("subu $s0, $s0, $k1");
-
-    // if (s0 >= 0) then goto 1
-
-    asm volatile ("bgez $s0, 1f");
-    asm volatile ("nop");
-
-    // ao_ir_stack.depth_max = k1
-
-    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
-
-    asm volatile ("1:");
-
-    // Restore s0.
-
-    asm volatile ("lw $s0, 0($sp)");
-
-    // sp += 8
-
-    asm volatile ("addiu $sp, $sp, 8");
-
-#endif
-
-    // Enable interrupts.
-
-    asm volatile ("ei");
-    asm volatile ("nop");
-
-    // Save ra.
-
-    asm volatile ("sw $ra, 20($sp)");
-
-    // Execute.
-
-    asm volatile (".set reorder");
-    asm volatile (".set at");
-
-    asm volatile ("jalr $a1");
-    asm volatile ("nop");
-
-    asm volatile (".set nomips16");
-    asm volatile (".set noreorder");
-    asm volatile (".set noat");
-
-    // Restore ra.
-
-    asm volatile ("lw $ra, 20($sp)");
-
-    // Disable interrupts.
-
-    asm volatile ("di");
-    asm volatile ("ehb");
-
-    // k0 = &ao_ir_stack
-
-    asm volatile ("la $k0, ao_ir_stack");
-
-    // k1 = ao_ir_stack.depth
-
-    asm volatile ("lw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-    // k1--
-
-    asm volatile ("addiu $k1, $k1, -1");
-
-    // if (k1 != 0) then goto 1
-
-    asm volatile ("bne $k1, $zero, 1f");
-
-    // ao_ir_stack.depth = k1
-
-    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-    // sp = ao_ir_stack.sp_backup
-
-    asm volatile ("lw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp_backup)));
-
-    // s8 = ao_ir_stack.fp_backup
-
-    asm volatile ("lw $s8, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, fp_backup)));
-
-    asm volatile ("1:");
-
-    // Enable interrupts.
-
-    asm volatile ("ei");
-    asm volatile ("nop");
-
-    // Return.
-
-    asm volatile ("jr $ra");
-    asm volatile ("nop");
-
-    asm volatile (".set reorder");
-    asm volatile (".set at");
-}
-
-__attribute__ ((naked))
-void * ao_ir_stack_func2(void * param1, void * param2, ao_func2_t func)
-{
-    // Variables.
-
-    (void) param1;
-
-    (void) param2;
-
-    (void) func;
-
-
-    // Ready.
-
-    asm volatile (".set nomips16");
-    asm volatile (".set noreorder");
-    asm volatile (".set noat");
-
-    // Disable interrupts.
-
-    asm volatile ("di");
-    asm volatile ("ehb");
-
-    // k0 = &ao_ir_stack
-
-    asm volatile ("la $k0, ao_ir_stack");
-
-    // k1 = ao_ir_stack.depth
-
-    asm volatile ("lw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-    // if (k1 != 0) then goto 1
-
-    asm volatile ("bne $k1, $zero, 1f");
-
-    // k1++
-
-    asm volatile ("addiu $k1, $k1, 1");
-
-    // ao_ir_stack.sp_backup = sp
-
-    asm volatile ("sw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp_backup)));
-
-    // ao_ir_stack.fp_backup = s8
-
-    asm volatile ("sw $s8, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, fp_backup)));
-
-    // sp = ao_ir_stack.sp
-
-    asm volatile ("lw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp)));
-
-    // s8 = sp
-
-    asm volatile ("addu $s8, $sp, $zero");
-
-    asm volatile ("1:");
-
-    // ao_ir_stack.depth = k1
-
-    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-#if AO_IR_STACK_DEPTH_MAX
-
-    // sp -= 8
-
-    asm volatile ("addiu $sp, $sp, -8");
-
-    // Save s0.
-
-    asm volatile ("sw $s0, 0($sp)");
-
-    // s0 = ao_ir_stack.depth_max
-
-    asm volatile ("lw $s0, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
-
-    // s0 = s0 - k1
-
-    asm volatile ("subu $s0, $s0, $k1");
-
-    // if (s0 >= 0) then goto 1
-
-    asm volatile ("bgez $s0, 1f");
-    asm volatile ("nop");
-
-    // ao_ir_stack.depth_max = k1
-
-    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
-
-    asm volatile ("1:");
-
-    // Restore s0.
-
-    asm volatile ("lw $s0, 0($sp)");
-
-    // sp += 8
-
-    asm volatile ("addiu $sp, $sp, 8");
-
-#endif
-
-    // Enable interrupts.
-
-    asm volatile ("ei");
-    asm volatile ("nop");
-
-    // Save ra.
-
-    asm volatile ("sw $ra, 20($sp)");
-
-    // Execute.
-
-    asm volatile (".set reorder");
-    asm volatile (".set at");
-
-    asm volatile ("jalr $a2");
-    asm volatile ("nop");
-
-    asm volatile (".set nomips16");
-    asm volatile (".set noreorder");
-    asm volatile (".set noat");
-
-    // Restore ra.
-
-    asm volatile ("lw $ra, 20($sp)");
-
-    // Disable interrupts.
-
-    asm volatile ("di");
-    asm volatile ("ehb");
-
-    // k0 = &ao_ir_stack
-
-    asm volatile ("la $k0, ao_ir_stack");
-
-    // k1 = ao_ir_stack.depth
-
-    asm volatile ("lw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-    // k1--
-
-    asm volatile ("addiu $k1, $k1, -1");
-
-    // if (k1 != 0) then goto 1
-
-    asm volatile ("bne $k1, $zero, 1f");
-
-    // ao_ir_stack.depth = k1
-
-    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-    // sp = ao_ir_stack.sp_backup
-
-    asm volatile ("lw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp_backup)));
-
-    // s8 = ao_ir_stack.fp_backup
-
-    asm volatile ("lw $s8, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, fp_backup)));
-
-    asm volatile ("1:");
-
-    // Enable interrupts.
-
-    asm volatile ("ei");
-    asm volatile ("nop");
-
-    // Return.
-
-    asm volatile ("jr $ra");
-    asm volatile ("nop");
-
-    asm volatile (".set reorder");
-    asm volatile (".set at");
-}
-
-__attribute__ ((naked))
-void * ao_ir_stack_func3(void * param1, void * param2, void * param3, ao_func3_t func)
-{
-    // Variables.
-
-    (void) param1;
-
-    (void) param2;
-
-    (void) param3;
-
-    (void) func;
-
-
-    // Ready.
-
-    asm volatile (".set nomips16");
-    asm volatile (".set noreorder");
-    asm volatile (".set noat");
-
-    // Disable interrupts.
-
-    asm volatile ("di");
-    asm volatile ("ehb");
-
-    // k0 = &ao_ir_stack
-
-    asm volatile ("la $k0, ao_ir_stack");
-
-    // k1 = ao_ir_stack.depth
-
-    asm volatile ("lw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-    // if (k1 != 0) then goto 1
-
-    asm volatile ("bne $k1, $zero, 1f");
-
-    // k1++
-
-    asm volatile ("addiu $k1, $k1, 1");
-
-    // ao_ir_stack.sp_backup = sp
-
-    asm volatile ("sw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp_backup)));
-
-    // ao_ir_stack.fp_backup = s8
-
-    asm volatile ("sw $s8, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, fp_backup)));
-
-    // sp = ao_ir_stack.sp
-
-    asm volatile ("lw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp)));
-
-    // s8 = sp
-
-    asm volatile ("addu $s8, $sp, $zero");
-
-    asm volatile ("1:");
-
-    // ao_ir_stack.depth = k1
-
-    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-#if AO_IR_STACK_DEPTH_MAX
-
-    // sp -= 8
-
-    asm volatile ("addiu $sp, $sp, -8");
-
-    // Save s0.
-
-    asm volatile ("sw $s0, 0($sp)");
-
-    // s0 = ao_ir_stack.depth_max
-
-    asm volatile ("lw $s0, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
-
-    // s0 = s0 - k1
-
-    asm volatile ("subu $s0, $s0, $k1");
-
-    // if (s0 >= 0) then goto 1
-
-    asm volatile ("bgez $s0, 1f");
-    asm volatile ("nop");
-
-    // ao_ir_stack.depth_max = k1
-
-    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
-
-    asm volatile ("1:");
-
-    // Restore s0.
-
-    asm volatile ("lw $s0, 0($sp)");
-
-    // sp += 8
-
-    asm volatile ("addiu $sp, $sp, 8");
-
-#endif
-
-    // Enable interrupts,
-
-    asm volatile ("ei");
-    asm volatile ("nop");
-
-    // Save ra.
-
-    asm volatile ("sw $ra, 20($sp)");
-
-    // Execute.
-
-    asm volatile (".set reorder");
-    asm volatile (".set at");
-
-    asm volatile ("jalr $a3");
-    asm volatile ("nop");
-
-    asm volatile (".set nomips16");
-    asm volatile (".set noreorder");
-    asm volatile (".set noat");
-
-    // Restore ra.
-
-    asm volatile ("lw $ra, 20($sp)");
-
-    // Disable interrupts.
-
-    asm volatile ("di");
-    asm volatile ("ehb");
-
-    // k0 = &ao_ir_stack
-
-    asm volatile ("la $k0, ao_ir_stack");
-
-    // k1 = ao_ir_stack.depth
-
-    asm volatile ("lw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-    // k1--
-
-    asm volatile ("addiu $k1, $k1, -1");
-
-    // if (k1 != 0) then goto 1
-
-    asm volatile ("bne $k1, $zero, 1f");
-
-    // ao_ir_stack.depth = k1
-
-    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-    // sp = ao_ir_stack.sp_backup
-
-    asm volatile ("lw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp_backup)));
-
-    // s8 = ao_ir_stack.fp_backup
-
-    asm volatile ("lw $s8, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, fp_backup)));
-
-    asm volatile ("1:");
-
-    // Enable interrupts.
-
-    asm volatile ("ei");
-    asm volatile ("nop");
-
-    // Return.
-
-    asm volatile ("jr $ra");
-    asm volatile ("nop");
-
-    asm volatile (".set reorder");
-    asm volatile (".set at");
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#if defined AO_IR && AO_IR_STACK_FILL
-
-// ----------------------------------------------------------------------------
-
-void ao_ir_stack_high_water_mark()
-{
-    ao_ir_stack.high_water_mark = ao_stack_get_high_water_mark
-    (
-        (void *) ao_ir_stack_store,
-        (size_t) AO_IR_STACK_SIZE_ALIGNED
-    );
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#if defined AO_STACK
-
-// ----------------------------------------------------------------------------
-
-void ao_stack_fill(void * p, size_t s)
-{
-    // Variables.
-
-    uint32_t * b;
-
-    uint32_t * e;
-
-
-    // Ready.
-
-    if (p)
-    {
-        b = ao_stack_get_beginning(p);
-
-        e = ao_stack_get_end(p, s);
-
-        for (; b < e; b++)
-        {
-            *b = AO_STACK_FILL;
-        }
-    }
-}
-
-void * ao_stack_get_beginning(void const * p)
-{
-    uintptr_t t1 = (uintptr_t) p;
-
-    uintptr_t t2 = AO_ALIGN_UP(t1, AO_STACK_ALIGN);
-
-    return (void *) t2;
-}
-
-void * ao_stack_get_end(void const * p, size_t s)
-{
-    uintptr_t t1 = (uintptr_t) p;
-
-    uintptr_t t2 = (uintptr_t) s;
-
-    uintptr_t t3 = t1 + t2;
-
-    uintptr_t t4 = AO_ALIGN_DOWN(t3, AO_STACK_ALIGN);
-
-    return (void *) t4;
-}
-
-size_t ao_stack_get_high_water_mark(void const * p, size_t s)
-{
-    // Variables.
-
-    uint32_t * b;
-
-    uint32_t * e;
-
-
-    // Ready.
-
-    if (p)
-    {
-        b = ao_stack_get_beginning(p);
-
-        e = ao_stack_get_end(p, s);
-
-        if (b < e)
-        {
-            while (1)
-            {
-                if (*b == AO_STACK_FILL)
-                {
-                    b++;
-
-                    if (b == e)
-                    {
-                        return 0;
-                    }
-                }
-
-                else
-                {
-                    return sizeof(uint32_t) * (size_t) (e - b);
-                }
-            }
-        }
-
-        else
-        {
-            return 0;
-        }
-    }
-
-    else
-    {
-        return 0;
-    }
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#if defined AO_SYS
-
-// ----------------------------------------------------------------------------
-
-void ao_sys_idle()
-{
-    ao_sys_wait_idle();
-    ao_sys_wait();
-}
-
-// ----------------------------------------------------------------------------
-
-void ao_sys_lock_device(ao_sys_lock_device_t * x)
-{
-    ao_assert(x);
-
-    SYSKEY = 0x0;
-
-    ao_sys_unlock_dma(x->dma);
-
-    ao_sys_unlock_ie(x->ie);
-}
-
-uint32_t ao_sys_lock_dma()
-{
-    // DMA controller is suspended.
-
-    uint32_t x = DMACON & _DMACON_SUSPEND_MASK;
-
-    if (x) { }
-
-    // DMA controller is not suspended.
-
-    else
-    {
-        DMACONSET = _DMACON_SUSPEND_MASK;
-
-#ifdef _DMACON_DMABUSY_MASK
-
-        // Family Reference Manual.
-
-        // Section 31.4.5.
-
-        // The DMACON.DMABUSY bit is not available on all devices.
-
-        while (DMACONbits.DMABUSY) { }
-
-#endif
-
-    }
-
-    return x;
-}
-
-// ----------------------------------------------------------------------------
-
-__attribute__ ((noreturn))
-void ao_sys_reset()
-{
-    // Variables.
-
-    uint32_t volatile d;
-
-    ao_sys_lock_device_t l;
-
-
-    // Ready.
-
-    ao_sys_unlock_device(&l);
-    {
-        RSWRSTbits.SWRST = 1;
-
-        d = RSWRST;
-
-        while (1) { }
-    }
-    ao_sys_lock_device(&l);
-}
-
-// ----------------------------------------------------------------------------
-
-void ao_sys_sleep()
-{
-    ao_sys_wait_sleep();
-    ao_sys_wait();
-}
-
-// ----------------------------------------------------------------------------
-
-void ao_sys_unlock_device(ao_sys_lock_device_t * x)
-{
-    ao_assert(x);
-
-    x->ie = ao_sys_lock_ie();
-
-    x->dma = ao_sys_lock_dma();
-
-    // First, make sure that the device is actually locked.
-
-    SYSKEY = 0x0;
-
-    // Then, perform the unlock sequence.
-
-    SYSKEY = 0xAA996655;
-    SYSKEY = 0x556699AA;
-}
-
-void ao_sys_unlock_dma(uint32_t x)
-{
-    if (x) { }
-
-    else
-    {
-        DMACONCLR = _DMACON_SUSPEND_MASK;
-    }
-}
-
-// ----------------------------------------------------------------------------
-
-void ao_sys_wait()
-{
-    // Notes.
-
-    // In the following, we save the return address before the wait and restore
-    // it afterwards. Here's why.
-
-    // If we use the watchdog timer (WDT) to wake up the device, then following
-    // a WDT timeout event, a non-maskable interrupt (NMI) is generated, that
-    // vectors execution to the CPU start-up address.
-
-    // The NMI saves the PC to ErrorEPC
-    // and sets both Status.ERL and Status.NMI.
-
-    // At the CPU start-up address, there's the _reset() function.
-    // The following roughly demonstrates what's going on from there,
-    // after a WDT timeout event in idle or sleep mode.
-
-
-    // _reset:
-
-    // jal _startup
-    // nop
-
-
-    // _startup:
-
-    // if (Status.NMI)
-    // {
-    //   jr _nmi_handler
-    //   nop
-    // }
-
-
-    // _nmi_handler:
-
-    // eret
-
-
-    // The eret instructions restores the PC from ErrorEPC, because Status.ERL
-    // is set.
-
-    // As a result, the CPU continues execution with the instruction following
-    // the wait instruction.
-
-    // Obviously, after the wait the value of the return address register (ra)
-    // has changed, because the _reset() function executed a jal instruction,
-    // which writes the ra register.
-
-
-    // Ready.
-
-    // directives
-    asm volatile (".set nomips16");
-    asm volatile (".set noreorder");
-    asm volatile (".set noat");
-
-    // sp -= 8
-    asm volatile ("addiu $sp, $sp, -8");
-
-    // save ra
-    asm volatile ("sw $ra, 0($sp)");
-
-    // wait
-    asm volatile ("wait");
-
-    // restore ra
-    asm volatile ("lw $ra, 0($sp)");
-
-    // sp += 8
-    asm volatile ("addiu $sp, $sp, 8");
-
-    // directives
-    asm volatile (".set reorder");
-    asm volatile (".set at");
-}
-
-void ao_sys_wait_idle()
-{
-    ao_sys_lock_device_t l;
-
-    ao_sys_unlock_device(&l);
-    {
-        OSCCONCLR = _OSCCON_SLPEN_MASK;
-    }
-    ao_sys_lock_device(&l);
-}
-
-void ao_sys_wait_sleep()
-{
-    ao_sys_lock_device_t l;
-
-    ao_sys_unlock_device(&l);
-    {
-        OSCCONSET = _OSCCON_SLPEN_MASK;
-    }
-    ao_sys_lock_device(&l);
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#if defined AO_SYS_XC32_PIC32MK
-
-#if defined AO_ALARM
-
-// ----------------------------------------------------------------------------
-
-AO_IR_CT_ATTRIBUTE
-void ao_ir_ct()
-{
-    ao_ir_stack_func0((ao_func0_t) ao_ir_alarm);
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#if defined AO_SYS
-
-// ----------------------------------------------------------------------------
-
-void ao_sys_lock_pps(ao_sys_lock_pps_t * x)
-{
-    ao_assert(x);
-
-    uint32_t t1 = x->io & _CFGCON_IOLOCK_MASK;
-
-    uint32_t t2 = CFGCON & ~_CFGCON_IOLOCK_MASK;
-
-    CFGCON = t1 | t2;
-
-    ao_sys_lock_device(&x->device);
-}
-
-void ao_sys_unlock_pps(ao_sys_lock_pps_t * x)
-{
-    ao_assert(x);
-
-    ao_sys_unlock_device(&x->device);
-
-    uint32_t i = CFGCON;
-
-    CFGCON = i & ~_CFGCON_IOLOCK_MASK;
-
-    x->io = i;
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#if defined AO_TASK
-
-// ----------------------------------------------------------------------------
-
-static  void    ao_task_stack_check();
-
-// ----------------------------------------------------------------------------
-
-AO_IR_CS1_ATTRIBUTE
-void ao_ir_cs1()
-{
-    // Prolog.
-
-    // Interrupts are disabled, because Status.EXL == 1.
-
-    asm volatile (".set nomips16");
-    asm volatile (".set noreorder");
-    asm volatile (".set noat");
-
-    // Make room for the context.
-
-    asm volatile ("addiu $sp, $sp, -%0" :: "K" (sizeof(ao_task_context_data_t)));
-
-    // Save s0.
-    // Save s1.
-    // Save s2.
-    // Save s3.
-    // Save s8.
-
-    asm volatile ("sw $s0, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s0)));
-    asm volatile ("sw $s1, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s1)));
-    asm volatile ("sw $s2, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s2)));
-    asm volatile ("sw $s3, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s3)));
-    asm volatile ("sw $s8, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s8)));
-
-    // s1 = sp
-
-    asm volatile ("addu $s1, $sp, $zero");
-
-    // Switch to the interrupt stack.
-
-    // We can safely use k0 and k1, because interrupts are disabled.
-
-    // s0 = &ao_ir_stack
-
-    asm volatile ("la $s0, ao_ir_stack");
-
-    // k1 = 1
-
-    asm volatile ("addiu $k1, $zero, 1");
-
-    // sp = ao_ir_stack.sp
-
-    asm volatile ("lw $sp, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, sp)));
-
-    // ao_ir_stack.depth = k1
-
-    asm volatile ("sw $k1, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-    // s8 = sp
-
-    asm volatile ("addu $s8, $sp, $zero");
-
-#if AO_IR_STACK_DEPTH_MAX
-
-    // k0 = ao_ir_stack.depth_max
-
-    asm volatile ("lw $k0, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
-
-    // k0 = k0 - 1
-
-    asm volatile ("addiu $k0, $k0, -1");
-
-    // if (k0 >= 0) then goto 1
-
-    asm volatile ("bgez $k0, 1f");
-    asm volatile ("nop");
-
-    // ao_ir_stack.depth_max = k1
-
-    asm volatile ("sw $k1, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
-
-    asm volatile ("1:");
-
-#endif
-
-    // k1 = EPC
-
-    asm volatile ("mfc0 $k1, $%0, %1" :: "K" (_CP0_EPC), "K" (_CP0_EPC_SELECT));
-
-    // k0 = Status
-
-    asm volatile ("mfc0 $k0, $%0, %1" :: "K" (_CP0_STATUS), "K" (_CP0_STATUS_SELECT));
-
-    // Save EPC.
-
-    asm volatile ("sw $k1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, epc)));
-
-    // Save Status.
-
-    asm volatile ("sw $k0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, status)));
-
-    // Manipulate the Status value contained in k0.
-
-    // Status.IPL = AO_IR_CS1_PRIO
-    // Status.EXL = 0
-    // Status.ERL = 0
-    // Status.UM  = 0
-
-    // k1 = AO_IR_CS1_PRIO
-
-    asm volatile ("addiu $k1, $zero, %0" :: "K" (AO_IR_CS1_PRIO));
-
-    // k0.IPL = k1
-
-    asm volatile ("ins $k0, $k1, %0, %1" :: "K" (_CP0_STATUS_IPL_POSITION), "K" (_CP0_STATUS_IPL_LENGTH));
-
-    // k0.EXL = 0
-    // k0.ERL = 0
-    // k0.UM  = 0
-
-    asm volatile ("ins $k0, $zero, %0, %1" :: "K" (_CP0_STATUS_EXL_POSITION), "K" (_CP0_STATUS_UM_POSITION - _CP0_STATUS_EXL_POSITION + 1));
-
-    // Enable interrupts whose priority is greater than the switch priority.
-
-    // Status = k0
-
-    asm volatile ("mtc0 $k0, $%0, %1" :: "K" (_CP0_STATUS), "K" (_CP0_STATUS_SELECT));
-
-    // Interrupts are enabled now.
-
-    // Therefore, we must not use k0 and k1 anymore.
-
-    // Save GPR.
-
-    asm volatile ("sw $a0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a0)));
-    asm volatile ("sw $a1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a1)));
-    asm volatile ("sw $a2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a2)));
-    asm volatile ("sw $a3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a3)));
-    asm volatile ("sw $at, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, at)));
-    asm volatile ("sw $ra, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, ra)));
-    asm volatile ("sw $s4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s4)));
-    asm volatile ("sw $s5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s5)));
-    asm volatile ("sw $s6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s6)));
-    asm volatile ("sw $s7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s7)));
-    asm volatile ("sw $t0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t0)));
-    asm volatile ("sw $t1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t1)));
-    asm volatile ("sw $t2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t2)));
-    asm volatile ("sw $t3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t3)));
-    asm volatile ("sw $t4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t4)));
-    asm volatile ("sw $t5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t5)));
-    asm volatile ("sw $t6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t6)));
-    asm volatile ("sw $t7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t7)));
-    asm volatile ("sw $t8, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t8)));
-    asm volatile ("sw $t9, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t9)));
-    asm volatile ("sw $v0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v0)));
-    asm volatile ("sw $v1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v1)));
-
-    // Save hi.
-    // Save lo.
-
-    asm volatile ("mfhi $s2");
-    asm volatile ("mflo $s3");
-    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi)));
-    asm volatile ("sw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo)));
-
-    // Save hi1.
-    // Save lo1.
-
-    asm volatile ("mfhi $s2, $ac1");
-    asm volatile ("mflo $s3, $ac1");
-    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi1)));
-    asm volatile ("sw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo1)));
-
-    // Save hi2.
-    // Save lo2.
-
-    asm volatile ("mfhi $s2, $ac2");
-    asm volatile ("mflo $s3, $ac2");
-    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi2)));
-    asm volatile ("sw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo2)));
-
-    // Save hi3.
-    // Save lo3.
-
-    asm volatile ("mfhi $s2, $ac3");
-    asm volatile ("mflo $s3, $ac3");
-    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi3)));
-    asm volatile ("sw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo3)));
-
-    // Save DSPControl.
-
-    asm volatile ("rddsp $s2");
-    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, dsp_control)));
-
-    // Save FCSR.
-
-    asm volatile ("cfc1 $s2, $f31");
-    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, fcsr)));
-
-    // Save f0 .. f31.
-
-    asm volatile ("sdc1 $f0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f0)));
-    asm volatile ("sdc1 $f1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f1)));
-    asm volatile ("sdc1 $f2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f2)));
-    asm volatile ("sdc1 $f3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f3)));
-    asm volatile ("sdc1 $f4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f4)));
-    asm volatile ("sdc1 $f5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f5)));
-    asm volatile ("sdc1 $f6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f6)));
-    asm volatile ("sdc1 $f7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f7)));
-    asm volatile ("sdc1 $f8, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f8)));
-    asm volatile ("sdc1 $f9, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f9)));
-    asm volatile ("sdc1 $f10, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f10)));
-    asm volatile ("sdc1 $f11, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f11)));
-    asm volatile ("sdc1 $f12, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f12)));
-    asm volatile ("sdc1 $f13, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f13)));
-    asm volatile ("sdc1 $f14, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f14)));
-    asm volatile ("sdc1 $f15, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f15)));
-    asm volatile ("sdc1 $f16, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f16)));
-    asm volatile ("sdc1 $f17, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f17)));
-    asm volatile ("sdc1 $f18, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f18)));
-    asm volatile ("sdc1 $f19, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f19)));
-    asm volatile ("sdc1 $f20, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f20)));
-    asm volatile ("sdc1 $f21, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f21)));
-    asm volatile ("sdc1 $f22, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f22)));
-    asm volatile ("sdc1 $f23, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f23)));
-    asm volatile ("sdc1 $f24, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f24)));
-    asm volatile ("sdc1 $f25, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f25)));
-    asm volatile ("sdc1 $f26, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f26)));
-    asm volatile ("sdc1 $f27, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f27)));
-    asm volatile ("sdc1 $f28, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f28)));
-    asm volatile ("sdc1 $f29, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f29)));
-    asm volatile ("sdc1 $f30, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f30)));
-    asm volatile ("sdc1 $f31, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f31)));
-
-    // Body.
-
-    // s2 = &ao_task_running
-
-    asm volatile ("la $s2, ao_task_running");
-
-    // s3 = ao_task_running[0]
-
-    asm volatile ("lw $s3, 0($s2)");
-
-    // ao_task_running[0]->context.ptr = s1
-
-    asm volatile ("sw $s1, %0($s3)" :: "K" (offsetof(ao_task_t, context.ptr)));
-
-#if AO_TASK_STACK_CHECK
-
-    asm volatile (".set reorder");
-    asm volatile (".set at");
-
-    asm volatile ("jal ao_task_stack_check");
-    asm volatile ("nop");
-
-    asm volatile (".set nomips16");
-    asm volatile (".set noreorder");
-    asm volatile (".set noat");
-
-#else
-
-    asm volatile (".set reorder");
-    asm volatile (".set at");
-
-    asm volatile ("jal ao_ir_task");
-    asm volatile ("nop");
-
-    asm volatile (".set nomips16");
-    asm volatile (".set noreorder");
-    asm volatile (".set noat");
-
-#endif
-
-    // s3 = ao_task_running[0]
-
-    asm volatile ("lw $s3, 0($s2)");
-
-    // s1 = ao_task_running[0]->context.ptr
-
-    asm volatile ("lw $s1, %0($s3)" :: "K" (offsetof(ao_task_t, context.ptr)));
-
-    // Epilog.
-
-    // Restore GPR.
-
-    asm volatile ("lw $a0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a0)));
-    asm volatile ("lw $a1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a1)));
-    asm volatile ("lw $a2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a2)));
-    asm volatile ("lw $a3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a3)));
-    asm volatile ("lw $at, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, at)));
-    asm volatile ("lw $ra, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, ra)));
-    asm volatile ("lw $s4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s4)));
-    asm volatile ("lw $s5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s5)));
-    asm volatile ("lw $s6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s6)));
-    asm volatile ("lw $s7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s7)));
-    asm volatile ("lw $t0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t0)));
-    asm volatile ("lw $t1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t1)));
-    asm volatile ("lw $t2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t2)));
-    asm volatile ("lw $t3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t3)));
-    asm volatile ("lw $t4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t4)));
-    asm volatile ("lw $t5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t5)));
-    asm volatile ("lw $t6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t6)));
-    asm volatile ("lw $t7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t7)));
-    asm volatile ("lw $t8, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t8)));
-    asm volatile ("lw $t9, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t9)));
-    asm volatile ("lw $v0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v0)));
-    asm volatile ("lw $v1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v1)));
-
-    // Restore hi.
-    // Restore lo.
-
-    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi)));
-    asm volatile ("lw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo)));
-    asm volatile ("mthi $s2");
-    asm volatile ("mtlo $s3");
-
-    // Restore hi1.
-    // Restore lo1.
-
-    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi1)));
-    asm volatile ("lw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo1)));
-    asm volatile ("mthi $s2, $ac1");
-    asm volatile ("mtlo $s3, $ac1");
-
-    // Restore hi2.
-    // Restore lo2.
-
-    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi2)));
-    asm volatile ("lw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo2)));
-    asm volatile ("mthi $s2, $ac2");
-    asm volatile ("mtlo $s3, $ac2");
-
-    // Restore hi3.
-    // Restore lo3.
-
-    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi3)));
-    asm volatile ("lw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo3)));
-    asm volatile ("mthi $s2, $ac3");
-    asm volatile ("mtlo $s3, $ac3");
-
-    // Restore DSPControl.
-
-    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, dsp_control)));
-    asm volatile ("wrdsp $s2");
-
-    // Restore FCSR.
-
-    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, fcsr)));
-    asm volatile ("ctc1 $s2, $f31");
-
-    // Restore f0 .. f31.
-
-    asm volatile ("ldc1 $f0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f0)));
-    asm volatile ("ldc1 $f1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f1)));
-    asm volatile ("ldc1 $f2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f2)));
-    asm volatile ("ldc1 $f3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f3)));
-    asm volatile ("ldc1 $f4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f4)));
-    asm volatile ("ldc1 $f5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f5)));
-    asm volatile ("ldc1 $f6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f6)));
-    asm volatile ("ldc1 $f7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f7)));
-    asm volatile ("ldc1 $f8, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f8)));
-    asm volatile ("ldc1 $f9, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f9)));
-    asm volatile ("ldc1 $f10, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f10)));
-    asm volatile ("ldc1 $f11, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f11)));
-    asm volatile ("ldc1 $f12, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f12)));
-    asm volatile ("ldc1 $f13, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f13)));
-    asm volatile ("ldc1 $f14, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f14)));
-    asm volatile ("ldc1 $f15, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f15)));
-    asm volatile ("ldc1 $f16, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f16)));
-    asm volatile ("ldc1 $f17, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f17)));
-    asm volatile ("ldc1 $f18, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f18)));
-    asm volatile ("ldc1 $f19, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f19)));
-    asm volatile ("ldc1 $f20, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f20)));
-    asm volatile ("ldc1 $f21, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f21)));
-    asm volatile ("ldc1 $f22, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f22)));
-    asm volatile ("ldc1 $f23, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f23)));
-    asm volatile ("ldc1 $f24, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f24)));
-    asm volatile ("ldc1 $f25, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f25)));
-    asm volatile ("ldc1 $f26, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f26)));
-    asm volatile ("ldc1 $f27, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f27)));
-    asm volatile ("ldc1 $f28, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f28)));
-    asm volatile ("ldc1 $f29, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f29)));
-    asm volatile ("ldc1 $f30, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f30)));
-    asm volatile ("ldc1 $f31, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f31)));
-
-    // Disable interrupts.
-
-    asm volatile ("di");
-    asm volatile ("ehb");
-
-    // k0 = EPC
-
-    asm volatile ("lw $k0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, epc)));
-
-    // k1 = Status
-
-    asm volatile ("lw $k1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, status)));
-
-    // Restore EPC.
-
-    asm volatile ("mtc0 $k0, $%0, %1" :: "K" (_CP0_EPC), "K" (_CP0_EPC_SELECT));
-
-    // Restore Status.
-
-    asm volatile ("mtc0 $k1, $%0, %1" :: "K" (_CP0_STATUS), "K" (_CP0_STATUS_SELECT));
-
-    // ao_ir_stack.depth = 0
-
-    asm volatile ("sw $zero, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-    // sp = s1
-
-    asm volatile ("addu $sp, $s1, $zero");
-
-    // Restore s0.
-    // Restore s1.
-    // Restore s2.
-    // Restore s3.
-    // Restore s8.
-
-    asm volatile ("lw $s0, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s0)));
-    asm volatile ("lw $s1, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s1)));
-    asm volatile ("lw $s2, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s2)));
-    asm volatile ("lw $s3, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s3)));
-    asm volatile ("lw $s8, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s8)));
-
-    // Restore sp.
-
-    asm volatile ("addiu $sp, $sp, %0" :: "K" (sizeof(ao_task_context_data_t)));
-
-    // Return from exception.
-
-    asm volatile ("eret");
-    asm volatile ("nop");
-
-    asm volatile (".set reorder");
-    asm volatile (".set at");
-}
-
-// ----------------------------------------------------------------------------
-
-void ao_task_start_context(ao_task_t * T)
-{
-    // Notes.
-
-    // The kernel is locked.
-
-
-    // Assert.
-
-    ao_assert(T);
-
-
-    // Variables.
-
-    void * b;
-
-    ao_task_context_data_t * D;
-
-    void * e;
-
-    uint32_t * p;
-
-    size_t s;
-
-
-    // Ready.
-
-    // Stack.
-
-    b = ao_task_get_stack_beginning_locked(T);
-
-    ao_assert(b);
-
-    s = ao_task_get_stack_size_locked(T);
-
-    e = ao_stack_get_end(b, s);
-
-    // Stack pointer.
-
-    p = e;
-
-    // Stack pointer must be properly aligned.
-
-    ao_assert(AO_IS_ALIGNED((uintptr_t) p, AO_STACK_ALIGN));
-
-    // According to the MIPS O32 calling convention, the stack frame of the
-    // caller must have an argument section. The argument section must contain
-    // enough space for all the arguments of the callee, but at least four
-    // words.
-
-    p = p - 4;
-
-    // Make room for the context.
-
-    p = p - sizeof(ao_task_context_data_t) / 4;
-
-    // Stack pointer must not overflow.
-
-    ao_assert(p >= (uint32_t *) b);
-
-    // Context.
-
-    D = (ao_task_context_data_t *) p;
-
-    D->a0 = (uint32_t) T;
-
-    D->dsp_control = 0;
-
-    D->epc = (uint32_t) ao_task_entry;
-
-    D->fcsr = 0x01600000;
-
-    // When generating interrupt handlers, the XC32 compiler assumes that both DSP and FPU are usable.
-
-    // Therefore, the Status register bits CU1 and MX must always be set.
-
-    D->status =
-        _CP0_STATUS_CU1_MASK |
-        _CP0_STATUS_EXL_MASK |
-        _CP0_STATUS_FR_MASK  |
-        _CP0_STATUS_IE_MASK  |
-        _CP0_STATUS_MX_MASK;
-
-    T->context.ptr = D;
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#if defined AO_TASK && AO_TASK_STACK_CHECK
-
-// ----------------------------------------------------------------------------
-
-void ao_task_stack_check()
-{
-    // Notes.
-
-    // This function is called by the task interrupt handler.
-
-    // The kernel is not locked.
-
-
-    // Variables.
-
-    void * b;
-
-    void * e;
-
-    void * p;
-
-    size_t s1;
-
-    size_t s2;
-
-    ao_task_t * T;
-
-    ptrdiff_t t3;
-
-
-    // Ready.
-
-    T = ao_task_running[0];
-
-    ao_assert(T);
-
-    p = T->context.ptr;
-
-    if (p == NULL)
-    {
-        ao_task_stack_null(T);
-    }
-
-    else
-    {
-        // The kernel is not locked.
-
-        // But, the task stack must not change while the task is started.
-
-        // Therefore, we can read the task stack properties as if the kernel was locked.
-
-        b = ao_task_get_stack_beginning_locked(T);
-
-        ao_assert(b);
-
-        if (p < b)
-        {
-            ao_task_stack_overflow(T);
-        }
-
-        else
-        {
-            s1 = ao_task_get_stack_size_locked(T);
-
-            ao_assert(s1 > 0);
-
-            e = ao_stack_get_end(b, s1);
-
-            if (p >= e)
-            {
-                ao_task_stack_underflow(T);
-            }
-
-            else
-            {
-                s2 = (size_t) ((uint8_t *) e - (uint8_t *) p);
-
-                s2 = s2 * 100 / s1;
-
-                if (s2 >= AO_TASK_STACK_THRESHOLD)
-                {
-                    ao_task_stack_threshold(T, s2);
-                }
-            }
-        }
-    }
-
-    ao_ir_task();
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#endif
-
-#if defined AO_SYS_XC32_PIC32MK_GP
-
-#if defined AO_SYS
-
-// ----------------------------------------------------------------------------
-
-void ao_boot_sys_pcache()
-{
-    // Variables.
-
-    uint32_t r = ao_sys_id_revision();
-
-    uint32_t w;
-
-
-    // Ready.
-
-    ao_sys_kseg0_cacheable_write_back_alloc();
-
-    // DS80000737.
-
-    // Silicon Errata Issue 51.
-
-    if (r == AO_SYS_ID_REVISION_A1) { }
-
-    else
-    {
-        // DS60001402.
-
-        // Section 10. Prefetch Module.
-
-        w = (AO_SYS_SYSCLK <= 60000000UL) ? 1 : 3;
-
-        ao_sys_pfm_ws_set(w);
-
-        ao_sys_pref_enable_cacheable();
-    }
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#endif
-
-#if defined AO_SYS_XC32_PIC32MK_GPG
-
-#if defined AO_SYS
-
-// ----------------------------------------------------------------------------
-
-void ao_boot_sys_pcache()
-{
-    // Variables.
-
-    uint32_t w;
-
-
-    // Ready.
-
-    // DS60001570.
-
-    // Section 9. Prefetch Module.
-
-    // ECC disabled.
-
-    if (DEVCFG0bits.FECCCON & 0x10)
-    {
-        w = (AO_SYS_SYSCLK <= 116000000UL) ? 1 : 2;
-    }
-
-    // ECC enabled.
-
-    else
-    {
-        w = (AO_SYS_SYSCLK <=  96000000UL) ? 1 : 2;
-    }
-
-    ao_sys_pfm_ws_set(w);
-
-    ao_sys_kseg0_cacheable_write_back_alloc();
-
-    ao_sys_pref_enable_cacheable();
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#endif
-
-#if defined AO_SYS_XC32_PIC32MK_GPK
-
-#if defined AO_SYS
-
-// ----------------------------------------------------------------------------
-
-void ao_boot_sys_pcache()
-{
-    // Variables.
-
-    uint32_t w;
-
-
-    // Ready.
-
-    // DS60001519.
-
-    // Section 10. Prefetch Module.
-
-    // ECC disabled.
-
-    if (DEVCFG0bits.FECCCON & 0x10)
-    {
-        w = (AO_SYS_SYSCLK <= 110000000UL) ? 1 : 2;
-    }
-
-    // ECC enabled.
-
-    else
-    {
-        w = (AO_SYS_SYSCLK <= 96000000UL) ? 1 : 2;
-    }
-
-    ao_sys_pfm_ws_set(w);
-
-    ao_sys_kseg0_cacheable_write_back_alloc();
-
-    ao_sys_pref_enable_cacheable();
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#if defined AO_SYS_XC32_PIC32MX
-
-#if defined AO_ALARM
-
-// ----------------------------------------------------------------------------
-
-AO_IR_CT_ATTRIBUTE
-void ao_ir_ct()
-{
-    ao_ir_stack_func0((ao_func0_t) ao_ir_alarm);
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#if defined AO_TASK
-
-// ----------------------------------------------------------------------------
-
-static  void    ao_task_stack_check();
-
-// ----------------------------------------------------------------------------
-
-AO_IR_CS1_ATTRIBUTE
-void ao_ir_cs1()
-{
-    // Prolog.
-
-    // Interrupts are disabled, because Status.EXL == 1.
-
-    asm volatile (".set nomips16");
-    asm volatile (".set noreorder");
-    asm volatile (".set noat");
-
-    // Make room for the context.
-
-    asm volatile ("addiu $sp, $sp, -%0" :: "K" (sizeof(ao_task_context_data_t)));
-
-    // Save s0.
-    // Save s1.
-    // Save s8.
-
-    asm volatile ("sw $s0, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s0)));
-    asm volatile ("sw $s1, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s1)));
-    asm volatile ("sw $s8, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s8)));
-
-    // s1 = sp
-
-    asm volatile ("addu $s1, $sp, $zero");
-
-    // Switch to the interrupt stack.
-
-    // We can safely use k0 and k1, because interrupts are disabled.
-
-    // s0 = &ao_ir_stack
-
-    asm volatile ("la $s0, ao_ir_stack");
-
-    // k1 = 1
-
-    asm volatile ("addiu $k1, $zero, 1");
-
-    // sp = ao_ir_stack.sp
-
-    asm volatile ("lw $sp, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, sp)));
-
-    // ao_ir_stack.depth = k1
-
-    asm volatile ("sw $k1, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-    // s8 = sp
-
-    asm volatile ("addu $s8, $sp, $zero");
-
-#if AO_IR_STACK_DEPTH_MAX
-
-    // k0 = ao_ir_stack.depth_max
-
-    asm volatile ("lw $k0, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
-
-    // k0 = k0 - 1
-
-    asm volatile ("addiu $k0, $k0, -1");
-
-    // if (k0 >= 0) then goto 1
-
-    asm volatile ("bgez $k0, 1f");
-    asm volatile ("nop");
-
-    // ao_ir_stack.depth_max = k1
-
-    asm volatile ("sw $k1, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
-
-    asm volatile ("1:");
-
-#endif
-
-    // k1 = EPC
-
-    asm volatile ("mfc0 $k1, $%0, %1" :: "K" (_CP0_EPC), "K" (_CP0_EPC_SELECT));
-
-    // k0 = Status
-
-    asm volatile ("mfc0 $k0, $%0, %1" :: "K" (_CP0_STATUS), "K" (_CP0_STATUS_SELECT));
-
-    // Save EPC.
-
-    asm volatile ("sw $k1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, epc)));
-
-    // Save Status.
-
-    asm volatile ("sw $k0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, status)));
-
-    // Manipulate the Status value contained in k0.
-
-    // Status.IPL = AO_IR_CS1_PRIO
-    // Status.EXL = 0
-    // Status.ERL = 0
-    // Status.UM  = 0
-
-    // k1 = AO_IR_CS1_PRIO
-
-    asm volatile ("addiu $k1, $zero, %0" :: "K" (AO_IR_CS1_PRIO));
-
-    // k0.IPL = k1
-
-    asm volatile ("ins $k0, $k1, %0, %1" :: "K" (_CP0_STATUS_IPL_POSITION), "K" (_CP0_STATUS_IPL_LENGTH));
-
-    // k0.EXL = 0
-    // k0.ERL = 0
-    // k0.UM  = 0
-
-    asm volatile ("ins $k0, $zero, %0, %1" :: "K" (_CP0_STATUS_EXL_POSITION), "K" (_CP0_STATUS_UM_POSITION - _CP0_STATUS_EXL_POSITION + 1));
-
-    // Enable interrupts whose priority is greater than the switch priority.
-
-    // Status = k0
-
-    asm volatile ("mtc0 $k0, $%0, %1" :: "K" (_CP0_STATUS), "K" (_CP0_STATUS_SELECT));
-
-    // Interrupts are enabled now.
-
-    // Therefore, we must not use k0 and k1 anymore.
-
-    // Save GPR.
-
-    asm volatile ("sw $a0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a0)));
-    asm volatile ("sw $a1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a1)));
-    asm volatile ("sw $a2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a2)));
-    asm volatile ("sw $a3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a3)));
-    asm volatile ("sw $at, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, at)));
-    asm volatile ("sw $ra, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, ra)));
-    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s2)));
-    asm volatile ("sw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s3)));
-    asm volatile ("sw $s4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s4)));
-    asm volatile ("sw $s5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s5)));
-    asm volatile ("sw $s6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s6)));
-    asm volatile ("sw $s7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s7)));
-    asm volatile ("sw $t0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t0)));
-    asm volatile ("sw $t1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t1)));
-    asm volatile ("sw $t2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t2)));
-    asm volatile ("sw $t3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t3)));
-    asm volatile ("sw $t4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t4)));
-    asm volatile ("sw $t5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t5)));
-    asm volatile ("sw $t6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t6)));
-    asm volatile ("sw $t7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t7)));
-    asm volatile ("sw $t8, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t8)));
-    asm volatile ("sw $t9, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t9)));
-    asm volatile ("sw $v0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v0)));
-    asm volatile ("sw $v1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v1)));
-
-    // Save hi.
-    // Save lo.
-
-    asm volatile ("mfhi $s2");
-    asm volatile ("mflo $s3");
-    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi)));
-    asm volatile ("sw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo)));
-
-    // Body.
-
-    // s2 = &ao_task_running
-
-    asm volatile ("la $s2, ao_task_running");
-
-    // s3 = ao_task_running[0]
-
-    asm volatile ("lw $s3, 0($s2)");
-
-    // ao_task_running[0]->context.ptr = s1
-
-    asm volatile ("sw $s1, %0($s3)" :: "K" (offsetof(ao_task_t, context.ptr)));
-
-#if AO_TASK_STACK_CHECK
-
-    asm volatile (".set reorder");
-    asm volatile (".set at");
-
-    asm volatile ("jal ao_task_stack_check");
-    asm volatile ("nop");
-
-    asm volatile (".set nomips16");
-    asm volatile (".set noreorder");
-    asm volatile (".set noat");
-
-#else
-
-    asm volatile (".set reorder");
-    asm volatile (".set at");
-
-    asm volatile ("jal ao_ir_task");
-    asm volatile ("nop");
-
-    asm volatile (".set nomips16");
-    asm volatile (".set noreorder");
-    asm volatile (".set noat");
-
-#endif
-
-    // s3 = ao_task_running[0]
-
-    asm volatile ("lw $s3, 0($s2)");
-
-    // s1 = ao_task_running[0]->context.ptr
-
-    asm volatile ("lw $s1, %0($s3)" :: "K" (offsetof(ao_task_t, context.ptr)));
-
-    // Epilog.
-
-    // Restore hi.
-    // Restore lo.
-
-    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi)));
-    asm volatile ("lw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo)));
-    asm volatile ("mthi $s2");
-    asm volatile ("mtlo $s3");
-
-    // Restore GPR.
-
-    asm volatile ("lw $a0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a0)));
-    asm volatile ("lw $a1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a1)));
-    asm volatile ("lw $a2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a2)));
-    asm volatile ("lw $a3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a3)));
-    asm volatile ("lw $at, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, at)));
-    asm volatile ("lw $ra, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, ra)));
-    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s2)));
-    asm volatile ("lw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s3)));
-    asm volatile ("lw $s4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s4)));
-    asm volatile ("lw $s5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s5)));
-    asm volatile ("lw $s6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s6)));
-    asm volatile ("lw $s7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s7)));
-    asm volatile ("lw $t0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t0)));
-    asm volatile ("lw $t1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t1)));
-    asm volatile ("lw $t2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t2)));
-    asm volatile ("lw $t3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t3)));
-    asm volatile ("lw $t4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t4)));
-    asm volatile ("lw $t5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t5)));
-    asm volatile ("lw $t6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t6)));
-    asm volatile ("lw $t7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t7)));
-    asm volatile ("lw $t8, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t8)));
-    asm volatile ("lw $t9, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t9)));
-    asm volatile ("lw $v0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v0)));
-    asm volatile ("lw $v1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v1)));
-
-    // Disable interrupts.
-
-    asm volatile ("di");
-    asm volatile ("ehb");
-
-    // k0 = EPC
-
-    asm volatile ("lw $k0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, epc)));
-
-    // k1 = Status
-
-    asm volatile ("lw $k1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, status)));
-
-    // Restore EPC.
-
-    asm volatile ("mtc0 $k0, $%0, %1" :: "K" (_CP0_EPC), "K" (_CP0_EPC_SELECT));
-
-    // Restore Status.
-
-    asm volatile ("mtc0 $k1, $%0, %1" :: "K" (_CP0_STATUS), "K" (_CP0_STATUS_SELECT));
-
-    // ao_ir_stack.depth = 0
-
-    asm volatile ("sw $zero, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-    // sp = s1
-
-    asm volatile ("addu $sp, $s1, $zero");
-
-    // Restore s0.
-    // Restore s1.
-    // Restore s8.
-
-    asm volatile ("lw $s0, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s0)));
-    asm volatile ("lw $s1, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s1)));
-    asm volatile ("lw $s8, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s8)));
-
-    // Restore sp.
-
-    asm volatile ("addiu $sp, $sp, %0" :: "K" (sizeof(ao_task_context_data_t)));
-
-    // Return from exception.
-
-    asm volatile ("eret");
-    asm volatile ("nop");
-
-    asm volatile (".set reorder");
-    asm volatile (".set at");
-}
-
-// ----------------------------------------------------------------------------
-
-void ao_task_start_context(ao_task_t * T)
-{
-    // Notes.
-
-    // The kernel is locked.
-
-
-    // Assert.
-
-    ao_assert(T);
-
-
-    // Variables.
-
-    void * b;
-
-    ao_task_context_data_t * D;
-
-    void * e;
-
-    uint32_t * p;
-
-    size_t s;
-
-
-    // Ready.
-
-    // Stack.
-
-    b = ao_task_get_stack_beginning_locked(T);
-
-    ao_assert(b);
-
-    s = ao_task_get_stack_size_locked(T);
-
-    e = ao_stack_get_end(b, s);
-
-    // Stack pointer.
-
-    p = e;
-
-    // Stack pointer must be properly aligned.
-
-    ao_assert(AO_IS_ALIGNED((uintptr_t) p, AO_STACK_ALIGN));
-
-    // According to the MIPS O32 calling convention, the stack frame of the
-    // caller must have an argument section. The argument section must contain
-    // enough space for all the arguments of the callee, but at least four
-    // words.
-
-    p = p - 4;
-
-    // Make room for the context.
-
-    p = p - sizeof(ao_task_context_data_t) / 4;
-
-    // Stack pointer must not overflow.
-
-    ao_assert(p >= (uint32_t *) b);
-
-    // Context.
-
-    D = (ao_task_context_data_t *) p;
-
-    D->a0 = (uint32_t) T;
-
-    D->epc = (uint32_t) ao_task_entry;
-
-    D->status =
-        _CP0_STATUS_EXL_MASK  |
-        _CP0_STATUS_IE_MASK;
-
-    T->context.ptr = D;
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#if defined AO_TASK && AO_TASK_STACK_CHECK
-
-// ----------------------------------------------------------------------------
-
-void ao_task_stack_check()
-{
-    // Notes.
-
-    // This function is called by the task interrupt handler.
-
-    // The kernel is not locked.
-
-
-    // Variables.
-
-    void * b;
-
-    void * e;
-
-    void * p;
-
-    size_t s1;
-
-    size_t s2;
-
-    ao_task_t * T;
-
-    ptrdiff_t t3;
-
-
-    // Ready.
-
-    T = ao_task_running[0];
-
-    ao_assert(T);
-
-    p = T->context.ptr;
-
-    if (p == NULL)
-    {
-        ao_task_stack_null(T);
-    }
-
-    else
-    {
-        // The kernel is not locked.
-
-        // But, the task stack must not change while the task is started.
-
-        // Therefore, we can read the task stack properties as if the kernel was locked.
-
-        b = ao_task_get_stack_beginning_locked(T);
-
-        ao_assert(b);
-
-        if (p < b)
-        {
-            ao_task_stack_overflow(T);
-        }
-
-        else
-        {
-            s1 = ao_task_get_stack_size_locked(T);
-
-            ao_assert(s1 > 0);
-
-            e = ao_stack_get_end(b, s1);
-
-            if (p >= e)
-            {
-                ao_task_stack_underflow(T);
-            }
-
-            else
-            {
-                s2 = (size_t) ((uint8_t *) e - (uint8_t *) p);
-
-                s2 = s2 * 100 / s1;
-
-                if (s2 >= AO_TASK_STACK_THRESHOLD)
-                {
-                    ao_task_stack_threshold(T, s2);
-                }
-            }
-        }
-    }
-
-    ao_ir_task();
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#endif
-
-#if defined AO_SYS_XC32_PIC32MX_1XX
-
-#if defined AO_SYS
-
-// ----------------------------------------------------------------------------
-
-void ao_boot_sys_pcache()
-{
-    ao_sys_kseg0_cacheable();
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#endif
-
-#if defined AO_SYS_XC32_PIC32MX_1XX_64_100
-
-#if defined AO_SYS
-
-// ----------------------------------------------------------------------------
-
-void ao_boot_sys_pcache()
-{
-    ao_sys_kseg0_cacheable();
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#endif
-
-#if defined AO_SYS_XC32_PIC32MX_1XX_XLP
-
-#if defined AO_SYS
-
-// ----------------------------------------------------------------------------
-
-void ao_boot_sys_pcache()
-{
-    // Variables.
-
-    uint32_t w;
-
-
-    // Ready.
-
-    // DS60001404.
-
-    // Section 33. Electrical Characteristics.
-
-    if (AO_SYS_SYSCLK < 19000000UL)
-    {
-        w = 0;
-    }
-
-    else if (AO_SYS_SYSCLK < 37000000UL)
-    {
-        w = 1;
-    }
-
-    else if (AO_SYS_SYSCLK < 55000000UL)
-    {
-        w = 2;
-    }
-
-    else
-    {
-        w = 3;
-    }
-
-    ao_sys_pfm_ws_set(w);
-
-    ao_sys_kseg0_cacheable();
-
-    ao_sys_pref_enable_cacheable();
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#endif
-
-#if defined AO_SYS_XC32_PIC32MX_330
-
-#if defined AO_SYS
-
-// ----------------------------------------------------------------------------
-
-void ao_boot_sys_pcache()
-{
-    // Variables.
-
-    uint32_t w;
-
-
-    // Ready.
-
-    // DS60001185.
-
-    // Section 31. Electrical Characteristics.
-
-    if (AO_SYS_SYSCLK < 31000000UL)
-    {
-        w = 0;
-    }
-
-    else if (AO_SYS_SYSCLK < 61000000UL)
-    {
-        w = 1;
-    }
-
-    else if (AO_SYS_SYSCLK < 101000000UL)
-    {
-        w = 2;
-    }
-
-    else
-    {
-        w = 3;
-    }
-
-    ao_sys_pfm_ws_set(w);
-
-    ao_sys_kseg0_cacheable();
-
-    ao_sys_pref_enable_cacheable();
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#endif
-
-#if defined AO_SYS_XC32_PIC32MX_3XX
-
-#if defined AO_SYS
-
-// ----------------------------------------------------------------------------
-
-void ao_boot_sys_pcache()
-{
-    // Variables.
-
-    uint32_t w;
-
-
-    // Ready.
-
-    // DS61143.
-
-    // Section 29. Electrical Characteristics.
-
-    if (AO_SYS_SYSCLK < 31000000UL)
-    {
-        w = 0;
-    }
-
-    else if (AO_SYS_SYSCLK < 61000000UL)
-    {
-        w = 1;
-    }
-
-    else
-    {
-        w = 2;
-    }
-
-    ao_sys_pfm_ws_set(w);
-
-    ao_sys_kseg0_cacheable();
-
-    ao_sys_pref_enable_cacheable();
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#endif
-
-#if defined AO_SYS_XC32_PIC32MX_5XX
-
-#if defined AO_SYS
-
-// ----------------------------------------------------------------------------
-
-void ao_boot_sys_pcache()
-{
-    // Variables.
-
-    uint32_t w;
-
-
-    // Ready.
-
-    // DS60001156.
-
-    // Section 32. Electrical Characteristics.
-
-    if (AO_SYS_SYSCLK < 31000000UL)
-    {
-        w = 0;
-    }
-
-    else if (AO_SYS_SYSCLK < 61000000UL)
-    {
-        w = 1;
-    }
-
-    else
-    {
-        w = 2;
-    }
-
-    ao_sys_pfm_ws_set(w);
-
-    ao_sys_kseg0_cacheable();
-
-    ao_sys_pref_enable_cacheable();
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#if defined AO_SYS_XC32_PIC32MZ
-
-#if defined AO_ALARM
-
-// ----------------------------------------------------------------------------
-
-AO_IR_CT_ATTRIBUTE
-void ao_ir_ct()
-{
-    ao_ir_stack_func0((ao_func0_t) ao_ir_alarm);
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#if defined AO_SYS
-
-// ----------------------------------------------------------------------------
-
-void ao_sys_lock_pps(ao_sys_lock_pps_t * x)
-{
-    ao_assert(x);
-
-    uint32_t t1 = x->io & _CFGCON_IOLOCK_MASK;
-
-    uint32_t t2 = CFGCON & ~_CFGCON_IOLOCK_MASK;
-
-    CFGCON = t1 | t2;
-
-    ao_sys_lock_device(&x->device);
-}
-
-void ao_sys_unlock_pps(ao_sys_lock_pps_t * x)
-{
-    ao_assert(x);
-
-    ao_sys_unlock_device(&x->device);
-
-    uint32_t i = CFGCON;
-
-    CFGCON = i & ~_CFGCON_IOLOCK_MASK;
-
-    x->io = i;
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#if defined AO_TASK
-
-// ----------------------------------------------------------------------------
-
-static  void    ao_task_stack_check();
-
-// ----------------------------------------------------------------------------
-
-AO_IR_CS1_ATTRIBUTE
-void ao_ir_cs1()
-{
-    // Prolog.
-
-    // Interrupts are disabled, because Status.EXL == 1.
-
-    asm volatile (".set nomips16");
-    asm volatile (".set noreorder");
-    asm volatile (".set noat");
-
-    // Make room for the context.
-
-    asm volatile ("addiu $sp, $sp, -%0" :: "K" (sizeof(ao_task_context_data_t)));
-
-    // Save s0.
-    // Save s1.
-    // Save s2.
-    // Save s3.
-    // Save s8.
-
-    asm volatile ("sw $s0, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s0)));
-    asm volatile ("sw $s1, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s1)));
-    asm volatile ("sw $s2, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s2)));
-    asm volatile ("sw $s3, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s3)));
-    asm volatile ("sw $s8, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s8)));
-
-    // s1 = sp
-
-    asm volatile ("addu $s1, $sp, $zero");
-
-    // Switch to the interrupt stack.
-
-    // We can safely use k0 and k1, because interrupts are disabled.
-
-    // s0 = &ao_ir_stack
-
-    asm volatile ("la $s0, ao_ir_stack");
-
-    // k1 = 1
-
-    asm volatile ("addiu $k1, $zero, 1");
-
-    // sp = ao_ir_stack.sp
-
-    asm volatile ("lw $sp, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, sp)));
-
-    // ao_ir_stack.depth = k1
-
-    asm volatile ("sw $k1, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-    // s8 = sp
-
-    asm volatile ("addu $s8, $sp, $zero");
-
-#if AO_IR_STACK_DEPTH_MAX
-
-    // k0 = ao_ir_stack.depth_max
-
-    asm volatile ("lw $k0, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
-
-    // k0 = k0 - 1
-
-    asm volatile ("addiu $k0, $k0, -1");
-
-    // if (k0 >= 0) then goto 1
-
-    asm volatile ("bgez $k0, 1f");
-    asm volatile ("nop");
-
-    // ao_ir_stack.depth_max = k1
-
-    asm volatile ("sw $k1, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
-
-    asm volatile ("1:");
-
-#endif
-
-    // k1 = EPC
-
-    asm volatile ("mfc0 $k1, $%0, %1" :: "K" (_CP0_EPC), "K" (_CP0_EPC_SELECT));
-
-    // k0 = Status
-
-    asm volatile ("mfc0 $k0, $%0, %1" :: "K" (_CP0_STATUS), "K" (_CP0_STATUS_SELECT));
-
-    // save EPC
-
-    asm volatile ("sw $k1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, epc)));
-
-    // save Status
-
-    asm volatile ("sw $k0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, status)));
-
-    // Manipulate the Status value contained in k0.
-
-    // Status.IPL = AO_IR_CS1_PRIO
-    // Status.EXL = 0
-    // Status.ERL = 0
-    // Status.UM  = 0
-
-    // k1 = AO_IR_CS1_PRIO
-
-    asm volatile ("addiu $k1, $zero, %0" :: "K" (AO_IR_CS1_PRIO));
-
-    // k0.IPL = k1
-
-    asm volatile ("ins $k0, $k1, %0, %1" :: "K" (_CP0_STATUS_IPL_POSITION), "K" (_CP0_STATUS_IPL_LENGTH));
-
-    // k0.EXL = 0
-    // k0.ERL = 0
-    // k0.UM  = 0
-
-    asm volatile ("ins $k0, $zero, %0, %1" :: "K" (_CP0_STATUS_EXL_POSITION), "K" (_CP0_STATUS_UM_POSITION - _CP0_STATUS_EXL_POSITION + 1));
-
-    // Enable interrupts whose priority is greater than the switch priority.
-
-    // Status = k0
-
-    asm volatile ("mtc0 $k0, $%0, %1" :: "K" (_CP0_STATUS), "K" (_CP0_STATUS_SELECT));
-
-    // Interrupts are enabled now.
-
-    // Therefore, we must not use k0 and k1 anymore.
-
-    // Save GPR.
-
-    asm volatile ("sw $a0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a0)));
-    asm volatile ("sw $a1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a1)));
-    asm volatile ("sw $a2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a2)));
-    asm volatile ("sw $a3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a3)));
-    asm volatile ("sw $at, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, at)));
-    asm volatile ("sw $ra, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, ra)));
-    asm volatile ("sw $s4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s4)));
-    asm volatile ("sw $s5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s5)));
-    asm volatile ("sw $s6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s6)));
-    asm volatile ("sw $s7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s7)));
-    asm volatile ("sw $t0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t0)));
-    asm volatile ("sw $t1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t1)));
-    asm volatile ("sw $t2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t2)));
-    asm volatile ("sw $t3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t3)));
-    asm volatile ("sw $t4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t4)));
-    asm volatile ("sw $t5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t5)));
-    asm volatile ("sw $t6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t6)));
-    asm volatile ("sw $t7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t7)));
-    asm volatile ("sw $t8, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t8)));
-    asm volatile ("sw $t9, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t9)));
-    asm volatile ("sw $v0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v0)));
-    asm volatile ("sw $v1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v1)));
-
-    // Save hi.
-    // Save lo.
-
-    asm volatile ("mfhi $s2");
-    asm volatile ("mflo $s3");
-    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi)));
-    asm volatile ("sw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo)));
-
-    // Save hi1.
-    // Save lo1.
-
-    asm volatile ("mfhi $s2, $ac1");
-    asm volatile ("mflo $s3, $ac1");
-    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi1)));
-    asm volatile ("sw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo1)));
-
-    // Save hi2.
-    // Save lo2.
-
-    asm volatile ("mfhi $s2, $ac2");
-    asm volatile ("mflo $s3, $ac2");
-    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi2)));
-    asm volatile ("sw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo2)));
-
-    // Save hi3.
-    // Save lo3.
-
-    asm volatile ("mfhi $s2, $ac3");
-    asm volatile ("mflo $s3, $ac3");
-    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi3)));
-    asm volatile ("sw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo3)));
-
-    // Save DSPControl.
-
-    asm volatile ("rddsp $s2");
-    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, dsp_control)));
-
-    // Save FCSR.
-
-    asm volatile ("cfc1 $s2, $f31");
-    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, fcsr)));
-
-    // Save f0 .. f31.
-
-    asm volatile ("sdc1 $f0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f0)));
-    asm volatile ("sdc1 $f1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f1)));
-    asm volatile ("sdc1 $f2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f2)));
-    asm volatile ("sdc1 $f3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f3)));
-    asm volatile ("sdc1 $f4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f4)));
-    asm volatile ("sdc1 $f5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f5)));
-    asm volatile ("sdc1 $f6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f6)));
-    asm volatile ("sdc1 $f7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f7)));
-    asm volatile ("sdc1 $f8, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f8)));
-    asm volatile ("sdc1 $f9, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f9)));
-    asm volatile ("sdc1 $f10, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f10)));
-    asm volatile ("sdc1 $f11, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f11)));
-    asm volatile ("sdc1 $f12, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f12)));
-    asm volatile ("sdc1 $f13, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f13)));
-    asm volatile ("sdc1 $f14, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f14)));
-    asm volatile ("sdc1 $f15, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f15)));
-    asm volatile ("sdc1 $f16, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f16)));
-    asm volatile ("sdc1 $f17, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f17)));
-    asm volatile ("sdc1 $f18, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f18)));
-    asm volatile ("sdc1 $f19, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f19)));
-    asm volatile ("sdc1 $f20, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f20)));
-    asm volatile ("sdc1 $f21, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f21)));
-    asm volatile ("sdc1 $f22, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f22)));
-    asm volatile ("sdc1 $f23, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f23)));
-    asm volatile ("sdc1 $f24, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f24)));
-    asm volatile ("sdc1 $f25, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f25)));
-    asm volatile ("sdc1 $f26, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f26)));
-    asm volatile ("sdc1 $f27, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f27)));
-    asm volatile ("sdc1 $f28, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f28)));
-    asm volatile ("sdc1 $f29, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f29)));
-    asm volatile ("sdc1 $f30, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f30)));
-    asm volatile ("sdc1 $f31, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f31)));
-
-    // Body.
-
-    // s2 = &ao_task_running
-
-    asm volatile ("la $s2, ao_task_running");
-
-    // s3 = ao_task_running[0]
-
-    asm volatile ("lw $s3, 0($s2)");
-
-    // ao_task_running[0]->context.ptr = s1
-
-    asm volatile ("sw $s1, %0($s3)" :: "K" (offsetof(ao_task_t, context.ptr)));
-
-#if AO_TASK_STACK_CHECK
-
-    asm volatile (".set reorder");
-    asm volatile (".set at");
-
-    asm volatile ("jal ao_task_stack_check");
-    asm volatile ("nop");
-
-    asm volatile (".set nomips16");
-    asm volatile (".set noreorder");
-    asm volatile (".set noat");
-
-#else
-
-    asm volatile (".set reorder");
-    asm volatile (".set at");
-
-    asm volatile ("jal ao_ir_task");
-    asm volatile ("nop");
-
-    asm volatile (".set nomips16");
-    asm volatile (".set noreorder");
-    asm volatile (".set noat");
-
-#endif
-
-    // s3 = ao_task_running[0]
-
-    asm volatile ("lw $s3, 0($s2)");
-
-    // s1 = ao_task_running[0]->context.ptr
-
-    asm volatile ("lw $s1, %0($s3)" :: "K" (offsetof(ao_task_t, context.ptr)));
-
-    // Epilog.
-
-    // Restore GPR.
-
-    asm volatile ("lw $a0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a0)));
-    asm volatile ("lw $a1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a1)));
-    asm volatile ("lw $a2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a2)));
-    asm volatile ("lw $a3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a3)));
-    asm volatile ("lw $at, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, at)));
-    asm volatile ("lw $ra, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, ra)));
-    asm volatile ("lw $s4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s4)));
-    asm volatile ("lw $s5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s5)));
-    asm volatile ("lw $s6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s6)));
-    asm volatile ("lw $s7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s7)));
-    asm volatile ("lw $t0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t0)));
-    asm volatile ("lw $t1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t1)));
-    asm volatile ("lw $t2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t2)));
-    asm volatile ("lw $t3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t3)));
-    asm volatile ("lw $t4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t4)));
-    asm volatile ("lw $t5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t5)));
-    asm volatile ("lw $t6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t6)));
-    asm volatile ("lw $t7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t7)));
-    asm volatile ("lw $t8, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t8)));
-    asm volatile ("lw $t9, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t9)));
-    asm volatile ("lw $v0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v0)));
-    asm volatile ("lw $v1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v1)));
-
-    // Restore hi.
-    // Restore lo.
-
-    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi)));
-    asm volatile ("lw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo)));
-    asm volatile ("mthi $s2");
-    asm volatile ("mtlo $s3");
-
-    // Restore hi1.
-    // Restore lo1.
-
-    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi1)));
-    asm volatile ("lw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo1)));
-    asm volatile ("mthi $s2, $ac1");
-    asm volatile ("mtlo $s3, $ac1");
-
-    // Restore hi2.
-    // Restore lo2.
-
-    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi2)));
-    asm volatile ("lw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo2)));
-    asm volatile ("mthi $s2, $ac2");
-    asm volatile ("mtlo $s3, $ac2");
-
-    // Restore hi3.
-    // Restore lo3.
-
-    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi3)));
-    asm volatile ("lw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo3)));
-    asm volatile ("mthi $s2, $ac3");
-    asm volatile ("mtlo $s3, $ac3");
-
-    // Restore DSPControl.
-
-    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, dsp_control)));
-    asm volatile ("wrdsp $s2");
-
-    // Restore FCSR.
-
-    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, fcsr)));
-    asm volatile ("ctc1 $s2, $f31");
-
-    // Restore f0 .. f31.
-
-    asm volatile ("ldc1 $f0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f0)));
-    asm volatile ("ldc1 $f1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f1)));
-    asm volatile ("ldc1 $f2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f2)));
-    asm volatile ("ldc1 $f3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f3)));
-    asm volatile ("ldc1 $f4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f4)));
-    asm volatile ("ldc1 $f5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f5)));
-    asm volatile ("ldc1 $f6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f6)));
-    asm volatile ("ldc1 $f7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f7)));
-    asm volatile ("ldc1 $f8, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f8)));
-    asm volatile ("ldc1 $f9, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f9)));
-    asm volatile ("ldc1 $f10, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f10)));
-    asm volatile ("ldc1 $f11, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f11)));
-    asm volatile ("ldc1 $f12, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f12)));
-    asm volatile ("ldc1 $f13, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f13)));
-    asm volatile ("ldc1 $f14, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f14)));
-    asm volatile ("ldc1 $f15, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f15)));
-    asm volatile ("ldc1 $f16, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f16)));
-    asm volatile ("ldc1 $f17, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f17)));
-    asm volatile ("ldc1 $f18, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f18)));
-    asm volatile ("ldc1 $f19, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f19)));
-    asm volatile ("ldc1 $f20, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f20)));
-    asm volatile ("ldc1 $f21, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f21)));
-    asm volatile ("ldc1 $f22, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f22)));
-    asm volatile ("ldc1 $f23, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f23)));
-    asm volatile ("ldc1 $f24, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f24)));
-    asm volatile ("ldc1 $f25, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f25)));
-    asm volatile ("ldc1 $f26, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f26)));
-    asm volatile ("ldc1 $f27, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f27)));
-    asm volatile ("ldc1 $f28, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f28)));
-    asm volatile ("ldc1 $f29, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f29)));
-    asm volatile ("ldc1 $f30, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f30)));
-    asm volatile ("ldc1 $f31, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f31)));
-
-    // Disable interrupts.
-
-    asm volatile ("di");
-    asm volatile ("ehb");
-
-    // k0 = EPC
-
-    asm volatile ("lw $k0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, epc)));
-
-    // k1 = Status
-
-    asm volatile ("lw $k1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, status)));
-
-    // Restore EPC.
-
-    asm volatile ("mtc0 $k0, $%0, %1" :: "K" (_CP0_EPC), "K" (_CP0_EPC_SELECT));
-
-    // Restore Status.
-
-    asm volatile ("mtc0 $k1, $%0, %1" :: "K" (_CP0_STATUS), "K" (_CP0_STATUS_SELECT));
-
-    // ao_ir_stack.depth = 0
-
-    asm volatile ("sw $zero, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
-
-    // sp = s1
-
-    asm volatile ("addu $sp, $s1, $zero");
-
-    // Restore s0.
-    // Restore s1.
-    // Restore s2.
-    // Restore s3.
-    // Restore s8.
-
-    asm volatile ("lw $s0, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s0)));
-    asm volatile ("lw $s1, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s1)));
-    asm volatile ("lw $s2, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s2)));
-    asm volatile ("lw $s3, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s3)));
-    asm volatile ("lw $s8, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s8)));
-
-    // Restore sp.
-
-    asm volatile ("addiu $sp, $sp, %0" :: "K" (sizeof(ao_task_context_data_t)));
-
-    // Return from exception.
-
-    asm volatile ("eret");
-    asm volatile ("nop");
-
-    asm volatile (".set reorder");
-    asm volatile (".set at");
-}
-
-// ----------------------------------------------------------------------------
-
-void ao_task_start_context(ao_task_t * T)
-{
-    // Notes.
-
-    // The kernel is locked.
-
-
-    // Assert.
-
-    ao_assert(T);
-
-
-    // Variables.
-
-    void * b;
-
-    ao_task_context_data_t * D;
-
-    void * e;
-
-    uint32_t * p;
-
-    size_t s;
-
-
-    // Ready.
-
-    // Stack.
-
-    b = ao_task_get_stack_beginning_locked(T);
-
-    ao_assert(b);
-
-    s = ao_task_get_stack_size_locked(T);
-
-    e = ao_stack_get_end(b, s);
-
-    // Stack pointer.
-
-    p = e;
-
-    // Stack pointer must be properly aligned.
-
-    ao_assert(AO_IS_ALIGNED((uintptr_t) p, AO_STACK_ALIGN));
-
-    // According to the MIPS O32 calling convention, the stack frame of the
-    // caller must have an argument section. The argument section must contain
-    // enough space for all the arguments of the callee, but at least four
-    // words.
-
-    p = p - 4;
-
-    // Make room for the context.
-
-    p = p - sizeof(ao_task_context_data_t) / 4;
-
-    // Stack pointer must not overflow.
-
-    ao_assert(p >= (uint32_t *) b);
-
-    // Context.
-
-    D = (ao_task_context_data_t *) p;
-
-    D->a0 = (uint32_t) T;
-
-    D->dsp_control = 0;
-
-    D->epc = (uint32_t) ao_task_entry;
-
-    D->fcsr = 0x01600000;
-
-    // When generating interrupt handlers, the XC32 compiler assumes that both DSP and FPU are usable.
-
-    // Therefore, the Status register bits CU1 and MX must always be set.
-
-    D->status =
-        _CP0_STATUS_CU1_MASK |
-        _CP0_STATUS_EXL_MASK |
-        _CP0_STATUS_FR_MASK  |
-        _CP0_STATUS_IE_MASK  |
-        _CP0_STATUS_MX_MASK;
-
-    T->context.ptr = D;
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#if defined AO_TASK && AO_TASK_STACK_CHECK
-
-// ----------------------------------------------------------------------------
-
-void ao_task_stack_check()
-{
-    // Notes.
-
-    // This function is called by the task interrupt handler.
-
-    // The kernel is not locked.
-
-
-    // Variables.
-
-    void * b;
-
-    void * e;
-
-    void * p;
-
-    size_t s1;
-
-    size_t s2;
-
-    ao_task_t * T;
-
-    ptrdiff_t t3;
-
-
-    // Ready.
-
-    T = ao_task_running[0];
-
-    ao_assert(T);
-
-    p = T->context.ptr;
-
-    if (p == NULL)
-    {
-        ao_task_stack_null(T);
-    }
-
-    else
-    {
-        // The kernel is not locked.
-
-        // But, the task stack must not change while the task is started.
-
-        // Therefore, we can read the task stack properties as if the kernel was locked.
-
-        b = ao_task_get_stack_beginning_locked(T);
-
-        ao_assert(b);
-
-        if (p < b)
-        {
-            ao_task_stack_overflow(T);
-        }
-
-        else
-        {
-            s1 = ao_task_get_stack_size_locked(T);
-
-            ao_assert(s1 > 0);
-
-            e = ao_stack_get_end(b, s1);
-
-            if (p >= e)
-            {
-                ao_task_stack_underflow(T);
-            }
-
-            else
-            {
-                s2 = (size_t) ((uint8_t *) e - (uint8_t *) p);
-
-                s2 = s2 * 100 / s1;
-
-                if (s2 >= AO_TASK_STACK_THRESHOLD)
-                {
-                    ao_task_stack_threshold(T, s2);
-                }
-            }
-        }
-    }
-
-    ao_ir_task();
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#endif
-
-#if defined AO_SYS_XC32_PIC32MZ_DA
-
-#if defined AO_SYS
-
-// ----------------------------------------------------------------------------
-
-void ao_boot_sys_pcache()
-{
-    // Variables.
-
-    uint32_t w;
-
-
-    // Ready.
-
-    // DS60001361.
-
-    // Section 44. Electrical Characteristics.
-
-    // ECC disabled.
-
-    if (DEVCFG0bits.FECCCON & 0x10)
-    {
-        if (AO_SYS_SYSCLK <= 74000000UL)
-        {
-            w = 0;
-        }
-
-        else if (AO_SYS_SYSCLK <= 140000000UL)
-        {
-            w = 1;
-        }
-
-        else
-        {
-            w = 2;
-        }
-    }
-
-    // ECC enabled.
-
-    else
-    {
-        if (AO_SYS_SYSCLK <= 60000000UL)
-        {
-            w = 0;
-        }
-
-        else if (AO_SYS_SYSCLK <= 120000000UL)
-        {
-            w = 1;
-        }
-
-        else
-        {
-            w = 2;
-        }
-    }
-
-    ao_sys_pfm_ws_set(w);
-
-    ao_sys_kseg0_cacheable_write_back_alloc();
-
-    ao_sys_pref_enable_instructions_and_data();
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#endif
-
-#if defined AO_SYS_XC32_PIC32MZ_DAK
-
-#if defined AO_SYS
-
-// ----------------------------------------------------------------------------
-
-void ao_boot_sys_pcache()
-{
-    // Variables.
-
-    uint32_t w;
-
-
-    // Ready.
-
-    // DS60001565.
-
-    // Section 44. Electrical Characteristics.
-
-    // ECC disabled.
-
-    if (DEVCFG0bits.FECCCON & 0x10)
-    {
-        if (AO_SYS_SYSCLK <= 74000000UL)
-        {
-            w = 0;
-        }
-
-        else if (AO_SYS_SYSCLK <= 140000000UL)
-        {
-            w = 1;
-        }
-
-        else
-        {
-            w = 2;
-        }
-    }
-
-    // ECC enabled.
-
-    else
-    {
-        if (AO_SYS_SYSCLK <= 60000000UL)
-        {
-            w = 0;
-        }
-
-        else if (AO_SYS_SYSCLK <= 120000000UL)
-        {
-            w = 1;
-        }
-
-        else
-        {
-            w = 2;
-        }
-    }
-
-    ao_sys_pfm_ws_set(w);
-
-    ao_sys_kseg0_cacheable_write_back_alloc();
-
-    ao_sys_pref_enable_instructions_and_data();
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#endif
-
-#if defined AO_SYS_XC32_PIC32MZ_EC
-
-#if defined AO_SYS
-
-// ----------------------------------------------------------------------------
-
-void ao_boot_sys_pcache()
-{
-    // Variables.
-
-    uint32_t w;
-
-
-    // Ready.
-
-    // DS60001191.
-
-    // Section 37. Electrical Characteristics.
-
-    // DS80000588.
-
-    // Silicon Errata Issue 2.
-
-    // ECC disabled.
-
-    if (DEVCFG0bits.FECCCON & 0x10)
-    {
-        if (AO_SYS_SYSCLK <= 74000000UL)
-        {
-            w = 0;
-        }
-
-        else if (AO_SYS_SYSCLK <= 140000000UL)
-        {
-            w = 1;
-        }
-
-        else
-        {
-            w = 2;
-        }
-    }
-
-    // ECC enabled.
-
-    else
-    {
-        if (AO_SYS_SYSCLK <= 60000000UL)
-        {
-            w = 0;
-        }
-
-        else if (AO_SYS_SYSCLK <= 120000000UL)
-        {
-            w = 1;
-        }
-
-        else
-        {
-            w = 2;
-        }
-    }
-
-    ao_sys_pfm_ws_set(w);
-
-    ao_sys_kseg0_cacheable_write_back_alloc();
-
-    ao_sys_pref_enable_instructions_and_data();
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#endif
-
-#if defined AO_SYS_XC32_PIC32MZ_EF
-
-#if defined AO_SYS
-
-// ----------------------------------------------------------------------------
-
-void ao_boot_sys_pcache()
-{
-    // Variables.
-
-    uint32_t r;
-
-    uint32_t w;
-
-
-    // Ready.
-
-    // DS60001320.
-
-    // Section 37. Electrical Characteristics.
-
-    // ECC disabled.
-
-    if (DEVCFG0bits.FECCCON & 0x10)
-    {
-        if (AO_SYS_SYSCLK <= 74000000UL)
-        {
-            w = 0;
-        }
-
-        else if (AO_SYS_SYSCLK <= 140000000UL)
-        {
-            w = 1;
-        }
-
-        else
-        {
-            // DS80000663.
-
-            // Silicon Errata Issue 38.
-
-            r = ao_sys_id_revision();
-
-            if (r == AO_SYS_ID_REVISION_B2)
-            {
-                if (AO_SYS_SYSCLK <= 184000000UL)
-                {
-                    w = 2;
-                }
-
-                else
-                {
-                    w = 3;
-                }
-            }
-
-            else
-            {
-                w = 2;
-            }
-        }
-    }
-
-    // ECC enabled.
-
-    else
-    {
-        if (AO_SYS_SYSCLK <= 60000000UL)
-        {
-            w = 0;
-        }
-
-        else if (AO_SYS_SYSCLK <= 120000000UL)
-        {
-            w = 1;
-        }
-
-        else
-        {
-            // DS80000663.
-
-            // Silicon Errata Issue 38.
-
-            r = ao_sys_id_revision();
-
-            if (r == AO_SYS_ID_REVISION_B2)
-            {
-                if (AO_SYS_SYSCLK <= 184000000UL)
-                {
-                    w = 2;
-                }
-
-                else
-                {
-                    w = 3;
-                }
-            }
-
-            else
-            {
-                w = 2;
-            }
-        }
-    }
-
-    ao_sys_pfm_ws_set(w);
-
-    ao_sys_kseg0_cacheable_write_back_alloc();
-
-    ao_sys_pref_enable_instructions_and_data();
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#endif
-
-// ----------------------------------------------------------------------------
-
-#if defined AO_SYS_XC32_PIC32_CAN
-
 #if defined AO_CAN
 
 // ----------------------------------------------------------------------------
@@ -24686,10 +21042,6 @@ void ao_ir_can2()
 
 #endif
 
-#endif
-
-#if defined AO_SYS_XC32_PIC32_I2C
-
 #if defined AO_I2C
 
 // ----------------------------------------------------------------------------
@@ -25711,9 +22063,754 @@ bool ao_i2c_stop_forever(ao_i2c_reg_t * r)
 
 #endif
 
+#if defined AO_IR
+
+// ----------------------------------------------------------------------------
+
+        ao_ir_stack_t   ao_ir_stack                                 __attribute__ ((used));
+
+static  uint8_t         ao_ir_stack_store[AO_IR_STACK_SIZE_ALIGNED] __attribute__ ((used, aligned(AO_STACK_ALIGN)));
+
+// ----------------------------------------------------------------------------
+
+void ao_boot_ir_stack()
+{
+    uint8_t * sp;
+
+    sp = ao_ir_stack_store;
+
+    sp = sp + AO_IR_STACK_SIZE_ALIGNED;
+
+    sp = sp - AO_IR_STACK_SIZE_AS;
+
+    ao_ir_stack.sp = (uint32_t) sp;
+
+#if AO_IR_STACK_FILL
+
+    ao_stack_fill
+    (
+        (void *) ao_ir_stack_store,
+        (size_t) AO_IR_STACK_SIZE_ALIGNED
+    );
+
 #endif
 
-#if defined AO_SYS_XC32_PIC32_SPI
+}
+
+// ----------------------------------------------------------------------------
+
+__attribute__ ((naked))
+void * ao_ir_stack_func0(ao_func0_t func)
+{
+    // Variables.
+
+    (void) func;
+
+
+    // Ready.
+
+    asm volatile (".set nomips16");
+    asm volatile (".set noreorder");
+    asm volatile (".set noat");
+
+    // Disable interrupts.
+
+    asm volatile ("di");
+    asm volatile ("ehb");
+
+    // k0 = &ao_ir_stack
+
+    asm volatile ("la $k0, ao_ir_stack");
+
+    // k1 = ao_ir_stack.depth
+
+    asm volatile ("lw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+    // if (k1 != 0) then goto 1
+
+    asm volatile ("bne $k1, $zero, 1f");
+
+    // k1++
+
+    asm volatile ("addiu $k1, $k1, 1");
+
+    // ao_ir_stack.sp_backup = sp
+
+    asm volatile ("sw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp_backup)));
+
+    // ao_ir_stack.fp_backup = s8
+
+    asm volatile ("sw $s8, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, fp_backup)));
+
+    // sp = ao_ir_stack.sp
+
+    asm volatile ("lw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp)));
+
+    // s8 = sp
+
+    asm volatile ("addu $s8, $sp, $zero");
+
+    asm volatile ("1:");
+
+    // ao_ir_stack.depth = k1
+
+    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+#if AO_IR_STACK_DEPTH_MAX
+
+    // sp -= 8
+
+    asm volatile ("addiu $sp, $sp, -8");
+
+    // Save s0.
+
+    asm volatile ("sw $s0, 0($sp)");
+
+    // s0 = ao_ir_stack.depth_max
+
+    asm volatile ("lw $s0, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
+
+    // s0 = s0 - k1
+
+    asm volatile ("subu $s0, $s0, $k1");
+
+    // if (s0 >= 0) then goto 1
+
+    asm volatile ("bgez $s0, 1f");
+    asm volatile ("nop");
+
+    // ao_ir_stack.depth_max = k1
+
+    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
+
+    asm volatile ("1:");
+
+    // Restore s0.
+
+    asm volatile ("lw $s0, 0($sp)");
+
+    // sp += 8
+
+    asm volatile ("addiu $sp, $sp, 8");
+
+#endif
+
+    // Enable interrupts.
+
+    asm volatile ("ei");
+    asm volatile ("nop");
+
+    // Save ra.
+
+    asm volatile ("sw $ra, 20($sp)");
+
+    // Execute.
+
+    asm volatile (".set reorder");
+    asm volatile (".set at");
+
+    asm volatile ("jalr $a0");
+    asm volatile ("nop");
+
+    asm volatile (".set nomips16");
+    asm volatile (".set noreorder");
+    asm volatile (".set noat");
+
+    // Restore ra.
+
+    asm volatile ("lw $ra, 20($sp)");
+
+    // Disable interrupts.
+
+    asm volatile ("di");
+    asm volatile ("ehb");
+
+    // k0 = &ao_ir_stack
+
+    asm volatile ("la $k0, ao_ir_stack");
+
+    // k1 = ao_ir_stack.depth
+
+    asm volatile ("lw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+    // k1--
+
+    asm volatile ("addiu $k1, $k1, -1");
+
+    // if (k1 != 0) then goto 1
+
+    asm volatile ("bne $k1, $zero, 1f");
+
+    // ao_ir_stack.depth = k1
+
+    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+    // sp = ao_ir_stack.sp_backup
+
+    asm volatile ("lw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp_backup)));
+
+    // s8 = ao_ir_stack.fp_backup
+
+    asm volatile ("lw $s8, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, fp_backup)));
+
+    asm volatile ("1:");
+
+    // Enable interrupts.
+
+    asm volatile ("ei");
+    asm volatile ("nop");
+
+    // Return.
+
+    asm volatile ("jr $ra");
+    asm volatile ("nop");
+
+    asm volatile (".set reorder");
+    asm volatile (".set at");
+}
+
+__attribute__ ((naked))
+void * ao_ir_stack_func1(void * param1, ao_func1_t func)
+{
+    // Variables.
+
+    (void) param1;
+
+    (void) func;
+
+
+    // Ready.
+
+    asm volatile (".set nomips16");
+    asm volatile (".set noreorder");
+    asm volatile (".set noat");
+
+    // Disable interrupts.
+
+    asm volatile ("di");
+    asm volatile ("ehb");
+
+    // k0 = &ao_ir_stack
+
+    asm volatile ("la $k0, ao_ir_stack");
+
+    // k1 = ao_ir_stack.depth
+
+    asm volatile ("lw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+    // if (k1 != 0) then goto 1
+
+    asm volatile ("bne $k1, $zero, 1f");
+
+    // k1++
+
+    asm volatile ("addiu $k1, $k1, 1");
+
+    // ao_ir_stack.sp_backup = sp
+
+    asm volatile ("sw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp_backup)));
+
+    // ao_ir_stack.fp_backup = s8
+
+    asm volatile ("sw $s8, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, fp_backup)));
+
+    // sp = ao_ir_stack.sp
+
+    asm volatile ("lw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp)));
+
+    // s8 = sp
+
+    asm volatile ("addu $s8, $sp, $zero");
+
+    asm volatile ("1:");
+
+    // ao_ir_stack.depth = k1
+
+    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+#if AO_IR_STACK_DEPTH_MAX
+
+    // sp -= 8
+
+    asm volatile ("addiu $sp, $sp, -8");
+
+    // Save s0.
+
+    asm volatile ("sw $s0, 0($sp)");
+
+    // s0 = ao_ir_stack.depth_max
+
+    asm volatile ("lw $s0, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
+
+    // s0 = s0 - k1
+
+    asm volatile ("subu $s0, $s0, $k1");
+
+    // if (s0 >= 0) then goto 1
+
+    asm volatile ("bgez $s0, 1f");
+    asm volatile ("nop");
+
+    // ao_ir_stack.depth_max = k1
+
+    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
+
+    asm volatile ("1:");
+
+    // Restore s0.
+
+    asm volatile ("lw $s0, 0($sp)");
+
+    // sp += 8
+
+    asm volatile ("addiu $sp, $sp, 8");
+
+#endif
+
+    // Enable interrupts.
+
+    asm volatile ("ei");
+    asm volatile ("nop");
+
+    // Save ra.
+
+    asm volatile ("sw $ra, 20($sp)");
+
+    // Execute.
+
+    asm volatile (".set reorder");
+    asm volatile (".set at");
+
+    asm volatile ("jalr $a1");
+    asm volatile ("nop");
+
+    asm volatile (".set nomips16");
+    asm volatile (".set noreorder");
+    asm volatile (".set noat");
+
+    // Restore ra.
+
+    asm volatile ("lw $ra, 20($sp)");
+
+    // Disable interrupts.
+
+    asm volatile ("di");
+    asm volatile ("ehb");
+
+    // k0 = &ao_ir_stack
+
+    asm volatile ("la $k0, ao_ir_stack");
+
+    // k1 = ao_ir_stack.depth
+
+    asm volatile ("lw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+    // k1--
+
+    asm volatile ("addiu $k1, $k1, -1");
+
+    // if (k1 != 0) then goto 1
+
+    asm volatile ("bne $k1, $zero, 1f");
+
+    // ao_ir_stack.depth = k1
+
+    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+    // sp = ao_ir_stack.sp_backup
+
+    asm volatile ("lw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp_backup)));
+
+    // s8 = ao_ir_stack.fp_backup
+
+    asm volatile ("lw $s8, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, fp_backup)));
+
+    asm volatile ("1:");
+
+    // Enable interrupts.
+
+    asm volatile ("ei");
+    asm volatile ("nop");
+
+    // Return.
+
+    asm volatile ("jr $ra");
+    asm volatile ("nop");
+
+    asm volatile (".set reorder");
+    asm volatile (".set at");
+}
+
+__attribute__ ((naked))
+void * ao_ir_stack_func2(void * param1, void * param2, ao_func2_t func)
+{
+    // Variables.
+
+    (void) param1;
+
+    (void) param2;
+
+    (void) func;
+
+
+    // Ready.
+
+    asm volatile (".set nomips16");
+    asm volatile (".set noreorder");
+    asm volatile (".set noat");
+
+    // Disable interrupts.
+
+    asm volatile ("di");
+    asm volatile ("ehb");
+
+    // k0 = &ao_ir_stack
+
+    asm volatile ("la $k0, ao_ir_stack");
+
+    // k1 = ao_ir_stack.depth
+
+    asm volatile ("lw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+    // if (k1 != 0) then goto 1
+
+    asm volatile ("bne $k1, $zero, 1f");
+
+    // k1++
+
+    asm volatile ("addiu $k1, $k1, 1");
+
+    // ao_ir_stack.sp_backup = sp
+
+    asm volatile ("sw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp_backup)));
+
+    // ao_ir_stack.fp_backup = s8
+
+    asm volatile ("sw $s8, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, fp_backup)));
+
+    // sp = ao_ir_stack.sp
+
+    asm volatile ("lw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp)));
+
+    // s8 = sp
+
+    asm volatile ("addu $s8, $sp, $zero");
+
+    asm volatile ("1:");
+
+    // ao_ir_stack.depth = k1
+
+    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+#if AO_IR_STACK_DEPTH_MAX
+
+    // sp -= 8
+
+    asm volatile ("addiu $sp, $sp, -8");
+
+    // Save s0.
+
+    asm volatile ("sw $s0, 0($sp)");
+
+    // s0 = ao_ir_stack.depth_max
+
+    asm volatile ("lw $s0, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
+
+    // s0 = s0 - k1
+
+    asm volatile ("subu $s0, $s0, $k1");
+
+    // if (s0 >= 0) then goto 1
+
+    asm volatile ("bgez $s0, 1f");
+    asm volatile ("nop");
+
+    // ao_ir_stack.depth_max = k1
+
+    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
+
+    asm volatile ("1:");
+
+    // Restore s0.
+
+    asm volatile ("lw $s0, 0($sp)");
+
+    // sp += 8
+
+    asm volatile ("addiu $sp, $sp, 8");
+
+#endif
+
+    // Enable interrupts.
+
+    asm volatile ("ei");
+    asm volatile ("nop");
+
+    // Save ra.
+
+    asm volatile ("sw $ra, 20($sp)");
+
+    // Execute.
+
+    asm volatile (".set reorder");
+    asm volatile (".set at");
+
+    asm volatile ("jalr $a2");
+    asm volatile ("nop");
+
+    asm volatile (".set nomips16");
+    asm volatile (".set noreorder");
+    asm volatile (".set noat");
+
+    // Restore ra.
+
+    asm volatile ("lw $ra, 20($sp)");
+
+    // Disable interrupts.
+
+    asm volatile ("di");
+    asm volatile ("ehb");
+
+    // k0 = &ao_ir_stack
+
+    asm volatile ("la $k0, ao_ir_stack");
+
+    // k1 = ao_ir_stack.depth
+
+    asm volatile ("lw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+    // k1--
+
+    asm volatile ("addiu $k1, $k1, -1");
+
+    // if (k1 != 0) then goto 1
+
+    asm volatile ("bne $k1, $zero, 1f");
+
+    // ao_ir_stack.depth = k1
+
+    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+    // sp = ao_ir_stack.sp_backup
+
+    asm volatile ("lw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp_backup)));
+
+    // s8 = ao_ir_stack.fp_backup
+
+    asm volatile ("lw $s8, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, fp_backup)));
+
+    asm volatile ("1:");
+
+    // Enable interrupts.
+
+    asm volatile ("ei");
+    asm volatile ("nop");
+
+    // Return.
+
+    asm volatile ("jr $ra");
+    asm volatile ("nop");
+
+    asm volatile (".set reorder");
+    asm volatile (".set at");
+}
+
+__attribute__ ((naked))
+void * ao_ir_stack_func3(void * param1, void * param2, void * param3, ao_func3_t func)
+{
+    // Variables.
+
+    (void) param1;
+
+    (void) param2;
+
+    (void) param3;
+
+    (void) func;
+
+
+    // Ready.
+
+    asm volatile (".set nomips16");
+    asm volatile (".set noreorder");
+    asm volatile (".set noat");
+
+    // Disable interrupts.
+
+    asm volatile ("di");
+    asm volatile ("ehb");
+
+    // k0 = &ao_ir_stack
+
+    asm volatile ("la $k0, ao_ir_stack");
+
+    // k1 = ao_ir_stack.depth
+
+    asm volatile ("lw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+    // if (k1 != 0) then goto 1
+
+    asm volatile ("bne $k1, $zero, 1f");
+
+    // k1++
+
+    asm volatile ("addiu $k1, $k1, 1");
+
+    // ao_ir_stack.sp_backup = sp
+
+    asm volatile ("sw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp_backup)));
+
+    // ao_ir_stack.fp_backup = s8
+
+    asm volatile ("sw $s8, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, fp_backup)));
+
+    // sp = ao_ir_stack.sp
+
+    asm volatile ("lw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp)));
+
+    // s8 = sp
+
+    asm volatile ("addu $s8, $sp, $zero");
+
+    asm volatile ("1:");
+
+    // ao_ir_stack.depth = k1
+
+    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+#if AO_IR_STACK_DEPTH_MAX
+
+    // sp -= 8
+
+    asm volatile ("addiu $sp, $sp, -8");
+
+    // Save s0.
+
+    asm volatile ("sw $s0, 0($sp)");
+
+    // s0 = ao_ir_stack.depth_max
+
+    asm volatile ("lw $s0, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
+
+    // s0 = s0 - k1
+
+    asm volatile ("subu $s0, $s0, $k1");
+
+    // if (s0 >= 0) then goto 1
+
+    asm volatile ("bgez $s0, 1f");
+    asm volatile ("nop");
+
+    // ao_ir_stack.depth_max = k1
+
+    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
+
+    asm volatile ("1:");
+
+    // Restore s0.
+
+    asm volatile ("lw $s0, 0($sp)");
+
+    // sp += 8
+
+    asm volatile ("addiu $sp, $sp, 8");
+
+#endif
+
+    // Enable interrupts,
+
+    asm volatile ("ei");
+    asm volatile ("nop");
+
+    // Save ra.
+
+    asm volatile ("sw $ra, 20($sp)");
+
+    // Execute.
+
+    asm volatile (".set reorder");
+    asm volatile (".set at");
+
+    asm volatile ("jalr $a3");
+    asm volatile ("nop");
+
+    asm volatile (".set nomips16");
+    asm volatile (".set noreorder");
+    asm volatile (".set noat");
+
+    // Restore ra.
+
+    asm volatile ("lw $ra, 20($sp)");
+
+    // Disable interrupts.
+
+    asm volatile ("di");
+    asm volatile ("ehb");
+
+    // k0 = &ao_ir_stack
+
+    asm volatile ("la $k0, ao_ir_stack");
+
+    // k1 = ao_ir_stack.depth
+
+    asm volatile ("lw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+    // k1--
+
+    asm volatile ("addiu $k1, $k1, -1");
+
+    // if (k1 != 0) then goto 1
+
+    asm volatile ("bne $k1, $zero, 1f");
+
+    // ao_ir_stack.depth = k1
+
+    asm volatile ("sw $k1, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+    // sp = ao_ir_stack.sp_backup
+
+    asm volatile ("lw $sp, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, sp_backup)));
+
+    // s8 = ao_ir_stack.fp_backup
+
+    asm volatile ("lw $s8, %0($k0)" :: "K" (offsetof(ao_ir_stack_t, fp_backup)));
+
+    asm volatile ("1:");
+
+    // Enable interrupts.
+
+    asm volatile ("ei");
+    asm volatile ("nop");
+
+    // Return.
+
+    asm volatile ("jr $ra");
+    asm volatile ("nop");
+
+    asm volatile (".set reorder");
+    asm volatile (".set at");
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_IR && AO_IR_STACK_FILL
+
+// ----------------------------------------------------------------------------
+
+void ao_ir_stack_high_water_mark()
+{
+    ao_ir_stack.high_water_mark = ao_stack_get_high_water_mark
+    (
+        (void *) ao_ir_stack_store,
+        (size_t) AO_IR_STACK_SIZE_ALIGNED
+    );
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
 
 #if defined AO_SPI
 
@@ -25745,9 +22842,331 @@ void ao_spi_baud(ao_spi_reg_t * r, uint32_t f_pbclk, uint32_t f)
 
 #endif
 
+#if defined AO_STACK
+
+// ----------------------------------------------------------------------------
+
+void ao_stack_fill(void * p, size_t s)
+{
+    // Variables.
+
+    uint32_t * b;
+
+    uint32_t * e;
+
+
+    // Ready.
+
+    if (p)
+    {
+        b = ao_stack_get_beginning(p);
+
+        e = ao_stack_get_end(p, s);
+
+        for (; b < e; b++)
+        {
+            *b = AO_STACK_FILL;
+        }
+    }
+}
+
+void * ao_stack_get_beginning(void const * p)
+{
+    uintptr_t t1 = (uintptr_t) p;
+
+    uintptr_t t2 = AO_ALIGN_UP(t1, AO_STACK_ALIGN);
+
+    return (void *) t2;
+}
+
+void * ao_stack_get_end(void const * p, size_t s)
+{
+    uintptr_t t1 = (uintptr_t) p;
+
+    uintptr_t t2 = (uintptr_t) s;
+
+    uintptr_t t3 = t1 + t2;
+
+    uintptr_t t4 = AO_ALIGN_DOWN(t3, AO_STACK_ALIGN);
+
+    return (void *) t4;
+}
+
+size_t ao_stack_get_high_water_mark(void const * p, size_t s)
+{
+    // Variables.
+
+    uint32_t * b;
+
+    uint32_t * e;
+
+
+    // Ready.
+
+    if (p)
+    {
+        b = ao_stack_get_beginning(p);
+
+        e = ao_stack_get_end(p, s);
+
+        if (b < e)
+        {
+            while (1)
+            {
+                if (*b == AO_STACK_FILL)
+                {
+                    b++;
+
+                    if (b == e)
+                    {
+                        return 0;
+                    }
+                }
+
+                else
+                {
+                    return sizeof(uint32_t) * (size_t) (e - b);
+                }
+            }
+        }
+
+        else
+        {
+            return 0;
+        }
+    }
+
+    else
+    {
+        return 0;
+    }
+}
+
+// ----------------------------------------------------------------------------
+
 #endif
 
-#if defined AO_SYS_XC32_PIC32_UART
+#if defined AO_SYS
+
+// ----------------------------------------------------------------------------
+
+void ao_sys_idle()
+{
+    ao_sys_wait_idle();
+    ao_sys_wait();
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_sys_lock_device(ao_sys_lock_device_t * x)
+{
+    ao_assert(x);
+
+    SYSKEY = 0x0;
+
+    ao_sys_unlock_dma(x->dma);
+
+    ao_sys_unlock_ie(x->ie);
+}
+
+uint32_t ao_sys_lock_dma()
+{
+    // DMA controller is suspended.
+
+    uint32_t x = DMACON & _DMACON_SUSPEND_MASK;
+
+    if (x) { }
+
+    // DMA controller is not suspended.
+
+    else
+    {
+        DMACONSET = _DMACON_SUSPEND_MASK;
+
+#ifdef _DMACON_DMABUSY_MASK
+
+        // Family Reference Manual.
+
+        // Section 31.4.5.
+
+        // The DMACON.DMABUSY bit is not available on all devices.
+
+        while (DMACONbits.DMABUSY) { }
+
+#endif
+
+    }
+
+    return x;
+}
+
+// ----------------------------------------------------------------------------
+
+__attribute__ ((noreturn))
+void ao_sys_reset()
+{
+    // Variables.
+
+    uint32_t volatile d;
+
+    ao_sys_lock_device_t l;
+
+
+    // Ready.
+
+    ao_sys_unlock_device(&l);
+    {
+        RSWRSTbits.SWRST = 1;
+
+        d = RSWRST;
+
+        while (1) { }
+    }
+    ao_sys_lock_device(&l);
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_sys_sleep()
+{
+    ao_sys_wait_sleep();
+    ao_sys_wait();
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_sys_unlock_device(ao_sys_lock_device_t * x)
+{
+    ao_assert(x);
+
+    x->ie = ao_sys_lock_ie();
+
+    x->dma = ao_sys_lock_dma();
+
+    // First, make sure that the device is actually locked.
+
+    SYSKEY = 0x0;
+
+    // Then, perform the unlock sequence.
+
+    SYSKEY = 0xAA996655;
+    SYSKEY = 0x556699AA;
+}
+
+void ao_sys_unlock_dma(uint32_t x)
+{
+    if (x) { }
+
+    else
+    {
+        DMACONCLR = _DMACON_SUSPEND_MASK;
+    }
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_sys_wait()
+{
+    // Notes.
+
+    // In the following, we save the return address before the wait and restore
+    // it afterwards. Here's why.
+
+    // If we use the watchdog timer (WDT) to wake up the device, then following
+    // a WDT timeout event, a non-maskable interrupt (NMI) is generated, that
+    // vectors execution to the CPU start-up address.
+
+    // The NMI saves the PC to ErrorEPC
+    // and sets both Status.ERL and Status.NMI.
+
+    // At the CPU start-up address, there's the _reset() function.
+    // The following roughly demonstrates what's going on from there,
+    // after a WDT timeout event in idle or sleep mode.
+
+
+    // _reset:
+
+    // jal _startup
+    // nop
+
+
+    // _startup:
+
+    // if (Status.NMI)
+    // {
+    //   jr _nmi_handler
+    //   nop
+    // }
+
+
+    // _nmi_handler:
+
+    // eret
+
+
+    // The eret instructions restores the PC from ErrorEPC, because Status.ERL
+    // is set.
+
+    // As a result, the CPU continues execution with the instruction following
+    // the wait instruction.
+
+    // Obviously, after the wait the value of the return address register (ra)
+    // has changed, because the _reset() function executed a jal instruction,
+    // which writes the ra register.
+
+
+    // Ready.
+
+    // directives
+    asm volatile (".set nomips16");
+    asm volatile (".set noreorder");
+    asm volatile (".set noat");
+
+    // sp -= 8
+    asm volatile ("addiu $sp, $sp, -8");
+
+    // save ra
+    asm volatile ("sw $ra, 0($sp)");
+
+    // wait
+    asm volatile ("wait");
+
+    // restore ra
+    asm volatile ("lw $ra, 0($sp)");
+
+    // sp += 8
+    asm volatile ("addiu $sp, $sp, 8");
+
+    // directives
+    asm volatile (".set reorder");
+    asm volatile (".set at");
+}
+
+void ao_sys_wait_idle()
+{
+    ao_sys_lock_device_t l;
+
+    ao_sys_unlock_device(&l);
+    {
+        OSCCONCLR = _OSCCON_SLPEN_MASK;
+    }
+    ao_sys_lock_device(&l);
+}
+
+void ao_sys_wait_sleep()
+{
+    ao_sys_lock_device_t l;
+
+    ao_sys_unlock_device(&l);
+    {
+        OSCCONSET = _OSCCON_SLPEN_MASK;
+    }
+    ao_sys_lock_device(&l);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
 
 #if defined AO_UART
 
@@ -29170,10 +26589,6 @@ void ao_ir_u6tx()
 
 #endif
 
-#endif
-
-#if defined AO_SYS_XC32_PIC32_WDT
-
 #if defined AO_WDT
 
 // ----------------------------------------------------------------------------
@@ -29209,6 +26624,2575 @@ void ao_wdt_reset()
 // ----------------------------------------------------------------------------
 
 #endif
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#if defined AO_SYS_XC32_PIC32MK
+
+#if defined AO_ALARM
+
+// ----------------------------------------------------------------------------
+
+AO_IR_CT_ATTRIBUTE
+void ao_ir_ct()
+{
+    ao_ir_stack_func0((ao_func0_t) ao_ir_alarm);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_SYS
+
+// ----------------------------------------------------------------------------
+
+void ao_sys_lock_pps(ao_sys_lock_pps_t * x)
+{
+    ao_assert(x);
+
+    uint32_t t1 = x->io & _CFGCON_IOLOCK_MASK;
+
+    uint32_t t2 = CFGCON & ~_CFGCON_IOLOCK_MASK;
+
+    CFGCON = t1 | t2;
+
+    ao_sys_lock_device(&x->device);
+}
+
+void ao_sys_unlock_pps(ao_sys_lock_pps_t * x)
+{
+    ao_assert(x);
+
+    ao_sys_unlock_device(&x->device);
+
+    uint32_t i = CFGCON;
+
+    CFGCON = i & ~_CFGCON_IOLOCK_MASK;
+
+    x->io = i;
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_TASK
+
+// ----------------------------------------------------------------------------
+
+static  void    ao_task_stack_check();
+
+// ----------------------------------------------------------------------------
+
+AO_IR_CS1_ATTRIBUTE
+void ao_ir_cs1()
+{
+    // Prolog.
+
+    // Interrupts are disabled, because Status.EXL == 1.
+
+    asm volatile (".set nomips16");
+    asm volatile (".set noreorder");
+    asm volatile (".set noat");
+
+    // Make room for the context.
+
+    asm volatile ("addiu $sp, $sp, -%0" :: "K" (sizeof(ao_task_context_data_t)));
+
+    // Save s0.
+    // Save s1.
+    // Save s2.
+    // Save s3.
+    // Save s8.
+
+    asm volatile ("sw $s0, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s0)));
+    asm volatile ("sw $s1, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s1)));
+    asm volatile ("sw $s2, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s2)));
+    asm volatile ("sw $s3, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s3)));
+    asm volatile ("sw $s8, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s8)));
+
+    // s1 = sp
+
+    asm volatile ("addu $s1, $sp, $zero");
+
+    // Switch to the interrupt stack.
+
+    // We can safely use k0 and k1, because interrupts are disabled.
+
+    // s0 = &ao_ir_stack
+
+    asm volatile ("la $s0, ao_ir_stack");
+
+    // k1 = 1
+
+    asm volatile ("addiu $k1, $zero, 1");
+
+    // sp = ao_ir_stack.sp
+
+    asm volatile ("lw $sp, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, sp)));
+
+    // ao_ir_stack.depth = k1
+
+    asm volatile ("sw $k1, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+    // s8 = sp
+
+    asm volatile ("addu $s8, $sp, $zero");
+
+#if AO_IR_STACK_DEPTH_MAX
+
+    // k0 = ao_ir_stack.depth_max
+
+    asm volatile ("lw $k0, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
+
+    // k0 = k0 - 1
+
+    asm volatile ("addiu $k0, $k0, -1");
+
+    // if (k0 >= 0) then goto 1
+
+    asm volatile ("bgez $k0, 1f");
+    asm volatile ("nop");
+
+    // ao_ir_stack.depth_max = k1
+
+    asm volatile ("sw $k1, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
+
+    asm volatile ("1:");
+
+#endif
+
+    // k1 = EPC
+
+    asm volatile ("mfc0 $k1, $%0, %1" :: "K" (_CP0_EPC), "K" (_CP0_EPC_SELECT));
+
+    // k0 = Status
+
+    asm volatile ("mfc0 $k0, $%0, %1" :: "K" (_CP0_STATUS), "K" (_CP0_STATUS_SELECT));
+
+    // Save EPC.
+
+    asm volatile ("sw $k1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, epc)));
+
+    // Save Status.
+
+    asm volatile ("sw $k0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, status)));
+
+    // Manipulate the Status value contained in k0.
+
+    // Status.IPL = AO_IR_CS1_PRIO
+    // Status.EXL = 0
+    // Status.ERL = 0
+    // Status.UM  = 0
+
+    // k1 = AO_IR_CS1_PRIO
+
+    asm volatile ("addiu $k1, $zero, %0" :: "K" (AO_IR_CS1_PRIO));
+
+    // k0.IPL = k1
+
+    asm volatile ("ins $k0, $k1, %0, %1" :: "K" (_CP0_STATUS_IPL_POSITION), "K" (_CP0_STATUS_IPL_LENGTH));
+
+    // k0.EXL = 0
+    // k0.ERL = 0
+    // k0.UM  = 0
+
+    asm volatile ("ins $k0, $zero, %0, %1" :: "K" (_CP0_STATUS_EXL_POSITION), "K" (_CP0_STATUS_UM_POSITION - _CP0_STATUS_EXL_POSITION + 1));
+
+    // Enable interrupts whose priority is greater than the switch priority.
+
+    // Status = k0
+
+    asm volatile ("mtc0 $k0, $%0, %1" :: "K" (_CP0_STATUS), "K" (_CP0_STATUS_SELECT));
+
+    // Interrupts are enabled now.
+
+    // Therefore, we must not use k0 and k1 anymore.
+
+    // Save GPR.
+
+    asm volatile ("sw $a0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a0)));
+    asm volatile ("sw $a1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a1)));
+    asm volatile ("sw $a2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a2)));
+    asm volatile ("sw $a3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a3)));
+    asm volatile ("sw $at, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, at)));
+    asm volatile ("sw $ra, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, ra)));
+    asm volatile ("sw $s4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s4)));
+    asm volatile ("sw $s5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s5)));
+    asm volatile ("sw $s6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s6)));
+    asm volatile ("sw $s7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s7)));
+    asm volatile ("sw $t0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t0)));
+    asm volatile ("sw $t1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t1)));
+    asm volatile ("sw $t2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t2)));
+    asm volatile ("sw $t3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t3)));
+    asm volatile ("sw $t4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t4)));
+    asm volatile ("sw $t5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t5)));
+    asm volatile ("sw $t6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t6)));
+    asm volatile ("sw $t7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t7)));
+    asm volatile ("sw $t8, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t8)));
+    asm volatile ("sw $t9, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t9)));
+    asm volatile ("sw $v0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v0)));
+    asm volatile ("sw $v1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v1)));
+
+    // Save hi.
+    // Save lo.
+
+    asm volatile ("mfhi $s2");
+    asm volatile ("mflo $s3");
+    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi)));
+    asm volatile ("sw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo)));
+
+    // Save hi1.
+    // Save lo1.
+
+    asm volatile ("mfhi $s2, $ac1");
+    asm volatile ("mflo $s3, $ac1");
+    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi1)));
+    asm volatile ("sw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo1)));
+
+    // Save hi2.
+    // Save lo2.
+
+    asm volatile ("mfhi $s2, $ac2");
+    asm volatile ("mflo $s3, $ac2");
+    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi2)));
+    asm volatile ("sw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo2)));
+
+    // Save hi3.
+    // Save lo3.
+
+    asm volatile ("mfhi $s2, $ac3");
+    asm volatile ("mflo $s3, $ac3");
+    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi3)));
+    asm volatile ("sw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo3)));
+
+    // Save DSPControl.
+
+    asm volatile ("rddsp $s2");
+    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, dsp_control)));
+
+    // Save FCSR.
+
+    asm volatile ("cfc1 $s2, $f31");
+    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, fcsr)));
+
+    // Save f0 .. f31.
+
+    asm volatile ("sdc1 $f0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f0)));
+    asm volatile ("sdc1 $f1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f1)));
+    asm volatile ("sdc1 $f2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f2)));
+    asm volatile ("sdc1 $f3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f3)));
+    asm volatile ("sdc1 $f4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f4)));
+    asm volatile ("sdc1 $f5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f5)));
+    asm volatile ("sdc1 $f6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f6)));
+    asm volatile ("sdc1 $f7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f7)));
+    asm volatile ("sdc1 $f8, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f8)));
+    asm volatile ("sdc1 $f9, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f9)));
+    asm volatile ("sdc1 $f10, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f10)));
+    asm volatile ("sdc1 $f11, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f11)));
+    asm volatile ("sdc1 $f12, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f12)));
+    asm volatile ("sdc1 $f13, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f13)));
+    asm volatile ("sdc1 $f14, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f14)));
+    asm volatile ("sdc1 $f15, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f15)));
+    asm volatile ("sdc1 $f16, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f16)));
+    asm volatile ("sdc1 $f17, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f17)));
+    asm volatile ("sdc1 $f18, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f18)));
+    asm volatile ("sdc1 $f19, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f19)));
+    asm volatile ("sdc1 $f20, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f20)));
+    asm volatile ("sdc1 $f21, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f21)));
+    asm volatile ("sdc1 $f22, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f22)));
+    asm volatile ("sdc1 $f23, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f23)));
+    asm volatile ("sdc1 $f24, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f24)));
+    asm volatile ("sdc1 $f25, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f25)));
+    asm volatile ("sdc1 $f26, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f26)));
+    asm volatile ("sdc1 $f27, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f27)));
+    asm volatile ("sdc1 $f28, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f28)));
+    asm volatile ("sdc1 $f29, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f29)));
+    asm volatile ("sdc1 $f30, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f30)));
+    asm volatile ("sdc1 $f31, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f31)));
+
+    // Body.
+
+    // s2 = &ao_task_running
+
+    asm volatile ("la $s2, ao_task_running");
+
+    // s3 = ao_task_running[0]
+
+    asm volatile ("lw $s3, 0($s2)");
+
+    // ao_task_running[0]->context.ptr = s1
+
+    asm volatile ("sw $s1, %0($s3)" :: "K" (offsetof(ao_task_t, context.ptr)));
+
+#if AO_TASK_STACK_CHECK
+
+    asm volatile (".set reorder");
+    asm volatile (".set at");
+
+    asm volatile ("jal ao_task_stack_check");
+    asm volatile ("nop");
+
+    asm volatile (".set nomips16");
+    asm volatile (".set noreorder");
+    asm volatile (".set noat");
+
+#else
+
+    asm volatile ("addiu $a0, $zero, 0");
+
+    asm volatile (".set reorder");
+    asm volatile (".set at");
+
+    asm volatile ("jal ao_ir_task");
+    asm volatile ("nop");
+
+    asm volatile (".set nomips16");
+    asm volatile (".set noreorder");
+    asm volatile (".set noat");
+
+#endif
+
+    // s3 = ao_task_running[0]
+
+    asm volatile ("lw $s3, 0($s2)");
+
+    // s1 = ao_task_running[0]->context.ptr
+
+    asm volatile ("lw $s1, %0($s3)" :: "K" (offsetof(ao_task_t, context.ptr)));
+
+    // Epilog.
+
+    // Restore GPR.
+
+    asm volatile ("lw $a0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a0)));
+    asm volatile ("lw $a1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a1)));
+    asm volatile ("lw $a2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a2)));
+    asm volatile ("lw $a3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a3)));
+    asm volatile ("lw $at, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, at)));
+    asm volatile ("lw $ra, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, ra)));
+    asm volatile ("lw $s4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s4)));
+    asm volatile ("lw $s5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s5)));
+    asm volatile ("lw $s6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s6)));
+    asm volatile ("lw $s7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s7)));
+    asm volatile ("lw $t0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t0)));
+    asm volatile ("lw $t1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t1)));
+    asm volatile ("lw $t2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t2)));
+    asm volatile ("lw $t3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t3)));
+    asm volatile ("lw $t4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t4)));
+    asm volatile ("lw $t5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t5)));
+    asm volatile ("lw $t6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t6)));
+    asm volatile ("lw $t7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t7)));
+    asm volatile ("lw $t8, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t8)));
+    asm volatile ("lw $t9, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t9)));
+    asm volatile ("lw $v0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v0)));
+    asm volatile ("lw $v1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v1)));
+
+    // Restore hi.
+    // Restore lo.
+
+    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi)));
+    asm volatile ("lw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo)));
+    asm volatile ("mthi $s2");
+    asm volatile ("mtlo $s3");
+
+    // Restore hi1.
+    // Restore lo1.
+
+    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi1)));
+    asm volatile ("lw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo1)));
+    asm volatile ("mthi $s2, $ac1");
+    asm volatile ("mtlo $s3, $ac1");
+
+    // Restore hi2.
+    // Restore lo2.
+
+    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi2)));
+    asm volatile ("lw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo2)));
+    asm volatile ("mthi $s2, $ac2");
+    asm volatile ("mtlo $s3, $ac2");
+
+    // Restore hi3.
+    // Restore lo3.
+
+    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi3)));
+    asm volatile ("lw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo3)));
+    asm volatile ("mthi $s2, $ac3");
+    asm volatile ("mtlo $s3, $ac3");
+
+    // Restore DSPControl.
+
+    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, dsp_control)));
+    asm volatile ("wrdsp $s2");
+
+    // Restore FCSR.
+
+    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, fcsr)));
+    asm volatile ("ctc1 $s2, $f31");
+
+    // Restore f0 .. f31.
+
+    asm volatile ("ldc1 $f0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f0)));
+    asm volatile ("ldc1 $f1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f1)));
+    asm volatile ("ldc1 $f2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f2)));
+    asm volatile ("ldc1 $f3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f3)));
+    asm volatile ("ldc1 $f4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f4)));
+    asm volatile ("ldc1 $f5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f5)));
+    asm volatile ("ldc1 $f6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f6)));
+    asm volatile ("ldc1 $f7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f7)));
+    asm volatile ("ldc1 $f8, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f8)));
+    asm volatile ("ldc1 $f9, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f9)));
+    asm volatile ("ldc1 $f10, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f10)));
+    asm volatile ("ldc1 $f11, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f11)));
+    asm volatile ("ldc1 $f12, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f12)));
+    asm volatile ("ldc1 $f13, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f13)));
+    asm volatile ("ldc1 $f14, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f14)));
+    asm volatile ("ldc1 $f15, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f15)));
+    asm volatile ("ldc1 $f16, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f16)));
+    asm volatile ("ldc1 $f17, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f17)));
+    asm volatile ("ldc1 $f18, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f18)));
+    asm volatile ("ldc1 $f19, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f19)));
+    asm volatile ("ldc1 $f20, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f20)));
+    asm volatile ("ldc1 $f21, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f21)));
+    asm volatile ("ldc1 $f22, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f22)));
+    asm volatile ("ldc1 $f23, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f23)));
+    asm volatile ("ldc1 $f24, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f24)));
+    asm volatile ("ldc1 $f25, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f25)));
+    asm volatile ("ldc1 $f26, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f26)));
+    asm volatile ("ldc1 $f27, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f27)));
+    asm volatile ("ldc1 $f28, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f28)));
+    asm volatile ("ldc1 $f29, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f29)));
+    asm volatile ("ldc1 $f30, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f30)));
+    asm volatile ("ldc1 $f31, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f31)));
+
+    // Disable interrupts.
+
+    asm volatile ("di");
+    asm volatile ("ehb");
+
+    // k0 = EPC
+
+    asm volatile ("lw $k0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, epc)));
+
+    // k1 = Status
+
+    asm volatile ("lw $k1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, status)));
+
+    // Restore EPC.
+
+    asm volatile ("mtc0 $k0, $%0, %1" :: "K" (_CP0_EPC), "K" (_CP0_EPC_SELECT));
+
+    // Restore Status.
+
+    asm volatile ("mtc0 $k1, $%0, %1" :: "K" (_CP0_STATUS), "K" (_CP0_STATUS_SELECT));
+
+    // ao_ir_stack.depth = 0
+
+    asm volatile ("sw $zero, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+    // sp = s1
+
+    asm volatile ("addu $sp, $s1, $zero");
+
+    // Restore s0.
+    // Restore s1.
+    // Restore s2.
+    // Restore s3.
+    // Restore s8.
+
+    asm volatile ("lw $s0, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s0)));
+    asm volatile ("lw $s1, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s1)));
+    asm volatile ("lw $s2, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s2)));
+    asm volatile ("lw $s3, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s3)));
+    asm volatile ("lw $s8, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s8)));
+
+    // Restore sp.
+
+    asm volatile ("addiu $sp, $sp, %0" :: "K" (sizeof(ao_task_context_data_t)));
+
+    // Return from exception.
+
+    asm volatile ("eret");
+    asm volatile ("nop");
+
+    asm volatile (".set reorder");
+    asm volatile (".set at");
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_task_start_context(ao_task_t * T)
+{
+    // Notes.
+
+    // The kernel is locked.
+
+
+    // Assert.
+
+    ao_assert(T);
+
+
+    // Variables.
+
+    void * b;
+
+    ao_task_context_data_t * D;
+
+    void * e;
+
+    uint32_t * p;
+
+    size_t s;
+
+
+    // Ready.
+
+    // Stack.
+
+    b = ao_task_get_stack_beginning_locked(T);
+
+    ao_assert(b);
+
+    s = ao_task_get_stack_size_locked(T);
+
+    e = ao_stack_get_end(b, s);
+
+    // Stack pointer.
+
+    p = e;
+
+    // Stack pointer must be properly aligned.
+
+    ao_assert(AO_IS_ALIGNED((uintptr_t) p, AO_STACK_ALIGN));
+
+    // According to the MIPS O32 calling convention, the stack frame of the
+    // caller must have an argument section. The argument section must contain
+    // enough space for all the arguments of the callee, but at least four
+    // words.
+
+    p = p - 4;
+
+    // Make room for the context.
+
+    p = p - sizeof(ao_task_context_data_t) / 4;
+
+    // Stack pointer must not overflow.
+
+    ao_assert(p >= (uint32_t *) b);
+
+    // Context.
+
+    D = (ao_task_context_data_t *) p;
+
+    D->a0 = (uint32_t) T;
+
+    D->dsp_control = 0;
+
+    D->epc = (uint32_t) ao_task_entry;
+
+    D->fcsr = 0x01600000;
+
+    // When generating interrupt handlers, the XC32 compiler assumes that both DSP and FPU are usable.
+
+    // Therefore, the Status register bits CU1 and MX must always be set.
+
+    D->status =
+        _CP0_STATUS_CU1_MASK |
+        _CP0_STATUS_EXL_MASK |
+        _CP0_STATUS_FR_MASK  |
+        _CP0_STATUS_IE_MASK  |
+        _CP0_STATUS_MX_MASK;
+
+    T->context.ptr = D;
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_TASK && AO_TASK_STACK_CHECK
+
+// ----------------------------------------------------------------------------
+
+void ao_task_stack_check()
+{
+    // Notes.
+
+    // This function is called by the task interrupt handler.
+
+    // The kernel is not locked.
+
+
+    // Variables.
+
+    void * b;
+
+    void * e;
+
+    void * p;
+
+    size_t s1;
+
+    size_t s2;
+
+    ao_task_t * T;
+
+    ptrdiff_t t3;
+
+
+    // Ready.
+
+    T = ao_task_running[0];
+
+    ao_assert(T);
+
+    p = T->context.ptr;
+
+    if (p == NULL)
+    {
+        ao_task_stack_null(T);
+    }
+
+    else
+    {
+        // The kernel is not locked.
+
+        // But, the task stack must not change while the task is started.
+
+        // Therefore, we can read the task stack properties as if the kernel was locked.
+
+        b = ao_task_get_stack_beginning_locked(T);
+
+        ao_assert(b);
+
+        if (p < b)
+        {
+            ao_task_stack_overflow(T);
+        }
+
+        else
+        {
+            s1 = ao_task_get_stack_size_locked(T);
+
+            ao_assert(s1 > 0);
+
+            e = ao_stack_get_end(b, s1);
+
+            if (p >= e)
+            {
+                ao_task_stack_underflow(T);
+            }
+
+            else
+            {
+                s2 = (size_t) ((uint8_t *) e - (uint8_t *) p);
+
+                s2 = s2 * 100 / s1;
+
+                if (s2 >= AO_TASK_STACK_THRESHOLD)
+                {
+                    ao_task_stack_threshold(T, s2);
+                }
+            }
+        }
+    }
+
+    ao_ir_task(0);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#endif
+
+#if defined AO_SYS_XC32_PIC32MK_GP
+
+#if defined AO_SYS
+
+// ----------------------------------------------------------------------------
+
+void ao_boot_sys_pcache()
+{
+    // Variables.
+
+    uint32_t r = ao_sys_id_revision();
+
+    uint32_t w;
+
+
+    // Ready.
+
+    ao_sys_kseg0_cacheable_write_back_alloc();
+
+    // DS80000737.
+
+    // Silicon Errata Issue 51.
+
+    if (r == AO_SYS_ID_REVISION_A1) { }
+
+    else
+    {
+        // DS60001402.
+
+        // Section 10. Prefetch Module.
+
+        w = (AO_SYS_SYSCLK <= 60000000UL) ? 1 : 3;
+
+        ao_sys_pfm_ws_set(w);
+
+        ao_sys_pref_enable_cacheable();
+    }
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#endif
+
+#if defined AO_SYS_XC32_PIC32MK_GPG
+
+#if defined AO_SYS
+
+// ----------------------------------------------------------------------------
+
+void ao_boot_sys_pcache()
+{
+    // Variables.
+
+    uint32_t w;
+
+
+    // Ready.
+
+    // DS60001570.
+
+    // Section 9. Prefetch Module.
+
+    // ECC disabled.
+
+    if (DEVCFG0bits.FECCCON & 0x10)
+    {
+        w = (AO_SYS_SYSCLK <= 116000000UL) ? 1 : 2;
+    }
+
+    // ECC enabled.
+
+    else
+    {
+        w = (AO_SYS_SYSCLK <=  96000000UL) ? 1 : 2;
+    }
+
+    ao_sys_pfm_ws_set(w);
+
+    ao_sys_kseg0_cacheable_write_back_alloc();
+
+    ao_sys_pref_enable_cacheable();
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#endif
+
+#if defined AO_SYS_XC32_PIC32MK_GPK
+
+#if defined AO_SYS
+
+// ----------------------------------------------------------------------------
+
+void ao_boot_sys_pcache()
+{
+    // Variables.
+
+    uint32_t w;
+
+
+    // Ready.
+
+    // DS60001519.
+
+    // Section 10. Prefetch Module.
+
+    // ECC disabled.
+
+    if (DEVCFG0bits.FECCCON & 0x10)
+    {
+        w = (AO_SYS_SYSCLK <= 110000000UL) ? 1 : 2;
+    }
+
+    // ECC enabled.
+
+    else
+    {
+        w = (AO_SYS_SYSCLK <= 96000000UL) ? 1 : 2;
+    }
+
+    ao_sys_pfm_ws_set(w);
+
+    ao_sys_kseg0_cacheable_write_back_alloc();
+
+    ao_sys_pref_enable_cacheable();
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#if defined AO_SYS_XC32_PIC32MX
+
+#if defined AO_ALARM
+
+// ----------------------------------------------------------------------------
+
+AO_IR_CT_ATTRIBUTE
+void ao_ir_ct()
+{
+    ao_ir_stack_func0((ao_func0_t) ao_ir_alarm);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_TASK
+
+// ----------------------------------------------------------------------------
+
+static  void    ao_task_stack_check();
+
+// ----------------------------------------------------------------------------
+
+AO_IR_CS1_ATTRIBUTE
+void ao_ir_cs1()
+{
+    // Prolog.
+
+    // Interrupts are disabled, because Status.EXL == 1.
+
+    asm volatile (".set nomips16");
+    asm volatile (".set noreorder");
+    asm volatile (".set noat");
+
+    // Make room for the context.
+
+    asm volatile ("addiu $sp, $sp, -%0" :: "K" (sizeof(ao_task_context_data_t)));
+
+    // Save s0.
+    // Save s1.
+    // Save s8.
+
+    asm volatile ("sw $s0, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s0)));
+    asm volatile ("sw $s1, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s1)));
+    asm volatile ("sw $s8, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s8)));
+
+    // s1 = sp
+
+    asm volatile ("addu $s1, $sp, $zero");
+
+    // Switch to the interrupt stack.
+
+    // We can safely use k0 and k1, because interrupts are disabled.
+
+    // s0 = &ao_ir_stack
+
+    asm volatile ("la $s0, ao_ir_stack");
+
+    // k1 = 1
+
+    asm volatile ("addiu $k1, $zero, 1");
+
+    // sp = ao_ir_stack.sp
+
+    asm volatile ("lw $sp, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, sp)));
+
+    // ao_ir_stack.depth = k1
+
+    asm volatile ("sw $k1, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+    // s8 = sp
+
+    asm volatile ("addu $s8, $sp, $zero");
+
+#if AO_IR_STACK_DEPTH_MAX
+
+    // k0 = ao_ir_stack.depth_max
+
+    asm volatile ("lw $k0, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
+
+    // k0 = k0 - 1
+
+    asm volatile ("addiu $k0, $k0, -1");
+
+    // if (k0 >= 0) then goto 1
+
+    asm volatile ("bgez $k0, 1f");
+    asm volatile ("nop");
+
+    // ao_ir_stack.depth_max = k1
+
+    asm volatile ("sw $k1, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
+
+    asm volatile ("1:");
+
+#endif
+
+    // k1 = EPC
+
+    asm volatile ("mfc0 $k1, $%0, %1" :: "K" (_CP0_EPC), "K" (_CP0_EPC_SELECT));
+
+    // k0 = Status
+
+    asm volatile ("mfc0 $k0, $%0, %1" :: "K" (_CP0_STATUS), "K" (_CP0_STATUS_SELECT));
+
+    // Save EPC.
+
+    asm volatile ("sw $k1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, epc)));
+
+    // Save Status.
+
+    asm volatile ("sw $k0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, status)));
+
+    // Manipulate the Status value contained in k0.
+
+    // Status.IPL = AO_IR_CS1_PRIO
+    // Status.EXL = 0
+    // Status.ERL = 0
+    // Status.UM  = 0
+
+    // k1 = AO_IR_CS1_PRIO
+
+    asm volatile ("addiu $k1, $zero, %0" :: "K" (AO_IR_CS1_PRIO));
+
+    // k0.IPL = k1
+
+    asm volatile ("ins $k0, $k1, %0, %1" :: "K" (_CP0_STATUS_IPL_POSITION), "K" (_CP0_STATUS_IPL_LENGTH));
+
+    // k0.EXL = 0
+    // k0.ERL = 0
+    // k0.UM  = 0
+
+    asm volatile ("ins $k0, $zero, %0, %1" :: "K" (_CP0_STATUS_EXL_POSITION), "K" (_CP0_STATUS_UM_POSITION - _CP0_STATUS_EXL_POSITION + 1));
+
+    // Enable interrupts whose priority is greater than the switch priority.
+
+    // Status = k0
+
+    asm volatile ("mtc0 $k0, $%0, %1" :: "K" (_CP0_STATUS), "K" (_CP0_STATUS_SELECT));
+
+    // Interrupts are enabled now.
+
+    // Therefore, we must not use k0 and k1 anymore.
+
+    // Save GPR.
+
+    asm volatile ("sw $a0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a0)));
+    asm volatile ("sw $a1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a1)));
+    asm volatile ("sw $a2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a2)));
+    asm volatile ("sw $a3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a3)));
+    asm volatile ("sw $at, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, at)));
+    asm volatile ("sw $ra, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, ra)));
+    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s2)));
+    asm volatile ("sw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s3)));
+    asm volatile ("sw $s4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s4)));
+    asm volatile ("sw $s5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s5)));
+    asm volatile ("sw $s6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s6)));
+    asm volatile ("sw $s7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s7)));
+    asm volatile ("sw $t0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t0)));
+    asm volatile ("sw $t1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t1)));
+    asm volatile ("sw $t2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t2)));
+    asm volatile ("sw $t3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t3)));
+    asm volatile ("sw $t4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t4)));
+    asm volatile ("sw $t5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t5)));
+    asm volatile ("sw $t6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t6)));
+    asm volatile ("sw $t7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t7)));
+    asm volatile ("sw $t8, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t8)));
+    asm volatile ("sw $t9, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t9)));
+    asm volatile ("sw $v0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v0)));
+    asm volatile ("sw $v1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v1)));
+
+    // Save hi.
+    // Save lo.
+
+    asm volatile ("mfhi $s2");
+    asm volatile ("mflo $s3");
+    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi)));
+    asm volatile ("sw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo)));
+
+    // Body.
+
+    // s2 = &ao_task_running
+
+    asm volatile ("la $s2, ao_task_running");
+
+    // s3 = ao_task_running[0]
+
+    asm volatile ("lw $s3, 0($s2)");
+
+    // ao_task_running[0]->context.ptr = s1
+
+    asm volatile ("sw $s1, %0($s3)" :: "K" (offsetof(ao_task_t, context.ptr)));
+
+#if AO_TASK_STACK_CHECK
+
+    asm volatile (".set reorder");
+    asm volatile (".set at");
+
+    asm volatile ("jal ao_task_stack_check");
+    asm volatile ("nop");
+
+    asm volatile (".set nomips16");
+    asm volatile (".set noreorder");
+    asm volatile (".set noat");
+
+#else
+
+    asm volatile ("addiu $a0, $zero, 0");
+
+    asm volatile (".set reorder");
+    asm volatile (".set at");
+
+    asm volatile ("jal ao_ir_task");
+    asm volatile ("nop");
+
+    asm volatile (".set nomips16");
+    asm volatile (".set noreorder");
+    asm volatile (".set noat");
+
+#endif
+
+    // s3 = ao_task_running[0]
+
+    asm volatile ("lw $s3, 0($s2)");
+
+    // s1 = ao_task_running[0]->context.ptr
+
+    asm volatile ("lw $s1, %0($s3)" :: "K" (offsetof(ao_task_t, context.ptr)));
+
+    // Epilog.
+
+    // Restore hi.
+    // Restore lo.
+
+    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi)));
+    asm volatile ("lw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo)));
+    asm volatile ("mthi $s2");
+    asm volatile ("mtlo $s3");
+
+    // Restore GPR.
+
+    asm volatile ("lw $a0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a0)));
+    asm volatile ("lw $a1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a1)));
+    asm volatile ("lw $a2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a2)));
+    asm volatile ("lw $a3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a3)));
+    asm volatile ("lw $at, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, at)));
+    asm volatile ("lw $ra, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, ra)));
+    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s2)));
+    asm volatile ("lw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s3)));
+    asm volatile ("lw $s4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s4)));
+    asm volatile ("lw $s5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s5)));
+    asm volatile ("lw $s6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s6)));
+    asm volatile ("lw $s7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s7)));
+    asm volatile ("lw $t0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t0)));
+    asm volatile ("lw $t1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t1)));
+    asm volatile ("lw $t2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t2)));
+    asm volatile ("lw $t3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t3)));
+    asm volatile ("lw $t4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t4)));
+    asm volatile ("lw $t5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t5)));
+    asm volatile ("lw $t6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t6)));
+    asm volatile ("lw $t7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t7)));
+    asm volatile ("lw $t8, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t8)));
+    asm volatile ("lw $t9, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t9)));
+    asm volatile ("lw $v0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v0)));
+    asm volatile ("lw $v1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v1)));
+
+    // Disable interrupts.
+
+    asm volatile ("di");
+    asm volatile ("ehb");
+
+    // k0 = EPC
+
+    asm volatile ("lw $k0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, epc)));
+
+    // k1 = Status
+
+    asm volatile ("lw $k1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, status)));
+
+    // Restore EPC.
+
+    asm volatile ("mtc0 $k0, $%0, %1" :: "K" (_CP0_EPC), "K" (_CP0_EPC_SELECT));
+
+    // Restore Status.
+
+    asm volatile ("mtc0 $k1, $%0, %1" :: "K" (_CP0_STATUS), "K" (_CP0_STATUS_SELECT));
+
+    // ao_ir_stack.depth = 0
+
+    asm volatile ("sw $zero, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+    // sp = s1
+
+    asm volatile ("addu $sp, $s1, $zero");
+
+    // Restore s0.
+    // Restore s1.
+    // Restore s8.
+
+    asm volatile ("lw $s0, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s0)));
+    asm volatile ("lw $s1, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s1)));
+    asm volatile ("lw $s8, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s8)));
+
+    // Restore sp.
+
+    asm volatile ("addiu $sp, $sp, %0" :: "K" (sizeof(ao_task_context_data_t)));
+
+    // Return from exception.
+
+    asm volatile ("eret");
+    asm volatile ("nop");
+
+    asm volatile (".set reorder");
+    asm volatile (".set at");
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_task_start_context(ao_task_t * T)
+{
+    // Notes.
+
+    // The kernel is locked.
+
+
+    // Assert.
+
+    ao_assert(T);
+
+
+    // Variables.
+
+    void * b;
+
+    ao_task_context_data_t * D;
+
+    void * e;
+
+    uint32_t * p;
+
+    size_t s;
+
+
+    // Ready.
+
+    // Stack.
+
+    b = ao_task_get_stack_beginning_locked(T);
+
+    ao_assert(b);
+
+    s = ao_task_get_stack_size_locked(T);
+
+    e = ao_stack_get_end(b, s);
+
+    // Stack pointer.
+
+    p = e;
+
+    // Stack pointer must be properly aligned.
+
+    ao_assert(AO_IS_ALIGNED((uintptr_t) p, AO_STACK_ALIGN));
+
+    // According to the MIPS O32 calling convention, the stack frame of the
+    // caller must have an argument section. The argument section must contain
+    // enough space for all the arguments of the callee, but at least four
+    // words.
+
+    p = p - 4;
+
+    // Make room for the context.
+
+    p = p - sizeof(ao_task_context_data_t) / 4;
+
+    // Stack pointer must not overflow.
+
+    ao_assert(p >= (uint32_t *) b);
+
+    // Context.
+
+    D = (ao_task_context_data_t *) p;
+
+    D->a0 = (uint32_t) T;
+
+    D->epc = (uint32_t) ao_task_entry;
+
+    D->status =
+        _CP0_STATUS_EXL_MASK  |
+        _CP0_STATUS_IE_MASK;
+
+    T->context.ptr = D;
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_TASK && AO_TASK_STACK_CHECK
+
+// ----------------------------------------------------------------------------
+
+void ao_task_stack_check()
+{
+    // Notes.
+
+    // This function is called by the task interrupt handler.
+
+    // The kernel is not locked.
+
+
+    // Variables.
+
+    void * b;
+
+    void * e;
+
+    void * p;
+
+    size_t s1;
+
+    size_t s2;
+
+    ao_task_t * T;
+
+    ptrdiff_t t3;
+
+
+    // Ready.
+
+    T = ao_task_running[0];
+
+    ao_assert(T);
+
+    p = T->context.ptr;
+
+    if (p == NULL)
+    {
+        ao_task_stack_null(T);
+    }
+
+    else
+    {
+        // The kernel is not locked.
+
+        // But, the task stack must not change while the task is started.
+
+        // Therefore, we can read the task stack properties as if the kernel was locked.
+
+        b = ao_task_get_stack_beginning_locked(T);
+
+        ao_assert(b);
+
+        if (p < b)
+        {
+            ao_task_stack_overflow(T);
+        }
+
+        else
+        {
+            s1 = ao_task_get_stack_size_locked(T);
+
+            ao_assert(s1 > 0);
+
+            e = ao_stack_get_end(b, s1);
+
+            if (p >= e)
+            {
+                ao_task_stack_underflow(T);
+            }
+
+            else
+            {
+                s2 = (size_t) ((uint8_t *) e - (uint8_t *) p);
+
+                s2 = s2 * 100 / s1;
+
+                if (s2 >= AO_TASK_STACK_THRESHOLD)
+                {
+                    ao_task_stack_threshold(T, s2);
+                }
+            }
+        }
+    }
+
+    ao_ir_task(0);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#endif
+
+#if defined AO_SYS_XC32_PIC32MX_1XX
+
+#if defined AO_SYS
+
+// ----------------------------------------------------------------------------
+
+void ao_boot_sys_pcache()
+{
+    ao_sys_kseg0_cacheable();
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#endif
+
+#if defined AO_SYS_XC32_PIC32MX_1XX_64_100
+
+#if defined AO_SYS
+
+// ----------------------------------------------------------------------------
+
+void ao_boot_sys_pcache()
+{
+    ao_sys_kseg0_cacheable();
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#endif
+
+#if defined AO_SYS_XC32_PIC32MX_1XX_XLP
+
+#if defined AO_SYS
+
+// ----------------------------------------------------------------------------
+
+void ao_boot_sys_pcache()
+{
+    // Variables.
+
+    uint32_t w;
+
+
+    // Ready.
+
+    // DS60001404.
+
+    // Section 33. Electrical Characteristics.
+
+    if (AO_SYS_SYSCLK < 19000000UL)
+    {
+        w = 0;
+    }
+
+    else if (AO_SYS_SYSCLK < 37000000UL)
+    {
+        w = 1;
+    }
+
+    else if (AO_SYS_SYSCLK < 55000000UL)
+    {
+        w = 2;
+    }
+
+    else
+    {
+        w = 3;
+    }
+
+    ao_sys_pfm_ws_set(w);
+
+    ao_sys_kseg0_cacheable();
+
+    ao_sys_pref_enable_cacheable();
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#endif
+
+#if defined AO_SYS_XC32_PIC32MX_330
+
+#if defined AO_SYS
+
+// ----------------------------------------------------------------------------
+
+void ao_boot_sys_pcache()
+{
+    // Variables.
+
+    uint32_t w;
+
+
+    // Ready.
+
+    // DS60001185.
+
+    // Section 31. Electrical Characteristics.
+
+    if (AO_SYS_SYSCLK < 31000000UL)
+    {
+        w = 0;
+    }
+
+    else if (AO_SYS_SYSCLK < 61000000UL)
+    {
+        w = 1;
+    }
+
+    else if (AO_SYS_SYSCLK < 101000000UL)
+    {
+        w = 2;
+    }
+
+    else
+    {
+        w = 3;
+    }
+
+    ao_sys_pfm_ws_set(w);
+
+    ao_sys_kseg0_cacheable();
+
+    ao_sys_pref_enable_cacheable();
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#endif
+
+#if defined AO_SYS_XC32_PIC32MX_3XX
+
+#if defined AO_SYS
+
+// ----------------------------------------------------------------------------
+
+void ao_boot_sys_pcache()
+{
+    // Variables.
+
+    uint32_t w;
+
+
+    // Ready.
+
+    // DS61143.
+
+    // Section 29. Electrical Characteristics.
+
+    if (AO_SYS_SYSCLK < 31000000UL)
+    {
+        w = 0;
+    }
+
+    else if (AO_SYS_SYSCLK < 61000000UL)
+    {
+        w = 1;
+    }
+
+    else
+    {
+        w = 2;
+    }
+
+    ao_sys_pfm_ws_set(w);
+
+    ao_sys_kseg0_cacheable();
+
+    ao_sys_pref_enable_cacheable();
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#endif
+
+#if defined AO_SYS_XC32_PIC32MX_5XX
+
+#if defined AO_SYS
+
+// ----------------------------------------------------------------------------
+
+void ao_boot_sys_pcache()
+{
+    // Variables.
+
+    uint32_t w;
+
+
+    // Ready.
+
+    // DS60001156.
+
+    // Section 32. Electrical Characteristics.
+
+    if (AO_SYS_SYSCLK < 31000000UL)
+    {
+        w = 0;
+    }
+
+    else if (AO_SYS_SYSCLK < 61000000UL)
+    {
+        w = 1;
+    }
+
+    else
+    {
+        w = 2;
+    }
+
+    ao_sys_pfm_ws_set(w);
+
+    ao_sys_kseg0_cacheable();
+
+    ao_sys_pref_enable_cacheable();
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#endif
+
+// ----------------------------------------------------------------------------
+
+#if defined AO_SYS_XC32_PIC32MZ
+
+#if defined AO_ALARM
+
+// ----------------------------------------------------------------------------
+
+AO_IR_CT_ATTRIBUTE
+void ao_ir_ct()
+{
+    ao_ir_stack_func0((ao_func0_t) ao_ir_alarm);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_SYS
+
+// ----------------------------------------------------------------------------
+
+void ao_sys_lock_pps(ao_sys_lock_pps_t * x)
+{
+    ao_assert(x);
+
+    uint32_t t1 = x->io & _CFGCON_IOLOCK_MASK;
+
+    uint32_t t2 = CFGCON & ~_CFGCON_IOLOCK_MASK;
+
+    CFGCON = t1 | t2;
+
+    ao_sys_lock_device(&x->device);
+}
+
+void ao_sys_unlock_pps(ao_sys_lock_pps_t * x)
+{
+    ao_assert(x);
+
+    ao_sys_unlock_device(&x->device);
+
+    uint32_t i = CFGCON;
+
+    CFGCON = i & ~_CFGCON_IOLOCK_MASK;
+
+    x->io = i;
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_TASK
+
+// ----------------------------------------------------------------------------
+
+static  void    ao_task_stack_check();
+
+// ----------------------------------------------------------------------------
+
+AO_IR_CS1_ATTRIBUTE
+void ao_ir_cs1()
+{
+    // Prolog.
+
+    // Interrupts are disabled, because Status.EXL == 1.
+
+    asm volatile (".set nomips16");
+    asm volatile (".set noreorder");
+    asm volatile (".set noat");
+
+    // Make room for the context.
+
+    asm volatile ("addiu $sp, $sp, -%0" :: "K" (sizeof(ao_task_context_data_t)));
+
+    // Save s0.
+    // Save s1.
+    // Save s2.
+    // Save s3.
+    // Save s8.
+
+    asm volatile ("sw $s0, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s0)));
+    asm volatile ("sw $s1, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s1)));
+    asm volatile ("sw $s2, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s2)));
+    asm volatile ("sw $s3, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s3)));
+    asm volatile ("sw $s8, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s8)));
+
+    // s1 = sp
+
+    asm volatile ("addu $s1, $sp, $zero");
+
+    // Switch to the interrupt stack.
+
+    // We can safely use k0 and k1, because interrupts are disabled.
+
+    // s0 = &ao_ir_stack
+
+    asm volatile ("la $s0, ao_ir_stack");
+
+    // k1 = 1
+
+    asm volatile ("addiu $k1, $zero, 1");
+
+    // sp = ao_ir_stack.sp
+
+    asm volatile ("lw $sp, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, sp)));
+
+    // ao_ir_stack.depth = k1
+
+    asm volatile ("sw $k1, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+    // s8 = sp
+
+    asm volatile ("addu $s8, $sp, $zero");
+
+#if AO_IR_STACK_DEPTH_MAX
+
+    // k0 = ao_ir_stack.depth_max
+
+    asm volatile ("lw $k0, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
+
+    // k0 = k0 - 1
+
+    asm volatile ("addiu $k0, $k0, -1");
+
+    // if (k0 >= 0) then goto 1
+
+    asm volatile ("bgez $k0, 1f");
+    asm volatile ("nop");
+
+    // ao_ir_stack.depth_max = k1
+
+    asm volatile ("sw $k1, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth_max)));
+
+    asm volatile ("1:");
+
+#endif
+
+    // k1 = EPC
+
+    asm volatile ("mfc0 $k1, $%0, %1" :: "K" (_CP0_EPC), "K" (_CP0_EPC_SELECT));
+
+    // k0 = Status
+
+    asm volatile ("mfc0 $k0, $%0, %1" :: "K" (_CP0_STATUS), "K" (_CP0_STATUS_SELECT));
+
+    // save EPC
+
+    asm volatile ("sw $k1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, epc)));
+
+    // save Status
+
+    asm volatile ("sw $k0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, status)));
+
+    // Manipulate the Status value contained in k0.
+
+    // Status.IPL = AO_IR_CS1_PRIO
+    // Status.EXL = 0
+    // Status.ERL = 0
+    // Status.UM  = 0
+
+    // k1 = AO_IR_CS1_PRIO
+
+    asm volatile ("addiu $k1, $zero, %0" :: "K" (AO_IR_CS1_PRIO));
+
+    // k0.IPL = k1
+
+    asm volatile ("ins $k0, $k1, %0, %1" :: "K" (_CP0_STATUS_IPL_POSITION), "K" (_CP0_STATUS_IPL_LENGTH));
+
+    // k0.EXL = 0
+    // k0.ERL = 0
+    // k0.UM  = 0
+
+    asm volatile ("ins $k0, $zero, %0, %1" :: "K" (_CP0_STATUS_EXL_POSITION), "K" (_CP0_STATUS_UM_POSITION - _CP0_STATUS_EXL_POSITION + 1));
+
+    // Enable interrupts whose priority is greater than the switch priority.
+
+    // Status = k0
+
+    asm volatile ("mtc0 $k0, $%0, %1" :: "K" (_CP0_STATUS), "K" (_CP0_STATUS_SELECT));
+
+    // Interrupts are enabled now.
+
+    // Therefore, we must not use k0 and k1 anymore.
+
+    // Save GPR.
+
+    asm volatile ("sw $a0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a0)));
+    asm volatile ("sw $a1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a1)));
+    asm volatile ("sw $a2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a2)));
+    asm volatile ("sw $a3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a3)));
+    asm volatile ("sw $at, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, at)));
+    asm volatile ("sw $ra, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, ra)));
+    asm volatile ("sw $s4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s4)));
+    asm volatile ("sw $s5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s5)));
+    asm volatile ("sw $s6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s6)));
+    asm volatile ("sw $s7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s7)));
+    asm volatile ("sw $t0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t0)));
+    asm volatile ("sw $t1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t1)));
+    asm volatile ("sw $t2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t2)));
+    asm volatile ("sw $t3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t3)));
+    asm volatile ("sw $t4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t4)));
+    asm volatile ("sw $t5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t5)));
+    asm volatile ("sw $t6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t6)));
+    asm volatile ("sw $t7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t7)));
+    asm volatile ("sw $t8, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t8)));
+    asm volatile ("sw $t9, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t9)));
+    asm volatile ("sw $v0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v0)));
+    asm volatile ("sw $v1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v1)));
+
+    // Save hi.
+    // Save lo.
+
+    asm volatile ("mfhi $s2");
+    asm volatile ("mflo $s3");
+    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi)));
+    asm volatile ("sw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo)));
+
+    // Save hi1.
+    // Save lo1.
+
+    asm volatile ("mfhi $s2, $ac1");
+    asm volatile ("mflo $s3, $ac1");
+    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi1)));
+    asm volatile ("sw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo1)));
+
+    // Save hi2.
+    // Save lo2.
+
+    asm volatile ("mfhi $s2, $ac2");
+    asm volatile ("mflo $s3, $ac2");
+    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi2)));
+    asm volatile ("sw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo2)));
+
+    // Save hi3.
+    // Save lo3.
+
+    asm volatile ("mfhi $s2, $ac3");
+    asm volatile ("mflo $s3, $ac3");
+    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi3)));
+    asm volatile ("sw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo3)));
+
+    // Save DSPControl.
+
+    asm volatile ("rddsp $s2");
+    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, dsp_control)));
+
+    // Save FCSR.
+
+    asm volatile ("cfc1 $s2, $f31");
+    asm volatile ("sw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, fcsr)));
+
+    // Save f0 .. f31.
+
+    asm volatile ("sdc1 $f0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f0)));
+    asm volatile ("sdc1 $f1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f1)));
+    asm volatile ("sdc1 $f2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f2)));
+    asm volatile ("sdc1 $f3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f3)));
+    asm volatile ("sdc1 $f4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f4)));
+    asm volatile ("sdc1 $f5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f5)));
+    asm volatile ("sdc1 $f6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f6)));
+    asm volatile ("sdc1 $f7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f7)));
+    asm volatile ("sdc1 $f8, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f8)));
+    asm volatile ("sdc1 $f9, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f9)));
+    asm volatile ("sdc1 $f10, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f10)));
+    asm volatile ("sdc1 $f11, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f11)));
+    asm volatile ("sdc1 $f12, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f12)));
+    asm volatile ("sdc1 $f13, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f13)));
+    asm volatile ("sdc1 $f14, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f14)));
+    asm volatile ("sdc1 $f15, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f15)));
+    asm volatile ("sdc1 $f16, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f16)));
+    asm volatile ("sdc1 $f17, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f17)));
+    asm volatile ("sdc1 $f18, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f18)));
+    asm volatile ("sdc1 $f19, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f19)));
+    asm volatile ("sdc1 $f20, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f20)));
+    asm volatile ("sdc1 $f21, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f21)));
+    asm volatile ("sdc1 $f22, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f22)));
+    asm volatile ("sdc1 $f23, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f23)));
+    asm volatile ("sdc1 $f24, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f24)));
+    asm volatile ("sdc1 $f25, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f25)));
+    asm volatile ("sdc1 $f26, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f26)));
+    asm volatile ("sdc1 $f27, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f27)));
+    asm volatile ("sdc1 $f28, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f28)));
+    asm volatile ("sdc1 $f29, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f29)));
+    asm volatile ("sdc1 $f30, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f30)));
+    asm volatile ("sdc1 $f31, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f31)));
+
+    // Body.
+
+    // s2 = &ao_task_running
+
+    asm volatile ("la $s2, ao_task_running");
+
+    // s3 = ao_task_running[0]
+
+    asm volatile ("lw $s3, 0($s2)");
+
+    // ao_task_running[0]->context.ptr = s1
+
+    asm volatile ("sw $s1, %0($s3)" :: "K" (offsetof(ao_task_t, context.ptr)));
+
+#if AO_TASK_STACK_CHECK
+
+    asm volatile (".set reorder");
+    asm volatile (".set at");
+
+    asm volatile ("jal ao_task_stack_check");
+    asm volatile ("nop");
+
+    asm volatile (".set nomips16");
+    asm volatile (".set noreorder");
+    asm volatile (".set noat");
+
+#else
+
+    asm volatile ("addiu $a0, $zero, 0");
+
+    asm volatile (".set reorder");
+    asm volatile (".set at");
+
+    asm volatile ("jal ao_ir_task");
+    asm volatile ("nop");
+
+    asm volatile (".set nomips16");
+    asm volatile (".set noreorder");
+    asm volatile (".set noat");
+
+#endif
+
+    // s3 = ao_task_running[0]
+
+    asm volatile ("lw $s3, 0($s2)");
+
+    // s1 = ao_task_running[0]->context.ptr
+
+    asm volatile ("lw $s1, %0($s3)" :: "K" (offsetof(ao_task_t, context.ptr)));
+
+    // Epilog.
+
+    // Restore GPR.
+
+    asm volatile ("lw $a0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a0)));
+    asm volatile ("lw $a1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a1)));
+    asm volatile ("lw $a2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a2)));
+    asm volatile ("lw $a3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, a3)));
+    asm volatile ("lw $at, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, at)));
+    asm volatile ("lw $ra, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, ra)));
+    asm volatile ("lw $s4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s4)));
+    asm volatile ("lw $s5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s5)));
+    asm volatile ("lw $s6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s6)));
+    asm volatile ("lw $s7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, s7)));
+    asm volatile ("lw $t0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t0)));
+    asm volatile ("lw $t1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t1)));
+    asm volatile ("lw $t2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t2)));
+    asm volatile ("lw $t3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t3)));
+    asm volatile ("lw $t4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t4)));
+    asm volatile ("lw $t5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t5)));
+    asm volatile ("lw $t6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t6)));
+    asm volatile ("lw $t7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t7)));
+    asm volatile ("lw $t8, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t8)));
+    asm volatile ("lw $t9, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, t9)));
+    asm volatile ("lw $v0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v0)));
+    asm volatile ("lw $v1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, v1)));
+
+    // Restore hi.
+    // Restore lo.
+
+    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi)));
+    asm volatile ("lw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo)));
+    asm volatile ("mthi $s2");
+    asm volatile ("mtlo $s3");
+
+    // Restore hi1.
+    // Restore lo1.
+
+    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi1)));
+    asm volatile ("lw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo1)));
+    asm volatile ("mthi $s2, $ac1");
+    asm volatile ("mtlo $s3, $ac1");
+
+    // Restore hi2.
+    // Restore lo2.
+
+    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi2)));
+    asm volatile ("lw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo2)));
+    asm volatile ("mthi $s2, $ac2");
+    asm volatile ("mtlo $s3, $ac2");
+
+    // Restore hi3.
+    // Restore lo3.
+
+    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, hi3)));
+    asm volatile ("lw $s3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, lo3)));
+    asm volatile ("mthi $s2, $ac3");
+    asm volatile ("mtlo $s3, $ac3");
+
+    // Restore DSPControl.
+
+    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, dsp_control)));
+    asm volatile ("wrdsp $s2");
+
+    // Restore FCSR.
+
+    asm volatile ("lw $s2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, fcsr)));
+    asm volatile ("ctc1 $s2, $f31");
+
+    // Restore f0 .. f31.
+
+    asm volatile ("ldc1 $f0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f0)));
+    asm volatile ("ldc1 $f1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f1)));
+    asm volatile ("ldc1 $f2, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f2)));
+    asm volatile ("ldc1 $f3, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f3)));
+    asm volatile ("ldc1 $f4, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f4)));
+    asm volatile ("ldc1 $f5, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f5)));
+    asm volatile ("ldc1 $f6, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f6)));
+    asm volatile ("ldc1 $f7, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f7)));
+    asm volatile ("ldc1 $f8, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f8)));
+    asm volatile ("ldc1 $f9, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f9)));
+    asm volatile ("ldc1 $f10, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f10)));
+    asm volatile ("ldc1 $f11, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f11)));
+    asm volatile ("ldc1 $f12, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f12)));
+    asm volatile ("ldc1 $f13, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f13)));
+    asm volatile ("ldc1 $f14, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f14)));
+    asm volatile ("ldc1 $f15, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f15)));
+    asm volatile ("ldc1 $f16, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f16)));
+    asm volatile ("ldc1 $f17, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f17)));
+    asm volatile ("ldc1 $f18, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f18)));
+    asm volatile ("ldc1 $f19, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f19)));
+    asm volatile ("ldc1 $f20, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f20)));
+    asm volatile ("ldc1 $f21, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f21)));
+    asm volatile ("ldc1 $f22, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f22)));
+    asm volatile ("ldc1 $f23, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f23)));
+    asm volatile ("ldc1 $f24, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f24)));
+    asm volatile ("ldc1 $f25, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f25)));
+    asm volatile ("ldc1 $f26, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f26)));
+    asm volatile ("ldc1 $f27, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f27)));
+    asm volatile ("ldc1 $f28, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f28)));
+    asm volatile ("ldc1 $f29, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f29)));
+    asm volatile ("ldc1 $f30, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f30)));
+    asm volatile ("ldc1 $f31, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, f31)));
+
+    // Disable interrupts.
+
+    asm volatile ("di");
+    asm volatile ("ehb");
+
+    // k0 = EPC
+
+    asm volatile ("lw $k0, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, epc)));
+
+    // k1 = Status
+
+    asm volatile ("lw $k1, %0($s1)" :: "K" (offsetof(ao_task_context_data_t, status)));
+
+    // Restore EPC.
+
+    asm volatile ("mtc0 $k0, $%0, %1" :: "K" (_CP0_EPC), "K" (_CP0_EPC_SELECT));
+
+    // Restore Status.
+
+    asm volatile ("mtc0 $k1, $%0, %1" :: "K" (_CP0_STATUS), "K" (_CP0_STATUS_SELECT));
+
+    // ao_ir_stack.depth = 0
+
+    asm volatile ("sw $zero, %0($s0)" :: "K" (offsetof(ao_ir_stack_t, depth)));
+
+    // sp = s1
+
+    asm volatile ("addu $sp, $s1, $zero");
+
+    // Restore s0.
+    // Restore s1.
+    // Restore s2.
+    // Restore s3.
+    // Restore s8.
+
+    asm volatile ("lw $s0, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s0)));
+    asm volatile ("lw $s1, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s1)));
+    asm volatile ("lw $s2, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s2)));
+    asm volatile ("lw $s3, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s3)));
+    asm volatile ("lw $s8, %0($sp)" :: "K" (offsetof(ao_task_context_data_t, s8)));
+
+    // Restore sp.
+
+    asm volatile ("addiu $sp, $sp, %0" :: "K" (sizeof(ao_task_context_data_t)));
+
+    // Return from exception.
+
+    asm volatile ("eret");
+    asm volatile ("nop");
+
+    asm volatile (".set reorder");
+    asm volatile (".set at");
+}
+
+// ----------------------------------------------------------------------------
+
+void ao_task_start_context(ao_task_t * T)
+{
+    // Notes.
+
+    // The kernel is locked.
+
+
+    // Assert.
+
+    ao_assert(T);
+
+
+    // Variables.
+
+    void * b;
+
+    ao_task_context_data_t * D;
+
+    void * e;
+
+    uint32_t * p;
+
+    size_t s;
+
+
+    // Ready.
+
+    // Stack.
+
+    b = ao_task_get_stack_beginning_locked(T);
+
+    ao_assert(b);
+
+    s = ao_task_get_stack_size_locked(T);
+
+    e = ao_stack_get_end(b, s);
+
+    // Stack pointer.
+
+    p = e;
+
+    // Stack pointer must be properly aligned.
+
+    ao_assert(AO_IS_ALIGNED((uintptr_t) p, AO_STACK_ALIGN));
+
+    // According to the MIPS O32 calling convention, the stack frame of the
+    // caller must have an argument section. The argument section must contain
+    // enough space for all the arguments of the callee, but at least four
+    // words.
+
+    p = p - 4;
+
+    // Make room for the context.
+
+    p = p - sizeof(ao_task_context_data_t) / 4;
+
+    // Stack pointer must not overflow.
+
+    ao_assert(p >= (uint32_t *) b);
+
+    // Context.
+
+    D = (ao_task_context_data_t *) p;
+
+    D->a0 = (uint32_t) T;
+
+    D->dsp_control = 0;
+
+    D->epc = (uint32_t) ao_task_entry;
+
+    D->fcsr = 0x01600000;
+
+    // When generating interrupt handlers, the XC32 compiler assumes that both DSP and FPU are usable.
+
+    // Therefore, the Status register bits CU1 and MX must always be set.
+
+    D->status =
+        _CP0_STATUS_CU1_MASK |
+        _CP0_STATUS_EXL_MASK |
+        _CP0_STATUS_FR_MASK  |
+        _CP0_STATUS_IE_MASK  |
+        _CP0_STATUS_MX_MASK;
+
+    T->context.ptr = D;
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#if defined AO_TASK && AO_TASK_STACK_CHECK
+
+// ----------------------------------------------------------------------------
+
+void ao_task_stack_check()
+{
+    // Notes.
+
+    // This function is called by the task interrupt handler.
+
+    // The kernel is not locked.
+
+
+    // Variables.
+
+    void * b;
+
+    void * e;
+
+    void * p;
+
+    size_t s1;
+
+    size_t s2;
+
+    ao_task_t * T;
+
+    ptrdiff_t t3;
+
+
+    // Ready.
+
+    T = ao_task_running[0];
+
+    ao_assert(T);
+
+    p = T->context.ptr;
+
+    if (p == NULL)
+    {
+        ao_task_stack_null(T);
+    }
+
+    else
+    {
+        // The kernel is not locked.
+
+        // But, the task stack must not change while the task is started.
+
+        // Therefore, we can read the task stack properties as if the kernel was locked.
+
+        b = ao_task_get_stack_beginning_locked(T);
+
+        ao_assert(b);
+
+        if (p < b)
+        {
+            ao_task_stack_overflow(T);
+        }
+
+        else
+        {
+            s1 = ao_task_get_stack_size_locked(T);
+
+            ao_assert(s1 > 0);
+
+            e = ao_stack_get_end(b, s1);
+
+            if (p >= e)
+            {
+                ao_task_stack_underflow(T);
+            }
+
+            else
+            {
+                s2 = (size_t) ((uint8_t *) e - (uint8_t *) p);
+
+                s2 = s2 * 100 / s1;
+
+                if (s2 >= AO_TASK_STACK_THRESHOLD)
+                {
+                    ao_task_stack_threshold(T, s2);
+                }
+            }
+        }
+    }
+
+    ao_ir_task(0);
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#endif
+
+#if defined AO_SYS_XC32_PIC32MZ_DA
+
+#if defined AO_SYS
+
+// ----------------------------------------------------------------------------
+
+void ao_boot_sys_pcache()
+{
+    // Variables.
+
+    uint32_t w;
+
+
+    // Ready.
+
+    // DS60001361.
+
+    // Section 44. Electrical Characteristics.
+
+    // ECC disabled.
+
+    if (DEVCFG0bits.FECCCON & 0x10)
+    {
+        if (AO_SYS_SYSCLK <= 74000000UL)
+        {
+            w = 0;
+        }
+
+        else if (AO_SYS_SYSCLK <= 140000000UL)
+        {
+            w = 1;
+        }
+
+        else
+        {
+            w = 2;
+        }
+    }
+
+    // ECC enabled.
+
+    else
+    {
+        if (AO_SYS_SYSCLK <= 60000000UL)
+        {
+            w = 0;
+        }
+
+        else if (AO_SYS_SYSCLK <= 120000000UL)
+        {
+            w = 1;
+        }
+
+        else
+        {
+            w = 2;
+        }
+    }
+
+    ao_sys_pfm_ws_set(w);
+
+    ao_sys_kseg0_cacheable_write_back_alloc();
+
+    ao_sys_pref_enable_instructions_and_data();
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#endif
+
+#if defined AO_SYS_XC32_PIC32MZ_DAK
+
+#if defined AO_SYS
+
+// ----------------------------------------------------------------------------
+
+void ao_boot_sys_pcache()
+{
+    // Variables.
+
+    uint32_t w;
+
+
+    // Ready.
+
+    // DS60001565.
+
+    // Section 44. Electrical Characteristics.
+
+    // ECC disabled.
+
+    if (DEVCFG0bits.FECCCON & 0x10)
+    {
+        if (AO_SYS_SYSCLK <= 74000000UL)
+        {
+            w = 0;
+        }
+
+        else if (AO_SYS_SYSCLK <= 140000000UL)
+        {
+            w = 1;
+        }
+
+        else
+        {
+            w = 2;
+        }
+    }
+
+    // ECC enabled.
+
+    else
+    {
+        if (AO_SYS_SYSCLK <= 60000000UL)
+        {
+            w = 0;
+        }
+
+        else if (AO_SYS_SYSCLK <= 120000000UL)
+        {
+            w = 1;
+        }
+
+        else
+        {
+            w = 2;
+        }
+    }
+
+    ao_sys_pfm_ws_set(w);
+
+    ao_sys_kseg0_cacheable_write_back_alloc();
+
+    ao_sys_pref_enable_instructions_and_data();
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#endif
+
+#if defined AO_SYS_XC32_PIC32MZ_EC
+
+#if defined AO_SYS
+
+// ----------------------------------------------------------------------------
+
+void ao_boot_sys_pcache()
+{
+    // Variables.
+
+    uint32_t w;
+
+
+    // Ready.
+
+    // DS60001191.
+
+    // Section 37. Electrical Characteristics.
+
+    // DS80000588.
+
+    // Silicon Errata Issue 2.
+
+    // ECC disabled.
+
+    if (DEVCFG0bits.FECCCON & 0x10)
+    {
+        if (AO_SYS_SYSCLK <= 74000000UL)
+        {
+            w = 0;
+        }
+
+        else if (AO_SYS_SYSCLK <= 140000000UL)
+        {
+            w = 1;
+        }
+
+        else
+        {
+            w = 2;
+        }
+    }
+
+    // ECC enabled.
+
+    else
+    {
+        if (AO_SYS_SYSCLK <= 60000000UL)
+        {
+            w = 0;
+        }
+
+        else if (AO_SYS_SYSCLK <= 120000000UL)
+        {
+            w = 1;
+        }
+
+        else
+        {
+            w = 2;
+        }
+    }
+
+    ao_sys_pfm_ws_set(w);
+
+    ao_sys_kseg0_cacheable_write_back_alloc();
+
+    ao_sys_pref_enable_instructions_and_data();
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#endif
+
+#if defined AO_SYS_XC32_PIC32MZ_EF
+
+#if defined AO_SYS
+
+// ----------------------------------------------------------------------------
+
+void ao_boot_sys_pcache()
+{
+    // Variables.
+
+    uint32_t r;
+
+    uint32_t w;
+
+
+    // Ready.
+
+    // DS60001320.
+
+    // Section 37. Electrical Characteristics.
+
+    // ECC disabled.
+
+    if (DEVCFG0bits.FECCCON & 0x10)
+    {
+        if (AO_SYS_SYSCLK <= 74000000UL)
+        {
+            w = 0;
+        }
+
+        else if (AO_SYS_SYSCLK <= 140000000UL)
+        {
+            w = 1;
+        }
+
+        else
+        {
+            // DS80000663.
+
+            // Silicon Errata Issue 38.
+
+            r = ao_sys_id_revision();
+
+            if (r == AO_SYS_ID_REVISION_B2)
+            {
+                if (AO_SYS_SYSCLK <= 184000000UL)
+                {
+                    w = 2;
+                }
+
+                else
+                {
+                    w = 3;
+                }
+            }
+
+            else
+            {
+                w = 2;
+            }
+        }
+    }
+
+    // ECC enabled.
+
+    else
+    {
+        if (AO_SYS_SYSCLK <= 60000000UL)
+        {
+            w = 0;
+        }
+
+        else if (AO_SYS_SYSCLK <= 120000000UL)
+        {
+            w = 1;
+        }
+
+        else
+        {
+            // DS80000663.
+
+            // Silicon Errata Issue 38.
+
+            r = ao_sys_id_revision();
+
+            if (r == AO_SYS_ID_REVISION_B2)
+            {
+                if (AO_SYS_SYSCLK <= 184000000UL)
+                {
+                    w = 2;
+                }
+
+                else
+                {
+                    w = 3;
+                }
+            }
+
+            else
+            {
+                w = 2;
+            }
+        }
+    }
+
+    ao_sys_pfm_ws_set(w);
+
+    ao_sys_kseg0_cacheable_write_back_alloc();
+
+    ao_sys_pref_enable_instructions_and_data();
+}
 
 // ----------------------------------------------------------------------------
 

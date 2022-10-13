@@ -29,6 +29,7 @@
 // ----------------------------------------------------------------------------
 
 #include <ao_ir_alarm.h>
+#include <ao_ir_can.h>
 #include <ao_ir_cs.h>
 #include <ao_ir_ct.h>
 #include <ao_ir_int.h>
@@ -37,6 +38,7 @@
 #include <ao_ir_prio.h>
 #include <ao_ir_stack.h>
 #include <ao_ir_task.h>
+#include <ao_ir_u.h>
 
 // ----------------------------------------------------------------------------
 
