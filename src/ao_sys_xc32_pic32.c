@@ -23219,11 +23219,11 @@ static  void    ao_uart_baud_low(           ao_uart_reg_t * r, uint32_t f_pbclk,
 void ao_uart_baud(ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f)
 {
 
-#if defined AO_SYS_XC32_PIC32MK_GP                                      ||  \
-    defined AO_SYS_XC32_PIC32MX_154                                 ||  \
-    defined AO_SYS_XC32_PIC32MZ_DA                                      ||  \
+#if defined AO_SYS_XC32_PIC32MK_GPD                                     ||  \
+    defined AO_SYS_XC32_PIC32MX_154                                     ||  \
+    defined AO_SYS_XC32_PIC32MZ_DAA                                     ||  \
     defined AO_SYS_XC32_PIC32MZ_DAK                                     ||  \
-    defined AO_SYS_XC32_PIC32MZ_EF
+    defined AO_SYS_XC32_PIC32MZ_EFE
 
     // DS80000663.
 
@@ -23280,11 +23280,11 @@ void ao_uart_baud_high(ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f)
 
     // Assert.
 
-#if defined AO_SYS_XC32_PIC32MK_GP                                      ||  \
-    defined AO_SYS_XC32_PIC32MX_154                                 ||  \
-    defined AO_SYS_XC32_PIC32MZ_DA                                      ||  \
+#if defined AO_SYS_XC32_PIC32MK_GPD                                     ||  \
+    defined AO_SYS_XC32_PIC32MX_154                                     ||  \
+    defined AO_SYS_XC32_PIC32MZ_DAA                                     ||  \
     defined AO_SYS_XC32_PIC32MZ_DAK                                     ||  \
-    defined AO_SYS_XC32_PIC32MZ_EF
+    defined AO_SYS_XC32_PIC32MZ_EFE
 
     // DS80000737.
 
@@ -27314,7 +27314,7 @@ void ao_task_stack_check()
 
 #endif
 
-#if defined AO_SYS_XC32_PIC32MK_GP
+#if defined AO_SYS_XC32_PIC32MK_GPD
 
 #if defined AO_SYS
 
@@ -28862,7 +28862,7 @@ void ao_task_stack_check()
 
 #endif
 
-#if defined AO_SYS_XC32_PIC32MZ_DA
+#if defined AO_SYS_XC32_PIC32MZ_DAA
 
 #if defined AO_SYS
 
@@ -29006,7 +29006,7 @@ void ao_boot_sys_pcache()
 
 #endif
 
-#if defined AO_SYS_XC32_PIC32MZ_EC
+#if defined AO_SYS_XC32_PIC32MZ_ECG
 
 #if defined AO_SYS
 
@@ -29082,7 +29082,7 @@ void ao_boot_sys_pcache()
 
 #endif
 
-#if defined AO_SYS_XC32_PIC32MZ_EF
+#if defined AO_SYS_XC32_PIC32MZ_EFE
 
 #if defined AO_SYS
 

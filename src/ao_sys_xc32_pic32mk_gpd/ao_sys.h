@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// PIC32MZ Graphics (DA) Family.
+// PIC32MK General Purpose and Motor Control (GP/MC) Family.
 
 // ----------------------------------------------------------------------------
 
@@ -33,9 +33,9 @@
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_SYS_XC32_PIC32MZ_DA
+#ifndef AO_SYS_XC32_PIC32MK_GPD
 
-#define AO_SYS_XC32_PIC32MZ_DA
+#define AO_SYS_XC32_PIC32MK_GPD
 
 #endif
 

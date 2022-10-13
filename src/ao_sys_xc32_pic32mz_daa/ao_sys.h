@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// PIC32MZ Embedded Connectivity with Floating Point Unit (EF) Family.
+// PIC32MZ Graphics (DA) Family.
 
 // ----------------------------------------------------------------------------
 
@@ -33,9 +33,9 @@
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_SYS_XC32_PIC32MZ_EF
+#ifndef AO_SYS_XC32_PIC32MZ_DAA
 
-#define AO_SYS_XC32_PIC32MZ_EF
+#define AO_SYS_XC32_PIC32MZ_DAA
 
 #endif
 

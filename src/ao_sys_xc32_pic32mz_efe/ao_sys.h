@@ -24,7 +24,7 @@
 
 // ----------------------------------------------------------------------------
 
-// PIC32MK General Purpose and Motor Control (GP/MC) Family.
+// PIC32MZ Embedded Connectivity with Floating Point Unit (EF) Family.
 
 // ----------------------------------------------------------------------------
 
@@ -33,9 +33,9 @@
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_SYS_XC32_PIC32MK_GP
+#ifndef AO_SYS_XC32_PIC32MZ_EFE
 
-#define AO_SYS_XC32_PIC32MK_GP
+#define AO_SYS_XC32_PIC32MZ_EFE
 
 #endif
 

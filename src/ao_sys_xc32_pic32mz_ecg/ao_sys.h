@@ -33,9 +33,9 @@
 
 // ----------------------------------------------------------------------------
 
-#ifndef AO_SYS_XC32_PIC32MZ_EC
+#ifndef AO_SYS_XC32_PIC32MZ_ECG
 
-#define AO_SYS_XC32_PIC32MZ_EC
+#define AO_SYS_XC32_PIC32MZ_ECG
 
 #endif
 
