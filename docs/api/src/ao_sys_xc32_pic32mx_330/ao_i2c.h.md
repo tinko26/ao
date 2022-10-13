@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-20
+date: 2022-10-13
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mx_330/ao_i2c.h/
 toc: true
@@ -18,4 +18,4 @@ The size of the `I2CxBRG.BRG` field, in bits.
 
 # Include Next
 
-| [`ao_i2c.h`](../ao_sys_xc32_pic32_i2c/ao_i2c.h.md) |
+| [`ao_i2c.h`](../ao_sys_xc32_pic32/ao_i2c.h.md) |

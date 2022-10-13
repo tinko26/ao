@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-20
+date: 2022-10-13
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mx_330/ao_uart.h/
 toc: true
@@ -26,4 +26,4 @@ The capacity of the receive FIFO, in bytes.
 
 # Include Next
 
-| [`ao_uart.h`](../ao_sys_xc32_pic32_uart/ao_uart.h.md) |
+| [`ao_uart.h`](../ao_sys_xc32_pic32/ao_uart.h.md) |

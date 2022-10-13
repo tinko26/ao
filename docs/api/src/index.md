@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-29
+date: 2022-10-13
 draft: false
 permalink: /api/src/
 toc: false
@@ -13,12 +13,6 @@ wide: true
 | [`ao_sys`](ao_sys/index.md) | Kernel |
 | [`ao_sys_xc32`](ao_sys_xc32/index.md) | XC32 |
 | [`ao_sys_xc32_pic32`](ao_sys_xc32_pic32/index.md) | PIC32 |
-| [`ao_sys_xc32_pic32_can`](ao_sys_xc32_pic32_can/index.md) | PIC32 CAN driver |
-| [`ao_sys_xc32_pic32_i2c`](ao_sys_xc32_pic32_i2c/index.md) | PIC32 I2C driver |
-| [`ao_sys_xc32_pic32_rng`](ao_sys_xc32_pic32_rng/index.md) | PIC32 RNG driver |
-| [`ao_sys_xc32_pic32_spi`](ao_sys_xc32_pic32_spi/index.md) | PIC32 SPI driver |
-| [`ao_sys_xc32_pic32_uart`](ao_sys_xc32_pic32_uart/index.md) | PIC32 UART driver |
-| [`ao_sys_xc32_pic32_wdt`](ao_sys_xc32_pic32_wdt/index.md) | PIC32 WDT driver |
 | [`ao_sys_xc32_pic32mk`](ao_sys_xc32_pic32mk/index.md) | PIC32MK |
 | [`ao_sys_xc32_pic32mk_gp`](ao_sys_xc32_pic32mk_gp/index.md) | PIC32MK General Purpose and Motor Control (GP / MC) Family |
 | [`ao_sys_xc32_pic32mk_gpg`](ao_sys_xc32_pic32mk_gpg/index.md) | PIC32MK General Purpose and Motor Control (GPG / MCJ) with CAN FD Family |

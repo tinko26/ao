@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-27
+date: 2022-10-13
 draft: false
 external:
 - https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/32-bit-mcus : "Microchip 32-bit PIC® and SAM Microcontrollers"
@@ -77,13 +77,25 @@ wide: false
 
 | [`ao_boot.h`](ao_boot.h.md) | Booting |
 | [`ao_break.h`](ao_break.h.md) | Breakpoints |
+| [`ao_can.h`](ao_can.h.md) | CAN |
+| [`ao_can_1.h`](ao_can_1.h.md) | CAN 1 |
+| [`ao_can_2.h`](ao_can_2.h.md) | CAN 2 |
+| [`ao_can_3.h`](ao_can_3.h.md) | CAN 3 |
+| [`ao_can_4.h`](ao_can_4.h.md) | CAN 4 |
 | [`ao_char.h`](ao_char.h.md) | Characters |
 | [`ao_core.h`](ao_core.h.md) | Processor cores |
 | [`ao_count.h`](ao_count.h.md) | Counter |
 | [`ao_float.h`](ao_float.h.md) | Floating-point numbers |
+| [`ao_i2c.h`](ao_i2c.h.md) | I²C |
+| [`ao_i2c_1.h`](ao_i2c_1.h.md) | I²C 1 |
+| [`ao_i2c_2.h`](ao_i2c_2.h.md) | I²C 2 |
+| [`ao_i2c_3.h`](ao_i2c_3.h.md) | I²C 3 |
+| [`ao_i2c_4.h`](ao_i2c_4.h.md) | I²C 4 |
+| [`ao_i2c_5.h`](ao_i2c_5.h.md) | I²C 5 |
 | [`ao_int.h`](ao_int.h.md) | Signed integers |
 | [`ao_ir.h`](ao_ir.h.md) | Interrupts |
 | [`ao_ir_alarm.h`](ao_ir_alarm.h.md) | Alarm interrupt |
+| [`ao_ir_can.h`](ao_ir_can.h.md) | CAN interrupts |
 | [`ao_ir_cs.h`](ao_ir_cs.h.md) | Core software interrupts |
 | [`ao_ir_ct.h`](ao_ir_ct.h.md) | Core timer interrupt |
 | [`ao_ir_enable.h`](ao_ir_enable.h.md) | Enabling and disabling interrupts globally |
@@ -92,10 +104,20 @@ wide: false
 | [`ao_ir_prio.h`](ao_ir_prio.h.md) | Interrupt priorities |
 | [`ao_ir_stack.h`](ao_ir_stack.h.md) | Interrupt stack |
 | [`ao_ir_task.h`](ao_ir_task.h.md) | Task interrupt |
+| [`ao_ir_u.h`](ao_ir_u.h.md) | UART interrupts |
 | [`ao_lock.h`](ao_lock.h.md) | Locks |
 | [`ao_mathf.h`](ao_mathf.h.md) | Mathematics for floating-point numbers |
 | [`ao_mem.h`](ao_mem.h.md) | Memory blocks |
+| [`ao_rngp.h`](ao_rngp.h.md) | Pseudo-random number generator |
+| [`ao_rngt.h`](ao_rngt.h.md) | True random number generator |
 | [`ao_size.h`](ao_size.h.md) | Sizes |
+| [`ao_spi.h`](ao_spi.h.md) | SPI |
+| [`ao_spi_1.h`](ao_spi_1.h.md) | SPI 1 |
+| [`ao_spi_2.h`](ao_spi_2.h.md) | SPI 2 |
+| [`ao_spi_3.h`](ao_spi_3.h.md) | SPI 3 |
+| [`ao_spi_4.h`](ao_spi_4.h.md) | SPI 4 |
+| [`ao_spi_5.h`](ao_spi_5.h.md) | SPI 5 |
+| [`ao_spi_6.h`](ao_spi_6.h.md) | SPI 6 |
 | [`ao_stack.h`](ao_stack.h.md) | Stacks |
 | [`ao_sys.h`](ao_sys.h.md) | System |
 | [`ao_sys_clock.h`](ao_sys_clock.h.md) | System clocks |
@@ -106,4 +128,12 @@ wide: false
 | [`ao_sys_lock_ir.h`](ao_sys_lock_ir.h.md) | System locking (interrupts) |
 | [`ao_sys_power.h`](ao_sys_power.h.md) | System power-saving modes |
 | [`ao_sys_reset.h`](ao_sys_reset.h.md) | System reset |
+| [`ao_uart.h`](ao_uart.h.md) | UART |
+| [`ao_uart_1.h`](ao_uart_1.h.md) | UART 1 |
+| [`ao_uart_2.h`](ao_uart_2.h.md) | UART 2 |
+| [`ao_uart_3.h`](ao_uart_3.h.md) | UART 3 |
+| [`ao_uart_4.h`](ao_uart_4.h.md) | UART 4 |
+| [`ao_uart_5.h`](ao_uart_5.h.md) | UART 5 |
+| [`ao_uart_6.h`](ao_uart_6.h.md) | UART 6 |
 | [`ao_uint.h`](ao_uint.h.md) | Unsigned integers |
+| [`ao_wdt.h`](ao_wdt.h.md) | Watchdog timer |

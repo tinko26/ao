@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-10-13
 draft: true
 permalink: /api/demos/ao_mikroe_2800/ao_spi_4.h/
 toc: true
@@ -25,4 +25,4 @@ Indicates whether the module is used.
 
 # Include Next
 
-| [`ao_spi_4.h`](../../src/ao_sys_xc32_pic32_spi/ao_spi_4.h.md) |
+| [`ao_spi_4.h`](../../src/ao_sys_xc32_pic32/ao_spi_4.h.md) |
