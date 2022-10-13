@@ -23220,7 +23220,7 @@ void ao_uart_baud(ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f)
 {
 
 #if defined AO_SYS_XC32_PIC32MK_GP                                      ||  \
-    defined AO_SYS_XC32_PIC32MX_1XX_XLP                                 ||  \
+    defined AO_SYS_XC32_PIC32MX_154                                 ||  \
     defined AO_SYS_XC32_PIC32MZ_DA                                      ||  \
     defined AO_SYS_XC32_PIC32MZ_DAK                                     ||  \
     defined AO_SYS_XC32_PIC32MZ_EF
@@ -23281,7 +23281,7 @@ void ao_uart_baud_high(ao_uart_reg_t * r, uint32_t f_pbclk, uint32_t f)
     // Assert.
 
 #if defined AO_SYS_XC32_PIC32MK_GP                                      ||  \
-    defined AO_SYS_XC32_PIC32MX_1XX_XLP                                 ||  \
+    defined AO_SYS_XC32_PIC32MX_154                                 ||  \
     defined AO_SYS_XC32_PIC32MZ_DA                                      ||  \
     defined AO_SYS_XC32_PIC32MZ_DAK                                     ||  \
     defined AO_SYS_XC32_PIC32MZ_EF
@@ -27947,7 +27947,7 @@ void ao_task_stack_check()
 
 #endif
 
-#if defined AO_SYS_XC32_PIC32MX_1XX
+#if defined AO_SYS_XC32_PIC32MX_120
 
 #if defined AO_SYS
 
@@ -27964,24 +27964,7 @@ void ao_boot_sys_pcache()
 
 #endif
 
-#if defined AO_SYS_XC32_PIC32MX_1XX_64_100
-
-#if defined AO_SYS
-
-// ----------------------------------------------------------------------------
-
-void ao_boot_sys_pcache()
-{
-    ao_sys_kseg0_cacheable();
-}
-
-// ----------------------------------------------------------------------------
-
-#endif
-
-#endif
-
-#if defined AO_SYS_XC32_PIC32MX_1XX_XLP
+#if defined AO_SYS_XC32_PIC32MX_154
 
 #if defined AO_SYS
 
@@ -28025,6 +28008,23 @@ void ao_boot_sys_pcache()
     ao_sys_kseg0_cacheable();
 
     ao_sys_pref_enable_cacheable();
+}
+
+// ----------------------------------------------------------------------------
+
+#endif
+
+#endif
+
+#if defined AO_SYS_XC32_PIC32MX_1XX
+
+#if defined AO_SYS
+
+// ----------------------------------------------------------------------------
+
+void ao_boot_sys_pcache()
+{
+    ao_sys_kseg0_cacheable();
 }
 
 // ----------------------------------------------------------------------------
