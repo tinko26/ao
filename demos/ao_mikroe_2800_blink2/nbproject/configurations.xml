@@ -160,7 +160,7 @@
       </C32-LD>
       <C32Global>
         <property key="common-include-directories"
-                  value="../ao_mikroe_2800_blink2;../ao_mikroe_2800;../ao_mikroe;../../src/ao_sys_xc32_pic32mz_ef;../../src/ao_sys_xc32_pic32mz;../../src/ao_sys_xc32_pic32_i2c;../../src/ao_sys_xc32_pic32;../../src/ao_sys_xc32;../../src/ao_sys;../../src/ao"/>
+                  value="../ao_mikroe_2800_blink2;../ao_mikroe_2800;../ao_mikroe;../../src/ao_sys_xc32_pic32mz_efe;../../src/ao_sys_xc32_pic32mz;../../src/ao_sys_xc32_pic32;../../src/ao_sys_xc32;../../src/ao_sys;../../src/ao"/>
         <property key="gp-relative-option" value=""/>
         <property key="legacy-libc" value="true"/>
         <property key="mdtcm" value=""/>

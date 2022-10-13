@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-25
+date: 2022-10-13
 draft: true
 permalink: /api/demos/ao_mikroe_2800/ao_sys_clock.h/
 toc: true
@@ -32,4 +32,4 @@ The system clock frequency, in Hertz.
 
 # Include Next
 
-| [`ao_sys_clock.h`](../../src/ao_sys_xc32_pic32mz_ef/ao_sys_clock.h.md) |
+| [`ao_sys_clock.h`](../../src/ao_sys_xc32_pic32mz_efe/ao_sys_clock.h.md) |

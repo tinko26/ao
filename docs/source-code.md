@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-08-14
+date: 2022-10-13
 draft: true
 external:
 - https://en.wikipedia.org/wiki/PIC32 : "PIC32"
@@ -121,7 +121,7 @@ This hierarchy of include directories is mirrored by the directory names. For ex
 
 | | Directory | Package | |
 |-|-----------|---------|-|
-| 1️⃣ | `ao_sys_xc32_pic32mz_ef` | Port | ⬇️ |
+| 1️⃣ | `ao_sys_xc32_pic32mz_efe` | Port | ⬇️ |
 | 2️⃣ | `ao_sys_xc32_pic32mz` | Port | ⬇️ |
 | 3️⃣ | `ao_sys_xc32_pic32` | Port | ⬇️ |
 | 4️⃣ | `ao_sys_xc32` | Port | ⬇️ |
@@ -145,7 +145,7 @@ Now, an application can choose to override this definition by supplying its own 
 | | Directory | Package | |
 |-|-----------|---------|-|
 | 1️⃣ | `app_directory` | App | ⬇️ |
-| 2️⃣ | `ao_sys_xc32_pic32mz_ef` | Port | ⬇️ |
+| 2️⃣ | `ao_sys_xc32_pic32mz_efe` | Port | ⬇️ |
 | 3️⃣ | `ao_sys_xc32_pic32mz` | Port | ⬇️ |
 | 4️⃣ | `ao_sys_xc32_pic32` | Port | ⬇️ |
 | 5️⃣ | `ao_sys_xc32` | Port | ⬇️ |
