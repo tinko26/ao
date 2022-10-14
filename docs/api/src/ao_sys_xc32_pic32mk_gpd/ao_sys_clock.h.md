@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-10-13
+date: 2022-10-14
 draft: true
 permalink: /api/src/ao_sys_xc32_pic32mk_gpd/ao_sys_clock.h/
 toc: true
@@ -34,17 +34,6 @@ The peripheral bus clock frequencies, in Hertz.
 ```
 
 The peripheral bus clock frequency for each CAN module, in Hertz.
-
-## `AO_SYS_CLOCK_I2C*`
-
-```c
-#define AO_SYS_CLOCK_I2C1 (AO_SYS_PBCLK2)
-#define AO_SYS_CLOCK_I2C2 (AO_SYS_PBCLK2)
-#define AO_SYS_CLOCK_I2C3 (AO_SYS_PBCLK3)
-#define AO_SYS_CLOCK_I2C4 (AO_SYS_PBCLK3)
-```
-
-The peripheral bus clock frequency for each I²C module, in Hertz.
 
 ## `AO_SYS_CLOCK_SPI*`
 
