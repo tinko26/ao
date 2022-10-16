@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-10-13
+date: 2022-10-16
 draft: true
 external:
 - https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter : "Universal asynchronous receiver-transmitter"
@@ -17,7 +17,7 @@ toc: true
 ## `AO_UART_BRG_BITS`
 
 ```c
-#define AO_UART_BRG_BITS (16)
+#define AO_UART_BRG_BITS (20)
 ```
 
 The size of the `UxBRG.BRG` field, in bits.
@@ -140,7 +140,7 @@ struct ao_uart_reg_brg_t
         uint32_t     volatile reg;
         struct
         {
-            uint32_t volatile brg : 16;
+            uint32_t volatile brg : 20;
         }                     bits;
     };
     uint32_t         volatile clr;
