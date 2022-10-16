@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-10-13
+date: 2022-10-16
 draft: false
 external:
 - https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/32-bit-mcus : "Microchip 32-bit PIC® and SAM Microcontrollers"
@@ -26,7 +26,7 @@ external:
 - https://microchip.com/DS61107 : "Microchip PIC32 Family Reference Manual, Section 21, UART"
 - https://microchip.com/DS60001344 : "Microchip PIC32 Family Reference Manual, Section 22, 12-bit High-Speed Successive Approximation Register (SAR) ADC"
 - https://microchip.com/DS61106 : "Microchip PIC32 Family Reference Manual, Section 23, Serial Peripheral Interface (SPI)"
-- https://microchip.com/DS61116 : "Microchip PIC32 Family Reference Manual, Section 24, Inter-Integrated Circuit™ (I²C)"
+- https://microchip.com/DS60001116 : "Microchip PIC32 Family Reference Manual, Section 24, Inter-Integrated Circuit™ (I²C)"
 - https://microchip.com/DS60001359 : "Microchip PIC32 Family Reference Manual, Section 25, Analog-to-Digital Converter (ADC) with Threshold Detect"
 - https://microchip.com/DS61126 : "Microchip PIC32 Family Reference Manual, Section 27, USB On-The-Go (OTG)"
 - https://microchip.com/DS60001362 : "Microchip PIC32 Family Reference Manual, Section 28, RTCC with Timestamp"
