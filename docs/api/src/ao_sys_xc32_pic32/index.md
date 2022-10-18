@@ -1,6 +1,6 @@
 ---
 author: "Stefan Wagner"
-date: 2022-10-16
+date: 2022-10-18
 draft: false
 external:
 - https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/32-bit-mcus : "Microchip 32-bit PIC® and SAM Microcontrollers"
@@ -18,12 +18,12 @@ external:
 - https://microchip.com/DS60001128 : "Microchip PIC32 Family Reference Manual, Section 13, Parallel Master Port (PMP)"
 - https://microchip.com/DS61105 : "Microchip PIC32 Family Reference Manual, Section 14, Timers"
 - https://microchip.com/DS60001122 : "Microchip PIC32 Family Reference Manual, Section 15, Input Capture"
-- https://microchip.com/DS61111 : "Microchip PIC32 Family Reference Manual, Section 16, Output Compare"
+- https://www.microchip.com/DS61111 : "Microchip PIC32 Family Reference Manual, Section 16, Output Compare"
 - https://microchip.com/DS61104 : "Microchip PIC32 Family Reference Manual, Section 17, 10-bit Analog-to-Digital Converter (ADC)"
 - https://microchip.com/DS60001194 : "Microchip PIC32 Family Reference Manual, Section 18, 12-bit Pipelined Analog-to-Digital Converter (ADC)"
 - https://microchip.com/DS60001110 : "Microchip PIC32 Family Reference Manual, Section 19, Comparator"
 - https://microchip.com/DS61109 : "Microchip PIC32 Family Reference Manual, Section 20, Comparator Voltage Reference"
-- https://microchip.com/DS61107 : "Microchip PIC32 Family Reference Manual, Section 21, UART"
+- https://microchip.com/DS60001107 : "Microchip PIC32 Family Reference Manual, Section 21, UART"
 - https://microchip.com/DS60001344 : "Microchip PIC32 Family Reference Manual, Section 22, 12-bit High-Speed Successive Approximation Register (SAR) ADC"
 - https://microchip.com/DS61106 : "Microchip PIC32 Family Reference Manual, Section 23, Serial Peripheral Interface (SPI)"
 - https://microchip.com/DS60001116 : "Microchip PIC32 Family Reference Manual, Section 24, Inter-Integrated Circuit™ (I²C)"

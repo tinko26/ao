@@ -1,9 +1,7 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-20
+date: 2022-10-18
 draft: true
-external:
-- https://microchip.com/DS61112 : "PIC32 Family Reference Manual, Section 6, Oscillators"
 permalink: /api/src/ao_sys_xc32_pic32/ao_sys_lock_device.h/
 toc: true
 ---

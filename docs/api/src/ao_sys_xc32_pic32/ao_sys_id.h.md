@@ -1,9 +1,7 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-22
+date: 2022-10-18
 draft: true
-external:
-- https://microchip.com/DS60001145 : "PIC32 Flash Programming Specification"
 permalink: /api/src/ao_sys_xc32_pic32/ao_sys_id.h/
 toc: true
 ---

@@ -1,9 +1,7 @@
 ---
 author: "Stefan Wagner"
-date: 2022-09-20
+date: 2022-10-18
 draft: true
-external:
-- https://microchip.com/DS60001117 : "PIC32 Family Reference Manual, Section 31, DMA Controller"
 permalink: /api/src/ao_sys_xc32_pic32/ao_sys_lock_dma.h/
 toc: true
 ---
